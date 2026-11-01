@@ -1,8 +1,10 @@
 # Android / Pleos adapter
 
 실제 Pleos TTS 3.3.1 및 Android 35/android.car 바이너리로 컴파일 검증한 Android library 소스다.
-공식 Pleos Connect2.1.0 ARM/API34 에뮬레이터의 ON_DEVICE 초기 발화 및 출력 PCM을 확인했다.
-경로/감정은 debug Mock 입력이며 인간 청취 품질·주행 전환·실차 검증은 별도다. 일반 JVM에서 실행하지 않는다.
+공식 Pleos Connect2.1.0 ARM/API34 에뮬레이터에서 ON_DEVICE 재생 완료, 사용자 중지,
+백그라운드 취소, 복귀 후 반복 억제와 출력 PCM을 확인했다. 최종 범위·재현은
+`docs/architecture/pleos-runtime.md` 참조. 경로/감정은 debug Mock 입력이며
+인간 청취 품질·D 전환·실차 검증은 별도다. 일반 JVM에서 실행하지 않는다.
 
 AVATAR 앱 shell 통합:
 
