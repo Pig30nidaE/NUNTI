@@ -80,7 +80,8 @@ fun NuntiAppShell(spec: AvatarSpec, emotion: EmotionSnapshot, phase: TripPhase,
         BasicText(if (phase == TripPhase.POST_DRIVE) "눈티와 돌아보는 오늘" else "오늘의 경로에 맞춰 준비했어요",
             style = TextStyle(color = Color(0xFF283B3C), fontSize = 28.sp, fontWeight = FontWeight.Bold))
         if (spec.mock) BasicText("시연용 Mock 경로", style = TextStyle(color = Color(0xFF536360), fontSize = 16.sp))
-        NuntiAvatar(spec, render, provider, Modifier.fillMaxWidth().heightIn(min = 200.dp, max = 360.dp).aspectRatio(1.5f))
+        // Keep layout height independent of wide vehicle windows; the scene already preserves its aspect ratio.
+        NuntiAvatar(spec, render, provider, Modifier.fillMaxWidth().height(320.dp))
         BasicText(spec.generationExplanation, style = TextStyle(color = Color(0xFF283B3C), fontSize = 20.sp))
         if (phase == TripPhase.POST_DRIVE && tripSummary != null) {
             BasicText("감정의 흐름", style = TextStyle(fontSize = 22.sp, fontWeight = FontWeight.Bold))
