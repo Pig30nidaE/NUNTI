@@ -1,0 +1,19 @@
+{
+  "outfitId": "coastal-scarf",
+  "schemaVersion": "1.0",
+  "paletteId": "coastal",
+  "accessoryIds": [
+    "travel-bag",
+    "wave-mark"
+  ],
+  "voiceProfileId": "nunti-default-v1",
+  "themeId": "coastal",
+  "baseCharacterId": "nunti-v1",
+  "avatarId": "avatar-adf926196818ca20c32d",
+  "routeId": "mock-verified-coast",
+  "ruleVersion": "avatar-rules-0.1.0",
+  "assetVersion": "nunti-parts-0.1.0",
+  "generationExplanation": "[MOCK 경로] 경로와 교차하는 해안 지형 근거를 바탕으로 물결 장식과 스카프를 선택했습니다. 확인된 장거리 특성에 따라 가방을 더했습니다.",
+  "generationSeed": "42",
+  "routeRevision": 1
+}

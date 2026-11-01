@@ -1,0 +1,11 @@
+{
+  "generationMedianMicros": 78.542,
+  "generationP95Micros": 388.042,
+  "deterministicMatches": 1000,
+  "fixtureCount": 1000,
+  "constraintConflicts": 0,
+  "timingScope": "local JVM synthetic fixtures; includes audit/hash; not AAOS benchmark",
+  "groundedOutputs": 1000,
+  "missingEvidenceFallbackSuccesses": 1000,
+  "testsPassed": 58
+}
