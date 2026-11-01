@@ -43,3 +43,19 @@ SERVER의 공용 작업 폴더·인덱스·소유 코드를 수정하지 않고 
 
 현재 실행 앱은 일반 Android Mock 뷰어다. Automotive 기기에서는 실제 host가 연결되기 전 빈 화면으로 차단한다.
 핵심 순수 모듈/Compose 라이브러리는 실제 AAOS 호스트에 삽입할 수 있지만 실차 동작 검증과 같지 않다.
+
+## Pleos 에뮬레이터 후속 검증 · 2026-11-01
+
+SERVER가 소유권 협의 후 `android/app/src/debug`에 진단 Activity를 추가하여 Pleos 2.1에서 실행했다.
+production MainActivity의 기본 차단과 생성/감정 엔진은 유지했다. 경로와 감정 입력은 Mock이며 실제 도로 정보라고 주장하지 않는다.
+
+- 실제 P 기어(gear=4), 속도 0, UX=0 상태의 2560×1440 캡처를 확인했다.
+- 초기 넓은 창에서는 `fillMaxWidth + heightIn + aspectRatio`의 측정 제약 충돌로 Canvas가 제목·설명 영역을 침범했다.
+- 수정 `01bf3be`(루트 `3cef188`)는 외부 aspectRatio를 제거하고 선호 높이를 320dp로 지정한다. 내부 scene의 비율 보존은 유지한다.
+- 수정 후 `city.png`, `journey.png`, `coast.png`, `mountain.png`, `emotion-startled.png`, `emotion-joyful.png` 6개를 AVATAR에서 직접 열어 확인했다.
+- 제목·설명과 캐릭터가 겹치지 않으며, 고정 얼굴/몸체와 경로별 의상·소품·지형 장식 및 놀람/기쁨 표정이 구분된다.
+- 증거 위치: `docs/architecture/validation-evidence/pleos-runtime/`.
+
+작은 창 검증은 아직 완료하지 않았다. `wm size` 변경은 Pleos 고정 패널을 자르기만 했으므로 resize 성공으로 기록하지 않는다.
+실제 D 전환과 UX 제한 변화도 미검증이다. SERVER가 Virtual Console 503, DDS 미준비 및 user-build 차량 상태 주입 차단을 보고했다.
+합성 정책 상태의 단위 테스트 통과를 실제 주행 차단 검증으로 대체하지 않는다. TTS 청취·주행 상태 전환의 최종 결과는 SERVER/TTS 기록을 따른다.

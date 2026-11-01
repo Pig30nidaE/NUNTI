@@ -45,7 +45,7 @@ Compose, SVG, PNG는 같은 CharacterScene 명령을 쓴다. PNG backend는 JVM 
 `demo/index.html`의 출발 전/주행 차단/종료 후 보기 및 감정 replay는 실제 Kotlin 결과의 정적 뷰어다.
 `demo/emotion-timeline.json`은 실제 reducer로 만든 0/3/6/9/12초 상태이며 임의 점수 매핑이 아니다.
 
-## 성공하지 않았다고 명시하는 항목
+## 초기 빌드 시점의 미검증 항목
 
 - Pleos/AAOS 에뮬레이터 설치 및 앱 실행, 실차 화면 허가, 실제 주행 데이터 수신은 미검증.
 - Debug APK는 일반 Android Mock 뷰어이며 Automotive에서는 실제 정책 host 연결 전 표시 중지.
@@ -53,6 +53,33 @@ Compose, SVG, PNG는 같은 CharacterScene 명령을 쓴다. PNG backend는 JVM 
 - 실도로 GIS 정확도, 경로 분류/가중치 최적화, 사용자 평가, 최종 디자인 제작은 미완료.
 - 본 모듈의 서버/TTS 연결은 v1 mapper 및 공유 DTO 경계다. 실시간 HTTP 동기화 서비스는 SERVER/host 책임.
 - Lint의 7개 권고는 남아 있다. 의존성은 검증 조합에 고정했고 임시 Mock 앱은 출시용 패키지가 아니다.
+
+## Pleos 실제 화면 후속 확인 · 2026-11-01
+
+초기 빌드 이후 SERVER의 debug 진단 Activity로 Pleos 2.1 에뮬레이터 실행이 이루어졌다.
+AVATAR는 2560×1440 캡처 6개를 직접 열어 다음 항목을 확인했다. 이 절은 위 초기 미검증 범위 중 실제 화면 표시 항목을 갱신한다.
+
+| 확인 항목 | 결과 |
+| --- | --- |
+| 넓은 창의 제목·본문 겹침 | 초기 실패 발견, 높이 320dp 지정 후 해소 |
+| 도심/장거리/해안/산악 Mock 경로 | 실제 Compose 화면에서 의상·소품·장식 구분 확인 |
+| 동일 캐릭터 정체성 | 얼굴·몸체·핵심 색·표식 유지 확인 |
+| 놀람/기쁨 표정 | 실제 화면의 눈·입 변화 확인 |
+| 작은 창/실제 task resize | 미검증; 해상도 변경으로 화면만 잘린 결과는 통과 아님 |
+| 실제 D 전환 및 UX 제한 변화 | 미검증; 차량 상태 변경 도구가 동작하지 않았다고 SERVER 보고 |
+
+수정 커밋은 `01bf3be`, 루트 통합 커밋은 `3cef188`이다.
+수정 모듈 `:feature:avatar:compileDebugKotlin`은 14초에 성공했고 SERVER는 debug 앱 재빌드·Lint·재설치 후 캡처했다.
+이 레이아웃 수정은 생성/감정 규칙을 바꾸지 않는다.
+
+증거: [도심](../../../../docs/architecture/validation-evidence/pleos-runtime/city.png),
+[장거리](../../../../docs/architecture/validation-evidence/pleos-runtime/journey.png),
+[해안](../../../../docs/architecture/validation-evidence/pleos-runtime/coast.png),
+[산악](../../../../docs/architecture/validation-evidence/pleos-runtime/mountain.png),
+[놀람](../../../../docs/architecture/validation-evidence/pleos-runtime/emotion-startled.png),
+[기쁨](../../../../docs/architecture/validation-evidence/pleos-runtime/emotion-joyful.png).
+스크린샷의 P/속도0/UX0 표시는 에뮬레이터 상태이며 경로·감정은 여전히 합성 입력이다.
+실차 허가, 지리정보 정확도, 실제 주행 중 표시 제한 검증으로 확대 해석하지 않는다.
 
 ## 재현
 
