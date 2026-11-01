@@ -56,6 +56,10 @@ production MainActivity의 기본 차단과 생성/감정 엔진은 유지했다
 - 제목·설명과 캐릭터가 겹치지 않으며, 고정 얼굴/몸체와 경로별 의상·소품·지형 장식 및 놀람/기쁨 표정이 구분된다.
 - 증거 위치: `docs/architecture/validation-evidence/pleos-runtime/`.
 
-작은 창 검증은 아직 완료하지 않았다. `wm size` 변경은 Pleos 고정 패널을 자르기만 했으므로 resize 성공으로 기록하지 않는다.
+작은 창도 후속 관찰 검증을 완료했다. SERVER는 `am task resize`로 실제 task의
+`mBounds=Rect(853,90-1700,1000)`(847×910px)을 확인했다.
+AVATAR가 `narrow-task.png`를 직접 열어 CITY 아바타의 중앙 배치와 제목·본문 겹침 없음을 확인했다.
+SERVER는 기본 창 `Rect(853,90-2535,1300)`(1682×1210px)으로 복원했다고 보고했다.
+`wm size` 변경으로 화면만 잘린 이전 결과는 검증에서 제외했다. 모든 창 크기·경로·표정 조합을 검사한 것은 아니다.
 실제 D 전환과 UX 제한 변화도 미검증이다. SERVER가 Virtual Console 503, DDS 미준비 및 user-build 차량 상태 주입 차단을 보고했다.
 합성 정책 상태의 단위 테스트 통과를 실제 주행 차단 검증으로 대체하지 않는다. TTS 청취·주행 상태 전환의 최종 결과는 SERVER/TTS 기록을 따른다.

@@ -57,7 +57,8 @@ Compose, SVG, PNG는 같은 CharacterScene 명령을 쓴다. PNG backend는 JVM 
 ## Pleos 실제 화면 후속 확인 · 2026-11-01
 
 초기 빌드 이후 SERVER의 debug 진단 Activity로 Pleos 2.1 에뮬레이터 실행이 이루어졌다.
-AVATAR는 2560×1440 캡처 6개를 직접 열어 다음 항목을 확인했다. 이 절은 위 초기 미검증 범위 중 실제 화면 표시 항목을 갱신한다.
+AVATAR는 2560×1440 캡처 6개와 실제 task 크기를 줄인 캡처 1개를 직접 열어 다음 항목을 확인했다.
+이 절은 위 초기 미검증 범위 중 실제 화면 표시 항목을 갱신한다.
 
 | 확인 항목 | 결과 |
 | --- | --- |
@@ -65,19 +66,24 @@ AVATAR는 2560×1440 캡처 6개를 직접 열어 다음 항목을 확인했다.
 | 도심/장거리/해안/산악 Mock 경로 | 실제 Compose 화면에서 의상·소품·장식 구분 확인 |
 | 동일 캐릭터 정체성 | 얼굴·몸체·핵심 색·표식 유지 확인 |
 | 놀람/기쁨 표정 | 실제 화면의 눈·입 변화 확인 |
-| 작은 창/실제 task resize | 미검증; 해상도 변경으로 화면만 잘린 결과는 통과 아님 |
+| 작은 창/실제 task resize | 847×910px CITY 화면 관찰 통과; 중앙 배치 및 제목·본문 겹침 없음 |
 | 실제 D 전환 및 UX 제한 변화 | 미검증; 차량 상태 변경 도구가 동작하지 않았다고 SERVER 보고 |
 
 수정 커밋은 `01bf3be`, 루트 통합 커밋은 `3cef188`이다.
 수정 모듈 `:feature:avatar:compileDebugKotlin`은 14초에 성공했고 SERVER는 debug 앱 재빌드·Lint·재설치 후 캡처했다.
 이 레이아웃 수정은 생성/감정 규칙을 바꾸지 않는다.
 
+작은 창은 SERVER가 `am task resize`로 `mBounds=Rect(853,90-1700,1000)`을 확인한 상태의 캡처다.
+기본 창 `Rect(853,90-2535,1300)`(1682×1210px)으로 복원했다고 보고했다.
+`wm size`로 화면만 잘린 이전 결과는 검증에서 제외했다. 이 관찰은 모든 창 크기·경로·표정 조합을 포괄하지 않는다.
+
 증거: [도심](../../../../docs/architecture/validation-evidence/pleos-runtime/city.png),
 [장거리](../../../../docs/architecture/validation-evidence/pleos-runtime/journey.png),
 [해안](../../../../docs/architecture/validation-evidence/pleos-runtime/coast.png),
 [산악](../../../../docs/architecture/validation-evidence/pleos-runtime/mountain.png),
 [놀람](../../../../docs/architecture/validation-evidence/pleos-runtime/emotion-startled.png),
-[기쁨](../../../../docs/architecture/validation-evidence/pleos-runtime/emotion-joyful.png).
+[기쁨](../../../../docs/architecture/validation-evidence/pleos-runtime/emotion-joyful.png),
+[작은 창](../../../../docs/architecture/validation-evidence/pleos-runtime/narrow-task.png).
 스크린샷의 P/속도0/UX0 표시는 에뮬레이터 상태이며 경로·감정은 여전히 합성 입력이다.
 실차 허가, 지리정보 정확도, 실제 주행 중 표시 제한 검증으로 확대 해석하지 않는다.
 
