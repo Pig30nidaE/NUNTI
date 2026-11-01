@@ -23,12 +23,18 @@ class Settings:
 
     def __post_init__(self):
         if not self.tokens or any(
-            not isinstance(token, str) or len(token) < 32
-            or not token.isascii() or any(c.isspace() for c in token)
-            or not isinstance(owner, str) or not owner or len(owner) > 128
+            not isinstance(token, str)
+            or len(token) < 32
+            or not token.isascii()
+            or any(c.isspace() for c in token)
+            or not isinstance(owner, str)
+            or not owner
+            or len(owner) > 128
             for token, owner in self.tokens.items()
         ):
-            raise ValueError("Configure NUNTI_AUTH_TOKENS with random tokens of at least 32 characters")
+            raise ValueError(
+                "Configure NUNTI_AUTH_TOKENS with random tokens of at least 32 characters"
+            )
         if not 1 <= self.retention_days <= 365:
             raise ValueError("NUNTI_RETENTION_DAYS must be between 1 and 365")
 

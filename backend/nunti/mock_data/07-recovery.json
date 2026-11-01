@@ -1,0 +1,350 @@
+{
+  "mock": true,
+  "scenarioId": "07-recovery",
+  "title": "안정 주행으로 감정 회복",
+  "disclaimer": "Synthetic fixtures; not actual Pleos API responses. No scoring rules implied.",
+  "contracts": {
+    "TripCreate": {
+      "schemaVersion": "1.0",
+      "tripId": "trip-07-recovery",
+      "startedAt": "2026-11-01T03:00:00Z",
+      "syncConsent": true
+    },
+    "RouteSnapshot": {
+      "schemaVersion": "1.0",
+      "routeId": "route-mock",
+      "routeRevision": 1,
+      "collectedAt": "2026-11-01T03:00:00Z",
+      "source": {
+        "kind": "MOCK",
+        "provider": "nunti-fixture",
+        "version": "1"
+      },
+      "routeOption": "RECOMMENDED",
+      "distanceMeters": 5000,
+      "estimatedDurationSeconds": 900,
+      "roadTypeRatios": {
+        "urban": 0.9,
+        "unknown": 0.1
+      },
+      "regionTags": [],
+      "scenicTags": [],
+      "featureEvidence": {
+        "roadTypeRatios": {
+          "source": {
+            "kind": "MOCK",
+            "provider": "nunti-fixture",
+            "version": "1"
+          },
+          "verificationStatus": "VERIFIED",
+          "confidence": 1.0,
+          "validity": "VALID",
+          "observedAt": "2026-11-01T03:00:00Z"
+        }
+      }
+    },
+    "AvatarSpec": {
+      "schemaVersion": "1.0",
+      "avatarId": "avatar-mock",
+      "baseCharacterId": "nunti",
+      "routeId": "route-mock",
+      "routeRevision": 1,
+      "generationSeed": "mock-seed-001",
+      "ruleVersion": "mock-1",
+      "assetVersion": "mock-1",
+      "paletteId": "mint",
+      "outfitId": "city",
+      "accessoryIds": [],
+      "themeId": "urban",
+      "voiceProfileId": "voice-mock",
+      "generationExplanation": "고정 Mock 아바타. 생성 알고리즘 결과 아님."
+    },
+    "DrivingEvent": {
+      "schemaVersion": "1.0",
+      "eventId": "event-brake",
+      "tripId": "trip-07-recovery",
+      "eventType": "HARD_BRAKING",
+      "occurredAt": "2026-11-01T03:05:00Z",
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "verificationStatus": "VERIFIED",
+      "source": {
+        "kind": "MOCK",
+        "provider": "nunti-fixture",
+        "version": "1"
+      },
+      "correlationId": "incident-mock",
+      "recoveryOfEventId": null
+    },
+    "EmotionSnapshot": {
+      "schemaVersion": "1.0",
+      "emotionId": "emotion-relieved",
+      "tripId": "trip-07-recovery",
+      "avatarId": "avatar-mock",
+      "emotion": "RELIEVED",
+      "intensity": 0.7,
+      "triggeredByEventId": "event-recovered",
+      "occurredAt": "2026-11-01T03:10:01Z",
+      "confidence": 0.9
+    },
+    "VoiceProfile": {
+      "schemaVersion": "1.0",
+      "voiceProfileId": "voice-mock",
+      "locale": "ko-KR",
+      "persona": "COMPANION",
+      "speakingStyle": "CALM",
+      "preferredVoiceId": null,
+      "supportedControls": []
+    },
+    "TripReport": {
+      "schemaVersion": "1.0",
+      "tripId": "trip-07-recovery",
+      "overallScore": null,
+      "dataCoverage": {
+        "status": "INSUFFICIENT",
+        "evaluatedSeconds": 300,
+        "totalSeconds": 900,
+        "ratio": 0.333333,
+        "unavailableSignals": [
+          "LEAD_VEHICLE_DISTANCE"
+        ]
+      },
+      "finalText": "[MOCK] 중간에는 놀랐지만 다시 편안해졌어요. 함께해 줘서 고마워요.",
+      "evidenceEventIds": [
+        "event-brake",
+        "event-recovered"
+      ],
+      "generatedAt": "2026-11-01T03:15:00Z"
+    },
+    "SpeechRequest": {
+      "schemaVersion": "1.0",
+      "requestId": "speech-mock",
+      "tripId": "trip-07-recovery",
+      "avatarId": "avatar-mock",
+      "text": "[MOCK] 중간에는 놀랐지만 다시 편안해졌어요. 함께해 줘서 고마워요.",
+      "voiceProfileId": "voice-mock",
+      "emotion": "RELIEVED",
+      "tripPhase": "POST_TRIP",
+      "priority": "NORMAL",
+      "requestedAt": "2026-11-01T03:15:01Z",
+      "expiresAt": "2026-11-01T03:16:01Z",
+      "contentSource": "MOCK",
+      "speechPurpose": "POST_DRIVE_REPORT",
+      "sourceEventId": null,
+      "emotionId": "emotion-relieved"
+    }
+  },
+  "steps": [
+    {
+      "method": "POST",
+      "path": "/v1/trips",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "tripId": "trip-07-recovery",
+        "startedAt": "2026-11-01T03:00:00Z",
+        "syncConsent": true
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/trips/trip-07-recovery/route",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "routeId": "route-mock",
+        "routeRevision": 1,
+        "collectedAt": "2026-11-01T03:00:00Z",
+        "source": {
+          "kind": "MOCK",
+          "provider": "nunti-fixture",
+          "version": "1"
+        },
+        "routeOption": "RECOMMENDED",
+        "distanceMeters": 5000,
+        "estimatedDurationSeconds": 900,
+        "roadTypeRatios": {
+          "urban": 0.9,
+          "unknown": 0.1
+        },
+        "regionTags": [],
+        "scenicTags": [],
+        "featureEvidence": {
+          "roadTypeRatios": {
+            "source": {
+              "kind": "MOCK",
+              "provider": "nunti-fixture",
+              "version": "1"
+            },
+            "verificationStatus": "VERIFIED",
+            "confidence": 1.0,
+            "validity": "VALID",
+            "observedAt": "2026-11-01T03:00:00Z"
+          }
+        }
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/trips/trip-07-recovery/avatar",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "avatarId": "avatar-mock",
+        "baseCharacterId": "nunti",
+        "routeId": "route-mock",
+        "routeRevision": 1,
+        "generationSeed": "mock-seed-001",
+        "ruleVersion": "mock-1",
+        "assetVersion": "mock-1",
+        "paletteId": "mint",
+        "outfitId": "city",
+        "accessoryIds": [],
+        "themeId": "urban",
+        "voiceProfileId": "voice-mock",
+        "generationExplanation": "고정 Mock 아바타. 생성 알고리즘 결과 아님."
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/trips/trip-07-recovery/events",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "events": [
+          {
+            "schemaVersion": "1.0",
+            "eventId": "event-brake",
+            "tripId": "trip-07-recovery",
+            "eventType": "HARD_BRAKING",
+            "occurredAt": "2026-11-01T03:05:00Z",
+            "severity": "MEDIUM",
+            "confidence": 0.9,
+            "verificationStatus": "VERIFIED",
+            "source": {
+              "kind": "MOCK",
+              "provider": "nunti-fixture",
+              "version": "1"
+            },
+            "correlationId": "incident-mock",
+            "recoveryOfEventId": null
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/trips/trip-07-recovery/emotions",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "emotions": [
+          {
+            "schemaVersion": "1.0",
+            "emotionId": "emotion-worried",
+            "tripId": "trip-07-recovery",
+            "avatarId": "avatar-mock",
+            "emotion": "CONCERNED",
+            "intensity": 0.5,
+            "triggeredByEventId": "event-brake",
+            "occurredAt": "2026-11-01T03:05:01Z",
+            "confidence": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/trips/trip-07-recovery/events",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "events": [
+          {
+            "schemaVersion": "1.0",
+            "eventId": "event-recovered",
+            "tripId": "trip-07-recovery",
+            "eventType": "STABLE_DRIVING",
+            "occurredAt": "2026-11-01T03:10:00Z",
+            "severity": "INFO",
+            "confidence": 0.9,
+            "verificationStatus": "VERIFIED",
+            "source": {
+              "kind": "MOCK",
+              "provider": "nunti-fixture",
+              "version": "1"
+            },
+            "correlationId": "incident-mock",
+            "recoveryOfEventId": "event-brake"
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/trips/trip-07-recovery/emotions",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "emotions": [
+          {
+            "schemaVersion": "1.0",
+            "emotionId": "emotion-relieved",
+            "tripId": "trip-07-recovery",
+            "avatarId": "avatar-mock",
+            "emotion": "RELIEVED",
+            "intensity": 0.7,
+            "triggeredByEventId": "event-recovered",
+            "occurredAt": "2026-11-01T03:10:01Z",
+            "confidence": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/trips/trip-07-recovery/report",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "tripId": "trip-07-recovery",
+        "overallScore": null,
+        "dataCoverage": {
+          "status": "INSUFFICIENT",
+          "evaluatedSeconds": 300,
+          "totalSeconds": 900,
+          "ratio": 0.333333,
+          "unavailableSignals": [
+            "LEAD_VEHICLE_DISTANCE"
+          ]
+        },
+        "finalText": "[MOCK] 중간에는 놀랐지만 다시 편안해졌어요. 함께해 줘서 고마워요.",
+        "evidenceEventIds": [
+          "event-brake",
+          "event-recovered"
+        ],
+        "generatedAt": "2026-11-01T03:15:00Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-07-recovery/report",
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-07-recovery/events",
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-07-recovery/emotions",
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-07-recovery",
+      "expectedStatus": 200
+    }
+  ]
+}

@@ -14,9 +14,22 @@ from starlette.exceptions import HTTPException
 from .config import Settings
 from .errors import APIError
 from .models import (
-    AvatarSpec, Capabilities, EmotionBatch, Envelope, ErrorEnvelope, EventBatch,
-    Identifier, Page, Receipt, RouteSnapshot, StoredEmotion, StoredEvent,
-    StoredReport, TripCreate, TripReport, TripView,
+    AvatarSpec,
+    Capabilities,
+    EmotionBatch,
+    Envelope,
+    ErrorEnvelope,
+    EventBatch,
+    Identifier,
+    Page,
+    Receipt,
+    RouteSnapshot,
+    StoredEmotion,
+    StoredEvent,
+    StoredReport,
+    TripCreate,
+    TripReport,
+    TripView,
 )
 from .store import Store, now
 
@@ -30,10 +43,13 @@ def envelope(request, data):
 
 
 def error(request, status, code, message, details=None):
-    return JSONResponse(status_code=status, content={
-        "error": {"code": code, "message": message, "details": details or []},
-        "meta": meta(request),
-    })
+    return JSONResponse(
+        status_code=status,
+        content={
+            "error": {"code": code, "message": message, "details": details or []},
+            "meta": meta(request),
+        },
+    )
 
 
 class RequestGuard:
@@ -69,7 +85,10 @@ class RequestGuard:
                 )
             if not message.get("more_body", False):
                 break
-        if chunks and request.headers.get("content-type", "").split(";")[0].strip() != "application/json":
+        if (
+            chunks
+            and request.headers.get("content-type", "").split(";")[0].strip() != "application/json"
+        ):
             return await error(request, 415, "json_required", "Use application/json")(
                 scope, receive, safe_send
             )
@@ -92,7 +111,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     async def cleanup_loop():
         while True:
             await asyncio.sleep(3600)
-            await asyncio.to_thread(store.purge_expired)
+            # Expired trips stay hidden if a busy database delays physical cleanup.
+            with suppress(sqlite3.OperationalError):
+                await asyncio.to_thread(store.purge_expired)
 
     @asynccontextmanager
     async def lifespan(app):
@@ -107,9 +128,15 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 await task
 
     app = FastAPI(
-        title="Nunti Sync API", version="1.0-draft", lifespan=lifespan,
-        description="Mock-supported asynchronous storage. No scoring, emotion calculation or TTS playback.",
-        responses={code: {"model": ErrorEnvelope} for code in (401, 403, 404, 409, 413, 415, 422, 503)},
+        title="Nunti Sync API",
+        version="1.0-draft",
+        lifespan=lifespan,
+        description=(
+            "Mock-supported asynchronous storage. No scoring, emotion calculation or TTS playback."
+        ),
+        responses={
+            code: {"model": ErrorEnvelope} for code in (401, 403, 404, 409, 413, 415, 422, 503)
+        },
     )
     app.state.store = store
     app.add_middleware(RequestGuard, max_bytes=settings.max_body_bytes)
@@ -121,9 +148,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     @app.exception_handler(RequestValidationError)
     async def validation_error(request, exc):
         # Never expose input, error context or potentially sensitive field names/values.
-        details = [{"field": ".".join(str(x) for x in e["loc"][:2]), "type": e["type"]}
-                   for e in exc.errors()[:20]]
-        return error(request, 422, "validation_error", "Request does not satisfy the v1 contract", details)
+        details = [
+            {"field": str(e["loc"][0]) if e["loc"] else "request", "type": e["type"]}
+            for e in exc.errors()[:20]
+        ]
+        return error(
+            request, 422, "validation_error", "Request does not satisfy the v1 contract", details
+        )
 
     @app.exception_handler(HTTPException)
     async def http_error(request, exc):
@@ -131,7 +162,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.exception_handler(sqlite3.OperationalError)
     async def database_error(request, exc):
-        return error(request, 503, "storage_unavailable", "Storage is temporarily unavailable; retry later")
+        return error(
+            request, 503, "storage_unavailable", "Storage is temporarily unavailable; retry later"
+        )
 
     @app.exception_handler(Exception)
     async def unexpected_error(request, exc):
@@ -139,7 +172,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     bearer = HTTPBearer(auto_error=False)
 
-    def owner(request: Request, auth: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer)]):
+    def owner(
+        request: Request, auth: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer)]
+    ):
         if settings.require_https and request.url.scheme != "https":
             raise APIError(403, "https_required", "HTTPS is required")
         supplied = auth.credentials if auth else ""
@@ -163,10 +198,14 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @app.get("/v1/capabilities", response_model=Envelope[Capabilities])
     def capabilities(request: Request, principal: Owner):
-        return envelope(request, Capabilities(
-            syncEnabled=settings.sync_enabled, mockEnabled=settings.enable_mocks,
-            retentionDays=settings.retention_days,
-        ))
+        return envelope(
+            request,
+            Capabilities(
+                syncEnabled=settings.sync_enabled,
+                mockEnabled=settings.enable_mocks,
+                retentionDays=settings.retention_days,
+            ),
+        )
 
     router = APIRouter(prefix="/v1", dependencies=[Depends(sync_enabled)])
 
@@ -188,26 +227,46 @@ def create_app(settings: Settings | None = None) -> FastAPI:
 
     @router.post("/trips/{trip_id}/events", response_model=Envelope[list[Receipt]])
     def post_events(trip_id: Identifier, value: EventBatch, request: Request, principal: Owner):
-        return envelope(request, store.append(
-            principal, trip_id, "event", [event.model_dump() for event in value.events],
-        ))
+        return envelope(
+            request,
+            store.append(
+                principal,
+                trip_id,
+                "event",
+                [event.model_dump() for event in value.events],
+            ),
+        )
 
     @router.post("/trips/{trip_id}/emotions", response_model=Envelope[list[Receipt]])
     def post_emotions(trip_id: Identifier, value: EmotionBatch, request: Request, principal: Owner):
-        return envelope(request, store.append(
-            principal, trip_id, "emotion", [emotion.model_dump() for emotion in value.emotions],
-        ))
+        return envelope(
+            request,
+            store.append(
+                principal,
+                trip_id,
+                "emotion",
+                [emotion.model_dump() for emotion in value.emotions],
+            ),
+        )
 
     @router.get("/trips/{trip_id}/events", response_model=Envelope[Page[StoredEvent]])
-    def get_events(trip_id: Identifier, request: Request, principal: Owner,
-                   offset: Annotated[int, Query(ge=0)] = 0,
-                   limit: Annotated[int, Query(ge=1, le=100)] = 100):
+    def get_events(
+        trip_id: Identifier,
+        request: Request,
+        principal: Owner,
+        offset: Annotated[int, Query(ge=0)] = 0,
+        limit: Annotated[int, Query(ge=1, le=100)] = 100,
+    ):
         return envelope(request, store.timeline(principal, trip_id, "event", offset, limit))
 
     @router.get("/trips/{trip_id}/emotions", response_model=Envelope[Page[StoredEmotion]])
-    def get_emotions(trip_id: Identifier, request: Request, principal: Owner,
-                     offset: Annotated[int, Query(ge=0)] = 0,
-                     limit: Annotated[int, Query(ge=1, le=100)] = 100):
+    def get_emotions(
+        trip_id: Identifier,
+        request: Request,
+        principal: Owner,
+        offset: Annotated[int, Query(ge=0)] = 0,
+        limit: Annotated[int, Query(ge=1, le=100)] = 100,
+    ):
         return envelope(request, store.timeline(principal, trip_id, "emotion", offset, limit))
 
     @router.put("/trips/{trip_id}/report", response_model=Envelope[Receipt])
@@ -240,4 +299,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 raise APIError(404, "mock_not_found", "Mock scenario not found")
             return envelope(request, load_scenario(scenario_id))
 
+    from .openapi_examples import add_examples
+
+    original_openapi = app.openapi
+
+    def documented_openapi():
+        return add_examples(original_openapi())
+
+    app.openapi = documented_openapi
     return app

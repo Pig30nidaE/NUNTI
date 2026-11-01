@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:VoiceProfile",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "voiceProfileId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Voiceprofileid",
+      "type": "string"
+    },
+    "locale": {
+      "pattern": "^[a-z]{2,3}(-[A-Z]{2})?$",
+      "title": "Locale",
+      "type": "string"
+    },
+    "persona": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Persona",
+      "type": "string"
+    },
+    "speakingStyle": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Speakingstyle",
+      "type": "string"
+    },
+    "preferredVoiceId": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Preferredvoiceid"
+    },
+    "supportedControls": {
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+        "type": "string"
+      },
+      "maxItems": 20,
+      "title": "Supportedcontrols",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "voiceProfileId",
+    "locale",
+    "persona",
+    "speakingStyle",
+    "preferredVoiceId",
+    "supportedControls"
+  ],
+  "title": "VoiceProfile",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "voiceProfileId": "voice-mock",
+      "locale": "ko-KR",
+      "persona": "COMPANION",
+      "speakingStyle": "CALM",
+      "preferredVoiceId": null,
+      "supportedControls": []
+    }
+  ]
+}

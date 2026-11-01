@@ -12,8 +12,24 @@
 `generationSeed`는 JVM/JavaScript 정수 정밀도 문제를 피하는 문자열이다.
 `destination`·원본 GPS·주소는 서버 계약에서 제외하는 개인정보 최소화 제안이다.
 
-목록에서 확인된 `아바타 생성 설계` 채팅은 개발 세션이 아니라 세션 프롬프트를 만든
-기획 대화였다. 실행 중인 AVATAR/TTS 세션을 식별하지 못해 오발송하지 않고 아래 요청서를 남긴다.
-다른 세션을 기다리지 않고 고정 Mock Provider로 검증한다.
+초기에는 실행 중인 AVATAR/TTS 채팅을 식별하지 못해 요청서를 남겼다. 이후 두 개발 세션에서
+직접 협업 메시지가 도착해 계약을 조율했다. AVATAR는 `avatar/route-emotion-v1`,
+TTS는 `codex/tts-system` worktree에서 독립 개발 중이다.
+
+합의한 사항:
+
+- EmotionSnapshot.emotionId를 재전송 식별자로 사용한다.
+- avatarId는 revision 간 유지할 수 있으며 서버는 avatarId+routeRevision으로 외형을 저장한다.
+- routeRevision은 trip 내 단조 증가한다. evidence는 소속 snapshot의 route/revision/value에 귀속한다.
+  변경 시 adapter가 재검증하며 UNKNOWN은 사실로 승격하지 않는다.
+- SpeechRequest의 contentSource는 출처이고 선택 speechPurpose/sourceEventId/emotionId는 목적/근거다.
+- 음성 persona/speakingStyle은 VoiceProfile로 참조하므로 AvatarSpec의 중복 필드는 추가하지 않는다.
+- AVATAR가 신규 공통 Android Gradle 설정과 최소 app host를 작성하는 데 SERVER가 동의했고
+  TTS에도 공유했다. SERVER가 Android 모듈 소유 코드를 수정하지 않는다.
+
+현재 고정 Mock 10개와 실제 AVATAR JVM mapper 출력 10개를 서버 계약으로 검증한다.
+실제 차량·음성 재생 검증과 서버 Mock 통합 검증은 구분한다.
+TTS 검증 스크립트를 SERVER에서 직접 실행해 JVM 62개, 공통 JSON/AVATAR 출력 연동 8개 및
+Android/Pleos 실제 바이너리 컴파일 통과를 확인했다. 서버 pytest는 91개 통과했다.
 
 합의 전 필드/열거값을 확정으로 취급하지 않는다. 확정 이후 파괴적 변경은 새 버전으로 협의한다.

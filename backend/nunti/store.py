@@ -15,7 +15,9 @@ def now() -> str:
 
 
 def canonical(value: dict) -> str:
-    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False)
+    return json.dumps(
+        value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False
+    )
 
 
 class Store:
@@ -90,8 +92,10 @@ class Store:
 
     def create_trip(self, owner, value):
         stamp = now()
-        expires = (instant(stamp) + timedelta(days=self.retention_days)).isoformat().replace(
-            "+00:00", "Z"
+        expires = (
+            (instant(stamp) + timedelta(days=self.retention_days))
+            .isoformat()
+            .replace("+00:00", "Z")
         )
         with self.transaction() as db:
             # Expiration does not get extended by writes or retries.
@@ -102,9 +106,16 @@ class Store:
             if old:
                 self.same(old, value, "trip_conflict")
                 return self.receipt(value["tripId"], old["created_at"], True)
-            db.execute("INSERT INTO trips VALUES (?,?,?,?,?)", (
-                owner, value["tripId"], canonical(value), stamp, expires,
-            ))
+            db.execute(
+                "INSERT INTO trips VALUES (?,?,?,?,?)",
+                (
+                    owner,
+                    value["tripId"],
+                    canonical(value),
+                    stamp,
+                    expires,
+                ),
+            )
         return self.receipt(value["tripId"], stamp)
 
     @staticmethod
@@ -114,7 +125,11 @@ class Store:
 
     @staticmethod
     def receipt(record_id, stamp, duplicate=False):
-        return {"id": record_id, "status": "duplicate" if duplicate else "stored", "receivedAt": stamp}
+        return {
+            "id": record_id,
+            "status": "duplicate" if duplicate else "stored",
+            "receivedAt": stamp,
+        }
 
     @staticmethod
     def record(db, owner, trip_id, kind, record_id):
@@ -139,9 +154,19 @@ class Store:
         stamp = now()
         occurred = value.get("occurredAt")
         sort_time = instant(occurred).astimezone(UTC).isoformat() if occurred else None
-        db.execute("INSERT INTO records VALUES (?,?,?,?,?,?,?,?)", (
-            owner, trip_id, kind, record_id, revision, sort_time, canonical(value), stamp,
-        ))
+        db.execute(
+            "INSERT INTO records VALUES (?,?,?,?,?,?,?,?)",
+            (
+                owner,
+                trip_id,
+                kind,
+                record_id,
+                revision,
+                sort_time,
+                canonical(value),
+                stamp,
+            ),
+        )
         return self.receipt(record_id, stamp)
 
     def put(self, owner, trip_id, kind, value):
@@ -150,7 +175,7 @@ class Store:
             if kind == "route":
                 record_id = str(value["routeRevision"])
             elif kind == "avatar":
-                record_id = value["avatarId"]
+                record_id = f"{value['avatarId']}:{value['routeRevision']}"
             else:
                 record_id = trip_id
             old = self.record(db, owner, trip_id, kind, record_id)
@@ -166,10 +191,15 @@ class Store:
                     raise APIError(409, "route_required", "Synchronize the route first")
                 route = json.loads(latest_route["body"])
                 if (value["routeId"], value["routeRevision"]) != (
-                    route["routeId"], route["routeRevision"]
+                    route["routeId"],
+                    route["routeRevision"],
                 ):
-                    raise APIError(409, "route_revision_conflict", "Avatar must match the current route")
-            return self.insert(db, owner, trip_id, kind, record_id, value, value.get("routeRevision"))
+                    raise APIError(
+                        409, "route_revision_conflict", "Avatar must match the current route"
+                    )
+            return self.insert(
+                db, owner, trip_id, kind, record_id, value, value.get("routeRevision")
+            )
 
     def append(self, owner, trip_id, kind, values):
         receipts = []
@@ -184,10 +214,16 @@ class Store:
                     self.same(old, value)
                     receipts.append(self.receipt(record_id, old["received_at"], True))
                     continue
-                if kind == "emotion" and not self.record(
-                    db, owner, trip_id, "avatar", value["avatarId"]
-                ):
-                    raise APIError(409, "avatar_required", "Synchronize the referenced avatar first")
+                if kind == "emotion":
+                    avatar = db.execute(
+                        "SELECT 1 FROM records WHERE owner=? AND trip_id=? AND kind='avatar' "
+                        "AND json_extract(body, '$.avatarId')=? LIMIT 1",
+                        (owner, trip_id, value["avatarId"]),
+                    ).fetchone()
+                    if not avatar:
+                        raise APIError(
+                            409, "avatar_required", "Synchronize the referenced avatar first"
+                        )
                 receipts.append(self.insert(db, owner, trip_id, kind, record_id, value))
         return receipts
 
@@ -199,15 +235,21 @@ class Store:
             avatar = self.latest(db, owner, trip_id, "avatar")
             if avatar and (not route or avatar["revision"] != route["revision"]):
                 avatar = None
-            counts = dict(db.execute(
-                "SELECT kind, count(*) FROM records WHERE owner=? AND trip_id=? GROUP BY kind",
-                (owner, trip_id),
-            ).fetchall())
+            counts = dict(
+                db.execute(
+                    "SELECT kind, count(*) FROM records WHERE owner=? AND trip_id=? GROUP BY kind",
+                    (owner, trip_id),
+                ).fetchall()
+            )
             return {
-                "trip": json.loads(trip["body"]), "createdAt": trip["created_at"],
-                "expiresAt": trip["expires_at"], "route": self.wrapped(route),
-                "avatar": self.wrapped(avatar), "eventCount": counts.get("event", 0),
-                "emotionCount": counts.get("emotion", 0), "reportAvailable": "report" in counts,
+                "trip": json.loads(trip["body"]),
+                "createdAt": trip["created_at"],
+                "expiresAt": trip["expires_at"],
+                "route": self.wrapped(route),
+                "avatar": self.wrapped(avatar),
+                "eventCount": counts.get("event", 0),
+                "emotionCount": counts.get("emotion", 0),
+                "reportAvailable": "report" in counts,
             }
 
     def timeline(self, owner, trip_id, kind, offset, limit):
@@ -233,7 +275,8 @@ class Store:
                 raise APIError(404, "report_not_found", "Report not found")
             result = self.wrapped(row)
             result["unresolvedEvidenceEventIds"] = [
-                event_id for event_id in result["value"]["evidenceEventIds"]
+                event_id
+                for event_id in result["value"]["evidenceEventIds"]
                 if not self.record(db, owner, trip_id, "event", event_id)
             ]
             return result

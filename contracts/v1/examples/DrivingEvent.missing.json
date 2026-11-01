@@ -1,0 +1,16 @@
+{
+  "eventId": "event-brake",
+  "tripId": "trip-mock",
+  "eventType": "HARD_BRAKING",
+  "occurredAt": "2026-11-01T03:05:00Z",
+  "severity": "MEDIUM",
+  "confidence": 0.9,
+  "verificationStatus": "VERIFIED",
+  "source": {
+    "kind": "MOCK",
+    "provider": "nunti-fixture",
+    "version": "1"
+  },
+  "correlationId": "incident-mock",
+  "recoveryOfEventId": null
+}

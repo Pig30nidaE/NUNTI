@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0",
+  "tripId": "trip-mock",
+  "overallScore": null,
+  "dataCoverage": {
+    "status": "INSUFFICIENT",
+    "evaluatedSeconds": 300,
+    "totalSeconds": 900,
+    "ratio": 0.333333,
+    "unavailableSignals": [
+      "LEAD_VEHICLE_DISTANCE"
+    ]
+  },
+  "finalText": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+  "evidenceEventIds": [
+    "event-brake"
+  ],
+  "generatedAt": "2026-11-01T03:15:00Z"
+}

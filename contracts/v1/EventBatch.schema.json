@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:EventBatch",
+  "$defs": {
+    "DrivingEvent": {
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "const": "1.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "eventId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Eventid",
+          "type": "string"
+        },
+        "tripId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Tripid",
+          "type": "string"
+        },
+        "eventType": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Eventtype",
+          "type": "string"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "maxLength": 40,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+          "title": "Occurredat",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "INFO",
+            "LOW",
+            "MEDIUM",
+            "HIGH",
+            "UNKNOWN"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence"
+        },
+        "verificationStatus": {
+          "enum": [
+            "VERIFIED",
+            "UNVERIFIED",
+            "UNAVAILABLE"
+          ],
+          "title": "Verificationstatus",
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "correlationId": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Correlationid"
+        },
+        "recoveryOfEventId": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Recoveryofeventid"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "eventId",
+        "tripId",
+        "eventType",
+        "occurredAt",
+        "severity",
+        "confidence",
+        "verificationStatus",
+        "source"
+      ],
+      "title": "DrivingEvent",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "MOCK",
+            "ANDROID_ADAPTER",
+            "EXTERNAL_MODULE",
+            "USER_INPUT"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "provider": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Provider",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        }
+      },
+      "required": [
+        "kind",
+        "provider"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "events": {
+      "items": {
+        "$ref": "#/$defs/DrivingEvent"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Events",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "events"
+  ],
+  "title": "EventBatch",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "events": [
+        {
+          "schemaVersion": "1.0",
+          "eventId": "event-brake",
+          "tripId": "trip-mock",
+          "eventType": "HARD_BRAKING",
+          "occurredAt": "2026-11-01T03:05:00Z",
+          "severity": "MEDIUM",
+          "confidence": 0.9,
+          "verificationStatus": "VERIFIED",
+          "source": {
+            "kind": "MOCK",
+            "provider": "nunti-fixture",
+            "version": "1"
+          },
+          "correlationId": "incident-mock",
+          "recoveryOfEventId": null
+        }
+      ]
+    }
+  ]
+}

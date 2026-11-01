@@ -1,0 +1,322 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:RouteSnapshot",
+  "$defs": {
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/Source"
+        },
+        "verificationStatus": {
+          "enum": [
+            "VERIFIED",
+            "UNVERIFIED",
+            "UNAVAILABLE"
+          ],
+          "title": "Verificationstatus",
+          "type": "string"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence"
+        },
+        "validity": {
+          "enum": [
+            "VALID",
+            "STALE",
+            "UNKNOWN"
+          ],
+          "title": "Validity",
+          "type": "string"
+        },
+        "observedAt": {
+          "format": "date-time",
+          "maxLength": 40,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+          "title": "Observedat",
+          "type": "string"
+        },
+        "validUntil": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "maxLength": 40,
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Validuntil"
+        }
+      },
+      "required": [
+        "source",
+        "verificationStatus",
+        "confidence",
+        "validity",
+        "observedAt"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "RoadTypeRatios": {
+      "additionalProperties": false,
+      "properties": {
+        "highway": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Highway",
+          "type": "number"
+        },
+        "urban": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Urban",
+          "type": "number"
+        },
+        "rural": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Rural",
+          "type": "number"
+        },
+        "unknown": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Unknown",
+          "type": "number"
+        }
+      },
+      "title": "RoadTypeRatios",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "MOCK",
+            "ANDROID_ADAPTER",
+            "EXTERNAL_MODULE",
+            "USER_INPUT"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "provider": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Provider",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        }
+      },
+      "required": [
+        "kind",
+        "provider"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "routeId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Routeid",
+      "type": "string"
+    },
+    "routeRevision": {
+      "maximum": 2147483647,
+      "minimum": 1,
+      "title": "Routerevision",
+      "type": "integer"
+    },
+    "collectedAt": {
+      "format": "date-time",
+      "maxLength": 40,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+      "title": "Collectedat",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "routeOption": {
+      "anyOf": [
+        {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Routeoption"
+    },
+    "distanceMeters": {
+      "anyOf": [
+        {
+          "maximum": 100000000,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Distancemeters"
+    },
+    "estimatedDurationSeconds": {
+      "anyOf": [
+        {
+          "maximum": 31536000,
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Estimateddurationseconds"
+    },
+    "roadTypeRatios": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/RoadTypeRatios"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "regionTags": {
+      "default": [],
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+        "type": "string"
+      },
+      "maxItems": 30,
+      "title": "Regiontags",
+      "type": "array"
+    },
+    "scenicTags": {
+      "default": [],
+      "items": {
+        "maxLength": 64,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+        "type": "string"
+      },
+      "maxItems": 30,
+      "title": "Scenictags",
+      "type": "array"
+    },
+    "featureEvidence": {
+      "default": {},
+      "maxProperties": 64,
+      "patternProperties": {
+        "^[A-Za-z0-9][A-Za-z0-9_.:-]*$": {
+          "$ref": "#/$defs/Evidence"
+        }
+      },
+      "propertyNames": {
+        "maxLength": 64,
+        "minLength": 1
+      },
+      "title": "Featureevidence",
+      "type": "object"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "routeId",
+    "routeRevision",
+    "collectedAt",
+    "source"
+  ],
+  "title": "RouteSnapshot",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "routeId": "route-mock",
+      "routeRevision": 1,
+      "collectedAt": "2026-11-01T03:00:00Z",
+      "source": {
+        "kind": "MOCK",
+        "provider": "nunti-fixture",
+        "version": "1"
+      },
+      "routeOption": "RECOMMENDED",
+      "distanceMeters": 5000,
+      "estimatedDurationSeconds": 900,
+      "roadTypeRatios": {
+        "urban": 0.9,
+        "unknown": 0.1
+      },
+      "regionTags": [],
+      "scenicTags": [],
+      "featureEvidence": {
+        "roadTypeRatios": {
+          "source": {
+            "kind": "MOCK",
+            "provider": "nunti-fixture",
+            "version": "1"
+          },
+          "verificationStatus": "VERIFIED",
+          "confidence": 1.0,
+          "validity": "VALID",
+          "observedAt": "2026-11-01T03:00:00Z"
+        }
+      }
+    }
+  ]
+}

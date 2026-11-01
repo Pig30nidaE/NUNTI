@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:EmotionBatch",
+  "$defs": {
+    "EmotionSnapshot": {
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "const": "1.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "emotionId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Emotionid",
+          "type": "string"
+        },
+        "tripId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Tripid",
+          "type": "string"
+        },
+        "avatarId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Avatarid",
+          "type": "string"
+        },
+        "emotion": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Emotion",
+          "type": "string"
+        },
+        "intensity": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Intensity",
+          "type": "number"
+        },
+        "triggeredByEventId": {
+          "anyOf": [
+            {
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Triggeredbyeventid"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "maxLength": 40,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+          "title": "Occurredat",
+          "type": "string"
+        },
+        "confidence": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Confidence"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "emotionId",
+        "tripId",
+        "avatarId",
+        "emotion",
+        "intensity",
+        "triggeredByEventId",
+        "occurredAt",
+        "confidence"
+      ],
+      "title": "EmotionSnapshot",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "emotions": {
+      "items": {
+        "$ref": "#/$defs/EmotionSnapshot"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Emotions",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "emotions"
+  ],
+  "title": "EmotionBatch",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "emotions": [
+        {
+          "schemaVersion": "1.0",
+          "emotionId": "emotion-worried",
+          "tripId": "trip-mock",
+          "avatarId": "avatar-mock",
+          "emotion": "CONCERNED",
+          "intensity": 0.5,
+          "triggeredByEventId": "event-brake",
+          "occurredAt": "2026-11-01T03:05:01Z",
+          "confidence": 0.9
+        }
+      ]
+    }
+  ]
+}

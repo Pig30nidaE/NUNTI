@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:SpeechRequest",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "requestId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Requestid",
+      "type": "string"
+    },
+    "tripId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Tripid",
+      "type": "string"
+    },
+    "avatarId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Avatarid",
+      "type": "string"
+    },
+    "text": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Text",
+      "type": "string"
+    },
+    "voiceProfileId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Voiceprofileid",
+      "type": "string"
+    },
+    "emotion": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Emotion",
+      "type": "string"
+    },
+    "tripPhase": {
+      "enum": [
+        "PRE_TRIP",
+        "DRIVING",
+        "STOPPED",
+        "POST_TRIP"
+      ],
+      "title": "Tripphase",
+      "type": "string"
+    },
+    "priority": {
+      "enum": [
+        "LOW",
+        "NORMAL",
+        "HIGH"
+      ],
+      "title": "Priority",
+      "type": "string"
+    },
+    "requestedAt": {
+      "format": "date-time",
+      "maxLength": 40,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+      "title": "Requestedat",
+      "type": "string"
+    },
+    "expiresAt": {
+      "format": "date-time",
+      "maxLength": 40,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+      "title": "Expiresat",
+      "type": "string"
+    },
+    "contentSource": {
+      "enum": [
+        "MOCK",
+        "TEMPLATE",
+        "EXTERNAL_REPORT"
+      ],
+      "title": "Contentsource",
+      "type": "string"
+    },
+    "speechPurpose": {
+      "anyOf": [
+        {
+          "enum": [
+            "PRE_DRIVE_GREETING",
+            "VERIFIED_EVENT_RESPONSE",
+            "USER_INITIATED",
+            "POST_DRIVE_REPORT"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Speechpurpose"
+    },
+    "sourceEventId": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Sourceeventid"
+    },
+    "emotionId": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Emotionid"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "requestId",
+    "tripId",
+    "avatarId",
+    "text",
+    "voiceProfileId",
+    "emotion",
+    "tripPhase",
+    "priority",
+    "requestedAt",
+    "expiresAt",
+    "contentSource"
+  ],
+  "title": "SpeechRequest",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "requestId": "speech-mock",
+      "tripId": "trip-mock",
+      "avatarId": "avatar-mock",
+      "text": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+      "voiceProfileId": "voice-mock",
+      "emotion": "CONCERNED",
+      "tripPhase": "POST_TRIP",
+      "priority": "NORMAL",
+      "requestedAt": "2026-11-01T03:15:01Z",
+      "expiresAt": "2026-11-01T03:16:01Z",
+      "contentSource": "MOCK",
+      "speechPurpose": "POST_DRIVE_REPORT",
+      "sourceEventId": null,
+      "emotionId": "emotion-worried"
+    }
+  ]
+}

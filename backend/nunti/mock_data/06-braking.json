@@ -1,0 +1,300 @@
+{
+  "mock": true,
+  "scenarioId": "06-braking",
+  "title": "급제동 이벤트",
+  "disclaimer": "Synthetic fixtures; not actual Pleos API responses. No scoring rules implied.",
+  "contracts": {
+    "TripCreate": {
+      "schemaVersion": "1.0",
+      "tripId": "trip-06-braking",
+      "startedAt": "2026-11-01T03:00:00Z",
+      "syncConsent": true
+    },
+    "RouteSnapshot": {
+      "schemaVersion": "1.0",
+      "routeId": "route-mock",
+      "routeRevision": 1,
+      "collectedAt": "2026-11-01T03:00:00Z",
+      "source": {
+        "kind": "MOCK",
+        "provider": "nunti-fixture",
+        "version": "1"
+      },
+      "routeOption": "RECOMMENDED",
+      "distanceMeters": 5000,
+      "estimatedDurationSeconds": 900,
+      "roadTypeRatios": {
+        "urban": 0.9,
+        "unknown": 0.1
+      },
+      "regionTags": [],
+      "scenicTags": [],
+      "featureEvidence": {
+        "roadTypeRatios": {
+          "source": {
+            "kind": "MOCK",
+            "provider": "nunti-fixture",
+            "version": "1"
+          },
+          "verificationStatus": "VERIFIED",
+          "confidence": 1.0,
+          "validity": "VALID",
+          "observedAt": "2026-11-01T03:00:00Z"
+        }
+      }
+    },
+    "AvatarSpec": {
+      "schemaVersion": "1.0",
+      "avatarId": "avatar-mock",
+      "baseCharacterId": "nunti",
+      "routeId": "route-mock",
+      "routeRevision": 1,
+      "generationSeed": "mock-seed-001",
+      "ruleVersion": "mock-1",
+      "assetVersion": "mock-1",
+      "paletteId": "mint",
+      "outfitId": "city",
+      "accessoryIds": [],
+      "themeId": "urban",
+      "voiceProfileId": "voice-mock",
+      "generationExplanation": "고정 Mock 아바타. 생성 알고리즘 결과 아님."
+    },
+    "DrivingEvent": {
+      "schemaVersion": "1.0",
+      "eventId": "event-brake",
+      "tripId": "trip-06-braking",
+      "eventType": "HARD_BRAKING",
+      "occurredAt": "2026-11-01T03:05:00Z",
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "verificationStatus": "VERIFIED",
+      "source": {
+        "kind": "MOCK",
+        "provider": "nunti-fixture",
+        "version": "1"
+      },
+      "correlationId": "incident-mock",
+      "recoveryOfEventId": null
+    },
+    "EmotionSnapshot": {
+      "schemaVersion": "1.0",
+      "emotionId": "emotion-worried",
+      "tripId": "trip-06-braking",
+      "avatarId": "avatar-mock",
+      "emotion": "CONCERNED",
+      "intensity": 0.5,
+      "triggeredByEventId": "event-brake",
+      "occurredAt": "2026-11-01T03:05:01Z",
+      "confidence": 0.9
+    },
+    "VoiceProfile": {
+      "schemaVersion": "1.0",
+      "voiceProfileId": "voice-mock",
+      "locale": "ko-KR",
+      "persona": "COMPANION",
+      "speakingStyle": "CALM",
+      "preferredVoiceId": null,
+      "supportedControls": []
+    },
+    "TripReport": {
+      "schemaVersion": "1.0",
+      "tripId": "trip-06-braking",
+      "overallScore": null,
+      "dataCoverage": {
+        "status": "INSUFFICIENT",
+        "evaluatedSeconds": 300,
+        "totalSeconds": 900,
+        "ratio": 0.333333,
+        "unavailableSignals": [
+          "LEAD_VEHICLE_DISTANCE"
+        ]
+      },
+      "finalText": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+      "evidenceEventIds": [
+        "event-brake"
+      ],
+      "generatedAt": "2026-11-01T03:15:00Z"
+    },
+    "SpeechRequest": {
+      "schemaVersion": "1.0",
+      "requestId": "speech-mock",
+      "tripId": "trip-06-braking",
+      "avatarId": "avatar-mock",
+      "text": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+      "voiceProfileId": "voice-mock",
+      "emotion": "CONCERNED",
+      "tripPhase": "POST_TRIP",
+      "priority": "NORMAL",
+      "requestedAt": "2026-11-01T03:15:01Z",
+      "expiresAt": "2026-11-01T03:16:01Z",
+      "contentSource": "MOCK",
+      "speechPurpose": "POST_DRIVE_REPORT",
+      "sourceEventId": null,
+      "emotionId": "emotion-worried"
+    }
+  },
+  "steps": [
+    {
+      "method": "POST",
+      "path": "/v1/trips",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "tripId": "trip-06-braking",
+        "startedAt": "2026-11-01T03:00:00Z",
+        "syncConsent": true
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/trips/trip-06-braking/route",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "routeId": "route-mock",
+        "routeRevision": 1,
+        "collectedAt": "2026-11-01T03:00:00Z",
+        "source": {
+          "kind": "MOCK",
+          "provider": "nunti-fixture",
+          "version": "1"
+        },
+        "routeOption": "RECOMMENDED",
+        "distanceMeters": 5000,
+        "estimatedDurationSeconds": 900,
+        "roadTypeRatios": {
+          "urban": 0.9,
+          "unknown": 0.1
+        },
+        "regionTags": [],
+        "scenicTags": [],
+        "featureEvidence": {
+          "roadTypeRatios": {
+            "source": {
+              "kind": "MOCK",
+              "provider": "nunti-fixture",
+              "version": "1"
+            },
+            "verificationStatus": "VERIFIED",
+            "confidence": 1.0,
+            "validity": "VALID",
+            "observedAt": "2026-11-01T03:00:00Z"
+          }
+        }
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/trips/trip-06-braking/avatar",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "avatarId": "avatar-mock",
+        "baseCharacterId": "nunti",
+        "routeId": "route-mock",
+        "routeRevision": 1,
+        "generationSeed": "mock-seed-001",
+        "ruleVersion": "mock-1",
+        "assetVersion": "mock-1",
+        "paletteId": "mint",
+        "outfitId": "city",
+        "accessoryIds": [],
+        "themeId": "urban",
+        "voiceProfileId": "voice-mock",
+        "generationExplanation": "고정 Mock 아바타. 생성 알고리즘 결과 아님."
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/trips/trip-06-braking/events",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "events": [
+          {
+            "schemaVersion": "1.0",
+            "eventId": "event-brake",
+            "tripId": "trip-06-braking",
+            "eventType": "HARD_BRAKING",
+            "occurredAt": "2026-11-01T03:05:00Z",
+            "severity": "MEDIUM",
+            "confidence": 0.9,
+            "verificationStatus": "VERIFIED",
+            "source": {
+              "kind": "MOCK",
+              "provider": "nunti-fixture",
+              "version": "1"
+            },
+            "correlationId": "incident-mock",
+            "recoveryOfEventId": null
+          }
+        ]
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/v1/trips/trip-06-braking/emotions",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "emotions": [
+          {
+            "schemaVersion": "1.0",
+            "emotionId": "emotion-worried",
+            "tripId": "trip-06-braking",
+            "avatarId": "avatar-mock",
+            "emotion": "CONCERNED",
+            "intensity": 0.5,
+            "triggeredByEventId": "event-brake",
+            "occurredAt": "2026-11-01T03:05:01Z",
+            "confidence": 0.9
+          }
+        ]
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/trips/trip-06-braking/report",
+      "expectedStatus": 200,
+      "body": {
+        "schemaVersion": "1.0",
+        "tripId": "trip-06-braking",
+        "overallScore": null,
+        "dataCoverage": {
+          "status": "INSUFFICIENT",
+          "evaluatedSeconds": 300,
+          "totalSeconds": 900,
+          "ratio": 0.333333,
+          "unavailableSignals": [
+            "LEAD_VEHICLE_DISTANCE"
+          ]
+        },
+        "finalText": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+        "evidenceEventIds": [
+          "event-brake"
+        ],
+        "generatedAt": "2026-11-01T03:15:00Z"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-06-braking/report",
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-06-braking/events",
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-06-braking/emotions",
+      "expectedStatus": 200
+    },
+    {
+      "method": "GET",
+      "path": "/v1/trips/trip-06-braking",
+      "expectedStatus": 200
+    }
+  ]
+}

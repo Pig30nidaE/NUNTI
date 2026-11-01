@@ -1,11 +1,13 @@
 """Wire models for the proposed v1 contract; checked JSON Schema is published separately."""
 
 from datetime import datetime
-from typing import Annotated, Generic, Literal, TypeVar
+from typing import Annotated, Literal
 
-from pydantic import AfterValidator, BaseModel, ConfigDict, Field, model_validator
+from pydantic import AfterValidator, BaseModel, ConfigDict, Field, field_validator, model_validator
 
-Identifier = Annotated[str, Field(min_length=1, max_length=128, pattern=r"^[A-Za-z0-9][A-Za-z0-9_.:-]*$")]
+Identifier = Annotated[
+    str, Field(min_length=1, max_length=128, pattern=r"^[A-Za-z0-9][A-Za-z0-9_.:-]*$")
+]
 Token = Annotated[str, Field(min_length=1, max_length=64, pattern=r"^[A-Za-z0-9][A-Za-z0-9_.:-]*$")]
 Text = Annotated[str, Field(min_length=1, max_length=2000)]
 Ratio = Annotated[float, Field(ge=0, le=1, allow_inf_nan=False)]
@@ -152,6 +154,14 @@ class SpeechRequest(Contract):
     requestedAt: Timestamp
     expiresAt: Timestamp
     contentSource: Literal["MOCK", "TEMPLATE", "EXTERNAL_REPORT"]
+    speechPurpose: (
+        Literal[
+            "PRE_DRIVE_GREETING", "VERIFIED_EVENT_RESPONSE", "USER_INITIATED", "POST_DRIVE_REPORT"
+        ]
+        | None
+    ) = None
+    sourceEventId: Identifier | None = None
+    emotionId: Identifier | None = None
 
     @model_validator(mode="after")
     def expiry_order(self):
@@ -188,6 +198,13 @@ class TripCreate(Contract):
     tripId: Identifier
     startedAt: Timestamp
     syncConsent: Literal[True]
+
+    @field_validator("syncConsent", mode="before")
+    @classmethod
+    def explicit_consent(cls, value):
+        if value is not True:
+            raise ValueError("syncConsent must be explicitly true")
+        return value
 
 
 class EventBatch(Contract):
@@ -252,10 +269,7 @@ class Capabilities(WireModel):
     localRealtimeRequired: bool = True
 
 
-T = TypeVar("T")
-
-
-class Page(WireModel, Generic[T]):
+class Page[T](WireModel):
     items: list[T]
     nextOffset: int | None
 
@@ -265,7 +279,7 @@ class Meta(WireModel):
     serverTime: str
 
 
-class Envelope(WireModel, Generic[T]):
+class Envelope[T](WireModel):
     data: T
     meta: Meta
 
@@ -291,6 +305,14 @@ def instant(value: str) -> datetime:
 
 
 CONTRACTS = (
-    RouteSnapshot, AvatarSpec, DrivingEvent, EmotionSnapshot, VoiceProfile,
-    SpeechRequest, TripReport, TripCreate, EventBatch, EmotionBatch,
+    RouteSnapshot,
+    AvatarSpec,
+    DrivingEvent,
+    EmotionSnapshot,
+    VoiceProfile,
+    SpeechRequest,
+    TripReport,
+    TripCreate,
+    EventBatch,
+    EmotionBatch,
 )

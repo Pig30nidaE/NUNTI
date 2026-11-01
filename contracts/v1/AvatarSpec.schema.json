@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:AvatarSpec",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "avatarId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Avatarid",
+      "type": "string"
+    },
+    "baseCharacterId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Basecharacterid",
+      "type": "string"
+    },
+    "routeId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Routeid",
+      "type": "string"
+    },
+    "routeRevision": {
+      "maximum": 2147483647,
+      "minimum": 1,
+      "title": "Routerevision",
+      "type": "integer"
+    },
+    "generationSeed": {
+      "maxLength": 128,
+      "minLength": 1,
+      "title": "Generationseed",
+      "type": "string"
+    },
+    "ruleVersion": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Ruleversion",
+      "type": "string"
+    },
+    "assetVersion": {
+      "maxLength": 64,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Assetversion",
+      "type": "string"
+    },
+    "paletteId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Paletteid",
+      "type": "string"
+    },
+    "outfitId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Outfitid",
+      "type": "string"
+    },
+    "accessoryIds": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+        "type": "string"
+      },
+      "maxItems": 30,
+      "title": "Accessoryids",
+      "type": "array"
+    },
+    "themeId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Themeid",
+      "type": "string"
+    },
+    "voiceProfileId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Voiceprofileid",
+      "type": "string"
+    },
+    "generationExplanation": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Generationexplanation",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "avatarId",
+    "baseCharacterId",
+    "routeId",
+    "routeRevision",
+    "generationSeed",
+    "ruleVersion",
+    "assetVersion",
+    "paletteId",
+    "outfitId",
+    "accessoryIds",
+    "themeId",
+    "voiceProfileId",
+    "generationExplanation"
+  ],
+  "title": "AvatarSpec",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "avatarId": "avatar-mock",
+      "baseCharacterId": "nunti",
+      "routeId": "route-mock",
+      "routeRevision": 1,
+      "generationSeed": "mock-seed-001",
+      "ruleVersion": "mock-1",
+      "assetVersion": "mock-1",
+      "paletteId": "mint",
+      "outfitId": "city",
+      "accessoryIds": [],
+      "themeId": "urban",
+      "voiceProfileId": "voice-mock",
+      "generationExplanation": "고정 Mock 아바타. 생성 알고리즘 결과 아님."
+    }
+  ]
+}

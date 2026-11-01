@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:TripReport",
+  "$defs": {
+    "DataCoverage": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "SUFFICIENT",
+            "PARTIAL",
+            "INSUFFICIENT",
+            "UNAVAILABLE"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "evaluatedSeconds": {
+          "maximum": 31536000,
+          "minimum": 0,
+          "title": "Evaluatedseconds",
+          "type": "number"
+        },
+        "totalSeconds": {
+          "maximum": 31536000,
+          "minimum": 0,
+          "title": "Totalseconds",
+          "type": "number"
+        },
+        "ratio": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Ratio"
+        },
+        "unavailableSignals": {
+          "default": [],
+          "items": {
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "type": "string"
+          },
+          "maxItems": 100,
+          "title": "Unavailablesignals",
+          "type": "array"
+        }
+      },
+      "required": [
+        "status",
+        "evaluatedSeconds",
+        "totalSeconds",
+        "ratio"
+      ],
+      "title": "DataCoverage",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "tripId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Tripid",
+      "type": "string"
+    },
+    "overallScore": {
+      "anyOf": [
+        {
+          "maximum": 100,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Overallscore"
+    },
+    "dataCoverage": {
+      "$ref": "#/$defs/DataCoverage"
+    },
+    "finalText": {
+      "maxLength": 2000,
+      "minLength": 1,
+      "title": "Finaltext",
+      "type": "string"
+    },
+    "evidenceEventIds": {
+      "items": {
+        "maxLength": 128,
+        "minLength": 1,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+        "type": "string"
+      },
+      "maxItems": 500,
+      "title": "Evidenceeventids",
+      "type": "array"
+    },
+    "generatedAt": {
+      "format": "date-time",
+      "maxLength": 40,
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+      "title": "Generatedat",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "tripId",
+    "overallScore",
+    "dataCoverage",
+    "finalText",
+    "evidenceEventIds",
+    "generatedAt"
+  ],
+  "title": "TripReport",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "tripId": "trip-mock",
+      "overallScore": null,
+      "dataCoverage": {
+        "status": "INSUFFICIENT",
+        "evaluatedSeconds": 300,
+        "totalSeconds": 900,
+        "ratio": 0.333333,
+        "unavailableSignals": [
+          "LEAD_VEHICLE_DISTANCE"
+        ]
+      },
+      "finalText": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+      "evidenceEventIds": [
+        "event-brake"
+      ],
+      "generatedAt": "2026-11-01T03:15:00Z"
+    }
+  ]
+}

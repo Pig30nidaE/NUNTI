@@ -1,0 +1,16 @@
+{
+  "requestId": "speech-mock",
+  "tripId": "trip-mock",
+  "avatarId": "avatar-mock",
+  "text": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+  "voiceProfileId": "voice-mock",
+  "emotion": "CONCERNED",
+  "tripPhase": "POST_TRIP",
+  "priority": "NORMAL",
+  "requestedAt": "2026-11-01T03:15:01Z",
+  "expiresAt": "2026-11-01T03:16:01Z",
+  "contentSource": "MOCK",
+  "speechPurpose": "POST_DRIVE_REPORT",
+  "sourceEventId": null,
+  "emotionId": "emotion-worried"
+}

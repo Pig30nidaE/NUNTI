@@ -10,7 +10,8 @@
 - AvatarSpec 출력 필드, 문자열 seed, assetVersion/ruleVersion 의미 검토.
 - 이벤트는 외부 모듈이 정의한 타입 그대로 전달하며 서버는 감정 계산을 하지 않는다.
 - EmotionSnapshot에 재전송용 emotionId 추가 제안. 감정 이름은 확장 가능한 토큰이다.
-- 경로 변경 시 revision을 증가시키고 새 avatarId를 발급한다. 이전 아바타 감정 기록은 보존한다.
+- 경로 변경 시 revision을 증가시킨다. AVATAR와 협의해 avatarId 유지 및 외형의 revision별 저장을 허용한다.
+  이전 아바타 감정 기록은 보존한다.
 
 ## TTS 담당
 
@@ -19,6 +20,8 @@
 - requestId 중복 억제, expiresAt, STOPPED의 실제 차량 상태 검증은 로컬 정책 엔진 소유다.
 - 재생 상태(started/completed/cancelled/failed 등), 오류 코드 및 대체 음성 정책 제안 요청.
   아직 합의되지 않아 서버 재생 상태 API를 만들지 않는다.
+- 협의 결과 contentSource는 출처로 유지하고 speechPurpose/sourceEventId/emotionId를 추가했다.
+  AvatarSpec의 중복 persona/voiceStyleHint 대신 VoiceProfile 참조에 동의했다.
 - 기획 HTML은 주행 중 STT만 지원한다고 쓰였지만 최신 요청은 허용된 짧은 TTS를 요구한다.
   최신 요청을 우선하며 허용 조건/우선순위/만료 정책은 TTS 담당의 SDK 검증 후 합의한다.
 

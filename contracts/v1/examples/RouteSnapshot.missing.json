@@ -1,0 +1,32 @@
+{
+  "routeId": "route-mock",
+  "routeRevision": 1,
+  "collectedAt": "2026-11-01T03:00:00Z",
+  "source": {
+    "kind": "MOCK",
+    "provider": "nunti-fixture",
+    "version": "1"
+  },
+  "routeOption": "RECOMMENDED",
+  "distanceMeters": 5000,
+  "estimatedDurationSeconds": 900,
+  "roadTypeRatios": {
+    "urban": 0.9,
+    "unknown": 0.1
+  },
+  "regionTags": [],
+  "scenicTags": [],
+  "featureEvidence": {
+    "roadTypeRatios": {
+      "source": {
+        "kind": "MOCK",
+        "provider": "nunti-fixture",
+        "version": "1"
+      },
+      "verificationStatus": "VERIFIED",
+      "confidence": 1.0,
+      "validity": "VALID",
+      "observedAt": "2026-11-01T03:00:00Z"
+    }
+  }
+}

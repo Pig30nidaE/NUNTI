@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "emotions": [
+    {
+      "schemaVersion": "1.0",
+      "emotionId": "emotion-worried",
+      "tripId": "trip-mock",
+      "avatarId": "avatar-mock",
+      "emotion": "CONCERNED",
+      "intensity": 0.5,
+      "triggeredByEventId": "event-brake",
+      "occurredAt": "2026-11-01T03:05:01Z",
+      "confidence": 0.9
+    }
+  ]
+}

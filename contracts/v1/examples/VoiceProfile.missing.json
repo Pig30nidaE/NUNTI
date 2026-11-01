@@ -1,0 +1,8 @@
+{
+  "voiceProfileId": "voice-mock",
+  "locale": "ko-KR",
+  "persona": "COMPANION",
+  "speakingStyle": "CALM",
+  "preferredVoiceId": null,
+  "supportedControls": []
+}

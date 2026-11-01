@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "avatarId": "avatar-mock",
+  "baseCharacterId": "nunti",
+  "routeId": "route-mock",
+  "routeRevision": 1,
+  "generationSeed": 123,
+  "ruleVersion": "mock-1",
+  "assetVersion": "mock-1",
+  "paletteId": "mint",
+  "outfitId": "city",
+  "accessoryIds": [],
+  "themeId": "urban",
+  "voiceProfileId": "voice-mock",
+  "generationExplanation": "고정 Mock 아바타. 생성 알고리즘 결과 아님."
+}
