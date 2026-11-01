@@ -1,0 +1,30 @@
+[
+  {
+    "package": "cmdline-tools;latest",
+    "url": "https://dl.google.com/android/repository/commandlinetools-mac_arm64-16111833_latest.zip",
+    "size": 155384151,
+    "sha1": "ad03dc49bfacfd52c110b14104ea548b8a07e830",
+    "revision": "23.0.0"
+  },
+  {
+    "package": "platform-tools",
+    "url": "https://dl.google.com/android/repository/platform-tools_r37.0.1-darwin.zip",
+    "size": 16110554,
+    "sha1": "6ae73f4de6452dc57e62ec02b68eed92a4c21661",
+    "revision": "37.0.1"
+  },
+  {
+    "package": "emulator",
+    "url": "https://dl.google.com/android/repository/emulator-darwin_aarch64-16740729.zip",
+    "size": 416113219,
+    "sha1": "6c5e61b873e11c7d1d08683bea089f762baee070",
+    "revision": "37.2.13"
+  },
+  {
+    "package": "system-images;android-34;pleos_car_emulator;arm64-v8a",
+    "url": "https://nexus-playground.pleos.ai/repository/raw-releases/connect-avd/2.x/crp_car_arm64_emulator.zip",
+    "size": 4669762816,
+    "sha1": "24d28eb2f18eba5e87c861a7eb2bdccebb049419",
+    "revision": "2.0.0"
+  }
+]

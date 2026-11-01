@@ -1,5 +1,7 @@
 # SERVER 검증 기록
 
+후속 [Pleos 실제 런타임 검증](pleos-runtime.md): 아바타·ON_DEVICE TTS 출력·중지/백그라운드·중복 차단 확인. 실제 주행 상태 전환은 플랫폼 제어 서비스 문제로 미검증. 아래 빌드 단계의 미검증 범위는 이 후속 기록을 함께 참고한다.
+
 검증일: 2026-11-01 (Asia/Seoul). Python 3.12.8, Java 21 환경.
 서버 의존성은 backend/uv.lock에 고정했다.
 

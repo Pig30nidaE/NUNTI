@@ -1,0 +1,68 @@
+[
+  {
+    "case": "stop",
+    "started": {
+      "kind": "SPEECH",
+      "at": "2026-11-01T13:06:40.450701Z",
+      "requestId": "probe-dc86e1bc-031b-4427-a5a9-f17b7f6393db",
+      "status": "STARTED",
+      "reason": null,
+      "mode": "ON_DEVICE",
+      "startLatencyMs": 44
+    },
+    "terminal": {
+      "kind": "SPEECH",
+      "at": "2026-11-01T13:06:40.750758Z",
+      "requestId": "probe-dc86e1bc-031b-4427-a5a9-f17b7f6393db",
+      "status": "CANCELLED",
+      "reason": "USER_CANCELLED",
+      "mode": "ON_DEVICE",
+      "startLatencyMs": null
+    }
+  },
+  {
+    "case": "repeat_after_stop",
+    "terminal": {
+      "kind": "SPEECH",
+      "at": "2026-11-01T13:06:41.301682Z",
+      "requestId": "probe-1bbfe866-b866-4136-a4a5-27320c8ffb40",
+      "status": "REJECTED",
+      "reason": "REPEATED_TEXT",
+      "mode": "ON_DEVICE",
+      "startLatencyMs": null
+    }
+  },
+  {
+    "case": "background",
+    "started": {
+      "kind": "SPEECH",
+      "at": "2026-11-01T13:06:43.301840Z",
+      "requestId": "probe-9069a529-603c-4277-8581-8eb2f2931e96",
+      "status": "STARTED",
+      "reason": null,
+      "mode": "ON_DEVICE",
+      "startLatencyMs": 90
+    },
+    "terminal": {
+      "kind": "SPEECH",
+      "at": "2026-11-01T13:06:43.748371Z",
+      "requestId": "probe-9069a529-603c-4277-8581-8eb2f2931e96",
+      "status": "CANCELLED",
+      "reason": "BACKGROUND",
+      "mode": "ON_DEVICE",
+      "startLatencyMs": null
+    }
+  },
+  {
+    "case": "repeat_after_background",
+    "terminal": {
+      "kind": "SPEECH",
+      "at": "2026-11-01T13:06:44.348578Z",
+      "requestId": "probe-b6422262-3877-4f29-8703-c60bfe9daae3",
+      "status": "REJECTED",
+      "reason": "REPEATED_TEXT",
+      "mode": "ON_DEVICE",
+      "startLatencyMs": null
+    }
+  }
+]

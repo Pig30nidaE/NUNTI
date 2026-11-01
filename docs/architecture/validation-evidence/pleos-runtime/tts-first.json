@@ -1,0 +1,11 @@
+{
+  "file": "tts-first.wav",
+  "durationSeconds": 8.481604166666667,
+  "samples": 814234,
+  "nonzeroSamples": 300794,
+  "peak": 1408,
+  "rms": 207.37690190448282,
+  "packets": 1056,
+  "capture": "emulator gRPC speaker output; host microphone disabled",
+  "triggeredSpeech": true
+}
