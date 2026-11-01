@@ -1,0 +1,9 @@
+{
+  "speakingStyle": "CALM",
+  "schemaVersion": "1.0",
+  "persona": "COMPANION",
+  "supportedControls": [],
+  "voiceProfileId": "nunti-default-v1",
+  "preferredVoiceId": null,
+  "locale": "ko-KR"
+}
