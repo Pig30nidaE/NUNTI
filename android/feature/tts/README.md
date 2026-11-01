@@ -17,7 +17,7 @@ python3 android/feature/tts/scripts/verify.py --bootstrap --android
 `build/verification/`에 생성된다. SDK 실행/에뮬레이터 검증을 대신하지 않는다.
 
 앱 shell에 모듈이 포함되면 `:feature:tts:verifySpeech`, `:feature:tts:demo`,
-`:feature:voice:assembleDebug`를 사용할 수 있다. 전체 Gradle/앱 빌드는 AVATAR 통합 후 별도 검증한다.
+`:feature:voice:assembleDebug`를 사용할 수 있다. AVATAR 통합 `assembleDebug`도 통과했다. 차량에서의 실제 재생은 별도 검증해야 한다.
 
 ## 경계와 기본값
 

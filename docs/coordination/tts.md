@@ -12,7 +12,11 @@
 - 설치된 JDK: Temurin 21.0.8, Oracle 20.0.2. 검증은 JDK21/Kotlin compiler 2.2.20, JVM target17.
 - 개발 시작 시 Android Studio/adb/Gradle/Kotlin CLI/Pleos 에뮬레이터는 확인되지 않았다.
   SDK 바이너리와 컴파일러만 임시 캐시에 다운로드했고 설치된 차량 SDK/실기기로 오인하지 않는다.
-- APK/전체 Gradle 빌드, 실제 SDK 초기화·재생, 한국어 음질, mode별 fallback 및 차량 오디오 지연은 **미검증**.
+- AVATAR 통합 Gradle `assembleDebug` 성공(AGP8.10.1/Kotlin2.2.21/Gradle8.11.1/JDK21).
+  `app-debug.apk`에 TTS/voice 및 실제 Pleos TextToSpeech class가 포함된 것을 DEX로 확인했다.
+  APK 위치: `/private/tmp/nunti-avatar/android/build/app/outputs/apk/debug/app-debug.apk`.
+  포장 검증 기록: `build/verification/apk-packaging.json`.
+- 실제 SDK 초기화·재생, 한국어 음질, mode별 fallback 및 차량 오디오 지연은 **미검증**.
 - 한국어 WAV는 macOS Yuna 참고 음성이다. Pleos 음성의 검증 근거가 아니다.
 
 재현:
@@ -23,7 +27,8 @@ python3 android/feature/tts/scripts/verify.py --bootstrap --android
 
 다운로드는 공식 배포 URL만 사용하고 `scripts/toolchain-lock.json`의 SHA-256을 검사한다.
 SDK/JAR은 Git에 포함하지 않는다. 테스트·시연·컴파일 증거는 `android/feature/tts/build/verification/`에 생성.
-전체 앱 Gradle은 AVATAR 환경에서 이어서 검증한다.
+전체 앱 Gradle도 AVATAR 환경에서 통과했다. 첫 빌드에서 드러난 Java21/Kotlin17 타깃 불일치를
+TTS 모듈의 Java source/target17 명시로 수정했다. APK 패키징 성공은 차량에서의 실행 성공을 의미하지 않는다.
 
 ## 실제 SDK 지원과 불확실한 기능
 
