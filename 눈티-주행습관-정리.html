@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex"><meta name="description" content="눈티 주행 습관 평가 논의 내용과 보류 사항을 정리한 문서">
+<title>눈티 · 주행 습관 정리</title>
+<style>
+:root{color-scheme:light;--ink:#18272b;--muted:#637276;--line:#dce5e2;--surface:#fff;--bg:#f5f8f6;--green:#146a59;--mint:#e4f2ec;--amber:#875e19;--amber-bg:#fff2d8;--gray:#5c6769;--gray-bg:#edf1f0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:16px;line-height:1.5}a{color:var(--green);text-decoration-thickness:1px;text-underline-offset:4px}button,input{font:inherit}button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid #52a58e;outline-offset:2px}.skip{position:absolute;top:-100px;left:16px;background:white;padding:12px;z-index:5}.skip:focus{top:16px}.wrap{max-width:1200px;margin:auto;padding:0 32px}.top{background:#fff;border-bottom:1px solid var(--line)}.top-inner{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:16px;padding-bottom:16px}.brand{font-weight:700;letter-spacing:.04em;color:var(--green)}.top-meta{font-size:14px;color:var(--muted)}header.intro{padding:64px 0 40px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--green)}h1{font-size:36px;line-height:40px;margin:12px 0 16px;letter-spacing:-.04em}h1 span{color:var(--green)}.intro p{max-width:680px;color:var(--muted);margin:0;font-size:16px}.notice{background:#e8f2ed;color:#29584a;padding:16px 24px;border-radius:12px;font-size:14px;margin-bottom:32px}.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:24px}.toolbar label{font-size:14px;font-weight:700}.search{background:white;border:1px solid #cbd9d3;border-radius:8px;padding:8px 12px;min-width:240px;flex:1}.filter{border:1px solid #d0dfd7;background:white;color:#314a42;border-radius:8px;padding:8px 12px;font-size:14px;font-weight:600;cursor:pointer}.filter:hover{background:#edf6f1}.filter[aria-pressed=true]{background:var(--green);color:#fff;border-color:var(--green)}.result{color:var(--muted);font-size:14px;margin-left:auto}.section{margin:40px 0}.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:16px}.section-head h2{font-size:24px;line-height:32px;letter-spacing:-.03em;margin:0}.section-head p{font-size:14px;color:var(--muted);margin:0}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:white}table{width:100%;border-collapse:collapse;min-width:760px;text-align:left}th{background:#f0f5f2;color:#52635d;font-size:12px;letter-spacing:.02em;padding:12px 16px}td{font-size:14px;line-height:20px;padding:16px;vertical-align:top;border-top:1px solid #edf1ef}td:first-child{width:19%;font-weight:700}td:nth-child(2){width:34%}td:nth-child(3){width:34%;color:#4c5c58}td:last-child{width:13%;white-space:nowrap}table:has(th:nth-child(5)){min-width:1000px}table:has(th:nth-child(5)) td:first-child{width:16%}table:has(th:nth-child(5)) td:nth-child(2),table:has(th:nth-child(5)) td:nth-child(3){width:24%}table:has(th:nth-child(5)) td:nth-child(4){width:24%}table:has(th:nth-child(5)) td:last-child{width:12%}.tag{display:inline-block;padding:4px 8px;border-radius:9999px;font-size:12px;font-weight:700}.active{color:var(--green);background:var(--mint)}.check{color:var(--amber);background:var(--amber-bg)}.hold{color:var(--gray);background:var(--gray-bg)}.empty{display:none;text-align:center;color:var(--muted);padding:32px}.empty.show{display:block}.bottom{padding:32px 0 64px;color:var(--muted);font-size:14px}.bottom p{margin:8px 0}.note-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.note{border:1px solid var(--line);border-radius:12px;background:white;padding:24px}.note h3{font-size:16px;margin:0 0 8px}.note p{font-size:14px;color:#52635d;margin:0;line-height:20px}.sources{display:flex;gap:16px;flex-wrap:wrap}@media(max-width:700px){.wrap{padding-left:16px;padding-right:16px}header.intro{padding:40px 0 32px}h1{font-size:30px;line-height:36px}.top-meta{font-size:12px}.search{min-width:100%;order:0}.result{width:100%;margin-left:0}.note-grid{grid-template-columns:1fr}.section{margin:32px 0}}@media print{.toolbar,.top-meta{display:none}.wrap{max-width:none;padding:0}body{background:white}.table-wrap{overflow:visible}table{min-width:0}td,th{font-size:12px;padding:8px}.section{break-inside:avoid}}
+[hidden]{display:none!important}.situation-controls{display:grid;gap:12px;margin:24px 0}.situation-buttons{display:flex;gap:8px;flex-wrap:wrap}.situation-buttons button{border:1px solid var(--line);background:white;color:#314a42;border-radius:8px;padding:8px 12px;cursor:pointer}.situation-buttons button[aria-pressed="true"]{background:var(--green);color:white;border-color:var(--green)}.situation-label{font-weight:700;font-size:14px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 32px}.tab{border:1px solid var(--line);background:#fff;color:#314a42;border-radius:8px;padding:12px 24px;font-weight:600;cursor:pointer}.tab[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff}.tab:hover:not([aria-selected="true"]){background:#edf6f1}@media print{[role="tabpanel"][hidden]{display:block!important}.tabs{display:none}}</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 이동</a>
+<div class="top"><div class="wrap top-inner"><div class="brand">NUNTI <span style="font-weight:400;color:#9aa9a2"> / </span> 눈티</div><div class="top-meta">주행 습관 평가 · 논의 메모</div></div></div>
+<main class="wrap" id="main">
+<header class="intro"><div class="eyebrow">DRIVING HABIT NOTES</div><h1>운전 습관을<br><span>함께 정리해요.</span></h1><p>눈티에서 살펴볼 운전 행동과 주행 상황을 표로 정리했습니다. 항목별 규칙은 계속 논의하며 구체화합니다.</p></header>
+<div class="notice"><strong>읽는 방법</strong> &nbsp; 평가 방향은 논의된 내용이고, 구체적인 수치와 API의 실제 수신 여부는 아직 검증 중입니다. 보류한 항목은 별도 표에 모았습니다. 항목 옆 멘트는 동승자처럼 반응하는 초안이며 주행 중 전달 방식은 미정입니다.</div>
+<div class="tabs" role="tablist" aria-label="정리 화면 선택"><button class="tab" id="tab-score" role="tab" aria-selected="true" aria-controls="panel-score">주행 점수</button><button class="tab" id="tab-situations" role="tab" aria-selected="false" aria-controls="panel-situations" tabindex="-1">주행 상황</button><button class="tab" id="tab-review" role="tab" aria-selected="false" aria-controls="panel-review" tabindex="-1">최종 멘트</button></div>
+<div id="panel-score" role="tabpanel" aria-labelledby="tab-score" tabindex="0">
+<section class="section" id="score-emotion"><div class="section-head"><h2>점수와 눈티의 감정 표현 · 논의 초안</h2><p>항목별 반영 방식과 숫자는 제안이며 아직 확정되지 않았습니다.</p></div>
+<div class="notice">한 사건을 하나의 대표 항목으로만 감점합니다. 위험 회피나 데이터 부족으로 상황을 알 수 없다면 확정 감점을 보류합니다. 주행 중 애니메이션은 제한하고, 상세한 표정·후기는 주행 종료 후 보여줍니다.</div>
+<div class="table-wrap"><table><thead><tr><th scope="col">영역과 배점 제안</th><th scope="col">포함 항목</th><th scope="col">점수 반영 방향</th><th scope="col">눈티의 반응</th></tr></thead><tbody>
+<tr><td>속도·차량 제어<br>35점</td><td>급가속, 급감속·급제동, 잦은 속도 변화, 페달 반복 조작, 브레이크·엑셀 동시 사용, 주차 브레이크·중립 상태 엑셀, 추월 가속, 후진 속도</td><td>도로 유형·속도·지속시간과 상황을 고려해 확인된 사건을 반영. 같은 급감속·급제동은 한 사건으로 처리. 추월 여부 등 확인 불가 시 해당 판단 제외.</td><td>급격한 변화에는 걱정. 안정적인 흐름에는 편안함.</td></tr>
+<tr><td>주변 상황 대응<br>35점</td><td>앞차 거리, 회전 전 감속, 회전·차선 변경 시 방향지시등, 제한속도</td><td>속도에 맞는 차간 시간과 지속시간, 실제 회전·차선 변경 여부를 확인해 반영. 유효한 데이터가 없는 구간은 제외.</td><td>안전거리 부족이나 늦은 감속에는 걱정. 여유 있는 주행에는 안도.</td></tr>
+<tr><td>주행 안전 상태<br>20점</td><td>운전자·탑승자 안전벨트, 주행 중 문 열림, 사이드미러 접힘, 야간 실제 전조등 점등</td><td>주행 중 확인된 상태를 반영하고 한 상태가 계속된다고 매 샘플마다 감점하지 않음. 빈 좌석·확인 불가는 제외.</td><td>미착용·열림·소등 등에는 걱정. 조치 후 안도.</td></tr>
+<tr><td>효율적 운전<br>10점</td><td>연비·전비</td><td>충분한 기록이 있고 도로·환경·차종 등 비교 조건이 비슷할 때 효율적인 주행을 긍정 평가. 비교할 수 없으면 제외.</td><td>좋은 결과에 기쁨.</td></tr>
+</tbody></table></div>
+<div class="section-head" style="margin-top:24px"><h2>시간별 점수와 회복 · 새 논의 초안</h2><p>한 번의 행동이 전체 주행을 결정하지 않도록 합니다.</p></div><div class="table-wrap"><table><thead><tr><th scope="col">단계</th><th scope="col">처리 방식</th><th scope="col">예시와 주의점</th><th scope="col">상태</th></tr></thead><tbody>
+<tr><td>1. 구간별 평가</td><td>주행을 일정 시간으로 나누고, 항목별로 평가 가능한 구간에 점수를 부여합니다.</td><td>1분은 논의를 위한 예시입니다. 실제 구간 길이는 미정이며 마지막의 짧은 구간도 실제 평가 시간만큼 반영합니다.</td><td>초안</td></tr>
+<tr><td>2. 현재 상태 회복</td><td>행동이 바로잡히고 안정적인 주행이 이어지면 이후 구간의 점수가 회복됩니다.</td><td>앞차와의 거리를 회복하거나 안전벨트를 착용하면 그 이후부터 반영합니다. 과거의 사건 기록은 유지합니다.</td><td>초안</td></tr>
+<tr><td>3. 주행 전체 평균</td><td>항목별로 유효한 평가 구간 점수를 실제 유효 시간으로 가중 평균합니다.</td><td>1분 70점 후 9분 100점이면 10분 평균은 97점입니다. 단일 항목을 단순화한 계산 예시입니다.</td><td>초안</td></tr>
+<tr><td>4. 기회가 필요한 행동</td><td>차선 변경 지시등과 회전 전 감속 등은 관련 행동이 확인된 기회에서만 평가합니다.</td><td>차선 변경이 없었다고 100점을 주지 않습니다. 기회별 평가를 시간 평균에 섞는 방식은 추가로 정합니다.</td><td>방식 미정</td></tr>
+<tr><td>5. 감정 표현</td><td>현재 확인된 상황에 따라 걱정에서 중립·안도로 회복합니다.</td><td>하나의 실수로 계속 슬퍼하지 않습니다. 반응 지연·유지 시간은 검토합니다.</td><td>초안</td></tr>
+</tbody></table></div><div class="notice" style="margin-top:16px">일회성 급제동처럼 순간에 발생한 사건은 구간 길이에 따라 희석 정도가 달라질 수 있습니다. 위험 회피 여부, 사건의 심각도·빈도와 별도 표시 방법은 검증 후 결정합니다. 데이터가 없는 시간과 실제 정체·정차는 구분하고, 평가할 수 없는 시간은 평균에서 제외합니다.</div>
+<div class="note-grid" style="margin-top:24px"><article class="note"><h3>종합 점수 계산 제안</h3><p>평가 가능한 주행 시간을 구간별로 나누어 점수를 계산하고, 각 구간의 유효 평가 시간에 따라 평균합니다. 영역별 점수에 배점 35·35·20·10을 적용하는 방안입니다. 구간 길이와 감점 수치는 미정입니다. 임계값·사건별 감점·지속 상태의 처리 간격은 아직 미정입니다.</p></article><article class="note"><h3>평가할 수 없는 데이터</h3><p>미수신 항목은 정상이나 0점으로 처리하지 않습니다. 평가 가능한 영역의 배점만으로 환산하되, 평가한 항목과 시간 비율을 함께 표시합니다. 표본이 부족하면 숫자 대신 평가 불가로 표시하며 최소 기준은 미정입니다.</p></article><article class="note"><h3>감정은 점수와 별도</h3><p>확인된 현재 상태에 따라 중립·걱정·안도·기쁨을 제안합니다. 불확실한 상황은 중립으로 둡니다. 반복 이벤트마다 반응하지 않도록 유지·전환 간격과 우선순위를 나중에 정합니다.</p></article><article class="note"><h3>주행 중과 종료 후</h3><p>주행 중 애니메이션 통제와 STT만 지원하는 기존 전제를 유지합니다. 점수와 감정 상태는 내부적으로 기록하고 상세 표정·멘트는 종료 후 표현합니다. 주행 중 알림·음성 출력은 별도 결정합니다.</p></article></div></section>
+<section class="section"><div class="section-head"><h2>공통 기준</h2></div><div class="note-grid"><article class="note"><h3>데이터가 없으면 확인 불가</h3><p>권한과 데이터가 제공된다고 가정해 기획하되, 실제 앱에서 값을 받을 수 있는지와 수신 주기는 검증합니다.</p></article><article class="note"><h3>상황과 기록을 함께 보기</h3><p>한 번의 행동으로 운전자의 의도나 졸음을 단정하지 않습니다. 세부 임계값과 종합점수 계산식은 위 초안을 바탕으로 논의합니다.</p></article><article class="note"><h3>주행 중 이용</h3><p>주행 중 애니메이션을 통제하고 STT만 지원합니다. 질문과 안내를 전달하는 구체적인 방식은 추후 정합니다.</p></article><article class="note"><h3>담당 업무</h3><p>이상효: 경로 기반 아바타와 데이터 기반 TTS. 이은룡: 주행 데이터 처리, 점수·멘트, 종료 리포트.</p></article></div></section>
+
+</div>
+<div id="panel-situations" role="tabpanel" aria-labelledby="tab-situations" tabindex="0" hidden>
+<div class="situation-controls"><span class="situation-label">상황 분류</span><div class="situation-buttons" id="situation-categories" aria-label="상황 분류"><button type="button" data-category="driving" aria-pressed="true">주행 행동</button><button type="button" data-category="safety" aria-pressed="false">안전과 에너지</button><button type="button" data-category="rest" aria-pressed="false">휴식과 환경</button><button type="button" data-category="pending" aria-pressed="false">보류·추가 검토</button><button type="button" data-category="details" aria-pressed="false">항목별 판단</button><button type="button" data-category="stages" aria-pressed="false">단계별 멘트</button></div></div>
+<div class="toolbar" role="group" aria-label="항목 검색 및 필터"><label for="search">항목 찾기</label><input class="search" type="search" id="search" placeholder="예: 안전벨트, 급가속, 날씨"><button class="filter" data-filter="all" aria-pressed="true">전체</button><button class="filter" data-filter="active" aria-pressed="false">평가 방향</button><button class="filter" data-filter="check" aria-pressed="false">확인 필요</button><button class="filter" data-filter="hold" aria-pressed="false">보류</button><span class="result" aria-live="polite" id="result"></span></div>
+<section class="section group" data-situation-category="driving"><div class="section-head"><h2>주행 행동</h2><p>종합적으로 살펴볼 운전 습관</p></div><div class="table-wrap"><table><thead><tr><th scope="col">항목</th><th scope="col">살펴볼 내용</th><th scope="col">판단할 때</th><th scope="col">눈티 멘트 초안</th><th scope="col">상태</th></tr></thead><tbody>
+<tr data-state="active"><td>급가속</td><td>시작 속도, 한 번에 증가한 속도, 걸린 시간</td><td>고속도로와 국도·일반도로를 나누고 시작 속도를 함께 고려합니다. 숫자 기준은 미정입니다.</td><td>“우와, 갑자기 빨라졌어요!”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>급감속</td><td>시간에 따른 속도 감소량</td><td>브레이크 사용 여부와 함께 기록합니다.</td><td>“어? 갑자기 느려졌어요!”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>급제동</td><td>브레이크 사용 중 발생한 급감속</td><td>같은 사건을 급감속과 중복 감점하지 않는 방향입니다.</td><td>“으악! 깜짝 놀랐어요!”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>앞차와의 거리</td><td>AAOS 선행차 거리와 자신의 속도로 거리·시간 간격 살펴보기</td><td>해당 AAOS 값은 ACC 관련 속성이며 앞차 미감지 또는 기능 비활성 시 없을 수 있습니다. Pleos·에뮬레이터 지원과 단위 확인 필요.</td><td>“앗, 앞차랑 너무 가까워요!”<br>회복: “휴, 이제 좀 안심돼요.”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>차선 변경·방향지시등</td><td>실제 차선 변경의 방향·시점과 방향지시등을 비교하는 방안</td><td>실제 변경 이벤트가 필요합니다. 차선 이탈 경고만으로 모든 차선 변경을 판별할 수 없으며 Pleos·에뮬레이터 지원은 미확인.</td><td>“앗, 깜빡이 켜고 가요!”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>후진 속도</td><td>후진 기어 상태에서 주행 속도를 측정하고 후진 속도를 평가합니다.</td><td>후진 기어와 속도 데이터의 실제 수신 및 시간 정렬 확인. 속도 기준과 지속 시간은 미정이며 데이터가 없으면 평가하지 않습니다.</td><td>“앗, 뒤로 너무 빨리 가요! 천천히요.”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>회전 전 감속</td><td>회전 지점에 접근할 때 거리별 속도 변화</td><td>내비 안내와 실제 회전의 일치, 판단 기준을 검증합니다.</td><td>“앗, 곧 돌아야 해요! 천천히요.”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>엑셀·브레이크 반복 조작</td><td>페달을 자주 밟았다 떼는 패턴</td><td>횟수만으로 위험하다고 판단하지 않습니다. 정체·경사 등 상황과 속도를 함께 검토합니다.</td><td>“여기서는 속도를 맞추기 어렵네요.”<br>상황을 확인한 뒤 사용</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="check"><td>속도 변화가 잦은 주행</td><td>예시로 30초 구간의 속도 범위와 가속·감속 방향 전환 횟수</td><td>비슷한 도로·속도대의 과거 구간과 비교합니다. 변화량·지속시간 기준은 미정이며 정체 등 상황을 확인합니다.</td><td>“속도가 자주 바뀌네요. 무슨 상황일까요?”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>브레이크·엑셀 동시 사용</td><td>두 페달의 동시 입력 시간과 횟수</td><td>짧은 발 이동과 구분할 기준, 엑셀 데이터 수신을 확인합니다.</td><td>“어? 두 페달을 같이 밟고 있나요?”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>주차 브레이크 중 엑셀</td><td>주차 브레이크가 체결된 상태의 엑셀 사용</td><td>상태·입력 정도와 지속시간, 데이터 수신을 확인합니다.</td><td>“잠깐, 주차 브레이크가 걸려 있어요.”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>중립에서 엑셀</td><td>선택 기어가 N일 때의 엑셀 사용</td><td>입력 정도·시간과 상황을 함께 살펴봅니다.</td><td>“어? 기어가 중립에 있어요.”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>추월 시 가속</td><td>추월 전 속도, 속도 증가량, 최대 속도</td><td>실제 추월을 확인할 수 있는 데이터가 필요합니다.</td><td>“앗, 추월할 때 속도가 많이 올라갔어요!”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>방향지시등</td><td>내비 좌회전·우회전 안내와 해당 방향 지시등 사용</td><td>안내와 실제 회전은 다를 수 있어 회전 여부의 확인 방법을 검증합니다.</td><td>“우리 깜빡이 켰나요?”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>제한속도 준수</td><td>차량 속도, 유효한 제한속도, 초과 시간</td><td>제한속도 정보가 없거나 오래된 구간은 확정하지 않습니다.</td><td>“앗, 너무 빨라요! 조금만 천천히 가요.”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>조향 변화</td><td>속도에 따른 앞바퀴 방향 변화</td><td>보조 데이터로 검토합니다. 도로 상황을 모르면 위험 운전으로 단정하지 않습니다.</td><td>— 보조 데이터로만 검토</td><td><span class="tag check">확인 필요</span></td></tr>
+</tbody></table></div></section>
+<section class="section group" data-situation-category="safety"><div class="section-head"><h2>안전과 에너지</h2><p>출발 상태와 주행 중 상태를 함께 확인</p></div><div class="table-wrap"><table><thead><tr><th scope="col">항목</th><th scope="col">살펴볼 내용</th><th scope="col">판단할 때</th><th scope="col">눈티 멘트 초안</th><th scope="col">상태</th></tr></thead><tbody>
+<tr data-state="active"><td>안전벨트</td><td>운전자·동승자의 주행 중 미착용 상태와 차량 경고</td><td>Pleos 안전벨트 경고·착용·탑승 상태 API의 실제 지원 좌석과 수신 여부를 확인합니다. 빈 좌석과 데이터 누락은 미착용으로 보지 않습니다.</td><td>“잠깐, 안전벨트 다 맸나요?”<br>착용 후: “휴, 이제 안심이에요!”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>야간 전조등</td><td>AUTO 설정과 실제 점등 여부</td><td>AUTO는 밝기에 따라 작동합니다. 평가에 반영합니다. 주변 밝기 감지·점등 상태 데이터 및 세부 기준은 확인이 필요합니다.</td><td>“어두운데 전조등 켜져 있나요?”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>문 열림</td><td>문이 열린 상태에서 운행하는지</td><td>주행 중 문 열림은 감점 요인입니다. 출발 전 일시적 열림과 구분합니다.</td><td>“앗, 문이 열려 있어요! 안전한 곳에 세우고 확인해요.”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="check"><td>사이드미러 접힘</td><td>출발 전과 주행 중 접힘 상태</td><td>기획은 권한·데이터를 사용할 수 있다고 가정합니다. 실제 연동은 검증이 필요합니다.</td><td>“사이드미러가 접혀 있어요. 안전한 곳에서 확인해요.”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="active"><td>연비·전비</td><td>효율적인 주행을 긍정적으로 평가</td><td>비슷한 도로·환경의 과거 기록과 비교하는 방안을 검토합니다.</td><td>“오늘은 에너지를 아끼면서 달렸어요!”<br>비슷한 조건 비교 가능 시</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="active"><td>연료·배터리 잔량</td><td>남은 양이 부족할 때 안내</td><td>잔량은 주행 습관 점수에 넣지 않습니다. 부족 기준은 미정입니다.</td><td>“연료나 배터리가 부족해요. 미리 확인해요!”</td><td><span class="tag active">안내만</span></td></tr>
+</tbody></table></div></section>
+<section class="section group" data-situation-category="rest"><div class="section-head"><h2>휴식과 주행 상황</h2><p>사용자의 평소 패턴과 주행 맥락</p></div><div class="table-wrap"><table><thead><tr><th scope="col">항목</th><th scope="col">살펴볼 내용</th><th scope="col">판단할 때</th><th scope="col">눈티 멘트 초안</th><th scope="col">상태</th></tr></thead><tbody>
+<tr data-state="active"><td>개인별 휴식 패턴</td><td>과거 주행과 휴식 간격·횟수·길이 비교</td><td>비슷한 여행끼리 비교합니다. 실제 휴식 여부와 과거 데이터의 충분성을 확인합니다.</td><td>“평소와 쉬는 패턴이 다르네요. 피곤하신가요?”</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="check"><td>잦은 휴식과 졸음</td><td>평소보다 자주 쉬면 피로·졸음 가능성 확인</td><td>충전·식사 등 다른 이유가 있을 수 있어 운전자에게 확인하고 졸음을 단정하지 않습니다.</td><td>“오늘은 자주 쉬고 있네요. 혹시 피곤하신가요?”</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="active"><td>도로 선택</td><td>사용자가 고속도로 또는 국도·일반도로 선택</td><td>선택 기록에 따라 구간별 기준을 적용합니다. 실제 진입을 자동 확인한 기록은 아닙니다.</td><td>“고속도로와 국도·일반도로 중 어디로 달릴까요?”<br>아바타 생성 후</td><td><span class="tag active">평가 방향</span></td></tr>
+<tr data-state="hold"><td>비·어두움</td><td>평소보다 10~20km/h 낮은 속도를 참고하는 구상</td><td>날씨·밝기 감지 방법과 적용값은 보류 중입니다. 확정된 안전 속도는 아닙니다.</td><td>— 날씨·밝기 감지 보류</td><td><span class="tag hold">보류</span></td></tr>
+</tbody></table></div></section>
+<section class="section group" data-situation-category="pending"><div class="section-head"><h2>나중에 결정할 항목</h2><p>확인 전에는 평가에 적용하지 않음</p></div><div class="table-wrap"><table><thead><tr><th scope="col">항목</th><th scope="col">보류한 내용</th><th scope="col">다시 확인할 부분</th><th scope="col">상태</th></tr></thead><tbody>
+<tr data-state="hold"><td>톨게이트 신호</td><td>진입·출구 이벤트로 고속도로 기록</td><td>서드파티 앱에서 하이패스 이벤트를 받을 수 있는지 확인합니다.</td><td><span class="tag hold">보류</span></td></tr>
+<tr data-state="hold"><td>와이퍼 활용</td><td>와이퍼 상태로 비 오는 상황 추정</td><td>작동 상태와 실제 강수는 다를 수 있어 활용 방법을 나중에 정합니다.</td><td><span class="tag hold">보류</span></td></tr>
+<tr data-state="hold"><td>자동변속기 반복 변속</td><td>D 주행 중 실제 단수가 오르내리는 변속 헌팅</td><td>실제 단수 데이터와 차종별 기준을 확인합니다.</td><td><span class="tag hold">보류</span></td></tr>
+<tr data-state="hold"><td>타이어 공기압</td><td>공기압을 평가에 활용하는 방안</td><td>현재 주행 습관 평가에서는 보류했습니다.</td><td><span class="tag hold">보류</span></td></tr>
+<tr data-state="hold"><td>에코·스포츠 모드</td><td>모드별 권장 주행과 평가</td><td>차종별 특성과 평가 방식을 나중에 검토합니다.</td><td><span class="tag hold">보류</span></td></tr>
+<tr data-state="hold"><td>크루즈 주행</td><td>크루즈 사용에 따른 평가·기록</td><td>도로 상황과 제어 특성에 따른 해석을 나중에 검토합니다.</td><td><span class="tag hold">보류</span></td></tr>
+<tr data-state="hold"><td>상향등</td><td>상황마다 다르므로 평가 후보에서 제외</td><td>사용자의 요청으로 제외한 항목입니다.</td><td><span class="tag hold">제외</span></td></tr>
+</tbody></table></div></section>
+<section class="section group" data-situation-category="pending"><div class="section-head"><h2>추가로 살펴볼 후보</h2><p>아직 평가 항목으로 확정하지 않았습니다</p></div><div class="table-wrap"><table><thead><tr><th scope="col">후보</th><th scope="col">살펴볼 내용</th><th scope="col">필요한 확인</th><th scope="col">상태</th></tr></thead><tbody>
+<tr data-state="hold"><td>전방 충돌 경고</td><td>사용자 의견에 따라 앞차 거리 중심으로 검토</td><td>경고를 종합 평가에 사용하는 방안은 우선 진행하지 않습니다.</td><td><span class="tag hold">보류</span></td></tr>
+<tr data-state="check"><td>졸음·주의 분산 경고</td><td>AAOS 졸음·주의 분산 상태와 경고를 기존 휴식 패턴과 함께 살펴보기</td><td>AAOS에 졸음·주의 분산 상태 및 경고 속성이 있으나 실제 지원은 미확인. 값이 없거나 감시 기능이 꺼져 있으면 안전하다고 판단하지 않습니다.</td><td><span class="tag check">확인 필요</span></td></tr>
+<tr data-state="check"><td>보호구역 주행</td><td>보호구역 진입 여부와 해당 구간의 제한속도를 확인할 수 있다면 속도 변화를 살펴보기</td><td>NaviHelper에 주의 지점·카메라 알림과 도로 제한속도 콜백이 있으나 보호구역 유형과 진입·이탈 제공 여부는 미확인. SCHOOL_ZONE은 경로 옵션입니다.</td><td><span class="tag check">확인 필요</span></td></tr>
+</tbody></table></div></section>
+<div class="empty" id="empty">일치하는 항목이 없습니다. 다른 검색어 또는 필터를 선택해 주세요.</div>
+<section class="section" data-situation-category="details"><div class="section-head" style="margin-top:24px"><h2>항목별 판단과 표현</h2><p>멘트는 동승자처럼 반응하는 초안입니다. 주행 중 전달 방식은 미정입니다.</p></div><div class="table-wrap"><table><thead><tr><th scope="col">항목</th><th scope="col">점수 반영 초안</th><th scope="col">감정과 문구 예시</th><th scope="col">조건</th></tr></thead><tbody>
+<tr><td>급가속</td><td>도로별·시작 속도별 속도 증가량과 시간을 비교해 확인된 사건 반영</td><td>걱정 · “우와, 갑자기 빨라졌어요!”</td><td>기준 미정</td></tr>
+<tr><td>급감속·급제동</td><td>하나의 사건으로 처리하고 제동 여부를 기록. 위험 회피 등 확인 불가 시 감점 보류</td><td>걱정 · “으악! 깜짝 놀랐어요!”</td><td>중복 방지</td></tr>
+<tr><td>속도 변화·페달 반복</td><td>속도대·정체 등 맥락과 함께 살피고 횟수만으로 감점하지 않음</td><td>차분함 · “속도 변화가 잦았던 구간을 함께 살펴봐요.”</td><td>맥락 필요</td></tr>
+<tr><td>두 페달 동시·주차 브레이크·중립 중 엑셀</td><td>짧은 전환과 필요한 조작을 구분하고 지속·반복과 상황을 확인해 반영</td><td>걱정 · “페달과 기어 상태를 확인해 주세요.”</td><td>판정 검증</td></tr>
+<tr><td>추월 가속</td><td>실제 추월 확인 후 속도 증가와 상황을 살펴 반영</td><td>걱정 · “추월 중 속도 변화가 컸어요.”</td><td>추월 확인</td></tr>
+<tr><td>앞차 거리</td><td>속도에 따른 거리·시간 간격이 짧은 상태의 지속을 평가</td><td>걱정 · “앗, 앞차랑 너무 가까워요!”</td><td>거리 필요</td></tr>
+<tr><td>차선 변경·회전 지시등</td><td>실제 이동 방향과 시점에 맞는 지시등을 확인해 반영</td><td>아쉬움 · “앗, 깜빡이 켜고 가요!”</td><td>이동 확인</td></tr>
+<tr><td>회전 전 감속</td><td>실제 회전 전 거리별 속도 변화와 상황을 확인해 평가</td><td>안도 · “회전 전에 속도를 잘 줄였어요.”</td><td>회전 확인</td></tr>
+<tr><td>후진 속도</td><td>후진 중 속도와 지속시간을 살펴 반영</td><td>걱정 · “앗, 뒤로 너무 빨리 가요! 천천히요.”</td><td>기준 미정</td></tr>
+<tr><td>안전벨트</td><td>주행 중 운전자·탑승이 확인된 동승자의 미착용을 하나의 지속 상태로 평가</td><td>걱정 → 안도 · “탑승자의 안전벨트를 확인해 주세요.”</td><td>탑승 확인</td></tr>
+<tr><td>문·사이드미러</td><td>주행 중 문 열림 또는 미러 접힘 상태를 확인해 반영</td><td>걱정 → 안도 · “출발 전 문과 사이드미러를 확인해요.”</td><td>상태 확인</td></tr>
+<tr><td>야간 전조등</td><td>야간 판단과 실제 소등이 모두 확인되면 반영. AUTO 설정만으로 판단하지 않음</td><td>걱정 → 안도 · “전조등이 켜져 있는지 확인해 주세요.”</td><td>밝기 미정</td></tr>
+<tr><td>제한속도</td><td>유효한 제한속도와 실제 속도·초과 지속시간을 비교</td><td>걱정 · “앗, 너무 빨라요! 조금만 천천히 가요.”</td><td>정보 유효성</td></tr>
+<tr><td>연비·전비</td><td>유사 조건의 개인 기록과 비교해 좋은 효율을 긍정 반영</td><td>기쁨 · “오늘은 효율적으로 달렸어요.”</td><td>비교 필요</td></tr>
+<tr><td>휴식·졸음 가능성</td><td>과거 휴식 패턴과 비교해 확인 계기로 활용. 잦은 휴식 자체로 감점하지 않음</td><td>걱정 · “평소와 휴식 패턴이 달랐어요. 피곤하셨나요?”</td><td>점수 보류</td></tr>
+<tr><td>연료·배터리 잔량</td><td>부족 알림만 제공하고 주행 습관 점수에 반영하지 않음</td><td>걱정 · “남은 연료나 배터리를 확인해 주세요.”</td><td>안내만</td></tr>
+</tbody></table></div>
+</section>
+<section class="section" id="nunti-lines" data-situation-category="stages"><div class="section-head"><h2>주행 단계별 눈티 멘트 · 초안</h2><p>아바타 생성 완료 후부터 등장합니다. 동승자처럼 짧고 자연스럽게 반응하는 멘트 초안입니다.</p></div><div class="notice">주행 중 애니메이션 통제와 STT만 지원한다는 전제를 유지합니다. 주행 중 문구는 상황에 따른 <strong>내부 기록·후기 후보</strong>이며 즉시 음성이나 화면으로 출력하기로 결정한 것은 아닙니다. 출발 전·정차 중의 출력 방식도 별도로 정합니다.</div>
+<div class="table-wrap"><table><thead><tr><th scope="col">단계·상황</th><th scope="col">눈티의 감정</th><th scope="col">멘트 초안</th><th scope="col">조건</th></tr></thead><tbody>
+<tr><td>아바타 생성 완료·첫인사</td><td>반가움·기대</td><td>“오늘의 경로에 맞춰 준비했어요. 함께 떠나볼까요?”</td><td>생성 완료 후</td></tr>
+<tr><td>도로 유형 선택</td><td>차분함</td><td>“어떤 도로를 주로 달릴까요? 고속도로와 국도·일반도로 중에서 알려주세요.”</td><td>생성 완료 후</td></tr>
+<tr><td>출발 전 안전 확인</td><td>관심</td><td>“출발하기 전에 안전벨트와 문, 사이드미러를 확인해 주세요.”</td><td>생성 완료 후</td></tr>
+<tr><td>주행 시작</td><td>기대</td><td>“준비됐어요. 오늘도 편안하게 출발해요.”</td><td>주행 시작</td></tr>
+<tr><td>안정적인 주행</td><td>평온</td><td>“지금처럼 편안하게 가요.”</td><td>주행 중 기록</td></tr>
+<tr><td>급가속</td><td>걱정</td><td>“우와, 갑자기 빨라졌어요!”</td><td>주행 중 기록</td></tr>
+<tr><td>급감속·급제동</td><td>걱정</td><td>“으악! 깜짝 놀랐어요!”</td><td>주행 중 기록</td></tr>
+<tr><td>속도 변화·페달 반복</td><td>차분함</td><td>“속도 변화가 잦은 구간이 있었어요. 상황을 함께 살펴볼게요.”</td><td>맥락 확인</td></tr>
+<tr><td>두 페달 동시 입력</td><td>관심</td><td>“브레이크와 엑셀 입력이 겹친 구간이 있었어요.”</td><td>전환 구분</td></tr>
+<tr><td>주차 브레이크·중립 중 엑셀</td><td>관심</td><td>“엑셀을 밟을 때 기어와 주차 브레이크 상태를 확인해 주세요.”</td><td>상태 확인</td></tr>
+<tr><td>추월 중 가속</td><td>걱정</td><td>“추월하면서 속도가 많이 달라졌어요. 속도 변화에 주의해 주세요.”</td><td>추월 확인</td></tr>
+<tr><td>앞차와 가까워짐</td><td>걱정</td><td>“앗, 앞차랑 너무 가까워요!”</td><td>거리 확인</td></tr>
+<tr><td>안전거리 회복</td><td>안도</td><td>“휴, 이제 좀 안심돼요.”</td><td>상태 회복</td></tr>
+<tr><td>차선 변경 방향지시등</td><td>관심</td><td>“앗, 깜빡이 켜고 가요!”</td><td>실제 변경 확인</td></tr>
+<tr><td>회전 방향지시등</td><td>관심</td><td>“우리 깜빡이 켰나요?”</td><td>실제 회전 확인</td></tr>
+<tr><td>회전 전 감속 부족</td><td>걱정</td><td>“앗, 곧 돌아야 해요! 천천히요.”</td><td>실제 회전 확인</td></tr>
+<tr><td>회전 전 감속 양호</td><td>안도</td><td>“회전하기 전에 여유 있게 속도를 줄였어요.”</td><td>상황 확인</td></tr>
+<tr><td>후진 속도</td><td>걱정</td><td>“앗, 뒤로 너무 빨리 가요! 천천히요.”</td><td>기준 미정</td></tr>
+<tr><td>안전벨트 미착용</td><td>걱정</td><td>“잠깐, 안전벨트 다 맸나요?”</td><td>탑승 확인</td></tr>
+<tr><td>안전벨트 착용 확인</td><td>안도</td><td>“휴, 이제 안심이에요!”</td><td>상태 회복</td></tr>
+<tr><td>주행 중 문 열림</td><td>걱정</td><td>“문이 열려 있어요. 안전한 곳에 정차해 확인해 주세요.”</td><td>상태 확인</td></tr>
+<tr><td>사이드미러 접힘</td><td>걱정</td><td>“사이드미러 상태를 확인해 주세요. 필요하면 안전한 곳에 정차해 살펴봐요.”</td><td>상태 확인</td></tr>
+<tr><td>야간 전조등 소등</td><td>걱정</td><td>“어두운데 전조등 켜져 있나요?”</td><td>어두움·소등 확인</td></tr>
+<tr><td>제한속도 초과</td><td>걱정</td><td>“앗, 너무 빨라요! 조금만 천천히 가요.”</td><td>정보 유효</td></tr>
+<tr><td>휴식 패턴 변화</td><td>관심</td><td>“오늘은 평소와 쉬는 패턴이 다르네요. 피곤하신가요?”</td><td>개인 비교 가능</td></tr>
+<tr><td>연료·배터리 부족</td><td>걱정</td><td>“남은 연료나 배터리가 부족해요. 충전 또는 주유 계획을 확인해 주세요.”</td><td>점수 제외</td></tr>
+<tr><td>상태가 다시 안정됨</td><td>안도 → 평온</td><td>“휴, 이제 편안해졌어요.”</td><td>상태 회복</td></tr>
+<tr><td>주행 종료 · 좋은 흐름</td><td>기쁨</td><td>“오늘은 함께 달리는 내내 마음이 편안했어요. 덕분에 기분 좋은 여행이었어요.”</td><td>결과 확인</td></tr>
+<tr><td>주행 종료 · 걱정된 순간</td><td>걱정 → 따뜻함</td><td>“오늘은 [확인된 상황] 때문에 조금 걱정되기도 했지만, 함께 무사히 도착해서 다행이에요.”</td><td>근거 제시</td></tr>
+<tr><td>주행 종료 · 회복한 경우</td><td>안도</td><td>“중간에는 조금 놀랐지만, 다시 편안하게 달려서 마음이 놓였어요. 오늘도 함께해 줘서 고마워요.”</td><td>회복 확인</td></tr>
+<tr><td>주행 종료 · 데이터 부족</td><td>차분함</td><td>“오늘 함께 달려서 좋았어요. 다만 확인하지 못한 주행 정보가 있어서 오늘의 운전을 모두 돌아보긴 어려워요.”</td><td>평가 불가</td></tr>
+<tr><td>효율적인 주행</td><td>기쁨</td><td>“비슷한 주행과 비교했을 때 오늘은 에너지를 효율적으로 사용했어요.”</td><td>비교 가능</td></tr>
+</tbody></table></div></section>
+
+
+</div>
+<div id="panel-review" role="tabpanel" aria-labelledby="tab-review" tabindex="0" hidden>
+<section class="section" id="final-review"><div class="section-head"><h2>주행 종료 · 눈티의 최종 후기</h2><p>함께 달리며 느낀 감정을 돌아보는 멘트 초안</p></div><div class="notice">눈티가 실제로 확인한 주행 상황과 감정의 변화를 바탕으로 후기를 만듭니다. 아래 문구는 예시이며, 확인하지 못한 일을 단정하지 않습니다.</div><div class="table-wrap"><table><thead><tr><th scope="col">오늘의 주행</th><th scope="col">감정의 흐름</th><th scope="col">눈티의 최종 후기 예시</th><th scope="col">표현 조건</th></tr></thead><tbody>
+<tr><td>전반적으로 편안했던 날</td><td>평온 → 기쁨</td><td>“오늘은 함께 달리는 내내 마음이 편안했어요. 덕분에 기분 좋은 여행이었어요.”</td><td>안정적인 주행 확인</td></tr>
+<tr><td>걱정된 순간이 있었던 날</td><td>걱정 → 안도</td><td>“오늘은 앞차와 가까워져서 조금 걱정되기도 했지만, 함께 무사히 도착해서 다행이에요.”</td><td>상황과 도착 확인</td></tr>
+<tr><td>놀랐다가 안정된 날</td><td>놀람 → 안도</td><td>“중간에는 조금 놀랐지만, 다시 편안하게 달려서 마음이 놓였어요. 오늘도 함께해 줘서 고마워요.”</td><td>상황과 회복 확인</td></tr>
+<tr><td>주행 정보가 부족한 날</td><td>차분함</td><td>“오늘 함께 달려서 좋았어요. 다만 확인하지 못한 주행 정보가 있어서 오늘의 운전을 모두 돌아보긴 어려워요.”</td><td>평가 정보 부족</td></tr>
+</tbody></table></div><div class="note-grid" style="margin-top:24px"><article class="note"><h3>후기의 방향</h3><p>점수를 설명하거나 운전자에게 지시하기보다 눈티가 동승자로서 어떤 기분이었는지 이야기합니다. 걱정했던 순간뿐 아니라 이후 회복된 감정도 함께 담습니다.</p></article><article class="note"><h3>후기 생성에 사용할 정보</h3><p>확인된 주행 상황, 감정의 변화와 회복, 평가 가능한 데이터 범위를 사용합니다. 멘트 생성 방식과 세부 표현은 계속 논의합니다.</p></article></div></section>
+
+
+</div>
+</main><footer class="wrap bottom"><p>마지막 정리 · 2026년 11월 1일</p><p>논의 메모와 함께 업데이트하는 작업 문서입니다.</p><div class="sources"><a href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/Vehicle/intro">Pleos Vehicle SDK</a><a href="https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/event-listeners">NaviHelper 이벤트</a><a href="https://developer.android.com/reference/android/car/VehiclePropertyIds">AAOS 차량 데이터</a></div></footer>
+<script>
+(()=>{const tabs=[...document.querySelectorAll('[role=tab]')];function selectTab(tab){for(const item of tabs){const active=item===tab;item.setAttribute('aria-selected',String(active));item.tabIndex=active?0:-1;document.getElementById(item.getAttribute('aria-controls')).hidden=!active}}for(const tab of tabs){tab.addEventListener('click',()=>selectTab(tab));tab.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();const next=tabs[(tabs.indexOf(tab)+(event.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];selectTab(next);next.focus()}})}if(location.hash==='#final-review')selectTab(document.querySelector('#tab-review'));else if(location.hash==='#nunti-lines')selectTab(document.querySelector('#tab-situations')); const input=document.querySelector('#search');const buttons=[...document.querySelectorAll('.filter')];const groups=[...document.querySelectorAll('.group')];const sections=[...document.querySelectorAll('[data-situation-category]')];const categories=[...document.querySelectorAll('#situation-categories button')];let filter='all',category='driving';function categoryRows(){return groups.filter(g=>g.dataset.situationCategory===category).flatMap(g=>[...g.querySelectorAll('tr[data-state]')])}function update(){const q=input.value.trim().toLocaleLowerCase();const rows=categoryRows();const isTable=rows.length>0;document.querySelector('.toolbar').hidden=!isTable;let count=0;for(const row of rows){const visible=(filter==='all'||row.dataset.state===filter)&&(!q||row.textContent.toLocaleLowerCase().includes(q));row.hidden=!visible;if(visible)count++}for(const section of sections){section.hidden=section.dataset.situationCategory!==category||(section.classList.contains('group')&&!section.querySelector('tr[data-state]:not([hidden])'))}document.querySelector('#result').textContent=`${count}개 항목`;document.querySelector('#empty').classList.toggle('show',isTable&&count===0)}function chooseCategory(value){category=value;input.value='';filter='all';for(const b of buttons)b.setAttribute('aria-pressed',String(b.dataset.filter==='all'));for(const b of categories)b.setAttribute('aria-pressed',String(b.dataset.category===category));update()}for(const button of categories)button.addEventListener('click',()=>chooseCategory(button.dataset.category));for(const button of buttons)button.addEventListener('click',()=>{filter=button.dataset.filter;for(const b of buttons)b.setAttribute('aria-pressed',String(b===button));update()});input.addEventListener('input',update);chooseCategory(location.hash==='#nunti-lines'?'stages':'driving')})();
+</script>
+</body></html>
