@@ -20,8 +20,10 @@
   최종 Lint XML은 오류 0개/경고 7개이며 APK 내 TTS/Pleos 클래스도 재확인했다.
   이전 `2159214e...`는 첫 성공 빌드의 해시이고 현재 APK와 구분한다.
   포장 검증 기록: `build/verification/apk-packaging.json`.
-- 실제 SDK 초기화·재생, 한국어 음질, mode별 fallback 및 차량 오디오 지연은 **미검증**.
-- 한국어 WAV는 macOS Yuna 참고 음성이다. Pleos 음성의 검증 근거가 아니다.
+- 후속 Pleos Connect 2.1.0 ARM/API34 에뮬레이터에서 ON_DEVICE 초기화·재생을 SERVER가 관찰했다.
+  실제 캡처 WAV의 PCM 존재와 통계는 TTS 세션에서도 파일을 읽어 재확인했다(아래 후속 검증).
+- 인간 청취에 의한 한국어 내용/음질, 첫 음절, mode별 fallback, 실차 오디오 지연은 **미검증**.
+- `demo/reference-ko.wav`는 macOS Yuna 참고 음성이다. 새 `tts-first.wav`는 에뮬레이터 출력 캡처로 별개다.
 
 재현:
 
@@ -38,11 +40,11 @@ TTS 모듈의 Java source/target17 명시로 수정했다. APK 패키징 성공�
 
 | 항목 | 근거 및 구현 | 실행 검증 |
 |---|---|---|
-| initialize / release | OnInitializeListener success/failure와 새 객체 재초기화 사용 | JVM fake 수명 테스트; 차량 미검증 |
+| initialize / release | OnInitializeListener success/failure와 새 객체 재초기화 사용 | JVM fake 테스트 + 에뮬레이터 초기화 관찰; 실차 미검증 |
 | setLocale | `Locale.forLanguageTag`, 기본 ko-KR. 공식 locale 목록만 노출 | 실제 바이너리 컴파일 |
 | speak / stop | `speak(text, true)`, 중단/오류 시 취소, 원문 재전송 안 함 | 실제 바이너리 컴파일 |
 | listener | Ready/Start/Done/Stop/Error/RMS, 동일 인스턴스 제거, 중복 등록 억제 | JVM fake 테스트 |
-| ON_DEVICE | 기본 선택, 앱 등록 생략 | 오프라인 Mock만 검증 |
+| ON_DEVICE | 기본 선택, 앱 등록 생략 | Pleos 에뮬레이터 초기 발화 관찰 + PCM 캡처; 네트워크 차단 시험은 별도 |
 | HYBRID | 앱 등록/연결 후 요청. 등록 이후 fallback은 SDK 담당 | 전환 음색/지연/실기기 동작 미검증 |
 | SERVER | 연결 성공 대기, 실패 반환, 자동 재발화 없음 | Mock 네트워크 오류 및 fake 등록 실패 검증 |
 | setSpeakerType(String) | 메서드 존재를 AAR `javap`로 확인. 허용 문자열/목록 미확인 | 호출하지 않음 |
@@ -173,7 +175,7 @@ requestId/tripId/reason/appliedVoice/mode/startLatencyMs. startLatency는 monoto
 문장 앞 공백/SSML/Thread.sleep/단순 delayed speak로 padding을 가장하지 않는다.
 SDK/OEM이 기본 padding을 제공하는지 확인하고, 미제공이면 공식 지원 방식 또는 합법적 클립 경로를 협의한다.
 
-차량/에뮬레이터 체크리스트(모두 아직 미수행):
+차량/에뮬레이터 후속 체크리스트(초기 주차 ON_DEVICE 테스트 외 항목은 아직 미수행):
 
 - TTS_SERVICE 권한, ON_DEVICE 초기화/ko-KR/Ready→Start→Done, stop→onStop, 반복 listener 누수.
 - 실제 허용 화자 값과 default voice 확인, mode별 같은 화자 정체성 청취.
@@ -187,7 +189,33 @@ SDK/OEM이 기본 padding을 제공하는지 확인하고, 미제공이면 공�
 음질·성능 평가 프로토콜: 제공된 A~D 문장과 날짜/숫자/도로명 포함 승인 문장 30개,
 ON_DEVICE/HYBRID/SERVER별 cold/warm 및 offline 각 최소 30회. 첫 가청 샘플 지연 p50/p95,
 SDK onStart 지연 p50/p95, 취소→무음 시간, 첫 음절 누락률, 발음 정확도, 화자 일관성,
-5점 자연스러움/감정 전달 평가를 기록한다. 현재 측정값은 **없음**. Mock 0ms를 성능 수치로 사용하지 않는다.
+5점 자연스러움/감정 전달 평가를 기록한다. 반복 실험/p50/p95 측정값은 **없음**.
+아래의 단일 73ms SDK callback 관찰이나 Mock 0ms를 가청 지연/품질 benchmark로 사용하지 않는다.
+
+## 후속 에뮬레이터 초기 재생 검증
+
+2026-11-01 SERVER 세션의 공식 Pleos Connect 2.1.0 ARM/API34 에뮬레이터 검증이다.
+초기 Android35 컴파일 검증 및 실제 차량 검증과 구분한다. 진단 Activity는 debug/emulator 전용이며,
+경로·감정 입력은 Mock, 주차/UX 관측은 실제 에뮬레이터 Car 상태다.
+
+- SERVER 관찰: 앱 PID12010에서 ON_DEVICE initialize → NOTIFICATION AudioAttributes → listener → ko_KR.
+- SERVER 관찰: QUEUED → STARTED(submit부터 73ms) → COMPLETED(발화 약5.05초).
+  이 수치는 첫 가청 샘플 측정이 아니며 한 번의 callback 관찰이다.
+- root `initial-logcat.txt`에서 실제 gear4(P)/speed0/UX known/DO=false 및 debug Mock 표시를 확인했다.
+- TTS_SERVICE/CAR_POWERTRAIN/CAR_SPEED 권한 grant, focus-empty/in-call=false는 SERVER 관찰이다.
+  경쟁 오디오는 운영자가 통제한 테스트 조건이며 일반 앱의 자동 상태 탐지 검증으로 확대하지 않는다.
+- gRPC speaker 출력 캡처 `tts-first.wav`: 48,000Hz, 16bit, stereo, 407,117 frames, 8.4816초.
+  TTS 세션이 파일을 다시 읽어 nonzero samples300,794, peak1,408, RMS207.3769를 확인했다.
+  캡처 길이에는 발화 전후 구간이 포함되므로 발화 시간5.05초와 다르다.
+- WAV SHA-256: `417cefdc4d3b8229efa058d8605949c5445be2c6c81cbfff3b2f1b9f39b49ada`.
+- 캡처는 호스트 마이크가 아닌 에뮬레이터 speaker 경로다. 인간 청취/한국어 내용 정확도/첫 음절 품질은 미검증.
+- 발화·SDK 초기화 raw log, 요청 ID/시각 및 권한 자료의 최종 보존을 SERVER에 요청했다.
+  갱신 시점의 `initial-logcat.txt`에는 발화 callback이 아직 없으므로 해당 callback 관찰은 위처럼 출처를 구분한다.
+- 재생 중 D/속도 전환, P 복귀, 명시적 stop, background 취소는 SERVER가 후속 검증 중이다.
+  아직 결과를 미리 통과로 표시하지 않는다. HYBRID/SERVER/실차/장시간 누수 검증도 남아 있다.
+
+증거 위치(루트 통합 작업 공간):
+`docs/architecture/validation-evidence/pleos-runtime/{initial-logcat.txt,tts-first.json,tts-first.wav}`.
 
 ## 외부 감정형 TTS 비교
 
