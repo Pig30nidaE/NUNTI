@@ -15,6 +15,10 @@
 - AVATAR 통합 Gradle `assembleDebug` 성공(AGP8.10.1/Kotlin2.2.21/Gradle8.11.1/JDK21).
   `app-debug.apk`에 TTS/voice 및 실제 Pleos TextToSpeech class가 포함된 것을 DEX로 확인했다.
   APK 위치: `/private/tmp/nunti-avatar/android/build/app/outputs/apk/debug/app-debug.apk`.
+  최종 AVATAR 기준 `f6ad9ac`, APK SHA-256
+  `bdef0dd81b28f91dfaad570b7c0a9b8a801aad87a3a557148efe8f962174b547`.
+  최종 Lint XML은 오류 0개/경고 7개이며 APK 내 TTS/Pleos 클래스도 재확인했다.
+  이전 `2159214e...`는 첫 성공 빌드의 해시이고 현재 APK와 구분한다.
   포장 검증 기록: `build/verification/apk-packaging.json`.
 - 실제 SDK 초기화·재생, 한국어 음질, mode별 fallback 및 차량 오디오 지연은 **미검증**.
 - 한국어 WAV는 macOS Yuna 참고 음성이다. Pleos 음성의 검증 근거가 아니다.
