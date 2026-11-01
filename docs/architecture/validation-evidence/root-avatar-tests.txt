@@ -1,0 +1,70 @@
+PASS representative city/long/coast/mountain differentiation
+PASS same input same full AvatarSpec
+PASS engine snapshots mutable rule configuration
+PASS map/evidence iteration ordering does not affect output
+PASS identity fixed across routes and seeds
+PASS seed cannot override evidence and unique winner
+PASS coast requires verified evidence
+PASS destination name never implies terrain
+PASS HIGHWAY option never implies road ratio
+PASS missing ratios/destination/terrain succeeds
+PASS negative/NaN/infinite/huge distance becomes UNKNOWN
+PASS invalid ratio sums and values are not normalized into evidence
+PASS stale revision evidence cannot be reused
+PASS same evidence cannot be applied to altered values
+PASS revision preserves avatarId; different route avoids storage collision
+PASS unknown schema falls back safely
+PASS untrusted/user-declared geography is not verified
+PASS low/NaN confidence evidence rejected
+PASS threshold boundary behavior is explicit
+PASS no-data confidence is zero, not average of present data
+PASS conflicting terrain candidates retain scores and tie explanation
+PASS every selected non-base theme has verified evidence and explanation
+PASS part slot/theme/exclusion/face/anchor/contrast constraints
+PASS missing resource candidate falls back before rendering
+PASS unsupported identity rejected
+PASS no data stays neutral
+PASS stable hysteresis requires sustained observations
+PASS hysteresis gap resets evidence window
+PASS calm startled relieved calm demo
+PASS interactive demo uses actual reducer timeline
+PASS unverified event and nonfinite confidence do not cause negative emotion
+PASS duplicate event and correlated incident suppressed
+PASS out of order/future/expired/cross-trip rejected
+PASS same timestamp higher priority hazard supersedes concern
+PASS startle times out without asserting recovery
+PASS minimum dwell queues valid recovery
+PASS cooldown limits recurrent startle after recovery
+PASS debounce suppresses rapid new event ids
+PASS unmatched recovery and positive feedback cannot erase concern
+PASS stale calm returns to neutral; clock reversal rejected
+PASS trip end freezes state; next trip fully resets
+PASS trip end at same timestamp as hazard still closes trip
+PASS emotion app-restart journal restores pending recovery and dedup
+PASS unknown/blocked/stale platform policy hides entire avatar
+PASS driving requires explicit host approval, freezes expression and semantics
+PASS parked pre/post expressions render; all expression states preserve body
+PASS missing renderer assets fall back to safe base and face
+PASS renderer supports portrait/landscape scaling without coordinate drift
+PASS wire route evidence and numeric unknown remainder
+PASS production registry does not trust mock sources
+PASS expired wire evidence is UNKNOWN
+PASS tag-specific evidence cannot verify unrelated terrain
+PASS wire numeric strings, fractional revision/duration, and unknown versions reject
+PASS actual disk save and app-restart generation restore
+PASS voice profile identity remains fixed across themes/emotions
+PASS SERVER RouteSnapshot/DrivingEvent fixtures consumed
+PASS SERVER coastal fixture tag proof maps to coastal candidate
+PASS 1000 seeded fixtures: reproduction constraints grounding deletion robustness
+{
+  "generationMedianMicros": 51.75,
+  "generationP95Micros": 198.084,
+  "deterministicMatches": 1000,
+  "fixtureCount": 1000,
+  "constraintConflicts": 0,
+  "timingScope": "local JVM synthetic fixtures; includes audit/hash; not AAOS benchmark",
+  "groundedOutputs": 1000,
+  "missingEvidenceFallbackSuccesses": 1000,
+  "testsPassed": 58
+}
+Artifacts: /Users/pig30nidae/Pig30nidaE/Project/Nunti/android/feature/avatar/build/reports

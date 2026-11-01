@@ -15,6 +15,39 @@
 | `uv build backend --offline --out-dir /private/tmp/nunti-dist` | wheel + sdist 빌드 성공 |
 | wheel 자체 압축 해제본 import/health/Mock API/OpenAPI | 통과, Mock JSON 10개 포함 |
 | TTS `verify.py --android --tools-dir /private/tmp/nunti-tts-tools` | JVM 62개 + 실제 계약 Fixture 8개 통과, 실제 SDK 바이너리 대상 컴파일 통과 |
+| 루트 AVATAR `scripts/test.sh` | JVM 58개 + 합성 경로 1,000개 통과 |
+| 루트 `verify_android_outputs.py` | 새 Kotlin JSON 10개 검증, 경로/아바타 4쌍 API 저장·조회 통과 |
+| 루트 Gradle `--offline :app:assembleDebug :app:lintDebug` | BUILD SUCCESSFUL, 36초, 130 tasks. Lint 오류 0개/경고 3개 |
+
+## 최종 모듈 통합
+
+`server/integration-v1`에 AVATAR `f6ad9ac`과 TTS `2a0ce2f`, 문서 후속 `3925eb8`/`9c3fbe5`를
+cherry-pick했다. 각 담당 모듈 소스는 추가 변경하지 않았다.
+루트에서 서버 91개, AVATAR 58개/1,000 fixtures, TTS 62개/실제 계약 8개를 실행했다.
+AVATAR의 새 Kotlin 출력은 서버에서 JSON Schema/Pydantic 및 API round trip으로 재검증했다.
+
+루트 APK: `android/build/app/outputs/apk/debug/app-debug.apk`
+
+SHA-256: `49a664600e69e13d9e6769562cb227ad264c59a54aeb6b1f8cfeef213c61897a`
+
+이 해시는 루트에서 다시 빌드한 산출물이다. AVATAR worktree에서 빌드한 `bdef0dd8...`와
+구분한다. 루트의 **오프라인** Lint 경고 3개는 Mock 앱 아이콘, 백업 설정, KTX 권고다.
+담당 세션의 이전 온라인 실행에서는 라이브러리 버전 권고를 포함해 7개였다.
+서버가 해당 경고를 숨기거나 소유 모듈 구현을 변경하지 않았다.
+
+실행에 사용한 임시 SDK/Gradle 경로와 재현 명령:
+
+```sh
+# 저장소 android/에서 실행
+ANDROID_HOME=/private/tmp/nunti-android-build/sdk \
+ANDROID_USER_HOME=/private/tmp/nunti-android-build/android-user \
+GRADLE_USER_HOME=/private/tmp/nunti-android-build/gradle-home \
+/private/tmp/nunti-android-build/extract/gradle-8.11.1-bin/gradle-8.11.1/bin/gradle \
+  --offline --no-daemon --console=plain :app:assembleDebug :app:lintDebug
+```
+
+일반 개발 환경에서는 JDK21/Android SDK35를 준비하고 포함된 `android/gradlew`를 사용할 수 있다.
+임시 캐시가 없는 환경의 최초 빌드에는 의존성 다운로드가 필요하다.
 
 pytest 범위: 정상/오류 API, 계약별 정상·필수 누락·비정상 샘플, JSON Schema/Pydantic 일치,
 스키마 drift, 잘못된 타입/시간/버전, 명시적 동의, 토큰/소유자 분리, HTTPS,
@@ -45,10 +78,9 @@ uv 설치/빌드는 sandbox 안에서 macOS system-configuration 접근 시 pani
 ## 실행하지 않은 검증
 
 - 실차/Pleos 에뮬레이터에서 경로·차량 데이터 실제 수신
-- Android APK 전체 빌드·설치 및 차량 UX 제한의 실시간 동작
+- Android 앱 설치·실차/에뮬레이터 실행 및 차량 UX 제한의 실시간 동작
 - 실제 Pleos 음성 합성/오디오 포커스/한국어 화자 품질
 - 점수 담당 모듈의 실제 이벤트·최종 점수·코멘트 연결
 - 운영 TLS 프록시, 사용자 토큰 발급/회전, 부하·장애 복구 및 백업 복원
 
-AVATAR의 알고리즘/렌더러 자체 테스트 등 이 문서에서 직접 재실행하지 않은 결과는
-해당 세션의 보고로 구분한다. TTS 컴파일 성공도 차량 실행 성공으로 표시하지 않는다.
+합성 입력의 JVM/패키징 검증은 실제 차량 실행·음성 재생·사용자 시각 평가와 구분한다.

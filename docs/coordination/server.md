@@ -32,4 +32,9 @@ TTS는 `codex/tts-system` worktree에서 독립 개발 중이다.
 TTS 검증 스크립트를 SERVER에서 직접 실행해 JVM 62개, 공통 JSON/AVATAR 출력 연동 8개 및
 Android/Pleos 실제 바이너리 컴파일 통과를 확인했다. 서버 pytest는 91개 통과했다.
 
+최종 통합: AVATAR f6ad9ac과 TTS 2a0ce2f 및 문서 후속 3925eb8/9c3fbe5를
+server/integration-v1에 cherry-pick했다. 루트 인덱스 변경은 SERVER가 수행했다.
+루트에서 서버91/AVATAR58+1,000fixtures/TTS62+연동8 및 APK·Lint 빌드를 재확인했다.
+오프라인 Lint 오류0/경고3이며 실제 차량·에뮬레이터 실행은 미검증이다.
+
 합의 전 필드/열거값을 확정으로 취급하지 않는다. 확정 이후 파괴적 변경은 새 버전으로 협의한다.
