@@ -3,6 +3,8 @@
 경로 특징에 따라 외형이 달라지고 주행 이벤트에 반응하는 가상 동승자 MVP다.
 차량의 실시간 반응은 앱 내부에서 처리하고 서버는 동의받은 기록을 비동기로 저장한다.
 
+새 로컬에서 작업을 이어갈 때는 [세션 인수인계](docs/handoff/README.md)의 현재 상태·복원 절차와 PM/TTS/AVATAR/SERVER 프롬프트를 먼저 확인한다.
+
 | 영역 | 코드와 실행 가이드 |
 | --- | --- |
 | 서버 API · SQLite · 동기화 Mock | [backend/README.md](backend/README.md) |
