@@ -19,7 +19,7 @@ python3 scripts/verify_handoff.py
 
 인증을 요구하는 저장소라면 해당 GitHub 계정의 Git 접근 권한을 먼저 설정한다. 토큰을 URL이나 프롬프트에 넣지 않는다.
 
-`main`은 인수인계 기준 통합 코드와 문서를 담는다. `server/integration-v1`은 기존 통합 브랜치 이름을 보존한다. `avatar/route-emotion-v1`, `codex/tts-system`은 과거 담당 브랜치다. 원래 cherry-pick으로 통합했으므로 두 과거 브랜치를 다시 병합하지 않는다.
+원격 이관 대상은 통합 코드와 문서를 담은 `main` 하나다. `server/integration-v1`은 이전 로컬의 통합 브랜치 이름이고, `avatar/route-emotion-v1`, `codex/tts-system`은 이전 로컬의 담당 브랜치다. 과거 브랜치 ref는 새 원격으로 전송하지 않으며 담당 보고에 이력을 보존했다. 기능은 이미 cherry-pick으로 통합돼 있으므로 새 로컬에서 과거 담당 브랜치를 다시 병합할 필요가 없다.
 
 ## 도구 설치
 
