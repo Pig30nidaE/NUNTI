@@ -15,6 +15,11 @@ import ai.pleos.playground.vehicle.constant.control.LightState
 import ai.pleos.playground.vehicle.constant.control.VehicleGear
 import ai.pleos.playground.vehicle.listener.BrakePedalStatusListener
 import ai.pleos.playground.vehicle.listener.DoorPositionListener
+import ai.pleos.playground.vehicle.listener.EvBatteryEfficiencyListener
+import ai.pleos.playground.vehicle.listener.EvBatteryStateOfChargeListener
+import ai.pleos.playground.vehicle.listener.FuelEconomyListener
+import ai.pleos.playground.vehicle.listener.FuelPercentListener
+import ai.pleos.playground.vehicle.listener.RangeRemainingListener
 import ai.pleos.playground.vehicle.listener.GearSelectionListener
 import ai.pleos.playground.vehicle.listener.LightStateListener
 import ai.pleos.playground.vehicle.listener.SeatBeltBuckledStateListener
@@ -42,6 +47,8 @@ class PleosSignalSource(private val context: Context) {
     private val belts = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
     private val occupied = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
     private val doorOpen = java.util.concurrent.ConcurrentHashMap<DoorValue, Boolean>()
+    /** 연비·전비 수신 확인용. 이름 → 마지막 값(또는 오류). 단위는 SDK 값 그대로 표시한다. */
+    private val energy = java.util.concurrent.ConcurrentHashMap<String, String>()
 
     private var vehicle: Vehicle? = null
     private var car: Car? = null
@@ -137,6 +144,7 @@ class PleosSignalSource(private val context: Context) {
                 })
             }
         }
+        registerEnergy(v)
         v.getDoor().apply {
             for (d in doorAreas) {
                 val area = DoorArea(d)
@@ -146,6 +154,58 @@ class PleosSignalSource(private val context: Context) {
                     override fun onFailed(p0: Exception) = Unit
                 })
             }
+        }
+    }
+
+    /** 항목마다 따로 시도한다. 한 항목이 미지원이어도 나머지는 계속 받는다. */
+    private fun registerEnergy(v: Vehicle) {
+        fun <T> probe(name: String, get: ((T?) -> Unit, (Exception) -> Unit) -> Unit) {
+            runCatching { get({ energy[name] = it.toString() }, { energy[name] = "오류: ${it.message}" }) }
+                .onFailure { energy[name] = "예외: ${it.message}" }
+        }
+        fun fuelListener(name: String) = object : FuelEconomyListener {
+            override fun onFuelEconomyUpdated(p0: Float?) { energy[name] = p0.toString() }
+            override fun onFailed(p0: Exception) { energy[name] = "오류: ${p0.message}" }
+        }
+        fun evListener(name: String) = object : EvBatteryEfficiencyListener {
+            override fun onEvBatteryEfficiencyUpdated(p0: Float?) { energy[name] = p0.toString() }
+            override fun onFailed(p0: Exception) { energy[name] = "오류: ${p0.message}" }
+        }
+        val fuel = v.getFuel()
+        probe<Float>("연비 순간") { ok, err -> fuel.getInstantaneousFuelEconomy(ok, err) }
+        probe<Float>("연비 현재") { ok, err -> fuel.getCurrentFuelEconomy(ok, err) }
+        probe<Float>("연비 누적") { ok, err -> fuel.getCumulativeFuelEconomy(ok, err) }
+        probe<Int>("연료 %") { ok, err -> fuel.getFuelPercent(ok, err) }
+        runCatching { fuel.registerInstantaneousFuelEconomy(fuelListener("연비 순간")) }
+        runCatching { fuel.registerCurrentFuelEconomy(fuelListener("연비 현재")) }
+        runCatching {
+            fuel.registerFuelPercent(object : FuelPercentListener {
+                override fun onFuelPercentUpdated(p0: Int?) { energy["연료 %"] = p0.toString() }
+                override fun onFailed(p0: Exception) = Unit
+            })
+        }
+        val ev = v.getEvBattery()
+        probe<Float>("전비 순간") { ok, err -> ev.getInstantaneousEvEfficiency(ok, err) }
+        probe<Float>("전비 현재") { ok, err -> ev.getCurrentEvEfficiency(ok, err) }
+        probe<Float>("전비 누적") { ok, err -> ev.getCumulativeEvEfficiency(ok, err) }
+        probe<Float>("전비 충전후") { ok, err -> ev.getSinceChargeEvEfficiency(ok, err) }
+        probe<Int>("배터리 SoC") { ok, err -> ev.getEvBatteryStateOfCharge(ok, err) }
+        runCatching { ev.registerInstantaneousEvEfficiency(evListener("전비 순간")) }
+        runCatching { ev.registerCurrentEvEfficiency(evListener("전비 현재")) }
+        runCatching { ev.registerCumulativeEvEfficiency(evListener("전비 누적")) }
+        runCatching {
+            ev.registerEvBatteryStateOfCharge(object : EvBatteryStateOfChargeListener {
+                override fun onEvBatteryStateOfChargeUpdated(p0: Int?) { energy["배터리 SoC"] = p0.toString() }
+                override fun onFailed(p0: Exception) = Unit
+            })
+        }
+        val odo = v.getOdometer()
+        probe<Float>("주행가능거리") { ok, err -> odo.getRangeRemainingDistance(ok, err) }
+        runCatching {
+            odo.registerRangeRemainingListener(object : RangeRemainingListener {
+                override fun onRangeRemainingChanged(p0: Float?) { energy["주행가능거리"] = p0.toString() }
+                override fun onFailed(p0: Exception) = Unit
+            })
         }
     }
 
@@ -183,7 +243,9 @@ class PleosSignalSource(private val context: Context) {
         "제한속도" to (navi.speedLimitKmh?.let { "$it km/h" } ?: "미수신"),
         "탑승 운전석/동승석" to "${occupied[SeatValue.ROW_1_LEFT] ?: "-"} / ${occupied[SeatValue.ROW_1_RIGHT] ?: "-"}",
         "문 열림" to (if (doorOpen.isEmpty()) "미수신" else doorOpen.values.any { it }.toString()),
-    )
+    ) + listOf("연비 순간", "연비 현재", "연비 누적", "연료 %", "전비 순간", "전비 현재", "전비 누적", "전비 충전후", "배터리 SoC", "주행가능거리")
+        .map { it to (energy[it] ?: "미수신") } +
+        rawSpeed.extra.toSortedMap().map { (k, v) -> "직접 $k" to v }
 
     fun events() = navi.events.toList()
 
