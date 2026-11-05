@@ -32,6 +32,7 @@
 | 서버 API · SQLite · 동기화 Mock | [backend/README.md](backend/README.md) |
 | 공통 JSON Schema · OpenAPI | [contracts/v1/README.md](contracts/v1/README.md) |
 | 경로 · 아바타 · 감정 · Compose | [android/feature/avatar/README.md](android/feature/avatar/README.md) |
+| 주행습관 점수 · 실차 신호 | [android/feature/score/README.md](android/feature/score/README.md) |
 | 음성 정책 · 큐 · 프로필 | [android/feature/tts/README.md](android/feature/tts/README.md) |
 | Pleos 음성 adapter | [android/feature/voice/README.md](android/feature/voice/README.md) |
 | 모듈 연결 · 장애 처리 | [docs/architecture/integration.md](docs/architecture/integration.md) |

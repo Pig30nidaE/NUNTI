@@ -7,7 +7,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Nunti"
-include(":app", ":feature:navigation", ":feature:emotion", ":feature:avatar")
+include(":app", ":feature:navigation", ":feature:emotion", ":feature:avatar", ":feature:score")
 // TTS owns these modules. A checkout override supports isolated team worktrees.
 val voiceCheckout = providers.gradleProperty("nuntiTtsCheckout").orNull?.let(::file) ?: rootDir
 if (file("$voiceCheckout/feature/tts/build.gradle.kts").exists() && file("$voiceCheckout/feature/voice/build.gradle.kts").exists()) {

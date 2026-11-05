@@ -13,6 +13,7 @@ dependencies {
     implementation("ai.pleos.playground:NaviHelper:3.0.5")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
     implementation(project(":feature:avatar"))
+    implementation(project(":feature:score"))
     implementation("androidx.activity:activity-compose:1.10.1")
     implementation("androidx.compose.foundation:foundation:1.8.3")
     implementation("androidx.compose.runtime:runtime-saveable:1.8.3")
