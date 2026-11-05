@@ -199,7 +199,7 @@ def test_semantic_character_subprocess_uses_four_steps_512_output_and_actual_cut
     run = local_settings.workspace / "semantic-run"
     result = local_model.render_local_image(local_settings, value, design, run)
     metadata = result.metadata
-    assert metadata["promptVersion"] == "local-journey-character-7"
+    assert metadata["promptVersion"] == "local-journey-character-8"
     assert metadata["steps"] == 4
     command = metadata["command"]
     assert command[command.index("--steps") + 1] == "4"

@@ -64,8 +64,8 @@ class CharacterArtTest(unittest.TestCase):
                 self.assertIn(plan["prop"]["descriptionEn"], prompt)
                 self.assertIn(keepsake, prompt)
                 self.assertIn("Reference image 1 is the ONE complete character", prompt)
-                self.assertIn("Reference image 2 is a FACE TECHNIQUE study only", prompt)
-                self.assertIn("full anatomy, costume and pose all come from image 1", prompt)
+                self.assertIn("Reference image 2 is the BASE NUNTI CHARACTER sheet", prompt)
+                self.assertIn("the wearer is always the base Nunti toddler of reference image 2", prompt)
                 self.assertIn("no floor, scenery, cast shadow", prompt)
                 self.assertEqual(declarations["surfaceRouteMarking"], "NONE")
 

@@ -240,7 +240,7 @@ try {
   check('one-real-local-ai-image-with-fixed-request', artifact.mediaOrigin === 'LOCAL_MODEL' && artifact.requestId === generationBody.requestId);
   check('image-model-is-offline-without-paid-calls', artifact.provider?.offline === true && artifact.provider?.paidApiCalls === 0);
   check('input-and-stored-osrm-route-preserved', isDeepStrictEqual(JSON.parse(artifact.inputCanonical), generationBody));
-  check('current-v6-ai-pipeline', artifact.provider?.promptVersion === 'local-journey-character-7' && artifact.provider?.steps === 4 && artifact.visual.width === 512 && artifact.visual.height === 512);
+  check('current-v6-ai-pipeline', artifact.provider?.promptVersion === 'local-journey-character-8' && artifact.provider?.steps === 4 && artifact.visual.width === 512 && artifact.visual.height === 512);
   check('current-cutout-keeps-original-rgb', artifact.provider.cutout?.version === 'flat-border-cutout-2' && artifact.provider.cutout.rgbChannelsPreserved === true && artifact.provider.cutout.cropApplied === false);
   check('study-and-shell-intent-match-the-journey', artifact.design.characterPlan.purpose.role === 'STUDY' && artifact.design.characterPlan.outfit.id === 'KNIT_VEST' && artifact.design.characterPlan.destination.landmark === 'SHELL');
   check('explicit-child-character-has-a-youthful-reading-voice-plan', artifact.voice.plan.characterAge?.value === 'CHILD' && artifact.voice.plan.ageImpression === 'youthful-fictional' && artifact.voice.plan.instruct.includes('bookish'));

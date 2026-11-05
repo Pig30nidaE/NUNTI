@@ -18,8 +18,9 @@ from .storage import StudioError
 ROOT = Path(__file__).resolve().parents[3]
 MODEL = "mlx-community/FLUX.2-Klein-4B-4bit"
 REVISION = "1cebb9b45c21ece14a42615b16bf5fa4de9b56da"
-PROMPT_VERSION = "local-journey-character-7"
-STYLE = ROOT / "docs/design/avatar-v6/assets/style-face-technique.png"
+PROMPT_VERSION = "local-journey-character-8"
+# Base Nunti character sheet (hooded sprout baby). Reference image 2 for every generation.
+STYLE = ROOT / "docs/design/avatar-v6/assets/nunti-base-character.png"
 MAX_IMAGE_BYTES = 8_388_608
 
 
@@ -178,8 +179,9 @@ def references_and_prompt(value, design):
     prompt = (
         "A single full-body mascot alone, centered with empty margin on plain warm off-white. "
         "Polished storybook mascot illustration, opaque pastel matte and shallow 2.5D. "
-        "Reference image 1 supplies polished shapes, facial warmth and restrained shading "
-        "only, never its anatomy or any surface marking. Reference image 2 controls the large "
+        "Reference image 1 is the base Nunti character (hooded toddler with green sprout "
+        "antennae, round peach face, mint neckerchief, blue star badge): keep its head, face "
+        "and material style, never any surface marking. Reference image 2 controls the large "
         "silhouette, rounded extremities and front cream face plane. "
         "Any neutral gray is geometry only, not a requested body color. Recolor all large body "
         "masses using the supplied pastel palette. The route is already interpreted in the "
