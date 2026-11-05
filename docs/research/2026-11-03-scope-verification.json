@@ -1,0 +1,419 @@
+{
+  "status": "PASS_PRODUCT_SCOPE_AND_AUDIT",
+  "scope": "Product goal, owned-feature boundaries, local documentation links and audited source hashes only; no new application, habit-improvement effect or live SDK tests.",
+  "productGoal": "DRIVING_HABIT_IMPROVEMENT_WITH_NUNTI",
+  "ownedFeature": "DESTINATION_ROUTE_AVATAR_GENERATION",
+  "requirements": "docs/product/nunti-scope.json",
+  "brief": "docs/product/2026-hmg-app-challenge.md",
+  "checksPassed": 101,
+  "checksFailed": 0,
+  "localLinksChecked": 43,
+  "externalApiCalls": 0,
+  "mediaCaptured": false,
+  "checks": [
+    {
+      "check": "explicit-product-and-owned-feature-schema",
+      "ok": true
+    },
+    {
+      "check": "product-goal-is-driving-habit-improvement",
+      "ok": true
+    },
+    {
+      "check": "habit-improvement-effect-remains-unverified",
+      "ok": true
+    },
+    {
+      "check": "owned-feature-is-destination-route-generation",
+      "ok": true
+    },
+    {
+      "check": "owned-feature-serves-product-goal",
+      "ok": true
+    },
+    {
+      "check": "generation-outputs-include-identity-appearance-and-voice",
+      "ok": true
+    },
+    {
+      "check": "generation-connects-to-feedback-display-and-tts",
+      "ok": true
+    },
+    {
+      "check": "generation-does-not-invent-driving-assessment",
+      "ok": true
+    },
+    {
+      "check": "external-payload-coordination-remains-deferred",
+      "ok": true
+    },
+    {
+      "check": "no-flat-product-feature-scope",
+      "ok": true
+    },
+    {
+      "check": "implementation-status-scoped-to-owned-feature",
+      "ok": true
+    },
+    {
+      "check": "navigation-and-screenshot-inputs",
+      "ok": true
+    },
+    {
+      "check": "freehand-is-an-auxiliary-tool",
+      "ok": true
+    },
+    {
+      "check": "visual-result-independent-of-voice-target",
+      "ok": true
+    },
+    {
+      "check": "commercial-provider-is-a-choice",
+      "ok": true
+    },
+    {
+      "check": "recording-requires-explicit-user-request",
+      "ok": true
+    },
+    {
+      "check": "current-gleo-interface",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:android/app/src/main/kotlin/ai/nunti/app/MainActivity.kt",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:android/app/src/main/res/values/journey_mvp.xml",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:android/app/src/debug/res/values/journey_mvp.xml",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedData.kt",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/characters/models.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/characters/providers.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/characters/worker.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:android/app/src/main/kotlin/ai/nunti/app/studio/AvatarStudioActivity.kt",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:android/app/src/main/AndroidManifest.xml",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/api.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/models.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/storage.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/illustration.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/navigation.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/image_api.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:prototypes/avatar_generator/index.html",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:prototypes/avatar_generator/studio.js",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:prototypes/avatar_generator/studio.css",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/design_intent.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/local_model.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:backend/nunti/avatar_studio/matte_cutout.py",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:prototypes/avatar_generator/formation.js",
+      "ok": true
+    },
+    {
+      "check": "audit-source-unchanged:scripts/run_avatar_generator.py",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:README.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:README.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/handoff/STATUS.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/handoff/STATUS.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/handoff/prompts/pm.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/handoff/prompts/pm.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/handoff/prompts/avatar.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/handoff/prompts/avatar.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/handoff/prompts/tts.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/handoff/prompts/tts.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/handoff/prompts/server.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/handoff/prompts/server.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/product/journey-character-brief.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/product/journey-character-brief.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/design/generative-mvp/README.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/design/generative-mvp/README.md",
+      "ok": true
+    },
+    {
+      "check": "canonical-brief-linked-at-entry:docs/design/generative-mvp/API-SETUP.ko.md",
+      "ok": true
+    },
+    {
+      "check": "product-goal-and-owned-feature-at-entry:docs/design/generative-mvp/API-SETUP.ko.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../research/2026-11-04-navigation-review/README.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../design/avatar-generator/TESTING.ko.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../research/2026-11-03-navigation-input.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../research/2026-11-03-gelo.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../design/avatar-generator/README.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../research/2026-11-03-product-focus-audit.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../design/generative-mvp/API-SETUP.ko.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../design/avatar-generator/test-report.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../design/avatar-generator/TESTING.ko.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:nunti-scope.json",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-hmg-app-challenge.md:../research/2026-11-03-scope-verification.json",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-navigation-input.md:2026-11-04-navigation-review/README.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-navigation-input.md:../../backend/nunti/characters/models.py",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-navigation-input.md:../../android/feature/navigation/src/main/kotlin/ai/nunti/navigation/RouteFeatures.kt",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-navigation-input.md:../handoff/restoration/2026-11-02/avatar.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:../design/avatar-generator/README.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:../design/avatar-generator/test-report.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:../product/2026-hmg-app-challenge.md",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedCompanionActivity.kt:157",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedCompanionActivity.kt:400",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/models.py:67",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/models.py:115",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/worker.py:239",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedCompanionActivity.kt:451",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedCompanionActivity.kt:515",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/worker.py:119",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/worker.py:231",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedData.kt:68",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/providers.py:163",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedCompanionActivity.kt:457",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/providers.py:428",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/providers.py:523",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/backend/nunti/characters/providers.py:235",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/docs/design/generative-mvp/API-SETUP.ko.md:3",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/journey/JourneyCarGate.kt:28",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedCompanionActivity.kt:132",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/main/res/values/journey_mvp.xml:1",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/res/values/journey_mvp.xml:1",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/debug/AndroidManifest.xml:2",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/android/app/src/main/kotlin/ai/nunti/app/MainActivity.kt:32",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/docs/handoff/prompts/pm.md:3",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/docs/handoff/STATUS.md:7",
+      "ok": true
+    },
+    {
+      "check": "local-link:2026-11-03-product-focus-audit.md:/Users/pig30nidae/NUNTI/docs/product/journey-character-brief.md:3",
+      "ok": true
+    }
+  ]
+}

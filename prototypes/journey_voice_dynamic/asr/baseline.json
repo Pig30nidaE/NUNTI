@@ -1,0 +1,239 @@
+{
+  "protectedFileHashes": {
+    "prototypes/voice_audition/asr/MLX-examples-LICENSE.txt": "ccfab7ccb2ea306f71531c8ca77bb55507606cd90768b1e32b8b52ab5b48cf01",
+    "prototypes/voice_audition/asr/README.md": "be6ebbbb6cd082aeb33835bfe860bb6e3dcf525f46b7140b3f5acc070e37dd2a",
+    "prototypes/voice_audition/asr/Whisper-LICENSE.txt": "b5d65a59060e68c4ff940e1eddfa6f94b2d68fdf58ed7f4dd57721c997e35e9d",
+    "prototypes/voice_audition/asr/anna-journey-input.json": "18945cc5b7ca5861895f0afcc05eb3e84a7d6a370ffcede053f421b041caf4fd",
+    "prototypes/voice_audition/asr/anna-journey-results.json": "198fe86ede9f3d19757473068502a8fdffc85f6d85aef9ba065f1cf4d2235849",
+    "prototypes/voice_audition/asr/anna-journey-summary.md": "2da6ac40c97b091e6edefdeff3912975807b489209b044c91631ac6dbdbd5761",
+    "prototypes/voice_audition/asr/anna-journey-transcription.log": "a00f036844f6d95e85a5f15d17f4056283251e34a788605b3bab7c16c15c7615",
+    "prototypes/voice_audition/asr/anna-journey-verification.json": "170f6c88b660e73cc480a7ca113a93723ad6c36355a1c67eb3305f2def0db3e0",
+    "prototypes/voice_audition/asr/beam-unsupported.log": "85bf85a729e2fc4022f2b05a049aa9db9ade308add972682c80adcf30fa97271",
+    "prototypes/voice_audition/asr/download.py": "21927624eb2a3012dc291a4a2470c496a1ffd3bc3dc5e987b2dea2d5781e5b30",
+    "prototypes/voice_audition/asr/identity-baseline-hashes.json": "6af69b829375b4634d926c47f71b4afa774f2d4ceceef6ffaa36e64aea5cd4dd",
+    "prototypes/voice_audition/asr/identity-input-manifest.json": "da012abe8eae6a31be2c27e69187699b5f1f20bb583914fab20d8fc06d1f2dfc",
+    "prototypes/voice_audition/asr/identity-results.json": "d212b711782a01dca7a060ababa6cd86e2649c2e6f53e6f4bfb4a8cecaa33007",
+    "prototypes/voice_audition/asr/identity-results.jsonl": "f8c7ca508d0c66ae7619eb9527b2580dcac548428a87aa851036141f1ecee7d6",
+    "prototypes/voice_audition/asr/identity-summary.md": "db1223dec3f96992f17b995371b31df7a77d58dbc1fe0c2c9b5b154bd8517449",
+    "prototypes/voice_audition/asr/identity-transcription.log": "6e941d1c0e2f9d5caa56679b7796e71fc30f1d498e42ad85a2f6085d81756124",
+    "prototypes/voice_audition/asr/identity-verification.json": "c36ebfe1b26c852dfd326368b158705a5827e6aeb2a70ff45c59141b00000a16",
+    "prototypes/voice_audition/asr/input-manifest.json": "008a118cea2c143eb5484e5d7c743b32e67743dc3ffded57b33268dfb01b5d95",
+    "prototypes/voice_audition/asr/model-lock.json": "951f2a8158dd29ff18c6b9d64a0d9ade9e982747aad8f58b7ff26dd023dad768",
+    "prototypes/voice_audition/asr/requirements.lock.txt": "20e1e920a2edc248a6de7a87ca4a0dc1ae79caa096c382744d2d17cee98911e2",
+    "prototypes/voice_audition/asr/results.json": "5bf71198cae3d1145313439fa07c8f77267aff48dc7bbafffbf4410f1aa1a5ce",
+    "prototypes/voice_audition/asr/results.jsonl": "6434f8492930b741465506ed480e19770a0b6501717cb7563cb7015190d7b7ad",
+    "prototypes/voice_audition/asr/round2-baseline-hashes.json": "a383acdd12f1131ade4adc95d0385ba667990f58a82a4493d205ca02ea306187",
+    "prototypes/voice_audition/asr/round2-input-manifest.json": "9085b9d876302a17aa154ebc4a2355ee4f3863873a59221746b344d442afcf45",
+    "prototypes/voice_audition/asr/round2-results.json": "0008ce68ca49e627d3584f5cc4ad5cd34779db6b1d43b5849c6c9cab3d18d8c5",
+    "prototypes/voice_audition/asr/round2-results.jsonl": "4be32e2ef8554b7de1d934dd4f3588aec69422860ec6c9dfd2d3ee21a4c868cf",
+    "prototypes/voice_audition/asr/round2-summary.md": "38311ea1ae009684f003e1cfc88d8ff1becc45c51acdcf1c0b8fe56b5144810a",
+    "prototypes/voice_audition/asr/round2-transcription.log": "6e310cd74506b2c46ae2f497086b454b9cbe0fd836ed3da9e226108d338d3eae",
+    "prototypes/voice_audition/asr/round2-verification.json": "18fa8453122644d521bdaa0401366842629069cbf14047f544ef7b1e7fca8d6c",
+    "prototypes/voice_audition/asr/runtime-source.json": "f6934be346e021df317916f432a0f9e5a4a5c4f1a3ad1e97f58877e5ec65c563",
+    "prototypes/voice_audition/asr/setup.sh": "48011d8a5b57fa5a78bb097caac047e504ebb5b286f88e3d621812afb1b0c7e3",
+    "prototypes/voice_audition/asr/stella-baseline-hashes.json": "ce81bc0238e0fc0250a7c99096baa6d669a76bbc755cf7f0d961d0170e001332",
+    "prototypes/voice_audition/asr/stella-input-manifest.json": "cd4f25c47d5935cc6fcb957a461a02d7299840e997ab8a75b46ae3d85532be56",
+    "prototypes/voice_audition/asr/stella-results.json": "844e393b3c7c984634e452c8ff6490d1a3439f57bd2e5cdcd767e10d098dd501",
+    "prototypes/voice_audition/asr/stella-results.jsonl": "2f57baed59b24061f50666e71f56c2657bf383cd7b73e2c7a09ac8bf62793bec",
+    "prototypes/voice_audition/asr/stella-summary.md": "f37b5a708c44899199e4932b046aef31363d23502888f6d08c3052678121151f",
+    "prototypes/voice_audition/asr/stella-transcription.log": "c27ece78937a2432d079d1fb76dc76af038709d26f156a00693ceba739b256dc",
+    "prototypes/voice_audition/asr/stella-verification.json": "b4d388cc88aa3833fc1da653d3d298bc99d247fb58567ca4107c5fb23d0eec3e",
+    "prototypes/voice_audition/asr/summarize.py": "9ef98e272f6cd690d3ae73551a122d543099c628aa472a809ebbe6ed62c9b474",
+    "prototypes/voice_audition/asr/summary.md": "48a20d1a58137373a36cf50406ad0fbab0549bb836eb588705df7557b7f5f314",
+    "prototypes/voice_audition/asr/transcribe.py": "4fcac479e2bea7fbee65e7e44e7c724779612c90bfc91a0c0b5e89c4a60b49db",
+    "prototypes/voice_audition/asr/transcribe_extra.py": "878be78c60045dbf4cada6ab91ea3783e5cc267125e628620d8e90f57ca4eefa",
+    "prototypes/voice_audition/asr/transcription.log": "c34d699fab182cb68665e70b1464c8fc8fedff9c05778587ec4f60422c404228",
+    "prototypes/voice_audition/asr/verification.json": "51b6556af0084cd8bf4ed2c70c2e298bc5a603ed54db9ab8a89ae881e4b9f3ba",
+    "prototypes/voice_audition/asr/verify_identity.py": "cbc08953bab97b4408eaa6646146a065147498427c28822eb5e17e99bf20d88d",
+    "prototypes/voice_audition/asr/verify_round2.py": "d692436c1eb67a2e034b740355a601e40f7e7562ced47b6ed8b886e9daeba223",
+    "prototypes/voice_audition/asr/verify_stella.py": "5310dc4bfadf984e0c09b0cdf350f8c5ba7364d7103b782fcbc166923a395841",
+    ".local/voice-audition-asr/hf/hub/models--mlx-community--whisper-small-mlx/snapshots/45f3915923c7a79a5a5b5a7d909d39aeb0e5630e/.gitattributes": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+    ".local/voice-audition-asr/hf/hub/models--mlx-community--whisper-small-mlx/snapshots/45f3915923c7a79a5a5b5a7d909d39aeb0e5630e/README.md": "47bab1dbd0bd831bd6f1b76e9d5a774041c585c63a1ec29a60cee60cbb56a084",
+    ".local/voice-audition-asr/hf/hub/models--mlx-community--whisper-small-mlx/snapshots/45f3915923c7a79a5a5b5a7d909d39aeb0e5630e/config.json": "e8f58e638208af66d5d5d67801259dc7a12d199e971967a9f9d33a8e3635668e",
+    ".local/voice-audition-asr/hf/hub/models--mlx-community--whisper-small-mlx/snapshots/45f3915923c7a79a5a5b5a7d909d39aeb0e5630e/weights.npz": "55b6674c9b339702d486e2b1573839a66f8ec8f821ed2886993ef717a86b09f5",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-2d6aecb00617ef2899eff678/clips/0bbfda6d73132c731df29a1f7da49234995d2f9877b6cf41d476a6e05d5b8da7/audio.wav": "8fe597f715b3da2e66026856b1928430fafc63d606a68d116a987af166333895",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-2d6aecb00617ef2899eff678/clips/0bbfda6d73132c731df29a1f7da49234995d2f9877b6cf41d476a6e05d5b8da7/metadata.json": "c3457955d8e42177bae6919cca6e2fb967720c02018c5baec99e70180fc3230c",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-2d6aecb00617ef2899eff678/clips/1cfdff7388cc6bb1ec1e5385ea6a0a219bbba48edd39c7e83dfcc3d15798ec8b/audio.wav": "8cbe1eb5990553e24ce795d3eee2c1c8fb92eead01744971c0b6eae2ac033fc8",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-2d6aecb00617ef2899eff678/clips/1cfdff7388cc6bb1ec1e5385ea6a0a219bbba48edd39c7e83dfcc3d15798ec8b/metadata.json": "f1f60b0b924f193ceb5b69520c310027ef8411c11cb254a92bfb09c4964cb524",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-2d6aecb00617ef2899eff678/clips/355e4e004237f0e373ca0e5555d0637a8d1a68e8604a4b6e5b3a7b3a12b3d305/audio.wav": "2ccf4e6823960decaa85b6adf7c2339d2716ff7bcd8722b471bff8c9329f7850",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-2d6aecb00617ef2899eff678/clips/355e4e004237f0e373ca0e5555d0637a8d1a68e8604a4b6e5b3a7b3a12b3d305/metadata.json": "28cb8dd1f7fad15d155bc726a53c803315886a99c64a1f48d4ba58bb21c3cc68",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-8da06e4267f4a71820a06e65/clips/719eff397d34398a86838aa6d250fdea89a87d0bc3d7ef320338ba6d420f0fed/audio.wav": "674a6d1cdd96028643f705a00b89a91220e2e91883c1c1cf976710f1e465ddc6",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-8da06e4267f4a71820a06e65/clips/719eff397d34398a86838aa6d250fdea89a87d0bc3d7ef320338ba6d420f0fed/metadata.json": "fc81240d779ad952ae42f76b81b738a62154a0b9221a91c3521eb0e385e95c5c",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-8da06e4267f4a71820a06e65/clips/a3a2ecf529525de35210fd12f343f3a927b2c84383c32f49d23a0196af6e9199/audio.wav": "16fe4d88961176ff2f152ecbd5f239f8270c3dee9ddbd907f6bb2274bf62df56",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-8da06e4267f4a71820a06e65/clips/a3a2ecf529525de35210fd12f343f3a927b2c84383c32f49d23a0196af6e9199/metadata.json": "ccafda70265b7488938aa000ceeef3a0ecf4b7a036bd5d60b71031fc5314768a",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-8da06e4267f4a71820a06e65/clips/fd6aea6f1eaefe7f2be7b80f635478af52b2245229861f641b66baaee603e3dc/audio.wav": "14508c4b8b2d78fec0cf7263a15327795938901a9aae665f6df7b6414ccd9f60",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-8da06e4267f4a71820a06e65/clips/fd6aea6f1eaefe7f2be7b80f635478af52b2245229861f641b66baaee603e3dc/metadata.json": "eafd4beb8602235ecfc3008344d15dcf77d0b206596be651e21a262c269b2574",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/0835407d487fc248f3c551ca824bafc205357a0ed203b4d1182fbf67a4558cfd/audio.wav": "036317a930bed110900ac3effb5b4b81a3d0b60a1284452d25409566d409dd18",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/0835407d487fc248f3c551ca824bafc205357a0ed203b4d1182fbf67a4558cfd/metadata.json": "3a9bd389c8e3cadf6304173618d6da3b1f30824bd7831b7395c95092abf8ba48",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/4005cdbbd8b24e31f071eb5d82e97835a2b4b197e0b5a0e5c9828adab42d8fe4/audio.wav": "be69d9e9191b738a345746134b49fae581a9d7edfadfa65921161d08dbe8632b",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/4005cdbbd8b24e31f071eb5d82e97835a2b4b197e0b5a0e5c9828adab42d8fe4/metadata.json": "76c46574b0d50810cda30413aa325bac1e7fc969394bb80928228bdcc5a2d779",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/7637ff9a1ed81377053759da7d340784932eeae65aa6c4da6c02da1e194f8195/audio.wav": "f849c960ea9c36b97465ccf5fd1c0af5094eb87b65f6f1e65869fdc03be7e338",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/7637ff9a1ed81377053759da7d340784932eeae65aa6c4da6c02da1e194f8195/metadata.json": "f05da0ccf069e6f37da3b3cb0517c478191e16dde991e192dd7e8d3e073e1749",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/bf7b4df671cb41fd4921e00951b7a052a1464f7b008dc1c2aab5d9d7f32442ef/audio.wav": "d16339a6171850175407269ee1d9e0fe799ffec5989e5a9ae95747dacb5387c3",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/bf7b4df671cb41fd4921e00951b7a052a1464f7b008dc1c2aab5d9d7f32442ef/metadata.json": "d37837068aeb7ad4ef68278cd983eb86b2af45e8046252051ee771207df01fbf",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-a455dd81d2c487095fc66e7d/clips/46f1640551ef3659974bf48a4b38644a360b64f6f1b1e7ece407221cac1dd40a/audio.wav": "08b4579e257455d3d1fbdf0addb9fe4333c888f6be8d81049533f3109447bc99",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-a455dd81d2c487095fc66e7d/clips/46f1640551ef3659974bf48a4b38644a360b64f6f1b1e7ece407221cac1dd40a/metadata.json": "5b988094c93e786260a46adc464ac97fcbb755d90abeaa85b48915ce0b63c020",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-a455dd81d2c487095fc66e7d/clips/5737174530c8595f9c836a0e9c942c3f664b88f313adfaf7515d2610de36e89e/audio.wav": "62e1347a661a292320430ae925089924c191d3507ffe8a6747410947e3a01a11",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-a455dd81d2c487095fc66e7d/clips/5737174530c8595f9c836a0e9c942c3f664b88f313adfaf7515d2610de36e89e/metadata.json": "5546939e2a984c7897b8448ffed5d06aaf7dc813e5dd04c7284ad8fa6398e845",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-a455dd81d2c487095fc66e7d/clips/7a43527f9fdf7b1a94833f20b01e22586adaa1af688186c1cfb71e485c1cc1d0/audio.wav": "531beec00e3eeb0eb7e3e9ffbd73ec3688bced08dabad54c4ae2f5ec230e7e96",
+    "prototypes/journey_voice_dynamic/demo/characters/nunti-a455dd81d2c487095fc66e7d/clips/7a43527f9fdf7b1a94833f20b01e22586adaa1af688186c1cfb71e485c1cc1d0/metadata.json": "1281f1bd574215c1aa272fe780b77415a0cbb0f91324ded40f0c6c9da6b1791b"
+  },
+  "packagesBefore": [
+    [
+      "Jinja2",
+      "3.1.6"
+    ],
+    [
+      "MarkupSafe",
+      "3.0.4"
+    ],
+    [
+      "PyYAML",
+      "6.0.3"
+    ],
+    [
+      "anyio",
+      "4.16.0"
+    ],
+    [
+      "certifi",
+      "2026.10.23"
+    ],
+    [
+      "cffi",
+      "2.1.1"
+    ],
+    [
+      "charset-normalizer",
+      "3.5.2"
+    ],
+    [
+      "click",
+      "8.5.0"
+    ],
+    [
+      "filelock",
+      "4.2.6"
+    ],
+    [
+      "fsspec",
+      "2026.9.0"
+    ],
+    [
+      "h11",
+      "0.16.0"
+    ],
+    [
+      "hf-xet",
+      "1.8.0"
+    ],
+    [
+      "httpcore2",
+      "2.16.0"
+    ],
+    [
+      "httpx2",
+      "2.16.0"
+    ],
+    [
+      "huggingface_hub",
+      "2.4.0"
+    ],
+    [
+      "idna",
+      "3.20"
+    ],
+    [
+      "llvmlite",
+      "0.50.0"
+    ],
+    [
+      "mlx",
+      "0.32.4"
+    ],
+    [
+      "mlx-metal",
+      "0.32.4"
+    ],
+    [
+      "mlx-whisper",
+      "0.4.3"
+    ],
+    [
+      "more-itertools",
+      "11.2.1"
+    ],
+    [
+      "mpmath",
+      "1.3.0"
+    ],
+    [
+      "networkx",
+      "3.7"
+    ],
+    [
+      "numba",
+      "0.68.1"
+    ],
+    [
+      "numpy",
+      "2.5.4"
+    ],
+    [
+      "packaging",
+      "26.3"
+    ],
+    [
+      "pycparser",
+      "3.12"
+    ],
+    [
+      "regex",
+      "2026.9.29"
+    ],
+    [
+      "requests",
+      "2.34.2"
+    ],
+    [
+      "scipy",
+      "1.18.1"
+    ],
+    [
+      "setuptools",
+      "84.2.1"
+    ],
+    [
+      "soundfile",
+      "0.14.0"
+    ],
+    [
+      "sympy",
+      "1.14.0"
+    ],
+    [
+      "tiktoken",
+      "0.14.0"
+    ],
+    [
+      "torch",
+      "2.15.0"
+    ],
+    [
+      "tqdm",
+      "4.70.1"
+    ],
+    [
+      "truststore",
+      "0.10.5"
+    ],
+    [
+      "typing_extensions",
+      "4.16.0"
+    ],
+    [
+      "urllib3",
+      "2.8.0"
+    ]
+  ]
+}

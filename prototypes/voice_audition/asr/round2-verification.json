@@ -1,0 +1,11 @@
+{
+  "verifiedNewAudioFiles": 5,
+  "newAudioBytesUnchanged": true,
+  "verifiedNewMetadataFiles": 4,
+  "newMetadataBytesUnchanged": true,
+  "preservedPriorAsrResultFiles": 13,
+  "priorAsrResultBytesUnchanged": true,
+  "newComparisonsRecomputed": true,
+  "commercialDemoModelIdKnown": false,
+  "humanQualityVerified": false
+}

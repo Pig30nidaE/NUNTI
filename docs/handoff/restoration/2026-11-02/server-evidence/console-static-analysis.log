@@ -1,0 +1,66 @@
+{
+  "inspectedAt": "2026-11-02T18:13:46.898685+09:00",
+  "operations": "Read-only image bytes and preserved JSON. No executable JavaScript, browser session, emulator API, ADB, or state-changing command was run.",
+  "image": "/Users/pig30nidae/NUNTI/.local/pm-tools/sdk/system-images/android-34/android-automotive/arm64-v8a/vendor.img",
+  "imageBytes": 538968064,
+  "imageSha256": "12ff02d62d57bb8a7466be6450ebbd6e613ef99238e03283cdb0f281cc56dd67",
+  "frontendFunctionByteOffset": 13434260,
+  "frontendFunctionBytes": 516,
+  "frontendFunctionSha256": "46d12eedf0b114121e07317587dfd3acf679127ffef2bc7f4922aa2b8f72305c",
+  "checks": {
+    "browserSessionPath": true,
+    "usesPost": true,
+    "sendsImmediately": true,
+    "interval1000ms": true,
+    "closingOnPagehide": true,
+    "closingOnBeforeunload": true,
+    "hasClosingFlag": true
+  },
+  "symbolsPresent": {
+    "browser-active": true,
+    "browser-inactive": true,
+    "client_timeout": true,
+    "setWebSessionActive": true,
+    "updateBrowserSession": true,
+    "pruneBrowserSessions": true,
+    "browserMonitorLoop": true,
+    "kBrowserSessionTimeoutMs": true,
+    "_ZN16vehicle_emulator7runtime10DdsRuntime12setWebActiveEb": true,
+    "_ZN16vehicle_emulator7vehicle10GearBridge12setWebActiveEb": true
+  },
+  "pastObservedState": {
+    "browser": {
+      "active": false,
+      "clients": 0,
+      "timeout_ms": 3000
+    },
+    "controlsEmulatorActive": false,
+    "controlsDdsReady": {
+      "speed": false,
+      "accelerator": false,
+      "brake": false,
+      "brake_pressed": false,
+      "steering": false,
+      "all": false
+    },
+    "gearBridgeReady": false,
+    "availability": {
+      "available": false,
+      "attempted": false,
+      "strict_success": false,
+      "effective_success": false,
+      "source": "not-run",
+      "timestamp_ms": 0,
+      "commands": 0,
+      "results": 0,
+      "successful_results": 0,
+      "failed_results": 0,
+      "failed_commands": 0,
+      "command_prefix": "dds-only",
+      "first_failure": "",
+      "transport": "dds",
+      "direct_vhal_write": false
+    }
+  },
+  "interpretation": "The shipped frontend maintains a browser session with a one-second POST heartbeat. The past idle response had no browser clients. Browser absence is a supported explanation for inactive state, but a live before/after comparison by PM is needed to confirm recovery and DDS readiness."
+}

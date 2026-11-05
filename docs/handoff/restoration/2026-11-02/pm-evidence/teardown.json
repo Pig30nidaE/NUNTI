@@ -1,0 +1,32 @@
+{
+  "checkedAtUtc": "2026-11-02 09:28:05 UTC",
+  "finalObservedGear": "Park",
+  "finalObservedSpeedKph": 0,
+  "consoleTabClosed": true,
+  "emulatorExited": 0,
+  "adbDaemonsStopped": true,
+  "remainingTestProcessMatches": 0,
+  "remainingListenersOnPorts": [
+    {
+      "port": 5037,
+      "listening": false
+    },
+    {
+      "port": 5038,
+      "listening": false
+    },
+    {
+      "port": 5040,
+      "listening": false
+    },
+    {
+      "port": 5554,
+      "listening": false
+    },
+    {
+      "port": 5555,
+      "listening": false
+    }
+  ],
+  "toolsAndAvdDiskPreserved": true
+}

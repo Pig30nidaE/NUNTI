@@ -1,0 +1,9 @@
+{"event": "loading", "modelId": "mlx-community/Qwen3-TTS-12Hz-1.7B-Base-8bit"}
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/pig30nidae/NUNTI/.local/journey-voice-v3-identity/model/speech_tokenizer
+{"event": "loaded", "seconds": 1.6091537499996775, "tokenizerHasEncoder": true}
+{"event": "generating", "clipId": "comfort"}
+{"event": "generated", "clipId": "comfort", "durationSeconds": 5.68, "generationSeconds": 5.299549790999663, "peakMlxMemoryBytes": 6353758501}
+{"event": "generating", "clipId": "arrival"}
+{"event": "generated", "clipId": "arrival", "durationSeconds": 5.92, "generationSeconds": 4.144746957999814, "peakMlxMemoryBytes": 6428126444}

@@ -1,0 +1,33 @@
+{
+  "scope": "One manual built-in image_gen call from an actual CLI recipe, not app automation or production layered assets.",
+  "recipeFile": "prototypes/journey_characters/sample-output.json",
+  "recipeIndex": 0,
+  "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+  "recipeSha256": "d7a146e90a41229250e0877223b82d58a8a4e2e71014360426b1b46771093d2e",
+  "promptFile": "prototypes/journey_characters/sample-illustration-prompt.txt",
+  "promptSha256": "bdbbebab12446bcfc7d6c762cd8156093fd9e72a34ab570d5a0f09de925d2d08",
+  "reference": "docs/design/journey-characters/concepts/c-luminous-v2.png",
+  "output": "docs/design/journey-characters/concepts/recipe-coastal-001.png",
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "observedVisualMatch": [
+    "droplet body with soft upper point",
+    "aqua frosted-resin appearance",
+    "pearly suspended beads and internal wave ribbons",
+    "warm low inner light"
+  ],
+  "remainingQualityChecks": [
+    "eyes are larger than requested small bead-eye grammar",
+    "silhouette and pixel-level adherence not automatically scored",
+    "small-screen, alternate background, expression and rig not verified",
+    "no voice sample or user collectibility evaluation"
+  ],
+  "alphaCheck": {
+    "mode": "RGBA",
+    "extrema": [
+      0,
+      255
+    ],
+    "scope": "Background alpha channel inspection; not physical real-time refraction."
+  }
+}

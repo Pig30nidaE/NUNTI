@@ -1,0 +1,64 @@
+{
+  "status": "PASS_AVATAR_INPUT_EDGES",
+  "surface": "ACTUAL_HEADLESS_CHROME_9225",
+  "recordings": false,
+  "audioPlayed": false,
+  "providerApiCalls": 0,
+  "injection": "actual HTTP responses held; one actual collection GET replaced with 503",
+  "checks": [
+    {
+      "name": "late-extraction-does-not-overwrite-new-example"
+    },
+    {
+      "name": "stale-extraction-does-not-leave-busy-state"
+    },
+    {
+      "name": "confirmation-disabled-before-original-image-load"
+    },
+    {
+      "name": "confirmation-enabled-after-original-image-load"
+    },
+    {
+      "name": "successful-result-survives-collection-refresh-failure"
+    },
+    {
+      "name": "collection-failure-does-not-submit-new-uuid"
+    },
+    {
+      "name": "gate-test-starts-during-birth"
+    },
+    {
+      "name": "gate-denial-disables-creation"
+    },
+    {
+      "name": "gate-return-restores-complete-static-artifact"
+    },
+    {
+      "name": "gate-return-does-not-generate-or-speak"
+    },
+    {
+      "name": "new-photo-extracts-while-previous-collection-refresh-is-held"
+    },
+    {
+      "name": "late-collection-finally-does-not-release-photo-busy-state"
+    },
+    {
+      "name": "late-collection-error-does-not-overwrite-photo-progress"
+    },
+    {
+      "name": "new-photo-requires-fresh-confirmation"
+    },
+    {
+      "name": "late-collection-refresh-does-not-generate-or-speak"
+    }
+  ],
+  "sourceSha256": {
+    "prototypes/avatar_generator/studio.js": "9885898c07fa91fa726ddf7dec8e649818ec4a40106df0783ce83afc4b69f222",
+    "prototypes/avatar_generator/formation.js": "32b6a793d40d86b36dbe745667f4a11ceb977d3844faa60b49daaeb5fe45d52b"
+  },
+  "generated": {
+    "requestId": "eacdfdcb-1289-4a66-86ee-945941e34c22",
+    "characterId": "nunti-eacdfdcb-1289-4a66-86ee-945941e34c22",
+    "mediaOrigin": "LOCAL_RENDER"
+  }
+}

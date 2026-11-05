@@ -1,0 +1,9 @@
+PASS actual SERVER SpeechRequest projection preserves purpose and text
+PASS actual SERVER VoiceProfile resolves without fictional controls
+PASS actual SERVER speech/profile/emotion are accepted together without rewriting
+PASS valid SERVER wire without emotion evidence is rejected for playback
+PASS future extended SERVER emotion token safely rejects without host exception
+PASS actual AVATAR profile matches stable default voice identity
+PASS actual AVATAR EmotionSnapshot maps with synthetic approved matching request
+PASS unrelated actual AVATAR samples cannot be silently joined
+8 actual-fixture integration checks passed

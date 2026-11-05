@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v2:DesignedVoiceSource",
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "designed-voice-v1",
+      "title": "Kind",
+      "type": "string"
+    },
+    "providerId": {
+      "enum": [
+        "elevenlabs-designed",
+        "gemini-designed",
+        "nunti-offline-fixture"
+      ],
+      "title": "Providerid",
+      "type": "string"
+    },
+    "designModel": {
+      "title": "Designmodel",
+      "type": "string"
+    },
+    "synthesisModel": {
+      "title": "Synthesismodel",
+      "type": "string"
+    },
+    "voiceId": {
+      "title": "Voiceid",
+      "type": "string"
+    },
+    "bindingId": {
+      "title": "Bindingid",
+      "type": "string"
+    },
+    "specSha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Specsha256",
+      "type": "string"
+    },
+    "settingsSha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "title": "Settingssha256",
+      "type": "string"
+    },
+    "mediaOrigin": {
+      "enum": [
+        "PROVIDER_GENERATED",
+        "OFFLINE_FIXTURE"
+      ],
+      "title": "Mediaorigin",
+      "type": "string"
+    }
+  },
+  "required": [
+    "kind",
+    "providerId",
+    "designModel",
+    "synthesisModel",
+    "voiceId",
+    "bindingId",
+    "specSha256",
+    "settingsSha256",
+    "mediaOrigin"
+  ],
+  "title": "DesignedVoiceSource",
+  "type": "object"
+}

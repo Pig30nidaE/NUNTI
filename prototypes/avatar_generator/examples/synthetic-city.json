@@ -1,0 +1,106 @@
+{
+  "id": "synthetic-city",
+  "title": "합성 내비 시험 · 도심의 굽은 경로",
+  "destination": {
+    "name": "작은 미술관",
+    "traits": "도심에서 조용히 그림을 보는 곳"
+  },
+  "purpose": "주말 전시를 보며 쉬기",
+  "imageFile": "synthetic-city.png",
+  "route": {
+    "points": [
+      [
+        0.2895833,
+        0.765625
+      ],
+      [
+        0.2895833,
+        0.65625
+      ],
+      [
+        0.3729167,
+        0.65625
+      ],
+      [
+        0.3729167,
+        0.515625
+      ],
+      [
+        0.5072917,
+        0.515625
+      ],
+      [
+        0.5072917,
+        0.3734375
+      ],
+      [
+        0.646875,
+        0.3734375
+      ],
+      [
+        0.7260417,
+        0.2671875
+      ],
+      [
+        0.8708333,
+        0.2671875
+      ]
+    ],
+    "inputOrigin": "TEST_ROUTE",
+    "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+    "confirmed": true
+  },
+  "provenance": {
+    "kind": "SYNTHETIC_NAVIGATION_SCREENSHOT",
+    "generator": "build_examples.py",
+    "license": "project-authored synthetic test fixture",
+    "realMapData": false,
+    "liveNavigation": false,
+    "imageSha256": "e46c0d684ee8ce0c59e753aebe6d6e97ec1c8a05967493595f950d2f87dc3f4e"
+  },
+  "groundTruth": {
+    "coordinateSpace": "WHOLE_IMAGE_NORMALIZED_XY",
+    "imageWidth": 960,
+    "imageHeight": 640,
+    "routeColor": "#2478ec",
+    "pixelPoints": [
+      [
+        278,
+        490
+      ],
+      [
+        278,
+        420
+      ],
+      [
+        358,
+        420
+      ],
+      [
+        358,
+        330
+      ],
+      [
+        487,
+        330
+      ],
+      [
+        487,
+        239
+      ],
+      [
+        621,
+        239
+      ],
+      [
+        697,
+        171
+      ],
+      [
+        836,
+        171
+      ]
+    ],
+    "confirmation": "paired with the exact path used by the deterministic screenshot generator"
+  }
+}

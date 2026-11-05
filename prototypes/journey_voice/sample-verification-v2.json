@@ -1,0 +1,61 @@
+{
+  "status": "PASS",
+  "v1BaselineFilesPreserved": 9,
+  "processedWavClips": 6,
+  "matchedSourceWavClips": 6,
+  "sourceSpeakerComparisonPairs": 3,
+  "humanCutenessEvaluated": false,
+  "koreanIntelligibilityEvaluated": false,
+  "firstSyllableListeningEvaluated": false,
+  "dspArtifactsListeningEvaluated": false,
+  "clips": [
+    {
+      "clipId": "coast-common",
+      "speakerId": "F3",
+      "durationMs": 4029,
+      "pitchSemitones": 3,
+      "framesPreserved": true,
+      "clippedSamples": 0
+    },
+    {
+      "clipId": "coast-greeting",
+      "speakerId": "F3",
+      "durationMs": 6848,
+      "pitchSemitones": 3,
+      "framesPreserved": true,
+      "clippedSamples": 0
+    },
+    {
+      "clipId": "mountain-common",
+      "speakerId": "F4",
+      "durationMs": 3269,
+      "pitchSemitones": 3,
+      "framesPreserved": true,
+      "clippedSamples": 0
+    },
+    {
+      "clipId": "mountain-greeting",
+      "speakerId": "F4",
+      "durationMs": 5485,
+      "pitchSemitones": 3,
+      "framesPreserved": true,
+      "clippedSamples": 0
+    },
+    {
+      "clipId": "city-common",
+      "speakerId": "F5",
+      "durationMs": 3702,
+      "pitchSemitones": 3,
+      "framesPreserved": true,
+      "clippedSamples": 0
+    },
+    {
+      "clipId": "city-greeting",
+      "speakerId": "F5",
+      "durationMs": 6422,
+      "pitchSemitones": 3,
+      "framesPreserved": true,
+      "clippedSamples": 0
+    }
+  ]
+}

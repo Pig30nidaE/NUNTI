@@ -1,0 +1,6 @@
+{"state":"PASS","check":"emulator and user preflight"}
+{"state":"PASS","check":"cold launch restores without automatic speech"}
+{"state":"PASS","check":"ten Android parser/store boundary checks"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 01-coast-rest"}
+{"state":"FAIL","reason":"Unexpected speech result: REJECTED/REPEATED_TEXT"}
+{"state":"FINISHED","status":"FAIL","report":"/Users/pig30nidae/NUNTI/prototypes/journey_mvp/runtime-03/verification.json"}

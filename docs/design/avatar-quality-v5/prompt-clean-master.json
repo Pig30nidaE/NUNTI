@@ -1,0 +1,10 @@
+{
+  "asOf": "2026-11-03",
+  "tool": "BUILT_IN_IMAGE_GEN",
+  "modelVersion": "NOT_EXPOSED",
+  "kind": "precise-object-edit",
+  "reference": "docs/design/avatar-quality-v5/assets/style-clean-b.png",
+  "selectedForImplementation": true,
+  "humanApproved": false,
+  "prompt": "Use case: precise-object-edit. Image 1 is the edit target. Keep this exact Nunti character's anatomy, expressive happy face, proportions, wave crest, curled tail, tiny flippers and feet, cream/mint/peach palette and opaque matte shallow 2.5D illustration. TARGETED CLEANUP ONLY: place the COMPLETE character centered at 76 percent of the canvas width/height, leaving at least 12 percent truly empty margin on ALL sides. Show every part, no cropping. REMOVE ALL diffuse white/gray/mint glow, ambient backdrop, outer haze, vignette and halo around the subject. Outside the crisp anti-aliased character boundary the alpha must be exactly zero. A genuinely transparent cutout, no cast shadow. Keep smooth clean color planes, reduce overly deep shading slightly, no new lines, spots, route, scars, scratches, ornaments, seams, particles, labels or extra details. Do not add any new character or prop. Preserve the warm eye highlights and open friendly smile. One character isolated, true transparent background."
+}

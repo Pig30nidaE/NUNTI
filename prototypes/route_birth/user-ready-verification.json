@@ -1,0 +1,39 @@
+{
+  "status": "PASS_INSTALLED_FINAL_APK_LAUNCHER_AND_USER_STATE",
+  "at": "2026-11-02T16:42:56.168293+00:00",
+  "apkSha256": "e96931982da70b2bf2b7dae595c414b63be5e45b1457b791dd0f16420f8b9d8e",
+  "installedApkBytes": 49961217,
+  "resumed": [
+    "topResumedActivity=ActivityRecord{b3d4c4c u10 ai.nunti.avatar.demo/ai.nunti.app.routebirth.RouteBirthActivity t1000080}",
+    "topResumedActivity=ActivityRecord{290390a u10 ai.umos.drivingview/.DrivingViewActivity t1000043}",
+    "topResumedActivity=ActivityRecord{506874f u10 ai.umos.homescreen/.HomeActivity t1000040}",
+    "ResumedActivity: ActivityRecord{b3d4c4c u10 ai.nunti.avatar.demo/ai.nunti.app.routebirth.RouteBirthActivity t1000080}"
+  ],
+  "restored": {
+    "kind": "RB_RESTORED",
+    "at": "2026-11-02T16:40:49.854084Z",
+    "namespace": "route-birth",
+    "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "characterId": "route-9a72946c91d56cc41e1a27a6",
+    "visualSha256": "e78f4c51dad019de3d1072e6e9dde01ba7c88a947157fe7bb45bb53d0ff2a7d3",
+    "arrived": true,
+    "collected": 1,
+    "automaticSpeech": false
+  },
+  "gate": {
+    "kind": "RB_GATE",
+    "at": "2026-11-02T16:40:49.866119Z",
+    "namespace": "route-birth",
+    "source": "ACTUAL_CAR_SERVICE",
+    "parked": true,
+    "motion": "PARKED",
+    "foreground": true,
+    "visible": true,
+    "knownUX": true,
+    "requiresDO": false,
+    "quietConfirmed": false,
+    "quietAccepted": false
+  },
+  "localCollectionCount": 1,
+  "automaticSpeechAfterRestore": false
+}

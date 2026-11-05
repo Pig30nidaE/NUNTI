@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "nunti-keepsake-listening-candidates-v1",
+  "status": "LISTENING_CANDIDATES_NOT_PRODUCT_APPROVED",
+  "profiles": {
+    "calm_warmth": {"profileId": "nunti-keepsake-calm-v1", "speakerId": "F1", "speed": 0.95, "steps": 16},
+    "gentle_curiosity": {"profileId": "nunti-keepsake-curious-v1", "speakerId": "M3", "speed": 1.03, "steps": 16},
+    "quiet_delight": {"profileId": "nunti-keepsake-clear-v1", "speakerId": "F2", "speed": 1.00, "steps": 16}
+  },
+  "interpretation": "Finite audition catalog. Affect names are casting intentions, not verified acoustic emotion controls. No cloning, pitch shifting or inferred emotion recognition."
+}

@@ -1,0 +1,22 @@
+test_after_replace_crash_commits_then_retry_returns_exact_recipe (__main__.RecipeCliTests) ... ok
+test_before_replace_crash_preserves_previous_ledger_and_retry_converges (__main__.RecipeCliTests) ... ok
+test_corrupt_ledger_is_not_reset (__main__.RecipeCliTests) ... ok
+test_destination_route_and_purpose_control_separate_design_axes (__main__.RecipeCliTests) ... ok
+test_duplicate_request_and_process_restart_return_identical_bytes (__main__.RecipeCliTests) ... ok
+test_explicit_road_fact_is_copied_without_changing_creative_recipe (__main__.RecipeCliTests) ... ok
+test_first_save_crash_before_replace_replays_without_new_identity (__main__.RecipeCliTests) ... ok
+test_history_exhausts_body_families_before_repeating (__main__.RecipeCliTests) ... ok
+test_illustration_prompt_excludes_location_facts_personality_voice_and_seed (__main__.RecipeCliTests) ... ok
+test_illustration_prompt_uses_selected_recipe_visual_materials_and_geometry (__main__.RecipeCliTests) ... ok
+test_missing_purpose_remains_unspecified (__main__.RecipeCliTests) ... ok
+test_raw_location_and_unproven_facts_are_rejected (__main__.RecipeCliTests) ... ok
+test_representative_samples_are_distinct_recipes_with_different_voice_intents (__main__.RecipeCliTests) ... ok
+test_request_id_collision_rejected_without_mutation (__main__.RecipeCliTests) ... ok
+test_reroute_and_changed_duplicate_preserve_frozen_recipe (__main__.RecipeCliTests) ... ok
+test_same_route_new_journey_changes_identity_and_body_family (__main__.RecipeCliTests) ... ok
+test_semantic_tags_never_create_verified_road_facts (__main__.RecipeCliTests) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 1.309s
+
+OK

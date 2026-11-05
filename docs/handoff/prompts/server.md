@@ -1,5 +1,23 @@
 # 새 SERVER 세션 시작 프롬프트
 
+2026-11-04 최신: 운전습관 개선을 돕는 눈티 안의 사용자 담당은 목적지·경로 기반 생성이며 [제품 기준](../../product/2026-hmg-app-challenge.md)을 유지한다. 결과 표시와 보관함 갱신 사이에서 사진 업로드가 유실되는 버그를 [재현·수정](../../design/avatar-quality-v5/PHOTO-UPLOAD-FIX.md)했다. 전체 7단계 직접 실행 완료: 경계15·Chrome15·Android15·저장AI14·실제Canvas7개35자세 통과. 추가AI추론·유료호출·녹화0. 이전 승인 검토 장애는 화면 검사에 대해 해소됐으며 아래 미실행 설명은 당시 기록이다. 정원 추가AI와 미적 최종승인은 별도다.
+
+최신은 [v5](../../design/avatar-quality-v5/README.md)다. 운전습관 개선을 돕는 눈티 안의 사용자 담당은 목적지·경로 기반 생성이며 [제품 기준](../../product/2026-hmg-app-challenge.md)을 유지한다. 모델 참조는 내부축선없는구조+스타일2장, 원본경로이미지는전송하지않고데이터로보존한다. local-clean-silhouette-3·route-silhouette-3, 선택style-clean-master. 실제coast새AI44.56초/paid0, garden은승인검토capacity실패로0건. 전체246+하위10통과. scripts/verify_avatar_clean_image.py·verify_avatar_quality_v5.py의실제/미실행기록을따른다.
+
+최신은 [v4 구현·검증](../../design/avatar-quality-v4/README.md)다. 운전습관 개선을 돕는 눈티 안의 사용자 담당은 목적지·경로 기반 생성이며 [제품 기준](../../product/2026-hmg-app-challenge.md)을 유지한다. LOCAL_MODEL은 선택한 로컬 MLX 모델만 offline 실행하며 원본 RGB·참조·seed·commit·실제 RGBA를 보존한다. 단일 추론·timeout·멱등 결과·소유권을 유지한다. 전체 backend 241개+하위7 통과, 실제 Android 생성 45.01초와 복원 확인. 유료 API는 원화 선택 후 결정으로 보류·0회이며 기본 실행에서 승인 환경을 false로 강제한다. 아래 v3·v2 설명은 과거 기록이다.
+
+최신은 [생성기 v3](../../design/avatar-generator/README.md)다. 운전습관 개선을 돕는 눈티 중 사용자 담당은 목적지·경로 기반 생성이며 [제품 기준](../../product/2026-hmg-app-challenge.md)을 유지한다. 독립 FastAPI 앱 nunti.avatar_studio.api:app·port8768·즉시 소장·입력/미디어 SHA·멱등 결과를 구현했다. 선택 이미지 API는 별도 한 키, 기본은 새 로컬 RGBA다. v1·v2 소스·소장품은 보존했다. 아래 보고는 이전 기록이다.
+
+제품 목표는 운전습관 개선을 도와주는 아바타 눈티다. 사용자 담당인 목적지·경로 기반 생성 기능과 전체 제품을 구분하는 [제품 기준](../../product/2026-hmg-app-challenge.md)을 우선한다. 생성한 ID·설정·외형·음색을 감정·음성 피드백 모듈에서 이어서 사용하도록 경계를 보존한다. 운전 점수·검증 이벤트·최종 코멘트 산정은 해당 모듈의 책임이며 생성 경로의 모양으로 대신 산정하지 않는다.
+
+2026-11-03 최신 기준은 [생성 동반자 v2](../../design/generative-mvp/README.md), [검증 보고](../../design/generative-mvp/test-report.md), [현황](../STATUS.md)이다. SERVER는 별도 v2 계약·작업자·소장품/미디어 저장·공급자 어댑터·비용/음성 슬롯 경계·후속 대사·비용 확정/음성 유지 CLI를 구현했다. 서버 132개 검사와 로컬 인증 HTTP·재시작을 확인했다. API 모드의 키·가격 누락은 외부 호출 전에 실패한다. 실제 계정·요금·음성 TTL 연장은 미검증이다. 아래 로컬 Sohee와 v1 전용 범위 설명은 과거 기록이다.
+
+최신 생성 흐름은 [목적지·경로에서 동반자가 태어나는 시험본](../../design/route-birth/test-report.md)을 따른다. 앱에서 목적지·특성·목적과 직접 그린 경로를 입력하면, 기존16윤곽 선택 없이 새72점 외형과 로컬 Sohee 음성을 생성한다. 경로 trace→몸체 morph→얼굴 등장, 런타임 음원 수신, 도착·보관·복원을 연결했다. 새5여정·15새WAV는 검증 표본이며 선택지나 생성 상한이 아니다. PC 모델/로컬 bridge가 필요하고 외부 API·계정은 사용하지 않는다. Anna 선호는 유지한다. 지도·내비 입력·폭넓은 자유 서술 해석·Android 추론·실차·사람의 품질 평가는 남았다. 아래8개 목록 방식은 이전 검증본이다.
+
+이전 v2 기준선은 [TTS 실제 구현·시험 결과](../../design/journey-characters/tts-result.md)에 보존한다. 최신 상태는 위 생성 연동 보고를 따른다. v2 PC 합성·Android Debug 파일 재생과 실제 emulator 정책 이벤트까지 완료했다. 사용자 음성 피드백은 "전체적으로 더 작고 귀여운 느낌"이다. 새 2.5D 시각·매 여행 자동 모델 호출·제품 host 연결은 남았다. 아래 과거 기준선과 완료된 복원은 반복하지 않는다.
+
+최신 요구는 [여정 캐릭터 브리프](../../product/journey-character-brief.md)와 [C 방향 통합 설계](../../design/journey-characters/README.md)다. [복원 결과](../restoration/2026-11-02/PM.md)와 [새 생성·컬렉션 제안](../../design/journey-characters/server-proposal.md)을 먼저 읽고 완료된 복원을 반복하지 않는다. 생성·선택·수집은 별도 상태이며 현재 v1은 새 job·자산·컬렉션 계약이 아니다. 외부 payload·담당 조율은 사용자 지시로 보류한다.
+
 당신은 Nunti의 서버 API·공통 계약·저장·시스템 통합 담당이다. 한국어로 소통한다. 저장소는 `https://github.com/Pig30nidaE/NUNTI.git`이다. 새 로컬의 독립 SERVER worktree에서 인수인계 후 작업을 재개한다.
 
 먼저 `docs/handoff/README.md`, `STATUS.md`, `RELOCATION.md`, `reports/server.md`, `backend/README.md`, `contracts/v1/README.md`, `docs/architecture/server.md`, `integration.md`, `validation.md`, `pleos-runtime.md`, `docs/coordination/server.md`를 읽는다. 초기 빌드 기록과 후속 런타임 기록을 구분한다.

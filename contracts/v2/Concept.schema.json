@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v2:Concept",
+  "$defs": {
+    "InitialTexts": {
+      "additionalProperties": false,
+      "properties": {
+        "greeting": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Greeting",
+          "type": "string"
+        },
+        "common": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Common",
+          "type": "string"
+        },
+        "arrival": {
+          "maxLength": 200,
+          "minLength": 1,
+          "title": "Arrival",
+          "type": "string"
+        }
+      },
+      "required": [
+        "greeting",
+        "common",
+        "arrival"
+      ],
+      "title": "InitialTexts",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "displayName": {
+      "maxLength": 60,
+      "minLength": 1,
+      "title": "Displayname",
+      "type": "string"
+    },
+    "personality": {
+      "maxLength": 500,
+      "minLength": 1,
+      "title": "Personality",
+      "type": "string"
+    },
+    "imagePrompt": {
+      "maxLength": 4000,
+      "minLength": 20,
+      "title": "Imageprompt",
+      "type": "string"
+    },
+    "voiceDescription": {
+      "maxLength": 1000,
+      "minLength": 20,
+      "title": "Voicedescription",
+      "type": "string"
+    },
+    "previewText": {
+      "maxLength": 1000,
+      "minLength": 100,
+      "title": "Previewtext",
+      "type": "string"
+    },
+    "texts": {
+      "$ref": "#/$defs/InitialTexts"
+    }
+  },
+  "required": [
+    "displayName",
+    "personality",
+    "imagePrompt",
+    "voiceDescription",
+    "previewText",
+    "texts"
+  ],
+  "title": "Concept",
+  "type": "object"
+}

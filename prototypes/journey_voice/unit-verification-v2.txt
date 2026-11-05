@@ -1,0 +1,12 @@
+test_default_v1_state_directory_is_refused_even_when_empty (__main__.CandidateV2Tests) ... ok
+test_existing_v1_binding_is_not_replaced (__main__.CandidateV2Tests) ... ok
+test_invalid_text_is_rejected_before_creating_binding (__main__.CandidateV2Tests) ... ok
+test_mild_pitch_settings_are_persisted_inside_binding_digest (__main__.CandidateV2Tests) ... ok
+test_reroute_keeps_both_speaker_and_postprocess (__main__.CandidateV2Tests) ... ok
+test_three_new_source_speakers_and_versioned_profiles (__main__.CandidateV2Tests) ... ok
+test_unknown_intent_is_not_replaced_by_small_voice (__main__.CandidateV2Tests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.007s
+
+OK

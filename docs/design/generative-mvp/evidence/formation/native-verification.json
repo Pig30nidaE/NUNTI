@@ -1,0 +1,35 @@
+{
+  "status": "PASS_NATIVE_V2_FIXTURE_MEDIA_AND_LIFECYCLE",
+  "mode": "OFFLINE_FIXTURE",
+  "at": "2026-11-03T10:05:44.729225+00:00",
+  "providerApiCalls": 0,
+  "humanQualityVerified": false,
+  "newImageOrTimbreGenerated": false,
+  "videoOrSpeakerRecordingPerformed": false,
+  "screenshotsCaptured": false,
+  "requestId": "1c50d89f-fd7a-4120-bafd-fdf2464feca7",
+  "characterId": "gen-e1c6d44be1a6963bfe520072",
+  "imageSha256": "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47",
+  "bindingId": "dvb-52bd3c4311022ebc6e83ef09403e4317",
+  "initialClips": 3,
+  "newFollowupRecord": true,
+  "completedClips": [
+    "gen-e1c6d44be1a6963bfe520072-greeting",
+    "gen-e1c6d44be1a6963bfe520072-speech-701e7e1a5bbb6b8b3fda"
+  ],
+  "boundaryChecks": 10,
+  "quietConsentRestored": false,
+  "automaticSpeechAfterRestore": false,
+  "initialBirthProgress": 0,
+  "formationDesign": "ROUTE_RIBBON_V1",
+  "formationPreparedBeforeAnimation": true,
+  "backgroundCancellationReason": "INACTIVE",
+  "nativeSourceSha256": {
+    "android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedBoundaryChecks.kt": "53156cf1059aef28069e022d42e79c2aa387eda51cc288324c9796bb2db1012c",
+    "android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedCompanionActivity.kt": "063773efeaf6c37cb30a4fbc1b4d8e42a560f76e849b8a232509d90b95357c1e",
+    "android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedData.kt": "542133ba0ee8f7b01a4e817fd99219d4fe2210e5e2391f4506a5339a10f39f00",
+    "android/feature/avatar/src/compose/kotlin/ai/nunti/avatar/GeneratedCompanion.kt": "2ff5bbeaa1144081cf0499a90af15cfb3c9629e50202b0f2bbe4921d6fdb3479",
+    "android/feature/avatar/src/main/kotlin/ai/nunti/avatar/GeneratedCompanionSpec.kt": "6e53bb2058f86cd290d646911609116aeab9e93b0bcdf9f2b5cb990d54e60dad",
+    "android/feature/avatar/src/main/kotlin/ai/nunti/avatar/GeneratedFormationSpec.kt": "059a8d218aa53f648e46a2eceb1f76256f18973880726ec44b56e81a35b76443"
+  }
+}

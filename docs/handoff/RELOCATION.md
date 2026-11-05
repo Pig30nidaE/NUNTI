@@ -132,7 +132,11 @@ python3 android/scripts/verify_runtime_probe.py \
 
 위 lifecycle 도구는 발화 이벤트를 검사하며 스피커 WAV를 새로 수집하지 않는다. 당시 gRPC 오디오 캡처 클라이언트는 보존되지 않았다. 새 녹음이 필요하면 공식 emulator speaker stream과 새 세션 인증을 사용하는 캡처 도구를 복원한다. 기존 WAV와 그 형식·해시는 Git에 남아 있다.
 
+2026-11-02 새 로컬에서 확인한 환경 차이는 [PM 복원 보고](restoration/2026-11-02/PM.md)에 있다. macOS의 ADB native USB 초기화가 대기하면 해당 daemon의 스택을 확인하고 공식 지원 `ADB_LIBUSB=1`을 지정한 새 daemon으로 비교한다. 이번 실행에서는 이 설정으로 연결됐다. 모든 ADB 실패에 같은 원인을 가정하지 않는다.
+
 실제 주행 전환을 재검사하려면 [Virtual Console 가이드](https://document.pleos.ai/en/docs/connect/guide/getting-started/application-development/use-vehicle-emulator)에 따라 `adb forward tcp:8088 tcp:8088`을 설정하고 `http://127.0.0.1:8088/`에 접속한다. 기존 환경의 `emulator_inactive`/bridge/DDS 미준비가 해결됐는지 먼저 확인한다. P→D/속도→P와 실제 UX 변화가 관찰되기 전에는 주행 차단 검증을 통과로 기록하지 않는다.
+
+브라우저 전체 Console 페이지를 열고 시험 동안 유지한다. 이번 공식 프런트엔드는1초 간격 heartbeat와3초 세션 timeout을 사용한다. 단순 GET 조회만으로 세션이 활성화되지 않는다. 새 실행에서 browser.clients0→1과 emulator_active·DDS all·gear bridge=false→true를 관찰한 뒤 실제 P→D·속도→P에 성공했다. 브라우저가 닫히면 inactive가 될 수 있으므로 새 환경에서 상태를 다시 확인한다.
 
 ## 네 세션의 작업 폴더 구성
 
@@ -146,6 +150,8 @@ git worktree add ../Nunti-server -b codex/server-next origin/main
 ```
 
 같은 이름이 있으면 기존 작업 상태를 먼저 확인하고 새 이름을 고른다. 과거 prunable worktree 메타데이터를 옮기거나 기존 브랜치를 다시 병합하지 않는다. 각 폴더를 Codex에서 열어 [해당 프롬프트](README.md)를 붙여넣는다. 사용자별 skills·플러그인·모델 설정은 Git에 없으며 필수 구현 지침은 저장소 문서에서 복원한다.
+
+이번 로컬은 저장소 안의 Git 제외 경로 `.worktrees/{tts,avatar,server}`를 사용했다. [setup_role_worktrees.py](../../scripts/setup_role_worktrees.py)는 독립적으로 확인한 원격 SHA와 `origin/main`을 비교하고 기존 branch·path를 덮어쓰지 않는다. `--create`로 생성하고 옵션 없이 실제 HEAD·Git dir·변경 파일을 조회한다. 다른 환경에서는 먼저 원격 main의 최신 SHA를 확인한다.
 
 PM이 통합 브랜치 반영을 맡고 담당은 자신의 branch/index에서만 작업한다. 공통 파일 변경과 모듈 간 입력 계약을 먼저 공유한다. 다른 세션 메시지를 보낼 권한은 새 환경에서 사용자가 허용한 범위에 맞춘다.
 

@@ -1,0 +1,130 @@
+{
+  "id": "synthetic-hills",
+  "title": "합성 내비 시험 · 구릉처럼 굽이치는 경로",
+  "destination": {
+    "name": "숲속 찻집",
+    "traits": "숲에서 따뜻한 차를 즐기는 가상의 장소"
+  },
+  "purpose": "잠시 쉬며 차 마시기",
+  "imageFile": "synthetic-hills.png",
+  "route": {
+    "points": [
+      [
+        0.278125,
+        0.771875
+      ],
+      [
+        0.365625,
+        0.734375
+      ],
+      [
+        0.425,
+        0.6421875
+      ],
+      [
+        0.396875,
+        0.5625
+      ],
+      [
+        0.4385417,
+        0.4703125
+      ],
+      [
+        0.5260417,
+        0.46875
+      ],
+      [
+        0.5760417,
+        0.5359375
+      ],
+      [
+        0.6489583,
+        0.5
+      ],
+      [
+        0.6989583,
+        0.396875
+      ],
+      [
+        0.6760417,
+        0.3203125
+      ],
+      [
+        0.759375,
+        0.2453125
+      ],
+      [
+        0.86875,
+        0.2828125
+      ]
+    ],
+    "inputOrigin": "TEST_ROUTE",
+    "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+    "confirmed": true
+  },
+  "provenance": {
+    "kind": "SYNTHETIC_NAVIGATION_SCREENSHOT",
+    "generator": "build_examples.py",
+    "license": "project-authored synthetic test fixture",
+    "realMapData": false,
+    "liveNavigation": false,
+    "imageSha256": "114f0697daf0bcacac32bdb98df739771ea84158c28a49117f0a44c9969fc622"
+  },
+  "groundTruth": {
+    "coordinateSpace": "WHOLE_IMAGE_NORMALIZED_XY",
+    "imageWidth": 960,
+    "imageHeight": 640,
+    "routeColor": "#2478ec",
+    "pixelPoints": [
+      [
+        267,
+        494
+      ],
+      [
+        351,
+        470
+      ],
+      [
+        408,
+        411
+      ],
+      [
+        381,
+        360
+      ],
+      [
+        421,
+        301
+      ],
+      [
+        505,
+        300
+      ],
+      [
+        553,
+        343
+      ],
+      [
+        623,
+        320
+      ],
+      [
+        671,
+        254
+      ],
+      [
+        649,
+        205
+      ],
+      [
+        729,
+        157
+      ],
+      [
+        834,
+        181
+      ]
+    ],
+    "confirmation": "paired with the exact path used by the deterministic screenshot generator"
+  }
+}

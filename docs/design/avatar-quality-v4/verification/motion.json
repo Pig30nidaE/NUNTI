@@ -1,0 +1,840 @@
+{
+  "status": "PASS_FORMATION_PIXELS",
+  "surface": "ACTUAL_CHROME_CANVAS",
+  "recorded": false,
+  "speakerPlayed": false,
+  "providerApiCalls": 0,
+  "fixtures": [
+    {
+      "name": "coast-detail-a",
+      "imageSha256": "aa967f57499664be8495e300e9687b2cbc7ad460d7456c58b51f8de2c9c755d1",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.00411860886348947,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 1.699999999254942,
+          "foregroundPixels": 1083
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004065597331069579,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.3999999985098839,
+          "foregroundPixels": 2893
+        },
+        {
+          "progress": 0.5,
+          "area": 0.05991688276823379,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.5,
+          "foregroundPixels": 102695
+        },
+        {
+          "progress": 0.75,
+          "area": 0.14705755700894355,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 1.900000000372529,
+          "foregroundPixels": 253152
+        },
+        {
+          "progress": 1,
+          "area": 0.14714770255495993,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 3.099999999627471,
+          "foregroundPixels": 250882
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 1108,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -265.19146169594626,
+        "y": -354.12923696063314,
+        "scale": 1297.7947628053892,
+        "bodyWidth": 599.04,
+        "bodyHeight": 572.5668037514379
+      },
+      "contourAlphaIou": 0.993971623077452,
+      "contourPixels": 86782,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.14714770255495993
+    },
+    {
+      "name": "coast-detail-b",
+      "imageSha256": "e573dc30f4b0db092acb43942e4ca1fe7c5b8e587b28d1cabc9fff616bf2c4e6",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.00411860886348947,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.599999999627471,
+          "foregroundPixels": 1083
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004065597331069579,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.19999999925494194,
+          "foregroundPixels": 2893
+        },
+        {
+          "progress": 0.5,
+          "area": 0.05991688276823379,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.5,
+          "foregroundPixels": 102695
+        },
+        {
+          "progress": 0.75,
+          "area": 0.14705755700894355,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 1.6000000014901161,
+          "foregroundPixels": 253152
+        },
+        {
+          "progress": 1,
+          "area": 0.14714770255495993,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 3,
+          "foregroundPixels": 250882
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 1055,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -265.19146169594626,
+        "y": -354.12923696063314,
+        "scale": 1297.7947628053892,
+        "bodyWidth": 599.04,
+        "bodyHeight": 572.5668037514379
+      },
+      "contourAlphaIou": 0.993971623077452,
+      "contourPixels": 86782,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.14714770255495993
+    },
+    {
+      "name": "coast-horizontal",
+      "imageSha256": "f5df0e0df185d380ad5e32f231d74d4fa95342e4913e74ee102fbcc3ca46a23a",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.0029027054283940756,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.8999999985098839,
+          "foregroundPixels": 1002
+        },
+        {
+          "progress": 0.25,
+          "area": 0.002872064995153009,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 2,
+          "foregroundPixels": 1943
+        },
+        {
+          "progress": 0.5,
+          "area": 0.052871494689899226,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2000000011175871,
+          "foregroundPixels": 76649
+        },
+        {
+          "progress": 0.75,
+          "area": 0.13568693140363988,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 1.199999999254942,
+          "foregroundPixels": 197148
+        },
+        {
+          "progress": 1,
+          "area": 0.13575969860853523,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 2.5,
+          "foregroundPixels": 195310
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 917,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -211.781141870758,
+        "y": -334.76556492861374,
+        "scale": 1192.6724232330614,
+        "bodyWidth": 599.04,
+        "bodyHeight": 451.02482012156884
+      },
+      "contourAlphaIou": 0.9953376765466481,
+      "contourPixels": 80089,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.13575969860853523
+    },
+    {
+      "name": "coast-reverse",
+      "imageSha256": "1faf8d3cb7c7b13383b3dd0e7c6e1f098b46b45e379b4ae9e1e5d3972cbce420",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.00417522993520511,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2999999988824129,
+          "foregroundPixels": 1084
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004131400142466726,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.09999999962747097,
+          "foregroundPixels": 2784
+        },
+        {
+          "progress": 0.5,
+          "area": 0.060164977405310044,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.09999999962747097,
+          "foregroundPixels": 105432
+        },
+        {
+          "progress": 0.75,
+          "area": 0.14752000857801528,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 1.5,
+          "foregroundPixels": 259509
+        },
+        {
+          "progress": 1,
+          "area": 0.14761763591409993,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 2.900000000372529,
+          "foregroundPixels": 257310
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 1115,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -267.1086452822989,
+        "y": -366.3453011673908,
+        "scale": 1312.0417278183284,
+        "bodyWidth": 598.7146861590703,
+        "bodyHeight": 583.6800000000001
+      },
+      "contourAlphaIou": 0.9941855816131869,
+      "contourPixels": 87067,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.14761763591409993
+    },
+    {
+      "name": "coast-vertical",
+      "imageSha256": "59b09ef05c73a636cc4581b7d0d9814cb7058056f46162fb929d45484861c97c",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.002902723210823667,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.40000000037252903,
+          "foregroundPixels": 1002
+        },
+        {
+          "progress": 0.25,
+          "area": 0.0028568224599370626,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2999999988824129,
+          "foregroundPixels": 1949
+        },
+        {
+          "progress": 0.5,
+          "area": 0.05042662249758817,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2000000011175871,
+          "foregroundPixels": 87891
+        },
+        {
+          "progress": 0.75,
+          "area": 0.13642888294704983,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 1.5,
+          "foregroundPixels": 239496
+        },
+        {
+          "progress": 1,
+          "area": 0.13652215788413516,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 2.699999999254942,
+          "foregroundPixels": 237806
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 1012,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -271.9959500909089,
+        "y": -362.9927767264731,
+        "scale": 1311.9444077942555,
+        "bodyWidth": 557.0403128275339,
+        "bodyHeight": 583.6800000000001
+      },
+      "contourAlphaIou": 0.9945274861025324,
+      "contourPixels": 80537,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.13652215788413516
+    },
+    {
+      "name": "coast",
+      "imageSha256": "d06e6dd861ce431f141fda95aed60087deb73b7b3eb4b013976f32df9253a3da",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.00411860886348947,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.30000000074505806,
+          "foregroundPixels": 1083
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004065597331069579,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.19999999925494194,
+          "foregroundPixels": 2893
+        },
+        {
+          "progress": 0.5,
+          "area": 0.05991688276823379,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.19999999925494194,
+          "foregroundPixels": 102695
+        },
+        {
+          "progress": 0.75,
+          "area": 0.14705755700894355,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 1.299999998882413,
+          "foregroundPixels": 253152
+        },
+        {
+          "progress": 1,
+          "area": 0.14714770255495993,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 2.699999999254942,
+          "foregroundPixels": 250882
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 1052,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -265.19146169594626,
+        "y": -354.12923696063314,
+        "scale": 1297.7947628053892,
+        "bodyWidth": 599.04,
+        "bodyHeight": 572.5668037514379
+      },
+      "contourAlphaIou": 0.993971623077452,
+      "contourPixels": 86782,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.14714770255495993
+    },
+    {
+      "name": "garden",
+      "imageSha256": "cc5a1d8473534281b5945ba4b276f01fe033d30671f6110e4946d2811b18f70d",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.004144738825150596,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2000000011175871,
+          "foregroundPixels": 1083
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004091104313868804,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.09999999962747097,
+          "foregroundPixels": 2863
+        },
+        {
+          "progress": 0.5,
+          "area": 0.06774016619085609,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.19999999925494194,
+          "foregroundPixels": 100843
+        },
+        {
+          "progress": 0.75,
+          "area": 0.1658055321000298,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 2.200000001117587,
+          "foregroundPixels": 247960
+        },
+        {
+          "progress": 1,
+          "area": 0.16590864553265985,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 2.599999999627471,
+          "foregroundPixels": 245980
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 927,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -221.3988918654859,
+        "y": -281.5410205175078,
+        "scale": 1210.249298748779,
+        "bodyWidth": 558.6305020643576,
+        "bodyHeight": 583.6800000000001
+      },
+      "contourAlphaIou": 0.9944996289028742,
+      "contourPixels": 97851,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.16590864553265985
+    },
+    {
+      "name": "local-ai-coast",
+      "imageSha256": "f67cc49adfae3137a489ae977658c5f356de45930f0b9ec7f6cbf76e3b4784b6",
+      "humanQualityStatus": "NOT_HUMAN_APPROVED",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.004899575165920392,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2999999988824129,
+          "foregroundPixels": 1421
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004844937739136121,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.09999999962747097,
+          "foregroundPixels": 3128
+        },
+        {
+          "progress": 0.5,
+          "area": 0.08315378291721948,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.30000000074505806,
+          "foregroundPixels": 82004
+        },
+        {
+          "progress": 0.75,
+          "area": 0.22467857673271482,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2000000011175871,
+          "foregroundPixels": 221820
+        },
+        {
+          "progress": 1,
+          "area": 0.22467857673271482,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 0,
+          "elapsedMs": 3.200000001117587,
+          "foregroundPixels": 220871
+        }
+      ],
+      "mediaOrigin": "LOCAL_MODEL",
+      "geometrySource": "MEASURED_ALPHA_BOUNDARY",
+      "mapping": "GEOMETRIC_PROJECTION_NOT_SEMANTIC",
+      "faceProtected": false,
+      "finalChangedBytes": 250,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -70.07998771199999,
+        "y": -127.67998771199996,
+        "scale": 983.0400000000001,
+        "bodyWidth": 560.6400000000001,
+        "bodyHeight": 583.6800000000001
+      },
+      "contourAlphaIou": 0.9894833548695503,
+      "contourPixels": 132481,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.22467857673271482
+    },
+    {
+      "name": "local-ai-garden",
+      "imageSha256": "01a4480037d4c43932741788a70e2d1aaf5dc30d90ca1ff13212dd97984f6a19",
+      "humanQualityStatus": "FACE_OCCLUSION_FAILED",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.00491654419949536,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.30000000074505806,
+          "foregroundPixels": 1421
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004850715850102508,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.10000000149011612,
+          "foregroundPixels": 3292
+        },
+        {
+          "progress": 0.5,
+          "area": 0.06836281003061986,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.10000000149011612,
+          "foregroundPixels": 98306
+        },
+        {
+          "progress": 0.75,
+          "area": 0.1759774975414799,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2000000011175871,
+          "foregroundPixels": 253221
+        },
+        {
+          "progress": 1,
+          "area": 0.1759774975414799,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 0,
+          "elapsedMs": 2.800000000745058,
+          "foregroundPixels": 252007
+        }
+      ],
+      "mediaOrigin": "LOCAL_MODEL",
+      "geometrySource": "MEASURED_ALPHA_BOUNDARY",
+      "mapping": "GEOMETRIC_PROJECTION_NOT_SEMANTIC",
+      "faceProtected": false,
+      "finalChangedBytes": 356,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -206.85504668038107,
+        "y": -263.98480637561914,
+        "scale": 1185.889523809524,
+        "bodyWidth": 563.2872065706669,
+        "bodyHeight": 583.6800000000001
+      },
+      "contourAlphaIou": 0.9892118555227294,
+      "contourPixels": 103802,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.1759774975414799
+    },
+    {
+      "name": "prism",
+      "imageSha256": "a0d5ca1ce9e7f1131efad09c203cb6e6d202666bfcbd92e2704d3ac22fc65a8e",
+      "humanQualityStatus": "NOT_EVALUATED_BY_THIS_TEST",
+      "poses": [
+        {
+          "progress": 0,
+          "area": 0.004168248092858207,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.30000000074505806,
+          "foregroundPixels": 1083
+        },
+        {
+          "progress": 0.25,
+          "area": 0.004113931088667311,
+          "inflate": 0,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.2000000011175871,
+          "foregroundPixels": 2855
+        },
+        {
+          "progress": 0.5,
+          "area": 0.052961872038520416,
+          "inflate": 0.4674118517300894,
+          "imageWeight": 0,
+          "faceOpacity": 0,
+          "elapsedMs": 0.19999999925494194,
+          "foregroundPixels": 89563
+        },
+        {
+          "progress": 0.75,
+          "area": 0.13026425086528037,
+          "inflate": 1,
+          "imageWeight": 0,
+          "faceOpacity": 0.5000000000000007,
+          "elapsedMs": 1.6000000014901161,
+          "foregroundPixels": 220889
+        },
+        {
+          "progress": 1,
+          "area": 0.13034132053502495,
+          "inflate": 1,
+          "imageWeight": 1,
+          "faceOpacity": 1,
+          "elapsedMs": 3,
+          "foregroundPixels": 218867
+        }
+      ],
+      "mediaOrigin": "LOCAL_RENDER",
+      "geometrySource": "LOCAL_RENDER_GEOMETRY",
+      "mapping": "SOURCE_ROUTE_ARC_CORRESPONDENCE",
+      "faceProtected": true,
+      "finalChangedBytes": 1111,
+      "finalMaxDelta": 1,
+      "opaqueChangedPixels": 0,
+      "edgeMaxDelta": 1,
+      "displayFit": {
+        "x": -262.03781864959603,
+        "y": -339.9743736888964,
+        "scale": 1286.5651501047785,
+        "bodyWidth": 598.7840175492003,
+        "bodyHeight": 583.6800000000001
+      },
+      "contourAlphaIou": 0.9932780930467043,
+      "contourPixels": 76875,
+      "contourPoints": 192,
+      "spinePoints": 96,
+      "finalArea": 0.13034132053502495
+    }
+  ],
+  "capabilityPresentation": [
+    {
+      "caps": {
+        "imageApiAvailable": false,
+        "localImageModelAvailable": true
+      },
+      "hidden": false,
+      "options": [
+        {
+          "value": "LOCAL_RENDER",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "value": "LOCAL_MODEL",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "value": "IMAGE_API",
+          "hidden": true,
+          "disabled": true
+        }
+      ],
+      "note": "약 1분 동안 로컬 AI로 새 그림을 그려요. 얼굴이나 형태가 어색할 수 있어 결과를 확인해 주세요."
+    },
+    {
+      "caps": {
+        "imageApiAvailable": true,
+        "localImageModelAvailable": false
+      },
+      "hidden": false,
+      "options": [
+        {
+          "value": "LOCAL_RENDER",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "value": "LOCAL_MODEL",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "value": "IMAGE_API",
+          "hidden": false,
+          "disabled": false
+        }
+      ],
+      "note": "경로의 굴곡으로 일러스트를 빠르게 새로 그려요. 외부 API를 사용하지 않아요."
+    },
+    {
+      "caps": {
+        "imageApiAvailable": false,
+        "localImageModelAvailable": false
+      },
+      "hidden": true,
+      "options": [
+        {
+          "value": "LOCAL_RENDER",
+          "hidden": false,
+          "disabled": false
+        },
+        {
+          "value": "LOCAL_MODEL",
+          "hidden": true,
+          "disabled": true
+        },
+        {
+          "value": "IMAGE_API",
+          "hidden": true,
+          "disabled": true
+        }
+      ],
+      "note": "경로의 굴곡으로 일러스트를 빠르게 새로 그려요. 외부 API를 사용하지 않아요."
+    }
+  ],
+  "capabilityTestTransport": "Local capability response fixtures only; no generation POST",
+  "localModelPresentation": [
+    {
+      "name": "local-ai-coast",
+      "valid": {
+        "source": "MEASURED_ALPHA_BOUNDARY",
+        "faceProtected": false,
+        "origin": "로컬 AI로 새로 그린 그림 · 외부 API 없음",
+        "notice": "완성 그림의 외곽을 측정해 움직였어요. 경로와 몸체의 대응은 기하 연출이며 의미 일치는 미검증이에요. 얼굴 위치가 확인되지 않아 중간 얼굴 연출은 생략했어요.",
+        "motifs": "AI에 요청한 모티브예요. 실제 경로와 목적지의 특성이 그림에 반영됐는지는 아직 확인하지 않았어요."
+      },
+      "invalid": {
+        "hasFormation": false,
+        "notice": "측정한 외곽 정보를 확인하지 못해 탄생 모션을 건너뛰었어요. 원본 그림은 그대로 보관됐어요.",
+        "status": "외곽 검증 정보가 없어 원본 그림을 표시해요"
+      }
+    },
+    {
+      "name": "local-ai-garden",
+      "valid": {
+        "source": "MEASURED_ALPHA_BOUNDARY",
+        "faceProtected": false,
+        "origin": "로컬 AI로 새로 그린 그림 · 외부 API 없음",
+        "notice": "완성 그림의 외곽을 측정해 움직였어요. 경로와 몸체의 대응은 기하 연출이며 의미 일치는 미검증이에요. 얼굴 위치가 확인되지 않아 중간 얼굴 연출은 생략했어요.",
+        "motifs": "AI에 요청한 모티브예요. 실제 경로와 목적지의 특성이 그림에 반영됐는지는 아직 확인하지 않았어요."
+      },
+      "invalid": {
+        "hasFormation": false,
+        "notice": "측정한 외곽 정보를 확인하지 못해 탄생 모션을 건너뛰었어요. 원본 그림은 그대로 보관됐어요.",
+        "status": "외곽 검증 정보가 없어 원본 그림을 표시해요"
+      }
+    }
+  ],
+  "sourceSha256": "67fa1d1892a70654bd123d8d8becde2a6442de67db28d9172d319d0f9c8a3d03"
+}

@@ -1,0 +1,20 @@
+{
+  "processExitCode": 0,
+  "actualProcessSession": 6610,
+  "baseModelLoadedAfterAsrProcessExited": true,
+  "tokenizerEncoderPresent": true,
+  "generatedClips": 2,
+  "modelLoadSeconds": 1.6091537499996775,
+  "generationSeconds": {
+    "arrival": 4.144746957999814,
+    "comfort": 5.299549790999663
+  },
+  "durationSeconds": {
+    "arrival": 5.92,
+    "comfort": 5.68
+  },
+  "peakMlxMemoryBytes": 6428126444,
+  "generationLogSha256": "bffbdf158e98df06c1668e915a20ee426e2f97711cdc929cf61fcba1b7f1245b",
+  "runtimeWarning": "transformers generic model type warning emitted; encoder and both real syntheses succeeded; no perceptual identity claim",
+  "humanCrossTextVoiceIdentityVerified": false
+}

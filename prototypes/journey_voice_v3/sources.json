@@ -1,0 +1,32 @@
+{
+  "checkedAt": "2026-11-02",
+  "modelVendor": {
+    "url": "https://github.com/QwenLM/Qwen3-TTS",
+    "revision": "022e286b98fbec7e1e916cb940cdf532cd9f488e",
+    "license": "Apache-2.0",
+    "modelUrl": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign",
+    "modelRevision": "5ecdb67327fd37bb2e042aab12ff7391903235d3",
+    "supports": ["Korean", "natural-language VoiceDesign instructions"]
+  },
+  "actualRuntime": {
+    "url": "https://github.com/Blaizzy/mlx-audio",
+    "version": "0.6.3",
+    "revision": "8c244a1faff44cfa69e3151c195f52a4c1c90be5",
+    "license": "MIT",
+    "documentationUrl": "https://github.com/Blaizzy/mlx-audio/blob/8c244a1faff44cfa69e3151c195f52a4c1c90be5/mlx_audio/tts/models/qwen3_tts/README.md",
+    "installedQwenCodeMatchesRelease": true,
+    "qwenCodeSha256": "cf264ff51fa16c232cca5ded3ce052af6f4f1137d1371b86ba9f4e2a1a526f0a",
+    "note": "Independent MLX-Audio implementation. Do not describe this as the Qwen vendor PyTorch runtime."
+  },
+  "actualWeights": {
+    "url": "https://huggingface.co/mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-8bit",
+    "revision": "f90d617701d9f7f4ca499291e0b57f2b3c2fd2ee",
+    "license": "Apache-2.0",
+    "downloadBytes": 3080140867,
+    "quantization": "8bit main model, bundled speech tokenizer",
+    "note": "MLX-community conversion of Qwen model; only one model downloaded in this experiment."
+  },
+  "machine": {"architecture": "arm64", "physicalMemoryBytes": 17179869184, "systemMemoryFreePercentAtStart": 61},
+  "postprocessing": "None. Raw waveform is encoded as PCM16 WAV without pitch shift, time stretch, normalization, EQ, effects or trimming.",
+  "qualityClaims": "Actual WAV and PCM checks do not establish naturalness, cuteness, transcript accuracy or stable speaker identity."
+}

@@ -1,0 +1,492 @@
+{
+  "journeys": {
+    "synthetic-city-001": {
+      "originalRequestDigest": "a93c7f779e0fdd40afad2a10f456cfb8694d11e2580f3796f697561e53dea54f",
+      "recipe": {
+        "characterId": "nunti-a455dd81d2c487095fc66e7d",
+        "creativeInspiration": {
+          "axisOwnership": {
+            "destination": "translucent material, palette, inner motif, name root",
+            "history": "body-family and shape repetition penalty",
+            "purpose": "personality, inner light, name tone, requested voice delivery",
+            "route": "body affinity, width and height proportions, inner pattern layout"
+          },
+          "destinationTags": [
+            "art",
+            "city"
+          ],
+          "interpretation": "Creative hints only. Tags and distance do not establish road safety facts or rewards.",
+          "purpose": "exhibition",
+          "purposeStatus": "USER_SUPPLIED",
+          "routeDistanceKm": 16.0,
+          "routeSemanticTags": [
+            "straight",
+            "urban"
+          ]
+        },
+        "design": {
+          "bodyFamily": "pillow",
+          "interiorIntent": {
+            "destinationMotif": "suspended miniature color petals",
+            "light": {
+              "color": "#D9C9FF",
+              "diffusion": "soft prism-like glow",
+              "placement": "offset layered core"
+            },
+            "motionIntent": "STATIC_ONLY",
+            "renderingStatus": "NOT_RENDERED",
+            "routePattern": "offset miniature rounded grid"
+          },
+          "materialIntent": "translucent opal resin with soft lilac diffusion",
+          "nameDirection": {
+            "finalName": null,
+            "rootSuggestion": "조각",
+            "tone": "색과 형태가 떠오르는 이름"
+          },
+          "palette": [
+            "#EFBDCA",
+            "#826AB8",
+            "#FFF0D4"
+          ],
+          "personalityIntent": [
+            "observant",
+            "playfully_imaginative"
+          ],
+          "routeProportions": {
+            "distanceBand": "short",
+            "heightMultiplier": 0.94,
+            "widthMultiplier": 1.08
+          },
+          "shapeId": "tilted_cushion",
+          "silhouette": "four soft rounded corners"
+        },
+        "journeyId": "synthetic-city-001",
+        "novelty": {
+          "method": "minimize prior body-family uses, then shape uses; route affinity and seeded tie-break follow",
+          "priorBodyFamilyUses": 0,
+          "priorCharacterCount": 2,
+          "priorShapeUses": 0,
+          "repetitionAfterRegistryExhaustion": true
+        },
+        "providers": {
+          "animation": "UNCONNECTED",
+          "image": "UNCONNECTED",
+          "tts": "UNCONNECTED"
+        },
+        "qualityStatus": {
+          "collectibilityTested": false,
+          "cutenessTested": false,
+          "drivingImprovementTested": false,
+          "renderedAvatar": false
+        },
+        "registryVersion": "translucent-keepsake-0.2",
+        "schemaVersion": 1,
+        "seed": "df1c06736d8d2694",
+        "status": "RECIPE_ONLY",
+        "verifiedRoadFacts": {
+          "roadTypes": [],
+          "source": null,
+          "status": "UNKNOWN"
+        },
+        "verifiedRoadFactsScope": "CREATION_SNAPSHOT_NOT_CURRENT_DRIVING_STATE",
+        "voiceIntent": {
+          "confirmedSupportedControls": [],
+          "fallback": {
+            "assetAvailability": "UNVERIFIED",
+            "assetMatchRequirement": "same_character_voice_binding_and_same_utterance",
+            "characterVoiceIdentityGuaranteed": false,
+            "implementationStatus": "PROPOSAL_ONLY",
+            "strategy": "same_character_asset_else_pending_or_silent"
+          },
+          "identityKey": "voice-nunti-a455dd81d2c487095fc66e7d",
+          "provider": null,
+          "requested": {
+            "affect": "quiet_delight",
+            "pace": "measured",
+            "timbre": "light_and_clear"
+          },
+          "status": "UNBOUND_INTENT"
+        },
+        "world": {
+          "artDirection": "C: translucent commemorative object",
+          "cameraIntent": "three-quarter orthographic, readable silhouette at small size",
+          "faceGrammar": "two widely spaced bead eyes, one small mouth, no text on body",
+          "id": "translucent_keepsake_25d",
+          "interiorGrammar": "few suspended motifs in shallow depth layers, broad diffused inner light, face and silhouette remain clear",
+          "renderIntent": "2.5D translucent keepsake, rounded solid body, softly frosted resin shell, visible miniature inner motifs, small face, soft contact shadow"
+        }
+      }
+    },
+    "synthetic-coast-001": {
+      "originalRequestDigest": "cdf58718cff12d559a5d254380e9f0508f33f4324d2bf047db71b25810761c65",
+      "recipe": {
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "creativeInspiration": {
+          "axisOwnership": {
+            "destination": "translucent material, palette, inner motif, name root",
+            "history": "body-family and shape repetition penalty",
+            "purpose": "personality, inner light, name tone, requested voice delivery",
+            "route": "body affinity, width and height proportions, inner pattern layout"
+          },
+          "destinationTags": [
+            "coastal_city"
+          ],
+          "interpretation": "Creative hints only. Tags and distance do not establish road safety facts or rewards.",
+          "purpose": "rest",
+          "purposeStatus": "USER_SUPPLIED",
+          "routeDistanceKm": 128.0,
+          "routeSemanticTags": [
+            "coastal",
+            "curving",
+            "mixed"
+          ]
+        },
+        "design": {
+          "bodyFamily": "droplet",
+          "interiorIntent": {
+            "destinationMotif": "tiny pearlescent foam beads",
+            "light": {
+              "color": "#FFE8BB",
+              "diffusion": "broad soft glow",
+              "placement": "low inner core"
+            },
+            "motionIntent": "STATIC_ONLY",
+            "renderingStatus": "NOT_RENDERED",
+            "routePattern": "layered shallow wave ribbons"
+          },
+          "materialIntent": "frosted aqua translucent resin with pearly edges",
+          "nameDirection": {
+            "finalName": null,
+            "rootSuggestion": "파도",
+            "tone": "포근한 이름"
+          },
+          "palette": [
+            "#93D6CF",
+            "#F4C6A0",
+            "#FFF0D4"
+          ],
+          "personalityIntent": [
+            "unhurried",
+            "quietly_affectionate"
+          ],
+          "routeProportions": {
+            "distanceBand": "medium",
+            "heightMultiplier": 1.0,
+            "widthMultiplier": 1.0
+          },
+          "shapeId": "tilted_water_drop",
+          "silhouette": "round base with one soft top point"
+        },
+        "journeyId": "synthetic-coast-001",
+        "novelty": {
+          "method": "minimize prior body-family uses, then shape uses; route affinity and seeded tie-break follow",
+          "priorBodyFamilyUses": 0,
+          "priorCharacterCount": 0,
+          "priorShapeUses": 0,
+          "repetitionAfterRegistryExhaustion": true
+        },
+        "providers": {
+          "animation": "UNCONNECTED",
+          "image": "UNCONNECTED",
+          "tts": "UNCONNECTED"
+        },
+        "qualityStatus": {
+          "collectibilityTested": false,
+          "cutenessTested": false,
+          "drivingImprovementTested": false,
+          "renderedAvatar": false
+        },
+        "registryVersion": "translucent-keepsake-0.2",
+        "schemaVersion": 1,
+        "seed": "2072cb0857b58924",
+        "status": "RECIPE_ONLY",
+        "verifiedRoadFacts": {
+          "roadTypes": [],
+          "source": null,
+          "status": "UNKNOWN"
+        },
+        "verifiedRoadFactsScope": "CREATION_SNAPSHOT_NOT_CURRENT_DRIVING_STATE",
+        "voiceIntent": {
+          "confirmedSupportedControls": [],
+          "fallback": {
+            "assetAvailability": "UNVERIFIED",
+            "assetMatchRequirement": "same_character_voice_binding_and_same_utterance",
+            "characterVoiceIdentityGuaranteed": false,
+            "implementationStatus": "PROPOSAL_ONLY",
+            "strategy": "same_character_asset_else_pending_or_silent"
+          },
+          "identityKey": "voice-nunti-9a3f63d68e67292a3a33fc5e",
+          "provider": null,
+          "requested": {
+            "affect": "calm_warmth",
+            "pace": "unhurried_but_clear",
+            "timbre": "soft_and_airy"
+          },
+          "status": "UNBOUND_INTENT"
+        },
+        "world": {
+          "artDirection": "C: translucent commemorative object",
+          "cameraIntent": "three-quarter orthographic, readable silhouette at small size",
+          "faceGrammar": "two widely spaced bead eyes, one small mouth, no text on body",
+          "id": "translucent_keepsake_25d",
+          "interiorGrammar": "few suspended motifs in shallow depth layers, broad diffused inner light, face and silhouette remain clear",
+          "renderIntent": "2.5D translucent keepsake, rounded solid body, softly frosted resin shell, visible miniature inner motifs, small face, soft contact shadow"
+        }
+      }
+    },
+    "synthetic-coast-002": {
+      "originalRequestDigest": "0e652f0acb3b45a34badf4c735920a193896e766e67c717911b761384b323623",
+      "recipe": {
+        "characterId": "nunti-2d6aecb00617ef2899eff678",
+        "creativeInspiration": {
+          "axisOwnership": {
+            "destination": "translucent material, palette, inner motif, name root",
+            "history": "body-family and shape repetition penalty",
+            "purpose": "personality, inner light, name tone, requested voice delivery",
+            "route": "body affinity, width and height proportions, inner pattern layout"
+          },
+          "destinationTags": [
+            "coastal_city"
+          ],
+          "interpretation": "Creative hints only. Tags and distance do not establish road safety facts or rewards.",
+          "purpose": "rest",
+          "purposeStatus": "USER_SUPPLIED",
+          "routeDistanceKm": 128.0,
+          "routeSemanticTags": [
+            "coastal",
+            "curving",
+            "mixed"
+          ]
+        },
+        "design": {
+          "bodyFamily": "pebble",
+          "interiorIntent": {
+            "destinationMotif": "tiny pearlescent foam beads",
+            "light": {
+              "color": "#FFE8BB",
+              "diffusion": "broad soft glow",
+              "placement": "low inner core"
+            },
+            "motionIntent": "STATIC_ONLY",
+            "renderingStatus": "NOT_RENDERED",
+            "routePattern": "layered shallow wave ribbons"
+          },
+          "materialIntent": "frosted aqua translucent resin with pearly edges",
+          "nameDirection": {
+            "finalName": null,
+            "rootSuggestion": "파도",
+            "tone": "포근한 이름"
+          },
+          "palette": [
+            "#93D6CF",
+            "#F4C6A0",
+            "#FFF0D4"
+          ],
+          "personalityIntent": [
+            "unhurried",
+            "quietly_affectionate"
+          ],
+          "routeProportions": {
+            "distanceBand": "medium",
+            "heightMultiplier": 1.0,
+            "widthMultiplier": 1.0
+          },
+          "shapeId": "wide_flat_oval",
+          "silhouette": "low rounded stone"
+        },
+        "journeyId": "synthetic-coast-002",
+        "novelty": {
+          "method": "minimize prior body-family uses, then shape uses; route affinity and seeded tie-break follow",
+          "priorBodyFamilyUses": 0,
+          "priorCharacterCount": 3,
+          "priorShapeUses": 0,
+          "repetitionAfterRegistryExhaustion": true
+        },
+        "providers": {
+          "animation": "UNCONNECTED",
+          "image": "UNCONNECTED",
+          "tts": "UNCONNECTED"
+        },
+        "qualityStatus": {
+          "collectibilityTested": false,
+          "cutenessTested": false,
+          "drivingImprovementTested": false,
+          "renderedAvatar": false
+        },
+        "registryVersion": "translucent-keepsake-0.2",
+        "schemaVersion": 1,
+        "seed": "75ec04d209594753",
+        "status": "RECIPE_ONLY",
+        "verifiedRoadFacts": {
+          "roadTypes": [],
+          "source": null,
+          "status": "UNKNOWN"
+        },
+        "verifiedRoadFactsScope": "CREATION_SNAPSHOT_NOT_CURRENT_DRIVING_STATE",
+        "voiceIntent": {
+          "confirmedSupportedControls": [],
+          "fallback": {
+            "assetAvailability": "UNVERIFIED",
+            "assetMatchRequirement": "same_character_voice_binding_and_same_utterance",
+            "characterVoiceIdentityGuaranteed": false,
+            "implementationStatus": "PROPOSAL_ONLY",
+            "strategy": "same_character_asset_else_pending_or_silent"
+          },
+          "identityKey": "voice-nunti-2d6aecb00617ef2899eff678",
+          "provider": null,
+          "requested": {
+            "affect": "calm_warmth",
+            "pace": "unhurried_but_clear",
+            "timbre": "soft_and_airy"
+          },
+          "status": "UNBOUND_INTENT"
+        },
+        "world": {
+          "artDirection": "C: translucent commemorative object",
+          "cameraIntent": "three-quarter orthographic, readable silhouette at small size",
+          "faceGrammar": "two widely spaced bead eyes, one small mouth, no text on body",
+          "id": "translucent_keepsake_25d",
+          "interiorGrammar": "few suspended motifs in shallow depth layers, broad diffused inner light, face and silhouette remain clear",
+          "renderIntent": "2.5D translucent keepsake, rounded solid body, softly frosted resin shell, visible miniature inner motifs, small face, soft contact shadow"
+        }
+      }
+    },
+    "synthetic-mountain-001": {
+      "originalRequestDigest": "f265b63910bb2b6477d3159007e5771906364d61893a683e9af2cce6e5214a92",
+      "recipe": {
+        "characterId": "nunti-8da06e4267f4a71820a06e65",
+        "creativeInspiration": {
+          "axisOwnership": {
+            "destination": "translucent material, palette, inner motif, name root",
+            "history": "body-family and shape repetition penalty",
+            "purpose": "personality, inner light, name tone, requested voice delivery",
+            "route": "body affinity, width and height proportions, inner pattern layout"
+          },
+          "destinationTags": [
+            "forest",
+            "mountain"
+          ],
+          "interpretation": "Creative hints only. Tags and distance do not establish road safety facts or rewards.",
+          "purpose": "camping",
+          "purposeStatus": "USER_SUPPLIED",
+          "routeDistanceKm": 208.0,
+          "routeSemanticTags": [
+            "curving",
+            "mountain",
+            "tree_lined"
+          ]
+        },
+        "design": {
+          "bodyFamily": "sprout",
+          "interiorIntent": {
+            "destinationMotif": "layered miniature mist curls",
+            "light": {
+              "color": "#FFD39B",
+              "diffusion": "warm rounded glow",
+              "placement": "small central amber core"
+            },
+            "motionIntent": "STATIC_ONLY",
+            "renderingStatus": "NOT_RENDERED",
+            "routePattern": "stacked rounded contour curls"
+          },
+          "materialIntent": "translucent moss-tinted resin with misty depth",
+          "nameDirection": {
+            "finalName": null,
+            "rootSuggestion": "이끼",
+            "tone": "작은 탐험가 느낌의 이름"
+          },
+          "palette": [
+            "#A9C993",
+            "#B89C85",
+            "#FFE1B0"
+          ],
+          "personalityIntent": [
+            "curious",
+            "resourceful"
+          ],
+          "routeProportions": {
+            "distanceBand": "long",
+            "heightMultiplier": 1.06,
+            "widthMultiplier": 0.96
+          },
+          "shapeId": "split_top_pear",
+          "silhouette": "pear body with two built-in top lobes"
+        },
+        "journeyId": "synthetic-mountain-001",
+        "novelty": {
+          "method": "minimize prior body-family uses, then shape uses; route affinity and seeded tie-break follow",
+          "priorBodyFamilyUses": 0,
+          "priorCharacterCount": 1,
+          "priorShapeUses": 0,
+          "repetitionAfterRegistryExhaustion": true
+        },
+        "providers": {
+          "animation": "UNCONNECTED",
+          "image": "UNCONNECTED",
+          "tts": "UNCONNECTED"
+        },
+        "qualityStatus": {
+          "collectibilityTested": false,
+          "cutenessTested": false,
+          "drivingImprovementTested": false,
+          "renderedAvatar": false
+        },
+        "registryVersion": "translucent-keepsake-0.2",
+        "schemaVersion": 1,
+        "seed": "a4f7f5abf625515f",
+        "status": "RECIPE_ONLY",
+        "verifiedRoadFacts": {
+          "roadTypes": [],
+          "source": null,
+          "status": "UNKNOWN"
+        },
+        "verifiedRoadFactsScope": "CREATION_SNAPSHOT_NOT_CURRENT_DRIVING_STATE",
+        "voiceIntent": {
+          "confirmedSupportedControls": [],
+          "fallback": {
+            "assetAvailability": "UNVERIFIED",
+            "assetMatchRequirement": "same_character_voice_binding_and_same_utterance",
+            "characterVoiceIdentityGuaranteed": false,
+            "implementationStatus": "PROPOSAL_ONLY",
+            "strategy": "same_character_asset_else_pending_or_silent"
+          },
+          "identityKey": "voice-nunti-8da06e4267f4a71820a06e65",
+          "provider": null,
+          "requested": {
+            "affect": "gentle_curiosity",
+            "pace": "steady",
+            "timbre": "warm_and_rounded"
+          },
+          "status": "UNBOUND_INTENT"
+        },
+        "world": {
+          "artDirection": "C: translucent commemorative object",
+          "cameraIntent": "three-quarter orthographic, readable silhouette at small size",
+          "faceGrammar": "two widely spaced bead eyes, one small mouth, no text on body",
+          "id": "translucent_keepsake_25d",
+          "interiorGrammar": "few suspended motifs in shallow depth layers, broad diffused inner light, face and silhouette remain clear",
+          "renderIntent": "2.5D translucent keepsake, rounded solid body, softly frosted resin shell, visible miniature inner motifs, small face, soft contact shadow"
+        }
+      }
+    }
+  },
+  "requests": {
+    "request-city-001": {
+      "firstRequestDigest": "a93c7f779e0fdd40afad2a10f456cfb8694d11e2580f3796f697561e53dea54f",
+      "journeyId": "synthetic-city-001"
+    },
+    "request-coast-001": {
+      "firstRequestDigest": "cdf58718cff12d559a5d254380e9f0508f33f4324d2bf047db71b25810761c65",
+      "journeyId": "synthetic-coast-001"
+    },
+    "request-coast-002": {
+      "firstRequestDigest": "0e652f0acb3b45a34badf4c735920a193896e766e67c717911b761384b323623",
+      "journeyId": "synthetic-coast-002"
+    },
+    "request-mountain-001": {
+      "firstRequestDigest": "f265b63910bb2b6477d3159007e5771906364d61893a683e9af2cce6e5214a92",
+      "journeyId": "synthetic-mountain-001"
+    }
+  },
+  "schemaVersion": 1
+}

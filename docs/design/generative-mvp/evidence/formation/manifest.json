@@ -1,0 +1,29 @@
+{
+  "scope": "Preserved final ribbon implementation evidence; final native regression saved no video, speaker audio or screen images. The older touch record predates the no-recording instruction.",
+  "files": {
+    "native-verification.json": {
+      "source": ".local/generative-mvp/native-20261103-100544/verification.json",
+      "sha256": "ea8472933cc1ca83e217c40fd37d0f088159d057bbc5904227ec4df6b4fed8d3"
+    },
+    "native-events.jsonl": {
+      "source": ".local/generative-mvp/native-20261103-100544/events.jsonl",
+      "sha256": "cda09f9682206cda1b1d2082635f5c2dfff6bab2bf82cb71783ff19247a9cff7"
+    },
+    "native-artifact.json": {
+      "source": ".local/generative-mvp/native-20261103-100544/artifact.json",
+      "sha256": "6288ceaee57b950805dd02090b2dfda141c232ab21b8ac7742303757bf4d6fc9"
+    },
+    "touch-verification.json": {
+      "source": ".local/generative-mvp/touch-20261102-190643/verification.json",
+      "sha256": "1ef1fb9e542da3926f55067d6015473f8fd9fe4d3dd591a9160467506b23eb3c"
+    },
+    "build.log": {
+      "source": ".local/generative-mvp/formation-refined-build.log",
+      "sha256": "2d3bf568474030b79e25079a69678cfad78da8f9bafcdf16de0437e29e0b6edb"
+    },
+    "geometry-tests.txt": {
+      "source": "android/feature/avatar/reports/generated-companion-tests.txt",
+      "sha256": "095b0f0bc0e69982ae34386985ea1374d1c1a9791879db64138de256039b0b68"
+    }
+  }
+}

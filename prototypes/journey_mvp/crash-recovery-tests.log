@@ -1,0 +1,14 @@
+test_append_bundle_exit_after_each_publication_step_preserves_old_identity (__main__.CrashRecoveryTests) ... ok
+test_bootstrap_exit_after_each_publication_step_recovers_exact_bytes (__main__.CrashRecoveryTests) ... ok
+test_committed_bootstrap_receipt_missing_without_pending_is_not_recreated (__main__.CrashRecoveryTests) ... ok
+test_committed_bundle_pair_missing_without_pending_is_not_recreated (__main__.CrashRecoveryTests) ... ok
+test_committed_state_missing_without_pending_is_not_copied_again (__main__.CrashRecoveryTests) ... ok
+test_initial_bundle_exit_after_each_publication_step_recovers (__main__.CrashRecoveryTests) ... ok
+test_pending_append_missing_old_file_is_not_treated_as_initial_publication (__main__.CrashRecoveryTests) ... ok
+test_pending_bootstrap_changed_wav_is_not_repaired (__main__.CrashRecoveryTests) ... ok
+test_pending_bundle_tamper_is_not_repaired (__main__.CrashRecoveryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 3.206s
+
+OK

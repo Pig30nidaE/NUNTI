@@ -1,0 +1,190 @@
+{
+  "status": "PASS",
+  "tests": 9,
+  "actualChildProcesses": 30,
+  "processExitInjectionCode": 86,
+  "gpuOrModelInferenceUsed": false,
+  "originalProductionAssetsMutated": false,
+  "processEvents": [
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-journal",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-manifest",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-receipt",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": "bootstrap-after-journal",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": "bootstrap-after-state",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": "bootstrap-after-receipt",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "STATE_WITHOUT_ORIGINAL_RECEIPT"
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "COMMITTED_BUNDLE_MISSING"
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "BUNDLE_MANIFEST_CHANGED"
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "STATE_MISSING_NO_AUTOMATIC_REPLACEMENT"
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-journal",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-manifest",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-receipt",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 0,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-journal",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "PENDING_BUNDLE_FILES_MISSING_OR_CHANGED"
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-journal",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "PENDING_BUNDLE_FILES_MISSING_OR_CHANGED"
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": "bootstrap-after-state",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bootstrap",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "PENDING_STATE_CHANGED"
+    },
+    {
+      "action": "bundle",
+      "crashPoint": "bundle-after-manifest",
+      "exitCode": 86,
+      "rejection": null
+    },
+    {
+      "action": "bundle",
+      "crashPoint": null,
+      "exitCode": 2,
+      "rejection": "PENDING_BUNDLE_FILES_MISSING_OR_CHANGED"
+    }
+  ]
+}

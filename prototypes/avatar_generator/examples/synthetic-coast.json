@@ -1,0 +1,114 @@
+{
+  "id": "synthetic-coast",
+  "title": "합성 내비 시험 · 해안처럼 휘는 경로",
+  "destination": {
+    "name": "물빛 전망대",
+    "traits": "바다 풍경을 떠올리게 하는 가상의 전망대"
+  },
+  "purpose": "경치를 보며 기분 전환하기",
+  "imageFile": "synthetic-coast.png",
+  "route": {
+    "points": [
+      [
+        0.2854167,
+        0.784375
+      ],
+      [
+        0.3385417,
+        0.7109375
+      ],
+      [
+        0.4052083,
+        0.6890625
+      ],
+      [
+        0.4614583,
+        0.6234375
+      ],
+      [
+        0.4822917,
+        0.5296875
+      ],
+      [
+        0.5354167,
+        0.4625
+      ],
+      [
+        0.6145833,
+        0.4375
+      ],
+      [
+        0.6885417,
+        0.36875
+      ],
+      [
+        0.7729167,
+        0.353125
+      ],
+      [
+        0.8572917,
+        0.26875
+      ]
+    ],
+    "inputOrigin": "TEST_ROUTE",
+    "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+    "confirmed": true
+  },
+  "provenance": {
+    "kind": "SYNTHETIC_NAVIGATION_SCREENSHOT",
+    "generator": "build_examples.py",
+    "license": "project-authored synthetic test fixture",
+    "realMapData": false,
+    "liveNavigation": false,
+    "imageSha256": "c05e79f71cc0200e18200441f08dc04b5cb2aa14adeb74a39d2efc6e34e76fab"
+  },
+  "groundTruth": {
+    "coordinateSpace": "WHOLE_IMAGE_NORMALIZED_XY",
+    "imageWidth": 960,
+    "imageHeight": 640,
+    "routeColor": "#2478ec",
+    "pixelPoints": [
+      [
+        274,
+        502
+      ],
+      [
+        325,
+        455
+      ],
+      [
+        389,
+        441
+      ],
+      [
+        443,
+        399
+      ],
+      [
+        463,
+        339
+      ],
+      [
+        514,
+        296
+      ],
+      [
+        590,
+        280
+      ],
+      [
+        661,
+        236
+      ],
+      [
+        742,
+        226
+      ],
+      [
+        823,
+        172
+      ]
+    ],
+    "confirmation": "paired with the exact path used by the deterministic screenshot generator"
+  }
+}

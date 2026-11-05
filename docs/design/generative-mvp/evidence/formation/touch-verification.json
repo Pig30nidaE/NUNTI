@@ -1,0 +1,29 @@
+{
+  "status": "PASS_REAL_FIELDS_GESTURE_BUTTON_AND_AUDIO",
+  "mode": "OFFLINE_FIXTURE",
+  "newImageOrTimbreGenerated": false,
+  "humanListeningPerformed": false,
+  "providerApiCalls": 0,
+  "requestId": "1beb104f-a770-46b8-ad4a-497b1554df60",
+  "characterId": "gen-fa6021192bc79dd109eae391",
+  "routePoints": 7,
+  "routeScenario": "CURVED_TOUCH",
+  "imageSha256": "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47",
+  "clipId": "gen-fa6021192bc79dd109eae391-greeting",
+  "audioSha256": "8fe597f715b3da2e66026856b1928430fafc63d606a68d116a987af166333895",
+  "speakerCapture": {
+    "source": "AUTHENTICATED_EMULATOR_SPEAKER_STREAM",
+    "nonzeroSamples": 540291,
+    "peak": 825,
+    "sha256": "8abc502a612c346b917358cbf4d45cb1ea83dfd6359fa10ef713317f19ec4f13",
+    "evidenceLevel": "RAW_PCM_ONLY_NOT_SPEECH_ACCEPTANCE"
+  },
+  "apkSha256": "f3ec4fe32d4df9bbe33c10bcb09f1589b1b9a3e190ba58062c0131cf99a6f2d0",
+  "screenRecording": {
+    "source": "ACTUAL_ANDROID_SCREENRECORD",
+    "startedEpochNs": 1793646410942136000,
+    "timingLimit": "Host command start is approximate; no audiovisual latency claim.",
+    "sha256": "e392ca769a9fbedd3e0d99ee9eb65745a38e1e4a595f5c1884f04d03cd10090a",
+    "bytes": 10190072
+  }
+}

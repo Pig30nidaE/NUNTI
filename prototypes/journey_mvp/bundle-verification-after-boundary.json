@@ -1,0 +1,104 @@
+{
+  "status": "PASS",
+  "bundleId": "journey-mvp-9c9e1cb3ef613440c58f",
+  "characters": 8,
+  "bodyFamilies": [
+    "acorn",
+    "bean",
+    "cloud",
+    "droplet",
+    "lantern",
+    "pebble",
+    "pillow",
+    "sprout"
+  ],
+  "actualWavClips": 24,
+  "originalCharactersReused": 4,
+  "newCharactersGenerated": 4,
+  "exportPreservesSourceWavBytes": true,
+  "visualSourceIdentityVerified": true,
+  "humanCutenessOrCollectibilityEvaluated": false,
+  "androidRuntimeVerifiedHere": false,
+  "cases": [
+    {
+      "caseId": "01-coast-rest",
+      "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+      "displayName": "파도방울",
+      "bodyFamily": "droplet",
+      "motif": "coastal_city",
+      "purpose": "rest",
+      "visualSha256": "faa202c07aa2272d430d9cbd1761117db7e616a0a78704b90547284d4e4cf9dc",
+      "bindingId": "dvb-eea3c37415d581fb6acbe1d67e68c140"
+    },
+    {
+      "caseId": "02-mountain-camping",
+      "characterId": "nunti-8da06e4267f4a71820a06e65",
+      "displayName": "이끼토리",
+      "bodyFamily": "sprout",
+      "motif": "mountain",
+      "purpose": "camping",
+      "visualSha256": "1adc0beab70c88dcfe0dd8fa37bb64523f15b50d79ca001c8f561bf86d905313",
+      "bindingId": "dvb-5513aeec1fdca10edcd66e6cc1f54a18"
+    },
+    {
+      "caseId": "03-city-exhibition",
+      "characterId": "nunti-a455dd81d2c487095fc66e7d",
+      "displayName": "조각몽",
+      "bodyFamily": "pillow",
+      "motif": "art",
+      "purpose": "exhibition",
+      "visualSha256": "7cfbee28e76f1287a12c351dee79099af0e95bd11b38f19c4962e264d0675f57",
+      "bindingId": "dvb-be9a118f29789566eaa97ef7f01571f9"
+    },
+    {
+      "caseId": "04-coast-next",
+      "characterId": "nunti-2d6aecb00617ef2899eff678",
+      "displayName": "파도몽",
+      "bodyFamily": "pebble",
+      "motif": "coastal_city",
+      "purpose": "rest",
+      "visualSha256": "09dabd084d45eed3db4e0a60ede94a692abf10a0657a2fa2a776f2b7dea18c4d",
+      "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d"
+    },
+    {
+      "caseId": "05-forest-visit",
+      "characterId": "nunti-6ec3150a7c2ee12d410391de",
+      "displayName": "숲토리",
+      "bodyFamily": "acorn",
+      "motif": "forest",
+      "purpose": "visit",
+      "visualSha256": "89253b2a3c1f2ef44b60f8d34e7bd433c4e3d1de7c5d4d08a4bd958899e76626",
+      "bindingId": "dvb-13fcace461bcb3925e7209ee0021c79a"
+    },
+    {
+      "caseId": "06-lake-errand",
+      "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+      "displayName": "물빛콩",
+      "bodyFamily": "bean",
+      "motif": "lakeside",
+      "purpose": "errand",
+      "visualSha256": "787b057f404c44fcecc2fdfd35a2054bdb0af18c9e5e1426bd755b09d4ffb49b",
+      "bindingId": "dvb-07e2dd6359fb4b5bee86655889de53ae"
+    },
+    {
+      "caseId": "07-city-commute",
+      "characterId": "nunti-14e8ecb1317597b175d0ac40",
+      "displayName": "반짝별",
+      "bodyFamily": "lantern",
+      "motif": "city",
+      "purpose": "commute",
+      "visualSha256": "37a17f18708a5f2bdf006cab86564925a53523f4e18e790d6d7e22ff9a5f9430",
+      "bindingId": "dvb-17643e620aa9fc242093c3860b79c4aa"
+    },
+    {
+      "caseId": "08-unplanned",
+      "characterId": "nunti-2cf018a4ab81917bafef386b",
+      "displayName": "보송몽",
+      "bodyFamily": "cloud",
+      "motif": "unspecified",
+      "purpose": "unspecified",
+      "visualSha256": "14e90cb9cb7e22d3f419410fb03fa80ef8f1be7b0c892a4da59b90290516ca46",
+      "bindingId": "dvb-1e5008ab2ff4b658c3e05e82aee1d715"
+    }
+  ]
+}

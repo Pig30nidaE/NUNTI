@@ -1,0 +1,19 @@
+{
+  "name": "kotlin-api",
+  "startedAt": "2026-11-02T18:07:31.740609+09:00",
+  "finishedAt": "2026-11-02T18:07:32.054498+09:00",
+  "cwd": "/Users/pig30nidae/NUNTI/.worktrees/server",
+  "command": [
+    "/Users/pig30nidae/NUNTI/.worktrees/server/backend/.venv/bin/python",
+    "backend/scripts/verify_android_outputs.py",
+    "--reports",
+    "/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports"
+  ],
+  "exitCode": 0,
+  "log": "kotlin-api.log",
+  "reportedBy": "SERVER",
+  "sourceCommandLog": "/Users/pig30nidae/NUNTI/.worktrees/server/docs/handoff/restoration/2026-11-02/server-evidence/commands.jsonl",
+  "sourceLog": "/Users/pig30nidae/NUNTI/.worktrees/server/docs/handoff/restoration/2026-11-02/server-evidence/kotlin-api.log",
+  "copiedAt": "2026-11-02T18:08:21.617348+09:00",
+  "copiedLogSha256": "77a764e2581f8fd57aef23826f1f4f37386dad411bd719166568d56a0c84946f"
+}

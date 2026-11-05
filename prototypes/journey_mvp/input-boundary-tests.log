@@ -1,0 +1,20 @@
+test_32nd_unique_character_is_accepted_and_33rd_batch_is_rejected (__main__.WorkerTests) ... ok
+test_all_eight_bodies_come_from_original_history_plus_four_cpu_recipes (__main__.WorkerTests) ... ok
+test_case_text_exact_android_utf16_limits_are_accepted (__main__.WorkerTests) ... ok
+test_case_text_overflow_and_blank_are_rejected (__main__.WorkerTests) ... ok
+test_exported_wav_corruption_is_not_replaced (__main__.WorkerTests) ... ok
+test_initial_bundle_joins_actual_source_voice_and_visual (__main__.WorkerTests) ... ok
+test_long_cli_text_is_rejected_before_model_or_identity_writes (__main__.WorkerTests) ... ok
+test_new_case_append_preserves_old_entries_and_wav_bytes (__main__.WorkerTests) ... ok
+test_new_committed_audio_corruption_refuses_resynthesis (__main__.WorkerTests) ... ok
+test_original_copy_is_identical_and_rerun_preserves_bytes (__main__.WorkerTests) ... ok
+test_preexisting_long_case_id_is_rejected_before_model_setup (__main__.WorkerTests) ... ok
+test_same_journey_retry_or_reroute_counts_once_at_character_limit (__main__.WorkerTests) ... ok
+test_source_identity_corruption_is_not_overwritten (__main__.WorkerTests) ... ok
+test_visual_fields_and_registry_priority_match_source (__main__.WorkerTests) ... ok
+test_visual_manifest_tamper_is_rejected (__main__.WorkerTests) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.139s
+
+OK

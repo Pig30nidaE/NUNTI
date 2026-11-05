@@ -1,0 +1,6 @@
+{"state":"PASS","check":"emulator and user preflight"}
+{"state":"PASS","check":"cold launch restores without automatic speech"}
+{"state":"PASS","check":"VOICE_FILE_MISSING without playback"}
+{"state":"FAIL","reason":"Device WAV readback differs from bytes written"}
+{"state":"RESTORATION_FAILED","path":"files/journey-mvp-validation/voice/nunti-9a3f63d68e67292a3a33fc5e-greeting.wav","reason":"Device WAV readback differs from bytes written"}
+{"state":"FINISHED","status":"FAIL","report":"/Users/pig30nidae/NUNTI/prototypes/journey_mvp/assets-runtime-01/verification.json"}

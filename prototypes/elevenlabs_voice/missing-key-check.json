@@ -1,0 +1,10 @@
+{
+  "exitCode": 2,
+  "result": {
+    "status": "MISSING_API_KEY",
+    "environmentVariable": "ELEVENLABS_API_KEY",
+    "networkRequests": 0,
+    "synthesisRequests": 0,
+    "nextAction": "Provide the key through the environment; do not paste it into chat."
+  }
+}

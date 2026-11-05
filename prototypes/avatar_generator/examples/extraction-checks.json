@@ -1,0 +1,246 @@
+[
+  {
+    "id": "synthetic-city",
+    "sourceSha256": "e46c0d684ee8ce0c59e753aebe6d6e97ec1c8a05967493595f950d2f87dc3f4e",
+    "overlayFile": "synthetic-city.overlay.png",
+    "overlaySha256": "bd772305573d3f8aec78106ec573631817075c208737625ee1ae130ae8627d95",
+    "extraction": {
+      "points": [
+        [
+          0.2900391,
+          0.7639296
+        ],
+        [
+          0.2880859,
+          0.6642229
+        ],
+        [
+          0.2919922,
+          0.6583578
+        ],
+        [
+          0.3720703,
+          0.6554252
+        ],
+        [
+          0.3740234,
+          0.5175953
+        ],
+        [
+          0.5068359,
+          0.5146628
+        ],
+        [
+          0.5068359,
+          0.3797654
+        ],
+        [
+          0.5107422,
+          0.3739003
+        ],
+        [
+          0.6474609,
+          0.3739003
+        ],
+        [
+          0.7197266,
+          0.2741935
+        ],
+        [
+          0.7275391,
+          0.2683284
+        ],
+        [
+          0.8681641,
+          0.2683284
+        ]
+      ],
+      "confidence": 0.86,
+      "warnings": [
+        "USER_CONFIRMATION_REQUIRED",
+        "SCREEN_COORDINATES_ONLY",
+        "ROUTE_DIRECTION_UNVERIFIED"
+      ],
+      "imageWidth": 960,
+      "imageHeight": 640,
+      "inputOrigin": "NAVIGATION_SCREENSHOT"
+    },
+    "reviewStatus": "SYNTHETIC_ROUNDTRIP_ONLY_USER_CONFIRMATION_STILL_REQUIRED"
+  },
+  {
+    "id": "synthetic-coast",
+    "sourceSha256": "c05e79f71cc0200e18200441f08dc04b5cb2aa14adeb74a39d2efc6e34e76fab",
+    "overlayFile": "synthetic-coast.overlay.png",
+    "overlaySha256": "7a392b449121f66df05604e02ec672cdb1fb4090b7cc36b04909a62356573821",
+    "extraction": {
+      "points": [
+        [
+          0.2861328,
+          0.7844575
+        ],
+        [
+          0.3310547,
+          0.7199413
+        ],
+        [
+          0.3427734,
+          0.7082111
+        ],
+        [
+          0.3564453,
+          0.7082111
+        ],
+        [
+          0.4052734,
+          0.6906158
+        ],
+        [
+          0.4541016,
+          0.6348974
+        ],
+        [
+          0.4638672,
+          0.6173021
+        ],
+        [
+          0.4814453,
+          0.5322581
+        ],
+        [
+          0.5341797,
+          0.4648094
+        ],
+        [
+          0.5419922,
+          0.4589443
+        ],
+        [
+          0.6123047,
+          0.441349
+        ],
+        [
+          0.6923828,
+          0.3680352
+        ],
+        [
+          0.7744141,
+          0.3533724
+        ],
+        [
+          0.8564453,
+          0.271261
+        ]
+      ],
+      "confidence": 0.86,
+      "warnings": [
+        "USER_CONFIRMATION_REQUIRED",
+        "SCREEN_COORDINATES_ONLY",
+        "ROUTE_DIRECTION_UNVERIFIED"
+      ],
+      "imageWidth": 960,
+      "imageHeight": 640,
+      "inputOrigin": "NAVIGATION_SCREENSHOT"
+    },
+    "reviewStatus": "SYNTHETIC_ROUNDTRIP_ONLY_USER_CONFIRMATION_STILL_REQUIRED"
+  },
+  {
+    "id": "synthetic-hills",
+    "sourceSha256": "114f0697daf0bcacac32bdb98df739771ea84158c28a49117f0a44c9969fc622",
+    "overlayFile": "synthetic-hills.overlay.png",
+    "overlaySha256": "dd173949d19f868edc9fe7fc6e983991ebdde8d83188c80c2c45a1e5966fe6f6",
+    "extraction": {
+      "points": [
+        [
+          0.2802734,
+          0.7727273
+        ],
+        [
+          0.3642578,
+          0.7375367
+        ],
+        [
+          0.4189453,
+          0.6554252
+        ],
+        [
+          0.4208984,
+          0.6290323
+        ],
+        [
+          0.4013672,
+          0.5762463
+        ],
+        [
+          0.3994141,
+          0.558651
+        ],
+        [
+          0.4365234,
+          0.473607
+        ],
+        [
+          0.5263672,
+          0.4706745
+        ],
+        [
+          0.5341797,
+          0.4765396
+        ],
+        [
+          0.5712891,
+          0.5293255
+        ],
+        [
+          0.5888672,
+          0.5322581
+        ],
+        [
+          0.6435547,
+          0.5058651
+        ],
+        [
+          0.6533203,
+          0.4941349
+        ],
+        [
+          0.6962891,
+          0.4032258
+        ],
+        [
+          0.6962891,
+          0.3856305
+        ],
+        [
+          0.6826172,
+          0.3445748
+        ],
+        [
+          0.6787109,
+          0.3211144
+        ],
+        [
+          0.7470703,
+          0.2565982
+        ],
+        [
+          0.7646484,
+          0.2478006
+        ],
+        [
+          0.8681641,
+          0.2829912
+        ]
+      ],
+      "confidence": 0.86,
+      "warnings": [
+        "USER_CONFIRMATION_REQUIRED",
+        "SCREEN_COORDINATES_ONLY",
+        "ROUTE_DIRECTION_UNVERIFIED"
+      ],
+      "imageWidth": 960,
+      "imageHeight": 640,
+      "inputOrigin": "NAVIGATION_SCREENSHOT"
+    },
+    "reviewStatus": "SYNTHETIC_ROUNDTRIP_ONLY_USER_CONFIRMATION_STILL_REQUIRED"
+  }
+]

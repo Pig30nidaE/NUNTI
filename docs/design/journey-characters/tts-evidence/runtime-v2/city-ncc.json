@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/city-common.wav",
+    "sha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+    "sampleRateHz": 44100,
+    "channels": 1,
+    "frames": 163267,
+    "pcmDurationSeconds": 3.702199546485261,
+    "sampleWidthBytes": 2,
+    "peak": 5765.0,
+    "rms": 953.1816267289564,
+    "monoDownmixPeak": 5765.0,
+    "monoDownmixRms": 953.1816267289564
+  },
+  "capture": {
+    "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/city-common.wav",
+    "sha256": "33ae2e5b9e29cf1696fc3d0a7094a1af81acd07800394b788469dd1c53950f9a",
+    "sampleRateHz": 48000,
+    "channels": 2,
+    "frames": 345583,
+    "pcmDurationSeconds": 7.199645833333333,
+    "sampleWidthBytes": 2,
+    "peak": 323.0,
+    "rms": 37.88187025581897,
+    "monoDownmixPeak": 323.0,
+    "monoDownmixRms": 37.881636273910814
+  },
+  "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+  "numpyVersion": "2.3.5",
+  "comparisonSampleRateHz": 48000,
+  "sourceFramesAfterResample": 177706,
+  "candidateWindowCount": 167878,
+  "bestMatch": {
+    "normalizedCrossCorrelation": 0.2881110042223069,
+    "captureStartFrame": 13722,
+    "captureEndFrameExclusive": 191428,
+    "capturePcmStartSeconds": 0.285875,
+    "capturePcmEndSeconds": 3.9880833333333334,
+    "windowDurationSeconds": 3.7022083333333335,
+    "positiveGainExpected": true,
+    "fittedGain": 0.016000235324522404,
+    "fittedDcOffset": -0.047314828501755876,
+    "windowPeak": 323.0,
+    "windowRms": 52.825508944953384,
+    "residualRmsAfterGainAndDcFit": 50.58550332741571
+  },
+  "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+  "humanListeningPerformed": false,
+  "speechQualityEvaluated": false,
+  "limits": [
+    "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+    "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+    "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+  ]
+}

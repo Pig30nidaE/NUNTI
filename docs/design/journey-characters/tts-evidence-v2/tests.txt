@@ -1,0 +1,90 @@
+PASS Korean greeting starts and completes with focus cleanup
+PASS empty whitespace is rejected
+PASS long text is rejected
+PASS unknown locale fails without silently changing language
+PASS missing and invalid profile fall back
+PASS unsupported voice controls are recorded but not applied
+PASS all six emotions preserve speaker and supplied text
+PASS persona route hint does not change voice identity
+PASS emotion mismatch is rejected
+PASS missing emotion snapshot is rejected
+PASS rapid emotion changes do not mutate an active utterance
+PASS unverified content is rejected
+PASS missing verified event reference is rejected
+PASS request ID remains deduplicated after completion
+PASS duplicate text is rejected while pending or active
+PASS same text repeat window survives completion
+PASS bounded request ledger rejects flood without evicting dedup IDs
+PASS unconfirmed driving permission blocks output
+PASS confirmed driving permission allows short verified response
+PASS low priority driving response is suppressed
+PASS long driving response is suppressed
+PASS driving cooldown prevents unrelated event bursts
+PASS unknown vehicle state blocks pre-trip bypass
+PASS moving vehicle cannot use pre-trip greeting
+PASS STOPPED is not proof of parking
+PASS navigation or call or critical sound blocks output
+PASS platform permission revoked during playback stops it
+PASS permission release requires a new request
+PASS stale platform state watchdog stops playback
+PASS focus denial never calls speak
+PASS focus loss clears active and pending requests
+PASS expiry cancels synthesis before delayed start
+PASS monotonic deadline resists backward wall clock change
+PASS start timeout cancels a stalled engine
+PASS expired pending request is never spoken later
+PASS higher priority request preempts lower priority
+PASS bounded queue evicts lower priority pending request
+PASS full queue rejects equal priority
+PASS new trip clears previous requests and context
+PASS beginning same trip does not reset deduplication
+PASS cancelled request releases focus
+PASS background clears without automatic replay on resume
+PASS suspend clears focus and queue
+PASS release is idempotent and rejects later requests
+PASS server mode network failure is terminal
+PASS hybrid fallback simulation works offline
+PASS on-device simulation works offline
+PASS initialization failure does not retain queued work
+PASS restarted session refuses historical request replay
+PASS final report text remains byte-for-byte identical
+PASS wire provenance and purpose stay separate
+PASS event enum alone never proves verification
+PASS Pleos initialization and listener are registered once
+PASS Pleos stale callbacks cannot finish next utterance
+PASS Pleos server waits for registration connection
+PASS Pleos registration failure reports actual error
+PASS Pleos missing credentials does not pretend hybrid is connected
+PASS Pleos initialization failure and late success are isolated
+PASS Pleos release ignores late initialization callback
+PASS Pleos cleanup still releases when listener removal throws
+PASS queue initialization timeout releases hung SDK
+PASS observer exception does not interrupt cleanup
+62 tests passed; 0 failed
+PASS local three characters select distinct verified WAV bytes
+PASS local initialization does not play; playback shares queue and focus
+PASS local unknown profile cannot reach Pleos default fallback
+PASS local cross character profile and wrong speaker rejected
+PASS local exact UTF8 text including whitespace is required
+PASS local missing file rejects without binding or player
+PASS local corrupt file rejects without binding
+PASS local PCM metadata and duration are checked after hash
+PASS local invalid RIFF rejected even with matching file hash
+PASS local duplicate keys and traversal refused at catalog boundary
+PASS local same voice binding survives restart and new approved text
+PASS local same character and original text cannot replace collected WAV bytes
+PASS local changed preset or speaker rejected across restart
+PASS local profile reused by another journey selects only its own asset
+PASS local corrupt persisted binding fails closed
+PASS local vehicle denial and unknown audio never start player
+PASS local focus denied never starts local audio
+PASS local cancel invalidates late callbacks while next request plays
+PASS local background and focus loss release player without replay
+PASS local same text stays deduplicated across character change
+PASS local expired local playback and suspend never restart
+PASS local actual playing bytes remain verified if source file changes
+PASS local file deleted while pending fails explicitly without fallback
+PASS local moving policy cancels active local player and does not replay on park
+PASS local legacy default still selects only the legacy provider
+PASS local router gives cold initialization 5 seconds before start timeout
+26 local voice tests passed

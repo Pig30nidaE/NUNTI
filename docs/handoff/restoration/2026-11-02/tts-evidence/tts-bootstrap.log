@@ -1,0 +1,99 @@
+PASS Korean greeting starts and completes with focus cleanup
+PASS empty whitespace is rejected
+PASS long text is rejected
+PASS unknown locale fails without silently changing language
+PASS missing and invalid profile fall back
+PASS unsupported voice controls are recorded but not applied
+PASS all six emotions preserve speaker and supplied text
+PASS persona route hint does not change voice identity
+PASS emotion mismatch is rejected
+PASS missing emotion snapshot is rejected
+PASS rapid emotion changes do not mutate an active utterance
+PASS unverified content is rejected
+PASS missing verified event reference is rejected
+PASS request ID remains deduplicated after completion
+PASS duplicate text is rejected while pending or active
+PASS same text repeat window survives completion
+PASS bounded request ledger rejects flood without evicting dedup IDs
+PASS unconfirmed driving permission blocks output
+PASS confirmed driving permission allows short verified response
+PASS low priority driving response is suppressed
+PASS long driving response is suppressed
+PASS driving cooldown prevents unrelated event bursts
+PASS unknown vehicle state blocks pre-trip bypass
+PASS moving vehicle cannot use pre-trip greeting
+PASS STOPPED is not proof of parking
+PASS navigation or call or critical sound blocks output
+PASS platform permission revoked during playback stops it
+PASS permission release requires a new request
+PASS stale platform state watchdog stops playback
+PASS focus denial never calls speak
+PASS focus loss clears active and pending requests
+PASS expiry cancels synthesis before delayed start
+PASS monotonic deadline resists backward wall clock change
+PASS start timeout cancels a stalled engine
+PASS expired pending request is never spoken later
+PASS higher priority request preempts lower priority
+PASS bounded queue evicts lower priority pending request
+PASS full queue rejects equal priority
+PASS new trip clears previous requests and context
+PASS beginning same trip does not reset deduplication
+PASS cancelled request releases focus
+PASS background clears without automatic replay on resume
+PASS suspend clears focus and queue
+PASS release is idempotent and rejects later requests
+PASS server mode network failure is terminal
+PASS hybrid fallback simulation works offline
+PASS on-device simulation works offline
+PASS initialization failure does not retain queued work
+PASS restarted session refuses historical request replay
+PASS final report text remains byte-for-byte identical
+PASS wire provenance and purpose stay separate
+PASS event enum alone never proves verification
+PASS Pleos initialization and listener are registered once
+PASS Pleos stale callbacks cannot finish next utterance
+PASS Pleos server waits for registration connection
+PASS Pleos registration failure reports actual error
+PASS Pleos missing credentials does not pretend hybrid is connected
+PASS Pleos initialization failure and late success are isolated
+PASS Pleos release ignores late initialization callback
+PASS Pleos cleanup still releases when listener removal throws
+PASS queue initialization timeout releases hung SDK
+PASS observer exception does not interrupt cleanup
+62 tests passed; 0 failed
+
+A — 첫 만남 | MOCK / NO AUDIO
+demo-1 QUEUED  style=natural
+demo-1 STARTED  style=natural
+Supplied Korean text: 오늘은 조금 긴 여행이네요. 함께 떠나볼까요?
+demo-1 COMPLETED  style=natural
+
+B — 감정 변화 | MOCK / NO AUDIO
+demo-1 QUEUED  style=warm-joy
+demo-1 STARTED  style=warm-joy
+Supplied Korean text: 함께 떠나볼까요?
+demo-1 COMPLETED  style=warm-joy
+
+C — 허용된 주행 중 최소 음성 + 중복 차단 | MOCK / NO AUDIO
+demo-1 QUEUED  style=relief
+demo-1 STARTED  style=relief
+Supplied Korean text: 휴, 이제 좀 안심돼요.
+demo-1 REJECTED DUPLICATE_ID style=-
+demo-1 COMPLETED  style=relief
+
+D — 전달받은 종료 코멘트 | MOCK / NO AUDIO
+demo-1 QUEUED  style=relief
+demo-1 STARTED  style=relief
+Supplied Korean text: 중간에 조금 놀라기도 했지만, 다시 편안하게 달려서 마음이 놓였어요.
+demo-1 COMPLETED  style=relief
+PASS actual SERVER SpeechRequest projection preserves purpose and text
+PASS actual SERVER VoiceProfile resolves without fictional controls
+PASS actual SERVER speech/profile/emotion are accepted together without rewriting
+PASS valid SERVER wire without emotion evidence is rejected for playback
+PASS future extended SERVER emotion token safely rejects without host exception
+PASS actual AVATAR profile matches stable default voice identity
+PASS actual AVATAR EmotionSnapshot maps with synthetic approved matching request
+PASS unrelated actual AVATAR samples cannot be silently joined
+8 actual-fixture integration checks passed
+PASS Android 35 + android.car + Pleos TTS 3.3.1 real-binary compilation; runtime NOT tested.
+Evidence: /Users/pig30nidae/NUNTI/.worktrees/tts/android/feature/tts/build/verification

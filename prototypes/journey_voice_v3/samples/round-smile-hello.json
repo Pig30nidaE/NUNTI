@@ -1,0 +1,38 @@
+{
+  "clipId": "round-smile-hello",
+  "createdAt": "2026-11-02T11:58:41.014798+00:00",
+  "label": "둥근 미소",
+  "text": "안녕하세요. 오늘의 여행도 함께할게요.",
+  "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+  "instruct": "A native Korean adult woman with a small, rounded, soft voice, as a lovable little travel companion in a beautifully animated film. A gentle natural smile, relaxed warmth, clear native Korean articulation and naturally flowing conversational intonation. Moderate normal speaking pace and ordinary conversational volume. Sincere and understated, like talking to one close friend. No exaggerated aegyo, no baby voice, no whisper, no announcer cadence, no robotic rhythm.",
+  "modelId": "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-8bit",
+  "revision": "f90d617701d9f7f4ca499291e0b57f2b3c2fd2ee",
+  "language": "Korean",
+  "generation": {
+    "seed": 20261102,
+    "temperature": 0.7,
+    "topP": 0.95,
+    "topK": 50,
+    "repetitionPenalty": 1.05,
+    "maxTokens": 375
+  },
+  "postprocessing": "none; raw model waveform is only encoded as PCM16 WAV",
+  "audioPath": "round-smile-hello.wav",
+  "audioSha256": "f502f95d03b8ab40dbcaec0528557934f088d798133183b7d35b3109e1f946d4",
+  "sampleRateHz": 24000,
+  "channels": 1,
+  "frames": 94080,
+  "durationSeconds": 3.92,
+  "generationSeconds": 5.5249139170009585,
+  "rawFloatPeak": 0.5838057994842529,
+  "peakMemoryBytes": 5492513865,
+  "packages": {
+    "mlx-audio": "0.6.3",
+    "mlx": "0.32.4",
+    "transformers": "5.22.1",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "humanListeningVerified": false,
+  "voiceIdentityAcrossTextsVerified": false
+}

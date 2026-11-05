@@ -1,0 +1,36 @@
+{
+  "ruleDigest": "7d93a511064d2abcce5372e60ee6c92a3d733b28726adb447b1b2b9e230054da",
+  "entries": [
+    {
+      "receivedAt": 1000,
+      "event": {
+        "eventId": "b",
+        "occurredAt": 1000,
+        "confidence": 0.95,
+        "verified": true,
+        "tripId": "trip-test",
+        "recoveryOfEventId": null,
+        "type": "HARSH_BRAKING",
+        "incidentId": null
+      }
+    },
+    {
+      "receivedAt": 1500,
+      "event": {
+        "eventId": "r",
+        "occurredAt": 1500,
+        "confidence": 0.95,
+        "verified": true,
+        "tripId": "trip-test",
+        "recoveryOfEventId": "b",
+        "type": "SAFETY_RECOVERED",
+        "incidentId": null
+      }
+    }
+  ],
+  "avatarId": "avatar-test",
+  "sessionEpochMillis": 1793498400000,
+  "format": "emotion-journal-1",
+  "startedAt": 0,
+  "tripId": "trip-test"
+}

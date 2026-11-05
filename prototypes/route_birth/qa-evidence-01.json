@@ -1,0 +1,69 @@
+{
+  "status": "PASS_INDEPENDENT_FOUR_JOURNEY_ROUTE_BIRTH_EVIDENCE",
+  "at": "2026-11-02T16:28:52.169454+00:00",
+  "scope": "Four QA journeys, 12 WAV integrity checks, eight completed native clips, isolated collection/restore and targeted final policy checks.",
+  "checks": [
+    {
+      "check": "27 real HTTP invalid inputs rejected without model job submission",
+      "ok": true,
+      "httpCalls": 47
+    },
+    {
+      "check": "fixed-nonce route influence and complete face-ellipse containment",
+      "ok": true,
+      "fixedNonceRoutes": 136,
+      "sameRouteNewJourneyCount": 40,
+      "perceptualUniqueness": "NOT_VERIFIED"
+    },
+    {
+      "check": "four exact input/outline/voice joins and 12 original WAVs",
+      "ok": true,
+      "journeyCount": 4,
+      "sourceWavCount": 12
+    },
+    {
+      "check": "four actual native inputs, eight completed clips, collection and cold restore",
+      "ok": true,
+      "freshNativeRequestId": "512bbf62-60a7-4612-99c5-251821752321",
+      "freshSubmitToReadySeconds": 14.217709,
+      "androidBoundaryChecks": 9,
+      "originalWholeRunStatus": "FAIL",
+      "originalWholeRunError": "Foreground loss did not cancel active request",
+      "failedExpectationExplanation": "Actual foreground loss cancelled with core policy reason INACTIVE before onBackground; verifier initially expected only BACKGROUND or SPEECH_NOT_ALLOWED."
+    },
+    {
+      "check": "final same-APK foreground, duplicate, active/pending stop, block and silent returns",
+      "ok": true,
+      "status": "PASS_NATIVE_ROUTE_BIRTH_QUEUE_AND_POLICY"
+    }
+  ],
+  "originalFailedRunsPreserved": [
+    "http-invalid-01",
+    "native-runtime-01",
+    "native-runtime-02"
+  ],
+  "evidenceSha256": {
+    "generator.py": "55c67fbb03487a0acb1165f27c8a8cd8921588f9949ff09676125f714b3391ec",
+    "verify_http.py": "00f9696dc00a6bd9a6f8e14ad18e44e031fa6a5f3e1ef307ea7a0f4656fca613",
+    "verify_geometry.py": "77d1bb58c7baf123e512c148701583fbe5dd6b81f188c35e2d37f80d9dd8d46e",
+    "verify_android.py": "24d5d5b14cfdb277ac291066292638a394d788d06b92337bd1d7e836a282cf7e",
+    "verify_evidence.py": "df6f73183862dd4dc7546dcd84829fa53ddaeb27845302e4974ae6429037a95a",
+    "http-invalid-02/verification.json": "da10afb8979852d58e5607cf8c5e808904af6a4599881f9a7c284490278ebfeb",
+    "geometry-independent-02.json": "e8f4e367f8484ac6e08b7196041cd4a9efe823686b2d74ccd06184c84f05851b",
+    "http-artifacts-02/verification.json": "ffd3a5ebcc61838a582e370eea64a3336fe28327efa7117629241437e18aec71",
+    "http-native-created-01/verification.json": "04c17d9cb27b023b34215bbeb164564fc4a19d4b52b246abe82f049a137f2823",
+    "native-runtime-01/verification.json": "29edcdde4488e308f2447c10c7a0f9f023755c54001c8c05f2fbd1642fd86284",
+    "native-runtime-02/verification.json": "476c81607e796b1d9c1c0d933df739b57c5bcf906e6e5a2caf139bb33ea1e14a",
+    "native-runtime-02/runtime-events.jsonl": "362e90d2caed2832473343f760c6fb75070b9f210953b7a54d3141a5f0d08152",
+    "native-runtime-03/verification.json": "c1f948ac19b98aba67b332e458d66ac18368defa5894b35a1de246f95f3fe2da",
+    "native-runtime-03/runtime-events.jsonl": "18b79fb04bf173ee9bf9b9e037d058783f4fdb61b455721421bbe553b72ca675"
+  },
+  "notVerified": [
+    "Human Korean listening or acoustic PCM capture",
+    "Perceptual uniqueness, visual taste, cuteness or collectibility",
+    "Physical vehicle or real road behavior",
+    "Direct D/P transition in the new route-born host",
+    "A later direct-gesture fifth journey, which has separate evidence",
+    "Whole 12 clip native completion; eight completed, other clips used in stop/policy checks"
+  ]
+}

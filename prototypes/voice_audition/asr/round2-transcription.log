@@ -1,0 +1,11 @@
+{"event": "transcribing", "id": "qwen-sohee/normal-arrival"}
+{"event": "transcribed", "id": "qwen-sohee/normal-arrival", "text": " 와, 도착했다. 여기서 어떤 기억을 만나게 될까?", "cer": 0.0}
+{"event": "transcribing", "id": "qwen-sohee/normal-hello"}
+{"event": "transcribed", "id": "qwen-sohee/normal-hello", "text": " 안녕하세요 오늘의 여행도 함께할게요", "cer": 0.0}
+{"event": "transcribing", "id": "qwen-sohee/small-smile-arrival"}
+{"event": "transcribed", "id": "qwen-sohee/small-smile-arrival", "text": " 와... 도착했다... 여기서 어떤 기억을 만나게 될까?", "cer": 0.0}
+{"event": "transcribing", "id": "qwen-sohee/small-smile-hello"}
+{"event": "transcribed", "id": "qwen-sohee/small-smile-hello", "text": " 안녕하세요 오늘의 여행도 함께할게요", "cer": 0.0}
+{"event": "transcribing", "id": "elevenlabs-public-demo/anna-common-arrival"}
+{"event": "transcribed", "id": "elevenlabs-public-demo/anna-common-arrival", "text": " 안녕하세요 오늘의 여행도 함께 할게요 와 도착했다 여기서 어떤 기억을 만나게 될까?", "cer": 0.0}
+{"event": "complete", "clips": 5, "flagged": 0, "microCER": 0.0}

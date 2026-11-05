@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "newModelProcesses": 1,
+  "newCharactersActuallyGenerated": 4,
+  "newWavClipsActuallySynthesized": 12,
+  "originalCharactersCopied": 4,
+  "originalPrimaryClipsReused": 12,
+  "restartModelLoaded": false,
+  "restartClipCacheHits": 24,
+  "rerouteModelLoaded": false,
+  "rerouteClipCacheHits": 3,
+  "initialBundleIdPreserved": "journey-mvp-9c9e1cb3ef613440c58f",
+  "bindingAndAudioHashesPreserved": true,
+  "humanKoreanListeningEvaluated": false,
+  "newGeneration": [
+    {
+      "characterId": "nunti-6ec3150a7c2ee12d410391de",
+      "category": "arrival",
+      "durationMs": 4960,
+      "inferenceSeconds": 3.310260209000262,
+      "audioSha256": "4d69beca2e30d551f7ed5881a6bbe7c4842b673977cde886598974e671b2050a",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-6ec3150a7c2ee12d410391de",
+      "category": "common",
+      "durationMs": 3120,
+      "inferenceSeconds": 2.0004083330022695,
+      "audioSha256": "3739a6d8bffc7fdac5fadc8684a012fc0a6b61e5d0df23c7622f3689341e40c2",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-6ec3150a7c2ee12d410391de",
+      "category": "greeting",
+      "durationMs": 4320,
+      "inferenceSeconds": 2.6438777499970456,
+      "audioSha256": "38c1df2ddde4dce46d0e870b797f43814cdfdde8512c8422336642153c7df0fa",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+      "category": "arrival",
+      "durationMs": 5200,
+      "inferenceSeconds": 3.1722880409979552,
+      "audioSha256": "3b53676aea57ca07e9053d6b5b46fd041503d9cdcf565d3ab7f449b116f6faae",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+      "category": "common",
+      "durationMs": 2800,
+      "inferenceSeconds": 1.7706602920006844,
+      "audioSha256": "9221e5847cd21a9e545b6bc8b92ac33a38efabc5690c1ee86a2e56882b8e28d3",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+      "category": "greeting",
+      "durationMs": 5360,
+      "inferenceSeconds": 3.26448070799961,
+      "audioSha256": "d1336f3a1e0157fa7ea65cfe4cdee24d2ae172debe68675cc827448acf7e679f",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-14e8ecb1317597b175d0ac40",
+      "category": "arrival",
+      "durationMs": 3840,
+      "inferenceSeconds": 2.4975405000004685,
+      "audioSha256": "b44dfe779f968ddda344c089ed94d1eba5d2cd30d54afcb8a251e5b96971728c",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-14e8ecb1317597b175d0ac40",
+      "category": "common",
+      "durationMs": 2400,
+      "inferenceSeconds": 1.537769209000544,
+      "audioSha256": "65b15806e488f9950953f5f9f898450f9d4fab04753147d46e571c9e2f37cafc",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-14e8ecb1317597b175d0ac40",
+      "category": "greeting",
+      "durationMs": 4320,
+      "inferenceSeconds": 2.7164436250022845,
+      "audioSha256": "55ef212420d1a49d9ee523c6dade515e0906c8cd8549df159e1c01241cc4c23e",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-2cf018a4ab81917bafef386b",
+      "category": "arrival",
+      "durationMs": 4640,
+      "inferenceSeconds": 2.845085166001809,
+      "audioSha256": "c5324f29e3654a905a7fa14a0e091b497f4bdd2a7943df308437d74609164202",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-2cf018a4ab81917bafef386b",
+      "category": "common",
+      "durationMs": 2560,
+      "inferenceSeconds": 1.6917185419988527,
+      "audioSha256": "b6715012b3d7d0195f4e3a516ef62a60d3b0b85cfb5ec2f044a411552130a186",
+      "pcmFullScaleSamples": 0
+    },
+    {
+      "characterId": "nunti-2cf018a4ab81917bafef386b",
+      "category": "greeting",
+      "durationMs": 2720,
+      "inferenceSeconds": 1.7093579170032172,
+      "audioSha256": "1db10bd4f19a07d4313603a1af6907065ff7ffd0d85646700ef817778ba45eb5",
+      "pcmFullScaleSamples": 0
+    }
+  ]
+}

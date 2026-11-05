@@ -14,6 +14,8 @@ def add_examples(spec):
     meta = {"requestId": "e3ac4ab7-4c33-4ef8-a77b-046fdf717066", "serverTime": stamp}
     receipt = {"id": "example-id", "status": "stored", "receivedAt": stamp}
     for path, operations in spec["paths"].items():
+        if not path.startswith("/v1/"):
+            continue
         for method, operation in operations.items():
             example = None
             if method in {"post", "put"}:

@@ -1,0 +1,6 @@
+{
+  "status": "PASSED_REAL_AUDIO_REFERENCE_BINDING_RESTART_CACHE_AND_DRIFT_REJECTION",
+  "clips": 2,
+  "cacheHits": 2,
+  "driftRejections": 3
+}

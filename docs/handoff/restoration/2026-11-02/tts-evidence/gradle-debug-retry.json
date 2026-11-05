@@ -1,0 +1,21 @@
+{
+  "command": [
+    "./gradlew",
+    "--no-daemon",
+    "--max-workers=4",
+    "-Pkotlin.compiler.execution.strategy=in-process",
+    ":app:assembleDebug"
+  ],
+  "cwd": "/Users/pig30nidae/NUNTI/.worktrees/tts/android",
+  "startedAt": "2026-11-02T18:08:38.799716+09:00",
+  "environment": {
+    "JAVA_HOME": "/Users/pig30nidae/NUNTI/.local/tts-tools/jdk/jdk-21.0.8+9/Contents/Home",
+    "ANDROID_HOME": "/Users/pig30nidae/NUNTI/.local/pm-tools/sdk",
+    "ANDROID_USER_HOME": "/Users/pig30nidae/NUNTI/.worktrees/tts/.local/android-user",
+    "GRADLE_USER_HOME": "/Users/pig30nidae/NUNTI/.worktrees/tts/.local/gradle-user",
+    "JAVA_TOOL_OPTIONS": "-Duser.home=/Users/pig30nidae/NUNTI/.worktrees/tts/.local/home -Djava.io.tmpdir=/Users/pig30nidae/NUNTI/.worktrees/tts/.local/tmp"
+  },
+  "log": "gradle-debug-retry.log",
+  "endedAt": "2026-11-02T18:09:53.926746+09:00",
+  "exitCode": 0
+}

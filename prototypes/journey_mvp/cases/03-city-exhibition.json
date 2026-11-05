@@ -1,0 +1,23 @@
+{
+  "requestId": "request-city-001",
+  "journeyId": "synthetic-city-001",
+  "destination": {
+    "semanticTags": [
+      "city",
+      "art"
+    ]
+  },
+  "route": {
+    "distanceKm": 16,
+    "semanticTags": [
+      "urban",
+      "straight"
+    ],
+    "verifiedRoadFacts": {
+      "status": "UNKNOWN",
+      "roadTypes": [],
+      "source": null
+    }
+  },
+  "purpose": "exhibition"
+}

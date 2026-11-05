@@ -1,0 +1,9 @@
+{
+  "transport": "ADB_SHELL_V2_NO_PTY",
+  "writtenBytes": 203564,
+  "readbackBytes": 203564,
+  "sourceSha256": "be69d9e9191b738a345746134b49fae581a9d7edfadfa65921161d08dbe8632b",
+  "readbackSha256": "be69d9e9191b738a345746134b49fae581a9d7edfadfa65921161d08dbe8632b",
+  "restoredExactly": true,
+  "ddStderr": "1+5 records in\n3+1 records out\n203564 bytes (199 K) copied, 0.001 s, 194 M/s\n"
+}

@@ -1,0 +1,198 @@
+{
+  "startedAt": "2026-11-02T16:21:27.534184+00:00",
+  "status": "PASS_INDEPENDENT_ROUTE_BIRTH_HTTP_AND_ARTIFACTS",
+  "scope": "Independent HTTP/schema, geometry and exact local audio identity checks",
+  "postRequests": 3,
+  "newJobsObservedGenerating": 0,
+  "notVerified": [
+    "Human visual quality, uniqueness perception, cuteness or collectibility",
+    "Human Korean pronunciation or naturalness",
+    "Native Android rendering/playback/lifecycle",
+    "Worker crash recovery"
+  ],
+  "health": {
+    "status": "ok",
+    "version": "route-born-1"
+  },
+  "jobs": [
+    {
+      "directory": "submitted-0",
+      "initialPostState": "READY",
+      "retryImmutable": true,
+      "conflictHttpStatus": 409,
+      "observedStates": [
+        "READY"
+      ],
+      "requestId": "8b906e5a-3089-4795-bdce-a2625ef9fb02",
+      "characterId": "route-dd24ce2aaf1c4d882344e44d",
+      "inputSha256": "1122a3dec22ca823e43d3fb09b7434d43192ff108a1d672f32122870f0f46bb6",
+      "artifactSha256": "54e40646c6ad10b067f9101091e986ed8db8c4bb161984337a4a0d5debec3a89",
+      "voiceProfileId": "route-sohee-bb48fe466d6b8f765f31",
+      "bindingId": "dvb-24e25cd0917f4f4a8632245bb13af159",
+      "directionSha256": "0f753bf724775c4aadb69c55e51cb57bbc4811f2d83e0642b522aec869784bea",
+      "faceEllipseEdgeDistanceMinimum": 1.4714076228315265,
+      "outlineSha256": "de941628e72c8012be5155dc85b2d8391ee23ff09d1ff500c1baa46dc012ff34",
+      "routeSha256": "bfc8ed521f3b59f30ffa0e1ac26f212d6d555cc1dceb35b2f2381e318e4d2d8b",
+      "visualSha256": "01a2a9598abb690081b351789450638db486adef3463ea5b226d04a5f070f2e0",
+      "polygonArea": 0.34140626264187307,
+      "outlineBounds": [
+        0.11616224,
+        0.181835,
+        0.83032905,
+        0.81926862
+      ],
+      "clips": [
+        {
+          "clipId": "route-dd24ce2aaf1c4d882344e44d-greeting",
+          "profileId": "route-sohee-bb48fe466d6b8f765f31",
+          "bindingId": "dvb-24e25cd0917f4f4a8632245bb13af159",
+          "sha256": "df14446df2b01520f111734dfbb0154773f9382c468883880166407f65977d42",
+          "bytes": 184364,
+          "durationMs": 3840,
+          "rmsPcm16": 3539.4618896498123,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        },
+        {
+          "clipId": "route-dd24ce2aaf1c4d882344e44d-arrival",
+          "profileId": "route-sohee-bb48fe466d6b8f765f31",
+          "bindingId": "dvb-24e25cd0917f4f4a8632245bb13af159",
+          "sha256": "68af71f6a2cbe1c6c89b2ddcf00a29550bcfc25f993239f607c9d246ac756f7c",
+          "bytes": 238124,
+          "durationMs": 4960,
+          "rmsPcm16": 1806.9025412610363,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        },
+        {
+          "clipId": "route-dd24ce2aaf1c4d882344e44d-common",
+          "profileId": "route-sohee-bb48fe466d6b8f765f31",
+          "bindingId": "dvb-24e25cd0917f4f4a8632245bb13af159",
+          "sha256": "2f97b2a0143405ab074d84692b55ed9cab1e78a3f0094ef5c47afd4f4908dc06",
+          "bytes": 268844,
+          "durationMs": 5600,
+          "rmsPcm16": 2377.60894420946,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "directory": "submitted-1",
+      "initialPostState": "READY",
+      "retryImmutable": true,
+      "conflictHttpStatus": 409,
+      "observedStates": [
+        "READY"
+      ],
+      "requestId": "9177741e-fcb4-454c-be70-226a918f4024",
+      "characterId": "route-772ed85f808ed850c1cf9df1",
+      "inputSha256": "d4a81dc481572c92aad7097fae18b808fa0398935af62e079a2ce42713940bb4",
+      "artifactSha256": "77c4374221d356cefa588907ff26a263bff7aba9e91c47195155c035c70fc119",
+      "voiceProfileId": "route-sohee-a3b577878d7b3328651c",
+      "bindingId": "dvb-e4cfd962bf00f55a418374c487c37786",
+      "directionSha256": "6c2d9e880ce532f960b389f922915066f1e4a0ea63be4737773fb4f7a7c0efc0",
+      "faceEllipseEdgeDistanceMinimum": 1.1850285535080929,
+      "outlineSha256": "a0958a9a2ca2c6af22e09cbd021948eb503af4d66075ad3618ca3e899951a4df",
+      "routeSha256": "3266d5ef5f51457b20067ea84b387caaa4e1508ca3f6842883110c3e90a4d30c",
+      "visualSha256": "59091c0273e9ac961f0d85054ce1e11f8cacafd9b15a1bfab78513b1d376d238",
+      "polygonArea": 0.3375452807599783,
+      "outlineBounds": [
+        0.16622757,
+        0.13368354,
+        0.8040027,
+        0.87344138
+      ],
+      "clips": [
+        {
+          "clipId": "route-772ed85f808ed850c1cf9df1-greeting",
+          "profileId": "route-sohee-a3b577878d7b3328651c",
+          "bindingId": "dvb-e4cfd962bf00f55a418374c487c37786",
+          "sha256": "2df0192ed90a58505d1ac74ac539f180051105b2d2da7b13273c095a758f2fd7",
+          "bytes": 257324,
+          "durationMs": 5360,
+          "rmsPcm16": 2091.277038538913,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        },
+        {
+          "clipId": "route-772ed85f808ed850c1cf9df1-arrival",
+          "profileId": "route-sohee-a3b577878d7b3328651c",
+          "bindingId": "dvb-e4cfd962bf00f55a418374c487c37786",
+          "sha256": "07d73df94571649b0573a4488c4ba8cd7b2e6d65200b350d57df0224a9588b2a",
+          "bytes": 349484,
+          "durationMs": 7280,
+          "rmsPcm16": 2292.591713332229,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        },
+        {
+          "clipId": "route-772ed85f808ed850c1cf9df1-common",
+          "profileId": "route-sohee-a3b577878d7b3328651c",
+          "bindingId": "dvb-e4cfd962bf00f55a418374c487c37786",
+          "sha256": "0e3836e9b1504accffbeb6941d49efabd41b112f22b547c90ec6436d596302f7",
+          "bytes": 241964,
+          "durationMs": 5040,
+          "rmsPcm16": 2928.6941485778866,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        }
+      ]
+    },
+    {
+      "directory": "submitted-2",
+      "initialPostState": "READY",
+      "retryImmutable": true,
+      "conflictHttpStatus": 409,
+      "observedStates": [
+        "READY"
+      ],
+      "requestId": "9807d3bf-b021-4e0b-9f57-b6112992d0cd",
+      "characterId": "route-8dc95bd05422eef8794bad12",
+      "inputSha256": "e84b42c194f223567e5e2f487568220c07c1daceeae2fa7af3a8b986a7963665",
+      "artifactSha256": "d30498b9af6b95e56054cb598220a317b51df40838ba04765c96425d610c858b",
+      "voiceProfileId": "route-sohee-1567291f3413c3a505f2",
+      "bindingId": "dvb-1fd76600da8bdc6222aec05dc6b1582d",
+      "directionSha256": "372e6d2e52a7f73ab90305e3ca8a9fe98585a62861cac4f998a9dac281299cb3",
+      "faceEllipseEdgeDistanceMinimum": 1.394980368407802,
+      "outlineSha256": "8798cd0af69f544d2702cdb23c85a6b8a457cc401555607b48727bf9a4a6b476",
+      "routeSha256": "e6cbd0a11f930fcaebe61d1d97548e00099d255a384723b3f74d1dae4538b2f5",
+      "visualSha256": "c672cebe6eca43ff71080debc38636fdddf43f24881e03b9a51617bfcef3908e",
+      "polygonArea": 0.3376875069455041,
+      "outlineBounds": [
+        0.20196248,
+        0.12602473,
+        0.77366596,
+        0.89624835
+      ],
+      "clips": [
+        {
+          "clipId": "route-8dc95bd05422eef8794bad12-greeting",
+          "profileId": "route-sohee-1567291f3413c3a505f2",
+          "bindingId": "dvb-1fd76600da8bdc6222aec05dc6b1582d",
+          "sha256": "e113dafdb1c1023c5c2b462fe8f157e3022a91510b4eb07561d19cc859d0e12e",
+          "bytes": 261164,
+          "durationMs": 5440,
+          "rmsPcm16": 3627.126535942178,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        },
+        {
+          "clipId": "route-8dc95bd05422eef8794bad12-arrival",
+          "profileId": "route-sohee-1567291f3413c3a505f2",
+          "bindingId": "dvb-1fd76600da8bdc6222aec05dc6b1582d",
+          "sha256": "06b383bd1dbf2b7d25e0c2833d1aa3b20be8fd10374e6f64288127899830c0f7",
+          "bytes": 218924,
+          "durationMs": 4560,
+          "rmsPcm16": 2108.476788342082,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        },
+        {
+          "clipId": "route-8dc95bd05422eef8794bad12-common",
+          "profileId": "route-sohee-1567291f3413c3a505f2",
+          "bindingId": "dvb-1fd76600da8bdc6222aec05dc6b1582d",
+          "sha256": "1420e056e8c1396027aa77824eaaa590f9b2bcde2dee6e7cdda5797bfa180c17",
+          "bytes": 361004,
+          "durationMs": 7520,
+          "rmsPcm16": 1793.6528737990866,
+          "humanNaturalnessOrCuteness": "NOT_VERIFIED"
+        }
+      ]
+    }
+  ],
+  "finishedAt": "2026-11-02T16:21:27.699103+00:00",
+  "httpCallCount": 34
+}

@@ -1,0 +1,54 @@
+{
+  "status": "PASS_AVATAR_GENERATOR_UI",
+  "surface": "ACTUAL_CHROME",
+  "screenshotsCaptured": true,
+  "videoRecorded": false,
+  "speakerRecorded": false,
+  "providerApiCalls": 0,
+  "checks": [
+    "three-navigation-inputs-not-character-presets",
+    "confirmation-required-before-generation",
+    "avatar-canvas-contains-visible-image",
+    "typed-input-reaches-generation",
+    "route-is-transient-and-not-painted-on-body",
+    "actual-new-rgba-local-render",
+    "motifs-have-input-evidence",
+    "no-automatic-speech",
+    "retry-preserves-identity-and-image",
+    "same-destination-new-journey-new-appearance",
+    "screenshot-extracted-and-requires-confirmation",
+    "screenshot-source-and-selected-line-persisted",
+    "saved-companion-selectable-after-reload",
+    "cold-reload-preserves-appearance-and-voice-recipe",
+    "no-javascript-runtime-exceptions"
+  ],
+  "replayedRequestId": null,
+  "qaTag": "v5",
+  "sourceSha256": {
+    "prototypes/avatar_generator/studio.js": "9885898c07fa91fa726ddf7dec8e649818ec4a40106df0783ce83afc4b69f222",
+    "prototypes/avatar_generator/formation.js": "32b6a793d40d86b36dbe745667f4a11ceb977d3844faa60b49daaeb5fe45d52b",
+    "prototypes/avatar_generator/index.html": "cc6d3aab53719acdc52f5c83e8bd69281c1c1c28eedbb85075f7d0445701babf",
+    "backend/nunti/avatar_studio/api.py": "117ddbf233691849967b06cced2d7192f73931d1616d4a6abb85e7c3bf4b77f1",
+    "backend/nunti/avatar_studio/illustration.py": "77feaecb506aed55eeb9e169b5ed49e6837ac17c6a6032377ce0dfd14072e724"
+  },
+  "artifacts": [
+    {
+      "characterId": "nunti-043362de-6167-461e-b47d-f0628ea95ccc",
+      "imageSha256": "519b88cb3a93972117b6135ce9585e5911670e00319277de77b9d177a3d65c70",
+      "inputOrigin": "TEST_ROUTE",
+      "mediaOrigin": "LOCAL_RENDER"
+    },
+    {
+      "characterId": "nunti-8325054c-c643-4657-9f24-85eaf65bb722",
+      "imageSha256": "24798ec0fbd352dc08498dcbd26b5608e486b565d9c7990528e66b579d2d57a6",
+      "inputOrigin": "TEST_ROUTE",
+      "mediaOrigin": "LOCAL_RENDER"
+    },
+    {
+      "characterId": "nunti-335b6dd2-5356-4326-aac0-e06cb1bd50fe",
+      "imageSha256": "cfb63318a0faa7a8cb521e87321e8dfe167f3e209e99c3dbc6cbc1d2e5e5f65e",
+      "inputOrigin": "NAVIGATION_SCREENSHOT",
+      "mediaOrigin": "LOCAL_RENDER"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Starting: Intent { flg=0x14000000 cmp=ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity (has extras) }
+Status: ok
+LaunchState: COLD
+Activity: ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity
+TotalTime: 595
+WaitTime: 599
+Complete

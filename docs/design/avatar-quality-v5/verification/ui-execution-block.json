@@ -1,0 +1,42 @@
+{
+  "status": "RESOLVED_LOCAL_UI_VERIFIED",
+  "executed": true,
+  "attemptedCommands": [
+    "node scripts/verify_avatar_generator.mjs --qa-tag=v5",
+    "node scripts/verify_avatar_generator.mjs --native --port=9224 --qa-tag=v5"
+  ],
+  "chromeEscalatedAttempts": 2,
+  "nativeEscalatedAttempts": 1,
+  "reason": "Automatic permission approval review did not finish before its deadline. The action was rejected before process creation; no safety determination was made.",
+  "lowerPrivilegeAlternative": {
+    "attempted": true,
+    "result": "EPERM connecting to 127.0.0.1:9223 inside restricted sandbox"
+  },
+  "userApprovalRequested": true,
+  "userApprovalReceived": true,
+  "providerApiCalls": 0,
+  "videoRecorded": false,
+  "speakerRecorded": false,
+  "postUserApprovalAttempts": 2,
+  "postUserApprovalExecuted": false,
+  "postUserApprovalReason": "Automatic approval review failed: Selected model is at capacity. The action was not executed because automatic approval review could not be completed. This is a review failure, not a determination that the action is unsafe.",
+  "manualRunner": "scripts/verify_avatar_ui_v5.py --run",
+  "manualRunnerExecuted": true,
+  "userGuidance": "RUN_IN_USER_LOCAL_TERMINAL",
+  "resolution": {
+    "date": "2026-11-04",
+    "executor": "AGENT_APPROVED_LOCAL_EXECUTION",
+    "command": "python3 scripts/verify_avatar_ui_v5.py --run",
+    "result": "PASS_CLEAN_AVATAR_FUNCTIONAL_DELIVERY",
+    "chromeChecks": 15,
+    "androidChecks": 15,
+    "androidSavedAiChecks": 14,
+    "inputEdgeChecks": 15,
+    "actualCanvasFixtures": 7,
+    "actualCanvasPoses": 35,
+    "additionalAiInferenceCalls": 0,
+    "paidApiCalls": 0,
+    "videoRecorded": false,
+    "speakerRecorded": false
+  }
+}

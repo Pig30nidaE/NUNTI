@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "negativeActualCliExit": 2,
+  "negativeError": "journey MVP worker error: INVALID_CASE_TEXT:label",
+  "rejectedUtf16LabelUnits": 62,
+  "positiveCpuPlanCharacters": 8,
+  "modelLoaded": false,
+  "stateFilesByteIdentical": 76,
+  "bundleFilesByteIdentical": 28,
+  "sidecarReceiptsAndCaseIndexByteIdentical": true,
+  "bundleId": "journey-mvp-9c9e1cb3ef613440c58f"
+}

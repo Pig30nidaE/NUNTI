@@ -1,0 +1,45 @@
+{
+  "status": "PASSED_AUDIO_IDENTITY_FORMAT_AND_EXACT_TEXT_METADATA",
+  "clips": [
+    {
+      "clipId": "builtin-hello",
+      "audioSha256": "7b6f904cb95187e539f9e036236b9b2a7674dd72055eef1736b5e1cc51a44b44",
+      "durationSeconds": 2.8,
+      "fullScaleSamples": 0,
+      "textExact": true,
+      "referenceVerified": false
+    },
+    {
+      "clipId": "builtin-comfort",
+      "audioSha256": "4435e7b27c850f9f8172d2eceae5e5e35c8c9fb84af48b4453fce574097177ee",
+      "durationSeconds": 2.76,
+      "fullScaleSamples": 0,
+      "textExact": true,
+      "referenceVerified": false
+    },
+    {
+      "clipId": "qwen-reference-hello",
+      "audioSha256": "9ae3a48b15b9b80c3511bd39101ced244d61725fe3f6b84611e78fad17cd657a",
+      "durationSeconds": 3.56,
+      "fullScaleSamples": 0,
+      "textExact": true,
+      "referenceVerified": true
+    },
+    {
+      "clipId": "qwen-reference-comfort",
+      "audioSha256": "05ddda707eb6bd515abd5a932bdd4ac0c9ea65ccca7d4645f57b86860a8bb400",
+      "durationSeconds": 3.84,
+      "fullScaleSamples": 0,
+      "textExact": true,
+      "referenceVerified": true
+    }
+  ],
+  "humanListeningVerified": false,
+  "doesNotProve": [
+    "Korean pronunciation accuracy",
+    "naturalness",
+    "cuteness",
+    "speaker consistency",
+    "superiority over Qwen or commercial models"
+  ]
+}

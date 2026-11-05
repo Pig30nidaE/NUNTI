@@ -1,0 +1,299 @@
+{
+  "characterId": "gen-e1c6d44be1a6963bfe520072",
+  "destinationName": "경포 바다",
+  "displayName": "연결시험 동반자",
+  "fixtureProvenance": {
+    "imageSha256": "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47",
+    "kind": "PREEXISTING_MEDIA_NOT_NEW_GENERATION",
+    "originalCharacterId": "nunti-2d6aecb00617ef2899eff678",
+    "originalClips": [
+      {
+        "audioPath": "nunti-2d6aecb00617ef2899eff678-greeting.wav",
+        "audioSha256": "8fe597f715b3da2e66026856b1928430fafc63d606a68d116a987af166333895",
+        "channels": 1,
+        "characterId": "nunti-2d6aecb00617ef2899eff678",
+        "clipId": "nunti-2d6aecb00617ef2899eff678-greeting",
+        "durationMs": 8160,
+        "frames": 195840,
+        "locale": "ko-KR",
+        "profileId": "journey-sohee-3a8beb66e2461046793b",
+        "sampleRateHz": 24000,
+        "sampleWidthBytes": 2,
+        "source": {
+          "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d",
+          "directionSha256": "4c6852938f61537b89540e06479579944d92ab0f860881c7ed451d5b23c88453",
+          "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+          "kind": "directed-sohee-v1",
+          "seed": 156845907,
+          "sourceModelRevision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96"
+        },
+        "speakerId": "Sohee",
+        "text": "바다 보러 가는 날이네. 오늘은 느긋하게 함께 가자.",
+        "textSha256": "ae1b96733f54c5c73223fe3bbf0519d359a9d826baf7c6c6bb9bd22d01278a97"
+      },
+      {
+        "audioPath": "nunti-2d6aecb00617ef2899eff678-common.wav",
+        "audioSha256": "2ccf4e6823960decaa85b6adf7c2339d2716ff7bcd8722b471bff8c9329f7850",
+        "channels": 1,
+        "characterId": "nunti-2d6aecb00617ef2899eff678",
+        "clipId": "nunti-2d6aecb00617ef2899eff678-common",
+        "durationMs": 2800,
+        "frames": 67200,
+        "locale": "ko-KR",
+        "profileId": "journey-sohee-3a8beb66e2461046793b",
+        "sampleRateHz": 24000,
+        "sampleWidthBytes": 2,
+        "source": {
+          "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d",
+          "directionSha256": "4c6852938f61537b89540e06479579944d92ab0f860881c7ed451d5b23c88453",
+          "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+          "kind": "directed-sohee-v1",
+          "seed": 156845907,
+          "sourceModelRevision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96"
+        },
+        "speakerId": "Sohee",
+        "text": "안녕. 오늘은 나랑 같이 가자.",
+        "textSha256": "7745678aca1b128c67ed3d90d610ab78a4ca9550bf13aa3608eba60f8cdacb8f"
+      },
+      {
+        "audioPath": "nunti-2d6aecb00617ef2899eff678-arrival.wav",
+        "audioSha256": "8cbe1eb5990553e24ce795d3eee2c1c8fb92eead01744971c0b6eae2ac033fc8",
+        "channels": 1,
+        "characterId": "nunti-2d6aecb00617ef2899eff678",
+        "clipId": "nunti-2d6aecb00617ef2899eff678-arrival",
+        "durationMs": 4400,
+        "frames": 105600,
+        "locale": "ko-KR",
+        "profileId": "journey-sohee-3a8beb66e2461046793b",
+        "sampleRateHz": 24000,
+        "sampleWidthBytes": 2,
+        "source": {
+          "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d",
+          "directionSha256": "4c6852938f61537b89540e06479579944d92ab0f860881c7ed451d5b23c88453",
+          "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+          "kind": "directed-sohee-v1",
+          "seed": 156845907,
+          "sourceModelRevision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96"
+        },
+        "speakerId": "Sohee",
+        "text": "어떤 바다를 만나게 될까? 같이 천천히 바라보자.",
+        "textSha256": "6ef2bf934ee4dbf1d3efcdef654f10084d77331cb739037940b382596e108fcf"
+      }
+    ]
+  },
+  "inputCanonical": "{\"destination\":{\"name\":\"경포 바다\",\"traits\":\"해안 산책과 작은 전시\"},\"purpose\":\"쉬면서 오늘의 기억을 간직하기\",\"requestId\":\"1c50d89f-fd7a-4120-bafd-fdf2464feca7\",\"route\":{\"points\":[[0.1,0.75],[0.22,0.31],[0.43,0.2],[0.59,0.6],[0.8,0.23],[0.91,0.38]]}}",
+  "inputSha256": "9206ded198dfb48d484324ad0dc8c36d11d360f63c5de9f264c8eee1dcaee4ca",
+  "journeyId": "1c50d89f-fd7a-4120-bafd-fdf2464feca7",
+  "mode": "OFFLINE_FIXTURE",
+  "purpose": "쉬면서 오늘의 기억을 간직하기",
+  "schemaVersion": 2,
+  "specHash": "929e719504e3e2a8f37f046eb889e78683f69f1353d70ce3e5c66e119ca6f58a",
+  "visual": {
+    "asset": {
+      "byteLength": 892805,
+      "height": 1199,
+      "mimeType": "image/png",
+      "path": "/v2/assets/f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47",
+      "sha256": "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47",
+      "width": 1312
+    },
+    "route": [
+      [
+        0.1,
+        0.75
+      ],
+      [
+        0.22,
+        0.31
+      ],
+      [
+        0.43,
+        0.2
+      ],
+      [
+        0.59,
+        0.6
+      ],
+      [
+        0.8,
+        0.23
+      ],
+      [
+        0.91,
+        0.38
+      ]
+    ],
+    "version": "generated-rgba-1"
+  },
+  "voice": {
+    "bindingId": "dvb-52bd3c4311022ebc6e83ef09403e4317",
+    "description": "기존 Sohee 합성 샘플입니다. 새 음색 생성이나 입력 목적지에 맞춘 대사가 아닙니다.",
+    "profileId": "designed-048e9508ef3fe23d6a7f46b2"
+  },
+  "voiceManifest": {
+    "characters": [
+      {
+        "characterId": "gen-e1c6d44be1a6963bfe520072",
+        "displayName": "연결시험 동반자"
+      }
+    ],
+    "clips": [
+      {
+        "audioPath": "gen-e1c6d44be1a6963bfe520072-greeting.wav",
+        "audioSha256": "8fe597f715b3da2e66026856b1928430fafc63d606a68d116a987af166333895",
+        "channels": 1,
+        "characterId": "gen-e1c6d44be1a6963bfe520072",
+        "clipId": "gen-e1c6d44be1a6963bfe520072-greeting",
+        "durationMs": 8160,
+        "fixtureProvenance": {
+          "audioPath": "nunti-2d6aecb00617ef2899eff678-greeting.wav",
+          "audioSha256": "8fe597f715b3da2e66026856b1928430fafc63d606a68d116a987af166333895",
+          "channels": 1,
+          "characterId": "nunti-2d6aecb00617ef2899eff678",
+          "clipId": "nunti-2d6aecb00617ef2899eff678-greeting",
+          "durationMs": 8160,
+          "frames": 195840,
+          "locale": "ko-KR",
+          "profileId": "journey-sohee-3a8beb66e2461046793b",
+          "sampleRateHz": 24000,
+          "sampleWidthBytes": 2,
+          "source": {
+            "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d",
+            "directionSha256": "4c6852938f61537b89540e06479579944d92ab0f860881c7ed451d5b23c88453",
+            "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+            "kind": "directed-sohee-v1",
+            "seed": 156845907,
+            "sourceModelRevision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96"
+          },
+          "speakerId": "Sohee",
+          "text": "바다 보러 가는 날이네. 오늘은 느긋하게 함께 가자.",
+          "textSha256": "ae1b96733f54c5c73223fe3bbf0519d359a9d826baf7c6c6bb9bd22d01278a97"
+        },
+        "locale": "ko-KR",
+        "profileId": "designed-048e9508ef3fe23d6a7f46b2",
+        "rawAudioSha256": "8fe597f715b3da2e66026856b1928430fafc63d606a68d116a987af166333895",
+        "sampleRateHz": 24000,
+        "sampleWidthBytes": 2,
+        "source": {
+          "bindingId": "dvb-52bd3c4311022ebc6e83ef09403e4317",
+          "designModel": "offline-fixture-v1",
+          "kind": "designed-voice-v1",
+          "mediaOrigin": "OFFLINE_FIXTURE",
+          "providerId": "nunti-offline-fixture",
+          "settingsSha256": "6f9cdff1030a7d78b5ad402fe692dba99b735ddeebcc37ffabb744600fdcff3e",
+          "specSha256": "929e719504e3e2a8f37f046eb889e78683f69f1353d70ce3e5c66e119ca6f58a",
+          "synthesisModel": "fixture-wav-v1",
+          "voiceId": "fixture-71d6717b37d1731b4d63fa2d"
+        },
+        "speakerId": "fixture-71d6717b37d1731b4d63fa2d",
+        "text": "바다 보러 가는 날이네. 오늘은 느긋하게 함께 가자.",
+        "textSha256": "ae1b96733f54c5c73223fe3bbf0519d359a9d826baf7c6c6bb9bd22d01278a97"
+      },
+      {
+        "audioPath": "gen-e1c6d44be1a6963bfe520072-common.wav",
+        "audioSha256": "2ccf4e6823960decaa85b6adf7c2339d2716ff7bcd8722b471bff8c9329f7850",
+        "channels": 1,
+        "characterId": "gen-e1c6d44be1a6963bfe520072",
+        "clipId": "gen-e1c6d44be1a6963bfe520072-common",
+        "durationMs": 2800,
+        "fixtureProvenance": {
+          "audioPath": "nunti-2d6aecb00617ef2899eff678-common.wav",
+          "audioSha256": "2ccf4e6823960decaa85b6adf7c2339d2716ff7bcd8722b471bff8c9329f7850",
+          "channels": 1,
+          "characterId": "nunti-2d6aecb00617ef2899eff678",
+          "clipId": "nunti-2d6aecb00617ef2899eff678-common",
+          "durationMs": 2800,
+          "frames": 67200,
+          "locale": "ko-KR",
+          "profileId": "journey-sohee-3a8beb66e2461046793b",
+          "sampleRateHz": 24000,
+          "sampleWidthBytes": 2,
+          "source": {
+            "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d",
+            "directionSha256": "4c6852938f61537b89540e06479579944d92ab0f860881c7ed451d5b23c88453",
+            "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+            "kind": "directed-sohee-v1",
+            "seed": 156845907,
+            "sourceModelRevision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96"
+          },
+          "speakerId": "Sohee",
+          "text": "안녕. 오늘은 나랑 같이 가자.",
+          "textSha256": "7745678aca1b128c67ed3d90d610ab78a4ca9550bf13aa3608eba60f8cdacb8f"
+        },
+        "locale": "ko-KR",
+        "profileId": "designed-048e9508ef3fe23d6a7f46b2",
+        "rawAudioSha256": "2ccf4e6823960decaa85b6adf7c2339d2716ff7bcd8722b471bff8c9329f7850",
+        "sampleRateHz": 24000,
+        "sampleWidthBytes": 2,
+        "source": {
+          "bindingId": "dvb-52bd3c4311022ebc6e83ef09403e4317",
+          "designModel": "offline-fixture-v1",
+          "kind": "designed-voice-v1",
+          "mediaOrigin": "OFFLINE_FIXTURE",
+          "providerId": "nunti-offline-fixture",
+          "settingsSha256": "6f9cdff1030a7d78b5ad402fe692dba99b735ddeebcc37ffabb744600fdcff3e",
+          "specSha256": "929e719504e3e2a8f37f046eb889e78683f69f1353d70ce3e5c66e119ca6f58a",
+          "synthesisModel": "fixture-wav-v1",
+          "voiceId": "fixture-71d6717b37d1731b4d63fa2d"
+        },
+        "speakerId": "fixture-71d6717b37d1731b4d63fa2d",
+        "text": "안녕. 오늘은 나랑 같이 가자.",
+        "textSha256": "7745678aca1b128c67ed3d90d610ab78a4ca9550bf13aa3608eba60f8cdacb8f"
+      },
+      {
+        "audioPath": "gen-e1c6d44be1a6963bfe520072-arrival.wav",
+        "audioSha256": "8cbe1eb5990553e24ce795d3eee2c1c8fb92eead01744971c0b6eae2ac033fc8",
+        "channels": 1,
+        "characterId": "gen-e1c6d44be1a6963bfe520072",
+        "clipId": "gen-e1c6d44be1a6963bfe520072-arrival",
+        "durationMs": 4400,
+        "fixtureProvenance": {
+          "audioPath": "nunti-2d6aecb00617ef2899eff678-arrival.wav",
+          "audioSha256": "8cbe1eb5990553e24ce795d3eee2c1c8fb92eead01744971c0b6eae2ac033fc8",
+          "channels": 1,
+          "characterId": "nunti-2d6aecb00617ef2899eff678",
+          "clipId": "nunti-2d6aecb00617ef2899eff678-arrival",
+          "durationMs": 4400,
+          "frames": 105600,
+          "locale": "ko-KR",
+          "profileId": "journey-sohee-3a8beb66e2461046793b",
+          "sampleRateHz": 24000,
+          "sampleWidthBytes": 2,
+          "source": {
+            "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d",
+            "directionSha256": "4c6852938f61537b89540e06479579944d92ab0f860881c7ed451d5b23c88453",
+            "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+            "kind": "directed-sohee-v1",
+            "seed": 156845907,
+            "sourceModelRevision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96"
+          },
+          "speakerId": "Sohee",
+          "text": "어떤 바다를 만나게 될까? 같이 천천히 바라보자.",
+          "textSha256": "6ef2bf934ee4dbf1d3efcdef654f10084d77331cb739037940b382596e108fcf"
+        },
+        "locale": "ko-KR",
+        "profileId": "designed-048e9508ef3fe23d6a7f46b2",
+        "rawAudioSha256": "8cbe1eb5990553e24ce795d3eee2c1c8fb92eead01744971c0b6eae2ac033fc8",
+        "sampleRateHz": 24000,
+        "sampleWidthBytes": 2,
+        "source": {
+          "bindingId": "dvb-52bd3c4311022ebc6e83ef09403e4317",
+          "designModel": "offline-fixture-v1",
+          "kind": "designed-voice-v1",
+          "mediaOrigin": "OFFLINE_FIXTURE",
+          "providerId": "nunti-offline-fixture",
+          "settingsSha256": "6f9cdff1030a7d78b5ad402fe692dba99b735ddeebcc37ffabb744600fdcff3e",
+          "specSha256": "929e719504e3e2a8f37f046eb889e78683f69f1353d70ce3e5c66e119ca6f58a",
+          "synthesisModel": "fixture-wav-v1",
+          "voiceId": "fixture-71d6717b37d1731b4d63fa2d"
+        },
+        "speakerId": "fixture-71d6717b37d1731b4d63fa2d",
+        "text": "어떤 바다를 만나게 될까? 같이 천천히 바라보자.",
+        "textSha256": "6ef2bf934ee4dbf1d3efcdef654f10084d77331cb739037940b382596e108fcf"
+      }
+    ],
+    "providerId": "nunti-offline-fixture",
+    "schemaVersion": 3,
+    "scope": "OFFLINE_FIXTURE"
+  }
+}

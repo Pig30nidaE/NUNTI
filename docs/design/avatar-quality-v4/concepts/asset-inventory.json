@@ -1,0 +1,72 @@
+{
+  "assets": [
+    {
+      "file": "concept-a-v2.png",
+      "sha256": "a4e0ee507f4bca7c0a6313f3330e277c21fced879f51c49463e3cc7bef116681",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "origin": "BUILT_IN_IMAGE_GEN",
+      "usage": "art direction and style reference, not runtime catalog",
+      "renderingStyleHumanApproved": true,
+      "finalCharacterSelected": false
+    },
+    {
+      "file": "concept-a.png",
+      "sha256": "d0c12abfc3776c26b63d7abf2029e34d23f4921d0807a8972224ef76f8caae01",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "origin": "BUILT_IN_IMAGE_GEN",
+      "usage": "art direction and style reference, not runtime catalog",
+      "renderingStyleHumanApproved": false,
+      "finalCharacterSelected": false
+    },
+    {
+      "file": "concept-b-v2.png",
+      "sha256": "72ab8cfd14a4e2d235654527d09fe0ef2353dbae7e47f5fd72c35f4045235109",
+      "width": 1312,
+      "height": 1199,
+      "mode": "RGBA",
+      "origin": "BUILT_IN_IMAGE_GEN",
+      "usage": "art direction and style reference, not runtime catalog",
+      "renderingStyleHumanApproved": true,
+      "finalCharacterSelected": false
+    },
+    {
+      "file": "concept-b.png",
+      "sha256": "b8735cb2c13601a987db7cffb5da5c42971de7334a50a69d1570a559b7811292",
+      "width": 1312,
+      "height": 1199,
+      "mode": "RGBA",
+      "origin": "BUILT_IN_IMAGE_GEN",
+      "usage": "art direction and style reference, not runtime catalog",
+      "renderingStyleHumanApproved": false,
+      "finalCharacterSelected": false
+    },
+    {
+      "file": "concept-c-v2.png",
+      "sha256": "2530ecf357cf7afcbb962e3f7054888dab0ac26127884b8173dfbf6696c237e8",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "origin": "BUILT_IN_IMAGE_GEN",
+      "usage": "art direction and style reference, not runtime catalog",
+      "renderingStyleHumanApproved": true,
+      "finalCharacterSelected": false
+    },
+    {
+      "file": "concept-c.png",
+      "sha256": "18dffac57c71264d6c9e23b506a512ff79f5c313431942f33865733f339e50c2",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "origin": "BUILT_IN_IMAGE_GEN",
+      "usage": "art direction and style reference, not runtime catalog",
+      "renderingStyleHumanApproved": false,
+      "finalCharacterSelected": false
+    }
+  ],
+  "providerApiCalls": 0,
+  "paidDecision": "DEFERRED_UNTIL_ART_SELECTION"
+}

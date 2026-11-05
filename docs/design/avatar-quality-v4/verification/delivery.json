@@ -1,0 +1,48 @@
+{
+  "status": "PASS_AVATAR_QUALITY_V4_FUNCTIONAL_DELIVERY",
+  "scope": "Collected actual UI/model/geometry evidence and inspected saved PNG. Human final-art approval, exact AI route preservation and driving-habit effect are not verified.",
+  "backendCasesIncludingSubtests": 248,
+  "surfaces": {
+    "browser": {
+      "status": "PASS_AVATAR_GENERATOR_UI",
+      "checks": 14
+    },
+    "android": {
+      "status": "PASS_AVATAR_GENERATOR_UI",
+      "checks": 14
+    },
+    "input-edges": {
+      "status": "PASS_AVATAR_INPUT_EDGES",
+      "checks": 10
+    },
+    "local-ai-android": {
+      "status": "PASS_LOCAL_MODEL_UI",
+      "checks": 13
+    }
+  },
+  "motionFixtures": 10,
+  "image": {
+    "sha256": "210826fbf49424385aed103cc80399632961d9115701550ce11f1359006bbd4c",
+    "size": [
+      512,
+      512
+    ],
+    "transparentPixels": 171638,
+    "opaquePixels": 87849
+  },
+  "localInference": {
+    "model": "mlx-community/FLUX.2-Klein-4B-4bit",
+    "revision": "1cebb9b45c21ece14a42615b16bf5fa4de9b56da",
+    "elapsedSeconds": 45.01,
+    "steps": 4,
+    "rawRgbSha256": "7081ca377fabb37af7346e1011af7d99cbe03cedb8fccb8751ec91adb83506b5",
+    "uiRetryUsedSavedRequest": true
+  },
+  "providerApiCalls": 0,
+  "paidApiApproved": false,
+  "newVoiceGenerated": false,
+  "renderingStyleHumanApproved": true,
+  "finalGeneratedArtHumanApproved": false,
+  "videoRecorded": false,
+  "speakerRecorded": false
+}

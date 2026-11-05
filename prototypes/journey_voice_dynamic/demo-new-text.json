@@ -1,0 +1,41 @@
+{
+  "cacheKey": "0835407d487fc248f3c551ca824bafc205357a0ed203b4d1182fbf67a4558cfd",
+  "audioPath": "/Users/pig30nidae/NUNTI/prototypes/journey_voice_dynamic/demo/characters/nunti-9a3f63d68e67292a3a33fc5e/clips/0835407d487fc248f3c551ca824bafc205357a0ed203b4d1182fbf67a4558cfd/audio.wav",
+  "metadata": {
+    "sampleRateHz": 24000,
+    "channels": 1,
+    "sampleWidthBytes": 2,
+    "frames": 63360,
+    "durationMs": 2640,
+    "audioSha256": "036317a930bed110900ac3effb5b4b81a3d0b60a1284452d25409566d409dd18",
+    "tokenCount": 33,
+    "termination": {
+      "reason": "eos_inferred_from_reported_token_count_and_pinned_loop",
+      "directEosObserved": false,
+      "tokenLimitReached": false,
+      "maxTokens": 375
+    },
+    "inferenceSeconds": 1.7015305000022636,
+    "modelLoadSeconds": 1.347140166999452,
+    "rawFloatPeak": 0.4457777142524719,
+    "rawSamplesAtOrAboveFullScale": 0,
+    "pcmFullScaleSamples": 0,
+    "schemaVersion": 1,
+    "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+    "journeyId": "synthetic-coast-001",
+    "bindingId": "dvb-eea3c37415d581fb6acbe1d67e68c140",
+    "profileId": "journey-sohee-e3551e7ad2c14fc320b1",
+    "providerId": "qwen3-tts-sohee-local",
+    "speaker": "Sohee",
+    "locale": "ko-KR",
+    "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+    "direction": "Native Korean conversational speech with a small smile, calm warmth and clear unhurried phrasing, and a light fluid tone.",
+    "text": "오늘의 기억은 내가 간직할게.",
+    "textSha256": "c35ffd4708e0585500c30487695d85163e885e5e13cbdd895e8acf771cc723a7",
+    "seed": 1494117783,
+    "referenceAudio": null,
+    "postprocessing": "none"
+  },
+  "cacheHit": false,
+  "modelLoaded": true
+}

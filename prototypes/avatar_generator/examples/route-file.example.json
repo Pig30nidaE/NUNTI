@@ -1,0 +1,13 @@
+{
+  "destination": {
+    "name": "작은 미술관",
+    "traits": "도심에서 조용히 그림을 보는 가상의 시험 장소"
+  },
+  "purpose": "주말 전시를 보며 쉬기",
+  "route": {
+    "points": [[0.1, 0.8], [0.35, 0.55], [0.65, 0.55], [0.9, 0.15]],
+    "inputOrigin": "ROUTE_FILE",
+    "sourceLabel": "합성 화면 좌표 형식 예시. 실제 지도·GPS·도로 경로가 아님.",
+    "confirmed": false
+  }
+}

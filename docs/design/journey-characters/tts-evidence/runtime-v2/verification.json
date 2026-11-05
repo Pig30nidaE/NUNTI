@@ -1,0 +1,5596 @@
+{
+  "status": "PASSED_APP_EVENTS_AND_INSTALLED_ASSET_IDENTITY",
+  "manifestPath": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/manifest.json",
+  "manifestSha256": "abb1baa0bb4e9caa3506ef735231980e2de342b4466483f425c681ed2b35be7b",
+  "providerId": "supertonic3-local-catalog",
+  "serial": "emulator-5554",
+  "user": 10,
+  "cases": [
+    {
+      "case": "coast-common",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:31:25.491202Z",
+        "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+        "clipId": "coast-common",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "speech": [
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:25.503936Z",
+          "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:25.550791Z",
+          "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": 47
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:29.781357Z",
+          "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+          "status": "COMPLETED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "case": "coast-common-repeat",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:31:35.513985Z",
+        "requestId": "local-ba21ca51-96a9-46c2-b0be-7f05255ab83b",
+        "clipId": "coast-common",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "terminal": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:31:35.515178Z",
+        "requestId": "local-ba21ca51-96a9-46c2-b0be-7f05255ab83b",
+        "status": "REJECTED",
+        "reason": "REPEATED_TEXT",
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": null,
+        "speakerId": null,
+        "startLatencyMs": null
+      },
+      "noAutomaticPlayback": {
+        "observedSecondsAtLeast": 1.25,
+        "events": []
+      }
+    },
+    {
+      "case": "mountain-common",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:31:37.867931Z",
+        "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+        "clipId": "mountain-common",
+        "characterId": "nunti-8da06e4267f4a71820a06e65",
+        "profileId": "nunti-keepsake-curious-v2",
+        "speakerId": "F4",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "speech": [
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:37.879689Z",
+          "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:37.919953Z",
+          "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "startLatencyMs": 40
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:41.410058Z",
+          "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+          "status": "COMPLETED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "case": "mountain-common-repeat",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:31:47.897041Z",
+        "requestId": "local-51acd8c5-71bc-4fc4-8836-4f80097ab1da",
+        "clipId": "mountain-common",
+        "characterId": "nunti-8da06e4267f4a71820a06e65",
+        "profileId": "nunti-keepsake-curious-v2",
+        "speakerId": "F4",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "terminal": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:31:47.898252Z",
+        "requestId": "local-51acd8c5-71bc-4fc4-8836-4f80097ab1da",
+        "status": "REJECTED",
+        "reason": "REPEATED_TEXT",
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": null,
+        "speakerId": null,
+        "startLatencyMs": null
+      },
+      "noAutomaticPlayback": {
+        "observedSecondsAtLeast": 1.25,
+        "events": []
+      }
+    },
+    {
+      "case": "city-common",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:31:50.137449Z",
+        "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+        "clipId": "city-common",
+        "characterId": "nunti-a455dd81d2c487095fc66e7d",
+        "profileId": "nunti-keepsake-clear-v2",
+        "speakerId": "F5",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "speech": [
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:50.149279Z",
+          "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:50.198074Z",
+          "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "startLatencyMs": 49
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:54.136077Z",
+          "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+          "status": "COMPLETED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "case": "city-common-repeat",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:32:00.220840Z",
+        "requestId": "local-44edbba5-0884-4e57-bba6-fd7873385b55",
+        "clipId": "city-common",
+        "characterId": "nunti-a455dd81d2c487095fc66e7d",
+        "profileId": "nunti-keepsake-clear-v2",
+        "speakerId": "F5",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "terminal": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:32:00.222101Z",
+        "requestId": "local-44edbba5-0884-4e57-bba6-fd7873385b55",
+        "status": "REJECTED",
+        "reason": "REPEATED_TEXT",
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": null,
+        "speakerId": null,
+        "startLatencyMs": null
+      },
+      "noAutomaticPlayback": {
+        "observedSecondsAtLeast": 1.25,
+        "events": []
+      }
+    },
+    {
+      "case": "stop",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:32:02.425Z",
+        "requestId": "local-e81b8402-626a-4c80-a907-108390b0461b",
+        "clipId": "coast-common",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "started": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:32:02.463002Z",
+        "requestId": "local-e81b8402-626a-4c80-a907-108390b0461b",
+        "status": "STARTED",
+        "reason": null,
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "startLatencyMs": 29
+      },
+      "cancelled": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:32:02.586965Z",
+        "requestId": "local-e81b8402-626a-4c80-a907-108390b0461b",
+        "status": "CANCELLED",
+        "reason": "USER_CANCELLED",
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "startLatencyMs": null
+      },
+      "returnObservation": {
+        "observedSecondsAtLeast": 1.25,
+        "events": []
+      },
+      "repeatRequest": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:32:04.137556Z",
+        "requestId": "local-d9e83188-2d7b-4c26-aa2f-5449fc253a85",
+        "clipId": "coast-common",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "repeatTerminal": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:32:04.138655Z",
+        "requestId": "local-d9e83188-2d7b-4c26-aa2f-5449fc253a85",
+        "status": "REJECTED",
+        "reason": "REPEATED_TEXT",
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": null,
+        "speakerId": null,
+        "startLatencyMs": null
+      },
+      "noAutomaticPlayback": {
+        "observedSecondsAtLeast": 1.25,
+        "events": []
+      }
+    },
+    {
+      "case": "background",
+      "request": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:32:06.273957Z",
+        "requestId": "local-82cc81a2-72c2-4c07-aab4-8b6ce3443df0",
+        "clipId": "coast-common",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "started": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:32:06.318185Z",
+        "requestId": "local-82cc81a2-72c2-4c07-aab4-8b6ce3443df0",
+        "status": "STARTED",
+        "reason": null,
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "startLatencyMs": 35
+      },
+      "cancelled": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:32:06.469891Z",
+        "requestId": "local-82cc81a2-72c2-4c07-aab4-8b6ce3443df0",
+        "status": "CANCELLED",
+        "reason": "BACKGROUND",
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "startLatencyMs": null
+      },
+      "returnObservation": {
+        "observedSecondsAtLeast": 1.25,
+        "events": [
+          {
+            "kind": "PLATFORM",
+            "at": "2026-11-02T11:32:06.668236Z",
+            "gear": 4,
+            "speed": 0,
+            "parked": true,
+            "uxKnown": true,
+            "requiresDO": false,
+            "avatarVisible": true,
+            "reason": "PARKED_STATIC_MVP",
+            "audioContext": "OPERATOR_CONTROLLED_TEST"
+          }
+        ]
+      },
+      "repeatRequest": {
+        "kind": "LOCAL_REQUEST",
+        "at": "2026-11-02T11:32:08.035004Z",
+        "requestId": "local-db93e47d-bc02-401e-852e-29be54e819d7",
+        "clipId": "coast-common",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "profileId": "nunti-keepsake-calm-v2",
+        "speakerId": "F3",
+        "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+        "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+        "providerId": "supertonic3-local-catalog",
+        "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+      },
+      "repeatTerminal": {
+        "kind": "SPEECH",
+        "at": "2026-11-02T11:32:08.036424Z",
+        "requestId": "local-db93e47d-bc02-401e-852e-29be54e819d7",
+        "status": "REJECTED",
+        "reason": "REPEATED_TEXT",
+        "mode": "LOCAL_FILE",
+        "providerId": "supertonic3-local-catalog",
+        "profileId": null,
+        "speakerId": null,
+        "startLatencyMs": null
+      },
+      "noAutomaticPlayback": {
+        "observedSecondsAtLeast": 1.25,
+        "events": []
+      }
+    }
+  ],
+  "captures": [
+    {
+      "clipId": "coast-common",
+      "sourceAudioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+      "captureSummary": {
+        "wav": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/coast-common.wav",
+        "sha256": "bf3618d0cf47081f751497ec5e373f68a5d8f02e1779ab21764b2ef6a9e6ceef",
+        "sampleRateHz": 48000,
+        "channels": 2,
+        "sampleWidthBytes": 2,
+        "frames": 357607,
+        "pcmDurationSeconds": 7.450145833333333,
+        "nonzeroSamples": 261136,
+        "peak": 402,
+        "rms": 39.978690175513165,
+        "firstNonzeroPcmSeconds": 0.0,
+        "lastNonzeroPcmSeconds": 7.450125,
+        "evidenceLevel": "RAW_PCM_ONLY_NOT_SPEECH_ACCEPTANCE",
+        "humanListeningPerformed": false,
+        "interpretation": "Nonzero PCM proves an output signal only. Not speech attribution, pronunciation, quality, or wall-clock latency.",
+        "source": "AUTHENTICATED_EMULATOR_SPEAKER_STREAM",
+        "serial": "emulator-5554",
+        "target": "127.0.0.1:8554",
+        "discoveryFile": "/Users/pig30nidae/Library/Caches/TemporaryItems/avd/running/pid_22729.ini",
+        "auth": "EXISTING_DISCOVERY_TOKEN_REDACTED",
+        "protoSha256": "564e00a929e7e4a7af78269a738ea715f32d88c0fc9f92659bb8a1251c9d558f",
+        "packetCount": 899,
+        "outcome": "DEADLINE_EXCEEDED",
+        "startedMonotonicNs": 11561668552041,
+        "startedEpochNs": 1793619085230403000,
+        "wallDurationSeconds": 10.00317975,
+        "packetTimingFile": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/coast-common.packets.jsonl",
+        "timingLimit": "WAV concatenates delivered packets without filling gaps. Use packet timestamps for timing analysis. Other guest audio is also captured."
+      },
+      "captureExitCode": 0,
+      "nccPerformed": false,
+      "speechAttributionAccepted": false
+    },
+    {
+      "clipId": "mountain-common",
+      "sourceAudioSha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+      "captureSummary": {
+        "wav": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/mountain-common.wav",
+        "sha256": "f952f96981c1b60bd1ae04866956b0eedb965923f5cf4884f0da31ff38e1b4cf",
+        "sampleRateHz": 48000,
+        "channels": 2,
+        "sampleWidthBytes": 2,
+        "frames": 326885,
+        "pcmDurationSeconds": 6.810104166666667,
+        "nonzeroSamples": 227207,
+        "peak": 437,
+        "rms": 56.30498877828491,
+        "firstNonzeroPcmSeconds": 0.0,
+        "lastNonzeroPcmSeconds": 6.810083333333333,
+        "evidenceLevel": "RAW_PCM_ONLY_NOT_SPEECH_ACCEPTANCE",
+        "humanListeningPerformed": false,
+        "interpretation": "Nonzero PCM proves an output signal only. Not speech attribution, pronunciation, quality, or wall-clock latency.",
+        "source": "AUTHENTICATED_EMULATOR_SPEAKER_STREAM",
+        "serial": "emulator-5554",
+        "target": "127.0.0.1:8554",
+        "discoveryFile": "/Users/pig30nidae/Library/Caches/TemporaryItems/avd/running/pid_22729.ini",
+        "auth": "EXISTING_DISCOVERY_TOKEN_REDACTED",
+        "protoSha256": "564e00a929e7e4a7af78269a738ea715f32d88c0fc9f92659bb8a1251c9d558f",
+        "packetCount": 902,
+        "outcome": "DEADLINE_EXCEEDED",
+        "startedMonotonicNs": 11574042095041,
+        "startedEpochNs": 1793619097604041000,
+        "wallDurationSeconds": 10.004469959,
+        "packetTimingFile": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/mountain-common.packets.jsonl",
+        "timingLimit": "WAV concatenates delivered packets without filling gaps. Use packet timestamps for timing analysis. Other guest audio is also captured."
+      },
+      "captureExitCode": 0,
+      "nccPerformed": false,
+      "speechAttributionAccepted": false
+    },
+    {
+      "clipId": "city-common",
+      "sourceAudioSha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+      "captureSummary": {
+        "wav": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/city-common.wav",
+        "sha256": "33ae2e5b9e29cf1696fc3d0a7094a1af81acd07800394b788469dd1c53950f9a",
+        "sampleRateHz": 48000,
+        "channels": 2,
+        "sampleWidthBytes": 2,
+        "frames": 345583,
+        "pcmDurationSeconds": 7.199645833333333,
+        "nonzeroSamples": 253501,
+        "peak": 323,
+        "rms": 37.88187025581897,
+        "firstNonzeroPcmSeconds": 0.0,
+        "lastNonzeroPcmSeconds": 7.199625,
+        "evidenceLevel": "RAW_PCM_ONLY_NOT_SPEECH_ACCEPTANCE",
+        "humanListeningPerformed": false,
+        "interpretation": "Nonzero PCM proves an output signal only. Not speech attribution, pronunciation, quality, or wall-clock latency.",
+        "source": "AUTHENTICATED_EMULATOR_SPEAKER_STREAM",
+        "serial": "emulator-5554",
+        "target": "127.0.0.1:8554",
+        "discoveryFile": "/Users/pig30nidae/Library/Caches/TemporaryItems/avd/running/pid_22729.ini",
+        "auth": "EXISTING_DISCOVERY_TOKEN_REDACTED",
+        "protoSha256": "564e00a929e7e4a7af78269a738ea715f32d88c0fc9f92659bb8a1251c9d558f",
+        "packetCount": 901,
+        "outcome": "DEADLINE_EXCEEDED",
+        "startedMonotonicNs": 11586380534291,
+        "startedEpochNs": 1793619109942574000,
+        "wallDurationSeconds": 10.003964709,
+        "packetTimingFile": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/city-common.packets.jsonl",
+        "timingLimit": "WAV concatenates delivered packets without filling gaps. Use packet timestamps for timing analysis. Other guest audio is also captured."
+      },
+      "captureExitCode": 0,
+      "nccPerformed": false,
+      "speechAttributionAccepted": false
+    }
+  ],
+  "humanListeningPerformed": false,
+  "drivingTestPerformed": false,
+  "device": {
+    "hardware": "ranchu",
+    "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+    "currentUser": "10"
+  },
+  "installedWavSha256": {
+    "coast-common": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+    "coast-greeting": "0152ba9bc4c996fd007937a983a1194711e91440deef7b103260009cd2763c59",
+    "mountain-common": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+    "mountain-greeting": "7b2cc6766ef4c087ed03d3a07ba885cca4901005262045b7d5bb112009e84512",
+    "city-common": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+    "city-greeting": "7e599a46526c7ea680208d6f6595630021e987908af53f6507a516205cea6e4b"
+  },
+  "finalIdleObservation": {
+    "observedSecondsAtLeast": 1.25,
+    "events": []
+  },
+  "sessions": [
+    {
+      "label": "install",
+      "offset": 82,
+      "startedEpochNs": 1793619083206853000,
+      "created": {
+        "kind": "PROBE_CREATED",
+        "at": "2026-11-02T11:31:23.680890Z",
+        "hardware": "ranchu",
+        "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+        "source": "DEBUG_EMULATOR_ONLY",
+        "inputs": "MOCK_ROUTE_AND_EMOTION"
+      },
+      "platformReady": {
+        "kind": "PLATFORM",
+        "at": "2026-11-02T11:31:23.736967Z",
+        "gear": 4,
+        "speed": 0,
+        "parked": true,
+        "uxKnown": true,
+        "requiresDO": false,
+        "avatarVisible": true,
+        "reason": "PARKED_STATIC_MVP",
+        "audioContext": "OPERATOR_CONTROLLED_TEST"
+      },
+      "events": [
+        {
+          "kind": "PROBE_CREATED",
+          "at": "2026-11-02T11:31:23.680890Z",
+          "hardware": "ranchu",
+          "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+          "source": "DEBUG_EMULATOR_ONLY",
+          "inputs": "MOCK_ROUTE_AND_EMOTION"
+        },
+        {
+          "kind": "CAR_CONNECTION",
+          "at": "2026-11-02T11:31:23.714139Z",
+          "ready": true
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:23.719350Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:23.736967Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "LOCAL_ASSETS_INSTALLED",
+          "at": "2026-11-02T11:31:24.079097Z",
+          "count": 6,
+          "providerId": "supertonic3-local-catalog",
+          "quality": "LISTENING_CANDIDATES_NOT_PRODUCT_APPROVED"
+        }
+      ]
+    },
+    {
+      "label": "coast-common",
+      "offset": 87,
+      "startedEpochNs": 1793619084377427000,
+      "created": {
+        "kind": "PROBE_CREATED",
+        "at": "2026-11-02T11:31:24.808411Z",
+        "hardware": "ranchu",
+        "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+        "source": "DEBUG_EMULATOR_ONLY",
+        "inputs": "MOCK_ROUTE_AND_EMOTION"
+      },
+      "platformReady": {
+        "kind": "PLATFORM",
+        "at": "2026-11-02T11:31:24.856082Z",
+        "gear": 4,
+        "speed": 0,
+        "parked": true,
+        "uxKnown": true,
+        "requiresDO": false,
+        "avatarVisible": true,
+        "reason": "PARKED_STATIC_MVP",
+        "audioContext": "OPERATOR_CONTROLLED_TEST"
+      },
+      "events": [
+        {
+          "kind": "PROBE_CREATED",
+          "at": "2026-11-02T11:31:24.808411Z",
+          "hardware": "ranchu",
+          "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+          "source": "DEBUG_EMULATOR_ONLY",
+          "inputs": "MOCK_ROUTE_AND_EMOTION"
+        },
+        {
+          "kind": "CAR_CONNECTION",
+          "at": "2026-11-02T11:31:24.838092Z",
+          "ready": true
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:24.841873Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:24.856082Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:31:25.491202Z",
+          "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+          "clipId": "coast-common",
+          "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:25.503936Z",
+          "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:25.550791Z",
+          "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": 47
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:29.781357Z",
+          "requestId": "local-1bf5d1c6-8212-41e0-82c4-a4ab7ee95861",
+          "status": "COMPLETED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:31:35.513985Z",
+          "requestId": "local-ba21ca51-96a9-46c2-b0be-7f05255ab83b",
+          "clipId": "coast-common",
+          "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:35.515178Z",
+          "requestId": "local-ba21ca51-96a9-46c2-b0be-7f05255ab83b",
+          "status": "REJECTED",
+          "reason": "REPEATED_TEXT",
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": null,
+          "speakerId": null,
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "label": "mountain-common",
+      "offset": 97,
+      "startedEpochNs": 1793619096847742000,
+      "created": {
+        "kind": "PROBE_CREATED",
+        "at": "2026-11-02T11:31:37.292428Z",
+        "hardware": "ranchu",
+        "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+        "source": "DEBUG_EMULATOR_ONLY",
+        "inputs": "MOCK_ROUTE_AND_EMOTION"
+      },
+      "platformReady": {
+        "kind": "PLATFORM",
+        "at": "2026-11-02T11:31:37.344711Z",
+        "gear": 4,
+        "speed": 0,
+        "parked": true,
+        "uxKnown": true,
+        "requiresDO": false,
+        "avatarVisible": true,
+        "reason": "PARKED_STATIC_MVP",
+        "audioContext": "OPERATOR_CONTROLLED_TEST"
+      },
+      "events": [
+        {
+          "kind": "PROBE_CREATED",
+          "at": "2026-11-02T11:31:37.292428Z",
+          "hardware": "ranchu",
+          "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+          "source": "DEBUG_EMULATOR_ONLY",
+          "inputs": "MOCK_ROUTE_AND_EMOTION"
+        },
+        {
+          "kind": "CAR_CONNECTION",
+          "at": "2026-11-02T11:31:37.323107Z",
+          "ready": true
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:37.327518Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:37.344711Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:31:37.867931Z",
+          "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+          "clipId": "mountain-common",
+          "characterId": "nunti-8da06e4267f4a71820a06e65",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:37.879689Z",
+          "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:37.919953Z",
+          "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "startLatencyMs": 40
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:41.410058Z",
+          "requestId": "local-1bda7f2d-28c3-49d7-8a86-8b17301106a0",
+          "status": "COMPLETED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:31:47.897041Z",
+          "requestId": "local-51acd8c5-71bc-4fc4-8836-4f80097ab1da",
+          "clipId": "mountain-common",
+          "characterId": "nunti-8da06e4267f4a71820a06e65",
+          "profileId": "nunti-keepsake-curious-v2",
+          "speakerId": "F4",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:47.898252Z",
+          "requestId": "local-51acd8c5-71bc-4fc4-8836-4f80097ab1da",
+          "status": "REJECTED",
+          "reason": "REPEATED_TEXT",
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": null,
+          "speakerId": null,
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "label": "city-common",
+      "offset": 107,
+      "startedEpochNs": 1793619109237451000,
+      "created": {
+        "kind": "PROBE_CREATED",
+        "at": "2026-11-02T11:31:49.675434Z",
+        "hardware": "ranchu",
+        "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+        "source": "DEBUG_EMULATOR_ONLY",
+        "inputs": "MOCK_ROUTE_AND_EMOTION"
+      },
+      "platformReady": {
+        "kind": "PLATFORM",
+        "at": "2026-11-02T11:31:49.724437Z",
+        "gear": 4,
+        "speed": 0,
+        "parked": true,
+        "uxKnown": true,
+        "requiresDO": false,
+        "avatarVisible": true,
+        "reason": "PARKED_STATIC_MVP",
+        "audioContext": "OPERATOR_CONTROLLED_TEST"
+      },
+      "events": [
+        {
+          "kind": "PROBE_CREATED",
+          "at": "2026-11-02T11:31:49.675434Z",
+          "hardware": "ranchu",
+          "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+          "source": "DEBUG_EMULATOR_ONLY",
+          "inputs": "MOCK_ROUTE_AND_EMOTION"
+        },
+        {
+          "kind": "CAR_CONNECTION",
+          "at": "2026-11-02T11:31:49.705773Z",
+          "ready": true
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:49.709947Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:31:49.724437Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:31:50.137449Z",
+          "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+          "clipId": "city-common",
+          "characterId": "nunti-a455dd81d2c487095fc66e7d",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:50.149279Z",
+          "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:50.198074Z",
+          "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "startLatencyMs": 49
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:31:54.136077Z",
+          "requestId": "local-c5917fae-5b0b-4f72-be90-21da9dc6e228",
+          "status": "COMPLETED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:32:00.220840Z",
+          "requestId": "local-44edbba5-0884-4e57-bba6-fd7873385b55",
+          "clipId": "city-common",
+          "characterId": "nunti-a455dd81d2c487095fc66e7d",
+          "profileId": "nunti-keepsake-clear-v2",
+          "speakerId": "F5",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:00.222101Z",
+          "requestId": "local-44edbba5-0884-4e57-bba6-fd7873385b55",
+          "status": "REJECTED",
+          "reason": "REPEATED_TEXT",
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": null,
+          "speakerId": null,
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "label": "stop",
+      "offset": 117,
+      "startedEpochNs": 1793619121578710000,
+      "created": {
+        "kind": "PROBE_CREATED",
+        "at": "2026-11-02T11:32:02.057350Z",
+        "hardware": "ranchu",
+        "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+        "source": "DEBUG_EMULATOR_ONLY",
+        "inputs": "MOCK_ROUTE_AND_EMOTION"
+      },
+      "platformReady": {
+        "kind": "PLATFORM",
+        "at": "2026-11-02T11:32:02.114017Z",
+        "gear": 4,
+        "speed": 0,
+        "parked": true,
+        "uxKnown": true,
+        "requiresDO": false,
+        "avatarVisible": true,
+        "reason": "PARKED_STATIC_MVP",
+        "audioContext": "OPERATOR_CONTROLLED_TEST"
+      },
+      "events": [
+        {
+          "kind": "PROBE_CREATED",
+          "at": "2026-11-02T11:32:02.057350Z",
+          "hardware": "ranchu",
+          "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+          "source": "DEBUG_EMULATOR_ONLY",
+          "inputs": "MOCK_ROUTE_AND_EMOTION"
+        },
+        {
+          "kind": "CAR_CONNECTION",
+          "at": "2026-11-02T11:32:02.091328Z",
+          "ready": true
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:02.096431Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:02.114017Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:32:02.425Z",
+          "requestId": "local-e81b8402-626a-4c80-a907-108390b0461b",
+          "clipId": "coast-common",
+          "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:02.434830Z",
+          "requestId": "local-e81b8402-626a-4c80-a907-108390b0461b",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:02.463002Z",
+          "requestId": "local-e81b8402-626a-4c80-a907-108390b0461b",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": 29
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:02.586965Z",
+          "requestId": "local-e81b8402-626a-4c80-a907-108390b0461b",
+          "status": "CANCELLED",
+          "reason": "USER_CANCELLED",
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:32:04.137556Z",
+          "requestId": "local-d9e83188-2d7b-4c26-aa2f-5449fc253a85",
+          "clipId": "coast-common",
+          "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:04.138655Z",
+          "requestId": "local-d9e83188-2d7b-4c26-aa2f-5449fc253a85",
+          "status": "REJECTED",
+          "reason": "REPEATED_TEXT",
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": null,
+          "speakerId": null,
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "label": "background",
+      "offset": 127,
+      "startedEpochNs": 1793619125483826000,
+      "created": {
+        "kind": "PROBE_CREATED",
+        "at": "2026-11-02T11:32:05.909936Z",
+        "hardware": "ranchu",
+        "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+        "source": "DEBUG_EMULATOR_ONLY",
+        "inputs": "MOCK_ROUTE_AND_EMOTION"
+      },
+      "platformReady": {
+        "kind": "PLATFORM",
+        "at": "2026-11-02T11:32:05.963004Z",
+        "gear": 4,
+        "speed": 0,
+        "parked": true,
+        "uxKnown": true,
+        "requiresDO": false,
+        "avatarVisible": true,
+        "reason": "PARKED_STATIC_MVP",
+        "audioContext": "OPERATOR_CONTROLLED_TEST"
+      },
+      "events": [
+        {
+          "kind": "PROBE_CREATED",
+          "at": "2026-11-02T11:32:05.909936Z",
+          "hardware": "ranchu",
+          "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+          "source": "DEBUG_EMULATOR_ONLY",
+          "inputs": "MOCK_ROUTE_AND_EMOTION"
+        },
+        {
+          "kind": "CAR_CONNECTION",
+          "at": "2026-11-02T11:32:05.940123Z",
+          "ready": true
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:05.946443Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:05.963004Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:32:06.273957Z",
+          "requestId": "local-82cc81a2-72c2-4c07-aab4-8b6ce3443df0",
+          "clipId": "coast-common",
+          "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:06.283221Z",
+          "requestId": "local-82cc81a2-72c2-4c07-aab4-8b6ce3443df0",
+          "status": "QUEUED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:06.318185Z",
+          "requestId": "local-82cc81a2-72c2-4c07-aab4-8b6ce3443df0",
+          "status": "STARTED",
+          "reason": null,
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": 35
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:06.469891Z",
+          "requestId": "local-82cc81a2-72c2-4c07-aab4-8b6ce3443df0",
+          "status": "CANCELLED",
+          "reason": "BACKGROUND",
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "startLatencyMs": null
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:06.472805Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:06.668236Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "LOCAL_REQUEST",
+          "at": "2026-11-02T11:32:08.035004Z",
+          "requestId": "local-db93e47d-bc02-401e-852e-29be54e819d7",
+          "clipId": "coast-common",
+          "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+          "profileId": "nunti-keepsake-calm-v2",
+          "speakerId": "F3",
+          "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+          "audioSha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "providerId": "supertonic3-local-catalog",
+          "visualIntegration": "SEPARATE_FROM_LEGACY_MOCK_AVATAR"
+        },
+        {
+          "kind": "SPEECH",
+          "at": "2026-11-02T11:32:08.036424Z",
+          "requestId": "local-db93e47d-bc02-401e-852e-29be54e819d7",
+          "status": "REJECTED",
+          "reason": "REPEATED_TEXT",
+          "mode": "LOCAL_FILE",
+          "providerId": "supertonic3-local-catalog",
+          "profileId": null,
+          "speakerId": null,
+          "startLatencyMs": null
+        }
+      ]
+    },
+    {
+      "label": "final-idle",
+      "offset": 139,
+      "startedEpochNs": 1793619129391473000,
+      "created": {
+        "kind": "PROBE_CREATED",
+        "at": "2026-11-02T11:32:09.845960Z",
+        "hardware": "ranchu",
+        "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+        "source": "DEBUG_EMULATOR_ONLY",
+        "inputs": "MOCK_ROUTE_AND_EMOTION"
+      },
+      "platformReady": {
+        "kind": "PLATFORM",
+        "at": "2026-11-02T11:32:09.903489Z",
+        "gear": 4,
+        "speed": 0,
+        "parked": true,
+        "uxKnown": true,
+        "requiresDO": false,
+        "avatarVisible": true,
+        "reason": "PARKED_STATIC_MVP",
+        "audioContext": "OPERATOR_CONTROLLED_TEST"
+      },
+      "events": [
+        {
+          "kind": "PROBE_CREATED",
+          "at": "2026-11-02T11:32:09.845960Z",
+          "hardware": "ranchu",
+          "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+          "source": "DEBUG_EMULATOR_ONLY",
+          "inputs": "MOCK_ROUTE_AND_EMOTION"
+        },
+        {
+          "kind": "CAR_CONNECTION",
+          "at": "2026-11-02T11:32:09.883306Z",
+          "ready": true
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:09.888153Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": false,
+          "reason": "PLATFORM_BLOCKED",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        },
+        {
+          "kind": "PLATFORM",
+          "at": "2026-11-02T11:32:09.903489Z",
+          "gear": 4,
+          "speed": 0,
+          "parked": true,
+          "uxKnown": true,
+          "requiresDO": false,
+          "avatarVisible": true,
+          "reason": "PARKED_STATIC_MVP",
+          "audioContext": "OPERATOR_CONTROLLED_TEST"
+        }
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "shell",
+        "getprop",
+        "ro.hardware"
+      ],
+      "startedEpochNs": 1793619083081116000,
+      "finishedEpochNs": 1793619083100374000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "getprop",
+        "ro.build.fingerprint"
+      ],
+      "startedEpochNs": 1793619083100380000,
+      "finishedEpochNs": 1793619083121786000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "get-current-user"
+      ],
+      "startedEpochNs": 1793619083121792000,
+      "finishedEpochNs": 1793619083144294000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "startedEpochNs": 1793619083144378000,
+      "finishedEpochNs": 1793619083170928000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619083170943000,
+      "finishedEpochNs": 1793619083206654000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619083206868000,
+      "finishedEpochNs": 1793619083824766000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619083824789000,
+      "finishedEpochNs": 1793619083848633000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619083848856000,
+      "finishedEpochNs": 1793619083881036000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619083881278000,
+      "finishedEpochNs": 1793619083905507000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_install"
+      ],
+      "startedEpochNs": 1793619083905913000,
+      "finishedEpochNs": 1793619083932559000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619083932580000,
+      "finishedEpochNs": 1793619083960528000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "exec-out",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/journey-voice/coast-common.wav"
+      ],
+      "startedEpochNs": 1793619083960759000,
+      "finishedEpochNs": 1793619083999365000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "exec-out",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/journey-voice/coast-greeting.wav"
+      ],
+      "startedEpochNs": 1793619083999512000,
+      "finishedEpochNs": 1793619084048421000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "exec-out",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/journey-voice/mountain-common.wav"
+      ],
+      "startedEpochNs": 1793619084048645000,
+      "finishedEpochNs": 1793619084097545000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "exec-out",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/journey-voice/mountain-greeting.wav"
+      ],
+      "startedEpochNs": 1793619084097669000,
+      "finishedEpochNs": 1793619084140320000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "exec-out",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/journey-voice/city-common.wav"
+      ],
+      "startedEpochNs": 1793619084140506000,
+      "finishedEpochNs": 1793619084176248000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "exec-out",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/journey-voice/city-greeting.wav"
+      ],
+      "startedEpochNs": 1793619084176382000,
+      "finishedEpochNs": 1793619084260171000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "startedEpochNs": 1793619084260597000,
+      "finishedEpochNs": 1793619084352881000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619084352891000,
+      "finishedEpochNs": 1793619084377230000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619084377438000,
+      "finishedEpochNs": 1793619084896595000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619084896616000,
+      "finishedEpochNs": 1793619084926496000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619084926725000,
+      "finishedEpochNs": 1793619084954894000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619084955199000,
+      "finishedEpochNs": 1793619084986370000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085300674000,
+      "finishedEpochNs": 1793619085328856000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "coast"
+      ],
+      "startedEpochNs": 1793619085329096000,
+      "finishedEpochNs": 1793619085356893000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085356906000,
+      "finishedEpochNs": 1793619085383399000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085383669000,
+      "finishedEpochNs": 1793619085410524000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085410747000,
+      "finishedEpochNs": 1793619085434003000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085434238000,
+      "finishedEpochNs": 1793619085457443000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085580243000,
+      "finishedEpochNs": 1793619085610446000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085730718000,
+      "finishedEpochNs": 1793619085754600000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619085875742000,
+      "finishedEpochNs": 1793619085898877000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619086020434000,
+      "finishedEpochNs": 1793619086043762000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619086164833000,
+      "finishedEpochNs": 1793619086188477000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619086311305000,
+      "finishedEpochNs": 1793619086332959000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619086455664000,
+      "finishedEpochNs": 1793619086478525000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619086599653000,
+      "finishedEpochNs": 1793619086622925000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619086747217000,
+      "finishedEpochNs": 1793619086769999000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619086891720000,
+      "finishedEpochNs": 1793619086917844000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619087039739000,
+      "finishedEpochNs": 1793619087062265000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619087187529000,
+      "finishedEpochNs": 1793619087210485000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619087333344000,
+      "finishedEpochNs": 1793619087356006000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619087480475000,
+      "finishedEpochNs": 1793619087502312000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619087625659000,
+      "finishedEpochNs": 1793619087647809000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619087768096000,
+      "finishedEpochNs": 1793619087789844000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619087911131000,
+      "finishedEpochNs": 1793619087933898000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619088058322000,
+      "finishedEpochNs": 1793619088080099000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619088202003000,
+      "finishedEpochNs": 1793619088224005000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619088348050000,
+      "finishedEpochNs": 1793619088371033000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619088491814000,
+      "finishedEpochNs": 1793619088513633000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619088635138000,
+      "finishedEpochNs": 1793619088657072000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619088780592000,
+      "finishedEpochNs": 1793619088802766000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619088923773000,
+      "finishedEpochNs": 1793619088945696000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619089067909000,
+      "finishedEpochNs": 1793619089089710000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619089211253000,
+      "finishedEpochNs": 1793619089235063000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619089355858000,
+      "finishedEpochNs": 1793619089377596000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619089499998000,
+      "finishedEpochNs": 1793619089523723000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619089646848000,
+      "finishedEpochNs": 1793619089669416000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619089669656000,
+      "finishedEpochNs": 1793619089693124000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095332199000,
+      "finishedEpochNs": 1793619095353589000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "coast"
+      ],
+      "startedEpochNs": 1793619095353803000,
+      "finishedEpochNs": 1793619095379462000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095379479000,
+      "finishedEpochNs": 1793619095401715000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095401979000,
+      "finishedEpochNs": 1793619095424200000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095424414000,
+      "finishedEpochNs": 1793619095446041000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095446266000,
+      "finishedEpochNs": 1793619095467563000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095467773000,
+      "finishedEpochNs": 1793619095488879000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095611892000,
+      "finishedEpochNs": 1793619095632821000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095755208000,
+      "finishedEpochNs": 1793619095776413000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619095899723000,
+      "finishedEpochNs": 1793619095922655000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619096042930000,
+      "finishedEpochNs": 1793619096065206000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619096189203000,
+      "finishedEpochNs": 1793619096210561000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619096330900000,
+      "finishedEpochNs": 1793619096353117000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619096475044000,
+      "finishedEpochNs": 1793619096495827000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619096620968000,
+      "finishedEpochNs": 1793619096643183000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619096764360000,
+      "finishedEpochNs": 1793619096787094000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "startedEpochNs": 1793619096787338000,
+      "finishedEpochNs": 1793619096824698000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619096824706000,
+      "finishedEpochNs": 1793619096847531000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619096847755000,
+      "finishedEpochNs": 1793619097385975000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097385993000,
+      "finishedEpochNs": 1793619097420692000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097420950000,
+      "finishedEpochNs": 1793619097448821000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097449069000,
+      "finishedEpochNs": 1793619097473793000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097683926000,
+      "finishedEpochNs": 1793619097707362000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "mountain"
+      ],
+      "startedEpochNs": 1793619097707599000,
+      "finishedEpochNs": 1793619097732369000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097732389000,
+      "finishedEpochNs": 1793619097755121000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097755414000,
+      "finishedEpochNs": 1793619097782083000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097782335000,
+      "finishedEpochNs": 1793619097806864000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097807097000,
+      "finishedEpochNs": 1793619097827953000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619097953215000,
+      "finishedEpochNs": 1793619097976960000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619098101571000,
+      "finishedEpochNs": 1793619098124441000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619098248946000,
+      "finishedEpochNs": 1793619098271701000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619098392562000,
+      "finishedEpochNs": 1793619098414121000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619098535733000,
+      "finishedEpochNs": 1793619098558056000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619098681131000,
+      "finishedEpochNs": 1793619098703380000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619098823821000,
+      "finishedEpochNs": 1793619098846841000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619098971543000,
+      "finishedEpochNs": 1793619098994104000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619099115814000,
+      "finishedEpochNs": 1793619099138059000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619099260910000,
+      "finishedEpochNs": 1793619099281976000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619099403739000,
+      "finishedEpochNs": 1793619099426053000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619099550397000,
+      "finishedEpochNs": 1793619099572126000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619099692979000,
+      "finishedEpochNs": 1793619099714832000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619099835727000,
+      "finishedEpochNs": 1793619099858210000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619099983478000,
+      "finishedEpochNs": 1793619100005171000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619100126983000,
+      "finishedEpochNs": 1793619100147710000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619100271809000,
+      "finishedEpochNs": 1793619100293087000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619100415929000,
+      "finishedEpochNs": 1793619100438469000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619100560547000,
+      "finishedEpochNs": 1793619100582472000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619100703527000,
+      "finishedEpochNs": 1793619100724558000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619100849049000,
+      "finishedEpochNs": 1793619100870850000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619100995836000,
+      "finishedEpochNs": 1793619101017506000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619101141470000,
+      "finishedEpochNs": 1793619101163467000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619101284070000,
+      "finishedEpochNs": 1793619101306798000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619101307068000,
+      "finishedEpochNs": 1793619101327920000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619107716750000,
+      "finishedEpochNs": 1793619107739195000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "mountain"
+      ],
+      "startedEpochNs": 1793619107739449000,
+      "finishedEpochNs": 1793619107764132000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619107764144000,
+      "finishedEpochNs": 1793619107788543000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619107788811000,
+      "finishedEpochNs": 1793619107810112000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619107810396000,
+      "finishedEpochNs": 1793619107830519000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619107830784000,
+      "finishedEpochNs": 1793619107851390000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619107851647000,
+      "finishedEpochNs": 1793619107872802000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619107995842000,
+      "finishedEpochNs": 1793619108018690000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619108143026000,
+      "finishedEpochNs": 1793619108164212000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619108285579000,
+      "finishedEpochNs": 1793619108307149000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619108429992000,
+      "finishedEpochNs": 1793619108451784000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619108573235000,
+      "finishedEpochNs": 1793619108594369000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619108715694000,
+      "finishedEpochNs": 1793619108737417000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619108862718000,
+      "finishedEpochNs": 1793619108884312000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619109004788000,
+      "finishedEpochNs": 1793619109026183000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619109151249000,
+      "finishedEpochNs": 1793619109173391000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "startedEpochNs": 1793619109173703000,
+      "finishedEpochNs": 1793619109212295000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619109212308000,
+      "finishedEpochNs": 1793619109237209000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619109237469000,
+      "finishedEpochNs": 1793619109772202000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619109772240000,
+      "finishedEpochNs": 1793619109798582000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619109798866000,
+      "finishedEpochNs": 1793619109825052000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619109825322000,
+      "finishedEpochNs": 1793619109848716000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619109954647000,
+      "finishedEpochNs": 1793619109977435000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "city"
+      ],
+      "startedEpochNs": 1793619109977722000,
+      "finishedEpochNs": 1793619110006712000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110006727000,
+      "finishedEpochNs": 1793619110046460000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110046731000,
+      "finishedEpochNs": 1793619110071899000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110072177000,
+      "finishedEpochNs": 1793619110095196000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110095470000,
+      "finishedEpochNs": 1793619110117643000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110238523000,
+      "finishedEpochNs": 1793619110261982000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110383882000,
+      "finishedEpochNs": 1793619110406565000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110530408000,
+      "finishedEpochNs": 1793619110552807000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110675948000,
+      "finishedEpochNs": 1793619110698175000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110818932000,
+      "finishedEpochNs": 1793619110842759000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619110965285000,
+      "finishedEpochNs": 1793619110987121000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619111108847000,
+      "finishedEpochNs": 1793619111130266000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619111251842000,
+      "finishedEpochNs": 1793619111273125000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619111395898000,
+      "finishedEpochNs": 1793619111419324000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619111541921000,
+      "finishedEpochNs": 1793619111563275000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619111683884000,
+      "finishedEpochNs": 1793619111706943000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619111827980000,
+      "finishedEpochNs": 1793619111850172000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619111974420000,
+      "finishedEpochNs": 1793619111997126000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619112117537000,
+      "finishedEpochNs": 1793619112139018000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619112259948000,
+      "finishedEpochNs": 1793619112281113000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619112403486000,
+      "finishedEpochNs": 1793619112425888000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619112547822000,
+      "finishedEpochNs": 1793619112570628000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619112694470000,
+      "finishedEpochNs": 1793619112716865000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619112840033000,
+      "finishedEpochNs": 1793619112861953000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619112983852000,
+      "finishedEpochNs": 1793619113005248000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619113126593000,
+      "finishedEpochNs": 1793619113147873000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619113272377000,
+      "finishedEpochNs": 1793619113296336000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619113419829000,
+      "finishedEpochNs": 1793619113443249000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619113565543000,
+      "finishedEpochNs": 1793619113588180000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619113711318000,
+      "finishedEpochNs": 1793619113735691000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619113856180000,
+      "finishedEpochNs": 1793619113878110000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619113998672000,
+      "finishedEpochNs": 1793619114023335000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619114023610000,
+      "finishedEpochNs": 1793619114045272000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120041212000,
+      "finishedEpochNs": 1793619120062648000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "city"
+      ],
+      "startedEpochNs": 1793619120062905000,
+      "finishedEpochNs": 1793619120087838000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120087856000,
+      "finishedEpochNs": 1793619120110844000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120111148000,
+      "finishedEpochNs": 1793619120131783000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120132072000,
+      "finishedEpochNs": 1793619120153365000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120153651000,
+      "finishedEpochNs": 1793619120174971000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120175267000,
+      "finishedEpochNs": 1793619120196972000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120320571000,
+      "finishedEpochNs": 1793619120342165000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120463874000,
+      "finishedEpochNs": 1793619120486105000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120610205000,
+      "finishedEpochNs": 1793619120630603000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120755897000,
+      "finishedEpochNs": 1793619120777901000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619120898622000,
+      "finishedEpochNs": 1793619120921001000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619121044831000,
+      "finishedEpochNs": 1793619121066952000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619121191358000,
+      "finishedEpochNs": 1793619121212873000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619121333690000,
+      "finishedEpochNs": 1793619121357229000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619121480142000,
+      "finishedEpochNs": 1793619121503290000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "startedEpochNs": 1793619121503565000,
+      "finishedEpochNs": 1793619121541279000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619121541289000,
+      "finishedEpochNs": 1793619121578445000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619121578724000,
+      "finishedEpochNs": 1793619122150127000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122150147000,
+      "finishedEpochNs": 1793619122178144000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122178459000,
+      "finishedEpochNs": 1793619122206114000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122206404000,
+      "finishedEpochNs": 1793619122240288000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122240571000,
+      "finishedEpochNs": 1793619122262963000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "coast"
+      ],
+      "startedEpochNs": 1793619122263270000,
+      "finishedEpochNs": 1793619122290955000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122290974000,
+      "finishedEpochNs": 1793619122321077000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122321378000,
+      "finishedEpochNs": 1793619122346858000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122347153000,
+      "finishedEpochNs": 1793619122376763000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "stop"
+      ],
+      "startedEpochNs": 1793619122377049000,
+      "finishedEpochNs": 1793619122420307000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122420337000,
+      "finishedEpochNs": 1793619122446303000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122567945000,
+      "finishedEpochNs": 1793619122589739000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122590057000,
+      "finishedEpochNs": 1793619122611484000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619122611773000,
+      "finishedEpochNs": 1793619122636226000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122636246000,
+      "finishedEpochNs": 1793619122657776000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122780898000,
+      "finishedEpochNs": 1793619122804419000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619122928406000,
+      "finishedEpochNs": 1793619122950240000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123074312000,
+      "finishedEpochNs": 1793619123094876000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123218273000,
+      "finishedEpochNs": 1793619123241455000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123361809000,
+      "finishedEpochNs": 1793619123382132000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123502463000,
+      "finishedEpochNs": 1793619123525163000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123646560000,
+      "finishedEpochNs": 1793619123669294000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123792011000,
+      "finishedEpochNs": 1793619123814213000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123934815000,
+      "finishedEpochNs": 1793619123957001000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619123957318000,
+      "finishedEpochNs": 1793619123978679000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "coast"
+      ],
+      "startedEpochNs": 1793619123978975000,
+      "finishedEpochNs": 1793619124007853000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124007871000,
+      "finishedEpochNs": 1793619124030838000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124031147000,
+      "finishedEpochNs": 1793619124052905000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124053189000,
+      "finishedEpochNs": 1793619124074375000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124074671000,
+      "finishedEpochNs": 1793619124094473000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124094764000,
+      "finishedEpochNs": 1793619124117810000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124239143000,
+      "finishedEpochNs": 1793619124260008000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124381311000,
+      "finishedEpochNs": 1793619124403415000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124525111000,
+      "finishedEpochNs": 1793619124547016000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124672311000,
+      "finishedEpochNs": 1793619124694113000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124814656000,
+      "finishedEpochNs": 1793619124836477000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619124959942000,
+      "finishedEpochNs": 1793619124981772000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619125106400000,
+      "finishedEpochNs": 1793619125127627000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619125251709000,
+      "finishedEpochNs": 1793619125273864000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619125396015000,
+      "finishedEpochNs": 1793619125419716000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "startedEpochNs": 1793619125420086000,
+      "finishedEpochNs": 1793619125457881000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619125457892000,
+      "finishedEpochNs": 1793619125483485000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619125483852000,
+      "finishedEpochNs": 1793619126015336000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126015354000,
+      "finishedEpochNs": 1793619126039799000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126040254000,
+      "finishedEpochNs": 1793619126065669000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126065991000,
+      "finishedEpochNs": 1793619126091867000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126092178000,
+      "finishedEpochNs": 1793619126113925000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "coast"
+      ],
+      "startedEpochNs": 1793619126114240000,
+      "finishedEpochNs": 1793619126140017000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126140034000,
+      "finishedEpochNs": 1793619126162703000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126163024000,
+      "finishedEpochNs": 1793619126190374000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126190690000,
+      "finishedEpochNs": 1793619126215647000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.MainActivity"
+      ],
+      "startedEpochNs": 1793619126215970000,
+      "finishedEpochNs": 1793619126293435000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126293459000,
+      "finishedEpochNs": 1793619126314803000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126440157000,
+      "finishedEpochNs": 1793619126465500000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126465821000,
+      "finishedEpochNs": 1793619126486865000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619126487160000,
+      "finishedEpochNs": 1793619126529652000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126529675000,
+      "finishedEpochNs": 1793619126555526000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126676091000,
+      "finishedEpochNs": 1793619126697692000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126818984000,
+      "finishedEpochNs": 1793619126842372000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619126966370000,
+      "finishedEpochNs": 1793619126988029000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127112641000,
+      "finishedEpochNs": 1793619127135061000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127256048000,
+      "finishedEpochNs": 1793619127277501000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127397953000,
+      "finishedEpochNs": 1793619127419686000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127542726000,
+      "finishedEpochNs": 1793619127564187000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127686376000,
+      "finishedEpochNs": 1793619127708732000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127831529000,
+      "finishedEpochNs": 1793619127853591000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127853892000,
+      "finishedEpochNs": 1793619127875963000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true",
+        "--es",
+        "probe_action",
+        "local_speak",
+        "--es",
+        "character",
+        "coast"
+      ],
+      "startedEpochNs": 1793619127876296000,
+      "finishedEpochNs": 1793619127902949000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127902967000,
+      "finishedEpochNs": 1793619127927545000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127927875000,
+      "finishedEpochNs": 1793619127955726000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127956059000,
+      "finishedEpochNs": 1793619127977439000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127977760000,
+      "finishedEpochNs": 1793619127998683000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619127999033000,
+      "finishedEpochNs": 1793619128020806000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619128141554000,
+      "finishedEpochNs": 1793619128163099000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619128285880000,
+      "finishedEpochNs": 1793619128310069000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619128431933000,
+      "finishedEpochNs": 1793619128454425000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619128576019000,
+      "finishedEpochNs": 1793619128598100000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619128723004000,
+      "finishedEpochNs": 1793619128745050000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619128870385000,
+      "finishedEpochNs": 1793619128895016000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619129015416000,
+      "finishedEpochNs": 1793619129038633000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619129159792000,
+      "finishedEpochNs": 1793619129181254000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619129304736000,
+      "finishedEpochNs": 1793619129326261000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "startedEpochNs": 1793619129326618000,
+      "finishedEpochNs": 1793619129362289000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619129362299000,
+      "finishedEpochNs": 1793619129391158000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "am",
+        "start",
+        "--user",
+        "10",
+        "-W",
+        "-f",
+        "0x14000000",
+        "-n",
+        "ai.nunti.avatar.demo/ai.nunti.app.RuntimeProbeActivity",
+        "--ez",
+        "confirm_quiet_test",
+        "true"
+      ],
+      "startedEpochNs": 1793619129391486000,
+      "finishedEpochNs": 1793619129949908000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619129949926000,
+      "finishedEpochNs": 1793619129977231000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619129977566000,
+      "finishedEpochNs": 1793619130005151000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130005498000,
+      "finishedEpochNs": 1793619130030412000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130030775000,
+      "finishedEpochNs": 1793619130055797000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130056117000,
+      "finishedEpochNs": 1793619130078989000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130200065000,
+      "finishedEpochNs": 1793619130230391000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130351327000,
+      "finishedEpochNs": 1793619130376185000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130499976000,
+      "finishedEpochNs": 1793619130525627000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130650537000,
+      "finishedEpochNs": 1793619130720750000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130846446000,
+      "finishedEpochNs": 1793619130868586000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619130990586000,
+      "finishedEpochNs": 1793619131012394000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619131136286000,
+      "finishedEpochNs": 1793619131157091000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619131280133000,
+      "finishedEpochNs": 1793619131302194000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619131423008000,
+      "finishedEpochNs": 1793619131450166000,
+      "returnCode": 0
+    },
+    {
+      "argv": [
+        "shell",
+        "run-as",
+        "ai.nunti.avatar.demo",
+        "--user",
+        "10",
+        "cat",
+        "files/runtime-probe.jsonl"
+      ],
+      "startedEpochNs": 1793619131450560000,
+      "finishedEpochNs": 1793619131472032000,
+      "returnCode": 0
+    }
+  ],
+  "limits": [
+    "Route/emotion are MOCK and quiet context is operator controlled.",
+    "No D/moving test, human listening, acoustic quality or wall-clock audible latency acceptance.",
+    "Capture nonzero samples alone do not prove speech attribution; baseline peak2 was observed previously.",
+    "Automatic replay was observed only during explicit bounded windows recorded per case."
+  ]
+}

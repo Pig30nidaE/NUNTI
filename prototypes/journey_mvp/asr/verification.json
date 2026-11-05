@@ -1,0 +1,15 @@
+{
+  "status": "FILE_INTEGRITY_AND_TWELVE_NEW_MVP_WAV_ONE_PASS_ASR_VERIFIED",
+  "clips": 12,
+  "newCharacters": 4,
+  "priorClipsNotRetranscribed": 12,
+  "protectedFilesUnchanged": 167,
+  "bundleAndStateUnchanged": true,
+  "priorAsrAndModelCacheUnchanged": true,
+  "comparisonRecomputed": true,
+  "sourceTextUsedAsPrompt": false,
+  "newModelDownloads": 0,
+  "providerRequests": 0,
+  "humanQualityApproved": false,
+  "packageInventoryComparedNow": true
+}

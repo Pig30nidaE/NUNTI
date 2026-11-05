@@ -1,0 +1,962 @@
+{
+  "schemaVersion": 1,
+  "status": "MEASUREMENTS_ONLY_NO_PASS_THRESHOLD",
+  "sampleRateSearchPerformed": false,
+  "timeWarpingPerformed": false,
+  "pairs": [
+    {
+      "captureCharacter": "coast",
+      "sourceCharacter": "coast",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/coast-common.wav",
+          "sha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 177699,
+          "pcmDurationSeconds": 4.029455782312925,
+          "sampleWidthBytes": 2,
+          "peak": 10107.0,
+          "rms": 998.2654240414023,
+          "monoDownmixPeak": 10107.0,
+          "monoDownmixRms": 998.2654240414023
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/coast-common.wav",
+          "sha256": "bf3618d0cf47081f751497ec5e373f68a5d8f02e1779ab21764b2ef6a9e6ceef",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 357607,
+          "pcmDurationSeconds": 7.450145833333333,
+          "sampleWidthBytes": 2,
+          "peak": 402.0,
+          "rms": 39.978690175513165,
+          "monoDownmixPeak": 402.0,
+          "monoDownmixRms": 39.97851473204603
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 193414,
+        "candidateWindowCount": 164194,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.27102376619318425,
+          "captureStartFrame": 10895,
+          "captureEndFrameExclusive": 204309,
+          "capturePcmStartSeconds": 0.22697916666666668,
+          "capturePcmEndSeconds": 4.2564375,
+          "windowDurationSeconds": 4.029458333333333,
+          "positiveGainExpected": true,
+          "fittedGain": 0.014957057571855385,
+          "fittedDcOffset": -0.04535958193947904,
+          "windowPeak": 402.0,
+          "windowRms": 54.35980259473828,
+          "residualRmsAfterGainAndDcFit": 52.325199464529945
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.9653293550586702,
+            "captureStartAnalysisFrame": 23,
+            "capturePcmStartSeconds": 0.23
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.8996758204016311,
+            "perBandNormalizedCrossCorrelation": [
+              0.9642241729114589,
+              0.949940087963003,
+              0.8990346982298076,
+              0.8613950716029628,
+              0.8237850713009234
+            ],
+            "captureStartAnalysisFrame": 24,
+            "capturePcmStartSeconds": 0.24
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "coast",
+      "sourceCharacter": "mountain",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/mountain-common.wav",
+          "sha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 144172,
+          "pcmDurationSeconds": 3.2692063492063492,
+          "sampleWidthBytes": 2,
+          "peak": 7845.0,
+          "rms": 1460.7400505627593,
+          "monoDownmixPeak": 7845.0,
+          "monoDownmixRms": 1460.7400505627593
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/coast-common.wav",
+          "sha256": "bf3618d0cf47081f751497ec5e373f68a5d8f02e1779ab21764b2ef6a9e6ceef",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 357607,
+          "pcmDurationSeconds": 7.450145833333333,
+          "sampleWidthBytes": 2,
+          "peak": 402.0,
+          "rms": 39.978690175513165,
+          "monoDownmixPeak": 402.0,
+          "monoDownmixRms": 39.97851473204603
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 156922,
+        "candidateWindowCount": 200686,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.07764767056775256,
+          "captureStartFrame": 67138,
+          "captureEndFrameExclusive": 224060,
+          "capturePcmStartSeconds": 1.3987083333333334,
+          "capturePcmEndSeconds": 4.667916666666667,
+          "windowDurationSeconds": 3.2692083333333333,
+          "positiveGainExpected": true,
+          "fittedGain": 0.0025001050344979395,
+          "fittedDcOffset": 0.018938813447738286,
+          "windowPeak": 360.0,
+          "windowRms": 46.949143057959034,
+          "residualRmsAfterGainAndDcFit": 46.80739702628657
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.4824297252052693,
+            "captureStartAnalysisFrame": 119,
+            "capturePcmStartSeconds": 1.19
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.27745231241379664,
+            "perBandNormalizedCrossCorrelation": [
+              0.27581784016744726,
+              0.3856176114363871,
+              0.22525357550471276,
+              0.18333354989427358,
+              0.31723898506616255
+            ],
+            "captureStartAnalysisFrame": 80,
+            "capturePcmStartSeconds": 0.8
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "coast",
+      "sourceCharacter": "city",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/city-common.wav",
+          "sha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 163267,
+          "pcmDurationSeconds": 3.702199546485261,
+          "sampleWidthBytes": 2,
+          "peak": 5765.0,
+          "rms": 953.1816267289564,
+          "monoDownmixPeak": 5765.0,
+          "monoDownmixRms": 953.1816267289564
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/coast-common.wav",
+          "sha256": "bf3618d0cf47081f751497ec5e373f68a5d8f02e1779ab21764b2ef6a9e6ceef",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 357607,
+          "pcmDurationSeconds": 7.450145833333333,
+          "sampleWidthBytes": 2,
+          "peak": 402.0,
+          "rms": 39.978690175513165,
+          "monoDownmixPeak": 402.0,
+          "monoDownmixRms": 39.97851473204603
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 177706,
+        "candidateWindowCount": 179902,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.09036315105072916,
+          "captureStartFrame": 11013,
+          "captureEndFrameExclusive": 188719,
+          "capturePcmStartSeconds": 0.2294375,
+          "capturePcmEndSeconds": 3.9316458333333335,
+          "windowDurationSeconds": 3.7022083333333335,
+          "positiveGainExpected": true,
+          "fittedGain": 0.005387469303573221,
+          "fittedDcOffset": -0.08145627945660336,
+          "windowPeak": 402.0,
+          "windowRms": 56.71144995339928,
+          "residualRmsAfterGainAndDcFit": 56.47936614384255
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.4689673627199941,
+            "captureStartAnalysisFrame": 38,
+            "capturePcmStartSeconds": 0.38
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.3440656220444811,
+            "perBandNormalizedCrossCorrelation": [
+              0.27804028813649295,
+              0.25145640750010684,
+              0.3634018481299959,
+              0.48188930354513043,
+              0.3455402629106794
+            ],
+            "captureStartAnalysisFrame": 30,
+            "capturePcmStartSeconds": 0.3
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "mountain",
+      "sourceCharacter": "coast",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/coast-common.wav",
+          "sha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 177699,
+          "pcmDurationSeconds": 4.029455782312925,
+          "sampleWidthBytes": 2,
+          "peak": 10107.0,
+          "rms": 998.2654240414023,
+          "monoDownmixPeak": 10107.0,
+          "monoDownmixRms": 998.2654240414023
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/mountain-common.wav",
+          "sha256": "f952f96981c1b60bd1ae04866956b0eedb965923f5cf4884f0da31ff38e1b4cf",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 326885,
+          "pcmDurationSeconds": 6.810104166666667,
+          "sampleWidthBytes": 2,
+          "peak": 437.0,
+          "rms": 56.30498877828491,
+          "monoDownmixPeak": 437.0,
+          "monoDownmixRms": 56.30479994604158
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 193414,
+        "candidateWindowCount": 133472,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.12083446880111902,
+          "captureStartFrame": 102947,
+          "captureEndFrameExclusive": 296361,
+          "capturePcmStartSeconds": 2.1447291666666666,
+          "capturePcmEndSeconds": 6.1741875,
+          "windowDurationSeconds": 4.029458333333333,
+          "positiveGainExpected": true,
+          "fittedGain": 0.004569254253393921,
+          "fittedDcOffset": -0.11279675421820765,
+          "windowPeak": 345.0,
+          "windowRms": 37.247358694678056,
+          "residualRmsAfterGainAndDcFit": 36.97422977802222
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.49302644476898405,
+            "captureStartAnalysisFrame": 56,
+            "capturePcmStartSeconds": 0.56
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.3092072486638519,
+            "perBandNormalizedCrossCorrelation": [
+              0.37062137652893323,
+              0.23503867191181402,
+              0.41770869807847794,
+              0.2768571114271226,
+              0.24581038537291186
+            ],
+            "captureStartAnalysisFrame": 19,
+            "capturePcmStartSeconds": 0.19
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "mountain",
+      "sourceCharacter": "mountain",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/mountain-common.wav",
+          "sha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 144172,
+          "pcmDurationSeconds": 3.2692063492063492,
+          "sampleWidthBytes": 2,
+          "peak": 7845.0,
+          "rms": 1460.7400505627593,
+          "monoDownmixPeak": 7845.0,
+          "monoDownmixRms": 1460.7400505627593
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/mountain-common.wav",
+          "sha256": "f952f96981c1b60bd1ae04866956b0eedb965923f5cf4884f0da31ff38e1b4cf",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 326885,
+          "pcmDurationSeconds": 6.810104166666667,
+          "sampleWidthBytes": 2,
+          "peak": 437.0,
+          "rms": 56.30498877828491,
+          "monoDownmixPeak": 437.0,
+          "monoDownmixRms": 56.30479994604158
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 156922,
+        "candidateWindowCount": 169964,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.22635362127079242,
+          "captureStartFrame": 12617,
+          "captureEndFrameExclusive": 169539,
+          "capturePcmStartSeconds": 0.26285416666666667,
+          "capturePcmEndSeconds": 3.5320625,
+          "windowDurationSeconds": 3.2692083333333333,
+          "positiveGainExpected": true,
+          "fittedGain": 0.012614804856388533,
+          "fittedDcOffset": -0.2880896113742838,
+          "windowPeak": 437.0,
+          "windowRms": 81.26347865588593,
+          "residualRmsAfterGainAndDcFit": 79.1534853480206
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.9752802660900597,
+            "captureStartAnalysisFrame": 26,
+            "capturePcmStartSeconds": 0.26
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.9300597832729351,
+            "perBandNormalizedCrossCorrelation": [
+              0.957704366241971,
+              0.9600520917063567,
+              0.9193910127430002,
+              0.923382564795424,
+              0.8897688808779243
+            ],
+            "captureStartAnalysisFrame": 26,
+            "capturePcmStartSeconds": 0.26
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "mountain",
+      "sourceCharacter": "city",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/city-common.wav",
+          "sha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 163267,
+          "pcmDurationSeconds": 3.702199546485261,
+          "sampleWidthBytes": 2,
+          "peak": 5765.0,
+          "rms": 953.1816267289564,
+          "monoDownmixPeak": 5765.0,
+          "monoDownmixRms": 953.1816267289564
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/mountain-common.wav",
+          "sha256": "f952f96981c1b60bd1ae04866956b0eedb965923f5cf4884f0da31ff38e1b4cf",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 326885,
+          "pcmDurationSeconds": 6.810104166666667,
+          "sampleWidthBytes": 2,
+          "peak": 437.0,
+          "rms": 56.30498877828491,
+          "monoDownmixPeak": 437.0,
+          "monoDownmixRms": 56.30479994604158
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 177706,
+        "candidateWindowCount": 149180,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.05637681516836327,
+          "captureStartFrame": 64339,
+          "captureEndFrameExclusive": 242045,
+          "capturePcmStartSeconds": 1.3403958333333332,
+          "capturePcmEndSeconds": 5.042604166666667,
+          "windowDurationSeconds": 3.7022083333333335,
+          "positiveGainExpected": true,
+          "fittedGain": 0.0038954535926625415,
+          "fittedDcOffset": -0.27789676356838694,
+          "windowPeak": 437.0,
+          "windowRms": 65.7261679978338,
+          "residualRmsAfterGainAndDcFit": 65.62102281645167
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.5634130365714723,
+            "captureStartAnalysisFrame": 6,
+            "capturePcmStartSeconds": 0.06
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.3628388921149792,
+            "perBandNormalizedCrossCorrelation": [
+              0.4792954968425477,
+              0.4666761573585948,
+              0.040699327730580145,
+              0.3431352770629961,
+              0.48438820158017726
+            ],
+            "captureStartAnalysisFrame": 10,
+            "capturePcmStartSeconds": 0.1
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "city",
+      "sourceCharacter": "coast",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/coast-common.wav",
+          "sha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 177699,
+          "pcmDurationSeconds": 4.029455782312925,
+          "sampleWidthBytes": 2,
+          "peak": 10107.0,
+          "rms": 998.2654240414023,
+          "monoDownmixPeak": 10107.0,
+          "monoDownmixRms": 998.2654240414023
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/city-common.wav",
+          "sha256": "33ae2e5b9e29cf1696fc3d0a7094a1af81acd07800394b788469dd1c53950f9a",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 345583,
+          "pcmDurationSeconds": 7.199645833333333,
+          "sampleWidthBytes": 2,
+          "peak": 323.0,
+          "rms": 37.88187025581897,
+          "monoDownmixPeak": 323.0,
+          "monoDownmixRms": 37.881636273910814
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 193414,
+        "candidateWindowCount": 152170,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.16707687070017585,
+          "captureStartFrame": 52524,
+          "captureEndFrameExclusive": 245938,
+          "capturePcmStartSeconds": 1.09425,
+          "capturePcmEndSeconds": 5.123708333333333,
+          "windowDurationSeconds": 4.029458333333333,
+          "positiveGainExpected": true,
+          "fittedGain": 0.008177728613543891,
+          "fittedDcOffset": -0.026130584919545903,
+          "windowPeak": 323.0,
+          "windowRms": 48.21199970365203,
+          "residualRmsAfterGainAndDcFit": 47.53430368536775
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.5496517411236261,
+            "captureStartAnalysisFrame": 12,
+            "capturePcmStartSeconds": 0.12
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.45465100747275444,
+            "perBandNormalizedCrossCorrelation": [
+              0.3317738099975327,
+              0.34273843925147945,
+              0.5935667183939113,
+              0.5366831749634424,
+              0.46849289475740646
+            ],
+            "captureStartAnalysisFrame": 16,
+            "capturePcmStartSeconds": 0.16
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "city",
+      "sourceCharacter": "mountain",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/mountain-common.wav",
+          "sha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 144172,
+          "pcmDurationSeconds": 3.2692063492063492,
+          "sampleWidthBytes": 2,
+          "peak": 7845.0,
+          "rms": 1460.7400505627593,
+          "monoDownmixPeak": 7845.0,
+          "monoDownmixRms": 1460.7400505627593
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/city-common.wav",
+          "sha256": "33ae2e5b9e29cf1696fc3d0a7094a1af81acd07800394b788469dd1c53950f9a",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 345583,
+          "pcmDurationSeconds": 7.199645833333333,
+          "sampleWidthBytes": 2,
+          "peak": 323.0,
+          "rms": 37.88187025581897,
+          "monoDownmixPeak": 323.0,
+          "monoDownmixRms": 37.881636273910814
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 156922,
+        "candidateWindowCount": 188662,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.043503154991607215,
+          "captureStartFrame": 12838,
+          "captureEndFrameExclusive": 169760,
+          "capturePcmStartSeconds": 0.26745833333333335,
+          "capturePcmEndSeconds": 3.5366666666666666,
+          "windowDurationSeconds": 3.2692083333333333,
+          "positiveGainExpected": true,
+          "fittedGain": 0.0016771630081548361,
+          "fittedDcOffset": -0.07039429419951454,
+          "windowPeak": 323.0,
+          "windowRms": 56.21507809272013,
+          "residualRmsAfterGainAndDcFit": 56.16180020277974
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.6286343162927858,
+            "captureStartAnalysisFrame": 72,
+            "capturePcmStartSeconds": 0.72
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.31404923751560554,
+            "perBandNormalizedCrossCorrelation": [
+              0.5264575947266541,
+              0.467577852795541,
+              -0.11945093887723394,
+              0.24189022412364514,
+              0.4537714548094213
+            ],
+            "captureStartAnalysisFrame": 46,
+            "capturePcmStartSeconds": 0.46
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    },
+    {
+      "captureCharacter": "city",
+      "sourceCharacter": "city",
+      "comparison": {
+        "schemaVersion": 1,
+        "source": {
+          "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/city-common.wav",
+          "sha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+          "sampleRateHz": 44100,
+          "channels": 1,
+          "frames": 163267,
+          "pcmDurationSeconds": 3.702199546485261,
+          "sampleWidthBytes": 2,
+          "peak": 5765.0,
+          "rms": 953.1816267289564,
+          "monoDownmixPeak": 5765.0,
+          "monoDownmixRms": 953.1816267289564
+        },
+        "capture": {
+          "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/city-common.wav",
+          "sha256": "33ae2e5b9e29cf1696fc3d0a7094a1af81acd07800394b788469dd1c53950f9a",
+          "sampleRateHz": 48000,
+          "channels": 2,
+          "frames": 345583,
+          "pcmDurationSeconds": 7.199645833333333,
+          "sampleWidthBytes": 2,
+          "peak": 323.0,
+          "rms": 37.88187025581897,
+          "monoDownmixPeak": 323.0,
+          "monoDownmixRms": 37.881636273910814
+        },
+        "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+        "numpyVersion": "2.3.5",
+        "comparisonSampleRateHz": 48000,
+        "sourceFramesAfterResample": 177706,
+        "candidateWindowCount": 167878,
+        "bestMatch": {
+          "normalizedCrossCorrelation": 0.2881110042223069,
+          "captureStartFrame": 13722,
+          "captureEndFrameExclusive": 191428,
+          "capturePcmStartSeconds": 0.285875,
+          "capturePcmEndSeconds": 3.9880833333333334,
+          "windowDurationSeconds": 3.7022083333333335,
+          "positiveGainExpected": true,
+          "fittedGain": 0.016000235324522404,
+          "fittedDcOffset": -0.047314828501755876,
+          "windowPeak": 323.0,
+          "windowRms": 52.825508944953384,
+          "residualRmsAfterGainAndDcFit": 50.58550332741571
+        },
+        "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+        "humanListeningPerformed": false,
+        "speechQualityEvaluated": false,
+        "limits": [
+          "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+          "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+          "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+        ],
+        "phaseRobustMetrics": {
+          "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+          "windowMilliseconds": 32,
+          "hopMilliseconds": 10,
+          "windowFunctionForSpectrum": "Hann",
+          "bandsHz": [
+            [
+              100,
+              300
+            ],
+            [
+              300,
+              800
+            ],
+            [
+              800,
+              1600
+            ],
+            [
+              1600,
+              3200
+            ],
+            [
+              3200,
+              8000
+            ]
+          ],
+          "rmsEnvelope": {
+            "normalizedCrossCorrelation": 0.9796235918905655,
+            "captureStartAnalysisFrame": 27,
+            "capturePcmStartSeconds": 0.27
+          },
+          "fiveBandAmplitude": {
+            "meanNormalizedCrossCorrelation": 0.8699798483196048,
+            "perBandNormalizedCrossCorrelation": [
+              0.9756692742899556,
+              0.9671256023247886,
+              0.8198859561035586,
+              0.7609173720133351,
+              0.8263010368663859
+            ],
+            "captureStartAnalysisFrame": 27,
+            "capturePcmStartSeconds": 0.27
+          },
+          "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+        }
+      }
+    }
+  ]
+}

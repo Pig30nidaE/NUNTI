@@ -1,0 +1,16 @@
+{
+  "requestId": "mvp-request-08-unplanned",
+  "journeyId": "mvp-journey-08-unplanned",
+  "destination": {
+    "semanticTags": []
+  },
+  "route": {
+    "distanceKm": 75,
+    "semanticTags": [],
+    "verifiedRoadFacts": {
+      "status": "UNKNOWN",
+      "roadTypes": [],
+      "source": null
+    }
+  }
+}

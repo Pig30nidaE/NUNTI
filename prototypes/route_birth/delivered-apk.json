@@ -1,0 +1,14 @@
+{
+  "apk": "/Users/pig30nidae/NUNTI/.local/route-birth/Nunti-Route-Birth-debug.apk",
+  "apkSha256": "e96931982da70b2bf2b7dae595c414b63be5e45b1457b791dd0f16420f8b9d8e",
+  "sourceFileSha256": {
+    "android/app/src/debug/kotlin/ai/nunti/app/routebirth/RouteBirthBoundaryChecks.kt": "30f3d0cdd1a74c06f469a84fca48e1a0f8a363732ed209949690edec629ec87f",
+    "android/app/src/debug/kotlin/ai/nunti/app/routebirth/RouteBirthData.kt": "7f5afb702cafb61644295c48e0163fb2785e32084313e59cf4d081333b63bb47",
+    "android/app/src/debug/kotlin/ai/nunti/app/routebirth/RouteBirthActivity.kt": "b56f47c82c9ccdd72cbf722f58a9576ad83d50c6a1607775776b82d7e6aac999",
+    "android/feature/avatar/src/main/kotlin/ai/nunti/avatar/RouteBornSpec.kt": "9b6f789d1c90870f257fab658570e4f418577d5e011ce2e7197fd8f1d9b8aa53",
+    "android/feature/avatar/src/compose/kotlin/ai/nunti/avatar/RouteBornCompanion.kt": "61d118cbc0cfbf361d1d9875569aeebb8a4d52efb48c92043a5016a8f7d2af34",
+    "android/app/src/main/kotlin/ai/nunti/app/MainActivity.kt": "c1944e8987fa72f69d05d31886e4cab12b2056226820009d417121d0646217fa",
+    "android/app/src/debug/AndroidManifest.xml": "d1560ab0dbd6c9624326cb97d21d3ccf9b7ca08e9ca0929fa1efc9e370f1bf26"
+  },
+  "differenceFromNativeQaApk": "Two user-facing labels changed; feet reveal only after shell morph. Generation/client/storage/voice logic unchanged."
+}

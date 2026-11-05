@@ -1,0 +1,290 @@
+{
+  "checkedAt": "2026-11-02T14:50:11.908216+00:00",
+  "scope": "Saved artifact/evidence verification only. Does not contact the device, infer speech, or assess human taste.",
+  "status": "PASS_OFFLINE_MVP_DELIVERY_EVIDENCE",
+  "bundleId": "journey-mvp-9c9e1cb3ef613440c58f",
+  "generation": {
+    "status": "PASS",
+    "bundleId": "journey-mvp-9c9e1cb3ef613440c58f",
+    "characters": 8,
+    "bodyFamilies": [
+      "acorn",
+      "bean",
+      "cloud",
+      "droplet",
+      "lantern",
+      "pebble",
+      "pillow",
+      "sprout"
+    ],
+    "actualWavClips": 24,
+    "originalCharactersReused": 4,
+    "newCharactersGenerated": 4,
+    "exportPreservesSourceWavBytes": true,
+    "visualSourceIdentityVerified": true,
+    "humanCutenessOrCollectibilityEvaluated": false,
+    "androidRuntimeVerifiedHere": false,
+    "cases": [
+      {
+        "caseId": "01-coast-rest",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "displayName": "파도방울",
+        "bodyFamily": "droplet",
+        "motif": "coastal_city",
+        "purpose": "rest",
+        "visualSha256": "faa202c07aa2272d430d9cbd1761117db7e616a0a78704b90547284d4e4cf9dc",
+        "bindingId": "dvb-eea3c37415d581fb6acbe1d67e68c140"
+      },
+      {
+        "caseId": "02-mountain-camping",
+        "characterId": "nunti-8da06e4267f4a71820a06e65",
+        "displayName": "이끼토리",
+        "bodyFamily": "sprout",
+        "motif": "mountain",
+        "purpose": "camping",
+        "visualSha256": "1adc0beab70c88dcfe0dd8fa37bb64523f15b50d79ca001c8f561bf86d905313",
+        "bindingId": "dvb-5513aeec1fdca10edcd66e6cc1f54a18"
+      },
+      {
+        "caseId": "03-city-exhibition",
+        "characterId": "nunti-a455dd81d2c487095fc66e7d",
+        "displayName": "조각몽",
+        "bodyFamily": "pillow",
+        "motif": "art",
+        "purpose": "exhibition",
+        "visualSha256": "7cfbee28e76f1287a12c351dee79099af0e95bd11b38f19c4962e264d0675f57",
+        "bindingId": "dvb-be9a118f29789566eaa97ef7f01571f9"
+      },
+      {
+        "caseId": "04-coast-next",
+        "characterId": "nunti-2d6aecb00617ef2899eff678",
+        "displayName": "파도몽",
+        "bodyFamily": "pebble",
+        "motif": "coastal_city",
+        "purpose": "rest",
+        "visualSha256": "09dabd084d45eed3db4e0a60ede94a692abf10a0657a2fa2a776f2b7dea18c4d",
+        "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d"
+      },
+      {
+        "caseId": "05-forest-visit",
+        "characterId": "nunti-6ec3150a7c2ee12d410391de",
+        "displayName": "숲토리",
+        "bodyFamily": "acorn",
+        "motif": "forest",
+        "purpose": "visit",
+        "visualSha256": "89253b2a3c1f2ef44b60f8d34e7bd433c4e3d1de7c5d4d08a4bd958899e76626",
+        "bindingId": "dvb-13fcace461bcb3925e7209ee0021c79a"
+      },
+      {
+        "caseId": "06-lake-errand",
+        "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+        "displayName": "물빛콩",
+        "bodyFamily": "bean",
+        "motif": "lakeside",
+        "purpose": "errand",
+        "visualSha256": "787b057f404c44fcecc2fdfd35a2054bdb0af18c9e5e1426bd755b09d4ffb49b",
+        "bindingId": "dvb-07e2dd6359fb4b5bee86655889de53ae"
+      },
+      {
+        "caseId": "07-city-commute",
+        "characterId": "nunti-14e8ecb1317597b175d0ac40",
+        "displayName": "반짝별",
+        "bodyFamily": "lantern",
+        "motif": "city",
+        "purpose": "commute",
+        "visualSha256": "37a17f18708a5f2bdf006cab86564925a53523f4e18e790d6d7e22ff9a5f9430",
+        "bindingId": "dvb-17643e620aa9fc242093c3860b79c4aa"
+      },
+      {
+        "caseId": "08-unplanned",
+        "characterId": "nunti-2cf018a4ab81917bafef386b",
+        "displayName": "보송몽",
+        "bodyFamily": "cloud",
+        "motif": "unspecified",
+        "purpose": "unspecified",
+        "visualSha256": "14e90cb9cb7e22d3f419410fb03fa80ef8f1be7b0c892a4da59b90290516ca46",
+        "bindingId": "dvb-1e5008ab2ff4b658c3e05e82aee1d715"
+      }
+    ]
+  },
+  "actualGenerationRuns": {
+    "status": "PASS",
+    "newModelProcesses": 1,
+    "newCharactersActuallyGenerated": 4,
+    "newWavClipsActuallySynthesized": 12,
+    "originalCharactersCopied": 4,
+    "originalPrimaryClipsReused": 12,
+    "restartModelLoaded": false,
+    "restartClipCacheHits": 24,
+    "rerouteModelLoaded": false,
+    "rerouteClipCacheHits": 3,
+    "initialBundleIdPreserved": "journey-mvp-9c9e1cb3ef613440c58f",
+    "bindingAndAudioHashesPreserved": true,
+    "humanKoreanListeningEvaluated": false,
+    "newGeneration": [
+      {
+        "characterId": "nunti-6ec3150a7c2ee12d410391de",
+        "category": "arrival",
+        "durationMs": 4960,
+        "inferenceSeconds": 3.310260209000262,
+        "audioSha256": "4d69beca2e30d551f7ed5881a6bbe7c4842b673977cde886598974e671b2050a",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-6ec3150a7c2ee12d410391de",
+        "category": "common",
+        "durationMs": 3120,
+        "inferenceSeconds": 2.0004083330022695,
+        "audioSha256": "3739a6d8bffc7fdac5fadc8684a012fc0a6b61e5d0df23c7622f3689341e40c2",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-6ec3150a7c2ee12d410391de",
+        "category": "greeting",
+        "durationMs": 4320,
+        "inferenceSeconds": 2.6438777499970456,
+        "audioSha256": "38c1df2ddde4dce46d0e870b797f43814cdfdde8512c8422336642153c7df0fa",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+        "category": "arrival",
+        "durationMs": 5200,
+        "inferenceSeconds": 3.1722880409979552,
+        "audioSha256": "3b53676aea57ca07e9053d6b5b46fd041503d9cdcf565d3ab7f449b116f6faae",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+        "category": "common",
+        "durationMs": 2800,
+        "inferenceSeconds": 1.7706602920006844,
+        "audioSha256": "9221e5847cd21a9e545b6bc8b92ac33a38efabc5690c1ee86a2e56882b8e28d3",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+        "category": "greeting",
+        "durationMs": 5360,
+        "inferenceSeconds": 3.26448070799961,
+        "audioSha256": "d1336f3a1e0157fa7ea65cfe4cdee24d2ae172debe68675cc827448acf7e679f",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-14e8ecb1317597b175d0ac40",
+        "category": "arrival",
+        "durationMs": 3840,
+        "inferenceSeconds": 2.4975405000004685,
+        "audioSha256": "b44dfe779f968ddda344c089ed94d1eba5d2cd30d54afcb8a251e5b96971728c",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-14e8ecb1317597b175d0ac40",
+        "category": "common",
+        "durationMs": 2400,
+        "inferenceSeconds": 1.537769209000544,
+        "audioSha256": "65b15806e488f9950953f5f9f898450f9d4fab04753147d46e571c9e2f37cafc",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-14e8ecb1317597b175d0ac40",
+        "category": "greeting",
+        "durationMs": 4320,
+        "inferenceSeconds": 2.7164436250022845,
+        "audioSha256": "55ef212420d1a49d9ee523c6dade515e0906c8cd8549df159e1c01241cc4c23e",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-2cf018a4ab81917bafef386b",
+        "category": "arrival",
+        "durationMs": 4640,
+        "inferenceSeconds": 2.845085166001809,
+        "audioSha256": "c5324f29e3654a905a7fa14a0e091b497f4bdd2a7943df308437d74609164202",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-2cf018a4ab81917bafef386b",
+        "category": "common",
+        "durationMs": 2560,
+        "inferenceSeconds": 1.6917185419988527,
+        "audioSha256": "b6715012b3d7d0195f4e3a516ef62a60d3b0b85cfb5ec2f044a411552130a186",
+        "pcmFullScaleSamples": 0
+      },
+      {
+        "characterId": "nunti-2cf018a4ab81917bafef386b",
+        "category": "greeting",
+        "durationMs": 2720,
+        "inferenceSeconds": 1.7093579170032172,
+        "audioSha256": "1db10bd4f19a07d4313603a1af6907065ff7ffd0d85646700ef817778ba45eb5",
+        "pcmFullScaleSamples": 0
+      }
+    ]
+  },
+  "androidCompletedClipRequestIds": {
+    "nunti-9a3f63d68e67292a3a33fc5e-greeting": "mvp-646d2608-f9aa-43c2-94e2-27bf56c4ce39",
+    "nunti-9a3f63d68e67292a3a33fc5e-common": "mvp-4ed28164-ccda-4378-b039-6c9e6a3ca47e",
+    "nunti-9a3f63d68e67292a3a33fc5e-arrival": "mvp-fb59611c-836c-44d7-be1a-638af9ed4315",
+    "nunti-8da06e4267f4a71820a06e65-greeting": "mvp-ced45ac3-dad4-4985-bebd-831fff279914",
+    "nunti-8da06e4267f4a71820a06e65-common": "mvp-3c574a97-f06d-4b94-abdc-f9f0d96ba801",
+    "nunti-8da06e4267f4a71820a06e65-arrival": "mvp-9f467216-088c-452c-80f1-de2ec361066c",
+    "nunti-a455dd81d2c487095fc66e7d-greeting": "mvp-350b85c3-41f5-48f7-83f7-6c77e1660036",
+    "nunti-a455dd81d2c487095fc66e7d-common": "mvp-d7513461-d2bb-47d7-9ef8-a9f35610504f",
+    "nunti-a455dd81d2c487095fc66e7d-arrival": "mvp-fccac793-98ab-4cdb-996c-07c5a70119c0",
+    "nunti-2d6aecb00617ef2899eff678-greeting": "mvp-fb6a4862-6061-4516-ab2c-38e36e2d1482",
+    "nunti-2d6aecb00617ef2899eff678-common": "mvp-45b1a12a-15aa-4b20-b6b7-0adb7f8e2983",
+    "nunti-2d6aecb00617ef2899eff678-arrival": "mvp-3331dadb-9ad6-4e9f-9b70-2ede38f4193d",
+    "nunti-6ec3150a7c2ee12d410391de-greeting": "mvp-846a2c27-7a87-4d14-ab1f-5a34f195dc03",
+    "nunti-6ec3150a7c2ee12d410391de-common": "mvp-dfe8a856-7a57-4720-bd1a-3011ea422f42",
+    "nunti-6ec3150a7c2ee12d410391de-arrival": "mvp-421f19c3-1535-4db8-b234-c64c5c92839c",
+    "nunti-17eeb4f278a6a6188a8b068c-greeting": "mvp-24747740-975a-4148-8850-584f0898e160",
+    "nunti-17eeb4f278a6a6188a8b068c-common": "mvp-765dd88e-2f4c-4737-8a81-e2b9756555c9",
+    "nunti-17eeb4f278a6a6188a8b068c-arrival": "mvp-af18cc72-ac21-450e-b649-11d45bbac2ff",
+    "nunti-14e8ecb1317597b175d0ac40-greeting": "mvp-c4fc0ed9-4c7d-444a-8dc6-c8ffbc5972bd",
+    "nunti-14e8ecb1317597b175d0ac40-common": "mvp-abe67999-b7e3-4301-ba23-cd25a737bdc6",
+    "nunti-14e8ecb1317597b175d0ac40-arrival": "mvp-5714d4a0-9902-4d42-8692-eb2519192bbb",
+    "nunti-2cf018a4ab81917bafef386b-greeting": "mvp-19ea9f24-1408-42f6-bb76-5e73befbeb57",
+    "nunti-2cf018a4ab81917bafef386b-common": "mvp-6ade39c0-bdc7-459b-ae65-30bb505eca60",
+    "nunti-2cf018a4ab81917bafef386b-arrival": "mvp-a8454c65-85ee-462c-a9f0-c273b122bfe1"
+  },
+  "androidBoundaryChecks": 10,
+  "finalTargetedRuns": {
+    "assets-runtime-02": "PASS_THREE_ASSET_NEGATIVES",
+    "drive-runtime-02": "PASS_ACTUAL_D_ZERO_CANCEL_REJECT_AND_P_SILENT_RETURN",
+    "stop-runtime-01": "PASS_ACTIVE_AND_PENDING_STOP_REGRESSIONS",
+    "lifecycle-runtime-01": "PASS_LIFECYCLE_AND_VISUAL_CAPTURE",
+    "audio-runtime-01": "CAPTURED_AUTHENTICATED_PCM_AND_MEASURED"
+  },
+  "fullRunScope": "runtime-04 completed all 24 clips and eight saved/restored identities on the archived APK. Its HOME background check failed and is preserved. The final APK adds full-queue stop and was retested for stop, Settings background, D/P, asset negatives and eight-case visual selection.",
+  "fullRunApk": {
+    "apk": ".local/journey-mvp/runtime-04-tested.apk",
+    "apkSha256": "3c086b7244f15c747eb32a448c7c09a1a50513046a38614b1b209896dcb651c3",
+    "sourceFileSha256": {
+      "android/app/src/debug/kotlin/ai/nunti/app/journey/JourneyMvpCatalog.kt": "c0df1a66a311b30e5af85631c3bdf478b2bbdc42ff9c63c0358042bc12ea636b",
+      "android/app/src/debug/kotlin/ai/nunti/app/journey/JourneyMvpBoundaryChecks.kt": "fe9331b314c1184426a605ba66208f16094f359391a2c666b2d751a21dc36f15",
+      "android/app/src/debug/kotlin/ai/nunti/app/journey/JourneyCarGate.kt": "374e52266010cb15788c35ea0289a802a19184dd5b0216470b26f3e5ee5db756",
+      "android/app/src/debug/kotlin/ai/nunti/app/journey/JourneyMvpActivity.kt": "305c507b9ac2aaa1fcbc6d33f16535aaea081876e4f91297f399453a7626d207",
+      "android/feature/voice/src/main/kotlin/ai/nunti/voice/AndroidVoiceSession.kt": "b5188769200e7573fc243ddab3d1fb07652b0393ef20894ed752bc8e3534abdc"
+    }
+  },
+  "finalApkSha256": "53525ff9778c5d2ac79515f1700a0dab3ad90b89ef8e0d25e38c6e280c183f70",
+  "debugMvpAssetFiles": 28,
+  "releaseMvpAssetFiles": 0,
+  "installedWavHashesChecked": 48,
+  "userStateNamespace": "journey-mvp",
+  "validationStateNamespace": "journey-mvp-validation",
+  "notVerified": [
+    "Anna API and Android model inference",
+    "Physical vehicle/device validation",
+    "Human cuteness, collectibility or listening approval",
+    "Driving-habit improvement",
+    "Precise audible cancellation latency",
+    "Every body/expression combination"
+  ],
+  "evidenceSha256": {
+    "prototypes/journey_mvp/assets-runtime-02/verification.json": "46de918044c06d4c1e5d85b56666bad7651e97555d85aaf0392927bde215612b",
+    "prototypes/journey_mvp/drive-runtime-02/verification.json": "c803a44f37f197dfc120d7e2a0a6489d1c537efa6b1e75bb848bc028fefa1fa5",
+    "prototypes/journey_mvp/stop-runtime-01/verification.json": "8ec11c34c56c60525d02967454b8ded87fb5859fa986780eff478dc1defa4545",
+    "prototypes/journey_mvp/lifecycle-runtime-01/verification.json": "61efafa6dc4a9551c7ac475d5cd2eb25a281bd32385c2c89cf57c9f8433866bb",
+    "prototypes/journey_mvp/audio-runtime-01/verification.json": "3f90ae5fe0e77bbf774e47c63f716e9018fd8b2f81cb9b80de990467055d050c"
+  }
+}

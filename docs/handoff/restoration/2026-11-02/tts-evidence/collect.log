@@ -1,0 +1,1 @@
+{"dependenciesVerified": 9, "products": 8, "newVerification": {"jvmTests": 62, "fixtureChecks": 8, "mockScenarios": ["A", "B", "C", "D"], "androidBinaryCompilation": true, "runtimeTested": false}}

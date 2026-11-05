@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python3",
+    "docs/handoff/restoration/2026-11-02/tts-evidence/run_gradle.py",
+    "--version"
+  ],
+  "cwd": "/Users/pig30nidae/NUNTI/.worktrees/tts",
+  "startedAt": "2026-11-02T18:12:39.855625+09:00",
+  "environment": {},
+  "log": "gradle-version.log",
+  "endedAt": "2026-11-02T18:12:40.430730+09:00",
+  "exitCode": 0
+}

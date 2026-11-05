@@ -1,0 +1,11 @@
+{
+  "intensity": 0.4,
+  "occurredAt": "2026-11-01T02:00:03Z",
+  "schemaVersion": "1.0",
+  "avatarId": "avatar-test",
+  "emotion": "RELAXED",
+  "emotionId": "emotion-7fc773c155fd95b04cef2f01",
+  "confidence": 0.95,
+  "triggeredByEventId": "stable-3000",
+  "tripId": "trip-test"
+}

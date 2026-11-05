@@ -1,0 +1,52 @@
+{
+  "status": "CODE_AND_COAST_COMPLETE_GARDEN_NOT_EXECUTED",
+  "sourceSha256": {
+    "backend/nunti/avatar_studio/local_model.py": "a6866e1086f90f9d5c7ce07fa9b087fd1c3787d4477e066fa81962d28929fb8c",
+    "backend/nunti/avatar_studio/image_api.py": "b8f18346b704cc4d2b3ecb240e81419a9631d93b01f4e210b5202a820b1afa88",
+    "backend/tests/test_avatar_local_model.py": "00366c0b985be73b8cd90d99a78d109c9d6468b97eec8c8de5606482e7902534",
+    "backend/tests/test_avatar_image_prompt.py": "24b143a12faebb4548c1a538c488f87b35e5cabbde2574288c84a2d8aad72967",
+    "backend/tests/test_avatar_studio.py": "c5ca912e6e4e8420a8aa6cb6c4418c04c78f7a7b57ebedd0e39a6148485f0934",
+    "scripts/verify_avatar_clean_image.py": "fcd48db239768dc6704d0a8e1b482a2857f691e0cff6ee48e71fecb8aa06e380"
+  },
+  "focusedTestCasesPassed": 43,
+  "ruff": "PASS",
+  "paidApiCalls": 0,
+  "actualLocalInferenceCalls": 1,
+  "coast": {
+    "status": "PASS_LOCAL_HTTP_FUNCTIONAL",
+    "case": "coast",
+    "requestId": "aadf0cac-7a3f-56e3-8fd5-12c510eb969e",
+    "characterId": "nunti-aadf0cac-7a3f-56e3-8fd5-12c510eb969e",
+    "httpElapsedSeconds": 44.71,
+    "modelElapsedSeconds": 44.56,
+    "seed": 1772964698,
+    "modelCommit": "1cebb9b45c21ece14a42615b16bf5fa4de9b56da",
+    "rgbaSha256": "7c3b4e48c0650cd8887ccf7944010c0cf91861f8f2dfab8b86545069becbb717",
+    "rawSha256": "1cbf134a49d908da62e24b51fa60cef8d109ba4b820b0d1d532de3041dc52c53",
+    "paidApiCalls": 0,
+    "humanQualityApproved": false,
+    "routeCorrespondenceVerified": false,
+    "surfaceMarkingsVerified": false,
+    "videoRecorded": false,
+    "speakerRecorded": false
+  },
+  "coastVisualReview": {
+    "reviewer": "AGENT_DIRECT_IMAGE_INSPECTION",
+    "interiorRouteLineObserved": false,
+    "bodySurface": "coherent mint and cream broad areas",
+    "face": "two visible eyes and cheerful mouth",
+    "silhouette": "outer wave crest and curl tail",
+    "humanUserQualityApproved": false,
+    "exactRouteCorrespondenceVerified": false
+  },
+  "garden": {
+    "status": "NOT_EXECUTED_APPROVAL_REVIEW_CAPACITY_FAILURE",
+    "case": "garden",
+    "action": ".worktrees/server/backend/.venv/bin/python scripts/verify_avatar_clean_image.py --run garden",
+    "attempts": 2,
+    "executed": false,
+    "paidApiCalls": 0,
+    "reason": "Automatic approval review failed: Selected model is at capacity. The action was not executed because automatic approval review could not be completed. This is a review failure, not a determination that the action is unsafe.",
+    "bypassAttempted": false
+  }
+}

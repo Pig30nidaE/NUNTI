@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "scripts/verify_handoff.py",
+    "--output",
+    "docs/handoff/restoration/2026-11-02/tts-evidence/handoff-final-result.json"
+  ],
+  "cwd": "/Users/pig30nidae/NUNTI/.worktrees/tts",
+  "startedAt": "2026-11-02T18:13:00.500163+09:00",
+  "environment": {},
+  "log": "handoff-final.log",
+  "endedAt": "2026-11-02T18:13:00.698890+09:00",
+  "exitCode": 0
+}

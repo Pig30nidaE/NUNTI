@@ -1,0 +1,7 @@
+PASS real coast-common speaker=F3 profile=nunti-keepsake-calm-v2 bytes=355442
+PASS real coast-greeting speaker=F3 profile=nunti-keepsake-calm-v2 bytes=604030
+PASS real mountain-common speaker=F4 profile=nunti-keepsake-curious-v2 bytes=288388
+PASS real mountain-greeting speaker=F4 profile=nunti-keepsake-curious-v2 bytes=483832
+PASS real city-common speaker=F5 profile=nunti-keepsake-clear-v2 bytes=326578
+PASS real city-greeting speaker=F5 profile=nunti-keepsake-clear-v2 bytes=566438
+6 actual WAV catalog checks passed; acoustic listening NOT tested

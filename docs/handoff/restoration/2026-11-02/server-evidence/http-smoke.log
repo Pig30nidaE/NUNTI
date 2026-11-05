@@ -1,0 +1,12 @@
+POST /v1/trips acknowledged
+PUT /v1/trips/trip-09-reconnect/route acknowledged
+PUT /v1/trips/trip-09-reconnect/avatar acknowledged
+POST /v1/trips/trip-09-reconnect/events acknowledged
+POST /v1/trips/trip-09-reconnect/emotions acknowledged
+PUT /v1/trips/trip-09-reconnect/report acknowledged
+GET /v1/trips/trip-09-reconnect/report 200
+GET /v1/trips/trip-09-reconnect/events 200
+GET /v1/trips/trip-09-reconnect/emotions 200
+GET /v1/trips/trip-09-reconnect 200
+Mock scenario complete; no actual vehicle SDK or TTS invoked.
+PASS: real HTTP, simulated disconnect/lost ACK, process restart and persisted records

@@ -1,0 +1,25 @@
+{
+  "status": "FAIL",
+  "surface": "ACTUAL_ANDROID_WEBVIEW",
+  "screenshotsCaptured": true,
+  "videoRecorded": false,
+  "speakerRecorded": false,
+  "providerApiCalls": 0,
+  "checks": [
+    "free-model-option-is-available",
+    "three-navigation-inputs-not-character-presets",
+    "confirmation-required-before-generation"
+  ],
+  "sourceSha256": {
+    "prototypes/avatar_generator/studio.js": "c4cfdaa6ec33b430081b516f52d11324aea4d331bc6cf0cfb8a240e121d2c41c",
+    "prototypes/avatar_generator/formation.js": "67fa1d1892a70654bd123d8d8becde2a6442de67db28d9172d319d0f9c8a3d03",
+    "prototypes/avatar_generator/index.html": "228c81aa87b3bdf524aa651a6fe748f04b5f072f1d80486c856736e292e0db7f",
+    "backend/nunti/avatar_studio/api.py": "09dbf04ce89900f241f5ca1c6231dffc24c761c59c4f56fdb4da7fb5c419384d",
+    "backend/nunti/avatar_studio/illustration.py": "d82a0f49bea296279df23090b4b54460855a620c305456cc7ee9a0d0b55009b2",
+    "backend/nunti/avatar_studio/local_model.py": "f7c3640e3e24c7c7f7d4f4f670a0832c547f7af7baf0d4b9361c2deb8894b4da",
+    "backend/nunti/avatar_studio/matte_cutout.py": "1ee7a5ac303dc09e1e0c7e1ebca4b7cf952f47826f301300b43f8d5ffbb730c9"
+  },
+  "error": "Error: Timed out: document.getElementById(\"birth-status\").textContent === \"이 길에서 태어난 눈티예요\"",
+  "exceptions": [],
+  "notice": ""
+}

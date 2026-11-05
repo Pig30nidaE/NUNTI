@@ -1,0 +1,44 @@
+{
+  "status": "PASS_AVATAR_GENERATOR_UI",
+  "surface": "ACTUAL_ANDROID_WEBVIEW",
+  "screenshotsCaptured": true,
+  "videoRecorded": false,
+  "speakerRecorded": false,
+  "providerApiCalls": 0,
+  "checks": [
+    "three-navigation-inputs-not-character-presets",
+    "confirmation-required-before-generation",
+    "avatar-canvas-contains-visible-image",
+    "typed-input-reaches-generation",
+    "actual-new-rgba-local-render",
+    "motifs-have-input-evidence",
+    "no-automatic-speech",
+    "retry-preserves-identity-and-image",
+    "same-destination-new-journey-new-appearance",
+    "screenshot-extracted-and-requires-confirmation",
+    "screenshot-source-and-selected-line-persisted",
+    "saved-companion-selectable-after-reload",
+    "cold-reload-preserves-appearance-and-voice-recipe",
+    "no-javascript-runtime-exceptions"
+  ],
+  "artifacts": [
+    {
+      "characterId": "nunti-e5b3506d-dc8f-4f09-a660-8e8d96fb6986",
+      "imageSha256": "f10bd0a9c1c54082315b9acd0e1bb70cf4833c5a20e2cacac0111a0fd4f8665d",
+      "inputOrigin": "TEST_ROUTE",
+      "mediaOrigin": "LOCAL_RENDER"
+    },
+    {
+      "characterId": "nunti-0650ea9c-2ba5-4afa-aefb-c5a061d9d78d",
+      "imageSha256": "583af910c2866738c8e8bc432902069213d54db68118bd28184c7e1b2c5e378f",
+      "inputOrigin": "TEST_ROUTE",
+      "mediaOrigin": "LOCAL_RENDER"
+    },
+    {
+      "characterId": "nunti-9ad0b54c-5a69-41e5-a4ed-fbf90a16d401",
+      "imageSha256": "bd053dfbad307c87a08130a2c81f3ee9ccafa95e9fd8c33f40a1b3a372c988cc",
+      "inputOrigin": "NAVIGATION_SCREENSHOT",
+      "mediaOrigin": "LOCAL_RENDER"
+    }
+  ]
+}

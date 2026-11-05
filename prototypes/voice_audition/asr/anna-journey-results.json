@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-02T12:51:53.777287+00:00",
+  "input": {
+    "audioPath": "prototypes/voice_audition/commercial/elevenlabs-anna-journey.mp3",
+    "audioSha256": "f78fb59a40136d204fcc48fda44a5428fcffaa4a6805ba2cd70868cb2b6107be",
+    "referenceText": "오늘은 바다 보러 가는 날이네. 같이 예쁜 기억을 모아보자. 천천히 가도 괜찮아. 나는 네 옆에 있을게. 와, 도착했다! 오늘 만난 풍경은 내가 간직할게.",
+    "expectedEnding": "오늘 만난 풍경은 내가 간직할게",
+    "sourceContext": {
+      "vendor": "ElevenLabs official anonymous public Korean demo",
+      "voiceLabel": "Anna",
+      "sourceUrl": "https://elevenlabs.io/text-to-speech/korean",
+      "acquisition": "PM provided an actual official Play/Download output with Anna selected; no API call or new account",
+      "referenceTextOrigin": "Exact input text provided by PM",
+      "modelId": null,
+      "settings": null,
+      "limitations": "Public UI does not expose exact model ID, revision or synthesis settings. Do not label the file as a specific model version."
+    }
+  },
+  "inputConfigSha256": "18945cc5b7ca5861895f0afcc05eb3e84a7d6a370ffcede053f421b041caf4fd",
+  "sourceAudio": {
+    "sha256Before": "f78fb59a40136d204fcc48fda44a5428fcffaa4a6805ba2cd70868cb2b6107be",
+    "sha256After": "f78fb59a40136d204fcc48fda44a5428fcffaa4a6805ba2cd70868cb2b6107be",
+    "bytes": 204008,
+    "sampleRateHz": 44100,
+    "channels": 1,
+    "frames": 562176,
+    "durationSeconds": 12.747755102040816,
+    "decodedFloatPeak": 0.8927960991859436,
+    "decodedFloatRms": 0.10499951078618486,
+    "samplesAtOrAboveFullScale": 0,
+    "allSamplesFinite": true,
+    "modified": false,
+    "decodedPcmFloat32LeSha256": "6c20a6480bb77dfc84238c5664f5a6914b56df7bcefe2d8e3fccf9f0ab1fbd90"
+  },
+  "asr": {
+    "modelId": "mlx-community/whisper-small-mlx",
+    "revision": "45f3915923c7a79a5a5b5a7d909d39aeb0e5630e",
+    "settings": {
+      "language": "ko",
+      "task": "transcribe",
+      "temperature": 0.0,
+      "condition_on_previous_text": false,
+      "initial_prompt": null,
+      "word_timestamps": false
+    },
+    "decoder": "greedy",
+    "sampleRateHz": 16000,
+    "transcript": " 오늘은 바다 보러 가는 날이네? 같이 예쁜 기억을 모아 보자 천천히 가도 괜찮아 나는 네 옆에 있을게 와 도착했다 오늘 만난 풍경은 내가 간직할게",
+    "language": "ko",
+    "seconds": 0.6365741660010826,
+    "segments": [
+      {
+        "id": 0,
+        "seek": 0,
+        "start": 0.0,
+        "end": 2.36,
+        "text": " 오늘은 바다 보러 가는 날이네?",
+        "tokens": [
+          50364,
+          23720,
+          12704,
+          1235,
+          10035,
+          6235,
+          37407,
+          16316,
+          4250,
+          5626,
+          30,
+          50482
+        ],
+        "temperature": 0.0,
+        "avg_logprob": -0.23489438692728679,
+        "compression_ratio": 1.21875,
+        "no_speech_prob": 0.0015963248442858458
+      },
+      {
+        "id": 1,
+        "seek": 0,
+        "start": 2.36,
+        "end": 4.6000000000000005,
+        "text": " 같이 예쁜 기억을 모아 보자",
+        "tokens": [
+          50482,
+          16358,
+          20684,
+          250,
+          30935,
+          1638,
+          11722,
+          2230,
+          7842,
+          15876,
+          50594
+        ],
+        "temperature": 0.0,
+        "avg_logprob": -0.23489438692728679,
+        "compression_ratio": 1.21875,
+        "no_speech_prob": 0.0015963248442858458
+      },
+      {
+        "id": 2,
+        "seek": 0,
+        "start": 4.6000000000000005,
+        "end": 6.28,
+        "text": " 천천히 가도 괜찮아",
+        "tokens": [
+          50594,
+          31076,
+          18906,
+          5905,
+          10583,
+          1838,
+          45058,
+          50678
+        ],
+        "temperature": 0.0,
+        "avg_logprob": -0.23489438692728679,
+        "compression_ratio": 1.21875,
+        "no_speech_prob": 0.0015963248442858458
+      },
+      {
+        "id": 3,
+        "seek": 0,
+        "start": 6.28,
+        "end": 8.32,
+        "text": " 나는 네 옆에 있을게",
+        "tokens": [
+          50678,
+          17955,
+          8808,
+          29095,
+          1517,
+          18082,
+          1810,
+          50780
+        ],
+        "temperature": 0.0,
+        "avg_logprob": -0.23489438692728679,
+        "compression_ratio": 1.21875,
+        "no_speech_prob": 0.0015963248442858458
+      },
+      {
+        "id": 4,
+        "seek": 0,
+        "start": 8.32,
+        "end": 10.120000000000001,
+        "text": " 와 도착했다",
+        "tokens": [
+          50780,
+          12500,
+          10701,
+          29784,
+          42520,
+          50870
+        ],
+        "temperature": 0.0,
+        "avg_logprob": -0.23489438692728679,
+        "compression_ratio": 1.21875,
+        "no_speech_prob": 0.0015963248442858458
+      },
+      {
+        "id": 5,
+        "seek": 0,
+        "start": 10.120000000000001,
+        "end": 12.56,
+        "text": " 오늘 만난 풍경은 내가 간직할게",
+        "tokens": [
+          50870,
+          8880,
+          8165,
+          16662,
+          21442,
+          235,
+          15608,
+          2124,
+          10474,
+          17190,
+          11664,
+          7999,
+          1810,
+          50992
+        ],
+        "temperature": 0.0,
+        "avg_logprob": -0.23489438692728679,
+        "compression_ratio": 1.21875,
+        "no_speech_prob": 0.0015963248442858458
+      }
+    ],
+    "comparison": {
+      "normalizedReference": "오늘은바다보러가는날이네같이예쁜기억을모아보자천천히가도괜찮아나는네옆에있을게와도착했다오늘만난풍경은내가간직할게",
+      "normalizedHypothesis": "오늘은바다보러가는날이네같이예쁜기억을모아보자천천히가도괜찮아나는네옆에있을게와도착했다오늘만난풍경은내가간직할게",
+      "referenceCharacters": 57,
+      "distance": 0,
+      "characterErrorRate": 0.0,
+      "editAlignment": [],
+      "needsHumanListening": false,
+      "omissionCandidate": false,
+      "distortionCandidate": false
+    },
+    "asrRecognizedExpectedEnding": true
+  },
+  "priorArtifacts": {
+    "files": 31,
+    "allBytesPreserved": true,
+    "sha256": {
+      "round2-results.jsonl": "4be32e2ef8554b7de1d934dd4f3588aec69422860ec6c9dfd2d3ee21a4c868cf",
+      "round2-input-manifest.json": "9085b9d876302a17aa154ebc4a2355ee4f3863873a59221746b344d442afcf45",
+      "identity-input-manifest.json": "da012abe8eae6a31be2c27e69187699b5f1f20bb583914fab20d8fc06d1f2dfc",
+      "model-lock.json": "951f2a8158dd29ff18c6b9d64a0d9ade9e982747aad8f58b7ff26dd023dad768",
+      "round2-verification.json": "18fa8453122644d521bdaa0401366842629069cbf14047f544ef7b1e7fca8d6c",
+      "stella-baseline-hashes.json": "ce81bc0238e0fc0250a7c99096baa6d669a76bbc755cf7f0d961d0170e001332",
+      "input-manifest.json": "008a118cea2c143eb5484e5d7c743b32e67743dc3ffded57b33268dfb01b5d95",
+      "stella-input-manifest.json": "cd4f25c47d5935cc6fcb957a461a02d7299840e997ab8a75b46ae3d85532be56",
+      "summary.md": "48a20d1a58137373a36cf50406ad0fbab0549bb836eb588705df7557b7f5f314",
+      "identity-verification.json": "c36ebfe1b26c852dfd326368b158705a5827e6aeb2a70ff45c59141b00000a16",
+      "stella-transcription.log": "c27ece78937a2432d079d1fb76dc76af038709d26f156a00693ceba739b256dc",
+      "transcription.log": "c34d699fab182cb68665e70b1464c8fc8fedff9c05778587ec4f60422c404228",
+      "round2-baseline-hashes.json": "a383acdd12f1131ade4adc95d0385ba667990f58a82a4493d205ca02ea306187",
+      "results.json": "5bf71198cae3d1145313439fa07c8f77267aff48dc7bbafffbf4410f1aa1a5ce",
+      "stella-results.json": "844e393b3c7c984634e452c8ff6490d1a3439f57bd2e5cdcd767e10d098dd501",
+      "identity-results.jsonl": "f8c7ca508d0c66ae7619eb9527b2580dcac548428a87aa851036141f1ecee7d6",
+      "runtime-source.json": "f6934be346e021df317916f432a0f9e5a4a5c4f1a3ad1e97f58877e5ec65c563",
+      "README.md": "be6ebbbb6cd082aeb33835bfe860bb6e3dcf525f46b7140b3f5acc070e37dd2a",
+      "stella-results.jsonl": "2f57baed59b24061f50666e71f56c2657bf383cd7b73e2c7a09ac8bf62793bec",
+      "round2-transcription.log": "6e310cd74506b2c46ae2f497086b454b9cbe0fd836ed3da9e226108d338d3eae",
+      "results.jsonl": "6434f8492930b741465506ed480e19770a0b6501717cb7563cb7015190d7b7ad",
+      "identity-summary.md": "db1223dec3f96992f17b995371b31df7a77d58dbc1fe0c2c9b5b154bd8517449",
+      "identity-baseline-hashes.json": "6af69b829375b4634d926c47f71b4afa774f2d4ceceef6ffaa36e64aea5cd4dd",
+      "verification.json": "51b6556af0084cd8bf4ed2c70c2e298bc5a603ed54db9ab8a89ae881e4b9f3ba",
+      "stella-verification.json": "b4d388cc88aa3833fc1da653d3d298bc99d247fb58567ca4107c5fb23d0eec3e",
+      "round2-summary.md": "38311ea1ae009684f003e1cfc88d8ff1becc45c51acdcf1c0b8fe56b5144810a",
+      "identity-transcription.log": "6e941d1c0e2f9d5caa56679b7796e71fc30f1d498e42ad85a2f6085d81756124",
+      "beam-unsupported.log": "85bf85a729e2fc4022f2b05a049aa9db9ade308add972682c80adcf30fa97271",
+      "identity-results.json": "d212b711782a01dca7a060ababa6cd86e2649c2e6f53e6f4bfb4a8cecaa33007",
+      "stella-summary.md": "f37b5a708c44899199e4932b046aef31363d23502888f6d08c3052678121151f",
+      "round2-results.json": "0008ce68ca49e627d3584f5cc4ad5cd34779db6b1d43b5849c6c9cab3d18d8c5"
+    }
+  },
+  "runtime": {
+    "peakMlxMemoryBytes": 1223758766,
+    "totalSeconds": 0.6480923749986687,
+    "packages": {
+      "mlx-whisper": "0.4.3",
+      "mlx": "0.32.4",
+      "numpy": "2.5.4",
+      "scipy": "1.18.1",
+      "soundfile": "0.14.0"
+    }
+  },
+  "limitations": [
+    "Only one ASR pass with the existing Whisper-small checkpoint. No new model download, synthesis, or environment changes.",
+    "Reference text is only used after transcription, never as an ASR prompt.",
+    "Only the ASR input is resampled in memory; the original MP3 remains unchanged.",
+    "ASR is fallible and can infer missing words; recognizing the expected ending does not prove the recording has no audible cutoff.",
+    "CER measures NFC letters/numbers after removing punctuation and whitespace; it does not prove correct phonetic pronunciation.",
+    "This check does not establish naturalness, cuteness, stable speaker identity or product quality."
+  ]
+}

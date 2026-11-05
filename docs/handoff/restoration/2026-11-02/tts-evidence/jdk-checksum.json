@@ -1,0 +1,15 @@
+{
+  "command": [
+    "shasum",
+    "-a",
+    "256",
+    "-c",
+    "OpenJDK21U-jdk_aarch64_mac_hotspot_21.0.8_9.tar.gz.sha256.txt"
+  ],
+  "cwd": "/Users/pig30nidae/NUNTI/.local/tts-tools",
+  "startedAt": "2026-11-02T18:05:45.910704+09:00",
+  "environment": {},
+  "log": "jdk-checksum.log",
+  "endedAt": "2026-11-02T18:05:46.275321+09:00",
+  "exitCode": 0
+}

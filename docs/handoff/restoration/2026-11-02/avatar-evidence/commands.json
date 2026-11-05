@@ -1,0 +1,78 @@
+[
+  {
+    "label": "git-head",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/Users/pig30nidae/NUNTI/.worktrees/avatar",
+    "startedAt": "2026-11-02T18:06:48.654868+09:00",
+    "endedAt": "2026-11-02T18:06:48.664353+09:00",
+    "exitCode": 0,
+    "log": "git-head.log"
+  },
+  {
+    "label": "git-branch",
+    "command": [
+      "git",
+      "branch",
+      "--show-current"
+    ],
+    "cwd": "/Users/pig30nidae/NUNTI/.worktrees/avatar",
+    "startedAt": "2026-11-02T18:06:48.664574+09:00",
+    "endedAt": "2026-11-02T18:06:48.673485+09:00",
+    "exitCode": 0,
+    "log": "git-branch.log"
+  },
+  {
+    "label": "java-version",
+    "command": [
+      "/Users/pig30nidae/NUNTI/.local/tts-tools/jdk/jdk-21.0.8+9/Contents/Home/bin/java",
+      "-version"
+    ],
+    "cwd": "/Users/pig30nidae/NUNTI/.worktrees/avatar",
+    "startedAt": "2026-11-02T18:06:48.673645+09:00",
+    "endedAt": "2026-11-02T18:06:48.746753+09:00",
+    "exitCode": 0,
+    "log": "java-version.log"
+  },
+  {
+    "label": "kotlin-version",
+    "command": [
+      "/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-tools/kotlinc/bin/kotlinc",
+      "-version"
+    ],
+    "cwd": "/Users/pig30nidae/NUNTI/.worktrees/avatar",
+    "startedAt": "2026-11-02T18:06:48.746911+09:00",
+    "endedAt": "2026-11-02T18:06:50.088265+09:00",
+    "exitCode": 0,
+    "log": "kotlin-version.log"
+  },
+  {
+    "label": "handoff-verification",
+    "command": [
+      "/Library/Developer/CommandLineTools/usr/bin/python3",
+      "scripts/verify_handoff.py",
+      "--output",
+      "/Users/pig30nidae/NUNTI/.worktrees/avatar/docs/handoff/restoration/2026-11-02/avatar-evidence/handoff-verification.json"
+    ],
+    "cwd": "/Users/pig30nidae/NUNTI/.worktrees/avatar",
+    "startedAt": "2026-11-02T18:06:50.088471+09:00",
+    "endedAt": "2026-11-02T18:06:50.277529+09:00",
+    "exitCode": 0,
+    "log": "handoff-verification.log"
+  },
+  {
+    "label": "avatar-tests",
+    "command": [
+      "bash",
+      "android/feature/avatar/scripts/test.sh"
+    ],
+    "cwd": "/Users/pig30nidae/NUNTI/.worktrees/avatar",
+    "startedAt": "2026-11-02T18:06:50.277694+09:00",
+    "endedAt": "2026-11-02T18:06:57.160922+09:00",
+    "exitCode": 0,
+    "log": "avatar-tests.log"
+  }
+]

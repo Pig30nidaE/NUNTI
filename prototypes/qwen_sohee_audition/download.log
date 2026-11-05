@@ -1,0 +1,15 @@
+DOWNLOADING .gitattributes 1519
+DOWNLOADING README.md 1118
+DOWNLOADING config.json 6058
+DOWNLOADING generation_config.json 245
+DOWNLOADING merges.txt 1671839
+DOWNLOADING model.safetensors 2393308931
+DOWNLOADING model.safetensors.index.json 71786
+DOWNLOADING preprocessor_config.json 127
+DOWNLOADING speech_tokenizer/config.json 2336
+DOWNLOADING speech_tokenizer/configuration.json 76
+REUSED_READ_ONLY speech_tokenizer/model.safetensors
+DOWNLOADING speech_tokenizer/preprocessor_config.json 234
+DOWNLOADING tokenizer_config.json 7344
+DOWNLOADING vocab.json 2776833
+{"newDownloadBytes": 2397848446, "speakerId": 2864, "languageId": 2064}

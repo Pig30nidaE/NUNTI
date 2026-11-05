@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "product-scope-v2",
+  "asOf": "2026-11-03",
+  "productGoal": {
+    "id": "DRIVING_HABIT_IMPROVEMENT_WITH_NUNTI",
+    "name": "운전습관 개선을 도와주는 아바타 눈티",
+    "improvementEffectVerified": false
+  },
+  "ownedFeature": {
+    "id": "DESTINATION_ROUTE_AVATAR_GENERATION",
+    "parentGoal": "DRIVING_HABIT_IMPROVEMENT_WITH_NUNTI",
+    "name": "목적지·내비게이션 경로 기반 아바타 생성",
+    "contribution": "PERSONAL_AVATAR_IDENTITY_FOR_DRIVING_FEEDBACK",
+    "outputs": [
+      "JOURNEY_AVATAR_IDENTITY",
+      "APPEARANCE_ASSETS",
+      "CHARACTER_VOICE_IDENTITY"
+    ],
+    "consumers": [
+      "EMOTION_AND_FEEDBACK",
+      "AVATAR_DISPLAY",
+      "TTS_PLAYBACK"
+    ],
+    "doesNotCompute": [
+      "DRIVING_SCORE",
+      "VERIFIED_DRIVING_EVENTS",
+      "FINAL_DRIVING_COMMENT"
+    ],
+    "externalPayloadCoordination": "DEFERRED"
+  },
+  "recordingPolicy": "EXPLICIT_USER_REQUEST_ONLY",
+  "competition": {
+    "officialUrl": "https://appdevchallenge.auto-hmg.io/",
+    "targetPlatform": "PLEOS_CONNECT_AAOS",
+    "submissionDeadlineKst": "2026-11-15",
+    "functionalPtKst": [
+      "2026-12-03",
+      "2026-12-04"
+    ]
+  },
+  "ownedFeatureTarget": {
+    "primaryRouteInputs": [
+      "PLEOS_NAVIHELPER",
+      "NAVIGATION_SCREENSHOT"
+    ],
+    "freehandRole": "DIAGNOSTIC_OR_CORRECTION_ONLY",
+    "voiceRequiredForVisualReady": false,
+    "commercialImageProviderMandatory": false,
+    "gleoIntegration": "GLEO_INTERFACE",
+    "gleoPublicImageGenerationApiVerified": false
+  },
+  "ownedFeatureCurrentImplementation": {
+    "navigationInputImplemented": false,
+    "navigationScreenshotInputImplemented": true,
+    "routeToAppearanceExplanationImplemented": true,
+    "visualOnlyReadyImplemented": true,
+    "gleoIntegrationImplemented": false,
+    "newGenerationScreenDebugOnly": false,
+    "localNewRgbaRenderImplemented": true,
+    "exactRouteThreadAnimationImplemented": true,
+    "releaseHostImplemented": true,
+    "releaseApkSigned": false,
+    "submissionReleaseHostReady": false,
+    "openaiElevenPipelineRequiresThreeKeys": true,
+    "v3ImageApiRequiresOnlyOneProviderKey": true,
+    "v3NewVoiceGenerationImplemented": false,
+    "v3FeedbackIntegrationImplemented": false,
+    "liveGeneratedImageQualityVerified": false,
+    "localOfflineImageModelImplemented": true,
+    "localOfflineImageModel": "mlx-community/FLUX.2-Klein-4B-4bit",
+    "localOfflineImageModelAppQualityApproved": false,
+    "measuredAlphaFormationImplemented": true
+  },
+  "ownedFeatureQualityReview": {
+    "asOf": "2026-11-03",
+    "source": "USER_FEEDBACK",
+    "currentIllustration": "ROUTE_MARKINGS_READ_AS_SCARS_AND_STAINS",
+    "currentFormationEffect": "USER_REQUESTS_RICHER_BIRTH_EFFECTS",
+    "humanArtApproval": false,
+    "v4ShapeDirections": "A_B_C_ACCEPTABLE",
+    "requestedRenderingStyle": "OPAQUE_MATTE_PASTEL_ILLUSTRATED_2_5D",
+    "rejectedRenderingTraits": [
+      "EXCESSIVE_3D_VOLUME",
+      "EXCESSIVE_TRANSLUCENCY"
+    ],
+    "paidApiDecision": "DEFERRED_UNTIL_ART_SELECTION",
+    "nextDesignStep": "REVIEW_CLEAN_SURFACE_AND_AURORA_FORMATION",
+    "research": "docs/research/avatar-art-direction-2026-11-03/README.md",
+    "renderingStyleHumanApproved": true,
+    "renderingStyleApproval": "USER_ACCEPTED_A2_B2_C2_EXPRESSION",
+    "finalCharacterSelected": false,
+    "v5Illustration": "CLEAN_MATTE_SURFACE_NO_PAINTED_ROUTE",
+    "v5Formation": "AURORA_RIBBON_WITH_TRANSIENT_ROUTE",
+    "v5FinalHumanApproval": false,
+    "v5NativeUiRegression": "PASS_2026_11_04",
+    "v5PhotoUploadLifecycleRegression": "PASS_HELD_COLLECTION_AND_EXTRACTION_RESPONSES"
+  },
+  "officialSources": [
+    "https://appdevchallenge.auto-hmg.io/guide/judging-awards",
+    "https://appdevchallenge.auto-hmg.io/guide/submission",
+    "https://appdevchallenge.auto-hmg.io/guide/schedule",
+    "https://document.pleos.ai/en/docs/pleos-only/release-note/playground-release-note",
+    "https://document.pleos.ai/docs/pleos-only/app-integration-guide/guide/core-concepts",
+    "https://document.pleos.ai/docs/pleos-only/connect-sdk-pleos/NaviHelper/intro",
+    "https://document.pleos.ai/en/docs/pleos-only/create-my-project"
+  ],
+  "sourceSnapshot": {
+    "android/app/src/main/kotlin/ai/nunti/app/MainActivity.kt": "799cd46f6dca44f0ddb5861ea77103badaaab6767efa86aaf67cec8538432cdc",
+    "android/app/src/main/res/values/journey_mvp.xml": "831d0d5e33d5ba3b4abf5cf0d3d44a9f99e98859f9a0d2a99ab15cefac5c52c1",
+    "android/app/src/debug/res/values/journey_mvp.xml": "16642be56da10606f1dd1bf2742b62855331957bb08c49c7a956f2dffaaf9139",
+    "android/app/src/debug/kotlin/ai/nunti/app/generated/GeneratedData.kt": "542133ba0ee8f7b01a4e817fd99219d4fe2210e5e2391f4506a5339a10f39f00",
+    "backend/nunti/characters/models.py": "c7780fdd18c92b7395612821f08d3490cf5134e53c20c8b840f1f1536628d99b",
+    "backend/nunti/characters/providers.py": "06e13088246968264da2179324e4b834d41866f7c8404375384e66232ad9857f",
+    "backend/nunti/characters/worker.py": "8ada6250aec4605f44a0e1232be0465bbd3b84205415febbbaeb56a24e08a102",
+    "android/app/src/main/kotlin/ai/nunti/app/studio/AvatarStudioActivity.kt": "0485c5cb1939fd63dd9e9d73d8304721c0858e13928a9f803cd974663b492582",
+    "android/app/src/main/AndroidManifest.xml": "14a79d60ea3aa813df5b2497e4cf0442d907c5f8ab2e2cdff62f7e9e2bfd89a8",
+    "backend/nunti/avatar_studio/api.py": "117ddbf233691849967b06cced2d7192f73931d1616d4a6abb85e7c3bf4b77f1",
+    "backend/nunti/avatar_studio/models.py": "4f5f4bde941aa630a4a5156933d501266cdd591719c37f16c26b0bd641b1ef04",
+    "backend/nunti/avatar_studio/storage.py": "82bfbb118d0d8a3e71dd6dffa9e41c3e383718dd3a8a8a32ffb3d5a6d2a4245c",
+    "backend/nunti/avatar_studio/illustration.py": "77feaecb506aed55eeb9e169b5ed49e6837ac17c6a6032377ce0dfd14072e724",
+    "backend/nunti/avatar_studio/navigation.py": "0e7889e6f1ef91beb21bbb07109f4cc1cfc849926c506f6e5356b2259afb2cf6",
+    "backend/nunti/avatar_studio/image_api.py": "b8f18346b704cc4d2b3ecb240e81419a9631d93b01f4e210b5202a820b1afa88",
+    "prototypes/avatar_generator/index.html": "cc6d3aab53719acdc52f5c83e8bd69281c1c1c28eedbb85075f7d0445701babf",
+    "prototypes/avatar_generator/studio.js": "9885898c07fa91fa726ddf7dec8e649818ec4a40106df0783ce83afc4b69f222",
+    "prototypes/avatar_generator/studio.css": "cec6c16a361ac0c5f9472c5bf18ec82e41f3fb9daae94aa22c1d85ab4d6b1ec2",
+    "backend/nunti/avatar_studio/design_intent.py": "923beb034d13ff8e577711d7a982a02d57e3564bd03019283666f3e567727343",
+    "backend/nunti/avatar_studio/local_model.py": "a6866e1086f90f9d5c7ce07fa9b087fd1c3787d4477e066fa81962d28929fb8c",
+    "backend/nunti/avatar_studio/matte_cutout.py": "1ee7a5ac303dc09e1e0c7e1ebca4b7cf952f47826f301300b43f8d5ffbb730c9",
+    "prototypes/avatar_generator/formation.js": "32b6a793d40d86b36dbe745667f4a11ceb977d3844faa60b49daaeb5fe45d52b",
+    "scripts/run_avatar_generator.py": "7ece9a1f42af7340d78a6bd1d4b63302624efcfb5c03ee5c72d01e4d95b443ec"
+  },
+  "navigationIntegrationReview": {
+    "asOfKst": "2026-11-04",
+    "nativeUiRoutePlanningVerified": true,
+    "naviHelperSdkVersion": "3.0.5",
+    "installedServiceVersion": "3.0.4",
+    "sdkLiveCallbackVerified": false,
+    "adapterImplemented": false,
+    "documentedFullRoadPolylineApiFound": false,
+    "tripSummaryRoutePointsMeaning": "WAYPOINT_DESTINATION_SUMMARY",
+    "actualScreenshotTested": true,
+    "selectedFullRouteExtractionVerified": false,
+    "nextStep": "NAVIHELPER_METADATA_ADAPTER_AND_CONFIRMED_ROUTE_SHAPE",
+    "report": "docs/research/2026-11-04-navigation-review/README.md"
+  }
+}

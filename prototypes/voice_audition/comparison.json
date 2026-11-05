@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "status": "REAL_AUDIO_AUDITION_NOT_GLOBAL_MODEL_RANKING",
+  "candidates": [
+    {
+      "label": "A",
+      "title": "Qwen · 둥근 미소",
+      "userPreferredForNaturalness": true,
+      "clips": [
+        {
+          "utterance": "hello",
+          "text": "안녕하세요. 오늘의 여행도 함께할게요.",
+          "audioPath": "prototypes/journey_voice_v3/samples/round-smile-hello.wav",
+          "audioSha256": "f502f95d03b8ab40dbcaec0528557934f088d798133183b7d35b3109e1f946d4",
+          "metadataPath": "prototypes/journey_voice_v3/samples/round-smile-hello.json",
+          "durationSeconds": 3.92
+        },
+        {
+          "utterance": "comfort",
+          "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게.",
+          "audioPath": "prototypes/journey_voice_v3/samples/round-smile-comfort.wav",
+          "audioSha256": "e42f799b71ea9c4c95c0eec41a0c9b12f59d1606a443b2843123406687e1a020",
+          "metadataPath": "prototypes/journey_voice_v3/samples/round-smile-comfort.json",
+          "durationSeconds": 5.04
+        }
+      ]
+    },
+    {
+      "label": "C",
+      "title": "Qwen · 반짝 조약돌",
+      "userPreferredForNaturalness": false,
+      "clips": [
+        {
+          "utterance": "hello",
+          "text": "안녕하세요. 오늘의 여행도 함께할게요.",
+          "audioPath": "prototypes/journey_voice_v3/samples/bright-pebble-hello.wav",
+          "audioSha256": "754616988d5687fcf7f8fe7264b37db092650ba30b926b08eb005e23dd7a7d26",
+          "metadataPath": "prototypes/journey_voice_v3/samples/bright-pebble-hello.json",
+          "durationSeconds": 3.92
+        },
+        {
+          "utterance": "comfort",
+          "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게.",
+          "audioPath": "prototypes/journey_voice_v3/samples/bright-pebble-comfort.wav",
+          "audioSha256": "4b86777991b172fa9afd4bf9677934e3daeebae767338e85d0f307dedcc095cf",
+          "metadataPath": "prototypes/journey_voice_v3/samples/bright-pebble-comfort.json",
+          "durationSeconds": 3.68
+        }
+      ]
+    },
+    {
+      "label": "D",
+      "title": "Qwen · 포근 이끼",
+      "userPreferredForNaturalness": false,
+      "clips": [
+        {
+          "utterance": "hello",
+          "text": "안녕하세요. 오늘의 여행도 함께할게요.",
+          "audioPath": "prototypes/journey_voice_v3/samples/soft-moss-hello.wav",
+          "audioSha256": "069dfb203f03976519b4b9a6652ee7812fc23ddfd8c32c59bbf26205c74ca396",
+          "metadataPath": "prototypes/journey_voice_v3/samples/soft-moss-hello.json",
+          "durationSeconds": 3.68
+        },
+        {
+          "utterance": "comfort",
+          "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게.",
+          "audioPath": "prototypes/journey_voice_v3/samples/soft-moss-comfort.wav",
+          "audioSha256": "27d5864ab35c74005a7885427170c3a1d6a3eaa77f030026986cbea4da76275d",
+          "metadataPath": "prototypes/journey_voice_v3/samples/soft-moss-comfort.json",
+          "durationSeconds": 4.0
+        }
+      ]
+    },
+    {
+      "label": "B",
+      "title": "Chatterbox · A의 합성 음색 참조",
+      "userPreferredForNaturalness": false,
+      "clips": [
+        {
+          "utterance": "hello",
+          "text": "안녕하세요. 오늘의 여행도 함께할게요.",
+          "audioPath": "prototypes/chatterbox_audition/samples/qwen-reference-hello.wav",
+          "audioSha256": "9ae3a48b15b9b80c3511bd39101ced244d61725fe3f6b84611e78fad17cd657a",
+          "metadataPath": "prototypes/chatterbox_audition/samples/qwen-reference-hello.json",
+          "durationSeconds": 3.56
+        },
+        {
+          "utterance": "comfort",
+          "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게.",
+          "audioPath": "prototypes/chatterbox_audition/samples/qwen-reference-comfort.wav",
+          "audioSha256": "05ddda707eb6bd515abd5a932bdd4ac0c9ea65ccca7d4645f57b86860a8bb400",
+          "metadataPath": "prototypes/chatterbox_audition/samples/qwen-reference-comfort.json",
+          "durationSeconds": 3.84
+        }
+      ]
+    },
+    {
+      "label": "E",
+      "title": "Chatterbox · 기본 음색",
+      "userPreferredForNaturalness": false,
+      "clips": [
+        {
+          "utterance": "hello",
+          "text": "안녕하세요. 오늘의 여행도 함께할게요.",
+          "audioPath": "prototypes/chatterbox_audition/samples/builtin-hello.wav",
+          "audioSha256": "7b6f904cb95187e539f9e036236b9b2a7674dd72055eef1736b5e1cc51a44b44",
+          "metadataPath": "prototypes/chatterbox_audition/samples/builtin-hello.json",
+          "durationSeconds": 2.8
+        },
+        {
+          "utterance": "comfort",
+          "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게.",
+          "audioPath": "prototypes/chatterbox_audition/samples/builtin-comfort.wav",
+          "audioSha256": "4435e7b27c850f9f8172d2eceae5e5e35c8c9fb84af48b4453fce574097177ee",
+          "metadataPath": "prototypes/chatterbox_audition/samples/builtin-comfort.json",
+          "durationSeconds": 2.76
+        }
+      ]
+    }
+  ],
+  "humanFeedback": "user-feedback.json",
+  "commercialAccountAvailable": false,
+  "finalVoiceSelected": false,
+  "qwenFollowupRejectedByUser": true,
+  "notVerified": [
+    "Commercial API head-to-head quality",
+    "cuteness acceptance",
+    "cross-text speaker identity",
+    "Android integration of new models"
+  ]
+}

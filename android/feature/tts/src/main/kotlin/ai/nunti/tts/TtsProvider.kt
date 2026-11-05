@@ -3,6 +3,11 @@ package ai.nunti.tts
 interface TtsProvider {
     val capabilities: ProviderCapabilities
     val mode: EngineMode
+    fun source(request: SpeechRequest) = SpeechSource(mode, "mock")
+    /** Validate provider-specific binding/assets before accepting into the shared queue. */
+    fun rejection(speech: PreparedSpeech): String? = null
+    /** Called while idle. False requests initialization under the queue's initialization timeout. */
+    fun select(speech: PreparedSpeech): Boolean = true
     interface Listener {
         fun onInitialized()
         fun onReady(requestId: String) {}

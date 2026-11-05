@@ -1,0 +1,643 @@
+{
+  "schemaVersion": 1,
+  "analysis": "READ_ONLY_FIXED_NOMINAL_RATES_NO_RATE_SEARCH_NO_TIME_WARP",
+  "cases": [
+    {
+      "character": "coast",
+      "source": {
+        "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/coast-common.wav",
+        "sha256": "546e290d20825e50da4609e8d52091ba83d1f1470b9432ae99cbb865073047a1",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "frames": 177699,
+        "pcmDurationSeconds": 4.029455782312925,
+        "sampleWidthBytes": 2,
+        "peak": 10107.0,
+        "rms": 998.2654240414023,
+        "monoDownmixPeak": 10107.0,
+        "monoDownmixRms": 998.2654240414023
+      },
+      "capture": {
+        "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/coast-common.wav",
+        "sha256": "bf3618d0cf47081f751497ec5e373f68a5d8f02e1779ab21764b2ef6a9e6ceef",
+        "sampleRateHz": 48000,
+        "channels": 2,
+        "frames": 357607,
+        "pcmDurationSeconds": 7.450145833333333,
+        "sampleWidthBytes": 2,
+        "peak": 402.0,
+        "rms": 39.978690175513165,
+        "monoDownmixPeak": 402.0,
+        "monoDownmixRms": 39.97851473204603
+      },
+      "packetCount": 899,
+      "packetFramesSum": 357607,
+      "packetTimestampDeltaSecondsQuantiles": {
+        "min": 0.010006,
+        "p25": 0.010587,
+        "median": 0.0110255,
+        "p75": 0.01147475,
+        "p99": 0.01271723,
+        "max": 0.021647
+      },
+      "packetFrameCountQuantiles": {
+        "min": 44.0,
+        "p25": 46.0,
+        "median": 512.0,
+        "p75": 512.0,
+        "p99": 1024.0,
+        "max": 1025.0
+      },
+      "leftRightCorrelation": 0.9999824487136869,
+      "maxLeftRightSampleDifference": 5.0,
+      "activityDiagnostic": {
+        "thresholdPeakExclusive": 8,
+        "thresholdPurpose": "Exploration only,4x previously observed baseline peak2; not speech acceptance",
+        "packetCountAboveThreshold": 209,
+        "pcmFrameSumAboveThreshold": 112345,
+        "firstToLastActivePacketTimestampSpanSeconds": 2.716601
+      },
+      "localAlignmentDiagnostic": {
+        "windowMilliseconds": 200,
+        "fixedSearchRadiusMilliseconds": 50,
+        "searchCenterFrom": "full-source RMS envelope alignment",
+        "allConsecutiveFullBlocks": [
+          {
+            "sourceStartSeconds": 0.0,
+            "status": "NO_SOURCE_VARIANCE"
+          },
+          {
+            "sourceStartSeconds": 0.2,
+            "status": "NO_SOURCE_VARIANCE"
+          },
+          {
+            "sourceStartSeconds": 0.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 441.716555966612,
+            "bestNccWithinFixedSearchRadius": 0.9985664450003069,
+            "captureStartFrame": 29343,
+            "lagFrames": 10143,
+            "lagMilliseconds": 211.3125
+          },
+          {
+            "sourceStartSeconds": 0.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 2286.8959378719665,
+            "bestNccWithinFixedSearchRadius": 0.8428107692877264,
+            "captureStartFrame": 40141,
+            "lagFrames": 11341,
+            "lagMilliseconds": 236.27083333333334
+          },
+          {
+            "sourceStartSeconds": 0.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1417.6333073325302,
+            "bestNccWithinFixedSearchRadius": 0.4080158890993215,
+            "captureStartFrame": 48953,
+            "lagFrames": 10553,
+            "lagMilliseconds": 219.85416666666666
+          },
+          {
+            "sourceStartSeconds": 1.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 730.4002266189683,
+            "bestNccWithinFixedSearchRadius": 0.42006584724092133,
+            "captureStartFrame": 57640,
+            "lagFrames": 9640,
+            "lagMilliseconds": 200.83333333333334
+          },
+          {
+            "sourceStartSeconds": 1.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 635.0047946564619,
+            "bestNccWithinFixedSearchRadius": 0.5893266125012575,
+            "captureStartFrame": 69759,
+            "lagFrames": 12159,
+            "lagMilliseconds": 253.3125
+          },
+          {
+            "sourceStartSeconds": 1.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 6.021843241824141,
+            "bestNccWithinFixedSearchRadius": 0.671416832066295,
+            "captureStartFrame": 78362,
+            "lagFrames": 11162,
+            "lagMilliseconds": 232.54166666666666
+          },
+          {
+            "sourceStartSeconds": 1.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1378.295011396453,
+            "bestNccWithinFixedSearchRadius": 0.707378915516602,
+            "captureStartFrame": 89192,
+            "lagFrames": 12392,
+            "lagMilliseconds": 258.1666666666667
+          },
+          {
+            "sourceStartSeconds": 1.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 2053.603130343132,
+            "bestNccWithinFixedSearchRadius": 0.5020261636919436,
+            "captureStartFrame": 96766,
+            "lagFrames": 10366,
+            "lagMilliseconds": 215.95833333333334
+          },
+          {
+            "sourceStartSeconds": 2.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1287.5976412186226,
+            "bestNccWithinFixedSearchRadius": 0.36450146220828555,
+            "captureStartFrame": 107673,
+            "lagFrames": 11673,
+            "lagMilliseconds": 243.1875
+          },
+          {
+            "sourceStartSeconds": 2.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1052.819444404188,
+            "bestNccWithinFixedSearchRadius": 0.9995011163580435,
+            "captureStartFrame": 117441,
+            "lagFrames": 11841,
+            "lagMilliseconds": 246.6875
+          },
+          {
+            "sourceStartSeconds": 2.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1144.6336694283834,
+            "bestNccWithinFixedSearchRadius": 0.5463896905567828,
+            "captureStartFrame": 128167,
+            "lagFrames": 12967,
+            "lagMilliseconds": 270.1458333333333
+          },
+          {
+            "sourceStartSeconds": 2.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 656.4518966335609,
+            "bestNccWithinFixedSearchRadius": 0.9989136895655044,
+            "captureStartFrame": 136865,
+            "lagFrames": 12065,
+            "lagMilliseconds": 251.35416666666666
+          },
+          {
+            "sourceStartSeconds": 2.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 507.2313413635138,
+            "bestNccWithinFixedSearchRadius": 0.998724922544656,
+            "captureStartFrame": 146465,
+            "lagFrames": 12065,
+            "lagMilliseconds": 251.35416666666666
+          },
+          {
+            "sourceStartSeconds": 3.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 519.8262555615239,
+            "bestNccWithinFixedSearchRadius": 0.9989147290410733,
+            "captureStartFrame": 156065,
+            "lagFrames": 12065,
+            "lagMilliseconds": 251.35416666666666
+          },
+          {
+            "sourceStartSeconds": 3.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 149.63436762400534,
+            "bestNccWithinFixedSearchRadius": 0.998313365925221,
+            "captureStartFrame": 165665,
+            "lagFrames": 12065,
+            "lagMilliseconds": 251.35416666666666
+          },
+          {
+            "sourceStartSeconds": 3.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 7.422577950901807,
+            "bestNccWithinFixedSearchRadius": 0.5867073276832221,
+            "captureStartFrame": 175310,
+            "lagFrames": 12110,
+            "lagMilliseconds": 252.29166666666666
+          },
+          {
+            "sourceStartSeconds": 3.6,
+            "status": "NO_SOURCE_VARIANCE"
+          },
+          {
+            "sourceStartSeconds": 3.8,
+            "status": "NO_SOURCE_VARIANCE"
+          }
+        ],
+        "remainingPartialSourceTailFrames": 1414,
+        "limits": "Offsets are measured separately without retiming or changing capture/source. Low-energy or repetitive blocks may have ambiguous maxima. This is a diagnostic, not a replacement acceptance score."
+      }
+    },
+    {
+      "character": "mountain",
+      "source": {
+        "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/mountain-common.wav",
+        "sha256": "a1a57a7cc5f6b821dc1a9c5a1e2d7e53488286de5b16dcc9c2cab2f56dc1c328",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "frames": 144172,
+        "pcmDurationSeconds": 3.2692063492063492,
+        "sampleWidthBytes": 2,
+        "peak": 7845.0,
+        "rms": 1460.7400505627593,
+        "monoDownmixPeak": 7845.0,
+        "monoDownmixRms": 1460.7400505627593
+      },
+      "capture": {
+        "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/mountain-common.wav",
+        "sha256": "f952f96981c1b60bd1ae04866956b0eedb965923f5cf4884f0da31ff38e1b4cf",
+        "sampleRateHz": 48000,
+        "channels": 2,
+        "frames": 326885,
+        "pcmDurationSeconds": 6.810104166666667,
+        "sampleWidthBytes": 2,
+        "peak": 437.0,
+        "rms": 56.30498877828491,
+        "monoDownmixPeak": 437.0,
+        "monoDownmixRms": 56.30479994604158
+      },
+      "packetCount": 902,
+      "packetFramesSum": 326885,
+      "packetTimestampDeltaSecondsQuantiles": {
+        "min": 0.009992,
+        "p25": 0.010594,
+        "median": 0.010992,
+        "p75": 0.011449,
+        "p99": 0.012692,
+        "max": 0.022022
+      },
+      "packetFrameCountQuantiles": {
+        "min": 44.0,
+        "p25": 45.0,
+        "median": 512.0,
+        "p75": 512.0,
+        "p99": 1024.0,
+        "max": 1025.0
+      },
+      "leftRightCorrelation": 0.9999865870816494,
+      "maxLeftRightSampleDifference": 5.0,
+      "activityDiagnostic": {
+        "thresholdPeakExclusive": 8,
+        "thresholdPurpose": "Exploration only,4x previously observed baseline peak2; not speech acceptance",
+        "packetCountAboveThreshold": 189,
+        "pcmFrameSumAboveThreshold": 101238,
+        "firstToLastActivePacketTimestampSpanSeconds": 2.159345
+      },
+      "localAlignmentDiagnostic": {
+        "windowMilliseconds": 200,
+        "fixedSearchRadiusMilliseconds": 50,
+        "searchCenterFrom": "full-source RMS envelope alignment",
+        "allConsecutiveFullBlocks": [
+          {
+            "sourceStartSeconds": 0.0,
+            "status": "NO_SOURCE_VARIANCE"
+          },
+          {
+            "sourceStartSeconds": 0.2,
+            "status": "NO_SOURCE_VARIANCE"
+          },
+          {
+            "sourceStartSeconds": 0.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 506.8073249483073,
+            "bestNccWithinFixedSearchRadius": 0.624739421546658,
+            "captureStartFrame": 30684,
+            "lagFrames": 11484,
+            "lagMilliseconds": 239.25
+          },
+          {
+            "sourceStartSeconds": 0.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1351.5935215346387,
+            "bestNccWithinFixedSearchRadius": 0.3277178612745901,
+            "captureStartFrame": 41274,
+            "lagFrames": 12474,
+            "lagMilliseconds": 259.875
+          },
+          {
+            "sourceStartSeconds": 0.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 2112.6922976798587,
+            "bestNccWithinFixedSearchRadius": 0.576967123965017,
+            "captureStartFrame": 50945,
+            "lagFrames": 12545,
+            "lagMilliseconds": 261.3541666666667
+          },
+          {
+            "sourceStartSeconds": 1.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1999.805468066226,
+            "bestNccWithinFixedSearchRadius": 0.3523670579654761,
+            "captureStartFrame": 59175,
+            "lagFrames": 11175,
+            "lagMilliseconds": 232.8125
+          },
+          {
+            "sourceStartSeconds": 1.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 2105.906011709284,
+            "bestNccWithinFixedSearchRadius": 0.39643849031918066,
+            "captureStartFrame": 70917,
+            "lagFrames": 13317,
+            "lagMilliseconds": 277.4375
+          },
+          {
+            "sourceStartSeconds": 1.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 2777.8785634307433,
+            "bestNccWithinFixedSearchRadius": 0.36726543414959234,
+            "captureStartFrame": 79893,
+            "lagFrames": 12693,
+            "lagMilliseconds": 264.4375
+          },
+          {
+            "sourceStartSeconds": 1.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1573.8526831804056,
+            "bestNccWithinFixedSearchRadius": 0.5406307580178433,
+            "captureStartFrame": 88480,
+            "lagFrames": 11680,
+            "lagMilliseconds": 243.33333333333334
+          },
+          {
+            "sourceStartSeconds": 1.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1232.9144966961883,
+            "bestNccWithinFixedSearchRadius": 0.6135230186051454,
+            "captureStartFrame": 99981,
+            "lagFrames": 13581,
+            "lagMilliseconds": 282.9375
+          },
+          {
+            "sourceStartSeconds": 2.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1547.072711195441,
+            "bestNccWithinFixedSearchRadius": 0.49969076987111993,
+            "captureStartFrame": 109315,
+            "lagFrames": 13315,
+            "lagMilliseconds": 277.3958333333333
+          },
+          {
+            "sourceStartSeconds": 2.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1536.3458281993994,
+            "bestNccWithinFixedSearchRadius": 0.9439179621649003,
+            "captureStartFrame": 118652,
+            "lagFrames": 13052,
+            "lagMilliseconds": 271.9166666666667
+          },
+          {
+            "sourceStartSeconds": 2.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1680.5574469559717,
+            "bestNccWithinFixedSearchRadius": 0.5129099114677892,
+            "captureStartFrame": 126906,
+            "lagFrames": 11706,
+            "lagMilliseconds": 243.875
+          },
+          {
+            "sourceStartSeconds": 2.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 692.8562416752933,
+            "bestNccWithinFixedSearchRadius": 0.9997860080973994,
+            "captureStartFrame": 138165,
+            "lagFrames": 13365,
+            "lagMilliseconds": 278.4375
+          },
+          {
+            "sourceStartSeconds": 2.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1.7981631697338147,
+            "bestNccWithinFixedSearchRadius": 0.47844867832350985,
+            "captureStartFrame": 146643,
+            "lagFrames": 12243,
+            "lagMilliseconds": 255.0625
+          },
+          {
+            "sourceStartSeconds": 3.0,
+            "status": "NO_SOURCE_VARIANCE"
+          }
+        ],
+        "remainingPartialSourceTailFrames": 3322,
+        "limits": "Offsets are measured separately without retiming or changing capture/source. Low-energy or repetitive blocks may have ambiguous maxima. This is a diagnostic, not a replacement acceptance score."
+      }
+    },
+    {
+      "character": "city",
+      "source": {
+        "path": "/Users/pig30nidae/NUNTI/prototypes/journey_voice/samples-v2/city-common.wav",
+        "sha256": "16c1a44fa6318fb5e47857643ceb8ea9ae53976f7f603707952195179ecd35d8",
+        "sampleRateHz": 44100,
+        "channels": 1,
+        "frames": 163267,
+        "pcmDurationSeconds": 3.702199546485261,
+        "sampleWidthBytes": 2,
+        "peak": 5765.0,
+        "rms": 953.1816267289564,
+        "monoDownmixPeak": 5765.0,
+        "monoDownmixRms": 953.1816267289564
+      },
+      "capture": {
+        "path": "/Users/pig30nidae/NUNTI/docs/design/journey-characters/tts-evidence/runtime-v2/city-common.wav",
+        "sha256": "33ae2e5b9e29cf1696fc3d0a7094a1af81acd07800394b788469dd1c53950f9a",
+        "sampleRateHz": 48000,
+        "channels": 2,
+        "frames": 345583,
+        "pcmDurationSeconds": 7.199645833333333,
+        "sampleWidthBytes": 2,
+        "peak": 323.0,
+        "rms": 37.88187025581897,
+        "monoDownmixPeak": 323.0,
+        "monoDownmixRms": 37.881636273910814
+      },
+      "packetCount": 901,
+      "packetFramesSum": 345583,
+      "packetTimestampDeltaSecondsQuantiles": {
+        "min": 0.010008,
+        "p25": 0.01065575,
+        "median": 0.0110175,
+        "p75": 0.01140625,
+        "p99": 0.01269915,
+        "max": 0.022004
+      },
+      "packetFrameCountQuantiles": {
+        "min": 44.0,
+        "p25": 45.0,
+        "median": 512.0,
+        "p75": 512.0,
+        "p99": 1024.0,
+        "max": 1025.0
+      },
+      "leftRightCorrelation": 0.999975296792944,
+      "maxLeftRightSampleDifference": 5.0,
+      "activityDiagnostic": {
+        "thresholdPeakExclusive": 8,
+        "thresholdPurpose": "Exploration only,4x previously observed baseline peak2; not speech acceptance",
+        "packetCountAboveThreshold": 214,
+        "pcmFrameSumAboveThreshold": 113663,
+        "firstToLastActivePacketTimestampSpanSeconds": 2.603333
+      },
+      "localAlignmentDiagnostic": {
+        "windowMilliseconds": 200,
+        "fixedSearchRadiusMilliseconds": 50,
+        "searchCenterFrom": "full-source RMS envelope alignment",
+        "allConsecutiveFullBlocks": [
+          {
+            "sourceStartSeconds": 0.0,
+            "status": "NO_SOURCE_VARIANCE"
+          },
+          {
+            "sourceStartSeconds": 0.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 5.138787686607671,
+            "bestNccWithinFixedSearchRadius": 0.0031962883271673035,
+            "captureStartFrame": 21173,
+            "lagFrames": 11573,
+            "lagMilliseconds": 241.10416666666666
+          },
+          {
+            "sourceStartSeconds": 0.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 873.1476067718066,
+            "bestNccWithinFixedSearchRadius": 0.5493794697595412,
+            "captureStartFrame": 32967,
+            "lagFrames": 13767,
+            "lagMilliseconds": 286.8125
+          },
+          {
+            "sourceStartSeconds": 0.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 833.185347098085,
+            "bestNccWithinFixedSearchRadius": 0.4210144326912821,
+            "captureStartFrame": 39746,
+            "lagFrames": 10946,
+            "lagMilliseconds": 228.04166666666666
+          },
+          {
+            "sourceStartSeconds": 0.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 795.6974664049947,
+            "bestNccWithinFixedSearchRadius": 0.47988449830470936,
+            "captureStartFrame": 50930,
+            "lagFrames": 12530,
+            "lagMilliseconds": 261.0416666666667
+          },
+          {
+            "sourceStartSeconds": 1.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1147.7330332478239,
+            "bestNccWithinFixedSearchRadius": 0.6310666808128457,
+            "captureStartFrame": 59327,
+            "lagFrames": 11327,
+            "lagMilliseconds": 235.97916666666666
+          },
+          {
+            "sourceStartSeconds": 1.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 242.97017443426026,
+            "bestNccWithinFixedSearchRadius": 0.9868807981968366,
+            "captureStartFrame": 70155,
+            "lagFrames": 12555,
+            "lagMilliseconds": 261.5625
+          },
+          {
+            "sourceStartSeconds": 1.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1887.4017731678414,
+            "bestNccWithinFixedSearchRadius": 0.6098565296817212,
+            "captureStartFrame": 81125,
+            "lagFrames": 13925,
+            "lagMilliseconds": 290.1041666666667
+          },
+          {
+            "sourceStartSeconds": 1.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1103.7094374529488,
+            "bestNccWithinFixedSearchRadius": 0.5246842521974928,
+            "captureStartFrame": 89208,
+            "lagFrames": 12408,
+            "lagMilliseconds": 258.5
+          },
+          {
+            "sourceStartSeconds": 1.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1444.0482574253624,
+            "bestNccWithinFixedSearchRadius": 0.979831009356591,
+            "captureStartFrame": 99591,
+            "lagFrames": 13191,
+            "lagMilliseconds": 274.8125
+          },
+          {
+            "sourceStartSeconds": 2.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1152.3318081075188,
+            "bestNccWithinFixedSearchRadius": 0.6008842885745217,
+            "captureStartFrame": 108404,
+            "lagFrames": 12404,
+            "lagMilliseconds": 258.4166666666667
+          },
+          {
+            "sourceStartSeconds": 2.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 612.9316799291299,
+            "bestNccWithinFixedSearchRadius": 0.8823879326489573,
+            "captureStartFrame": 118906,
+            "lagFrames": 13306,
+            "lagMilliseconds": 277.2083333333333
+          },
+          {
+            "sourceStartSeconds": 2.4,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1200.172285827698,
+            "bestNccWithinFixedSearchRadius": 0.998503713046786,
+            "captureStartFrame": 128569,
+            "lagFrames": 13369,
+            "lagMilliseconds": 278.5208333333333
+          },
+          {
+            "sourceStartSeconds": 2.6,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1258.0402293311188,
+            "bestNccWithinFixedSearchRadius": 0.8827612244362991,
+            "captureStartFrame": 138170,
+            "lagFrames": 13370,
+            "lagMilliseconds": 278.5416666666667
+          },
+          {
+            "sourceStartSeconds": 2.8,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 1224.828853985867,
+            "bestNccWithinFixedSearchRadius": 0.9002638707070015,
+            "captureStartFrame": 147278,
+            "lagFrames": 12878,
+            "lagMilliseconds": 268.2916666666667
+          },
+          {
+            "sourceStartSeconds": 3.0,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 433.93910857458064,
+            "bestNccWithinFixedSearchRadius": 0.9997829931953822,
+            "captureStartFrame": 157481,
+            "lagFrames": 13481,
+            "lagMilliseconds": 280.8541666666667
+          },
+          {
+            "sourceStartSeconds": 3.2,
+            "sourceDurationSeconds": 0.2,
+            "sourceCenteredRms": 4.605913929212206,
+            "bestNccWithinFixedSearchRadius": 0.16034782007230902,
+            "captureStartFrame": 164261,
+            "lagFrames": 10661,
+            "lagMilliseconds": 222.10416666666666
+          },
+          {
+            "sourceStartSeconds": 3.4,
+            "status": "NO_SOURCE_VARIANCE"
+          }
+        ],
+        "remainingPartialSourceTailFrames": 4906,
+        "limits": "Offsets are measured separately without retiming or changing capture/source. Low-energy or repetitive blocks may have ambiguous maxima. This is a diagnostic, not a replacement acceptance score."
+      }
+    }
+  ],
+  "rootCauseStatus": "Observed alignment variation; exact producer/transport/player cause not established"
+}

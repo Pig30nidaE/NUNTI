@@ -1,0 +1,3 @@
+PASS: 8 body families, 16 distinct closed silhouettes, 400 bounded layouts and enclosed face ellipses
+PASS: malformed recipe rejection, copied palette, stable seed channels, actual proportion geometry
+Scope: CPU recipe/geometry only; Compose appearance, semantics and Android runtime require app QA

@@ -1,0 +1,8 @@
+{
+  "sameDecodedLength": true,
+  "sameDecodedPcm": false,
+  "maxAbsolutePcmDifference": 1.1724707186222076,
+  "decodedPcmCorrelation": 0.03327798615949598,
+  "annaDecodedSha256": "29c2cd44c0946c89f96b419fc2ac534442ba8ad349dc0dc160407d2ea079d686",
+  "stellaDecodedSha256": "48fa7ec825d927d48b53a3c090df96845854fe10be4e8bf762da910afe28a36c"
+}

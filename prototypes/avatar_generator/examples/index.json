@@ -1,0 +1,352 @@
+[
+  {
+    "id": "synthetic-city",
+    "title": "합성 내비 시험 · 도심의 굽은 경로",
+    "destination": {
+      "name": "작은 미술관",
+      "traits": "도심에서 조용히 그림을 보는 곳"
+    },
+    "purpose": "주말 전시를 보며 쉬기",
+    "imageFile": "synthetic-city.png",
+    "route": {
+      "points": [
+        [
+          0.2895833,
+          0.765625
+        ],
+        [
+          0.2895833,
+          0.65625
+        ],
+        [
+          0.3729167,
+          0.65625
+        ],
+        [
+          0.3729167,
+          0.515625
+        ],
+        [
+          0.5072917,
+          0.515625
+        ],
+        [
+          0.5072917,
+          0.3734375
+        ],
+        [
+          0.646875,
+          0.3734375
+        ],
+        [
+          0.7260417,
+          0.2671875
+        ],
+        [
+          0.8708333,
+          0.2671875
+        ]
+      ],
+      "inputOrigin": "TEST_ROUTE",
+      "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+      "confirmed": true
+    },
+    "provenance": {
+      "kind": "SYNTHETIC_NAVIGATION_SCREENSHOT",
+      "generator": "build_examples.py",
+      "license": "project-authored synthetic test fixture",
+      "realMapData": false,
+      "liveNavigation": false,
+      "imageSha256": "e46c0d684ee8ce0c59e753aebe6d6e97ec1c8a05967493595f950d2f87dc3f4e"
+    },
+    "groundTruth": {
+      "coordinateSpace": "WHOLE_IMAGE_NORMALIZED_XY",
+      "imageWidth": 960,
+      "imageHeight": 640,
+      "routeColor": "#2478ec",
+      "pixelPoints": [
+        [
+          278,
+          490
+        ],
+        [
+          278,
+          420
+        ],
+        [
+          358,
+          420
+        ],
+        [
+          358,
+          330
+        ],
+        [
+          487,
+          330
+        ],
+        [
+          487,
+          239
+        ],
+        [
+          621,
+          239
+        ],
+        [
+          697,
+          171
+        ],
+        [
+          836,
+          171
+        ]
+      ],
+      "confirmation": "paired with the exact path used by the deterministic screenshot generator"
+    }
+  },
+  {
+    "id": "synthetic-coast",
+    "title": "합성 내비 시험 · 해안처럼 휘는 경로",
+    "destination": {
+      "name": "물빛 전망대",
+      "traits": "바다 풍경을 떠올리게 하는 가상의 전망대"
+    },
+    "purpose": "경치를 보며 기분 전환하기",
+    "imageFile": "synthetic-coast.png",
+    "route": {
+      "points": [
+        [
+          0.2854167,
+          0.784375
+        ],
+        [
+          0.3385417,
+          0.7109375
+        ],
+        [
+          0.4052083,
+          0.6890625
+        ],
+        [
+          0.4614583,
+          0.6234375
+        ],
+        [
+          0.4822917,
+          0.5296875
+        ],
+        [
+          0.5354167,
+          0.4625
+        ],
+        [
+          0.6145833,
+          0.4375
+        ],
+        [
+          0.6885417,
+          0.36875
+        ],
+        [
+          0.7729167,
+          0.353125
+        ],
+        [
+          0.8572917,
+          0.26875
+        ]
+      ],
+      "inputOrigin": "TEST_ROUTE",
+      "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+      "confirmed": true
+    },
+    "provenance": {
+      "kind": "SYNTHETIC_NAVIGATION_SCREENSHOT",
+      "generator": "build_examples.py",
+      "license": "project-authored synthetic test fixture",
+      "realMapData": false,
+      "liveNavigation": false,
+      "imageSha256": "c05e79f71cc0200e18200441f08dc04b5cb2aa14adeb74a39d2efc6e34e76fab"
+    },
+    "groundTruth": {
+      "coordinateSpace": "WHOLE_IMAGE_NORMALIZED_XY",
+      "imageWidth": 960,
+      "imageHeight": 640,
+      "routeColor": "#2478ec",
+      "pixelPoints": [
+        [
+          274,
+          502
+        ],
+        [
+          325,
+          455
+        ],
+        [
+          389,
+          441
+        ],
+        [
+          443,
+          399
+        ],
+        [
+          463,
+          339
+        ],
+        [
+          514,
+          296
+        ],
+        [
+          590,
+          280
+        ],
+        [
+          661,
+          236
+        ],
+        [
+          742,
+          226
+        ],
+        [
+          823,
+          172
+        ]
+      ],
+      "confirmation": "paired with the exact path used by the deterministic screenshot generator"
+    }
+  },
+  {
+    "id": "synthetic-hills",
+    "title": "합성 내비 시험 · 구릉처럼 굽이치는 경로",
+    "destination": {
+      "name": "숲속 찻집",
+      "traits": "숲에서 따뜻한 차를 즐기는 가상의 장소"
+    },
+    "purpose": "잠시 쉬며 차 마시기",
+    "imageFile": "synthetic-hills.png",
+    "route": {
+      "points": [
+        [
+          0.278125,
+          0.771875
+        ],
+        [
+          0.365625,
+          0.734375
+        ],
+        [
+          0.425,
+          0.6421875
+        ],
+        [
+          0.396875,
+          0.5625
+        ],
+        [
+          0.4385417,
+          0.4703125
+        ],
+        [
+          0.5260417,
+          0.46875
+        ],
+        [
+          0.5760417,
+          0.5359375
+        ],
+        [
+          0.6489583,
+          0.5
+        ],
+        [
+          0.6989583,
+          0.396875
+        ],
+        [
+          0.6760417,
+          0.3203125
+        ],
+        [
+          0.759375,
+          0.2453125
+        ],
+        [
+          0.86875,
+          0.2828125
+        ]
+      ],
+      "inputOrigin": "TEST_ROUTE",
+      "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+      "confirmed": true
+    },
+    "provenance": {
+      "kind": "SYNTHETIC_NAVIGATION_SCREENSHOT",
+      "generator": "build_examples.py",
+      "license": "project-authored synthetic test fixture",
+      "realMapData": false,
+      "liveNavigation": false,
+      "imageSha256": "114f0697daf0bcacac32bdb98df739771ea84158c28a49117f0a44c9969fc622"
+    },
+    "groundTruth": {
+      "coordinateSpace": "WHOLE_IMAGE_NORMALIZED_XY",
+      "imageWidth": 960,
+      "imageHeight": 640,
+      "routeColor": "#2478ec",
+      "pixelPoints": [
+        [
+          267,
+          494
+        ],
+        [
+          351,
+          470
+        ],
+        [
+          408,
+          411
+        ],
+        [
+          381,
+          360
+        ],
+        [
+          421,
+          301
+        ],
+        [
+          505,
+          300
+        ],
+        [
+          553,
+          343
+        ],
+        [
+          623,
+          320
+        ],
+        [
+          671,
+          254
+        ],
+        [
+          649,
+          205
+        ],
+        [
+          729,
+          157
+        ],
+        [
+          834,
+          181
+        ]
+      ],
+      "confirmation": "paired with the exact path used by the deterministic screenshot generator"
+    }
+  }
+]

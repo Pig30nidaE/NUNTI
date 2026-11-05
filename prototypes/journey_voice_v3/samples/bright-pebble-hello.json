@@ -1,0 +1,38 @@
+{
+  "clipId": "bright-pebble-hello",
+  "createdAt": "2026-11-02T11:58:46.720692+00:00",
+  "label": "반짝 조약돌",
+  "text": "안녕하세요. 오늘의 여행도 함께할게요.",
+  "textSha256": "a5bd60dea6328f380cac08a457d467bdb5324fa6da9cc2d8035e39978609e8f2",
+  "instruct": "A native Korean adult woman with a light, rounded, clear voice, as a tiny curious keepsake creature in an animated film. Friendly and quietly delighted, a subtle smile with a playful sparkle. Clear native Korean vowels and consonants, naturally connected conversational phrasing. Moderate normal speaking pace and ordinary conversational volume. Expressive but restrained. No forced high pitch, no baby voice, no exaggerated aegyo, no whisper, no announcer cadence, no robotic rhythm.",
+  "modelId": "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-8bit",
+  "revision": "f90d617701d9f7f4ca499291e0b57f2b3c2fd2ee",
+  "language": "Korean",
+  "generation": {
+    "seed": 20261102,
+    "temperature": 0.7,
+    "topP": 0.95,
+    "topK": 50,
+    "repetitionPenalty": 1.05,
+    "maxTokens": 375
+  },
+  "postprocessing": "none; raw model waveform is only encoded as PCM16 WAV",
+  "audioPath": "bright-pebble-hello.wav",
+  "audioSha256": "754616988d5687fcf7f8fe7264b37db092650ba30b926b08eb005e23dd7a7d26",
+  "sampleRateHz": 24000,
+  "channels": 1,
+  "frames": 94080,
+  "durationSeconds": 3.92,
+  "generationSeconds": 2.505204541999774,
+  "rawFloatPeak": 0.5274147391319275,
+  "peakMemoryBytes": 5652473517,
+  "packages": {
+    "mlx-audio": "0.6.3",
+    "mlx": "0.32.4",
+    "transformers": "5.22.1",
+    "numpy": "2.5.4",
+    "soundfile": "0.14.0"
+  },
+  "humanListeningVerified": false,
+  "voiceIdentityAcrossTextsVerified": false
+}

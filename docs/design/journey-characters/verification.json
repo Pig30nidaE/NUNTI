@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-02",
+  "basisHead": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+  "python": "3.9.6",
+  "scope": "Standalone recipe CLI and design artifacts. No new APK, live model pipeline, animation, actual voice, user attractiveness or driving effect validation.",
+  "selectedArtDirection": "C translucent keepsake",
+  "recipeTests": {
+    "command": "python3 prototypes/journey_characters/verify.py",
+    "passed": 17,
+    "failed": 0,
+    "log": "pm-recipe-verification.txt"
+  },
+  "sampleRegeneration": {
+    "command": "python3 prototypes/journey_characters/render_samples.py --output /private/tmp/nunti-journey-samples-pm-c.json",
+    "count": 4,
+    "structuralEqualityWithSavedOutput": true
+  },
+  "documentLinks": {
+    "checked": 82,
+    "ok": true
+  },
+  "jsonParsing": "passed",
+  "roleReportCopies": "3 byte-identical with worktree sources",
+  "existingProductSourceDiff": "empty in root and all three role worktrees",
+  "handoffPreservationCheck": {
+    "command": "python3 scripts/verify_handoff.py --output /private/tmp/nunti-journey-handoff-verification.json",
+    "passed": 268,
+    "failed": 0,
+    "scope": "Checks handoff files and preserved evidence only. No new application tests, vehicle playback, human listening, or driving transition verification is performed."
+  },
+  "unimplemented": [
+    "runtime image generation",
+    "layered rig assets and Android renderer",
+    "character-specific actual TTS",
+    "app collection and generation jobs"
+  ],
+  "unverified": [
+    "small-screen material readability",
+    "motion and performance",
+    "Korean voice quality and audible latency",
+    "cuteness and collectibility evaluation",
+    "driving habit improvement"
+  ],
+  "historicalRestorationManifests": "Preserved unchanged. Their handoff-document hashes describe the earlier restoration snapshot, not these later product-direction edits.",
+  "promptRegeneration": {
+    "command": "python3 prototypes/journey_characters/build_illustration_prompt.py --input prototypes/journey_characters/sample-output.json --recipe-index 0 --output /private/tmp/nunti-illustration-prompt-pm.txt",
+    "byteEqualityWithSavedPrompt": true
+  },
+  "manualRecipeToImage": {
+    "generated": 1,
+    "provenance": "recipe-image-provenance.json",
+    "alphaExtrema": [
+      0,
+      255
+    ],
+    "automatedAppIntegration": false
+  },
+  "whitespaceCheck": "git diff --check passed"
+}

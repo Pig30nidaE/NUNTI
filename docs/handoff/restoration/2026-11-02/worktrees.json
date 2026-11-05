@@ -1,0 +1,36 @@
+{
+  "base": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+  "remoteShaConfirmedByCaller": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+  "worktrees": [
+    {
+      "role": "tts",
+      "path": "/Users/pig30nidae/NUNTI/.worktrees/tts",
+      "branch": "codex/tts-next",
+      "exists": true,
+      "head": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+      "gitDir": "/Users/pig30nidae/NUNTI/.git/worktrees/tts",
+      "index": "/Users/pig30nidae/NUNTI/.git/worktrees/tts/index",
+      "status": "?? .local/\n?? docs/handoff/restoration/"
+    },
+    {
+      "role": "avatar",
+      "path": "/Users/pig30nidae/NUNTI/.worktrees/avatar",
+      "branch": "codex/avatar-next",
+      "exists": true,
+      "head": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+      "gitDir": "/Users/pig30nidae/NUNTI/.git/worktrees/avatar",
+      "index": "/Users/pig30nidae/NUNTI/.git/worktrees/avatar/index",
+      "status": "?? .local/\n?? docs/handoff/restoration/"
+    },
+    {
+      "role": "server",
+      "path": "/Users/pig30nidae/NUNTI/.worktrees/server",
+      "branch": "codex/server-next",
+      "exists": true,
+      "head": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+      "gitDir": "/Users/pig30nidae/NUNTI/.git/worktrees/server",
+      "index": "/Users/pig30nidae/NUNTI/.git/worktrees/server/index",
+      "status": "?? .local/\n?? docs/handoff/restoration/"
+    }
+  ]
+}

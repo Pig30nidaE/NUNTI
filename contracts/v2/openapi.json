@@ -1,0 +1,2345 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Nunti Character Generation API",
+    "description": "Mock-supported asynchronous storage. No scoring, emotion calculation or TTS playback.",
+    "version": "2.0-draft"
+  },
+  "paths": {
+    "/v2/generation-capabilities": {
+      "get": {
+        "tags": [
+          "character-generation-v2"
+        ],
+        "summary": "Capabilities",
+        "operationId": "capabilities_v2_generation_capabilities_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v2/character-generations": {
+      "post": {
+        "tags": [
+          "character-generation-v2"
+        ],
+        "summary": "Create Character",
+        "operationId": "create_character_v2_character_generations_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GenerationInput"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request Entity Too Large",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "415": {
+            "description": "Unsupported Media Type",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ]
+      }
+    },
+    "/v2/jobs/{request_id}": {
+      "get": {
+        "tags": [
+          "character-generation-v2"
+        ],
+        "summary": "Get Job",
+        "operationId": "get_job_v2_jobs__request_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "request_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Request Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v2/characters/{character_id}": {
+      "get": {
+        "tags": [
+          "character-generation-v2"
+        ],
+        "summary": "Get Character",
+        "operationId": "get_character_v2_characters__character_id__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "character_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Character Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v2/characters/{character_id}/speech": {
+      "post": {
+        "tags": [
+          "character-generation-v2"
+        ],
+        "summary": "Create Speech",
+        "operationId": "create_speech_v2_characters__character_id__speech_post",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "character_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Character Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpeechInput"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    },
+    "/v2/assets/{digest}": {
+      "get": {
+        "tags": [
+          "character-generation-v2"
+        ],
+        "summary": "Get Asset",
+        "operationId": "get_asset_v2_assets__digest__get",
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "digest",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Digest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "401": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unauthorized"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Forbidden"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "409": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Conflict"
+          },
+          "413": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Request Entity Too Large"
+          },
+          "415": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unsupported Media Type"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Unprocessable Entity"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorEnvelope"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AvatarSpec": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "avatarId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Avatarid"
+          },
+          "baseCharacterId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Basecharacterid"
+          },
+          "routeId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Routeid"
+          },
+          "routeRevision": {
+            "type": "integer",
+            "maximum": 2147483647.0,
+            "minimum": 1.0,
+            "title": "Routerevision"
+          },
+          "generationSeed": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Generationseed"
+          },
+          "ruleVersion": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Ruleversion"
+          },
+          "assetVersion": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Assetversion"
+          },
+          "paletteId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Paletteid"
+          },
+          "outfitId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Outfitid"
+          },
+          "accessoryIds": {
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Accessoryids"
+          },
+          "themeId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Themeid"
+          },
+          "voiceProfileId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Voiceprofileid"
+          },
+          "generationExplanation": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Generationexplanation"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "avatarId",
+          "baseCharacterId",
+          "routeId",
+          "routeRevision",
+          "generationSeed",
+          "ruleVersion",
+          "assetVersion",
+          "paletteId",
+          "outfitId",
+          "accessoryIds",
+          "themeId",
+          "voiceProfileId",
+          "generationExplanation"
+        ],
+        "title": "AvatarSpec",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "avatarId": "avatar-mock",
+            "baseCharacterId": "nunti",
+            "routeId": "route-mock",
+            "routeRevision": 1,
+            "generationSeed": "mock-seed-001",
+            "ruleVersion": "mock-1",
+            "assetVersion": "mock-1",
+            "paletteId": "mint",
+            "outfitId": "city",
+            "accessoryIds": [],
+            "themeId": "urban",
+            "voiceProfileId": "voice-mock",
+            "generationExplanation": "고정 Mock 아바타. 생성 알고리즘 결과 아님."
+          }
+        ]
+      },
+      "Capabilities": {
+        "properties": {
+          "apiVersion": {
+            "type": "string",
+            "const": "v1",
+            "title": "Apiversion",
+            "default": "v1"
+          },
+          "schemaVersions": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Schemaversions",
+            "default": [
+              "1.0"
+            ]
+          },
+          "contractStatus": {
+            "type": "string",
+            "const": "DRAFT",
+            "title": "Contractstatus",
+            "default": "DRAFT"
+          },
+          "syncEnabled": {
+            "type": "boolean",
+            "title": "Syncenabled"
+          },
+          "mockEnabled": {
+            "type": "boolean",
+            "title": "Mockenabled"
+          },
+          "maxBatchSize": {
+            "type": "integer",
+            "title": "Maxbatchsize",
+            "default": 100
+          },
+          "retentionDays": {
+            "type": "integer",
+            "title": "Retentiondays"
+          },
+          "localRealtimeRequired": {
+            "type": "boolean",
+            "title": "Localrealtimerequired",
+            "default": true
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "syncEnabled",
+          "mockEnabled",
+          "retentionDays"
+        ],
+        "title": "Capabilities"
+      },
+      "DataCoverage": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "SUFFICIENT",
+              "PARTIAL",
+              "INSUFFICIENT",
+              "UNAVAILABLE"
+            ],
+            "title": "Status"
+          },
+          "evaluatedSeconds": {
+            "type": "number",
+            "maximum": 31536000.0,
+            "minimum": 0.0,
+            "title": "Evaluatedseconds"
+          },
+          "totalSeconds": {
+            "type": "number",
+            "maximum": 31536000.0,
+            "minimum": 0.0,
+            "title": "Totalseconds"
+          },
+          "ratio": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ratio"
+          },
+          "unavailableSignals": {
+            "items": {
+              "type": "string",
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "title": "Unavailablesignals",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "status",
+          "evaluatedSeconds",
+          "totalSeconds",
+          "ratio"
+        ],
+        "title": "DataCoverage"
+      },
+      "Destination": {
+        "properties": {
+          "name": {
+            "type": "string",
+            "title": "Name"
+          },
+          "traits": {
+            "type": "string",
+            "title": "Traits"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "name",
+          "traits"
+        ],
+        "title": "Destination"
+      },
+      "DrivingEvent": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "eventId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Eventid"
+          },
+          "tripId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Tripid"
+          },
+          "eventType": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Eventtype"
+          },
+          "occurredAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Occurredat"
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "INFO",
+              "LOW",
+              "MEDIUM",
+              "HIGH",
+              "UNKNOWN"
+            ],
+            "title": "Severity"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "verificationStatus": {
+            "type": "string",
+            "enum": [
+              "VERIFIED",
+              "UNVERIFIED",
+              "UNAVAILABLE"
+            ],
+            "title": "Verificationstatus"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "correlationId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Correlationid"
+          },
+          "recoveryOfEventId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Recoveryofeventid"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "eventId",
+          "tripId",
+          "eventType",
+          "occurredAt",
+          "severity",
+          "confidence",
+          "verificationStatus",
+          "source"
+        ],
+        "title": "DrivingEvent",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "eventId": "event-brake",
+            "tripId": "trip-10-report",
+            "eventType": "HARD_BRAKING",
+            "occurredAt": "2026-11-01T03:05:00Z",
+            "severity": "MEDIUM",
+            "confidence": 0.9,
+            "verificationStatus": "VERIFIED",
+            "source": {
+              "kind": "MOCK",
+              "provider": "nunti-fixture",
+              "version": "1"
+            },
+            "correlationId": "incident-mock",
+            "recoveryOfEventId": null
+          }
+        ]
+      },
+      "EmotionBatch": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "emotions": {
+            "items": {
+              "$ref": "#/components/schemas/EmotionSnapshot"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Emotions"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "emotions"
+        ],
+        "title": "EmotionBatch",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "emotions": [
+              {
+                "schemaVersion": "1.0",
+                "emotionId": "emotion-worried",
+                "tripId": "trip-10-report",
+                "avatarId": "avatar-mock",
+                "emotion": "CONCERNED",
+                "intensity": 0.5,
+                "triggeredByEventId": "event-brake",
+                "occurredAt": "2026-11-01T03:05:01Z",
+                "confidence": 0.9
+              }
+            ]
+          }
+        ]
+      },
+      "EmotionSnapshot": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "emotionId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Emotionid"
+          },
+          "tripId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Tripid"
+          },
+          "avatarId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Avatarid"
+          },
+          "emotion": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Emotion"
+          },
+          "intensity": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Intensity"
+          },
+          "triggeredByEventId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 128,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Triggeredbyeventid"
+          },
+          "occurredAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Occurredat"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "emotionId",
+          "tripId",
+          "avatarId",
+          "emotion",
+          "intensity",
+          "triggeredByEventId",
+          "occurredAt",
+          "confidence"
+        ],
+        "title": "EmotionSnapshot",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "emotionId": "emotion-worried",
+            "tripId": "trip-10-report",
+            "avatarId": "avatar-mock",
+            "emotion": "CONCERNED",
+            "intensity": 0.5,
+            "triggeredByEventId": "event-brake",
+            "occurredAt": "2026-11-01T03:05:01Z",
+            "confidence": 0.9
+          }
+        ]
+      },
+      "Envelope_Capabilities_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Capabilities"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[Capabilities]"
+      },
+      "Envelope_Page_StoredEmotion__": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Page_StoredEmotion_"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[Page[StoredEmotion]]"
+      },
+      "Envelope_Page_StoredEvent__": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Page_StoredEvent_"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[Page[StoredEvent]]"
+      },
+      "Envelope_Receipt_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Receipt"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[Receipt]"
+      },
+      "Envelope_StoredReport_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/StoredReport"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[StoredReport]"
+      },
+      "Envelope_TripView_": {
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/TripView"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[TripView]"
+      },
+      "Envelope_dict_": {
+        "properties": {
+          "data": {
+            "additionalProperties": true,
+            "type": "object",
+            "title": "Data"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[dict]"
+      },
+      "Envelope_dict_str__str__": {
+        "properties": {
+          "data": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "type": "object",
+            "title": "Data"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[dict[str, str]]"
+      },
+      "Envelope_list_Receipt__": {
+        "properties": {
+          "data": {
+            "items": {
+              "$ref": "#/components/schemas/Receipt"
+            },
+            "type": "array",
+            "title": "Data"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "data",
+          "meta"
+        ],
+        "title": "Envelope[list[Receipt]]"
+      },
+      "Error": {
+        "properties": {
+          "code": {
+            "type": "string",
+            "title": "Code"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message"
+          },
+          "details": {
+            "items": {
+              "$ref": "#/components/schemas/ErrorDetail"
+            },
+            "type": "array",
+            "title": "Details",
+            "default": []
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "code",
+          "message"
+        ],
+        "title": "Error"
+      },
+      "ErrorDetail": {
+        "properties": {
+          "field": {
+            "type": "string",
+            "title": "Field"
+          },
+          "type": {
+            "type": "string",
+            "title": "Type"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "field",
+          "type"
+        ],
+        "title": "ErrorDetail"
+      },
+      "ErrorEnvelope": {
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/Error"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "error",
+          "meta"
+        ],
+        "title": "ErrorEnvelope"
+      },
+      "EventBatch": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "events": {
+            "items": {
+              "$ref": "#/components/schemas/DrivingEvent"
+            },
+            "type": "array",
+            "maxItems": 100,
+            "minItems": 1,
+            "title": "Events"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "events"
+        ],
+        "title": "EventBatch",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "events": [
+              {
+                "schemaVersion": "1.0",
+                "eventId": "event-brake",
+                "tripId": "trip-10-report",
+                "eventType": "HARD_BRAKING",
+                "occurredAt": "2026-11-01T03:05:00Z",
+                "severity": "MEDIUM",
+                "confidence": 0.9,
+                "verificationStatus": "VERIFIED",
+                "source": {
+                  "kind": "MOCK",
+                  "provider": "nunti-fixture",
+                  "version": "1"
+                },
+                "correlationId": "incident-mock",
+                "recoveryOfEventId": null
+              }
+            ]
+          }
+        ]
+      },
+      "Evidence": {
+        "properties": {
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "verificationStatus": {
+            "type": "string",
+            "enum": [
+              "VERIFIED",
+              "UNVERIFIED",
+              "UNAVAILABLE"
+            ],
+            "title": "Verificationstatus"
+          },
+          "confidence": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Confidence"
+          },
+          "validity": {
+            "type": "string",
+            "enum": [
+              "VALID",
+              "STALE",
+              "UNKNOWN"
+            ],
+            "title": "Validity"
+          },
+          "observedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Observedat"
+          },
+          "validUntil": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 40,
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+                "format": "date-time"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Validuntil"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "source",
+          "verificationStatus",
+          "confidence",
+          "validity",
+          "observedAt"
+        ],
+        "title": "Evidence"
+      },
+      "GenerationInput": {
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "title": "Requestid"
+          },
+          "destination": {
+            "$ref": "#/components/schemas/Destination"
+          },
+          "purpose": {
+            "type": "string",
+            "title": "Purpose"
+          },
+          "route": {
+            "$ref": "#/components/schemas/Route"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "requestId",
+          "destination",
+          "purpose",
+          "route"
+        ],
+        "title": "GenerationInput"
+      },
+      "Meta": {
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "title": "Requestid"
+          },
+          "serverTime": {
+            "type": "string",
+            "title": "Servertime"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "requestId",
+          "serverTime"
+        ],
+        "title": "Meta"
+      },
+      "Page_StoredEmotion_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/StoredEmotion"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "nextOffset": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nextoffset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "nextOffset"
+        ],
+        "title": "Page[StoredEmotion]"
+      },
+      "Page_StoredEvent_": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/StoredEvent"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "nextOffset": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Nextoffset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "nextOffset"
+        ],
+        "title": "Page[StoredEvent]"
+      },
+      "Receipt": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "stored",
+              "duplicate"
+            ],
+            "title": "Status"
+          },
+          "receivedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Receivedat"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "status",
+          "receivedAt"
+        ],
+        "title": "Receipt"
+      },
+      "RoadTypeRatios": {
+        "properties": {
+          "highway": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Highway",
+            "default": 0.0
+          },
+          "urban": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Urban",
+            "default": 0.0
+          },
+          "rural": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Rural",
+            "default": 0.0
+          },
+          "unknown": {
+            "type": "number",
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "title": "Unknown",
+            "default": 0.0
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "title": "RoadTypeRatios"
+      },
+      "Route": {
+        "properties": {
+          "points": {
+            "items": {
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "integer"
+                  }
+                ]
+              },
+              "type": "array"
+            },
+            "type": "array",
+            "maxItems": 512,
+            "minItems": 2,
+            "title": "Points"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "points"
+        ],
+        "title": "Route"
+      },
+      "RouteSnapshot": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "routeId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Routeid"
+          },
+          "routeRevision": {
+            "type": "integer",
+            "maximum": 2147483647.0,
+            "minimum": 1.0,
+            "title": "Routerevision"
+          },
+          "collectedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Collectedat"
+          },
+          "source": {
+            "$ref": "#/components/schemas/Source"
+          },
+          "routeOption": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Routeoption"
+          },
+          "distanceMeters": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100000000.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Distancemeters"
+          },
+          "estimatedDurationSeconds": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "maximum": 31536000.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Estimateddurationseconds"
+          },
+          "roadTypeRatios": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/RoadTypeRatios"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "regionTags": {
+            "items": {
+              "type": "string",
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Regiontags",
+            "default": []
+          },
+          "scenicTags": {
+            "items": {
+              "type": "string",
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+            },
+            "type": "array",
+            "maxItems": 30,
+            "title": "Scenictags",
+            "default": []
+          },
+          "featureEvidence": {
+            "patternProperties": {
+              "^[A-Za-z0-9][A-Za-z0-9_.:-]*$": {
+                "$ref": "#/components/schemas/Evidence"
+              }
+            },
+            "propertyNames": {
+              "maxLength": 64,
+              "minLength": 1
+            },
+            "type": "object",
+            "maxProperties": 64,
+            "title": "Featureevidence",
+            "default": {}
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "routeId",
+          "routeRevision",
+          "collectedAt",
+          "source"
+        ],
+        "title": "RouteSnapshot",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "routeId": "route-mock",
+            "routeRevision": 1,
+            "collectedAt": "2026-11-01T03:00:00Z",
+            "source": {
+              "kind": "MOCK",
+              "provider": "nunti-fixture",
+              "version": "1"
+            },
+            "routeOption": "RECOMMENDED",
+            "distanceMeters": 5000,
+            "estimatedDurationSeconds": 900,
+            "roadTypeRatios": {
+              "urban": 0.9,
+              "unknown": 0.1
+            },
+            "regionTags": [],
+            "scenicTags": [],
+            "featureEvidence": {
+              "roadTypeRatios": {
+                "source": {
+                  "kind": "MOCK",
+                  "provider": "nunti-fixture",
+                  "version": "1"
+                },
+                "verificationStatus": "VERIFIED",
+                "confidence": 1.0,
+                "validity": "VALID",
+                "observedAt": "2026-11-01T03:00:00Z"
+              }
+            }
+          }
+        ]
+      },
+      "Source": {
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "MOCK",
+              "ANDROID_ADAPTER",
+              "EXTERNAL_MODULE",
+              "USER_INPUT"
+            ],
+            "title": "Kind"
+          },
+          "provider": {
+            "type": "string",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Provider"
+          },
+          "version": {
+            "anyOf": [
+              {
+                "type": "string",
+                "maxLength": 64,
+                "minLength": 1,
+                "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Version"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "kind",
+          "provider"
+        ],
+        "title": "Source"
+      },
+      "SpeechInput": {
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "title": "Requestid"
+          },
+          "text": {
+            "type": "string",
+            "title": "Text"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "requestId",
+          "text"
+        ],
+        "title": "SpeechInput"
+      },
+      "StoredAvatar": {
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/AvatarSpec"
+          },
+          "receivedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Receivedat"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "value",
+          "receivedAt"
+        ],
+        "title": "StoredAvatar"
+      },
+      "StoredEmotion": {
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/EmotionSnapshot"
+          },
+          "receivedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Receivedat"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "value",
+          "receivedAt"
+        ],
+        "title": "StoredEmotion"
+      },
+      "StoredEvent": {
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/DrivingEvent"
+          },
+          "receivedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Receivedat"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "value",
+          "receivedAt"
+        ],
+        "title": "StoredEvent"
+      },
+      "StoredReport": {
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/TripReport"
+          },
+          "receivedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Receivedat"
+          },
+          "unresolvedEvidenceEventIds": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Unresolvedevidenceeventids"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "value",
+          "receivedAt",
+          "unresolvedEvidenceEventIds"
+        ],
+        "title": "StoredReport"
+      },
+      "StoredRoute": {
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/RouteSnapshot"
+          },
+          "receivedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Receivedat"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "value",
+          "receivedAt"
+        ],
+        "title": "StoredRoute"
+      },
+      "TripCreate": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "tripId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Tripid"
+          },
+          "startedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Startedat"
+          },
+          "syncConsent": {
+            "type": "boolean",
+            "const": true,
+            "title": "Syncconsent"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "tripId",
+          "startedAt",
+          "syncConsent"
+        ],
+        "title": "TripCreate",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "tripId": "trip-10-report",
+            "startedAt": "2026-11-01T03:00:00Z",
+            "syncConsent": true
+          }
+        ]
+      },
+      "TripReport": {
+        "properties": {
+          "schemaVersion": {
+            "type": "string",
+            "const": "1.0",
+            "title": "Schemaversion"
+          },
+          "tripId": {
+            "type": "string",
+            "maxLength": 128,
+            "minLength": 1,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+            "title": "Tripid"
+          },
+          "overallScore": {
+            "anyOf": [
+              {
+                "type": "number",
+                "maximum": 100.0,
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Overallscore"
+          },
+          "dataCoverage": {
+            "$ref": "#/components/schemas/DataCoverage"
+          },
+          "finalText": {
+            "type": "string",
+            "maxLength": 2000,
+            "minLength": 1,
+            "title": "Finaltext"
+          },
+          "evidenceEventIds": {
+            "items": {
+              "type": "string",
+              "maxLength": 128,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$"
+            },
+            "type": "array",
+            "maxItems": 500,
+            "title": "Evidenceeventids"
+          },
+          "generatedAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Generatedat"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schemaVersion",
+          "tripId",
+          "overallScore",
+          "dataCoverage",
+          "finalText",
+          "evidenceEventIds",
+          "generatedAt"
+        ],
+        "title": "TripReport",
+        "examples": [
+          {
+            "schemaVersion": "1.0",
+            "tripId": "trip-10-report",
+            "overallScore": null,
+            "dataCoverage": {
+              "status": "INSUFFICIENT",
+              "evaluatedSeconds": 300,
+              "totalSeconds": 900,
+              "ratio": 0.333333,
+              "unavailableSignals": [
+                "LEAD_VEHICLE_DISTANCE"
+              ]
+            },
+            "finalText": "[MOCK] 중간에 놀란 순간이 있었어요. 확인하지 못한 정보도 있어요.",
+            "evidenceEventIds": [
+              "event-brake"
+            ],
+            "generatedAt": "2026-11-01T03:15:00Z"
+          }
+        ]
+      },
+      "TripView": {
+        "properties": {
+          "trip": {
+            "$ref": "#/components/schemas/TripCreate"
+          },
+          "createdAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Createdat"
+          },
+          "expiresAt": {
+            "type": "string",
+            "maxLength": 40,
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+            "format": "date-time",
+            "title": "Expiresat"
+          },
+          "route": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StoredRoute"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "avatar": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/StoredAvatar"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "eventCount": {
+            "type": "integer",
+            "title": "Eventcount"
+          },
+          "emotionCount": {
+            "type": "integer",
+            "title": "Emotioncount"
+          },
+          "reportAvailable": {
+            "type": "boolean",
+            "title": "Reportavailable"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "trip",
+          "createdAt",
+          "expiresAt",
+          "route",
+          "avatar",
+          "eventCount",
+          "emotionCount",
+          "reportAvailable"
+        ],
+        "title": "TripView"
+      }
+    },
+    "securitySchemes": {
+      "HTTPBearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

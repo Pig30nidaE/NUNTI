@@ -1,0 +1,30 @@
+{
+  "modelId": "mlx-community/whisper-small-mlx",
+  "revision": "45f3915923c7a79a5a5b5a7d909d39aeb0e5630e",
+  "localPath": "/Users/pig30nidae/NUNTI/.local/voice-audition-asr/hf/hub/models--mlx-community--whisper-small-mlx/snapshots/45f3915923c7a79a5a5b5a7d909d39aeb0e5630e",
+  "bytes": 481309720,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 1519,
+      "sha256": "11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361"
+    },
+    {
+      "path": "README.md",
+      "bytes": 343,
+      "sha256": "47bab1dbd0bd831bd6f1b76e9d5a774041c585c63a1ec29a60cee60cbb56a084"
+    },
+    {
+      "path": "config.json",
+      "bytes": 266,
+      "sha256": "e8f58e638208af66d5d5d67801259dc7a12d199e971967a9f9d33a8e3635668e"
+    },
+    {
+      "path": "weights.npz",
+      "bytes": 481307592,
+      "sha256": "55b6674c9b339702d486e2b1573839a66f8ec8f821ed2886993ef717a86b09f5"
+    }
+  ],
+  "source": "OpenAI Whisper small, converted by MLX-community",
+  "note": "Independent ASR evidence. The conversion model card does not declare a license field; original OpenAI Whisper code/model are MIT."
+}

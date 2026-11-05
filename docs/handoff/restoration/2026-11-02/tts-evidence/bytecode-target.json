@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/Users/pig30nidae/NUNTI/.local/tts-tools/jdk/jdk-21.0.8+9/Contents/Home/bin/javap",
+    "-verbose",
+    "-classpath",
+    "android/feature/tts/build/verification/voice-compile.jar",
+    "ai.nunti.voice.AndroidVoiceSession"
+  ],
+  "cwd": "/Users/pig30nidae/NUNTI/.worktrees/tts",
+  "startedAt": "2026-11-02T18:07:09.788477+09:00",
+  "environment": {},
+  "log": "bytecode-target.log",
+  "endedAt": "2026-11-02T18:07:10.193717+09:00",
+  "exitCode": 0
+}

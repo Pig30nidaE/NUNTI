@@ -1,0 +1,205 @@
+{
+  "cropBounds": [
+    1457,
+    90,
+    2535,
+    1300
+  ],
+  "sourceModuleSha256": "0e7889e6f1ef91beb21bbb07109f4cc1cfc849926c506f6e5356b2259afb2cf6",
+  "results": [
+    {
+      "image": "full",
+      "sha256": "d46289c1945f629b0588ee8870ff38898ec71e7d7ee281e32f34eafac4e192cb",
+      "colorHint": null,
+      "source": "ACTUAL_PLEOS_NAVIGATION_UI",
+      "fullRouteVerified": false,
+      "directionVerified": false,
+      "status": "EXTRACTED_UNCONFIRMED",
+      "pointCount": 15,
+      "extraction": {
+        "points": [
+          [
+            0.7861328,
+            0.3177083
+          ],
+          [
+            0.8017578,
+            0.4184028
+          ],
+          [
+            0.8134766,
+            0.4496528
+          ],
+          [
+            0.8212891,
+            0.4635417
+          ],
+          [
+            0.8251953,
+            0.4635417
+          ],
+          [
+            0.8330078,
+            0.4565972
+          ],
+          [
+            0.8505859,
+            0.4253472
+          ],
+          [
+            0.8623047,
+            0.421875
+          ],
+          [
+            0.8935547,
+            0.5017361
+          ],
+          [
+            0.8955078,
+            0.5329861
+          ],
+          [
+            0.8916016,
+            0.546875
+          ],
+          [
+            0.8916016,
+            0.5746528
+          ],
+          [
+            0.8955078,
+            0.5920139
+          ],
+          [
+            0.9052734,
+            0.609375
+          ],
+          [
+            0.9384766,
+            0.6371528
+          ]
+        ],
+        "confidence": 0.76,
+        "warnings": [
+          "USER_CONFIRMATION_REQUIRED",
+          "SCREEN_COORDINATES_ONLY",
+          "ROUTE_DIRECTION_UNVERIFIED"
+        ],
+        "imageWidth": 2560,
+        "imageHeight": 1440,
+        "inputOrigin": "NAVIGATION_SCREENSHOT"
+      }
+    },
+    {
+      "image": "full",
+      "sha256": "d46289c1945f629b0588ee8870ff38898ec71e7d7ee281e32f34eafac4e192cb",
+      "colorHint": "blue",
+      "source": "ACTUAL_PLEOS_NAVIGATION_UI",
+      "fullRouteVerified": false,
+      "directionVerified": false,
+      "status": "EXTRACTED_UNCONFIRMED",
+      "pointCount": 15,
+      "extraction": {
+        "points": [
+          [
+            0.7861328,
+            0.3177083
+          ],
+          [
+            0.8017578,
+            0.4184028
+          ],
+          [
+            0.8134766,
+            0.4496528
+          ],
+          [
+            0.8212891,
+            0.4635417
+          ],
+          [
+            0.8251953,
+            0.4635417
+          ],
+          [
+            0.8330078,
+            0.4565972
+          ],
+          [
+            0.8505859,
+            0.4253472
+          ],
+          [
+            0.8623047,
+            0.421875
+          ],
+          [
+            0.8935547,
+            0.5017361
+          ],
+          [
+            0.8955078,
+            0.5329861
+          ],
+          [
+            0.8916016,
+            0.546875
+          ],
+          [
+            0.8916016,
+            0.5746528
+          ],
+          [
+            0.8955078,
+            0.5920139
+          ],
+          [
+            0.9052734,
+            0.609375
+          ],
+          [
+            0.9384766,
+            0.6371528
+          ]
+        ],
+        "confidence": 0.86,
+        "warnings": [
+          "USER_CONFIRMATION_REQUIRED",
+          "SCREEN_COORDINATES_ONLY",
+          "ROUTE_DIRECTION_UNVERIFIED"
+        ],
+        "imageWidth": 2560,
+        "imageHeight": 1440,
+        "inputOrigin": "NAVIGATION_SCREENSHOT"
+      }
+    },
+    {
+      "image": "map-crop",
+      "sha256": "d6a935f3212a9d7a13a14419aee1058ce8bd2d1909fec707e0313f11d665e5ec",
+      "colorHint": null,
+      "source": "ACTUAL_PLEOS_NAVIGATION_UI",
+      "fullRouteVerified": false,
+      "directionVerified": false,
+      "status": "REJECTED",
+      "error": "OTHER_ROUTE_GEOMETRY_AMBIGUOUS"
+    },
+    {
+      "image": "map-crop",
+      "sha256": "d6a935f3212a9d7a13a14419aee1058ce8bd2d1909fec707e0313f11d665e5ec",
+      "colorHint": "blue",
+      "source": "ACTUAL_PLEOS_NAVIGATION_UI",
+      "fullRouteVerified": false,
+      "directionVerified": false,
+      "status": "REJECTED",
+      "error": "OTHER_ROUTE_GEOMETRY_AMBIGUOUS"
+    }
+  ],
+  "paidApiCalls": 0,
+  "newAvatarGenerated": false,
+  "visualReview": {
+    "reviewer": "DIRECT_OVERLAY_INSPECTION",
+    "selectedRouteFullGeometryPreserved": false,
+    "observedIssue": "15-point output starts after a traffic-colored segment and follows part of an alternative route; neither endpoint matches the visible origin/destination markers.",
+    "productionSourceChanged": false
+  }
+}

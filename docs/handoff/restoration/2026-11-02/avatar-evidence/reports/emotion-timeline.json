@@ -1,0 +1,57 @@
+[
+  {
+    "intensity": 0,
+    "occurredAt": "2026-11-01T02:00:00Z",
+    "schemaVersion": "1.0",
+    "avatarId": "avatar-6a10ae91fbf1c871ae3b",
+    "emotion": "NEUTRAL",
+    "emotionId": "emotion-fad059ca2f29f905cae78576",
+    "confidence": 0,
+    "triggeredByEventId": null,
+    "tripId": "mock-emotion-trip"
+  },
+  {
+    "intensity": 0.4,
+    "occurredAt": "2026-11-01T02:00:03Z",
+    "schemaVersion": "1.0",
+    "avatarId": "avatar-6a10ae91fbf1c871ae3b",
+    "emotion": "RELAXED",
+    "emotionId": "emotion-e11991fc55eaa22221a60f2e",
+    "confidence": 0.95,
+    "triggeredByEventId": "stable-3000",
+    "tripId": "mock-emotion-trip"
+  },
+  {
+    "intensity": 0.7,
+    "occurredAt": "2026-11-01T02:00:06Z",
+    "schemaVersion": "1.0",
+    "avatarId": "avatar-6a10ae91fbf1c871ae3b",
+    "emotion": "STARTLED",
+    "emotionId": "emotion-93a5abc67a656dabc71e2298",
+    "confidence": 0.95,
+    "triggeredByEventId": "braking",
+    "tripId": "mock-emotion-trip"
+  },
+  {
+    "intensity": 0.4,
+    "occurredAt": "2026-11-01T02:00:09Z",
+    "schemaVersion": "1.0",
+    "avatarId": "avatar-6a10ae91fbf1c871ae3b",
+    "emotion": "RELIEVED",
+    "emotionId": "emotion-5ed8f7b62334adb024550ae2",
+    "confidence": 0.95,
+    "triggeredByEventId": "recovered",
+    "tripId": "mock-emotion-trip"
+  },
+  {
+    "intensity": 0.4,
+    "occurredAt": "2026-11-01T02:00:12Z",
+    "schemaVersion": "1.0",
+    "avatarId": "avatar-6a10ae91fbf1c871ae3b",
+    "emotion": "RELAXED",
+    "emotionId": "emotion-75451be49750fcb950951f16",
+    "confidence": 0,
+    "triggeredByEventId": null,
+    "tripId": "mock-emotion-trip"
+  }
+]

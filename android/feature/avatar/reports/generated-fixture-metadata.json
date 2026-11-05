@@ -1,0 +1,85 @@
+{
+  "status": "SOURCE_PNG_BYTES_AND_NATIVE_ALPHA_INSPECTED",
+  "assetsEdited": false,
+  "scope": "Source file format and alpha only. Edge quality and visual appeal are not approved.",
+  "assets": [
+    {
+      "path": "docs/design/journey-characters/concepts/a-soft-sculpt.png",
+      "sha256": "93c9d450c9ff922768ed0683f60fb40c0b68fae874781f0e645993fc1853697c",
+      "mimeType": "image/png",
+      "width": 1774,
+      "height": 887,
+      "byteSize": 1682443,
+      "colorType": 2,
+      "fullyTransparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "fullyOpaquePixels": 1573538,
+      "nativeAlphaCutout": false
+    },
+    {
+      "path": "docs/design/journey-characters/concepts/b-plush.png",
+      "sha256": "b4883b81bd2fd01a4dd5bf1336e2b7ffcaf7d98c4741f1926fe595ffcb908102",
+      "mimeType": "image/png",
+      "width": 1774,
+      "height": 887,
+      "byteSize": 2066753,
+      "colorType": 2,
+      "fullyTransparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "fullyOpaquePixels": 1573538,
+      "nativeAlphaCutout": false
+    },
+    {
+      "path": "docs/design/journey-characters/concepts/c-luminous-v2.png",
+      "sha256": "9165fa1b2f1286e84a0f22afd42ff9d91a43d4f47c2ca353a0e56a9e6c811f3a",
+      "mimeType": "image/png",
+      "width": 1774,
+      "height": 887,
+      "byteSize": 1613867,
+      "colorType": 2,
+      "fullyTransparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "fullyOpaquePixels": 1573538,
+      "nativeAlphaCutout": false
+    },
+    {
+      "path": "docs/design/journey-characters/concepts/c-luminous.png",
+      "sha256": "babde31ab665438ba58f45ca7141652a381b9e3f5ba24d45a88a34348698e1cc",
+      "mimeType": "image/png",
+      "width": 1774,
+      "height": 887,
+      "byteSize": 1617786,
+      "colorType": 2,
+      "fullyTransparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "fullyOpaquePixels": 1573538,
+      "nativeAlphaCutout": false
+    },
+    {
+      "path": "docs/design/journey-characters/concepts/d-plush-morphology.png",
+      "sha256": "c36c73731fa90b0fc9b5ddb6a84ae4fd3547a1d7d27319b3042c85ca5bc51ba8",
+      "mimeType": "image/png",
+      "width": 1774,
+      "height": 887,
+      "byteSize": 1987283,
+      "colorType": 2,
+      "fullyTransparentPixels": 0,
+      "partialAlphaPixels": 0,
+      "fullyOpaquePixels": 1573538,
+      "nativeAlphaCutout": false
+    },
+    {
+      "path": "docs/design/journey-characters/concepts/recipe-coastal-001.png",
+      "sha256": "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47",
+      "mimeType": "image/png",
+      "width": 1312,
+      "height": 1199,
+      "byteSize": 892805,
+      "colorType": 6,
+      "fullyTransparentPixels": 1009509,
+      "partialAlphaPixels": 563487,
+      "fullyOpaquePixels": 92,
+      "nativeAlphaCutout": true
+    }
+  ]
+}

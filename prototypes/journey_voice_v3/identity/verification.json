@@ -1,0 +1,97 @@
+{
+  "status": "PASSED_REAL_AUDIO_REFERENCE_BINDING_RESTART_CACHE_AND_DRIFT_REJECTION",
+  "bindingId": "qvi-d3fdedd7b320e564917b4df1137a8f62",
+  "clips": [
+    {
+      "clipId": "comfort",
+      "audioSha256": "e0cfda7512b5bd54448f9bab3bfd13e9f5aa28ecdb07a8b83a2eb8cb92f422b6",
+      "durationSeconds": 5.68,
+      "fullScaleSamples": 0,
+      "sameBinding": true,
+      "sameReference": true,
+      "exactTextMetadata": true
+    },
+    {
+      "clipId": "arrival",
+      "audioSha256": "120dbc7679c258adaeadefcbbae4d11d8757ad616170593d52eef66e2ef894d2",
+      "durationSeconds": 5.92,
+      "fullScaleSamples": 0,
+      "sameBinding": true,
+      "sameReference": true,
+      "exactTextMetadata": true
+    }
+  ],
+  "processRestart": {
+    "returnCode": 0,
+    "events": [
+      {
+        "event": "cache-hit",
+        "clipId": "comfort",
+        "bindingId": "qvi-d3fdedd7b320e564917b4df1137a8f62"
+      },
+      {
+        "event": "cache-hit",
+        "clipId": "arrival",
+        "bindingId": "qvi-d3fdedd7b320e564917b4df1137a8f62"
+      },
+      {
+        "event": "all-cached",
+        "modelLoaded": false
+      }
+    ],
+    "allSevenImmutableFileHashesUnchanged": true,
+    "fileHashesBefore": {
+      "binding.json": "48f9f89e21826d784ee38e17dd49fa5d2ab1c6ac2bccd064114cc4223f7a34ea",
+      "reference.wav": "f502f95d03b8ab40dbcaec0528557934f088d798133183b7d35b3109e1f946d4",
+      "model-lock.json": "3496cc1d126f24286ef6d81ee584d5a1b18127590964235843343e756617bc64",
+      "samples/arrival.json": "716d7b9794558f72f4fb92fe774cd16e6f2582a2bd73c454841d0ab594b8dcbb",
+      "samples/arrival.wav": "120dbc7679c258adaeadefcbbae4d11d8757ad616170593d52eef66e2ef894d2",
+      "samples/comfort.json": "e794fbcf78892eb7f3c96465a27eec76b760d6dba78ae72d32cfb90bef0791a7",
+      "samples/comfort.wav": "e0cfda7512b5bd54448f9bab3bfd13e9f5aa28ecdb07a8b83a2eb8cb92f422b6"
+    },
+    "fileHashesAfter": {
+      "binding.json": "48f9f89e21826d784ee38e17dd49fa5d2ab1c6ac2bccd064114cc4223f7a34ea",
+      "reference.wav": "f502f95d03b8ab40dbcaec0528557934f088d798133183b7d35b3109e1f946d4",
+      "model-lock.json": "3496cc1d126f24286ef6d81ee584d5a1b18127590964235843343e756617bc64",
+      "samples/arrival.json": "716d7b9794558f72f4fb92fe774cd16e6f2582a2bd73c454841d0ab594b8dcbb",
+      "samples/arrival.wav": "120dbc7679c258adaeadefcbbae4d11d8757ad616170593d52eef66e2ef894d2",
+      "samples/comfort.json": "e794fbcf78892eb7f3c96465a27eec76b760d6dba78ae72d32cfb90bef0791a7",
+      "samples/comfort.wav": "e0cfda7512b5bd54448f9bab3bfd13e9f5aa28ecdb07a8b83a2eb8cb92f422b6"
+    }
+  },
+  "driftRejections": [
+    {
+      "case": "changed temperature",
+      "returnCode": 1,
+      "reason": "BINDING_CHANGED",
+      "rejectedBeforeModelLoad": true
+    },
+    {
+      "case": "changed reference audio",
+      "returnCode": 1,
+      "reason": "REFERENCE_CHANGED",
+      "rejectedBeforeModelLoad": true
+    },
+    {
+      "case": "changed reference transcript",
+      "returnCode": 1,
+      "reason": "BINDING_CHANGED",
+      "rejectedBeforeModelLoad": true
+    }
+  ],
+  "existingQwenPackageInventoryUnchanged": true,
+  "metadataProvenanceRejections": {
+    "caseCount": 22,
+    "report": "cache-provenance-verification.json",
+    "modelLoads": 0,
+    "newInferences": 0
+  },
+  "humanListeningVerified": false,
+  "crossTextVoiceIdentityVerified": false,
+  "doesNotProve": [
+    "perceptual speaker identity",
+    "Korean phoneme accuracy",
+    "naturalness of new Base clips",
+    "production readiness"
+  ]
+}

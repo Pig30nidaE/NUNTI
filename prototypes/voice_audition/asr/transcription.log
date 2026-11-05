@@ -1,0 +1,21 @@
+{"event": "transcribing", "id": "qwen/bright-pebble-comfort"}
+{"event": "transcribed", "id": "qwen/bright-pebble-comfort", "text": " 천천히 가도 괜찮아. 나는 내 옆에 있을게.", "cer": 0.0625}
+{"event": "transcribing", "id": "qwen/bright-pebble-hello"}
+{"event": "transcribed", "id": "qwen/bright-pebble-hello", "text": " 안녕하세요. 오늘의 여행도 함께할게요.", "cer": 0.0}
+{"event": "transcribing", "id": "qwen/round-smile-comfort"}
+{"event": "transcribed", "id": "qwen/round-smile-comfort", "text": " 천천히 가도 괜찮아. 나는 내 옆에 있을게.", "cer": 0.0625}
+{"event": "transcribing", "id": "qwen/round-smile-hello"}
+{"event": "transcribed", "id": "qwen/round-smile-hello", "text": " 안녕하세요. 오늘의 여행도 함께할게요.", "cer": 0.0}
+{"event": "transcribing", "id": "qwen/soft-moss-comfort"}
+{"event": "transcribed", "id": "qwen/soft-moss-comfort", "text": " 천천히 가도 괜찮아. 나는 내 옆에 있을게.", "cer": 0.0625}
+{"event": "transcribing", "id": "qwen/soft-moss-hello"}
+{"event": "transcribed", "id": "qwen/soft-moss-hello", "text": " 안녕하세요. 오늘의 여행도 함께할게요.", "cer": 0.0}
+{"event": "transcribing", "id": "chatterbox/builtin-comfort"}
+{"event": "transcribed", "id": "chatterbox/builtin-comfort", "text": " 천천히 가도 괜찮아. 나는 내 옆에 있을게.", "cer": 0.0625}
+{"event": "transcribing", "id": "chatterbox/builtin-hello"}
+{"event": "transcribed", "id": "chatterbox/builtin-hello", "text": " 안녕하세요 오늘의 여행도 함께 할게요", "cer": 0.0}
+{"event": "transcribing", "id": "chatterbox/qwen-reference-comfort"}
+{"event": "transcribed", "id": "chatterbox/qwen-reference-comfort", "text": " 천천히 가도 괜찮아. 나는 내 옆에 있을게.", "cer": 0.0625}
+{"event": "transcribing", "id": "chatterbox/qwen-reference-hello"}
+{"event": "transcribed", "id": "chatterbox/qwen-reference-hello", "text": " 안녕하세요. 오늘의 여행도 함께 할게요.", "cer": 0.0}
+{"event": "complete", "clips": 10, "flagged": 5, "microCER": 0.03125}

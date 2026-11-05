@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "docs/handoff/restoration/2026-11-02/tts-evidence/run_gradle.py",
+    ":app:lintDebug",
+    ":app:assembleRelease"
+  ],
+  "cwd": "/Users/pig30nidae/NUNTI/.worktrees/tts",
+  "startedAt": "2026-11-02T18:10:35.201508+09:00",
+  "environment": {},
+  "log": "gradle-lint-release.log",
+  "endedAt": "2026-11-02T18:11:16.286097+09:00",
+  "exitCode": 0
+}

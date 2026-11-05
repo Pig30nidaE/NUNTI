@@ -1,0 +1,7 @@
+{
+  "status": "파일정합성 통과",
+  "checksPassed": 111,
+  "checksTotal": 111,
+  "report": "prototypes/voice_audition/evidence/pm-round2-verification-current.json",
+  "providerRequestsPerformed": 0
+}

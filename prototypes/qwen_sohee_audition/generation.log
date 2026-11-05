@@ -1,0 +1,13 @@
+{"event": "loading", "modelId": "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit"}
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/pig30nidae/NUNTI/.local/qwen-sohee-audition/model/speech_tokenizer
+{"event": "loaded", "seconds": 1.4286180839990266, "speaker": "Sohee", "speakerId": 2864, "supportedSpeakers": ["serena", "vivian", "uncle_fu", "ryan", "aiden", "ono_anna", "sohee", "eric", "dylan"]}
+{"event": "generating", "clipId": "normal-hello"}
+{"event": "generated", "clipId": "normal-hello", "durationSeconds": 2.88, "generationSeconds": 1.9589631670005474, "peakMlxMemoryBytes": 4987000441}
+{"event": "generating", "clipId": "normal-arrival"}
+{"event": "generated", "clipId": "normal-arrival", "durationSeconds": 5.84, "generationSeconds": 3.6099157919998106, "peakMlxMemoryBytes": 5770274049}
+{"event": "generating", "clipId": "small-smile-hello"}
+{"event": "generated", "clipId": "small-smile-hello", "durationSeconds": 3.44, "generationSeconds": 2.1691920419998496, "peakMlxMemoryBytes": 5770274049}
+{"event": "generating", "clipId": "small-smile-arrival"}
+{"event": "generated", "clipId": "small-smile-arrival", "durationSeconds": 4.8, "generationSeconds": 2.9096356669997476, "peakMlxMemoryBytes": 5770274049}

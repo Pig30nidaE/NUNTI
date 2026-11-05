@@ -1,0 +1,130 @@
+{
+  "startedAt": "2026-11-02T14:17:15.933382+00:00",
+  "status": "FAIL",
+  "scope": "New emulator app-event and screenshot exercise; no model inference, PCM capture, listening or physical vehicle proof.",
+  "notVerified": [
+    "Screenshot pixels and visual quality",
+    "Independent pixel measurement of the 64/128px QA scenes",
+    "PCM/audio content, audible latency or cancel-to-silence",
+    "Human Korean listening",
+    "Physical vehicle behavior",
+    "Missing/corrupt installed audio negative tests are a separate plan, not executed by this tool",
+    "Actual D/zero-speed/P transition test was not requested"
+  ],
+  "optionalAssetNegativePlan": [
+    "While the current Activity remains alive, remove one installed app-private WAV, request that clip, and require VOICE_FILE_MISSING without fallback. Restore exact bytes afterward. Cold launch may intentionally repair a missing file, so that is a different test.",
+    "While alive, alter one installed WAV byte, request that clip, and require VOICE_FILE_CORRUPT without fallback. Restore exact bytes afterward. Do not change bundled assets or the persistent binding ledger."
+  ],
+  "assetNegativeTestsExecuted": false,
+  "driveTestRequested": false,
+  "qaOnly": false,
+  "eventNamespace": "journey-mvp-validation",
+  "appStateNamespace": "journey-mvp-validation",
+  "bundleId": "journey-mvp-9c9e1cb3ef613440c58f",
+  "bundleSha256": "65fb030f7a0ccfc73d911d628c3e01b261e263d9e071891fb06902f5cbf3d973",
+  "error": "Expected ten successful Android boundary checks",
+  "failureCleanup": "Submitted stop without quiet confirmation; vehicle state was not changed",
+  "checks": [
+    {
+      "check": "emulator and user preflight",
+      "ok": true,
+      "hardware": "ranchu",
+      "automotive": true,
+      "fingerprint": "Pleos/crp_avd_arm64/crp_avd_arm64:14/RELEASE.release_connect_v2.1.0/release_connect_v2.1.0:user/test-keys",
+      "user": 10
+    },
+    {
+      "check": "cold launch restores without automatic speech",
+      "ok": true,
+      "restored": {
+        "kind": "MVP_RESTORED",
+        "at": "2026-11-02T14:17:16.236550Z",
+        "namespace": "journey-mvp-validation",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "identity": "bb222ba1fbf6c8cc210498b6aab1c28f40e778a076b3c365129a69fd47963fc7",
+        "stage": "PREVIEW",
+        "collectedCount": 0,
+        "automaticSpeech": false
+      },
+      "observation": {
+        "label": "cold launch/restore",
+        "observedSecondsAtLeast": 2.0444935000014084,
+        "fromEventCursor": 0,
+        "toEventCursor": 6,
+        "events": [
+          {
+            "kind": "MVP_GATE",
+            "at": "2026-11-02T14:17:16.023942Z",
+            "namespace": "journey-mvp-validation",
+            "source": "ACTUAL_CAR_SERVICE",
+            "motion": "UNKNOWN",
+            "parked": false,
+            "visible": false,
+            "foreground": false,
+            "knownUX": false,
+            "requiresDO": true
+          },
+          {
+            "kind": "MVP_READY",
+            "at": "2026-11-02T14:17:16.236190Z",
+            "namespace": "journey-mvp-validation",
+            "cases": 8,
+            "bundleId": "journey-mvp-9c9e1cb3ef613440c58f"
+          },
+          {
+            "kind": "MVP_RESTORED",
+            "at": "2026-11-02T14:17:16.236550Z",
+            "namespace": "journey-mvp-validation",
+            "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+            "identity": "bb222ba1fbf6c8cc210498b6aab1c28f40e778a076b3c365129a69fd47963fc7",
+            "stage": "PREVIEW",
+            "collectedCount": 0,
+            "automaticSpeech": false
+          },
+          {
+            "kind": "MVP_GATE",
+            "at": "2026-11-02T14:17:16.239359Z",
+            "namespace": "journey-mvp-validation",
+            "source": "ACTUAL_CAR_SERVICE",
+            "motion": "PARKED",
+            "parked": true,
+            "visible": false,
+            "foreground": false,
+            "knownUX": true,
+            "requiresDO": false
+          },
+          {
+            "kind": "MVP_GATE",
+            "at": "2026-11-02T14:17:16.256414Z",
+            "namespace": "journey-mvp-validation",
+            "source": "ACTUAL_CAR_SERVICE",
+            "motion": "PARKED",
+            "parked": true,
+            "visible": true,
+            "foreground": true,
+            "knownUX": true,
+            "requiresDO": false
+          },
+          {
+            "kind": "MVP_PRESENTED",
+            "at": "2026-11-02T14:17:16.407297Z",
+            "namespace": "journey-mvp-validation",
+            "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+            "identity": "bb222ba1fbf6c8cc210498b6aab1c28f40e778a076b3c365129a69fd47963fc7",
+            "bodyFamily": "droplet",
+            "shapeId": "tilted_water_drop",
+            "emotion": "NEUTRAL",
+            "stage": "PREVIEW",
+            "visible": true,
+            "rendererVersion": "journey-keepsake-canvas-1",
+            "visualVoiceJoined": true
+          }
+        ]
+      }
+    }
+  ],
+  "screenshots": [],
+  "initialDeviceEventCursor": 6,
+  "freshEventCount": 9,
+  "finishedAt": "2026-11-02T14:17:19.745409+00:00"
+}

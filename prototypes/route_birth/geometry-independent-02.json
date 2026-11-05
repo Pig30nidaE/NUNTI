@@ -1,0 +1,3180 @@
+{
+  "status": "PASS_ROUTE_INFLUENCE_WITH_FIXED_NONCE_AND_CONTINUOUS_GEOMETRY",
+  "at": "2026-11-02T16:18:15.922908+00:00",
+  "generatorSha256": "55c67fbb03487a0acb1165f27c8a8cd8921588f9949ff09676125f714b3391ec",
+  "fixedNonce": "ae5ce218-63a8-4330-a9d6-ab619ad79921",
+  "fixedNonceRouteCount": 136,
+  "sameRouteNewJourneyCount": 40,
+  "modelLoaded": false,
+  "proofs": [
+    {
+      "case": "horizontal",
+      "inputPointCount": 2,
+      "signals": {
+        "aspect": -1.0,
+        "bend": 0.0,
+        "hue": 0.9862743903331217,
+        "length": 0.8
+      },
+      "directionSha256": "bc5c0dda17ebd20adbe5790ab3f8b64a99e5108c9f70eceec1db9dbba82e147e",
+      "faceEllipseEdgeDistanceMinimum": 1.5537551790948039,
+      "outlineSha256": "714888fda20587a1daf2a5e1eb249f4f0115ee142f15ab6656578a82e74cf7a9",
+      "routeSha256": "bbb172ca65923eb3ebacdcab393c6bcf71feafcf96dd851a1b97c3f6f6bacd34",
+      "visualSha256": "ecd0354f66cfd60c14212a4b1c6811ebf2ba64bf82af95c0c5766cbe15772252",
+      "polygonArea": 0.3386049416907786,
+      "outlineBounds": [
+        0.11207043,
+        0.20719628,
+        0.86686729,
+        0.80626233
+      ]
+    },
+    {
+      "case": "vertical",
+      "inputPointCount": 2,
+      "signals": {
+        "aspect": 1.0,
+        "bend": 0.0,
+        "hue": 0.18011439034191162,
+        "length": 0.8
+      },
+      "directionSha256": "8d38f045a17de9190477f668adeb64ee8d0fef77fc4b821150472f00c70debc8",
+      "faceEllipseEdgeDistanceMinimum": 1.3769088823957891,
+      "outlineSha256": "f28ce05ad3a00fe3b1d838cb61f7f56a5b5d375a2a2c9074d37b5fbf8d4fec00",
+      "routeSha256": "e84e1308a42417805d144346b9147aabd13bb53f79b583b4a80abf8c7d130821",
+      "visualSha256": "72bbb038dbf4226559b0f1656c879da4fc45bc6e9dbf6e41755bb5a4bfa1178d",
+      "polygonArea": 0.32301723126348764,
+      "outlineBounds": [
+        0.19090229,
+        0.13555684,
+        0.79575706,
+        0.89918124
+      ]
+    },
+    {
+      "case": "rising_diagonal",
+      "inputPointCount": 2,
+      "signals": {
+        "aspect": 0.0,
+        "bend": 3.739601221279069e-14,
+        "hue": 0.08202105700585754,
+        "length": 1.131370849898476
+      },
+      "directionSha256": "55fec67b2a9e7a9e33857a2083af744791fa772e08af338632067cafb9f2e2e1",
+      "faceEllipseEdgeDistanceMinimum": 1.4780142820469375,
+      "outlineSha256": "28121f2a2c29ed68730f2c14e3d033d6a6482b61155a6031404b1549afc52520",
+      "routeSha256": "002c7228ab4e28c2f5ee73818bfdc5ab70205647d2d48840f05710a913cf0dab",
+      "visualSha256": "ca364cb84cbc01af9245e08b0a1b2f963dab8a48d9a5cdaf7f28d8e4deae1a96",
+      "polygonArea": 0.3351250307344237,
+      "outlineBounds": [
+        0.13992923,
+        0.18460376,
+        0.85441452,
+        0.82001546
+      ]
+    },
+    {
+      "case": "broad_zigzag",
+      "inputPointCount": 4,
+      "signals": {
+        "aspect": 0.0,
+        "bend": 0.6840429446992244,
+        "hue": 0.08025031579446945,
+        "length": 2.5075485024178996
+      },
+      "directionSha256": "de8faa0546bef322da63ebf8558783a527e6cb70e6e559db86e7ed9d3d18b80e",
+      "faceEllipseEdgeDistanceMinimum": 1.5250164106630162,
+      "outlineSha256": "452e519f0d5b9c5ba90348b8555b96796b031456980b9708e06cb29b9e4e0890",
+      "routeSha256": "27952e8c456c2bded150bbcc630797c7f436dd1fbed5187f5d03d105343cd9f7",
+      "visualSha256": "36f93e146cffe68dca3e711f491d95e20cf1ae549199c59d6be8abab9aaabd19",
+      "polygonArea": 0.3419743417500639,
+      "outlineBounds": [
+        0.13466381,
+        0.15690035,
+        0.80286766,
+        0.8921681
+      ]
+    },
+    {
+      "case": "s_bend",
+      "inputPointCount": 6,
+      "signals": {
+        "aspect": 0.14285714285714282,
+        "bend": 0.7153504440501158,
+        "hue": 0.0825099300416578,
+        "length": 2.2416557789033034
+      },
+      "directionSha256": "1bfd0c56a184c065d6ed5bd741a470eef45dcf9a7b2fa310ae7cf86697a9dde4",
+      "faceEllipseEdgeDistanceMinimum": 1.4216555489383567,
+      "outlineSha256": "b18b762b264b6d4dde9328e39c8ce42c1c668711c99849b9492afe41a742b64c",
+      "routeSha256": "6ea4dd37105c77a3709410054cf0e4aa6b42da43214c3018ffc5f753f21b627e",
+      "visualSha256": "308b3e01986ac2bdc2b675051e5c058a6f91a2d691b0cde224b67dffc9ff1bf4",
+      "polygonArea": 0.3397933081848501,
+      "outlineBounds": [
+        0.13545333,
+        0.16998061,
+        0.82807008,
+        0.84356158
+      ]
+    },
+    {
+      "case": "loop",
+      "inputPointCount": 7,
+      "signals": {
+        "aspect": -0.005121925435683302,
+        "bend": 0.7127000223380807,
+        "hue": 0.06537120514215872,
+        "length": 2.5690293443898766
+      },
+      "directionSha256": "8e26d3c38e4a8be82fb26bfbe6a9c556634060eefc32a98262e311afbf98d806",
+      "faceEllipseEdgeDistanceMinimum": 1.5191864135608097,
+      "outlineSha256": "d6488f11f96b32d5370db2a841bd5bb59b8ee8ca1517acbb4e9d338c332915d4",
+      "routeSha256": "8540bd87fdea1aa461bb80f04b6f9f263da1e9445b768f874f87b295998092d3",
+      "visualSha256": "0ddc3984116ee06f20a99a6ec54ac4cce0f31c9d6aca013e208d3555f00da3ef",
+      "polygonArea": 0.34519203442181196,
+      "outlineBounds": [
+        0.14232748,
+        0.15879354,
+        0.83130627,
+        0.87967172
+      ]
+    },
+    {
+      "case": "tight_hairpin",
+      "inputPointCount": 6,
+      "signals": {
+        "aspect": 0.6000000000000001,
+        "bend": 0.7807144353592677,
+        "hue": 0.12340682126199382,
+        "length": 2.568906355005547
+      },
+      "directionSha256": "bf38fdebfb65e344313e73728b95013a69b028c499daf9c6ac19d90a44b83ee9",
+      "faceEllipseEdgeDistanceMinimum": 1.4450169901858179,
+      "outlineSha256": "66e9ee7eea6378a3dd08fcc35b3bd9ec58048aa5f833f50e908cc4e1b0c573e4",
+      "routeSha256": "95ab413ae8835978e992e5a85782a2087b801d1b263ffc15d280b70817cf2c73",
+      "visualSha256": "e502a1b021261f7d3799f22f033ce0442833e73c5febef263c8380fda5e82638",
+      "polygonArea": 0.3353385481508122,
+      "outlineBounds": [
+        0.17492865,
+        0.1469806,
+        0.80049313,
+        0.88036397
+      ]
+    },
+    {
+      "case": "almost_point",
+      "inputPointCount": 2,
+      "signals": {
+        "aspect": -1.0,
+        "bend": 0.0,
+        "hue": 0.9758611611402541,
+        "length": 1.999999999946489e-06
+      },
+      "directionSha256": "7f220f87b2bded7447869f13fb6403a9be0dd06c18680785e44c460d6ad272d5",
+      "faceEllipseEdgeDistanceMinimum": 1.5448512540158614,
+      "outlineSha256": "e29eb2001d531e6d3f4f10950173003d46d0b70212646fe0fa5b980ede23b28a",
+      "routeSha256": "30c37f04d88549b60dae2c6e8c52dc5decb51f1b84a6b905a73ef8e6b509a0c2",
+      "visualSha256": "803a3b3f84a145ab1a475d6dfe50628a9071efbb7d25b9033f4a49c7eca004b6",
+      "polygonArea": 0.3339532981581299,
+      "outlineBounds": [
+        0.11409608,
+        0.2136846,
+        0.86401232,
+        0.80702377
+      ]
+    },
+    {
+      "case": "random-0",
+      "inputPointCount": 53,
+      "signals": {
+        "aspect": 0.024369258908958767,
+        "bend": 0.9999999999997629,
+        "hue": 0.07638584834765899,
+        "length": 19.96597238110725
+      },
+      "directionSha256": "ba8da04326ed2f8831e236e254de95a9b7722a1b650324dc3d07106783c65a02",
+      "faceEllipseEdgeDistanceMinimum": 1.4202239295644947,
+      "outlineSha256": "281b78e5a85ecb7d3cc69620d576d5dbe9651573a72b4a0b0421c14a3c75477e",
+      "routeSha256": "93ec5292395bcc5d8d420ab0363a87b65e6b774bdc80fc2c366f462bfc1da846",
+      "visualSha256": "1acb409a3d5cf9acd1af2df3a92bb62a15d72f2026aa50e70394a46d22785a84",
+      "polygonArea": 0.3453374742717168,
+      "outlineBounds": [
+        0.12743028,
+        0.14188452,
+        0.82097971,
+        0.87484647
+      ]
+    },
+    {
+      "case": "random-1",
+      "inputPointCount": 42,
+      "signals": {
+        "aspect": -0.03193084053523347,
+        "bend": 0.9999999999966968,
+        "hue": 0.0781832559415922,
+        "length": 17.157081697405093
+      },
+      "directionSha256": "fdff886f7be2d3e133c90fe2a3464f65fec43055ee12bad620afb2018c752a7f",
+      "faceEllipseEdgeDistanceMinimum": 1.4123444696500354,
+      "outlineSha256": "fa77738de4cac468e8282f98a5d543b98f7f0d29e5bb94b4cf5ecdb50058c829",
+      "routeSha256": "384036db4bb7cfd5b811eb15ffd0cef03903c8cc42f1ebe1b5674ed621d98ff9",
+      "visualSha256": "95aab8ef8c77a4d4a63d576b59932f3b7a736f211686f3c23085e78d35bf17ff",
+      "polygonArea": 0.3429122056077443,
+      "outlineBounds": [
+        0.12562655,
+        0.13622847,
+        0.80830315,
+        0.8512
+      ]
+    },
+    {
+      "case": "random-2",
+      "inputPointCount": 63,
+      "signals": {
+        "aspect": 0.035415880768844735,
+        "bend": 1.0,
+        "hue": 0.07844373609733563,
+        "length": 24.87774628051856
+      },
+      "directionSha256": "332d3a463d09833991178ba53cd29ba44ea7e3f72a495055f3ec49ea5345e7fa",
+      "faceEllipseEdgeDistanceMinimum": 1.433742792444519,
+      "outlineSha256": "5898cef2a653d8fad23e70bcb133ec35f87c563e67b6f92af731d42bb7d6b256",
+      "routeSha256": "59dcfd513eea11097cf81e85b767d7646fd21c70861283813cb56d0eb5e8b8b8",
+      "visualSha256": "6acf80ac4b0ac0832be6346a3b8dd76aec7abe0ee0fe6e44425972b3158663fe",
+      "polygonArea": 0.3438415268041001,
+      "outlineBounds": [
+        0.1272404,
+        0.15981785,
+        0.80625919,
+        0.86085878
+      ]
+    },
+    {
+      "case": "random-3",
+      "inputPointCount": 35,
+      "signals": {
+        "aspect": -0.00882484516484515,
+        "bend": 0.999999999894545,
+        "hue": 0.0740296868517007,
+        "length": 15.571483449048442
+      },
+      "directionSha256": "28302a10e899cc8e5417997be600c9c096d823dd293a5d26967a87335a467eb8",
+      "faceEllipseEdgeDistanceMinimum": 1.4063538798378956,
+      "outlineSha256": "ea4a0935a9dbd5c1e9b6e80a06b57c615b49842c007b8526f48dcc5d1c1b80b4",
+      "routeSha256": "09e3c21dba8ab695ce31023af9217ae52e4f58bc9bde91b7a6d501fc80e9291f",
+      "visualSha256": "4402cef2bfc533724107c86f9906427fc1e6c5381c9af87579fd06d99d32627c",
+      "polygonArea": 0.3466065255561282,
+      "outlineBounds": [
+        0.12530067,
+        0.14585356,
+        0.82003786,
+        0.87179497
+      ]
+    },
+    {
+      "case": "random-4",
+      "inputPointCount": 75,
+      "signals": {
+        "aspect": 0.005901330149611937,
+        "bend": 0.9999999999999999,
+        "hue": 0.07539506953456648,
+        "length": 26.44482846759285
+      },
+      "directionSha256": "0ef76d4e0cc2c17401d12c2cc6522ebbba56ba4da5c38c0bff6720156f996571",
+      "faceEllipseEdgeDistanceMinimum": 1.3886771405399811,
+      "outlineSha256": "38d182b5f35bf014a5b99b61ac660e37a3ca28a87a2106932fff3c6f4077d934",
+      "routeSha256": "615431cfd732967ef263b3eae8bedfe5998a071c8462cae671d6c4b7874dfeda",
+      "visualSha256": "dc0b102edb2c2e352b6c51ef3eee26af8791603acbaf401470ed0c6e7f725e25",
+      "polygonArea": 0.3439762900038152,
+      "outlineBounds": [
+        0.1226861,
+        0.17003391,
+        0.79746969,
+        0.87295147
+      ]
+    },
+    {
+      "case": "random-5",
+      "inputPointCount": 57,
+      "signals": {
+        "aspect": 0.046311948031877534,
+        "bend": 0.9999999999999981,
+        "hue": 0.07914330163399469,
+        "length": 22.330133145885416
+      },
+      "directionSha256": "facc26fff11845d3350477a8c0bd279e2725cac627ed2b349cdb94ddc3d75e3c",
+      "faceEllipseEdgeDistanceMinimum": 1.439013251119464,
+      "outlineSha256": "cf5a8e64d5519d1baa50b92e2bf4b63761101d1985510bd029b725ffff4c6271",
+      "routeSha256": "4438d2857177b747ec93ee9110394ce6f464ca436f60d442ad626cb16e91eef2",
+      "visualSha256": "62c4d707e34abcf9bfc119465b12b703c120f1d93791fbba70ddf6d244fba0a9",
+      "polygonArea": 0.34261548060863245,
+      "outlineBounds": [
+        0.12608452,
+        0.17397988,
+        0.80581819,
+        0.84238747
+      ]
+    },
+    {
+      "case": "random-6",
+      "inputPointCount": 56,
+      "signals": {
+        "aspect": 0.011413639827470278,
+        "bend": 0.999999999999999,
+        "hue": 0.07811498622525831,
+        "length": 23.0046326848369
+      },
+      "directionSha256": "0ef76d4e0cc2c17401d12c2cc6522ebbba56ba4da5c38c0bff6720156f996571",
+      "faceEllipseEdgeDistanceMinimum": 1.4258032202009472,
+      "outlineSha256": "b35be936c554b1323e4296b86a10f1c062c4a48137ec7eba145d7cfe96877388",
+      "routeSha256": "19e97360ee20697e62a5b40eedf5c3bf24b9954c66a44f743090b57ec6d26547",
+      "visualSha256": "a12eda404eaa3ecc6d6ad4b93399f759b7545efce1f60441ac90b64734d75431",
+      "polygonArea": 0.3444037009839338,
+      "outlineBounds": [
+        0.12712156,
+        0.15302624,
+        0.78795598,
+        0.86242079
+      ]
+    },
+    {
+      "case": "random-7",
+      "inputPointCount": 61,
+      "signals": {
+        "aspect": -0.02966640188472052,
+        "bend": 0.9999999999999998,
+        "hue": 0.07322512970737788,
+        "length": 24.3241399321899
+      },
+      "directionSha256": "70496a0020595fe16a7558c2bd2e7b75f606dcc1dfc26ec6448db567f2a5040f",
+      "faceEllipseEdgeDistanceMinimum": 1.4441083308140263,
+      "outlineSha256": "5d64d73cae258ac3e2095bf85885ceda42205102d1e037166418aa7fc23db096",
+      "routeSha256": "ccbce61a53d757d45cbac8b733c8243387216aa103377e693f1f1fef2268abd1",
+      "visualSha256": "d21af970d8cbdca25e5cb2b0afd3e687cedaf32c972b0170668e1b2409598acb",
+      "polygonArea": 0.3463875100783367,
+      "outlineBounds": [
+        0.12776183,
+        0.14334381,
+        0.80097336,
+        0.86598344
+      ]
+    },
+    {
+      "case": "random-8",
+      "inputPointCount": 67,
+      "signals": {
+        "aspect": 0.015565401718469322,
+        "bend": 1.0,
+        "hue": 0.08164592246334795,
+        "length": 23.295012988947562
+      },
+      "directionSha256": "332d3a463d09833991178ba53cd29ba44ea7e3f72a495055f3ec49ea5345e7fa",
+      "faceEllipseEdgeDistanceMinimum": 1.3605982756035915,
+      "outlineSha256": "10401c315d973709d6849871ade1aab45f4a6d9f36937269f9a7ec953abd2724",
+      "routeSha256": "231fe68b0950fc7608d824aea5cf2f2ac82a3293e785b09b58924a7888d1e4fe",
+      "visualSha256": "b92099014e3914aaa014a350bdc3d107d4a20f421e0b15995422e7b17f286fb1",
+      "polygonArea": 0.34397410521527316,
+      "outlineBounds": [
+        0.12274176,
+        0.15232384,
+        0.8053255,
+        0.8397154
+      ]
+    },
+    {
+      "case": "random-9",
+      "inputPointCount": 38,
+      "signals": {
+        "aspect": 0.05300330710922979,
+        "bend": 0.9999999999912667,
+        "hue": 0.06936246339890423,
+        "length": 18.10187251258141
+      },
+      "directionSha256": "c8fb9e5370fc4f7e6982e7f6a82961b1a16c8baaee583d7b0008d2b6c7327cd7",
+      "faceEllipseEdgeDistanceMinimum": 1.5556044869941659,
+      "outlineSha256": "9c8188863cad2b68125446e3600608d18536a31ca6f77c4f51bc08d21ff5149a",
+      "routeSha256": "8ea214752cde3e6ca33f84afbf4bc829953c36c48df1ec531c3d0e15fac30122",
+      "visualSha256": "a3fd81f43fe368a4000adb993454dcc511ee210968d5def5520b3b48f6f042f8",
+      "polygonArea": 0.3418067506932217,
+      "outlineBounds": [
+        0.13336213,
+        0.19426279,
+        0.83669604,
+        0.88047992
+      ]
+    },
+    {
+      "case": "random-10",
+      "inputPointCount": 60,
+      "signals": {
+        "aspect": -0.03866626021408682,
+        "bend": 0.9999999999999989,
+        "hue": 0.07292887493081152,
+        "length": 22.434554666570364
+      },
+      "directionSha256": "2f2f0c3ff528c5eb7205860b8f9858c172615a013cf9cc4a571a2aac40c5ef91",
+      "faceEllipseEdgeDistanceMinimum": 1.4068054937395296,
+      "outlineSha256": "1a354ded6604cdca8256c4add43a5a9985690804b79c7932925637ab1e0a25df",
+      "routeSha256": "872d309cd0899384ed97b8a880b35eaa87d630b7126a9491a9e46faa7d169275",
+      "visualSha256": "70934f0e365578d601a3d1eb9a7320c9a27c8d35f56b4f43268ad015f4361295",
+      "polygonArea": 0.3440941665001094,
+      "outlineBounds": [
+        0.12156696,
+        0.16782614,
+        0.82738299,
+        0.8483237
+      ]
+    },
+    {
+      "case": "random-11",
+      "inputPointCount": 57,
+      "signals": {
+        "aspect": -0.010367973905733066,
+        "bend": 0.9999999999999417,
+        "hue": 0.07375845334424164,
+        "length": 19.707532294946542
+      },
+      "directionSha256": "28302a10e899cc8e5417997be600c9c096d823dd293a5d26967a87335a467eb8",
+      "faceEllipseEdgeDistanceMinimum": 1.4458938934593606,
+      "outlineSha256": "e8ccadd0471226c57dfee15f26ac51c9c1a91a22249bbf46d0ffa605a2e73a54",
+      "routeSha256": "104c41e4b538064768452fb3b4ae632476484187639fd34020a435cee7a6d3b6",
+      "visualSha256": "01b3a46497cfb25fc00ec11fba3ee6e2aa60d502c5e591f47f533f387ac021b0",
+      "polygonArea": 0.3454569035510522,
+      "outlineBounds": [
+        0.13188739,
+        0.15178314,
+        0.79804826,
+        0.87414867
+      ]
+    },
+    {
+      "case": "random-12",
+      "inputPointCount": 47,
+      "signals": {
+        "aspect": -0.05259136391544146,
+        "bend": 0.9999999999997167,
+        "hue": 0.06822435484459916,
+        "length": 20.031265923223433
+      },
+      "directionSha256": "bfde3bba7b9f205766bc7ae9965a1ff53a17047e94f832584968f8105830bdd6",
+      "faceEllipseEdgeDistanceMinimum": 1.4719024228140754,
+      "outlineSha256": "ebe35461cb03d782f23f7e65ec1028f11036ff8974e5bb3eb9f1453407d18f88",
+      "routeSha256": "323c38e245187cf6264ff4008ec44529b2d3645c5a225165cbd49783b20e500a",
+      "visualSha256": "facf7f847350e32677dbae35d1e8d32d6bd82e7b8e50d752c24cde84776127e1",
+      "polygonArea": 0.3454335301217521,
+      "outlineBounds": [
+        0.12375699,
+        0.16274362,
+        0.80209336,
+        0.86988776
+      ]
+    },
+    {
+      "case": "random-13",
+      "inputPointCount": 68,
+      "signals": {
+        "aspect": -0.0007704957810004766,
+        "bend": 1.0,
+        "hue": 0.07951500915410109,
+        "length": 25.385856547519243
+      },
+      "directionSha256": "68fcd2e999c27e43485ce580466bd05bf5590e7809b84052f7dee80f3dfd8bb9",
+      "faceEllipseEdgeDistanceMinimum": 1.4379388109123568,
+      "outlineSha256": "317086f3b78b1524b309570a7281121204f619df9cb6ac04650db61a33d14551",
+      "routeSha256": "1f7d0b7c7d570d5f506f2701003a29a56fab0bbcc0f7f7ee4ea28f76590e399b",
+      "visualSha256": "12dd100770b1022c5dee6225341db0192a50e165220ac85992d96c16eee7ecee",
+      "polygonArea": 0.3455545096942171,
+      "outlineBounds": [
+        0.13833314,
+        0.13857943,
+        0.80114277,
+        0.87981467
+      ]
+    },
+    {
+      "case": "random-14",
+      "inputPointCount": 11,
+      "signals": {
+        "aspect": 0.0399175663478204,
+        "bend": 0.9863480015703225,
+        "hue": 0.08545411136261366,
+        "length": 4.125470008195148
+      },
+      "directionSha256": "69164310d76993808d7f92665024fa16158501e08fe1c38f35babc205e9e50dc",
+      "faceEllipseEdgeDistanceMinimum": 1.4445257219574048,
+      "outlineSha256": "94e165ab0922b41d8a7b63ff6db8ba1c90a0696b0d64a61833807e2d84057382",
+      "routeSha256": "f836bdbbd29877078da69b1e8d5f36677252799b05dd89dc9fce3d6b9c920a69",
+      "visualSha256": "a0ec25bb08f75d3b00b03985044d551000685d59722d34bc48a6e6ddf151ef97",
+      "polygonArea": 0.3446657499772764,
+      "outlineBounds": [
+        0.12465926,
+        0.15988953,
+        0.82490579,
+        0.90123607
+      ]
+    },
+    {
+      "case": "random-15",
+      "inputPointCount": 53,
+      "signals": {
+        "aspect": 0.04261935778834486,
+        "bend": 0.9999999999999979,
+        "hue": 0.07710817625890704,
+        "length": 22.99089062082287
+      },
+      "directionSha256": "facc26fff11845d3350477a8c0bd279e2725cac627ed2b349cdb94ddc3d75e3c",
+      "faceEllipseEdgeDistanceMinimum": 1.3979867108747652,
+      "outlineSha256": "7081ac7874cd414958612587a1049cefff8ffaad87eb259b2f6222c6849d8e6c",
+      "routeSha256": "6010e908f8fe55d246eb81da0070f061c06c0d3a06ba9ad424be96585a086cfe",
+      "visualSha256": "c5e48593167e4b50ed38c4d06fbd7697f50535846805c9deb7c7b6fe2390c1e4",
+      "polygonArea": 0.34427932731926275,
+      "outlineBounds": [
+        0.12575668,
+        0.15197068,
+        0.81244525,
+        0.85860413
+      ]
+    },
+    {
+      "case": "random-16",
+      "inputPointCount": 24,
+      "signals": {
+        "aspect": 0.03083869772186643,
+        "bend": 0.9999986373601808,
+        "hue": 0.06852641210151339,
+        "length": 11.39973731287904
+      },
+      "directionSha256": "f48c0e3e6a4faacc051b87f7ccb47357fdd3b6ee55d0994645651fcf0907aa9c",
+      "faceEllipseEdgeDistanceMinimum": 1.4439407688092807,
+      "outlineSha256": "93901196dfffc684c1ff5eaff5db36da161be55c8205a00edf308ef45b7fbdc3",
+      "routeSha256": "2e8e609b4458f71e1d09c76d236607ac86c0f1f863f88fd371f070dedab792db",
+      "visualSha256": "717f05c012f378a873c4155d70cced12ecd699b25bdebeb41cc5622fae1c6e53",
+      "polygonArea": 0.3438514104953483,
+      "outlineBounds": [
+        0.12496099,
+        0.1775506,
+        0.83060172,
+        0.87128574
+      ]
+    },
+    {
+      "case": "random-17",
+      "inputPointCount": 12,
+      "signals": {
+        "aspect": 0.008991117729452162,
+        "bend": 0.9982463676659813,
+        "hue": 0.09121934399934079,
+        "length": 5.317299033979173
+      },
+      "directionSha256": "5ed7fa8ad1d429fcc506a7d6a9004b844946304c114897ddb04bd692ace23f03",
+      "faceEllipseEdgeDistanceMinimum": 1.4331363970597288,
+      "outlineSha256": "47125553d47a4a0f917935cdc6db5d5b96fa92b156d6bdf68698b1ee891ab565",
+      "routeSha256": "978b4c726ac3ff90088a10b1f5ab2ad85c45add6bd84da215702563620fa75e3",
+      "visualSha256": "176230559df5ba93fa88edcacf3bec114751d9a4143d71adba327b5e661cce1f",
+      "polygonArea": 0.3466723857724925,
+      "outlineBounds": [
+        0.13469948,
+        0.13490909,
+        0.82028273,
+        0.86725199
+      ]
+    },
+    {
+      "case": "random-18",
+      "inputPointCount": 70,
+      "signals": {
+        "aspect": -0.032247268895577025,
+        "bend": 1.0,
+        "hue": 0.07666211588283639,
+        "length": 26.541036598963107
+      },
+      "directionSha256": "e26419b156807df5ada963bed34684eec0ce19328818f3fa616b7d42b5601741",
+      "faceEllipseEdgeDistanceMinimum": 1.4074421645371469,
+      "outlineSha256": "47bd51cbeb334fa89a52f2e71d9b8a68a2919079997d642bf65816b51ea0b6af",
+      "routeSha256": "59744c424944501d7e8fded5884f70bcc690d0d3dad0c3906c66eac0c73cee98",
+      "visualSha256": "5343f9e356d7f7139335deae9d8539755243184ed9322bf61135c91398293335",
+      "polygonArea": 0.3451780419049918,
+      "outlineBounds": [
+        0.12680826,
+        0.14647683,
+        0.81495864,
+        0.87328309
+      ]
+    },
+    {
+      "case": "random-19",
+      "inputPointCount": 50,
+      "signals": {
+        "aspect": 0.013325698260871347,
+        "bend": 0.9999999999999923,
+        "hue": 0.07634592705123572,
+        "length": 22.706102476952974
+      },
+      "directionSha256": "69164310d76993808d7f92665024fa16158501e08fe1c38f35babc205e9e50dc",
+      "faceEllipseEdgeDistanceMinimum": 1.4285672247917096,
+      "outlineSha256": "193df4fa9d063423bcb0a2d0d0de78a8259c7b1794ed55584eb02404c57a4ccf",
+      "routeSha256": "d4d06e417fee8232bf59610398676adc8533f847ec1f9da5b8ef7ac2c3040fb8",
+      "visualSha256": "326bd2cafc72e948c2723bc4ea65d7e6fd9da60dbb35852ac7a869d29ede6d90",
+      "polygonArea": 0.3464952157649013,
+      "outlineBounds": [
+        0.12883985,
+        0.13921566,
+        0.82231817,
+        0.87829292
+      ]
+    },
+    {
+      "case": "random-20",
+      "inputPointCount": 14,
+      "signals": {
+        "aspect": 0.10932800598354864,
+        "bend": 0.9985306925623403,
+        "hue": 0.08795719428401155,
+        "length": 6.69463058855255
+      },
+      "directionSha256": "6c51f786ac8ef1e0ab8c7b91ea94fd97a8bcdd1d78c5390941cb6d7c93146b57",
+      "faceEllipseEdgeDistanceMinimum": 1.377835931140624,
+      "outlineSha256": "7fa584548f2ff2d7b2d3c92666a6c4ae6ab58be57aea8af01c94c4d63c098f2f",
+      "routeSha256": "b1511eb9f2c2a8625f75af6b61c4b55881bd819b48b21abea253bfb8aba9e3da",
+      "visualSha256": "ee4e22f7e5ca175c39bc264967a6e605ff45d5866f953464a07f40c6db3716f6",
+      "polygonArea": 0.3450879085706126,
+      "outlineBounds": [
+        0.13023075,
+        0.12840582,
+        0.825325,
+        0.88110157
+      ]
+    },
+    {
+      "case": "random-21",
+      "inputPointCount": 49,
+      "signals": {
+        "aspect": -0.005476909797799645,
+        "bend": 0.9999999999964613,
+        "hue": 0.08002311222820585,
+        "length": 18.605229896534834
+      },
+      "directionSha256": "2f2f0c3ff528c5eb7205860b8f9858c172615a013cf9cc4a571a2aac40c5ef91",
+      "faceEllipseEdgeDistanceMinimum": 1.4089219210505532,
+      "outlineSha256": "9676e507c165b8a845d164a50d08c3e2b5b249500b66bf74d03d555da82c8759",
+      "routeSha256": "762e2ecc792b4fb72c92486944d134eb9143baec69f8f4a79864f3f1b65b879c",
+      "visualSha256": "ed89bea2117919143bf59552e8fa6bfaec9b276c26d5945248b303340090e205",
+      "polygonArea": 0.34585523738884505,
+      "outlineBounds": [
+        0.12674483,
+        0.13524168,
+        0.81664303,
+        0.87024682
+      ]
+    },
+    {
+      "case": "random-22",
+      "inputPointCount": 26,
+      "signals": {
+        "aspect": -0.008299587027720198,
+        "bend": 0.9999998927404542,
+        "hue": 0.08360945165960915,
+        "length": 12.290522728918866
+      },
+      "directionSha256": "a7060a82926709b12999844725c96b2a97fc7fcfeb36e9b28b18a004576d41cf",
+      "faceEllipseEdgeDistanceMinimum": 1.3837297897799612,
+      "outlineSha256": "e391b80d362808ed166f70bf2d7d34c302cce2e2287f2090c5107b1e6ee1079b",
+      "routeSha256": "78fc97a526e4940154f112cf2ef0b5626a9e9b62b7eeef1f68975300e21c5631",
+      "visualSha256": "7714098070cc619776198eebc5b4ee2764b8116444a1207385c91ba0c0e21d21",
+      "polygonArea": 0.34646085791142023,
+      "outlineBounds": [
+        0.12966286,
+        0.14843803,
+        0.80664314,
+        0.88905198
+      ]
+    },
+    {
+      "case": "random-23",
+      "inputPointCount": 71,
+      "signals": {
+        "aspect": 0.03549241015569758,
+        "bend": 0.9999999999999998,
+        "hue": 0.0761529088723843,
+        "length": 25.08701161284745
+      },
+      "directionSha256": "ab1f5747358613f513e176820711bf5bc27bb71a0fa222dedf43e425f2d45dcb",
+      "faceEllipseEdgeDistanceMinimum": 1.4169506526455729,
+      "outlineSha256": "a690be4957072e3b3c528608a3a53bce2bdc6e129c060a1b5f30d27d3aa91da7",
+      "routeSha256": "560f1cfa959729ecadd452702a44208dc6b114a1352a25662ff182d0bacf2aec",
+      "visualSha256": "c54f28080fb06182d8863d211a91bec52a67ad977ef2e144040091ea127badfd",
+      "polygonArea": 0.34593699353998875,
+      "outlineBounds": [
+        0.12835165,
+        0.13996295,
+        0.82359234,
+        0.87697101
+      ]
+    },
+    {
+      "case": "random-24",
+      "inputPointCount": 63,
+      "signals": {
+        "aspect": -0.03029791676605396,
+        "bend": 0.9999999999999997,
+        "hue": 0.07340012159051806,
+        "length": 23.68501552806892
+      },
+      "directionSha256": "ec42d78f83900a410f11c7c423e9ed85eba309435fa8b47b9d4db96cac40cab0",
+      "faceEllipseEdgeDistanceMinimum": 1.3811259700297198,
+      "outlineSha256": "afa06da7cf5c0ccdabd3b172e09007f25ee612d11889405ffeb2558f11c31005",
+      "routeSha256": "e253e58da277d36fd59a81307c945428c58a2486e5a29a1caed8db01f6285dce",
+      "visualSha256": "fe38d345ffc824a7b3edd46cc1f5ff9c488b732818225bf1d91d44d9104d1e5a",
+      "polygonArea": 0.34672814357877957,
+      "outlineBounds": [
+        0.12234908,
+        0.147829,
+        0.82464661,
+        0.85658976
+      ]
+    },
+    {
+      "case": "random-25",
+      "inputPointCount": 17,
+      "signals": {
+        "aspect": 0.025120414558641283,
+        "bend": 0.9999596749663957,
+        "hue": 0.08501238824624718,
+        "length": 7.538146578646738
+      },
+      "directionSha256": "970e863015518e7ce50326153e6fc5a341b45b81263b882f1d5d27dc99e2cbb5",
+      "faceEllipseEdgeDistanceMinimum": 1.456471111858213,
+      "outlineSha256": "667e1462392d40c656a5dce12f5196f65d311ce6bf472faa5ff3a136c9377f5e",
+      "routeSha256": "41a93dfb26cb849663a27af3362f7cfb596b1de25e1ee32a315ccb573380310e",
+      "visualSha256": "bbd99369ac30b63ed4a471879b8ca34e8bef5fc4d6ddc3908f1cea32607276ac",
+      "polygonArea": 0.34747979492152126,
+      "outlineBounds": [
+        0.12529376,
+        0.15566714,
+        0.83167125,
+        0.87578574
+      ]
+    },
+    {
+      "case": "random-26",
+      "inputPointCount": 58,
+      "signals": {
+        "aspect": -0.013838611256419798,
+        "bend": 0.9999999999999993,
+        "hue": 0.07319601101251433,
+        "length": 23.118810554474294
+      },
+      "directionSha256": "e18e63414ab24c92df67ec5029c3d7fa8e3b38a9de33937273fbf7316cdd142a",
+      "faceEllipseEdgeDistanceMinimum": 1.3966867088522676,
+      "outlineSha256": "585c608a191ebd5e1071c735af9d62ad4bf883c849b1d930f7dcf143b3719f88",
+      "routeSha256": "e69c7dafcac465428b388f731d935ae8a0c1aa0f9c0016bc5d7b828686159933",
+      "visualSha256": "156a21d88f362911107f6a3e4cf523e571a8ab1de3f71ba8cb2e02df4a6ac8a7",
+      "polygonArea": 0.34590481778060106,
+      "outlineBounds": [
+        0.12777314,
+        0.154797,
+        0.81299694,
+        0.87108163
+      ]
+    },
+    {
+      "case": "random-27",
+      "inputPointCount": 65,
+      "signals": {
+        "aspect": 0.0017068332823482616,
+        "bend": 0.9999999999999999,
+        "hue": 0.07341015945596946,
+        "length": 24.02787933066128
+      },
+      "directionSha256": "c9d1d9d4b28a05d020f20fec524f8a3ca52dd0c1f36e9d182c2e3d65a2baf4ae",
+      "faceEllipseEdgeDistanceMinimum": 1.47125078518739,
+      "outlineSha256": "fcfe9025e31ca0eabcef01ba2aed107db13b60b0593c05cdae2747819b954953",
+      "routeSha256": "d3b37d90742026d8ca450a68b1124c0e4a5f254f5ab9a7045d797e7f4e06c53d",
+      "visualSha256": "2b1e9b6a46ceb918986490831aae0e5ed62e025e1866726812c7ab2749b48d40",
+      "polygonArea": 0.3504876180993134,
+      "outlineBounds": [
+        0.12862505,
+        0.15475144,
+        0.82833546,
+        0.87316491
+      ]
+    },
+    {
+      "case": "random-28",
+      "inputPointCount": 30,
+      "signals": {
+        "aspect": -0.062364472981238255,
+        "bend": 0.9999999954532555,
+        "hue": 0.06587775364457699,
+        "length": 12.741419871099845
+      },
+      "directionSha256": "2f2f0c3ff528c5eb7205860b8f9858c172615a013cf9cc4a571a2aac40c5ef91",
+      "faceEllipseEdgeDistanceMinimum": 1.4783349823206526,
+      "outlineSha256": "63fabc5c62e1a47a26f2b959f34fbf0cf86d6a0f24c50276a03a0a4f013395b2",
+      "routeSha256": "be09186545bd0d440b16b0d9ea8f2d6f2b74503711fa5ddf0db343404b5bc80d",
+      "visualSha256": "5e2809dd7a65ec484cb246bfd64f44d1aa211870177dfc09c7c6f7362fd5fb16",
+      "polygonArea": 0.3457518839642976,
+      "outlineBounds": [
+        0.13490286,
+        0.14260346,
+        0.81858248,
+        0.89133139
+      ]
+    },
+    {
+      "case": "random-29",
+      "inputPointCount": 43,
+      "signals": {
+        "aspect": -0.02964047386562774,
+        "bend": 0.9999999999921225,
+        "hue": 0.07101050757844324,
+        "length": 19.064611892764553
+      },
+      "directionSha256": "d55d8d1a71ae7f17b28353e08597830a25d65e117023748cf38cd0e0604d20ed",
+      "faceEllipseEdgeDistanceMinimum": 1.4254495043119002,
+      "outlineSha256": "81926c3a6a40988f4d5cb9eb95db0084f52749a86367d210a49fad4b2f802970",
+      "routeSha256": "66895b124149d32fd94cbe1dbe85aca7b938968ec4ff17e90a244a85f68e3ca2",
+      "visualSha256": "1eb80ce93d25b039d0e785417cc1ca03129602c1e21d281707038b16a9bc6c78",
+      "polygonArea": 0.3447439627737377,
+      "outlineBounds": [
+        0.12764425,
+        0.1563565,
+        0.80222375,
+        0.86146142
+      ]
+    },
+    {
+      "case": "random-30",
+      "inputPointCount": 78,
+      "signals": {
+        "aspect": 0.027122753943834465,
+        "bend": 1.0,
+        "hue": 0.07868281355656898,
+        "length": 26.894584464744902
+      },
+      "directionSha256": "6c2d9e880ce532f960b389f922915066f1e4a0ea63be4737773fb4f7a7c0efc0",
+      "faceEllipseEdgeDistanceMinimum": 1.3954316803957867,
+      "outlineSha256": "bcf583e1094e3c3b1b6993254199d6bce1e4fd48e47b04ba4d22a1d00a7a6433",
+      "routeSha256": "a98448f1550699db7c4362b086b09a5c1461670099f1470b595dfaf82f23aaf9",
+      "visualSha256": "516e44ca6360920fdac74befebf848bb3f4a3057fadb851b46e6914546078c61",
+      "polygonArea": 0.3443685286581594,
+      "outlineBounds": [
+        0.12533416,
+        0.14320436,
+        0.81150769,
+        0.86420694
+      ]
+    },
+    {
+      "case": "random-31",
+      "inputPointCount": 28,
+      "signals": {
+        "aspect": -0.05872941727726001,
+        "bend": 0.9999999972328396,
+        "hue": 0.06957084208211523,
+        "length": 13.290737022013873
+      },
+      "directionSha256": "bfde3bba7b9f205766bc7ae9965a1ff53a17047e94f832584968f8105830bdd6",
+      "faceEllipseEdgeDistanceMinimum": 1.4523974619260607,
+      "outlineSha256": "010ba39cace2be82863b5c58e1b08fa907ce317946b542306af96219b7c4d3f6",
+      "routeSha256": "a5a39969cdcdd4d8ddb2560094e68dcfb683ca577eecb925392c045faa2cdf4e",
+      "visualSha256": "8b1905be11300ed0c539518e4cd26b45a8be7582de35d912153751245d85c93f",
+      "polygonArea": 0.3442208045595339,
+      "outlineBounds": [
+        0.12378397,
+        0.14884299,
+        0.79330706,
+        0.86613718
+      ]
+    },
+    {
+      "case": "random-32",
+      "inputPointCount": 40,
+      "signals": {
+        "aspect": 0.032164449396855116,
+        "bend": 0.999999999988475,
+        "hue": 0.08650817635004077,
+        "length": 16.628806705593416
+      },
+      "directionSha256": "cbc09aaf8170db64372a95dfaf8416d4278adad1a502ce0acf83440ef0fc682d",
+      "faceEllipseEdgeDistanceMinimum": 1.4378998036140087,
+      "outlineSha256": "0b0713e297a4fa11496a479010d3e84aa01cd5b0abf8a389bd5b5e7442720e6c",
+      "routeSha256": "6a422596b8b8c400181e65347eddc340fd69533a8c32f34eeed178680514f354",
+      "visualSha256": "97ee7884e810ade5be1aca451a5c808230497f97c3083bbc1a3ac46a46558bb9",
+      "polygonArea": 0.344394967914956,
+      "outlineBounds": [
+        0.12439333,
+        0.17079932,
+        0.80826178,
+        0.87449715
+      ]
+    },
+    {
+      "case": "random-33",
+      "inputPointCount": 22,
+      "signals": {
+        "aspect": -0.01928723042417801,
+        "bend": 0.999996576497276,
+        "hue": 0.0823810384953409,
+        "length": 11.37657242522411
+      },
+      "directionSha256": "d55d8d1a71ae7f17b28353e08597830a25d65e117023748cf38cd0e0604d20ed",
+      "faceEllipseEdgeDistanceMinimum": 1.439137583399842,
+      "outlineSha256": "5e4d6ff3d1ea25506f1532baa84f3d8a4b7e0a115a7ccb547dbccefc9cf9fc9c",
+      "routeSha256": "e881c6e3010bfe93f83cb4a5847273dda9acb982e621375796c296a11e8e4b15",
+      "visualSha256": "ebc47ee0e97360bc944a26d11fffa855d0debd1de41ab11fcaac481afc8fb541",
+      "polygonArea": 0.3466835812033868,
+      "outlineBounds": [
+        0.12979836,
+        0.14196752,
+        0.81733568,
+        0.86765784
+      ]
+    },
+    {
+      "case": "random-34",
+      "inputPointCount": 60,
+      "signals": {
+        "aspect": -0.07498825930552466,
+        "bend": 0.9999999999999993,
+        "hue": 0.06503654814027876,
+        "length": 23.471997926083755
+      },
+      "directionSha256": "d5063715ab63a1e3a22bb1d836405ce738d7ffff7af5e1738cb2f4aaea457e34",
+      "faceEllipseEdgeDistanceMinimum": 1.4479456763973577,
+      "outlineSha256": "52bf7cb95fa4fc4ef1008e919bf16034eba9be0f306d8af44fc062f87b27b7cb",
+      "routeSha256": "5a35af8171b70a8be8131095fe571906f55f06cdf1969e147000c4c4f86f7589",
+      "visualSha256": "0c3daae98ed8ec5cd158b8e15703ce280726ebf57d7c272aba7a5c06cf98826c",
+      "polygonArea": 0.3473810611718302,
+      "outlineBounds": [
+        0.13454423,
+        0.15021586,
+        0.80195796,
+        0.87256472
+      ]
+    },
+    {
+      "case": "random-35",
+      "inputPointCount": 60,
+      "signals": {
+        "aspect": -0.0033648763715612194,
+        "bend": 1.0,
+        "hue": 0.08005566765447542,
+        "length": 25.751154747210613
+      },
+      "directionSha256": "5a7784d3023acffd2daf940e20cf80fcf4ff133d1b7b931aad1d7874a80e9222",
+      "faceEllipseEdgeDistanceMinimum": 1.386418218910041,
+      "outlineSha256": "ee7d8982d38b22155c4f67ff6c632c9c2c6a903580a629d4ba18d0f3bd5d0c94",
+      "routeSha256": "fa38860214390554be27864557dd215594c549b4181658bb9b5f9a2024d328d4",
+      "visualSha256": "5c07a1a20c4e4450aa641666bd8cc0f9fcb7050f5ae4de78152ebc2766b9ce68",
+      "polygonArea": 0.3452761183806435,
+      "outlineBounds": [
+        0.127059,
+        0.14876447,
+        0.81789533,
+        0.87336194
+      ]
+    },
+    {
+      "case": "random-36",
+      "inputPointCount": 25,
+      "signals": {
+        "aspect": -0.03212466450677171,
+        "bend": 0.9999997384110461,
+        "hue": 0.06767237666289122,
+        "length": 11.032392175411596
+      },
+      "directionSha256": "5a7784d3023acffd2daf940e20cf80fcf4ff133d1b7b931aad1d7874a80e9222",
+      "faceEllipseEdgeDistanceMinimum": 1.4426409346678968,
+      "outlineSha256": "c7539add0c1476424f85e897de26fd099f389479bb7bd790d1e37444e82ec1ab",
+      "routeSha256": "10e7020468a89ccd45f7cef156d20e48153d2a00e7061221632c087b279856af",
+      "visualSha256": "3e01947e0534ecc4795b8dfcd4fc0b06f9eff6ccccf5b146fdbed4c36e9af06f",
+      "polygonArea": 0.34267868817946695,
+      "outlineBounds": [
+        0.12043686,
+        0.18383181,
+        0.80902118,
+        0.85199998
+      ]
+    },
+    {
+      "case": "random-37",
+      "inputPointCount": 41,
+      "signals": {
+        "aspect": 0.010245704181257202,
+        "bend": 0.9999999999925728,
+        "hue": 0.08027515574379157,
+        "length": 17.031305433074124
+      },
+      "directionSha256": "ab1f5747358613f513e176820711bf5bc27bb71a0fa222dedf43e425f2d45dcb",
+      "faceEllipseEdgeDistanceMinimum": 1.4428389100389822,
+      "outlineSha256": "c2fe113b6946cf09a4224ba0ebc022d4aa2648333a7b161802b999d7ec68688e",
+      "routeSha256": "ef22b8803d204b4a5847339d28e657352ff0a4670fc152c2a9ca985ae1123832",
+      "visualSha256": "c933cc2286d9d7e983ea785fc9afee231e74c7a08dee618bcd1561184fb1d085",
+      "polygonArea": 0.3443091869960145,
+      "outlineBounds": [
+        0.12274721,
+        0.17406316,
+        0.81219252,
+        0.87071791
+      ]
+    },
+    {
+      "case": "random-38",
+      "inputPointCount": 79,
+      "signals": {
+        "aspect": 0.042947720116051066,
+        "bend": 1.0,
+        "hue": 0.08548084782426518,
+        "length": 25.80313835650376
+      },
+      "directionSha256": "4828860b756cc7bc1a4321e0fd1801da237a494f0a96a8cea512cf33dd129906",
+      "faceEllipseEdgeDistanceMinimum": 1.4528247816413655,
+      "outlineSha256": "b6cd2d3fc8b8b20953f864ac2a10597bd9bafe0ce9b8f29e05350cea72d1d33a",
+      "routeSha256": "bcd544c09fdf398d03d4dd084ecc7da705a1e680899483f77a93735d1dd39385",
+      "visualSha256": "46b20f686dd78775d5b972b6883b8c3fa2d8ebec37d056edc85408718bd22764",
+      "polygonArea": 0.34409846759344065,
+      "outlineBounds": [
+        0.13340497,
+        0.13910833,
+        0.8064889,
+        0.89263548
+      ]
+    },
+    {
+      "case": "random-39",
+      "inputPointCount": 49,
+      "signals": {
+        "aspect": -0.025292950752527917,
+        "bend": 0.9999999999994102,
+        "hue": 0.07471635132581061,
+        "length": 20.25538410820249
+      },
+      "directionSha256": "5f97efde1b1ed03617caee031236b6a3e7c96be52d4192102e482e03d14c74ee",
+      "faceEllipseEdgeDistanceMinimum": 1.4189242967747095,
+      "outlineSha256": "2fce21a5a739ec0d6bb3aa5e0d7e36d941270afc5b620645833c6fdd0c9633d5",
+      "routeSha256": "a15083a58d32351ba1d1e9c064745688a51220f7f6a8b8bd3bd5aa6d1f1cd27e",
+      "visualSha256": "87d39603911679009c13db54b2789590dc625e0a7bf126523a14e044745b7c2b",
+      "polygonArea": 0.34546317413616123,
+      "outlineBounds": [
+        0.14607928,
+        0.13696367,
+        0.79534213,
+        0.8765603
+      ]
+    },
+    {
+      "case": "random-40",
+      "inputPointCount": 29,
+      "signals": {
+        "aspect": -0.04715154273953624,
+        "bend": 0.9999999886327121,
+        "hue": 0.07714178562713075,
+        "length": 14.004980111551978
+      },
+      "directionSha256": "e26419b156807df5ada963bed34684eec0ce19328818f3fa616b7d42b5601741",
+      "faceEllipseEdgeDistanceMinimum": 1.3790801381932043,
+      "outlineSha256": "c175c45bf7b01195e27185820cc6ca01dcac18bae8e8038208473fbdada993ba",
+      "routeSha256": "7efac1c8d7e4e85e4d5570741f5405c6cc1fc19402ce5b9af67d45c1272c2434",
+      "visualSha256": "23e23dd9b97da96e05bc356d9f385204fdb3c728308a33b93c0c7dd86561b364",
+      "polygonArea": 0.3446685139042348,
+      "outlineBounds": [
+        0.14365066,
+        0.13092805,
+        0.80229858,
+        0.87510001
+      ]
+    },
+    {
+      "case": "random-41",
+      "inputPointCount": 43,
+      "signals": {
+        "aspect": -0.06649003110473818,
+        "bend": 0.9999999999987687,
+        "hue": 0.06659843312774788,
+        "length": 18.247712633516716
+      },
+      "directionSha256": "addc477ca33d604fc30c89745b309ba2dcc29612cb655db97ab7c034da8fe68f",
+      "faceEllipseEdgeDistanceMinimum": 1.4083595855196505,
+      "outlineSha256": "2e5f5e0b5f75b1a5c59236abe9ab160e2dd03855371e847d09dfa1a9f981c1a4",
+      "routeSha256": "3720ad34a8bf42734aa06ec0a16c75e6dec3a8fe527f252263a0979e152e9352",
+      "visualSha256": "db934475a3728cf37f857ae84e9d92ff33369037954cf55cb082dfd9c45f91cf",
+      "polygonArea": 0.3439923994898549,
+      "outlineBounds": [
+        0.11926322,
+        0.1802532,
+        0.81176355,
+        0.84637334
+      ]
+    },
+    {
+      "case": "random-42",
+      "inputPointCount": 36,
+      "signals": {
+        "aspect": 0.002248023985583719,
+        "bend": 0.9999999993981861,
+        "hue": 0.07366545366320859,
+        "length": 15.193347212724795
+      },
+      "directionSha256": "facc26fff11845d3350477a8c0bd279e2725cac627ed2b349cdb94ddc3d75e3c",
+      "faceEllipseEdgeDistanceMinimum": 1.396703093414018,
+      "outlineSha256": "04287686ee967025a1aa861888a48dc372187815566c7180db15e7f9419d30cd",
+      "routeSha256": "130f3e951402426ce1a67b788812ae1c78d596c868ea593fdf15905ae1a46546",
+      "visualSha256": "998b4d579714ecdd1d4311a884b2af09350b61c7421262dc8e8463d84bec5efa",
+      "polygonArea": 0.34518513495591474,
+      "outlineBounds": [
+        0.12397612,
+        0.16844047,
+        0.82901224,
+        0.83631031
+      ]
+    },
+    {
+      "case": "random-43",
+      "inputPointCount": 30,
+      "signals": {
+        "aspect": 0.03450456089880397,
+        "bend": 0.999999914535266,
+        "hue": 0.07310845537456939,
+        "length": 13.901969456444501
+      },
+      "directionSha256": "facc26fff11845d3350477a8c0bd279e2725cac627ed2b349cdb94ddc3d75e3c",
+      "faceEllipseEdgeDistanceMinimum": 1.4505271668276052,
+      "outlineSha256": "b8dd197c1de7114a98b70dedea9a15a458d3e8decb53bb65fd02b0e6882c3687",
+      "routeSha256": "99b63077c1d9184a2894d3c16845feab63a188e86a4447a1867c40d934cab6e7",
+      "visualSha256": "418130d43e3c39e517a3e4786a8ce0abf02297764466823f1377fcbdb52b0409",
+      "polygonArea": 0.3459517781483631,
+      "outlineBounds": [
+        0.13678794,
+        0.15417845,
+        0.79273166,
+        0.88597089
+      ]
+    },
+    {
+      "case": "random-44",
+      "inputPointCount": 19,
+      "signals": {
+        "aspect": -0.09872778535635929,
+        "bend": 0.9999768638604795,
+        "hue": 0.06566758120125854,
+        "length": 10.121200110079245
+      },
+      "directionSha256": "5f97efde1b1ed03617caee031236b6a3e7c96be52d4192102e482e03d14c74ee",
+      "faceEllipseEdgeDistanceMinimum": 1.4599177117414204,
+      "outlineSha256": "c08182db4a1418dc0169ea10d3ded74715a0b5f6ed4cada3a73a22acd3141c2e",
+      "routeSha256": "6957adefdd4a7552805cfbbd28ab48d40438f82b1ff098546661270e8f6f7a87",
+      "visualSha256": "ff85f87bb637f472b9812cda206c20b08c337db950f6734f5e979d75dd2d1c3b",
+      "polygonArea": 0.3449031231286598,
+      "outlineBounds": [
+        0.14080353,
+        0.13449806,
+        0.79865901,
+        0.87786998
+      ]
+    },
+    {
+      "case": "random-45",
+      "inputPointCount": 79,
+      "signals": {
+        "aspect": -0.0533593189492787,
+        "bend": 1.0,
+        "hue": 0.07332394012393156,
+        "length": 28.43028250696315
+      },
+      "directionSha256": "28302a10e899cc8e5417997be600c9c096d823dd293a5d26967a87335a467eb8",
+      "faceEllipseEdgeDistanceMinimum": 1.4580929271990688,
+      "outlineSha256": "de96a73c25e980cce771bdba470e0647c0822b3fbb68ce66601b76cc14429b33",
+      "routeSha256": "4ce8cbffff60eadd343083df49b4ca0fec3a8ef936965000d9ee07bdac090148",
+      "visualSha256": "d515af856381d0f3b77c9e45de27dc1b496d6b5684201e3886188e5044214cbf",
+      "polygonArea": 0.34583003353354547,
+      "outlineBounds": [
+        0.12817612,
+        0.15306864,
+        0.79354028,
+        0.87855507
+      ]
+    },
+    {
+      "case": "random-46",
+      "inputPointCount": 43,
+      "signals": {
+        "aspect": 0.001098276088796926,
+        "bend": 0.9999999999942489,
+        "hue": 0.06830810795228864,
+        "length": 17.14638262813783
+      },
+      "directionSha256": "669a46b2572bbe1d1bf92f66257621d4cd1fb6f962654234e3aed4d277f69165",
+      "faceEllipseEdgeDistanceMinimum": 1.5146969734750482,
+      "outlineSha256": "b859c876a06a52c44167f3b1a0cbf49f7870ddf5c5c5414f080453ea70810b8d",
+      "routeSha256": "22db15fbb9c8e9d86be02e528464cd7a8f80527abeb8b25eedf49debed21ce69",
+      "visualSha256": "7c7f54c8ca1352f3a748b5b8df90353765e2777794c381ad6a60608d19cb540d",
+      "polygonArea": 0.34502699458170455,
+      "outlineBounds": [
+        0.1472432,
+        0.14326022,
+        0.79687434,
+        0.88853066
+      ]
+    },
+    {
+      "case": "random-47",
+      "inputPointCount": 12,
+      "signals": {
+        "aspect": 0.02268593654305606,
+        "bend": 0.9991839069317788,
+        "hue": 0.0664304150840061,
+        "length": 6.78951898943011
+      },
+      "directionSha256": "5ed7fa8ad1d429fcc506a7d6a9004b844946304c114897ddb04bd692ace23f03",
+      "faceEllipseEdgeDistanceMinimum": 1.5794374645328937,
+      "outlineSha256": "a0ec9b9c21c2163b8818697bf4b153eae6bfb65220db211067e2a1b8b50a16b0",
+      "routeSha256": "1ce6526297134e0d92d77f65b3bce9153d2284f6645fe5185ac6b97438b5f76f",
+      "visualSha256": "0c4d2e3258c27579ff10f65b7098e93948b1275cb6ec2d3dbb9d57b95c0e8f2f",
+      "polygonArea": 0.34842751738488154,
+      "outlineBounds": [
+        0.12396466,
+        0.20506,
+        0.81711115,
+        0.87300764
+      ]
+    },
+    {
+      "case": "random-48",
+      "inputPointCount": 77,
+      "signals": {
+        "aspect": -0.034861779089159405,
+        "bend": 1.0,
+        "hue": 0.07169959726725444,
+        "length": 26.834461739962265
+      },
+      "directionSha256": "ec42d78f83900a410f11c7c423e9ed85eba309435fa8b47b9d4db96cac40cab0",
+      "faceEllipseEdgeDistanceMinimum": 1.4285701270868547,
+      "outlineSha256": "ef9db95011a74d826531234662823b3b6d377b48f92b45bf0ddd72835dbda358",
+      "routeSha256": "09f3437503f7a77bac953145f4e98796adcaf7dfc4488c230934a8c688426622",
+      "visualSha256": "acd926595f6973e80b91d71e1682ad490f2212a2153e73e607fb025174021288",
+      "polygonArea": 0.3471668049117213,
+      "outlineBounds": [
+        0.13035183,
+        0.1401673,
+        0.80733984,
+        0.86642672
+      ]
+    },
+    {
+      "case": "random-49",
+      "inputPointCount": 79,
+      "signals": {
+        "aspect": -0.011855172662724959,
+        "bend": 1.0,
+        "hue": 0.07830229647738834,
+        "length": 29.16368626790283
+      },
+      "directionSha256": "366a3b7080622623c8e5a7777e6e957df847c9d9564ddca014bfc20e9c0c5f9d",
+      "faceEllipseEdgeDistanceMinimum": 1.4400752024257297,
+      "outlineSha256": "3ed153534468f2d0df468cd9560aaab962c93417a238b513df4306312c36b854",
+      "routeSha256": "4a78494c0404fd7ddedb4559999ba561fd2a606cec623cddf46bd8c41858879e",
+      "visualSha256": "e10f42ef4228f54d3e1c02493688c67c302eab57c5d994e026fc364b83e0e1d7",
+      "polygonArea": 0.34440166783122844,
+      "outlineBounds": [
+        0.12627664,
+        0.14943725,
+        0.809093,
+        0.87990889
+      ]
+    },
+    {
+      "case": "random-50",
+      "inputPointCount": 37,
+      "signals": {
+        "aspect": -0.002730901064100748,
+        "bend": 0.9999999999087945,
+        "hue": 0.0728708744443512,
+        "length": 17.21943003318566
+      },
+      "directionSha256": "68fcd2e999c27e43485ce580466bd05bf5590e7809b84052f7dee80f3dfd8bb9",
+      "faceEllipseEdgeDistanceMinimum": 1.4271673043674793,
+      "outlineSha256": "e216506caa8d6725a8b519251795586cca7d246813665136e127270aa8517c4b",
+      "routeSha256": "10d993080e3b055a5c27b4d89b10de0ca43ee686d32dc3448960f657f81ee65a",
+      "visualSha256": "56f424fe79b8e08202474e770c6f7cb7d08ae46c463bc82f2389de4325b7b2e1",
+      "polygonArea": 0.34393714977389056,
+      "outlineBounds": [
+        0.12521522,
+        0.16738439,
+        0.80248342,
+        0.84968471
+      ]
+    },
+    {
+      "case": "random-51",
+      "inputPointCount": 18,
+      "signals": {
+        "aspect": 0.0012176980221872062,
+        "bend": 0.9999577975110188,
+        "hue": 0.07197062724290887,
+        "length": 7.688887051713029
+      },
+      "directionSha256": "0aafd49defa2c4083597be66a4ed8baf376f39386a98e60de26845bb49ba97b1",
+      "faceEllipseEdgeDistanceMinimum": 1.4141866197998902,
+      "outlineSha256": "c5bd215a1dd57e6984679aa92f6861c795b8eedd02c881e501df243b5a30d599",
+      "routeSha256": "907eab8bcec0661dcc493254a8fdcfffacafe6b553ec3690dc890a97a8bd1bda",
+      "visualSha256": "9e35c934ec962eb977296925981986c013b1f5e869125f29498111af6bcdd613",
+      "polygonArea": 0.3467832169123045,
+      "outlineBounds": [
+        0.13776229,
+        0.15299672,
+        0.79555289,
+        0.88488641
+      ]
+    },
+    {
+      "case": "random-52",
+      "inputPointCount": 32,
+      "signals": {
+        "aspect": 0.010109141016967457,
+        "bend": 0.9999999951381908,
+        "hue": 0.07835715546307559,
+        "length": 11.713971720661947
+      },
+      "directionSha256": "c8fb9e5370fc4f7e6982e7f6a82961b1a16c8baaee583d7b0008d2b6c7327cd7",
+      "faceEllipseEdgeDistanceMinimum": 1.4419789009183763,
+      "outlineSha256": "2b9b614c11149b1c8c0b4c6fb108a05a98a196f7de1c3ab9428c58ffa9d17397",
+      "routeSha256": "b9ce40a08fb850662d2619518469499cc9ff05a22107003bfed4ce3180fabf91",
+      "visualSha256": "865cb916c3168a63558598fef8f2cfddda93ffcec285d60f5698002682c24139",
+      "polygonArea": 0.34329248639880366,
+      "outlineBounds": [
+        0.12148322,
+        0.18918862,
+        0.81975397,
+        0.85948838
+      ]
+    },
+    {
+      "case": "random-53",
+      "inputPointCount": 28,
+      "signals": {
+        "aspect": 0.0385143007091813,
+        "bend": 0.9999998224240025,
+        "hue": 0.08305421474941083,
+        "length": 11.093215470944875
+      },
+      "directionSha256": "ab1f5747358613f513e176820711bf5bc27bb71a0fa222dedf43e425f2d45dcb",
+      "faceEllipseEdgeDistanceMinimum": 1.3388218037677286,
+      "outlineSha256": "ca5bbc3eff011600589ad544bf71f3bf62a69fd69d0dcd03868f6d37803aceef",
+      "routeSha256": "ade86e2121870099ca1cd63f3f878fd4c4b85266a60958cd74e3ff9eb980a66b",
+      "visualSha256": "37ec15556130a54da435a21f0c35073dc101d528fdccada9e2bf5b82211262a3",
+      "polygonArea": 0.3461249390247338,
+      "outlineBounds": [
+        0.13794854,
+        0.13411342,
+        0.82439888,
+        0.86849523
+      ]
+    },
+    {
+      "case": "random-54",
+      "inputPointCount": 9,
+      "signals": {
+        "aspect": -0.16468681440479407,
+        "bend": 0.9869977007456355,
+        "hue": 0.0710411971139771,
+        "length": 3.9609223544354344
+      },
+      "directionSha256": "e9ac1558420f83cb2c324d2f3c0fb2ba7e78120b746ee67f52ab61eba6d85dc2",
+      "faceEllipseEdgeDistanceMinimum": 1.3845360553063553,
+      "outlineSha256": "dc2fbfb5c690ad1f4657ed198baaa9fc04edba35f1ab03801d236e5b5e0eac5e",
+      "routeSha256": "ba32c13a18a25731f0481db80e315b1a2114b668c88d8798c32baffc06ff4cbd",
+      "visualSha256": "39fd2eec51201deedc8f3d5f88fe39c28f884a9f7bf98cc9c9d4a1170c3d4eda",
+      "polygonArea": 0.345181742657707,
+      "outlineBounds": [
+        0.13529886,
+        0.13508344,
+        0.79959357,
+        0.87006438
+      ]
+    },
+    {
+      "case": "random-55",
+      "inputPointCount": 12,
+      "signals": {
+        "aspect": 0.029226620323378458,
+        "bend": 0.9970188150022452,
+        "hue": 0.07573290518469772,
+        "length": 4.693387667524999
+      },
+      "directionSha256": "33ba892ad54062d58734c39d12b27ab55aa36c5755fc387e4d4731dd50aa1edc",
+      "faceEllipseEdgeDistanceMinimum": 1.4552797138579958,
+      "outlineSha256": "461cf1bc581bb18d93bdf029268f8563e32db008502260e75b38d0fd56374f86",
+      "routeSha256": "6e9a1236f92bd907bd00fab83c3d511eef3c23337a3a34bba2e8df1e85a42e82",
+      "visualSha256": "22afbe75499fd9a0549ef4dbb177f44bc427462a7ba1ac8268a0495cad56407c",
+      "polygonArea": 0.34495491789378546,
+      "outlineBounds": [
+        0.12789713,
+        0.15282059,
+        0.8022441,
+        0.87353261
+      ]
+    },
+    {
+      "case": "random-56",
+      "inputPointCount": 63,
+      "signals": {
+        "aspect": -0.041658068023876275,
+        "bend": 0.9999999999999978,
+        "hue": 0.06676450988970656,
+        "length": 20.85154261955289
+      },
+      "directionSha256": "d699063975c816704850976c65c3cb26a14cf682b8d75a793f7483d0c25ebe33",
+      "faceEllipseEdgeDistanceMinimum": 1.49872292688265,
+      "outlineSha256": "a28fc16b299cb69643910072053145d7d4efc5bd459fa0fe19e5318022885ff2",
+      "routeSha256": "402bfd9551cd557bde7aaa47e1a414037d8c3eee58b5c5a3175929e7e5edf03d",
+      "visualSha256": "f84933bae3fc00de78886063ef5767d2bcc26fc66f256ace7e958046ef5b9677",
+      "polygonArea": 0.34802079911623185,
+      "outlineBounds": [
+        0.13474652,
+        0.15019621,
+        0.80512752,
+        0.87511229
+      ]
+    },
+    {
+      "case": "random-57",
+      "inputPointCount": 58,
+      "signals": {
+        "aspect": -0.01858766212961954,
+        "bend": 0.9999999999999731,
+        "hue": 0.08034443215985415,
+        "length": 21.088304728769657
+      },
+      "directionSha256": "33b06892a65e568e6f6f8f2aa7d5a8919614df45778e984f5c8d59a6b0b142ee",
+      "faceEllipseEdgeDistanceMinimum": 1.4103858186940725,
+      "outlineSha256": "4f6dfffccc8cdcf72852fabddbaeec37fd5917d7023b7e2c9eeaa578d4c71f20",
+      "routeSha256": "394752538776bf0f37aa17a96158b238b487a2dec6e1cb84553d8ffc143838af",
+      "visualSha256": "be23922251d096358af87b63ec1eb2ad8a2760fad6fdda89e88a4e9496c2ba4f",
+      "polygonArea": 0.34413393909797146,
+      "outlineBounds": [
+        0.12412326,
+        0.14843933,
+        0.80082329,
+        0.859582
+      ]
+    },
+    {
+      "case": "random-58",
+      "inputPointCount": 67,
+      "signals": {
+        "aspect": 0.04147300618632584,
+        "bend": 0.9999999999999996,
+        "hue": 0.08339109642715675,
+        "length": 22.39604910512988
+      },
+      "directionSha256": "5ed7fa8ad1d429fcc506a7d6a9004b844946304c114897ddb04bd692ace23f03",
+      "faceEllipseEdgeDistanceMinimum": 1.3806508853806136,
+      "outlineSha256": "f9bdaf7dc8132e3eab93f20306ab480878383bc1ef0d8c3d1346e235b48365db",
+      "routeSha256": "42d151285e31f71ab85260061519b0549ef44ed358dc40d808c199c92b7b9f28",
+      "visualSha256": "6e9548d6e164bc106bfd4e2e0efb0f88532486263d0343399d4066c8be21365f",
+      "polygonArea": 0.3425922798189862,
+      "outlineBounds": [
+        0.1255573,
+        0.15607176,
+        0.79939972,
+        0.87770586
+      ]
+    },
+    {
+      "case": "random-59",
+      "inputPointCount": 60,
+      "signals": {
+        "aspect": 0.0276819850761602,
+        "bend": 0.9999999999999957,
+        "hue": 0.0793331373481459,
+        "length": 24.4655651670931
+      },
+      "directionSha256": "798fd66bba5a897478f28af91133bbb835c8027aa1971aaab72a7d3081ff8392",
+      "faceEllipseEdgeDistanceMinimum": 1.38359507064128,
+      "outlineSha256": "131766f7bf35116e99c860573b79dab190942b0d5052fc5eeeceb6439fc1bcd1",
+      "routeSha256": "2f698b2e9e5628b3717a886a3687c8a21de78324e03de82f37f035d605bd5d3e",
+      "visualSha256": "bc5eb83480a62531bafe8215c26f7c64cceed77582b5ad80d77b910a19dc4c10",
+      "polygonArea": 0.3461738769643012,
+      "outlineBounds": [
+        0.12567872,
+        0.1547892,
+        0.79482678,
+        0.85706242
+      ]
+    },
+    {
+      "case": "random-60",
+      "inputPointCount": 8,
+      "signals": {
+        "aspect": 0.049924487829511206,
+        "bend": 0.9736401040192361,
+        "hue": 0.08818749484969263,
+        "length": 4.461439537350486
+      },
+      "directionSha256": "0ef76d4e0cc2c17401d12c2cc6522ebbba56ba4da5c38c0bff6720156f996571",
+      "faceEllipseEdgeDistanceMinimum": 1.3777255430574993,
+      "outlineSha256": "d328e5a22fe2ff4514863046a578b8f07c4ab93938b0c85cbe5169e54a8c02fc",
+      "routeSha256": "d8fb20c4232c7dc6e97a899cebc6cd2fd816cb32642f9c4f38579e77c7cf9b6c",
+      "visualSha256": "8a9fdea8928811df0c29976b97301dbfb3863516532e33a3ef078597d0502afa",
+      "polygonArea": 0.340462487827841,
+      "outlineBounds": [
+        0.12720903,
+        0.14425461,
+        0.81741999,
+        0.85831816
+      ]
+    },
+    {
+      "case": "random-61",
+      "inputPointCount": 35,
+      "signals": {
+        "aspect": -0.0066826490026988105,
+        "bend": 0.9999999998313256,
+        "hue": 0.07012712739350474,
+        "length": 16.997543534777368
+      },
+      "directionSha256": "41cb2057dc25e8c71bf80db3651070164a8c2b34092cd119c96a116d69608483",
+      "faceEllipseEdgeDistanceMinimum": 1.495031267404854,
+      "outlineSha256": "31a35886744853b920dfd415015bc5e80a0523a2c2ff3db721b45933cc74d367",
+      "routeSha256": "a91f5d84bf0c2ddf1204dd6be33894d5571384a89dab03632ad0f31bd1b919e2",
+      "visualSha256": "ba294b78994706500fd657d4baba8ba1ebe192e14949fd4699d8cde1361113b1",
+      "polygonArea": 0.34574063459563675,
+      "outlineBounds": [
+        0.13290082,
+        0.14433753,
+        0.8123117,
+        0.89061374
+      ]
+    },
+    {
+      "case": "random-62",
+      "inputPointCount": 24,
+      "signals": {
+        "aspect": -0.043900547434747896,
+        "bend": 0.9999990887388093,
+        "hue": 0.07083636537356436,
+        "length": 10.250849308641337
+      },
+      "directionSha256": "a7060a82926709b12999844725c96b2a97fc7fcfeb36e9b28b18a004576d41cf",
+      "faceEllipseEdgeDistanceMinimum": 1.3930450441231423,
+      "outlineSha256": "e319cf0bf8e5ffb1836cebfae4da13f0ee818bc81da46f6def1173f5f36debf6",
+      "routeSha256": "f48ac3cc208475aaa0deac7bdfc84ad34361647caf09eb18a6d74d64a3f81aa8",
+      "visualSha256": "e6ed24f3bc6b68ce850dfa2653ab6d23a2a6203053298114736899a4eb0efc0d",
+      "polygonArea": 0.3445389861719731,
+      "outlineBounds": [
+        0.12441731,
+        0.16230721,
+        0.82523744,
+        0.84174814
+      ]
+    },
+    {
+      "case": "random-63",
+      "inputPointCount": 35,
+      "signals": {
+        "aspect": 0.06720843553040413,
+        "bend": 0.9999999996942877,
+        "hue": 0.08246273304176549,
+        "length": 14.478515549994054
+      },
+      "directionSha256": "6c51f786ac8ef1e0ab8c7b91ea94fd97a8bcdd1d78c5390941cb6d7c93146b57",
+      "faceEllipseEdgeDistanceMinimum": 1.4031861790328517,
+      "outlineSha256": "98d84b80e4435a3411acf07e10b8bdcafe06cb480c408ac90f50aae7892022d5",
+      "routeSha256": "58c6142cc683bc16fc350f3235519edd1ac3382952e0531640564958f1b8d1fc",
+      "visualSha256": "d61af2c3ccfa2c58059ca85b1b5ab7bdf40a96ff1953972e204bf0dd6da41b1d",
+      "polygonArea": 0.3424397394600534,
+      "outlineBounds": [
+        0.12918158,
+        0.15569401,
+        0.79883289,
+        0.86763964
+      ]
+    },
+    {
+      "case": "random-64",
+      "inputPointCount": 5,
+      "signals": {
+        "aspect": 0.08119641483749006,
+        "bend": 0.8074744116245931,
+        "hue": 0.07992815086270016,
+        "length": 2.1487046572104105
+      },
+      "directionSha256": "f80183d4f2cd68b8b20f57f121d2fc778f165077a9a35e7cc93bc1d74263043e",
+      "faceEllipseEdgeDistanceMinimum": 1.4649823596502132,
+      "outlineSha256": "a4a221f708cd60009dfe860df76468486e72600f007ea30b6b5bdca9f0f9de22",
+      "routeSha256": "33532c0dfb4d01db5c0a0cfb5962405e3c6a7367cd987619582bf195f72e5121",
+      "visualSha256": "cef9b90d02032eb726bcc3c851462aa04bff3352b4b40dff9f29e027405820e3",
+      "polygonArea": 0.34251303730013805,
+      "outlineBounds": [
+        0.13319707,
+        0.15109361,
+        0.83861556,
+        0.88580875
+      ]
+    },
+    {
+      "case": "random-65",
+      "inputPointCount": 64,
+      "signals": {
+        "aspect": 0.04634865205596957,
+        "bend": 1.0,
+        "hue": 0.08158199530207938,
+        "length": 24.005618250090823
+      },
+      "directionSha256": "78490c3551617ef5008f38f77484ce544a37f8f8f45d46721c8d6780ece12489",
+      "faceEllipseEdgeDistanceMinimum": 1.4069886642802,
+      "outlineSha256": "f24bf76a4eb661f00263f0738c0558a9e37fc21f0539ec8247760aaa320a4d1b",
+      "routeSha256": "1e8a82c1268d6e60f4e3e4ff7438eb8c9aa8cd2f6a648bc8872e8eaf16086846",
+      "visualSha256": "1926cdd986299743ddac265e49892a8d52adcf5a6028527cfaab78e3c5446aea",
+      "polygonArea": 0.3441444948819246,
+      "outlineBounds": [
+        0.12879565,
+        0.14885515,
+        0.80846657,
+        0.88040884
+      ]
+    },
+    {
+      "case": "random-66",
+      "inputPointCount": 71,
+      "signals": {
+        "aspect": 0.017659116777591497,
+        "bend": 1.0,
+        "hue": 0.0792582018542804,
+        "length": 26.67212004615965
+      },
+      "directionSha256": "78490c3551617ef5008f38f77484ce544a37f8f8f45d46721c8d6780ece12489",
+      "faceEllipseEdgeDistanceMinimum": 1.3995834528810913,
+      "outlineSha256": "cadb2f09588a7d218d7c00dd25659dc52a3e13a181016ca3e062998d41d927a9",
+      "routeSha256": "f9c3e60974e7d7ba3743e6c55f5297b31224a433caaa3872fc424cdb6ba04bb0",
+      "visualSha256": "49154bfedba50b013d352eea67117b55db202a206eef5ce4d2d4eac54c87eb62",
+      "polygonArea": 0.34407516762052126,
+      "outlineBounds": [
+        0.12653372,
+        0.1543686,
+        0.81279111,
+        0.86944714
+      ]
+    },
+    {
+      "case": "random-67",
+      "inputPointCount": 36,
+      "signals": {
+        "aspect": 0.03667352756156728,
+        "bend": 0.9999999997490224,
+        "hue": 0.07139304849007516,
+        "length": 14.658879184947736
+      },
+      "directionSha256": "c8fb9e5370fc4f7e6982e7f6a82961b1a16c8baaee583d7b0008d2b6c7327cd7",
+      "faceEllipseEdgeDistanceMinimum": 1.4470520921599461,
+      "outlineSha256": "2f204bc4d589bdf5bab984311b7b3eb19aa5d3ecb49ab8a1b6f41f307be70738",
+      "routeSha256": "5910dcb6375ce9209b269d9926961737c6ab8f6446bcb4393cc5b4da4ed2982d",
+      "visualSha256": "0bd784328990d4a9b6aa0db6ddcccdbe7048907273a3758d8c86a0f50d015de0",
+      "polygonArea": 0.34658648600658326,
+      "outlineBounds": [
+        0.12992669,
+        0.14282029,
+        0.83338209,
+        0.88709469
+      ]
+    },
+    {
+      "case": "random-68",
+      "inputPointCount": 64,
+      "signals": {
+        "aspect": -0.0037865071049397033,
+        "bend": 0.9999999999999999,
+        "hue": 0.06953997668847517,
+        "length": 26.596705097152416
+      },
+      "directionSha256": "0f11eadfc00211b3d1b2b422ccae114db119fe6989cf762bce8dffaba7f63bb9",
+      "faceEllipseEdgeDistanceMinimum": 1.4613003368506847,
+      "outlineSha256": "76d9471a375df792c132596ac73c18a3c2181f185131792ee9bfac49adffa753",
+      "routeSha256": "1f68b58c44776b18d181b842124307448d26a48063b2346532329708de42abdf",
+      "visualSha256": "88ea08e8c2b316c4b6b7a33f6563aa152aab94daf561b3d4bff1b481405b5132",
+      "polygonArea": 0.3419978645029781,
+      "outlineBounds": [
+        0.12223218,
+        0.19342955,
+        0.82535397,
+        0.8543677
+      ]
+    },
+    {
+      "case": "random-69",
+      "inputPointCount": 75,
+      "signals": {
+        "aspect": -0.03445078981978683,
+        "bend": 1.0,
+        "hue": 0.07140357050250062,
+        "length": 25.013550569004295
+      },
+      "directionSha256": "70496a0020595fe16a7558c2bd2e7b75f606dcc1dfc26ec6448db567f2a5040f",
+      "faceEllipseEdgeDistanceMinimum": 1.4904916230300664,
+      "outlineSha256": "c43f811cdf3baaa213ae3dcce3383329d90910d9d56d20ccf8288d7c38a9661f",
+      "routeSha256": "4073900f18f3dccff07b8b99cf82b53dbd5532b5f9f6000e650a9e48f828e1f7",
+      "visualSha256": "d60ed8552dc940ad80eacd119d69fc7652ed19bc3de2b2d6d04579e698683372",
+      "polygonArea": 0.34814201424266344,
+      "outlineBounds": [
+        0.12748285,
+        0.15437201,
+        0.82067365,
+        0.88113109
+      ]
+    },
+    {
+      "case": "random-70",
+      "inputPointCount": 20,
+      "signals": {
+        "aspect": 0.01939254062187455,
+        "bend": 0.9999982549259924,
+        "hue": 0.07145564306030144,
+        "length": 10.8800299337527
+      },
+      "directionSha256": "669a46b2572bbe1d1bf92f66257621d4cd1fb6f962654234e3aed4d277f69165",
+      "faceEllipseEdgeDistanceMinimum": 1.511361332263476,
+      "outlineSha256": "ebcf3a2f667b14bdf8030427beba1f29e42daa0d136b5ca8a921eb14e153cdaa",
+      "routeSha256": "59b38b54da7b08eccd94f96c3b2fe33e15ad7d65a80998227258c8639185142f",
+      "visualSha256": "7fd36e34f1cf94b9b2b7c640d4ec3878f50ec1406c9e9f7f867fa7bf423ffb8f",
+      "polygonArea": 0.34728279236716253,
+      "outlineBounds": [
+        0.13424317,
+        0.15107805,
+        0.80479009,
+        0.87897355
+      ]
+    },
+    {
+      "case": "random-71",
+      "inputPointCount": 21,
+      "signals": {
+        "aspect": -0.015366849219693137,
+        "bend": 0.9999895239552099,
+        "hue": 0.07976758390417366,
+        "length": 9.64011649341425
+      },
+      "directionSha256": "fdff886f7be2d3e133c90fe2a3464f65fec43055ee12bad620afb2018c752a7f",
+      "faceEllipseEdgeDistanceMinimum": 1.4450921794626133,
+      "outlineSha256": "40efcaa1afb15dd34c238dae8eba4af50ed792e2b93772d516c22226ee84e0fb",
+      "routeSha256": "226ff5403fcde140de02491ec97e17e1e50c1b40ccfbd38509a0952b3882bbe5",
+      "visualSha256": "2c317115d74ef39f2c19cd7a36c744569bdcd2a1f02959dfee566365c17cd74d",
+      "polygonArea": 0.3441649991693944,
+      "outlineBounds": [
+        0.12399438,
+        0.15230077,
+        0.81164509,
+        0.88865579
+      ]
+    },
+    {
+      "case": "random-72",
+      "inputPointCount": 61,
+      "signals": {
+        "aspect": 0.018174190988003686,
+        "bend": 0.9999999999999993,
+        "hue": 0.08012470188817739,
+        "length": 22.093736944411425
+      },
+      "directionSha256": "6c2d9e880ce532f960b389f922915066f1e4a0ea63be4737773fb4f7a7c0efc0",
+      "faceEllipseEdgeDistanceMinimum": 1.3710444871022902,
+      "outlineSha256": "4dc3af3e2abe4009fe516e3eeaeac4a730bef3e2a4c8173e11621892fff90cb7",
+      "routeSha256": "3a6999f3f9e31dceeeafd141debbd49b062699e6cc270e4fe7ee39728c4e3336",
+      "visualSha256": "a0afe103e471fdd6ee05620ccc02020da464c0cc17f9917781acbf8a469fd96c",
+      "polygonArea": 0.34825738441243004,
+      "outlineBounds": [
+        0.12914003,
+        0.13012988,
+        0.81326091,
+        0.86210011
+      ]
+    },
+    {
+      "case": "random-73",
+      "inputPointCount": 4,
+      "signals": {
+        "aspect": 0.347284013138073,
+        "bend": 0.7467451343230379,
+        "hue": 0.13001834398508422,
+        "length": 2.4350854551024868
+      },
+      "directionSha256": "e417fca3dbeba7738561e1f6c976a594652684b50ca6348b32fe790e4ca63304",
+      "faceEllipseEdgeDistanceMinimum": 1.3240725317402735,
+      "outlineSha256": "3e60d0f99670907c092e37ada0c73be7425f12dbc34c2e25cae21215188a4ca0",
+      "routeSha256": "8c6fabcbfd29ca5afb9088c03dd5f452f73a6dfc80d6162472cd7c6489cdd520",
+      "visualSha256": "9521c0307c6fa2d8f4d63e260ecdc38b6bc148825cca488ee8e248c9cf900c49",
+      "polygonArea": 0.34203974625930733,
+      "outlineBounds": [
+        0.14847547,
+        0.12754771,
+        0.80525033,
+        0.8359311
+      ]
+    },
+    {
+      "case": "random-74",
+      "inputPointCount": 39,
+      "signals": {
+        "aspect": 0.027911703244765308,
+        "bend": 0.9999999999800863,
+        "hue": 0.07711968286578991,
+        "length": 15.760952931237002
+      },
+      "directionSha256": "f42918d83c3dd1d4c157152051e74fc0184ecba7f4a5a256b43719207f0f68ff",
+      "faceEllipseEdgeDistanceMinimum": 1.4181210242307019,
+      "outlineSha256": "3488e48f817454a9e75b425304bb0f62044f70ac9b0f3cce9eaf92cc1ffe8f65",
+      "routeSha256": "264628da703407e77b1234b1bbe596c889631c48cf275cbfef5eee79938a3ded",
+      "visualSha256": "a231eceeab215f662a589e837d9071bb5addd2fab9e0210fd79bbf7944363a40",
+      "polygonArea": 0.3448898483260229,
+      "outlineBounds": [
+        0.13111998,
+        0.1494085,
+        0.8034866,
+        0.87739883
+      ]
+    },
+    {
+      "case": "random-75",
+      "inputPointCount": 40,
+      "signals": {
+        "aspect": 0.04177385236244629,
+        "bend": 0.9999999999388935,
+        "hue": 0.07523855343419011,
+        "length": 17.096571237669806
+      },
+      "directionSha256": "0aafd49defa2c4083597be66a4ed8baf376f39386a98e60de26845bb49ba97b1",
+      "faceEllipseEdgeDistanceMinimum": 1.4722812694913325,
+      "outlineSha256": "10acda6dd82cd77be5882f6ec3c7daf61fe3c489bd33aed84563a38e0d2f6144",
+      "routeSha256": "126660111d0d3bf28463d03c449d9d60654577435630d36bfaef30b6f19f76b5",
+      "visualSha256": "7839a710b4c4cdebfc670d1a128801ec306d64d208e7b7819f1d52c03dd0f5a9",
+      "polygonArea": 0.3434949466237679,
+      "outlineBounds": [
+        0.12305006,
+        0.18799371,
+        0.81490169,
+        0.86469019
+      ]
+    },
+    {
+      "case": "random-76",
+      "inputPointCount": 7,
+      "signals": {
+        "aspect": 0.019929453364032155,
+        "bend": 0.9242087247826423,
+        "hue": 0.08612940892943549,
+        "length": 3.6134842904566042
+      },
+      "directionSha256": "cbc09aaf8170db64372a95dfaf8416d4278adad1a502ce0acf83440ef0fc682d",
+      "faceEllipseEdgeDistanceMinimum": 1.4496024613459495,
+      "outlineSha256": "66769681f189bf205f07fb2e19d4bc60a7cc9aebb03dafe3b447e782546ba1e9",
+      "routeSha256": "1eab4eb09dfe74eb6f5aa0f1f8e727d1b57e1be454801e9c187e2f445171e34e",
+      "visualSha256": "af1df9ad7d865342eb5f6b7be9d6a5ecea99fa9364bc2d7577a1eaef76d20a97",
+      "polygonArea": 0.3458243687764277,
+      "outlineBounds": [
+        0.12674448,
+        0.17593642,
+        0.85167456,
+        0.83240884
+      ]
+    },
+    {
+      "case": "random-77",
+      "inputPointCount": 45,
+      "signals": {
+        "aspect": 0.02752155953912563,
+        "bend": 0.9999999999996703,
+        "hue": 0.07685309199958018,
+        "length": 17.905626057553288
+      },
+      "directionSha256": "970e863015518e7ce50326153e6fc5a341b45b81263b882f1d5d27dc99e2cbb5",
+      "faceEllipseEdgeDistanceMinimum": 1.4721627055274753,
+      "outlineSha256": "8a6dce13db3c005ffa611bce65564f3c5338cb6e2dc2b0ddbbf330d355cdca8b",
+      "routeSha256": "482613997b9380a460c356a458346c3ce9d484eb623c1d2ee7f4aa005e63a2b2",
+      "visualSha256": "e577e6080b9e4930d20a82f75d4c1975cbf70caaaf026dd7d5f939882251c990",
+      "polygonArea": 0.34524851372338444,
+      "outlineBounds": [
+        0.13065574,
+        0.1479146,
+        0.80616731,
+        0.88448242
+      ]
+    },
+    {
+      "case": "random-78",
+      "inputPointCount": 4,
+      "signals": {
+        "aspect": 0.12372304328343336,
+        "bend": 0.6333879353007197,
+        "hue": 0.09002717606134364,
+        "length": 1.3966210752908894
+      },
+      "directionSha256": "c20f94f3fbe4ad3e5d560105c7d3d260aff9ad5e1fa75184b60e7e1a110acbba",
+      "faceEllipseEdgeDistanceMinimum": 1.4115455346274728,
+      "outlineSha256": "f5f8920b185b3ee88cfc5dd80784ebf1a59d3c0a620428a3e6c7ae95fdc1f2c2",
+      "routeSha256": "172ca8802fcf9067d1c18ab12687e32cdac5aa989968ce34e12990ac6ca217c4",
+      "visualSha256": "af211fc21006151a9ee8a67592bf8a9f8c5d67de2a864796e5815e6e86d4de58",
+      "polygonArea": 0.3363222989036434,
+      "outlineBounds": [
+        0.13745585,
+        0.17549348,
+        0.81310655,
+        0.85052926
+      ]
+    },
+    {
+      "case": "random-79",
+      "inputPointCount": 12,
+      "signals": {
+        "aspect": 0.04159763767718232,
+        "bend": 0.9983283834503762,
+        "hue": 0.0749491477779422,
+        "length": 5.450585900823631
+      },
+      "directionSha256": "5ed7fa8ad1d429fcc506a7d6a9004b844946304c114897ddb04bd692ace23f03",
+      "faceEllipseEdgeDistanceMinimum": 1.37511470720653,
+      "outlineSha256": "88e0f33ef305f540e8604330afa258c5a2f2f7f1cd8692722fd7ddcdfd68bd48",
+      "routeSha256": "cb694d7ee000543a603defcc58315ff5244d61c0babf496b685a7024a5b30f51",
+      "visualSha256": "e81837dc837c68dc3556b28928b03e63217b58bbe00439b32a0e9ec49d152718",
+      "polygonArea": 0.3453106143273497,
+      "outlineBounds": [
+        0.1231708,
+        0.16200701,
+        0.80936807,
+        0.88865454
+      ]
+    },
+    {
+      "case": "random-80",
+      "inputPointCount": 46,
+      "signals": {
+        "aspect": 0.053862189925453656,
+        "bend": 0.9999999999947936,
+        "hue": 0.07790991181923318,
+        "length": 18.067206933665673
+      },
+      "directionSha256": "c8fb9e5370fc4f7e6982e7f6a82961b1a16c8baaee583d7b0008d2b6c7327cd7",
+      "faceEllipseEdgeDistanceMinimum": 1.4300639083544087,
+      "outlineSha256": "c6a9754cd09993f70cb99146b0a2e939715a6fb2d081f815ad9e6b30f4568cb5",
+      "routeSha256": "decd0d11fc02d53c979b6d4be4941b7fccae096207ff2cdb7bba9f1b897bb200",
+      "visualSha256": "a30b75a4256b5cc6685436f14fc4c3153f0b10665259ffaee86d3e0391530f2d",
+      "polygonArea": 0.3450198448691073,
+      "outlineBounds": [
+        0.13236024,
+        0.15104974,
+        0.80043138,
+        0.88874566
+      ]
+    },
+    {
+      "case": "random-81",
+      "inputPointCount": 71,
+      "signals": {
+        "aspect": -0.07557553458247752,
+        "bend": 1.0,
+        "hue": 0.06414106176322248,
+        "length": 24.150123881961544
+      },
+      "directionSha256": "84d1c253b9988b51e71ac060815ed62d5e103e02738105493d640375bdf03513",
+      "faceEllipseEdgeDistanceMinimum": 1.4695388407458314,
+      "outlineSha256": "f473095e13cee20b733694b550c8900fddb5985c19ee29b2b1be686fa714fdc6",
+      "routeSha256": "4c2043f269d24c56f8c8f161fa68ec90cfcb7d6b9b66d70699ab596434db1ae5",
+      "visualSha256": "92e18c6e2c58759c120ae4809bf93deda0345be0919dec1f78b05a882eb5007e",
+      "polygonArea": 0.3481057938833113,
+      "outlineBounds": [
+        0.12347615,
+        0.1513202,
+        0.828723,
+        0.88124155
+      ]
+    },
+    {
+      "case": "random-82",
+      "inputPointCount": 10,
+      "signals": {
+        "aspect": -0.0867408689148916,
+        "bend": 0.994012415061009,
+        "hue": 0.061903090338502664,
+        "length": 4.993647235005123
+      },
+      "directionSha256": "366a3b7080622623c8e5a7777e6e957df847c9d9564ddca014bfc20e9c0c5f9d",
+      "faceEllipseEdgeDistanceMinimum": 1.3890179562390226,
+      "outlineSha256": "2eb6079c047e7f60debf1aeec6a54ac4b56abe91752444d2b6adf6ff9cf9aa93",
+      "routeSha256": "2ac063a8420180361fe8b0b4f8ba62d9a5aaa8999094f7a5b93e35fb6ed7f3b1",
+      "visualSha256": "0838a80e50f0854610227e89e2c5f75e50d4107c67567d71d8039f611ee7729c",
+      "polygonArea": 0.3417288805884543,
+      "outlineBounds": [
+        0.11620749,
+        0.19383492,
+        0.81703559,
+        0.83724329
+      ]
+    },
+    {
+      "case": "random-83",
+      "inputPointCount": 6,
+      "signals": {
+        "aspect": 0.01179158406134383,
+        "bend": 0.7900694116037864,
+        "hue": 0.08382343877948467,
+        "length": 2.636356905771154
+      },
+      "directionSha256": "8983560b58d01f7040cae12f8b105222826fda441d2db9f31a8f95b5920b01e4",
+      "faceEllipseEdgeDistanceMinimum": 1.4153993710864854,
+      "outlineSha256": "2f963150b0f7ad2523cfb6592f5ee1144c27f8e7ae9df4ebdcfe8dc8e47bbbfc",
+      "routeSha256": "e9a46db9dcbec077ba36aa88e18be0481275ab1a685ce0ccfc8e2fc4d851e26f",
+      "visualSha256": "eea4d4488e82edfa9e503e710fbeeb43074c15fa5fa5eedf21f28e095ce7b9d7",
+      "polygonArea": 0.34268913148162283,
+      "outlineBounds": [
+        0.13556806,
+        0.15625924,
+        0.80886651,
+        0.86595618
+      ]
+    },
+    {
+      "case": "random-84",
+      "inputPointCount": 61,
+      "signals": {
+        "aspect": 0.039858209715630775,
+        "bend": 0.9999999999999997,
+        "hue": 0.07856530440011161,
+        "length": 24.959660962224362
+      },
+      "directionSha256": "415a676c3a8ef0175e392c9a2f321919d4f8ef8911afc506a38d09b7cb95a6e5",
+      "faceEllipseEdgeDistanceMinimum": 1.3985805845444537,
+      "outlineSha256": "3ced3ddfcb5a4a43713269059b0f1a783c1250a15e16483019286ad8ce98c5f9",
+      "routeSha256": "9c5f00d85ae4fc8a76b7bb798743fb40d3e2bb4613d1e80799e50b7851c239bc",
+      "visualSha256": "4077ec3f901dccbaca1bfac7404567f04793e8ac9b76064b56fd126e22463a93",
+      "polygonArea": 0.34323866088483546,
+      "outlineBounds": [
+        0.1270077,
+        0.1565523,
+        0.81078154,
+        0.86265769
+      ]
+    },
+    {
+      "case": "random-85",
+      "inputPointCount": 44,
+      "signals": {
+        "aspect": -0.01629198422022939,
+        "bend": 0.9999999999867077,
+        "hue": 0.06956685151297731,
+        "length": 16.016902811105194
+      },
+      "directionSha256": "d55d8d1a71ae7f17b28353e08597830a25d65e117023748cf38cd0e0604d20ed",
+      "faceEllipseEdgeDistanceMinimum": 1.4940932052961753,
+      "outlineSha256": "7d15f2ff508f8cedf340d1676fd96e7a879f27fe1925cabda7d2d03d8f8f93fa",
+      "routeSha256": "066cfb8c34810f2e171bb2919cf1deb80606731b1023270ba0d2878470a107fb",
+      "visualSha256": "9195b6e26f26e310f51858c1190c027d19219ae06cd7f11044ebb6eb023adf36",
+      "polygonArea": 0.3437450289848486,
+      "outlineBounds": [
+        0.1244382,
+        0.16213424,
+        0.79835205,
+        0.88855584
+      ]
+    },
+    {
+      "case": "random-86",
+      "inputPointCount": 42,
+      "signals": {
+        "aspect": 0.024764535700487884,
+        "bend": 0.9999999999790505,
+        "hue": 0.07731450297730474,
+        "length": 17.37352583448751
+      },
+      "directionSha256": "facc26fff11845d3350477a8c0bd279e2725cac627ed2b349cdb94ddc3d75e3c",
+      "faceEllipseEdgeDistanceMinimum": 1.3608407393424689,
+      "outlineSha256": "60e9b1e574ae29ecd0063ae1837bfdc1461778137eb21856c7d28a26c5a30f16",
+      "routeSha256": "fd9605c269654bbf1475ec0f5b106ddf66541a962dd7892655dc240f3b75ccf6",
+      "visualSha256": "f1aa7a1c7c02d163ca9cb8c2af449761f9b44de1d312870b64aa2b034f0391d1",
+      "polygonArea": 0.34422206679691264,
+      "outlineBounds": [
+        0.12303575,
+        0.15158214,
+        0.80648615,
+        0.85093088
+      ]
+    },
+    {
+      "case": "random-87",
+      "inputPointCount": 10,
+      "signals": {
+        "aspect": 0.18254929304935802,
+        "bend": 0.9952991955502315,
+        "hue": 0.0925706549906617,
+        "length": 4.3656821351884645
+      },
+      "directionSha256": "798fd66bba5a897478f28af91133bbb835c8027aa1971aaab72a7d3081ff8392",
+      "faceEllipseEdgeDistanceMinimum": 1.4019010176003859,
+      "outlineSha256": "a4cc9b65fc35f84d4668235056f1a485d69ae26ebf9299720bd9f54d1f968820",
+      "routeSha256": "c1ff622d5a35e7432ff3da3acd233999bd9faef1f615eb4dfbca4d1263dd64af",
+      "visualSha256": "08d4df4ae4c3060bf6fefa252c7e13a67ae6ec6f08ec2daf1005f929fbb5b080",
+      "polygonArea": 0.3426783514238314,
+      "outlineBounds": [
+        0.15090657,
+        0.12709695,
+        0.79034271,
+        0.88650044
+      ]
+    },
+    {
+      "case": "random-88",
+      "inputPointCount": 17,
+      "signals": {
+        "aspect": -0.013833898355399235,
+        "bend": 0.9999733282279869,
+        "hue": 0.07088937638006804,
+        "length": 8.719876093239558
+      },
+      "directionSha256": "fdff886f7be2d3e133c90fe2a3464f65fec43055ee12bad620afb2018c752a7f",
+      "faceEllipseEdgeDistanceMinimum": 1.4154963371909244,
+      "outlineSha256": "1219f601790b799c6ef8872b01ecbefb0c1757d84224f3bd512c1b035497c9fc",
+      "routeSha256": "26c3f5b6ae596ef08da6b0e6fb6282927cbaa3020c160eb84408d354c762b678",
+      "visualSha256": "e23e0c534a7a50e5044864b0b8f050987b81b0e83918d696ec03f3cfb472f309",
+      "polygonArea": 0.34660363504893,
+      "outlineBounds": [
+        0.14197841,
+        0.15144611,
+        0.79263685,
+        0.86871499
+      ]
+    },
+    {
+      "case": "random-89",
+      "inputPointCount": 22,
+      "signals": {
+        "aspect": 0.04955414662790449,
+        "bend": 0.9999883376180254,
+        "hue": 0.07814302820560276,
+        "length": 10.107720987482297
+      },
+      "directionSha256": "02557642b4d33e7be5a4b263ee23e58311d43c9adfe540d1516a53f8c75f991a",
+      "faceEllipseEdgeDistanceMinimum": 1.3814255322250268,
+      "outlineSha256": "15a946c4bdf7039285ab919c50ad308798eedeafdb730ff0af6c55c6f60a2472",
+      "routeSha256": "5b3772ab83fca7e63b215b1e2c776a633ca7ff2dcc4c4e075aea0413f2098658",
+      "visualSha256": "66678748101167f453cc29f221296b35103b6c10b4364901e13765fc0cfd0e6e",
+      "polygonArea": 0.34502324198431933,
+      "outlineBounds": [
+        0.12581265,
+        0.14180276,
+        0.79842169,
+        0.88476869
+      ]
+    },
+    {
+      "case": "random-90",
+      "inputPointCount": 24,
+      "signals": {
+        "aspect": -0.05886221174994677,
+        "bend": 0.999997765982819,
+        "hue": 0.06780183113201882,
+        "length": 11.288756876044507
+      },
+      "directionSha256": "68fcd2e999c27e43485ce580466bd05bf5590e7809b84052f7dee80f3dfd8bb9",
+      "faceEllipseEdgeDistanceMinimum": 1.3969996980453747,
+      "outlineSha256": "249d31e6ec0c9084b196fc90bff52920cafa6316528b433df778c0f453372e7e",
+      "routeSha256": "4b166048f5cfa365b6311d3d8c97594d55287fcd558474a3737e23b6a7b93fa3",
+      "visualSha256": "b9f940a044e99c320e232b8e473c14bbe864679caf494b68bb3041094396dc1a",
+      "polygonArea": 0.3457056310226364,
+      "outlineBounds": [
+        0.11977433,
+        0.17519923,
+        0.80853608,
+        0.8782425
+      ]
+    },
+    {
+      "case": "random-91",
+      "inputPointCount": 58,
+      "signals": {
+        "aspect": -0.0004840240915760391,
+        "bend": 1.0,
+        "hue": 0.07500079589922243,
+        "length": 25.542314381452833
+      },
+      "directionSha256": "32cd7b4e1ed7ac22bf8095d7a5df082fa3259021dca4e49ac63bcfab457af553",
+      "faceEllipseEdgeDistanceMinimum": 1.392226665426939,
+      "outlineSha256": "34523044219b1357ad64ed67910f42d27d5fba5301d09efa0f444181b7fc1fe2",
+      "routeSha256": "2ce1495b0231b13915c468f8c1a60e1a054777a0b1334ffd05b5efc85ac59bfa",
+      "visualSha256": "1b7768ee857b58cefd7e4f7129844f56b9a78d9d1b8a450dc90dad185ead5bce",
+      "polygonArea": 0.34439736127120396,
+      "outlineBounds": [
+        0.12332766,
+        0.16379629,
+        0.7981251,
+        0.84543182
+      ]
+    },
+    {
+      "case": "random-92",
+      "inputPointCount": 51,
+      "signals": {
+        "aspect": -0.052163376269555466,
+        "bend": 0.999999999999844,
+        "hue": 0.07308987430253483,
+        "length": 21.806880715670193
+      },
+      "directionSha256": "5f97efde1b1ed03617caee031236b6a3e7c96be52d4192102e482e03d14c74ee",
+      "faceEllipseEdgeDistanceMinimum": 1.4528782341698072,
+      "outlineSha256": "482bd50e432ab678cd647903a341766ea6fe1c3fad97d6381465eea22829a98a",
+      "routeSha256": "98e0ef49b8057ed876a957a000c95c2e3e0aa915defff4de2247e3c150250787",
+      "visualSha256": "69a194331a84beaa03562566f01dde1db6b5c676bbe0a231c1791f656cc597d2",
+      "polygonArea": 0.345083341617253,
+      "outlineBounds": [
+        0.12496872,
+        0.14685668,
+        0.81496612,
+        0.87601482
+      ]
+    },
+    {
+      "case": "random-93",
+      "inputPointCount": 52,
+      "signals": {
+        "aspect": -0.045875787467327754,
+        "bend": 0.999999999999989,
+        "hue": 0.071055093109395,
+        "length": 22.6910474209593
+      },
+      "directionSha256": "5a7784d3023acffd2daf940e20cf80fcf4ff133d1b7b931aad1d7874a80e9222",
+      "faceEllipseEdgeDistanceMinimum": 1.4463607092661181,
+      "outlineSha256": "9063e9a964bcf0587feae8f7ab30b1b78013e91a5e62154dc1d93dc2b976e8f1",
+      "routeSha256": "63af8727e655000ac9abf208f0a8294480ff84ab2983c07c6a075b42c72aabe8",
+      "visualSha256": "9a73ee72ce8f76df8e67f5748899c3c3ccef79719096e86b1dc2412aa976542c",
+      "polygonArea": 0.3438131990562202,
+      "outlineBounds": [
+        0.12075429,
+        0.16945825,
+        0.79620984,
+        0.88061245
+      ]
+    },
+    {
+      "case": "random-94",
+      "inputPointCount": 76,
+      "signals": {
+        "aspect": 0.01265930538835508,
+        "bend": 1.0,
+        "hue": 0.08198201894541685,
+        "length": 24.1420030306029
+      },
+      "directionSha256": "5ed7fa8ad1d429fcc506a7d6a9004b844946304c114897ddb04bd692ace23f03",
+      "faceEllipseEdgeDistanceMinimum": 1.3804502648436006,
+      "outlineSha256": "8ae23f66c06c82eb6e175043a885e97d5964dad55ebc86dea462ca1436aac174",
+      "routeSha256": "f29d4588f44c717c40aae6ff97018740b679b88b116bbe4bdd086788e2d0556c",
+      "visualSha256": "d29009c5848474eadd8cf4813114d58670c4ef861db2045a6a5197102ae8c2f8",
+      "polygonArea": 0.3458063671192429,
+      "outlineBounds": [
+        0.12338899,
+        0.16086862,
+        0.80174439,
+        0.86314777
+      ]
+    },
+    {
+      "case": "random-95",
+      "inputPointCount": 29,
+      "signals": {
+        "aspect": -0.04255766992033588,
+        "bend": 0.9999996967494996,
+        "hue": 0.07306820359137384,
+        "length": 12.228410182172322
+      },
+      "directionSha256": "30484275bff4b49d75d4383c270de497ec46091bc60904abccbb2d92c8fb5ff6",
+      "faceEllipseEdgeDistanceMinimum": 1.3519794921977155,
+      "outlineSha256": "3c5b131ed1c634933e22575c870b03e7e617f4e9a7b4a7e022e6ae1df57c476b",
+      "routeSha256": "fb05a3f5c111e9b73e70df11554f350086e940b2344ee2dc03f96c1d7dede183",
+      "visualSha256": "30114935b3b0cd41367907acf1313dca57901a1a3ac3dbe140d83896709ce297",
+      "polygonArea": 0.3505635912360245,
+      "outlineBounds": [
+        0.12570411,
+        0.13101947,
+        0.82605987,
+        0.86251032
+      ]
+    },
+    {
+      "case": "random-96",
+      "inputPointCount": 18,
+      "signals": {
+        "aspect": -0.029535871034056655,
+        "bend": 0.999974971157354,
+        "hue": 0.08011406311657593,
+        "length": 8.156048361473434
+      },
+      "directionSha256": "28302a10e899cc8e5417997be600c9c096d823dd293a5d26967a87335a467eb8",
+      "faceEllipseEdgeDistanceMinimum": 1.348733026853121,
+      "outlineSha256": "f3a014c7a7f1c3fedd21064c2b2a7a95dc8d50c965a89c63a2220058d34a1e01",
+      "routeSha256": "0e00aa75e406ebb3321e52866e1e7f4740abf41f3711ae8f1b5655e79f2c5208",
+      "visualSha256": "43711b5e7d556754f2e304de2ef8892ea713cf0d43f89b373e749056fcb1b217",
+      "polygonArea": 0.34154999870284647,
+      "outlineBounds": [
+        0.12296165,
+        0.15049595,
+        0.81330976,
+        0.85788515
+      ]
+    },
+    {
+      "case": "random-97",
+      "inputPointCount": 20,
+      "signals": {
+        "aspect": 0.03937506624712936,
+        "bend": 0.9999951172464783,
+        "hue": 0.07871131481700472,
+        "length": 9.840873486171365
+      },
+      "directionSha256": "669a46b2572bbe1d1bf92f66257621d4cd1fb6f962654234e3aed4d277f69165",
+      "faceEllipseEdgeDistanceMinimum": 1.403437474489441,
+      "outlineSha256": "fef95c710875afa162d4a4612f18d5e6b4bb4b1a8c56878a496ef1d975eff939",
+      "routeSha256": "82bc352810db90b10202a4b1fb101b2bd873a7bed068f48d01874d05c5fecae2",
+      "visualSha256": "0336b5f11bdd6051a5ba378f56ca59617f056531d8aa0d53f8a67680eaf6c94c",
+      "polygonArea": 0.3462055143324272,
+      "outlineBounds": [
+        0.12736295,
+        0.14260637,
+        0.82763245,
+        0.87434256
+      ]
+    },
+    {
+      "case": "random-98",
+      "inputPointCount": 34,
+      "signals": {
+        "aspect": -0.012114669855815347,
+        "bend": 0.9999999979742461,
+        "hue": 0.07427900130545534,
+        "length": 13.066516645688314
+      },
+      "directionSha256": "28302a10e899cc8e5417997be600c9c096d823dd293a5d26967a87335a467eb8",
+      "faceEllipseEdgeDistanceMinimum": 1.4215432786499218,
+      "outlineSha256": "abe7ef70874eaebe63fe83ef81c507fbc3fe58d1166e962b1e4dbabd53d67b01",
+      "routeSha256": "c490574f29aa4570f5e94c0789fe5b3f48296d0fce8e425514922f59789f8ff8",
+      "visualSha256": "03095c42e0148e6cdfcb2b2e55c4b76251d85b0cf286e7c1db0ac753f92b4feb",
+      "polygonArea": 0.3453294479396099,
+      "outlineBounds": [
+        0.14210763,
+        0.15163148,
+        0.79263377,
+        0.89320709
+      ]
+    },
+    {
+      "case": "random-99",
+      "inputPointCount": 73,
+      "signals": {
+        "aspect": 0.007062654456995465,
+        "bend": 1.0,
+        "hue": 0.07886461778956017,
+        "length": 24.15125550961639
+      },
+      "directionSha256": "5ed7fa8ad1d429fcc506a7d6a9004b844946304c114897ddb04bd692ace23f03",
+      "faceEllipseEdgeDistanceMinimum": 1.3970831663122276,
+      "outlineSha256": "cd4df1c17c4414fccec4475e161df1e37eb8dac1a45bf9a2ce5d7c01bd486e4c",
+      "routeSha256": "0b06e463a95409f559ea00008f6b66d2924927d43dc6f48817af9c85c5c33cd3",
+      "visualSha256": "137dd0157ab65ea6300d5bcc42303d86c6eb1df1bf032e08503882237047fe72",
+      "polygonArea": 0.3428306361818092,
+      "outlineBounds": [
+        0.12236901,
+        0.17506915,
+        0.80422412,
+        0.84584303
+      ]
+    },
+    {
+      "case": "random-100",
+      "inputPointCount": 24,
+      "signals": {
+        "aspect": -0.0292626228014358,
+        "bend": 0.9999845985152651,
+        "hue": 0.07643585032221395,
+        "length": 9.134050206718216
+      },
+      "directionSha256": "d699063975c816704850976c65c3cb26a14cf682b8d75a793f7483d0c25ebe33",
+      "faceEllipseEdgeDistanceMinimum": 1.4146964027305409,
+      "outlineSha256": "75a7ce2701f8434d75871bd21bc73f008b4340edd122c3e583be3ad5362599df",
+      "routeSha256": "9ebcd5efef04b2206ee235c9f6ba6c37614baa826fe5e43b488b117ea2621055",
+      "visualSha256": "14a703ecfdc82b27aa98864b69549a363466c3a219d98ce4137f0a7adf927e84",
+      "polygonArea": 0.34607013629632766,
+      "outlineBounds": [
+        0.12777367,
+        0.1369469,
+        0.80084307,
+        0.86110953
+      ]
+    },
+    {
+      "case": "random-101",
+      "inputPointCount": 74,
+      "signals": {
+        "aspect": 0.04037361008404159,
+        "bend": 1.0,
+        "hue": 0.0874193487114478,
+        "length": 27.11189639368813
+      },
+      "directionSha256": "c8fb9e5370fc4f7e6982e7f6a82961b1a16c8baaee583d7b0008d2b6c7327cd7",
+      "faceEllipseEdgeDistanceMinimum": 1.3634155413320537,
+      "outlineSha256": "5a12cd3b44b14bf8abdcdc4f62017d05e98c13645036ccb2fa31eb49f55f92ef",
+      "routeSha256": "cdc54273144ec237f3e83ff0380784726879aa661df842d1c2a7a73913958337",
+      "visualSha256": "6684fa2a2f2c1bde78060808083dcccfcead01e7c12c46cf5e27792f18b1f6f6",
+      "polygonArea": 0.3443024195796567,
+      "outlineBounds": [
+        0.12493713,
+        0.141307,
+        0.80011063,
+        0.85373182
+      ]
+    },
+    {
+      "case": "random-102",
+      "inputPointCount": 53,
+      "signals": {
+        "aspect": -0.06084840402643787,
+        "bend": 0.9999999999999885,
+        "hue": 0.07280909414011222,
+        "length": 20.692619338288882
+      },
+      "directionSha256": "0f11eadfc00211b3d1b2b422ccae114db119fe6989cf762bce8dffaba7f63bb9",
+      "faceEllipseEdgeDistanceMinimum": 1.4025896233675617,
+      "outlineSha256": "ab61b5fa2fdf56fe867ce98b24f5183757fa8512d5996b44ccc498c57fcdc8bd",
+      "routeSha256": "c003439abb0defea3282ef3c760418f7683b5aca7086b4641ad1ad872ff960b4",
+      "visualSha256": "109c53797c7de54cd63ca51d3553e42fbd97cf291bbce518046a4d7af04de94f",
+      "polygonArea": 0.3438488802351606,
+      "outlineBounds": [
+        0.12202783,
+        0.15434195,
+        0.82232823,
+        0.85564127
+      ]
+    },
+    {
+      "case": "random-103",
+      "inputPointCount": 48,
+      "signals": {
+        "aspect": 0.024835933703667355,
+        "bend": 0.9999999999997924,
+        "hue": 0.07935992940730269,
+        "length": 17.84420919967018
+      },
+      "directionSha256": "6c51f786ac8ef1e0ab8c7b91ea94fd97a8bcdd1d78c5390941cb6d7c93146b57",
+      "faceEllipseEdgeDistanceMinimum": 1.3813456329485632,
+      "outlineSha256": "2e6fa65b3852ee0a5bbc4402857cbf5f851134c17b58d67f8b59a989ec56b4dc",
+      "routeSha256": "0a8768b4a6ff0d69b11bb0710195b7e7199ac3bb5edd6222543697cb35f14c0b",
+      "visualSha256": "d8036c0108d5d4692d4b636167c4464185fc70a2496d3da981e327ae453ef47e",
+      "polygonArea": 0.34411827357283337,
+      "outlineBounds": [
+        0.12346324,
+        0.16186217,
+        0.80515393,
+        0.8519008
+      ]
+    },
+    {
+      "case": "random-104",
+      "inputPointCount": 47,
+      "signals": {
+        "aspect": 0.05245605501609656,
+        "bend": 0.99999999999994,
+        "hue": 0.08380896625626705,
+        "length": 20.407668848990745
+      },
+      "directionSha256": "4828860b756cc7bc1a4321e0fd1801da237a494f0a96a8cea512cf33dd129906",
+      "faceEllipseEdgeDistanceMinimum": 1.4161911410445915,
+      "outlineSha256": "c0cddcd8947bfeb0219678389a0c25cf78bb1f79887fa9c011b9852ff0e27533",
+      "routeSha256": "5bf2daddf971e1d2726fb913a14847f7c85af9da218bf74b27d7a8ef38639383",
+      "visualSha256": "641ed0b9d9a3a4dab7c8dd9e91a3bdb36a174a7546e1066f3ac4da521e864c16",
+      "polygonArea": 0.3439080570924172,
+      "outlineBounds": [
+        0.1271745,
+        0.15352369,
+        0.80250407,
+        0.86011193
+      ]
+    },
+    {
+      "case": "random-105",
+      "inputPointCount": 44,
+      "signals": {
+        "aspect": 0.011358130687174355,
+        "bend": 0.9999999999982879,
+        "hue": 0.07760736531903395,
+        "length": 18.57713413801887
+      },
+      "directionSha256": "02557642b4d33e7be5a4b263ee23e58311d43c9adfe540d1516a53f8c75f991a",
+      "faceEllipseEdgeDistanceMinimum": 1.4722049326867561,
+      "outlineSha256": "673da5dfb1547b2e7011374a5a9d541149f59bc32116a67843be8a5bfd96f1e5",
+      "routeSha256": "32340c6e6255ec7f25027c9d6653722d9d756777e27011aeb07ed742494613d9",
+      "visualSha256": "d507943a68ee851e39140a38141ede5bb5cbc2d5cf2e4cb9bb78007ab99aabd1",
+      "polygonArea": 0.3476204004035131,
+      "outlineBounds": [
+        0.13481161,
+        0.14202541,
+        0.81038945,
+        0.87750884
+      ]
+    },
+    {
+      "case": "random-106",
+      "inputPointCount": 8,
+      "signals": {
+        "aspect": 0.11883068107708002,
+        "bend": 0.974371242264206,
+        "hue": 0.08342420160839553,
+        "length": 3.3592016670103564
+      },
+      "directionSha256": "5ed7fa8ad1d429fcc506a7d6a9004b844946304c114897ddb04bd692ace23f03",
+      "faceEllipseEdgeDistanceMinimum": 1.3885193856983802,
+      "outlineSha256": "733996b946a77f719837ec2415947ca0ad1b1d1b832da77644aec7e9034a6800",
+      "routeSha256": "3065dfd36009d966235ef9e49cae7748aed8dda64c97a9d646c5a96dd34f5a08",
+      "visualSha256": "59f6e4245df9d0c3c9ae6794bd7c26108ce08ae7986f1098435c833425f2e20f",
+      "polygonArea": 0.34164958668966183,
+      "outlineBounds": [
+        0.13094203,
+        0.15321849,
+        0.80908871,
+        0.87019311
+      ]
+    },
+    {
+      "case": "random-107",
+      "inputPointCount": 74,
+      "signals": {
+        "aspect": -0.004558185629164062,
+        "bend": 1.0,
+        "hue": 0.07692989529277444,
+        "length": 25.61673176338466
+      },
+      "directionSha256": "30484275bff4b49d75d4383c270de497ec46091bc60904abccbb2d92c8fb5ff6",
+      "faceEllipseEdgeDistanceMinimum": 1.3947727042415183,
+      "outlineSha256": "79de9f2eecbcb9fec259d10a8898d7cb97448811ce342b84dbe0681fbea4566c",
+      "routeSha256": "83cc9287d1b929c07b7b18c2ff335d27fbfb899a117b7c4bd1a2111abd567e82",
+      "visualSha256": "44db56e86a0476f4d5a28d9dbca9f5eac31dc47843adf64398307169e656ff9f",
+      "polygonArea": 0.3433345340965748,
+      "outlineBounds": [
+        0.12558177,
+        0.15412749,
+        0.80221553,
+        0.86068278
+      ]
+    },
+    {
+      "case": "random-108",
+      "inputPointCount": 26,
+      "signals": {
+        "aspect": 0.02410520106117845,
+        "bend": 0.9999995771578906,
+        "hue": 0.07719533948605833,
+        "length": 11.129816827371013
+      },
+      "directionSha256": "669a46b2572bbe1d1bf92f66257621d4cd1fb6f962654234e3aed4d277f69165",
+      "faceEllipseEdgeDistanceMinimum": 1.462189284414805,
+      "outlineSha256": "11b92c7fbf16c235a3d7248688e1b67203ddc2e9cef2c0b03836070e46c3d1e5",
+      "routeSha256": "1f66843cbcc444bae379d067e500318318dcfac005f4287bd74dd9dcbc5d696a",
+      "visualSha256": "4853967008659e9cc7ef58c61876770d897c3e70829f6ba9236efd47fe0e3a2a",
+      "polygonArea": 0.34525866009721917,
+      "outlineBounds": [
+        0.14427278,
+        0.13366884,
+        0.79137766,
+        0.87691715
+      ]
+    },
+    {
+      "case": "random-109",
+      "inputPointCount": 35,
+      "signals": {
+        "aspect": -0.008294095908072388,
+        "bend": 0.9999999995460276,
+        "hue": 0.07358078720713174,
+        "length": 15.680312096717504
+      },
+      "directionSha256": "84d1c253b9988b51e71ac060815ed62d5e103e02738105493d640375bdf03513",
+      "faceEllipseEdgeDistanceMinimum": 1.4696960554126628,
+      "outlineSha256": "d01150462b61cc4c9bd0a391f6c1656a8658d63a7e985d1058a941cea8853bc3",
+      "routeSha256": "438b47a45b85eb3e1762557f40463d63b0aa6170e53cf7c446a75788824c9b0c",
+      "visualSha256": "8d214c458ff34e83452f7d30fa08d0d6af9aa67b5e909a011eac79a39bcac74e",
+      "polygonArea": 0.34970369469254237,
+      "outlineBounds": [
+        0.12897525,
+        0.15228003,
+        0.8266575,
+        0.87554644
+      ]
+    },
+    {
+      "case": "random-110",
+      "inputPointCount": 72,
+      "signals": {
+        "aspect": 0.06334067866225516,
+        "bend": 1.0,
+        "hue": 0.07973178761225924,
+        "length": 24.380182954364848
+      },
+      "directionSha256": "0ef76d4e0cc2c17401d12c2cc6522ebbba56ba4da5c38c0bff6720156f996571",
+      "faceEllipseEdgeDistanceMinimum": 1.4525731698889066,
+      "outlineSha256": "3704425a4e618c63d16aa7c07281d581e4ed944379d9a53d610e5fdf8179e382",
+      "routeSha256": "dc9d79ecb733f5aa83629d1c043843b9a076389740605d2fd45602b4ac920c58",
+      "visualSha256": "8bce8d2be3def51501a14c16dbf0eb7c8c4433f14bd9af89d812f95bba9ff043",
+      "polygonArea": 0.3433710964672434,
+      "outlineBounds": [
+        0.12817633,
+        0.15398487,
+        0.79135824,
+        0.88051917
+      ]
+    },
+    {
+      "case": "random-111",
+      "inputPointCount": 62,
+      "signals": {
+        "aspect": 0.013442524383304693,
+        "bend": 0.9999999999999999,
+        "hue": 0.07105076539079952,
+        "length": 24.636921024328966
+      },
+      "directionSha256": "78490c3551617ef5008f38f77484ce544a37f8f8f45d46721c8d6780ece12489",
+      "faceEllipseEdgeDistanceMinimum": 1.395843768326361,
+      "outlineSha256": "11065d4c271ebfd8b8bfabae03a08f1b3ce26847587d7976a9bdf1cba1ada71d",
+      "routeSha256": "a408274c5b703b95c420b143ffd4ec071f69d8a56d4019c3c9bf1f0193246ed0",
+      "visualSha256": "a49e0e304a08869fabfaa4af03208bc29d94f594db92a0835df76c966c12fe07",
+      "polygonArea": 0.3484893133077819,
+      "outlineBounds": [
+        0.12869273,
+        0.14481334,
+        0.82313134,
+        0.85660951
+      ]
+    },
+    {
+      "case": "random-112",
+      "inputPointCount": 39,
+      "signals": {
+        "aspect": 0.07364270084181952,
+        "bend": 0.9999999998542979,
+        "hue": 0.08478032966991361,
+        "length": 15.43853623475963
+      },
+      "directionSha256": "33ba892ad54062d58734c39d12b27ab55aa36c5755fc387e4d4731dd50aa1edc",
+      "faceEllipseEdgeDistanceMinimum": 1.3982026081880468,
+      "outlineSha256": "1d094db80b438fe085d1d05182a4f6dab1e24c06f0b359bbc1b743ff4e3ad3fc",
+      "routeSha256": "c5ac30975555289c9fa1c46d3d4b2c8c134f425124e1be61bb1171dc35e08883",
+      "visualSha256": "cee83be7c5499001cb63a6d9c56f1072c84b9a8aa179ab87d48a06c3240ee1db",
+      "polygonArea": 0.3463963935356773,
+      "outlineBounds": [
+        0.13191732,
+        0.13186874,
+        0.8123922,
+        0.87218488
+      ]
+    },
+    {
+      "case": "random-113",
+      "inputPointCount": 54,
+      "signals": {
+        "aspect": -0.044423502018735475,
+        "bend": 0.9999999999999539,
+        "hue": 0.07037368264024463,
+        "length": 18.861882751796205
+      },
+      "directionSha256": "70496a0020595fe16a7558c2bd2e7b75f606dcc1dfc26ec6448db567f2a5040f",
+      "faceEllipseEdgeDistanceMinimum": 1.3717737587739995,
+      "outlineSha256": "779c0a3673927742d2d285d1bb250ab1f718287ca2849cf7ce4dbcf2c83df164",
+      "routeSha256": "fb7d20de0992128ab775c8d702329b7b50b948338ff2134690641d3a2fe81c48",
+      "visualSha256": "6bc8e94b7e75c25f7c40c9170316624133926e2a0c5f2ffea313f4b63d83a924",
+      "polygonArea": 0.34804021046428096,
+      "outlineBounds": [
+        0.13926361,
+        0.12618649,
+        0.80208011,
+        0.86735665
+      ]
+    },
+    {
+      "case": "random-114",
+      "inputPointCount": 24,
+      "signals": {
+        "aspect": -0.11058963473658974,
+        "bend": 0.9999990357523891,
+        "hue": 0.05638374040109778,
+        "length": 11.226235991264117
+      },
+      "directionSha256": "28302a10e899cc8e5417997be600c9c096d823dd293a5d26967a87335a467eb8",
+      "faceEllipseEdgeDistanceMinimum": 1.4566275634556325,
+      "outlineSha256": "022f03e665bfbd8a1d9a1d88c6eb61d73db45d179d66b385b495d2ccc7c2bbcd",
+      "routeSha256": "00e23c255102a9052b97e28ef1368d893fd3b564bb616fa341aadfde184a20f2",
+      "visualSha256": "89cca494cdea42672686b750d226e6c5e3ce9e02e3af28b9773328ea2c642b63",
+      "polygonArea": 0.34536956193937424,
+      "outlineBounds": [
+        0.12171667,
+        0.16423533,
+        0.83566911,
+        0.87331547
+      ]
+    },
+    {
+      "case": "random-115",
+      "inputPointCount": 41,
+      "signals": {
+        "aspect": 0.01998283104469429,
+        "bend": 0.9999999999918332,
+        "hue": 0.07503859230806603,
+        "length": 18.87402025833902
+      },
+      "directionSha256": "ba8da04326ed2f8831e236e254de95a9b7722a1b650324dc3d07106783c65a02",
+      "faceEllipseEdgeDistanceMinimum": 1.4824646669608268,
+      "outlineSha256": "63f85fdedb806325f69b87e1f9440d44e53275cf88745b00f2962a7a749a7ad8",
+      "routeSha256": "fa06b394fe3c032e01be97bb567bfaa53d75971b3ad4678cdc37f8f476bd86af",
+      "visualSha256": "7b72070f83453cefc560627a0cba4cc5e45e6900126a443f5c2f443075a8f0da",
+      "polygonArea": 0.3448527013864871,
+      "outlineBounds": [
+        0.12935692,
+        0.14899993,
+        0.80340722,
+        0.87089525
+      ]
+    },
+    {
+      "case": "random-116",
+      "inputPointCount": 4,
+      "signals": {
+        "aspect": -0.247437624617861,
+        "bend": 0.5005531226848615,
+        "hue": 0.06074545111568258,
+        "length": 1.420840326370118
+      },
+      "directionSha256": "fb94c64948fead36e244cd81c232087ded8b54d528e27d62db1b1b42d379d4b5",
+      "faceEllipseEdgeDistanceMinimum": 1.4791017648881462,
+      "outlineSha256": "cbf59660b7dd67556a75d9939db4397274e38f042152c2f3b80283ae6c2dcc85",
+      "routeSha256": "9dc63f8bbfcda7e2bab9a2a9a02bdff79802297d1c1c822620802fb26723a8ef",
+      "visualSha256": "86650fd20762bbaeb6a26fd1b0881340578ac812131cca2b81eaa6e5630f401b",
+      "polygonArea": 0.34219337573546904,
+      "outlineBounds": [
+        0.13675094,
+        0.15536958,
+        0.84778228,
+        0.83753397
+      ]
+    },
+    {
+      "case": "random-117",
+      "inputPointCount": 76,
+      "signals": {
+        "aspect": -0.00024237704272675776,
+        "bend": 1.0,
+        "hue": 0.07819693570579728,
+        "length": 29.18067961796819
+      },
+      "directionSha256": "ec42d78f83900a410f11c7c423e9ed85eba309435fa8b47b9d4db96cac40cab0",
+      "faceEllipseEdgeDistanceMinimum": 1.4028460574600115,
+      "outlineSha256": "913c102996210059b80aec7915eda48b00bf49c3231d5a47a31639d145709a79",
+      "routeSha256": "3ae982f3ffe1a6315e3640e61d6674fdfc79fdcc432da7d99367e867277503cf",
+      "visualSha256": "387e92e3b07a27d7b4f1037d6623f4902d0fd067914de3a5f02a85045434c3c6",
+      "polygonArea": 0.3438586120747281,
+      "outlineBounds": [
+        0.12280903,
+        0.17093,
+        0.79967409,
+        0.85375376
+      ]
+    },
+    {
+      "case": "random-118",
+      "inputPointCount": 15,
+      "signals": {
+        "aspect": -0.1547962572819831,
+        "bend": 0.9997533801904669,
+        "hue": 0.05851536420508968,
+        "length": 6.040388938548625
+      },
+      "directionSha256": "a7060a82926709b12999844725c96b2a97fc7fcfeb36e9b28b18a004576d41cf",
+      "faceEllipseEdgeDistanceMinimum": 1.480411886314531,
+      "outlineSha256": "a9e92e3db925973b2f5bc64b94623d930a5a6f0fda0fe89cc8232c1c84aa9263",
+      "routeSha256": "f23b7c6097e4b06f28685403f8df6aae80f93611baf510e078f588342d8de4f2",
+      "visualSha256": "b1ec7a3e5d7e13c2078fa7cdd835f6c43d821cf1732aebc27bc0f3a550749073",
+      "polygonArea": 0.3466345006685446,
+      "outlineBounds": [
+        0.12017527,
+        0.15702792,
+        0.81616607,
+        0.87225813
+      ]
+    },
+    {
+      "case": "random-119",
+      "inputPointCount": 33,
+      "signals": {
+        "aspect": 0.06449585291374225,
+        "bend": 0.9999999801834155,
+        "hue": 0.08250893632282424,
+        "length": 13.053648032768088
+      },
+      "directionSha256": "970e863015518e7ce50326153e6fc5a341b45b81263b882f1d5d27dc99e2cbb5",
+      "faceEllipseEdgeDistanceMinimum": 1.433717509192764,
+      "outlineSha256": "5f8b0025d5c7e7752755e6cccae44a508389f3c6d400d61cdd9f4adfd57bed16",
+      "routeSha256": "4092452e81dd65c1fd603c3ae0252067590dc040b97f16997ccf6654af95b89a",
+      "visualSha256": "7d06acd913533f011c329a930180f99025abbafa88e78922f180a709db01f27c",
+      "polygonArea": 0.34373108295444293,
+      "outlineBounds": [
+        0.12954788,
+        0.14006171,
+        0.78383577,
+        0.87799278
+      ]
+    },
+    {
+      "case": "random-120",
+      "inputPointCount": 77,
+      "signals": {
+        "aspect": 0.006578323149188541,
+        "bend": 1.0,
+        "hue": 0.07999768035276472,
+        "length": 26.998000866439963
+      },
+      "directionSha256": "facc26fff11845d3350477a8c0bd279e2725cac627ed2b349cdb94ddc3d75e3c",
+      "faceEllipseEdgeDistanceMinimum": 1.4123552568843287,
+      "outlineSha256": "5a38d77efabd51bed26dcbe535244981811d50a0fb9638e6875c5ac10036c694",
+      "routeSha256": "9df129e5423f7e19ef2e6df1156f1ed55f83dfd0776ee0ae48c77c80ea666b56",
+      "visualSha256": "6733538026a8ab3238ccf8dfcb0451a346f9d052177f48421a4cd36107f60d09",
+      "polygonArea": 0.3468284240463913,
+      "outlineBounds": [
+        0.13119533,
+        0.13314513,
+        0.81490334,
+        0.87559449
+      ]
+    },
+    {
+      "case": "random-121",
+      "inputPointCount": 24,
+      "signals": {
+        "aspect": -0.0683730520386193,
+        "bend": 0.9999981062795409,
+        "hue": 0.07105342076405913,
+        "length": 9.403281078694484
+      },
+      "directionSha256": "32cd7b4e1ed7ac22bf8095d7a5df082fa3259021dca4e49ac63bcfab457af553",
+      "faceEllipseEdgeDistanceMinimum": 1.3472036042428863,
+      "outlineSha256": "d2e45bca1e16af24a207c0ff66bcfc84cb63ea0aac72162a55431ed1eb4afc3a",
+      "routeSha256": "d232be7f388f96f300d5f8a19bd46afb46e34270e18024b3e64188945642397a",
+      "visualSha256": "c30147bbd0d4167cfb2e3049c28453ff9f4c550dd20191d6e71bae4bd0608451",
+      "polygonArea": 0.34610398814734117,
+      "outlineBounds": [
+        0.11818939,
+        0.15421914,
+        0.82012713,
+        0.82754597
+      ]
+    },
+    {
+      "case": "random-122",
+      "inputPointCount": 74,
+      "signals": {
+        "aspect": -0.007016295411847565,
+        "bend": 1.0,
+        "hue": 0.07605808064557956,
+        "length": 26.48112395937579
+      },
+      "directionSha256": "addc477ca33d604fc30c89745b309ba2dcc29612cb655db97ab7c034da8fe68f",
+      "faceEllipseEdgeDistanceMinimum": 1.4535477164214197,
+      "outlineSha256": "6fc90a24d46c31ac9cc03f3bafad666a35d7380a69baa77e8bd5bbc1197984ce",
+      "routeSha256": "ceddb5fb9f3791574f1d3357fe97a10b24ef8f21a69ec2b96405fec46a4f1111",
+      "visualSha256": "4af955de3efe04fe564c3ea55be92a2e2e8d8c110c9d8b594094145642c90cea",
+      "polygonArea": 0.34502966034633675,
+      "outlineBounds": [
+        0.13059902,
+        0.1434101,
+        0.80761429,
+        0.8882724
+      ]
+    },
+    {
+      "case": "random-123",
+      "inputPointCount": 47,
+      "signals": {
+        "aspect": -0.012768047761455804,
+        "bend": 0.9999999999992416,
+        "hue": 0.07559300238021888,
+        "length": 19.124180022805923
+      },
+      "directionSha256": "28302a10e899cc8e5417997be600c9c096d823dd293a5d26967a87335a467eb8",
+      "faceEllipseEdgeDistanceMinimum": 1.4338369784744711,
+      "outlineSha256": "b6947b7bd8e89b36be544fcd5daa610da91a22e55ce86bc483944611bf411ac3",
+      "routeSha256": "7b6e8a68f363b3b2436bd243f0acde7c9d48c89377160bc4bd4222444c747ca4",
+      "visualSha256": "48ba21ef1c5628962d1201086b71b921485d57fad7661c2584a6514a644f8da7",
+      "polygonArea": 0.3416116435228374,
+      "outlineBounds": [
+        0.12131394,
+        0.17572765,
+        0.82380909,
+        0.82919317
+      ]
+    },
+    {
+      "case": "random-124",
+      "inputPointCount": 50,
+      "signals": {
+        "aspect": -0.008265588194063572,
+        "bend": 0.9999999999999549,
+        "hue": 0.07532711342315052,
+        "length": 20.705487561125473
+      },
+      "directionSha256": "ec42d78f83900a410f11c7c423e9ed85eba309435fa8b47b9d4db96cac40cab0",
+      "faceEllipseEdgeDistanceMinimum": 1.4370095960589204,
+      "outlineSha256": "51f433e03fcf665bfe30bb91b74b5e065d570370329409ec9492bc96b1d61201",
+      "routeSha256": "c12fee352538bdec95eccd27cfb7fc7131701926c5169dc74f8e712d7130d28c",
+      "visualSha256": "e08650e60641dda2044e62f41803971904510408ea5513811a161f00538e5ff7",
+      "polygonArea": 0.34611080230212676,
+      "outlineBounds": [
+        0.12777974,
+        0.14298004,
+        0.81624432,
+        0.87284719
+      ]
+    },
+    {
+      "case": "random-125",
+      "inputPointCount": 57,
+      "signals": {
+        "aspect": -0.02252172399203263,
+        "bend": 0.9999999999999502,
+        "hue": 0.07575075323819885,
+        "length": 21.074537598690863
+      },
+      "directionSha256": "addc477ca33d604fc30c89745b309ba2dcc29612cb655db97ab7c034da8fe68f",
+      "faceEllipseEdgeDistanceMinimum": 1.4149720433597623,
+      "outlineSha256": "e147737a796c97062b153a2c98ed158044f6d06a702fa7d54ede3c76582b4d94",
+      "routeSha256": "f471c682eb10609f5b76a513ba0703756665630ad071b22a34246f67151cf444",
+      "visualSha256": "521d845589859affe1c00cd759de0099ed944f951594626da9282b71d447bd6c",
+      "polygonArea": 0.34402616305194095,
+      "outlineBounds": [
+        0.12171887,
+        0.16871077,
+        0.80618321,
+        0.86929375
+      ]
+    },
+    {
+      "case": "random-126",
+      "inputPointCount": 8,
+      "signals": {
+        "aspect": 0.1495309987903893,
+        "bend": 0.9609889962795272,
+        "hue": 0.09218801826825379,
+        "length": 3.539176495812187
+      },
+      "directionSha256": "02557642b4d33e7be5a4b263ee23e58311d43c9adfe540d1516a53f8c75f991a",
+      "faceEllipseEdgeDistanceMinimum": 1.4047240665356562,
+      "outlineSha256": "33d222d2a945dd5b34d1c1dd09cd3a424bf5c905d27b11540a8efc95f3ab628c",
+      "routeSha256": "b075da5bc844dd46ca5d46c82ba9503a466848a83ce8fd3f82a228ddb162b0fe",
+      "visualSha256": "0d4e0f4b9908d562550fec6aa1537adcd5d1de0d8fefc38692a520871a5edb35",
+      "polygonArea": 0.34488415213770435,
+      "outlineBounds": [
+        0.13933686,
+        0.12426773,
+        0.82184104,
+        0.897479
+      ]
+    },
+    {
+      "case": "random-127",
+      "inputPointCount": 18,
+      "signals": {
+        "aspect": 0.02516297326342863,
+        "bend": 0.9999953834815167,
+        "hue": 0.06549963817731491,
+        "length": 9.45632139097995
+      },
+      "directionSha256": "332d3a463d09833991178ba53cd29ba44ea7e3f72a495055f3ec49ea5345e7fa",
+      "faceEllipseEdgeDistanceMinimum": 1.4695432895716756,
+      "outlineSha256": "356e58cc4df36caac8448c1692a73e6fa111d8a91e232d2aed187f37f8f43f7d",
+      "routeSha256": "816fe324056fc8295037133fb2a9b186a8866989cb8f972771c0538d2fa26ea1",
+      "visualSha256": "37cec94f7911d3bcf40903cbee016ec951f67c88693c5cd686e0e1afafbbac48",
+      "polygonArea": 0.3460521693737748,
+      "outlineBounds": [
+        0.1301174,
+        0.15552247,
+        0.84579725,
+        0.88748695
+      ]
+    }
+  ],
+  "curatedPairComparisons": [
+    {
+      "first": "horizontal",
+      "second": "vertical",
+      "outlineRmse": 0.054872612267863795,
+      "samePalette": false
+    },
+    {
+      "first": "horizontal",
+      "second": "rising_diagonal",
+      "outlineRmse": 0.023622822901451148,
+      "samePalette": false
+    },
+    {
+      "first": "horizontal",
+      "second": "broad_zigzag",
+      "outlineRmse": 0.036439442485076766,
+      "samePalette": false
+    },
+    {
+      "first": "horizontal",
+      "second": "s_bend",
+      "outlineRmse": 0.03105961280478913,
+      "samePalette": false
+    },
+    {
+      "first": "horizontal",
+      "second": "loop",
+      "outlineRmse": 0.03061323876533152,
+      "samePalette": false
+    },
+    {
+      "first": "horizontal",
+      "second": "tight_hairpin",
+      "outlineRmse": 0.04721954813751804,
+      "samePalette": false
+    },
+    {
+      "first": "horizontal",
+      "second": "almost_point",
+      "outlineRmse": 0.002905023661805529,
+      "samePalette": false
+    },
+    {
+      "first": "vertical",
+      "second": "rising_diagonal",
+      "outlineRmse": 0.03500121852330797,
+      "samePalette": false
+    },
+    {
+      "first": "vertical",
+      "second": "broad_zigzag",
+      "outlineRmse": 0.026844199161540478,
+      "samePalette": false
+    },
+    {
+      "first": "vertical",
+      "second": "s_bend",
+      "outlineRmse": 0.034319950078133654,
+      "samePalette": false
+    },
+    {
+      "first": "vertical",
+      "second": "loop",
+      "outlineRmse": 0.03605878608598943,
+      "samePalette": false
+    },
+    {
+      "first": "vertical",
+      "second": "tight_hairpin",
+      "outlineRmse": 0.030363206155424902,
+      "samePalette": false
+    },
+    {
+      "first": "vertical",
+      "second": "almost_point",
+      "outlineRmse": 0.054583067076321684,
+      "samePalette": false
+    },
+    {
+      "first": "rising_diagonal",
+      "second": "broad_zigzag",
+      "outlineRmse": 0.024699411366179064,
+      "samePalette": false
+    },
+    {
+      "first": "rising_diagonal",
+      "second": "s_bend",
+      "outlineRmse": 0.015954705837238205,
+      "samePalette": false
+    },
+    {
+      "first": "rising_diagonal",
+      "second": "loop",
+      "outlineRmse": 0.024058751908120308,
+      "samePalette": false
+    },
+    {
+      "first": "rising_diagonal",
+      "second": "tight_hairpin",
+      "outlineRmse": 0.036617072118617464,
+      "samePalette": false
+    },
+    {
+      "first": "rising_diagonal",
+      "second": "almost_point",
+      "outlineRmse": 0.02344524008182177,
+      "samePalette": false
+    },
+    {
+      "first": "broad_zigzag",
+      "second": "s_bend",
+      "outlineRmse": 0.0214917679954535,
+      "samePalette": false
+    },
+    {
+      "first": "broad_zigzag",
+      "second": "loop",
+      "outlineRmse": 0.016163907453332477,
+      "samePalette": false
+    },
+    {
+      "first": "broad_zigzag",
+      "second": "tight_hairpin",
+      "outlineRmse": 0.023955175823364518,
+      "samePalette": false
+    },
+    {
+      "first": "broad_zigzag",
+      "second": "almost_point",
+      "outlineRmse": 0.03576890920154049,
+      "samePalette": false
+    },
+    {
+      "first": "s_bend",
+      "second": "loop",
+      "outlineRmse": 0.020673443045472965,
+      "samePalette": false
+    },
+    {
+      "first": "s_bend",
+      "second": "tight_hairpin",
+      "outlineRmse": 0.03095519087767107,
+      "samePalette": false
+    },
+    {
+      "first": "s_bend",
+      "second": "almost_point",
+      "outlineRmse": 0.030863353790787734,
+      "samePalette": false
+    },
+    {
+      "first": "loop",
+      "second": "tight_hairpin",
+      "outlineRmse": 0.02311042931779379,
+      "samePalette": false
+    },
+    {
+      "first": "loop",
+      "second": "almost_point",
+      "outlineRmse": 0.029788210492770372,
+      "samePalette": false
+    },
+    {
+      "first": "tight_hairpin",
+      "second": "almost_point",
+      "outlineRmse": 0.04657117280511992,
+      "samePalette": false
+    }
+  ],
+  "minimumCuratedOutlineRmse": 0.002905023661805529,
+  "notVerified": [
+    "Mathematical uniqueness across all possible inputs",
+    "Perceptual uniqueness, cuteness, collectibility",
+    "Native rendering",
+    "TTS synthesis, playback or human quality"
+  ]
+}

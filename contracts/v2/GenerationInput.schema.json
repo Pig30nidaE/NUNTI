@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v2:GenerationInput",
+  "$defs": {
+    "Destination": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "title": "Name",
+          "type": "string"
+        },
+        "traits": {
+          "title": "Traits",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "traits"
+      ],
+      "title": "Destination",
+      "type": "object"
+    },
+    "Route": {
+      "additionalProperties": false,
+      "properties": {
+        "points": {
+          "items": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "maxItems": 512,
+          "minItems": 2,
+          "title": "Points",
+          "type": "array"
+        }
+      },
+      "required": [
+        "points"
+      ],
+      "title": "Route",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "requestId": {
+      "title": "Requestid",
+      "type": "string"
+    },
+    "destination": {
+      "$ref": "#/$defs/Destination"
+    },
+    "purpose": {
+      "title": "Purpose",
+      "type": "string"
+    },
+    "route": {
+      "$ref": "#/$defs/Route"
+    }
+  },
+  "required": [
+    "requestId",
+    "destination",
+    "purpose",
+    "route"
+  ],
+  "title": "GenerationInput",
+  "type": "object"
+}

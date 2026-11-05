@@ -1,0 +1,16 @@
+{
+  "audioPath": "prototypes/voice_audition/commercial/elevenlabs-anna-journey.mp3",
+  "audioSha256": "f78fb59a40136d204fcc48fda44a5428fcffaa4a6805ba2cd70868cb2b6107be",
+  "referenceText": "오늘은 바다 보러 가는 날이네. 같이 예쁜 기억을 모아보자. 천천히 가도 괜찮아. 나는 네 옆에 있을게. 와, 도착했다! 오늘 만난 풍경은 내가 간직할게.",
+  "expectedEnding": "오늘 만난 풍경은 내가 간직할게",
+  "sourceContext": {
+    "vendor": "ElevenLabs official anonymous public Korean demo",
+    "voiceLabel": "Anna",
+    "sourceUrl": "https://elevenlabs.io/text-to-speech/korean",
+    "acquisition": "PM provided an actual official Play/Download output with Anna selected; no API call or new account",
+    "referenceTextOrigin": "Exact input text provided by PM",
+    "modelId": null,
+    "settings": null,
+    "limitations": "Public UI does not expose exact model ID, revision or synthesis settings. Do not label the file as a specific model version."
+  }
+}

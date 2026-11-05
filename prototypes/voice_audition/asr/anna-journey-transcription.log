@@ -1,0 +1,2 @@
+{"event": "transcribing", "audioPath": "prototypes/voice_audition/commercial/elevenlabs-anna-journey.mp3", "sourceDurationSeconds": 12.747755102040816}
+{"event": "complete", "transcript": " 오늘은 바다 보러 가는 날이네? 같이 예쁜 기억을 모아 보자 천천히 가도 괜찮아 나는 네 옆에 있을게 와 도착했다 오늘 만난 풍경은 내가 간직할게", "cer": 0.0, "asrRecognizedExpectedEnding": true, "sourceHashPreserved": true, "priorFilesPreserved": 31}

@@ -1,0 +1,18 @@
+APK와 생성 번들의 모든 파일이 일치합니다.
+기존 Pleos 에뮬레이터 부팅을 기다립니다.
+Performing Streamed Install
+Success
+Starting: Intent { cmp=ai.nunti.avatar.demo/ai.nunti.app.MainActivity }
+Status: ok
+LaunchState: COLD
+Activity: ai.nunti.avatar.demo/ai.nunti.app.journey.JourneyMvpActivity
+TotalTime: 656
+WaitTime: 660
+Complete
+
+Nunti 여정 MVP가 열렸습니다.
+여행 선택 → 음성 시험 시작 → 인사 듣기 → 도착했어요 → 도착 대사 → 동반자 보관 순서로 시험하세요.
+차량이 P이고 속도가 0일 때만 화면과 음성이 허용됩니다. 앱을 다시 열어 보관과 같은 동반자가 유지되는지도 확인하세요.
+기존 앱 데이터는 삭제하지 않았습니다.
+
+이 창은 닫아도 앱은 계속 실행됩니다.

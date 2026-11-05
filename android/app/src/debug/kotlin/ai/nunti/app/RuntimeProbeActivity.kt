@@ -16,6 +16,20 @@ import ai.nunti.tts.PlaybackContext
 import ai.nunti.tts.SpeechEvidence
 import ai.nunti.tts.VehicleMotion
 import ai.nunti.tts.WireSpeechRequest
+import ai.nunti.tts.ApprovedSpeech
+import ai.nunti.tts.AvatarVoiceInput
+import ai.nunti.tts.CatalogTtsProvider
+import ai.nunti.tts.ContentSource
+import ai.nunti.tts.LocalFileTtsProvider
+import ai.nunti.tts.LocalVoiceCatalog
+import ai.nunti.tts.PleosTtsProvider
+import ai.nunti.tts.Priority
+import ai.nunti.tts.SpeechRequest
+import ai.nunti.tts.VoiceProfile
+import ai.nunti.tts.VoiceAssetException
+import ai.nunti.voice.AndroidLocalAudioPlayer
+import ai.nunti.voice.AndroidPleosConnection
+import ai.nunti.voice.LocalVoiceManifest
 import ai.nunti.voice.AndroidVoiceSession
 import android.car.Car
 import android.car.VehicleGear
@@ -45,6 +59,8 @@ import androidx.compose.ui.unit.sp
 import org.json.JSONObject
 import java.time.Instant
 import java.util.UUID
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
 import kotlin.math.abs
 
 /** Debug-only, emulator-only runtime harness. Production host remains fail-closed.
@@ -61,6 +77,8 @@ class RuntimeProbeActivity : ComponentActivity() {
     private var properties: CarPropertyManager? = null
     private var binding: CarUxPolicyBinding? = null
     private var voice: AndroidVoiceSession? = null
+    private var localCatalog: LocalVoiceCatalog? = null
+    private var localAssetDirectory = "journey-voice"
     private var restrictions: CarUxRestrictions? = null
     private var gear: Int? = null
     private var speed: Float? = null
@@ -98,10 +116,31 @@ class RuntimeProbeActivity : ComponentActivity() {
         }
         event("PROBE_CREATED", mapOf("hardware" to Build.HARDWARE, "fingerprint" to Build.FINGERPRINT,
             "source" to "DEBUG_EMULATOR_ONLY", "inputs" to "MOCK_ROUTE_AND_EMOTION"))
-        voice = AndroidVoiceSession(applicationContext) { value ->
+        val requestedCatalog = intent.getStringExtra("voice_catalog") ?: "legacy"
+        if (requestedCatalog !in setOf("legacy", "dynamic")) {
+            event("LOCAL_CATALOG_ERROR", mapOf("reason" to "UNKNOWN_CATALOG")); finish(); return
+        }
+        localAssetDirectory = if (requestedCatalog == "dynamic") "journey-dynamic" else "journey-voice"
+        localCatalog = try {
+            val manifest = assets.open("$localAssetDirectory/manifest.json").bufferedReader(Charsets.UTF_8).use { it.readText() }
+            LocalVoiceManifest.parse(manifest, filesDir.resolve(localAssetDirectory), filesDir.resolve("$localAssetDirectory-bindings.txt"))
+        } catch (error: Exception) {
+            event("LOCAL_CATALOG_ERROR", mapOf("reason" to ((error as? VoiceAssetException)?.reason ?: "VOICE_MANIFEST_UNAVAILABLE")))
+            null
+        }
+        val catalog = localCatalog
+        voice = AndroidVoiceSession(applicationContext,
+            profiles = listOf(VoiceProfile()) + (catalog?.profiles ?: emptyList()),
+            providerFactory = catalog?.let { loaded -> { attributes, lane ->
+                CatalogTtsProvider(loaded,
+                    { LocalFileTtsProvider(loaded) { AndroidLocalAudioPlayer(attributes, lane) } },
+                    { PleosTtsProvider({ AndroidPleosConnection(applicationContext, it, attributes, lane) }) })
+            } }) { value ->
             lastVoice = "${value.status}: ${value.reason ?: ""}"
             event("SPEECH", mapOf("requestId" to value.requestId, "status" to value.status.name,
                 "reason" to value.reason, "mode" to value.mode?.name,
+                "providerId" to value.providerId, "profileId" to value.appliedVoice?.profileId,
+                "speakerId" to value.appliedVoice?.speakerId,
                 "startLatencyMs" to value.startLatencyMs))
         }
         voice?.beginTrip(tripId)
@@ -137,6 +176,17 @@ class RuntimeProbeActivity : ComponentActivity() {
                         }
                         BasicText("TTS 재생", Modifier.clickable { speak() }.padding(8.dp))
                         BasicText("중지", Modifier.clickable { activeRequest?.let { voice?.cancel(it) } }.padding(8.dp))
+                    }
+                    BasicText("로컬 실험 음성 · 아래 기존 MOCK 외형과 별도 비교", Modifier.padding(horizontal = 12.dp))
+                    Row(Modifier.padding(8.dp), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                        BasicText("음원 설치", Modifier.clickable { installLocalClips() }.padding(8.dp))
+                        val choices = if (localAssetDirectory == "journey-dynamic") {
+                            localCatalog?.clips?.filter { it.clipId.endsWith("-common") }
+                                ?.mapIndexed { index, clip -> clip.characterId to "생성 ${index + 1}" } ?: emptyList()
+                        } else listOf("coast" to "파도빛", "mountain" to "이끼별", "city" to "조각빛")
+                        choices.forEach { (key, label) ->
+                            BasicText(label, Modifier.clickable { speakLocal(key, "common") }.padding(8.dp))
+                        }
                     }
                 }
                 NuntiAppShell(spec, state, TripPhase.POST_DRIVE, policy, now, provider, modifier = Modifier.weight(1f))
@@ -211,7 +261,50 @@ class RuntimeProbeActivity : ComponentActivity() {
         when (value.getStringExtra("probe_action")) {
             "speak" -> handler.post { speak() }
             "stop" -> activeRequest?.let { voice?.cancel(it) }
+            "local_install" -> handler.post { installLocalClips() }
+            "local_speak" -> handler.post { speakLocal(value.getStringExtra("character") ?: "coast", "common") }
+            "local_greeting" -> handler.post { speakLocal(value.getStringExtra("character") ?: "coast", "greeting") }
+            "local_arrival" -> handler.post { speakLocal(value.getStringExtra("character") ?: "coast", "arrival") }
         }
+    }
+
+    private fun installLocalClips() {
+        refresh()
+        if (!foreground || !parked() || restrictions?.isRequiresDistractionOptimization != false) {
+            event("LOCAL_INSTALL_REJECTED", mapOf("reason" to "PARKING_REQUIRED")); return
+        }
+        val catalog = localCatalog ?: return
+        try {
+            val directory = filesDir.resolve(localAssetDirectory).also { it.mkdirs() }
+            catalog.clips.forEach { clip ->
+                val target = directory.resolve(clip.audioPath)
+                val temporary = directory.resolve(clip.audioPath + ".pending")
+                assets.open("$localAssetDirectory/${clip.audioPath}").use { input -> temporary.outputStream().use { input.copyTo(it) } }
+                Files.move(temporary.toPath(), target.toPath(), StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING)
+            }
+            event("LOCAL_ASSETS_INSTALLED", mapOf("count" to catalog.clips.size, "providerId" to catalog.providerId,
+                "quality" to "LISTENING_CANDIDATES_NOT_PRODUCT_APPROVED"))
+        } catch (_: Exception) { event("LOCAL_INSTALL_REJECTED", mapOf("reason" to "VOICE_ASSET_INSTALL_FAILED")) }
+    }
+
+    private fun speakLocal(character: String, category: String) {
+        refresh()
+        val catalog = localCatalog
+        val clipId = "$character-$category"
+        val clip = catalog?.clips?.singleOrNull { it.clipId == clipId }
+        if (clip == null) {
+            event("LOCAL_REQUEST_REJECTED", mapOf("reason" to "UNKNOWN_VOICE_CLIP")); return
+        }
+        val id = "local-${UUID.randomUUID()}"
+        val now = System.currentTimeMillis()
+        activeRequest = id
+        event("LOCAL_REQUEST", mapOf("requestId" to id, "clipId" to clip.clipId, "characterId" to clip.characterId,
+            "profileId" to clip.profileId, "speakerId" to clip.speakerId, "textSha256" to clip.textSha256,
+            "audioSha256" to clip.audioSha256, "providerId" to catalog.providerId,
+            "visualIntegration" to "SEPARATE_FROM_LEGACY_MOCK_AVATAR"))
+        val request = SpeechRequest(id, tripId, clip.characterId, clip.text, ai.nunti.tts.Emotion.NEUTRAL,
+            clip.profileId, ai.nunti.tts.TripPhase.POST_TRIP, Priority.NORMAL, now, now + 25000, ContentSource.USER_INITIATED)
+        voice?.submit(ApprovedSpeech(request, AvatarVoiceInput(clip.characterId, clip.characterId, clip.profileId), null, true))
     }
     override fun onNewIntent(intent: Intent) { super.onNewIntent(intent); setIntent(intent); applyIntent(intent) }
     override fun onStart() { super.onStart(); foreground = true; refresh(initialize = true); handler.removeCallbacks(poll); handler.post(poll) }

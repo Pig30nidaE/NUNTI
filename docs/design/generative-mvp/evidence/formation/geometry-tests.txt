@@ -1,0 +1,29 @@
+2026-11-03 — A ribbon source freeze
+Command: bash android/feature/avatar/scripts/test-generated-companion.sh
+Result: exit 0; existing cached JDK/Kotlin only, no Gradle/network/provider call.
+
+PASS: original PNG SHA, 1312x1199 native alpha, 1,009,509 transparent / 563,487 partial-alpha pixels
+PASS: actual source alpha downsampled once to 192x175; route/target geometry bounded
+PASS: 4,004 readiness frames; no source pixels, derived morph, residual, or shadow before ready
+PASS: 3 route shapes x 2 alpha-width shapes, 384 ordered samples, 7 turns, continuous morph and pen tip
+PASS: portrait/landscape alpha geometries use paint brushes at least 1.2x actual turn spacing
+PASS: brush-only reveal before .88, one source-alpha application, residual complete and ribbon/tip absent by .98
+PASS: final/static transforms, proportional 64/128px fit, copied bounded alpha sample, rejected invalid inputs
+Scope: CPU geometry/compositing contracts and original bytes; native Compose pixels and appeal require Android QA
+
+Source SHA-256:
+6e53bb2058f86cd290d646911609116aeab9e93b0bcdf9f2b5cb990d54e60dad  src/main/kotlin/ai/nunti/avatar/GeneratedCompanionSpec.kt
+059a8d218aa53f648e46a2eceb1f76256f18973880726ec44b56e81a35b76443  src/main/kotlin/ai/nunti/avatar/GeneratedFormationSpec.kt
+2ff5bbeaa1144081cf0499a90af15cfb3c9629e50202b0f2bbe4921d6fdb3479  src/compose/kotlin/ai/nunti/avatar/GeneratedCompanion.kt
+a8590851887bc3d6c24d257dc4c874a9617d76245246d97df441f7d27f02e623  src/test/kotlin/ai/nunti/avatar/GeneratedCompanionTestMain.kt
+aee6a631bd1cd7f08d87175397cece4e52c44a85d354e91aad9bd71a10f2c9aa  scripts/test-generated-companion.sh
+
+Source review: optional onFormationPrepared callback in the Compose adapter.
+Reviewed guards: ready && image != null && current geometry != null && progress < 1;
+notification is delivered once per image/route/forming interval using the latest callback.
+Static/restored progress=1 skips alpha computation and callback. Host progress stays zero until callback.
+Latest CPU run includes the geometry-derived minimum paint width regression for portrait/landscape shapes.
+Native evidence motivating this change: .local/generative-mvp/route-ribbon-frames/frame-02.png (about progress .60).
+Only the image reveal mask uses max(frame.brushWidth, actual turn spacing * 1.2).
+Ribbon overlays, source alpha application, readiness and callback behavior are unchanged.
+Updated source SHA values above; integrated Android build and post-correction visual QA belong to the host.

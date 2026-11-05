@@ -229,4 +229,5 @@ fun main() {
     }
     println("${count} tests passed; ${failures.size} failed")
     check(failures.isEmpty()) { failures.joinToString() }
+    runLocalVoiceTests()
 }

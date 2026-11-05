@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nunti · 경로 생성 검증</title>
+<style>*{box-sizing:border-box}body{margin:0;background:#f5f2e9;color:#283b3c;font:16px/1.65 system-ui,sans-serif}main{max-width:1400px;margin:auto;padding:36px}h1{font-size:clamp(28px,4vw,48px);margin:8px 0}h2{margin:0}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;color:#657672}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}article{border:1px solid #deded3;border-radius:20px;padding:24px;background:white}article svg{display:block;width:100%;height:auto;max-height:280px}p{color:#536360}pre{font:12px/1.7 monospace;white-space:pre-wrap;overflow-wrap:anywhere}button{font:inherit;padding:9px 16px;border-radius:12px;border:1px solid #b8c3bd;background:white;cursor:pointer}button[aria-pressed=true]{background:#283b3c;color:white}.phase{display:flex;gap:10px;flex-wrap:wrap;margin:28px 0}.notice{padding:20px;background:#e5ebdf;border-radius:15px;margin:20px 0}.faces{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}[hidden]{display:none!important}footer{font-size:13px;margin-top:30px}</style>
+<main><span class="eyebrow">NUNTI / ALGORITHM WORKBENCH</span><h1>같은 눈티, 경로에 맞춘 준비.</h1><p>모든 경로는 합성 Mock입니다. 아래 그림은 실제 Kotlin 엔진의 AvatarSpec과 공통 렌더링 명령에서 생성했습니다.</p>
+<div class="phase" aria-label="시연 단계"><button data-phase="pre" aria-pressed="true">출발 전</button><button data-phase="drive" aria-pressed="false">주행 중 · 제한</button><button data-phase="post" aria-pressed="false">주행 종료</button></div>
+<div id="blocked" class="notice" hidden>플랫폼 표시 허가가 확인되지 않아 아바타 화면을 숨겼습니다. 감정은 내부 타임라인에만 기록합니다.</div>
+<section id="pre"><div class="grid"><article><span class=eyebrow>MOCK A</span><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · CITY · NEUTRAL</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B5C7F4"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="66.0" y="191.0" width="28.0" height="38.0" rx="5" fill="#FFF8E9"/>
+<polyline points="73.0,202.0 87.0,202.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="73.0,213.0 87.0,213.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="131.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<ellipse cx="185.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,157.0 160.0,163.0 171.0,157.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h2>CITY</h2><p>[MOCK 경로] 확인된 도심 도로 비율을 바탕으로 도시형 조끼와 이동 티켓 장식을 선택했습니다.</p><details><summary>선택 근거와 후보 점수</summary><pre>CITY: 7.9 · HIGHEST_VALID_SCORE; exact ties use persisted seed and SHA-256
+BASE: 1.0 · LOWER_SCORE:1.0&lt;7.9</pre></details></article><article><span class=eyebrow>MOCK B</span><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · JOURNEY · NEUTRAL</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#EAB477"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#473721" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#473721"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#473721"/>
+<rect x="53.0" y="190.0" width="43.0" height="56.0" rx="5" fill="#473721"/>
+<rect x="58.0" y="199.0" width="33.0" height="42.0" rx="5" fill="#EAB477"/>
+<polyline points="65.0,202.0 84.0,202.0" stroke="#473721" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="131.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<ellipse cx="185.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,157.0 160.0,163.0 171.0,157.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h2>JOURNEY</h2><p>[MOCK 경로] 확인된 장거리 특성을 바탕으로 여행용 조끼와 가방 장식을 선택했습니다.</p><details><summary>선택 근거와 후보 점수</summary><pre>JOURNEY: 9.65 · HIGHEST_VALID_SCORE; exact ties use persisted seed and SHA-256
+BASE: 1.0 · LOWER_SCORE:1.0&lt;9.65</pre></details></article><article><span class=eyebrow>MOCK C</span><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · COASTAL · NEUTRAL</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="104.0" y="182.0" width="112.0" height="28.0" rx="5" fill="#8CCFD0"/>
+<polyline points="108.0,194.0 212.0,194.0" stroke="#173F45" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="53.0" y="190.0" width="43.0" height="56.0" rx="5" fill="#173F45"/>
+<rect x="58.0" y="199.0" width="33.0" height="42.0" rx="5" fill="#8CCFD0"/>
+<polyline points="65.0,202.0 84.0,202.0" stroke="#173F45" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="116.0,274.0 123.33333333333333,277.46410161513774 130.66666666666666,277.46410161513774 138.0,274.0 145.33333333333334,270.53589838486226 152.66666666666666,270.53589838486226 160.0,274.0 167.33333333333334,277.46410161513774 174.66666666666666,277.46410161513774 182.0,274.0 189.33333333333331,270.53589838486226 196.66666666666669,270.53589838486226 204.0,274.0" stroke="#173F45" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="131.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<ellipse cx="185.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,157.0 160.0,163.0 171.0,157.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h2>COASTAL</h2><p>[MOCK 경로] 경로와 교차하는 해안 지형 근거를 바탕으로 물결 장식과 스카프를 선택했습니다. 확인된 장거리 특성에 따라 가방을 더했습니다.</p><details><summary>선택 근거와 후보 점수</summary><pre>COASTAL: 9.9 · HIGHEST_VALID_SCORE; exact ties use persisted seed and SHA-256
+JOURNEY: 8.4 · LOWER_SCORE:8.4&lt;9.9
+BASE: 1.0 · LOWER_SCORE:1.0&lt;9.9</pre></details></article><article><span class=eyebrow>MOCK D</span><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · MOUNTAIN · NEUTRAL</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B4C7A3"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#2D4130" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#2D4130"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#2D4130"/>
+<rect x="229.0" y="191.0" width="24.0" height="43.0" rx="5" fill="#B4C7A3"/>
+<rect x="234.0" y="191.0" width="14.0" height="8.0" rx="5" fill="#2D4130"/>
+<polyline points="126.0,280.0 148.66666666666666,262.0 160.0,271.0 173.6,264.0 194.0,280.0" stroke="#2D4130" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="131.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<ellipse cx="185.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,157.0 160.0,163.0 171.0,157.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h2>MOUNTAIN</h2><p>[MOCK 경로] 경로와 교차하는 산악 지형 근거를 바탕으로 능선 장식과 등산 조끼를 선택했습니다.</p><details><summary>선택 근거와 후보 점수</summary><pre>MOUNTAIN: 9.9 · HIGHEST_VALID_SCORE; exact ties use persisted seed and SHA-256
+BASE: 1.0 · LOWER_SCORE:1.0&lt;9.9</pre></details></article></div></section>
+<section id="post" hidden><div class="notice">시연 D · 평온 → 놀람 → 안도 → 평온. 실제 reducer로 검증된 급제동과 회복 이벤트를 처리한 Mock 결과입니다.<ol><li>0초 · NEUTRAL · NEW_TRIP</li><li>3초 · RELAXED · VERIFIED_STABLE_DRIVING</li><li>6초 · STARTLED · VERIFIED_HARSH_BRAKING</li><li>9초 · RELIEVED · VERIFIED_SAFETY_RECOVERED</li><li>12초 · RELAXED · VERIFIED_RECOVERY_SETTLED</li></ol><button id="replay">감정 흐름 재생</button><p id="replay-status" aria-live="polite"></p></div><div class="grid faces"><article><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · CITY · NEUTRAL</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B5C7F4"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="66.0" y="191.0" width="28.0" height="38.0" rx="5" fill="#FFF8E9"/>
+<polyline points="73.0,202.0 87.0,202.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="73.0,213.0 87.0,213.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="131.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<ellipse cx="185.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,157.0 160.0,163.0 171.0,157.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h3>NEUTRAL</h3></article><article><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · CITY · RELAXED</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B5C7F4"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="66.0" y="191.0" width="28.0" height="38.0" rx="5" fill="#FFF8E9"/>
+<polyline points="73.0,202.0 87.0,202.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="73.0,213.0 87.0,213.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="124.0,139.0 131.0,134.0 138.0,139.0" stroke="#283B3C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="178.0,139.0 185.0,134.0 192.0,139.0" stroke="#283B3C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,157.0 160.0,163.0 171.0,157.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h3>RELAXED</h3></article><article><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · CITY · CONCERNED</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B5C7F4"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="66.0" y="191.0" width="28.0" height="38.0" rx="5" fill="#FFF8E9"/>
+<polyline points="73.0,202.0 87.0,202.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="73.0,213.0 87.0,213.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="131.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<ellipse cx="185.0" cy="138.5" rx="5.0" ry="7.5" fill="#283B3C"/>
+<polyline points="122.0,120.0 139.0,115.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,115.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,163.0 160.0,158.0 171.0,163.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h3>CONCERNED</h3></article><article><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · CITY · STARTLED</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B5C7F4"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="66.0" y="191.0" width="28.0" height="38.0" rx="5" fill="#FFF8E9"/>
+<polyline points="73.0,202.0 87.0,202.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="73.0,213.0 87.0,213.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="131.0" cy="138.0" rx="9.0" ry="11.0" fill="#283B3C"/>
+<ellipse cx="130.5" cy="133.5" rx="2.5" ry="3.5" fill="#FFFFFF"/>
+<ellipse cx="185.0" cy="138.0" rx="9.0" ry="11.0" fill="#283B3C"/>
+<ellipse cx="184.5" cy="133.5" rx="2.5" ry="3.5" fill="#FFFFFF"/>
+<polyline points="122.0,114.0 139.0,114.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,114.0 194.0,114.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="160.0" cy="162.0" rx="7.0" ry="9.0" fill="#283B3C"/></svg><h3>STARTLED</h3></article><article><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · CITY · RELIEVED</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B5C7F4"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="66.0" y="191.0" width="28.0" height="38.0" rx="5" fill="#FFF8E9"/>
+<polyline points="73.0,202.0 87.0,202.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="73.0,213.0 87.0,213.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="121.5" cy="152.5" rx="6.5" ry="3.5" fill="#E5B29D"/>
+<ellipse cx="198.5" cy="152.5" rx="6.5" ry="3.5" fill="#E5B29D"/>
+<polyline points="124.0,139.0 131.0,134.0 138.0,139.0" stroke="#283B3C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="178.0,139.0 185.0,134.0 192.0,139.0" stroke="#283B3C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="149.0,157.0 160.0,163.0 171.0,157.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><h3>RELIEVED</h3></article><article><svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img"><title>눈티 · CITY · JOYFUL</title><ellipse cx="160.0" cy="168.0" rx="74.0" ry="91.0" fill="#F7EBC6"/>
+<ellipse cx="84.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="235.5" cy="201.0" rx="21.5" ry="20.0" fill="#F7EBC6"/>
+<ellipse cx="125.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="197.0" cy="252.0" rx="23.0" ry="12.0" fill="#283B3C"/>
+<ellipse cx="160.0" cy="140.5" rx="59.0" ry="41.5" fill="#FFF8E9"/>
+<ellipse cx="160.0" cy="81.0" rx="9.0" ry="13.0" fill="#C4804C"/>
+<rect x="102.0" y="184.0" width="116.0" height="52.0" rx="5" fill="#B5C7F4"/>
+<polyline points="160.0,184.0 160.0,236.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<rect x="115.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="183.0" y="207.0" width="22.0" height="16.0" rx="5" fill="#26334B"/>
+<rect x="66.0" y="191.0" width="28.0" height="38.0" rx="5" fill="#FFF8E9"/>
+<polyline points="73.0,202.0 87.0,202.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="73.0,213.0 87.0,213.0" stroke="#26334B" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="124.0,139.0 131.0,134.0 138.0,139.0" stroke="#283B3C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="178.0,139.0 185.0,134.0 192.0,139.0" stroke="#283B3C" stroke-width="4.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="122.0,120.0 139.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<polyline points="177.0,120.0 194.0,120.0" stroke="#283B3C" stroke-width="3.0" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+<ellipse cx="160.0" cy="162.0" rx="12.0" ry="9.0" fill="#283B3C"/></svg><h3>JOYFUL</h3></article></div></section>
+<footer>이 페이지는 로컬 검증용 정적 결과 뷰어입니다. 주행 허용 여부를 모의한 UI이며 차량 플랫폼 인증 또는 실도로 검증을 뜻하지 않습니다. 생성 규칙·가중치·감정 시간은 초기 실험 설정입니다.</footer></main>
+<script>let timer;const cards=[...document.querySelectorAll('.faces article')];function stop(){clearInterval(timer);cards.forEach(x=>x.hidden=false)}document.querySelectorAll('[data-phase]').forEach(b=>b.addEventListener('click',()=>{stop();document.querySelectorAll('[data-phase]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));document.getElementById('pre').hidden=b.dataset.phase!=='pre';document.getElementById('post').hidden=b.dataset.phase!=='post';document.getElementById('blocked').hidden=b.dataset.phase!=='drive'}));document.getElementById('replay').onclick=()=>{stop();const frames=["NEUTRAL","RELAXED","STARTLED","RELIEVED","RELAXED"];let index=0;function step(){const current=frames[index];cards.forEach(c=>c.hidden=c.querySelector('h3').textContent!==current);document.getElementById('replay-status').textContent=(index*3)+'초 · '+current;index++;if(index===frames.length)clearInterval(timer)}step();timer=setInterval(step,3000)};</script></html>

@@ -1,0 +1,211 @@
+{
+  "startedAt": "2026-11-02T16:19:12.016902+00:00",
+  "status": "PASS_INDEPENDENT_ROUTE_BIRTH_HTTP_AND_ARTIFACTS",
+  "scope": "Independent HTTP/schema, geometry and exact local audio identity checks",
+  "postRequests": 0,
+  "newJobsObservedGenerating": 0,
+  "notVerified": [
+    "Human visual quality, uniqueness perception, cuteness or collectibility",
+    "Human Korean pronunciation or naturalness",
+    "Native Android rendering/playback/lifecycle",
+    "Worker crash recovery"
+  ],
+  "health": {
+    "status": "ok",
+    "version": "route-born-1"
+  },
+  "invalidInputs": [
+    {
+      "case": "missing_route",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "extra_root_field",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "missing_uuid",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "invalid_uuid",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "empty_name",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "whitespace_name",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "name_utf16_62",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "traits_utf16_242",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "purpose_utf16_122",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "name_wrong_type",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "extra_destination_field",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "one_point",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "repeated_nonzero_absent",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "too_many_points",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "out_of_bounds",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "negative_coordinate",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "boolean_coordinate",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "string_coordinate",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "wrong_point_dimension",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "extra_route_field",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "unpaired_unicode_surrogate",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "malformed_json",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "not_object",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "duplicate_json_key",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "body_too_large",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "nan_coordinate",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    },
+    {
+      "case": "infinite_coordinate",
+      "httpStatus": 400,
+      "response": {
+        "error": "INVALID_REQUEST"
+      }
+    }
+  ],
+  "jobs": [],
+  "finishedAt": "2026-11-02T16:19:12.055121+00:00",
+  "httpCallCount": 47
+}

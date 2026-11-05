@@ -1,0 +1,5 @@
+Warning: Found corrupted package.xml at /Users/pig30nidae/NUNTI/.local/pm-tools/sdk/system-images/android-34/pleos_car_emulator/arm64-v8a/package.xml
+Warning: Observed package id 'system-images;android-34;android-automotive;arm64-v8a' in inconsistent location '/Users/pig30nidae/NUNTI/.local/pm-tools/sdk/system-images/android-34/pleos_car_emulator/arm64-v8a' (Expected '/Users/pig30nidae/NUNTI/.local/pm-tools/sdk/system-images/android-34/android-automotive/arm64-v8a')
+Error: Package path is not valid. Valid system image paths are:
+system-images;android-34;android-automotive;arm64-v8a
+null

@@ -1,0 +1,16 @@
+{
+  "checkedAtUtc": "2026-11-02 09:04:48 UTC",
+  "source": "GitHub connector GET /repos/Pig30nidaE/NUNTI/branches/main",
+  "url": "https://api.github.com/repos/Pig30nidaE/NUNTI/branches/main",
+  "branch": "main",
+  "sha": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+  "tree": "7bee2cb3e58b6ec3d504ef1297b281673cc4cc0e",
+  "gitFetch": {
+    "ok": false,
+    "reason": "HTTPS credentials unavailable; could not read Username",
+    "remoteRefMatchedLocal": true
+  },
+  "recheckedAtUtc": "2026-11-02 09:28:05 UTC",
+  "recheckedSha": "ebde9027f97f56f80bf8262c1200dbbb92827483",
+  "unchanged": true
+}

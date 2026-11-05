@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v2:JobView",
+  "additionalProperties": false,
+  "properties": {
+    "jobId": {
+      "title": "Jobid",
+      "type": "string"
+    },
+    "requestId": {
+      "title": "Requestid",
+      "type": "string"
+    },
+    "state": {
+      "enum": [
+        "QUEUED",
+        "RUNNING",
+        "READY",
+        "FAILED",
+        "RESULT_UNKNOWN"
+      ],
+      "title": "State",
+      "type": "string"
+    },
+    "stage": {
+      "enum": [
+        "PLANNING",
+        "MEDIA",
+        "SELECTING",
+        "SPEECH",
+        "VALIDATING",
+        "COMPLETE"
+      ],
+      "title": "Stage",
+      "type": "string"
+    },
+    "mode": {
+      "enum": [
+        "OFFLINE_FIXTURE",
+        "API",
+        "DISABLED"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error"
+    },
+    "artifact": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Artifact"
+    },
+    "speechManifest": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Speechmanifest"
+    },
+    "cost": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Cost"
+    }
+  },
+  "required": [
+    "jobId",
+    "requestId",
+    "state",
+    "stage",
+    "mode"
+  ],
+  "title": "JobView",
+  "type": "object"
+}

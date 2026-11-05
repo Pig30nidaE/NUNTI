@@ -1,0 +1,62 @@
+{"state":"PASS","check":"emulator and user preflight"}
+{"state":"PASS","check":"cold launch restores without automatic speech"}
+{"state":"PASS","check":"ten Android parser/store boundary checks"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 01-coast-rest"}
+{"state":"WAIT_REPEAT_WINDOW","clipId":"nunti-8da06e4267f4a71820a06e65-common","secondsAtMost":45.602,"instruction":"Waiting for the existing 60-second policy; no session or policy reset."}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":35.392}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":25.351}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":15.313}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":5.269}
+{"state":"PASS","check":"waited for repeat eligibility nunti-8da06e4267f4a71820a06e65-common"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 02-mountain-camping"}
+{"state":"WAIT_REPEAT_WINDOW","clipId":"nunti-a455dd81d2c487095fc66e7d-common","secondsAtMost":45.969,"instruction":"Waiting for the existing 60-second policy; no session or policy reset."}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":35.8}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":25.72}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":15.637}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":5.495}
+{"state":"PASS","check":"waited for repeat eligibility nunti-a455dd81d2c487095fc66e7d-common"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 03-city-exhibition"}
+{"state":"WAIT_REPEAT_WINDOW","clipId":"nunti-2d6aecb00617ef2899eff678-common","secondsAtMost":42.268,"instruction":"Waiting for the existing 60-second policy; no session or policy reset."}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":32.138}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":22.028}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":11.878}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":1.809}
+{"state":"PASS","check":"waited for repeat eligibility nunti-2d6aecb00617ef2899eff678-common"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 04-coast-next"}
+{"state":"WAIT_REPEAT_WINDOW","clipId":"nunti-6ec3150a7c2ee12d410391de-common","secondsAtMost":46.089,"instruction":"Waiting for the existing 60-second policy; no session or policy reset."}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":35.908}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":25.775}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":15.669}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":5.514}
+{"state":"PASS","check":"waited for repeat eligibility nunti-6ec3150a7c2ee12d410391de-common"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 05-forest-visit"}
+{"state":"WAIT_REPEAT_WINDOW","clipId":"nunti-17eeb4f278a6a6188a8b068c-common","secondsAtMost":43.982,"instruction":"Waiting for the existing 60-second policy; no session or policy reset."}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":33.755}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":23.655}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":13.507}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":3.315}
+{"state":"PASS","check":"waited for repeat eligibility nunti-17eeb4f278a6a6188a8b068c-common"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 06-lake-errand"}
+{"state":"WAIT_REPEAT_WINDOW","clipId":"nunti-14e8ecb1317597b175d0ac40-common","secondsAtMost":44.893,"instruction":"Waiting for the existing 60-second policy; no session or policy reset."}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":34.651}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":24.472}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":14.324}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":4.147}
+{"state":"PASS","check":"waited for repeat eligibility nunti-14e8ecb1317597b175d0ac40-common"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 07-city-commute"}
+{"state":"WAIT_REPEAT_WINDOW","clipId":"nunti-2cf018a4ab81917bafef386b-common","secondsAtMost":48.28,"instruction":"Waiting for the existing 60-second policy; no session or policy reset."}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":38.045}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":27.871}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":17.663}
+{"state":"WAIT_REPEAT_WINDOW","remainingSeconds":7.652}
+{"state":"PASS","check":"waited for repeat eligibility nunti-2cf018a4ab81917bafef386b-common"}
+{"state":"PASS","check":"joined greeting/common/arrival/repeat/save 08-unplanned"}
+{"state":"PASS","check":"all twenty-four bundled local WAV clips completed"}
+{"state":"PASS","check":"cold launch restores without automatic speech"}
+{"state":"PASS","check":"all eight saved identities and final selection restore"}
+{"state":"PASS","check":"common clip completes"}
+{"state":"PASS","check":"cold launch restores without automatic speech"}
+{"state":"PASS","check":"stop cancels and return does not replay"}
+{"state":"PASS","check":"cold launch restores without automatic speech"}
+{"state":"FAIL","reason":"Cancellation differs"}
+{"state":"FINISHED","status":"FAIL","report":"/Users/pig30nidae/NUNTI/prototypes/journey_mvp/runtime-04/verification.json"}

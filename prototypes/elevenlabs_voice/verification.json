@@ -1,0 +1,44 @@
+{
+  "status": "PASSED_OFFLINE_AND_MOCKED_READ_ONLY_BOUNDARIES",
+  "unitTests": 12,
+  "failures": 0,
+  "errors": 0,
+  "realProviderRequests": 0,
+  "realSynthesisRequests": 0,
+  "missingKeyRun": {
+    "exitCode": 2,
+    "result": {
+      "status": "MISSING_API_KEY",
+      "environmentVariable": "ELEVENLABS_API_KEY",
+      "networkRequests": 0,
+      "synthesisRequests": 0,
+      "nextAction": "Provide the key through the environment; do not paste it into chat."
+    }
+  },
+  "offlineRequestRun": {
+    "status": "OFFLINE_REQUEST_WRITTEN",
+    "networkRequests": 0,
+    "synthesisRequests": 0,
+    "modelId": "eleven_v4",
+    "voiceId": "uyVNoMrnUku1dZyVEXwD",
+    "endpoint": "/v1/text-to-speech/uyVNoMrnUku1dZyVEXwD",
+    "outputFormat": "mp3_44100_128",
+    "textSha256": "08ca0ac9a0667210e37131fcf281589de4332546fc9d2c9ad7266e36ade2e7d3"
+  },
+  "textMatchesPublicAuditionSha256": true,
+  "originalAnnaFilesUnchanged": true,
+  "originalAnnaFileHashesBefore": {
+    "prototypes/voice_audition/commercial/elevenlabs-anna-common-arrival.mp3": "5b7d8821b2d714789a54c0de0ba4005d373beb7871094e64051d752ceca649fb",
+    "prototypes/voice_audition/commercial/elevenlabs-anna-common-arrival.json": "eef3b0d9cb0037d57802e86b5fadbf6f65ff0f48d57cce025ee7af99b3469f48",
+    "prototypes/voice_audition/commercial/anna-public-voice-id.json": "9be9859836a0509d04a1eb2f23f6372b704dcd1cd9be2d3023428629c88d149e"
+  },
+  "originalAnnaFileHashesAfter": {
+    "prototypes/voice_audition/commercial/elevenlabs-anna-common-arrival.mp3": "5b7d8821b2d714789a54c0de0ba4005d373beb7871094e64051d752ceca649fb",
+    "prototypes/voice_audition/commercial/elevenlabs-anna-common-arrival.json": "eef3b0d9cb0037d57802e86b5fadbf6f65ff0f48d57cce025ee7af99b3469f48",
+    "prototypes/voice_audition/commercial/anna-public-voice-id.json": "9be9859836a0509d04a1eb2f23f6372b704dcd1cd9be2d3023428629c88d149e"
+  },
+  "actualApiAccountAccessVerified": false,
+  "accountDeferredByUser": true,
+  "userDecision": "지금은 계정 없이 진행",
+  "additionalApiCallsAuthorized": false
+}

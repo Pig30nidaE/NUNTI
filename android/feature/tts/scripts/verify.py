@@ -19,6 +19,7 @@ def main():
     parser.add_argument('--bootstrap', action='store_true', help='Download missing pinned official artifacts')
     parser.add_argument('--android', action='store_true', help='Also compile the Android/Pleos adapter (not a runtime test)')
     parser.add_argument('--tools-dir', type=Path, default=Path(tempfile.gettempdir()) / 'nunti-tts-tools')
+    parser.add_argument('--voice-manifest', type=Path, help='Validate a schema v1/v2/v3 WAV catalog instead of the six legacy Debug assets')
     args = parser.parse_args()
     module = Path(__file__).resolve().parents[1]
     voice = module.parent / 'voice'
@@ -74,6 +75,44 @@ def main():
     result = subprocess.run([java, '-cp', runtime, 'ai.nunti.tts.IntegrationFixtureTestKt', str(fixture_properties)],
                             text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     (out / 'integration.txt').write_text(result.stdout)
+    print(result.stdout, end='')
+    result.check_returncode()
+    # Exercise real PCM files through the Kotlin binding, hash, and RIFF validation path.
+    sample_manifest = args.voice_manifest.resolve() if args.voice_manifest else module.parents[1] / 'app/src/debug/assets/journey-voice/manifest.json'
+    sample_dir = sample_manifest.parent
+    samples = json.loads(sample_manifest.read_text(encoding='utf-8'))
+    if samples['schemaVersion'] not in (1, 2, 3):
+        raise SystemExit('Unsupported sample schema version')
+    sample_values = {'providerId': samples['providerId'], 'schemaVersion': samples['schemaVersion'], 'count': len(samples['clips'])}
+    for i, clip in enumerate(samples['clips']):
+        values = {key: clip[key] for key in ('clipId', 'characterId', 'profileId', 'speakerId', 'locale', 'text',
+                  'textSha256', 'audioPath', 'audioSha256', 'sampleRateHz', 'channels', 'durationMs')}
+        if samples['schemaVersion'] == 1:
+            values.update(sourceKind='legacy-catalog-v1', sourceModelRevision=clip['sourceModelRevision'],
+                          bindingId=clip['bindingId'], speed=clip['binding']['preset']['speed'],
+                          steps=clip['binding']['preset']['steps'], catalogSha256=clip['binding']['catalogSha256'])
+        elif samples['schemaVersion'] == 2:
+            source = clip['source']
+            if source['kind'] != 'directed-sohee-v1':
+                raise SystemExit('Unknown directed voice asset kind')
+            values.update(sourceKind=source['kind'], sourceModelRevision=source['sourceModelRevision'],
+                          bindingId=source['bindingId'], engineFingerprint=source['engineFingerprint'],
+                          directionSha256=source['directionSha256'], seed=source['seed'])
+        else:
+            source = clip['source']
+            if source['kind'] != 'designed-voice-v1':
+                raise SystemExit('Unknown designed voice asset kind')
+            values.update(sourceKind=source['kind'], sourceProviderId=source['providerId'],
+                          designModel=source['designModel'], synthesisModel=source['synthesisModel'], voiceId=source['voiceId'],
+                          bindingId=source['bindingId'], specSha256=source['specSha256'], settingsSha256=source['settingsSha256'],
+                          mediaOrigin=source['mediaOrigin'], rawAudioSha256=clip.get('rawAudioSha256', ''))
+        sample_values.update({f'clip.{i}.{key}': value for key, value in values.items()})
+    sample_properties = out / 'local-voice.properties'
+    sample_properties.write_text('\n'.join(f'{key}={base64.b64encode(str(value).encode()).decode()}'
+                                          for key, value in sample_values.items()) + '\n')
+    result = subprocess.run([java, '-cp', runtime, 'ai.nunti.tts.LocalVoiceSampleTestKt', str(sample_properties), str(sample_dir)],
+                            text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    (out / 'local-voice-samples.txt').write_text(result.stdout)
     print(result.stdout, end='')
     result.check_returncode()
     if args.android:

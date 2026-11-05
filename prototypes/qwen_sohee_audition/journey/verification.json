@@ -1,0 +1,91 @@
+{
+  "status": "TWO_REAL_WAVS_HASH_PCM_SOURCE_TEXT_AND_BASELINE_VERIFIED",
+  "sourceTextMetadataPath": "prototypes/voice_audition/commercial/elevenlabs-anna-journey.json",
+  "sourceTextSha256": "9c1c6c78161c8187e0463a7e5b24c3d3652b1cfe7ab4e927df81f8a707283335",
+  "sameTextAsAnna": true,
+  "referenceAudioUsed": false,
+  "postprocessing": "none; raw model waveform only encoded as PCM16 WAV",
+  "protectedUpstreamFiles": 13,
+  "upstreamFilesUnchanged": true,
+  "environmentInventoryUnchanged": true,
+  "modelId": "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit",
+  "revision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96",
+  "humanQualityApproved": false,
+  "annaQualityMatched": false,
+  "clips": [
+    {
+      "clipId": "normal-journey",
+      "audioPath": "samples/normal-journey.wav",
+      "audioSha256": "0fa23723b8cf48f530bd03ab77ac7d51ff82b20e84be7a21ae629ef331637bf7",
+      "textSha256": "9c1c6c78161c8187e0463a7e5b24c3d3652b1cfe7ab4e927df81f8a707283335",
+      "durationSeconds": 19.76,
+      "generationSeconds": 12.256096041997807,
+      "modelLoadSeconds": 2.0613554590017884,
+      "peakMlxMemoryBytes": 6486347781,
+      "pcm": {
+        "sampleRateHz": 24000,
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "frames": 474240,
+        "peak": 19931,
+        "rms": 1802.023097529091,
+        "fullScaleSamples": 0,
+        "last250msRms": 275.7331672106205
+      },
+      "tokenBudgetEvidence": {
+        "maxTokens": 375,
+        "decodeUpsampleRate": 1920,
+        "pcmFramesDividedByUpsample": 247.0,
+        "nominalBudgetSeconds": 30.0,
+        "directGeneratedTokenCountCaptured": false,
+        "directEOSObserved": false,
+        "terminationReason": "not captured by this run; do not infer exact EOS or cap status solely from waveform duration",
+        "note": "Codec-frame equivalence is indirect: tokenizer valid-length trimming can affect output. Preserve the first outputs rather than resynthesize to improve evidence."
+      }
+    },
+    {
+      "clipId": "small-smile-journey",
+      "audioPath": "samples/small-smile-journey.wav",
+      "audioSha256": "bd83b85fe17d3975bf162a4a6486041a5bb7ad858615bd19793d14911f6ac231",
+      "textSha256": "9c1c6c78161c8187e0463a7e5b24c3d3652b1cfe7ab4e927df81f8a707283335",
+      "durationSeconds": 16.88,
+      "generationSeconds": 9.904629624998051,
+      "modelLoadSeconds": 2.0613554590017884,
+      "peakMlxMemoryBytes": 7319948641,
+      "pcm": {
+        "sampleRateHz": 24000,
+        "channels": 1,
+        "sampleWidthBytes": 2,
+        "frames": 405120,
+        "peak": 26236,
+        "rms": 2308.333988767152,
+        "fullScaleSamples": 0,
+        "last250msRms": 666.1043159045486
+      },
+      "tokenBudgetEvidence": {
+        "maxTokens": 375,
+        "decodeUpsampleRate": 1920,
+        "pcmFramesDividedByUpsample": 211.0,
+        "nominalBudgetSeconds": 30.0,
+        "directGeneratedTokenCountCaptured": false,
+        "directEOSObserved": false,
+        "terminationReason": "not captured by this run; do not infer exact EOS or cap status solely from waveform duration",
+        "note": "Codec-frame equivalence is indirect: tokenizer valid-length trimming can affect output. Preserve the first outputs rather than resynthesize to improve evidence."
+      }
+    }
+  ],
+  "asr": [
+    {
+      "clipId": "normal-journey",
+      "cer": 0.017543859649122806,
+      "asrRecognizedFullEnding": true,
+      "repeatedPhraseCandidate": false
+    },
+    {
+      "clipId": "small-smile-journey",
+      "cer": 0.017543859649122806,
+      "asrRecognizedFullEnding": true,
+      "repeatedPhraseCandidate": false
+    }
+  ]
+}

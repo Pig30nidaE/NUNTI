@@ -1,0 +1,32 @@
+{
+  "startedAt": "2026-11-02T16:23:26.444804+00:00",
+  "status": "FAIL",
+  "namespace": "route-birth-validation",
+  "scope": "Actual native input POST, route-born rendering stages, installed WAV identity, local playback and lifecycle",
+  "vehicleStateChangedByTool": false,
+  "notVerified": [
+    "Human screenshot review",
+    "Acoustic PCM capture or human listening",
+    "Physical vehicle behavior",
+    "Actual D/P transition",
+    "Perceptual uniqueness, cuteness, collectibility or naturalness"
+  ],
+  "error": "Timed out: real Android parser/storage negative checks",
+  "finishedAt": "2026-11-02T16:24:09.568446+00:00",
+  "checks": [
+    {
+      "check": "isolated native emulator entry and silent startup",
+      "ok": true,
+      "hardware": "ranchu",
+      "user": 10
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "screenshots/input-or-restored-initial.png",
+      "sha256": "bc640c7515c285947bfd02023e4d178e53cb7432f09f4704556cd6650bda7f1d",
+      "pixelInspection": "NOT_PERFORMED"
+    }
+  ],
+  "freshEventCount": 2
+}

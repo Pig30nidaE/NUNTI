@@ -1,0 +1,65 @@
+{
+  "status": "PASS_FILES_NOT_LISTENING_QUALITY",
+  "clips": [
+    {
+      "file": "prototypes/journey_voice_v3/samples/bright-pebble-comfort.wav",
+      "sha256": "4b86777991b172fa9afd4bf9677934e3daeebae767338e85d0f307dedcc095cf",
+      "seconds": 3.68,
+      "peak": 20270
+    },
+    {
+      "file": "prototypes/journey_voice_v3/samples/bright-pebble-hello.wav",
+      "sha256": "754616988d5687fcf7f8fe7264b37db092650ba30b926b08eb005e23dd7a7d26",
+      "seconds": 3.92,
+      "peak": 17282
+    },
+    {
+      "file": "prototypes/journey_voice_v3/samples/round-smile-comfort.wav",
+      "sha256": "e42f799b71ea9c4c95c0eec41a0c9b12f59d1606a443b2843123406687e1a020",
+      "seconds": 5.04,
+      "peak": 20177
+    },
+    {
+      "file": "prototypes/journey_voice_v3/samples/round-smile-hello.wav",
+      "sha256": "f502f95d03b8ab40dbcaec0528557934f088d798133183b7d35b3109e1f946d4",
+      "seconds": 3.92,
+      "peak": 19130
+    },
+    {
+      "file": "prototypes/journey_voice_v3/samples/soft-moss-comfort.wav",
+      "sha256": "27d5864ab35c74005a7885427170c3a1d6a3eaa77f030026986cbea4da76275d",
+      "seconds": 4.0,
+      "peak": 19329
+    },
+    {
+      "file": "prototypes/journey_voice_v3/samples/soft-moss-hello.wav",
+      "sha256": "069dfb203f03976519b4b9a6652ee7812fc23ddfd8c32c59bbf26205c74ca396",
+      "seconds": 3.68,
+      "peak": 17557
+    },
+    {
+      "file": "prototypes/chatterbox_audition/samples/builtin-comfort.wav",
+      "sha256": "4435e7b27c850f9f8172d2eceae5e5e35c8c9fb84af48b4453fce574097177ee",
+      "seconds": 2.76,
+      "peak": 31533
+    },
+    {
+      "file": "prototypes/chatterbox_audition/samples/builtin-hello.wav",
+      "sha256": "7b6f904cb95187e539f9e036236b9b2a7674dd72055eef1736b5e1cc51a44b44",
+      "seconds": 2.8,
+      "peak": 30339
+    },
+    {
+      "file": "prototypes/chatterbox_audition/samples/qwen-reference-comfort.wav",
+      "sha256": "05ddda707eb6bd515abd5a932bdd4ac0c9ea65ccca7d4645f57b86860a8bb400",
+      "seconds": 3.84,
+      "peak": 23810
+    },
+    {
+      "file": "prototypes/chatterbox_audition/samples/qwen-reference-hello.wav",
+      "sha256": "9ae3a48b15b9b80c3511bd39101ced244d61725fe3f6b84611e78fad17cd657a",
+      "seconds": 3.56,
+      "peak": 20448
+    }
+  ]
+}

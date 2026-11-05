@@ -1,0 +1,46 @@
+{
+  "status": "FAIL",
+  "surface": "ACTUAL_HEADLESS_CHROME_9225",
+  "recordings": false,
+  "audioPlayed": false,
+  "providerApiCalls": 0,
+  "injection": "actual HTTP responses held; one actual collection GET replaced with 503",
+  "checks": [
+    {
+      "name": "late-extraction-does-not-overwrite-new-example"
+    },
+    {
+      "name": "stale-extraction-does-not-leave-busy-state"
+    },
+    {
+      "name": "confirmation-disabled-before-original-image-load"
+    },
+    {
+      "name": "confirmation-enabled-after-original-image-load"
+    },
+    {
+      "name": "successful-result-survives-collection-refresh-failure"
+    },
+    {
+      "name": "collection-failure-does-not-submit-new-uuid"
+    },
+    {
+      "name": "gate-test-starts-during-birth"
+    },
+    {
+      "name": "gate-denial-disables-creation"
+    },
+    {
+      "name": "gate-return-restores-complete-static-artifact"
+    },
+    {
+      "name": "gate-return-does-not-generate-or-speak"
+    }
+  ],
+  "generated": {
+    "requestId": "4667ac76-d3be-4206-a817-3e338222000a",
+    "characterId": "nunti-4667ac76-d3be-4206-a817-3e338222000a",
+    "mediaOrigin": "LOCAL_RENDER"
+  },
+  "error": "Browser condition timed out"
+}

@@ -1,0 +1,243 @@
+{
+  "status": "PASS_FINAL_NATIVE_AUDIO_COLLECTION_COLD_RESTORE",
+  "at": "2026-11-02T16:35:51.413733+00:00",
+  "scope": "Final APK, existing UI-created fifth journey. Native common/arrival completion, authenticated guest speaker, collection/cold restore and Android boundary checks.",
+  "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+  "characterId": "route-9a72946c91d56cc41e1a27a6",
+  "common": {
+    "request": {
+      "kind": "RB_SPEECH_REQUEST",
+      "at": "2026-11-02T16:35:53.406358Z",
+      "namespace": "route-birth",
+      "requestId": "rb-405e617d-ee45-441d-9651-5d2250bc3647",
+      "tripId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+      "clipId": "route-9a72946c91d56cc41e1a27a6-common",
+      "characterId": "route-9a72946c91d56cc41e1a27a6",
+      "profileId": "route-sohee-b754a80758b5eab5b8cc",
+      "audioSha256": "9d06000f36becc67a89fa76259a58cd5d8558ffd1b7f5ebf91f9f32084c20622"
+    },
+    "terminal": {
+      "kind": "RB_SPEECH",
+      "at": "2026-11-02T16:36:01.744072Z",
+      "namespace": "route-birth",
+      "requestId": "rb-405e617d-ee45-441d-9651-5d2250bc3647",
+      "tripId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+      "status": "COMPLETED",
+      "reason": null,
+      "profileId": "route-sohee-b754a80758b5eab5b8cc",
+      "providerId": "qwen3-tts-sohee-local"
+    }
+  },
+  "arrival": {
+    "request": {
+      "kind": "RB_SPEECH_REQUEST",
+      "at": "2026-11-02T16:36:06.140361Z",
+      "namespace": "route-birth",
+      "requestId": "rb-4beaa1e8-1b8a-4a0a-b097-af7efb43e387",
+      "tripId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+      "clipId": "route-9a72946c91d56cc41e1a27a6-arrival",
+      "characterId": "route-9a72946c91d56cc41e1a27a6",
+      "profileId": "route-sohee-b754a80758b5eab5b8cc",
+      "audioSha256": "bf2014e1590e7556836dd951795cdd17b2693464d33ec38e6472b063501f3895"
+    },
+    "terminal": {
+      "kind": "RB_SPEECH",
+      "at": "2026-11-02T16:36:12.563139Z",
+      "namespace": "route-birth",
+      "requestId": "rb-4beaa1e8-1b8a-4a0a-b097-af7efb43e387",
+      "tripId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+      "status": "COMPLETED",
+      "reason": null,
+      "profileId": "route-sohee-b754a80758b5eab5b8cc",
+      "providerId": "qwen3-tts-sohee-local"
+    }
+  },
+  "capture": {
+    "clipId": "route-9a72946c91d56cc41e1a27a6-arrival",
+    "sourceAudioSha256": "bf2014e1590e7556836dd951795cdd17b2693464d33ec38e6472b063501f3895",
+    "captureSummary": {
+      "wav": "/Users/pig30nidae/NUNTI/prototypes/route_birth/final-native-01/route-9a72946c91d56cc41e1a27a6-arrival.wav",
+      "sha256": "49a99f729cb96ec06199b04a8da79a9b717280dda9f8766129ef183c614c1b00",
+      "sampleRateHz": 48000,
+      "channels": 2,
+      "sampleWidthBytes": 2,
+      "frames": 452641,
+      "pcmDurationSeconds": 9.430020833333334,
+      "nonzeroSamples": 372882,
+      "peak": 734,
+      "rms": 81.34391439516396,
+      "firstNonzeroPcmSeconds": 0.0,
+      "lastNonzeroPcmSeconds": 9.43,
+      "evidenceLevel": "RAW_PCM_ONLY_NOT_SPEECH_ACCEPTANCE",
+      "humanListeningPerformed": false,
+      "interpretation": "Nonzero PCM proves an output signal only. Not speech attribution, pronunciation, quality, or wall-clock latency.",
+      "source": "AUTHENTICATED_EMULATOR_SPEAKER_STREAM",
+      "serial": "emulator-5554",
+      "target": "127.0.0.1:8554",
+      "discoveryFile": "/Users/pig30nidae/Library/Caches/TemporaryItems/avd/running/pid_41680.ini",
+      "auth": "EXISTING_DISCOVERY_TOKEN_REDACTED",
+      "protoSha256": "564e00a929e7e4a7af78269a738ea715f32d88c0fc9f92659bb8a1251c9d558f",
+      "packetCount": 877,
+      "outcome": "DEADLINE_EXCEEDED",
+      "startedMonotonicNs": 29842732818958,
+      "startedEpochNs": 1793637366075732000,
+      "wallDurationSeconds": 10.006401542,
+      "packetTimingFile": "/Users/pig30nidae/NUNTI/prototypes/route_birth/final-native-01/route-9a72946c91d56cc41e1a27a6-arrival.packets.jsonl",
+      "timingLimit": "WAV concatenates delivered packets without filling gaps. Use packet timestamps for timing analysis. Other guest audio is also captured."
+    },
+    "captureExitCode": 0,
+    "nccPerformed": false,
+    "speechAttributionAccepted": false
+  },
+  "measurement": {
+    "schemaVersion": 1,
+    "source": {
+      "path": "/Users/pig30nidae/NUNTI/prototypes/route_birth/final-native-01/source-arrival.wav",
+      "sha256": "bf2014e1590e7556836dd951795cdd17b2693464d33ec38e6472b063501f3895",
+      "sampleRateHz": 24000,
+      "channels": 1,
+      "frames": 147840,
+      "pcmDurationSeconds": 6.16,
+      "sampleWidthBytes": 2,
+      "peak": 13169.0,
+      "rms": 1827.036356547577,
+      "monoDownmixPeak": 13169.0,
+      "monoDownmixRms": 1827.036356547577
+    },
+    "capture": {
+      "path": "/Users/pig30nidae/NUNTI/prototypes/route_birth/final-native-01/route-9a72946c91d56cc41e1a27a6-arrival.wav",
+      "sha256": "49a99f729cb96ec06199b04a8da79a9b717280dda9f8766129ef183c614c1b00",
+      "sampleRateHz": 48000,
+      "channels": 2,
+      "frames": 452641,
+      "pcmDurationSeconds": 9.430020833333334,
+      "sampleWidthBytes": 2,
+      "peak": 734.0,
+      "rms": 81.34391439516396,
+      "monoDownmixPeak": 734.0,
+      "monoDownmixRms": 81.34388687923696
+    },
+    "method": "Full source, mono channel mean, source linear resample to capture rate, FFT cross-correlation normalized by each capture window's centered energy",
+    "numpyVersion": "2.3.5",
+    "comparisonSampleRateHz": 48000,
+    "sourceFramesAfterResample": 295680,
+    "candidateWindowCount": 156962,
+    "bestMatch": {
+      "normalizedCrossCorrelation": 0.5080916160689765,
+      "captureStartFrame": 13079,
+      "captureEndFrameExclusive": 308759,
+      "capturePcmStartSeconds": 0.27247916666666666,
+      "capturePcmEndSeconds": 6.432479166666667,
+      "windowDurationSeconds": 6.16,
+      "positiveGainExpected": true,
+      "fittedGain": 0.02844646553111183,
+      "fittedDcOffset": -0.022058815843219347,
+      "windowPeak": 734.0,
+      "windowRms": 100.6446065174709,
+      "residualRmsAfterGainAndDcFit": 86.68550234610792
+    },
+    "acceptance": "MEASUREMENT_ONLY_NO_PASS_THRESHOLD_OR_ATTRIBUTION_VERDICT",
+    "humanListeningPerformed": false,
+    "speechQualityEvaluated": false,
+    "limits": [
+      "The maximum correlation is a measurement among searched windows, not proof of unique attribution or a calibrated statistical significance.",
+      "Linear resampling is an analysis approximation; runtime resampling/filtering, dropped frames and clock drift may reduce correlation.",
+      "Emulator stream may omit empty time. PCM frame position is not wall-clock audible onset or cancellation latency."
+    ],
+    "phaseRobustMetrics": {
+      "method": "Full-source amplitude envelope and per-band temporal amplitude NCC, fixed windows; maximum mean of band correlations at one shared offset",
+      "windowMilliseconds": 32,
+      "hopMilliseconds": 10,
+      "windowFunctionForSpectrum": "Hann",
+      "bandsHz": [
+        [
+          100,
+          300
+        ],
+        [
+          300,
+          800
+        ],
+        [
+          800,
+          1600
+        ],
+        [
+          1600,
+          3200
+        ],
+        [
+          3200,
+          8000
+        ]
+      ],
+      "rmsEnvelope": {
+        "normalizedCrossCorrelation": 0.9637027242228351,
+        "captureStartAnalysisFrame": 27,
+        "capturePcmStartSeconds": 0.27
+      },
+      "fiveBandAmplitude": {
+        "meanNormalizedCrossCorrelation": 0.9278731497201503,
+        "perBandNormalizedCrossCorrelation": [
+          0.943365639324191,
+          0.958758355672206,
+          0.9531687709911647,
+          0.9739348434273353,
+          0.8101381391858546
+        ],
+        "captureStartAnalysisFrame": 27,
+        "capturePcmStartSeconds": 0.27
+      },
+      "limits": "Phase-insensitive features support comparison of temporal energy patterns. Same-text different-speaker controls can also correlate. No identity/quality/pass verdict or wall-clock onset claim."
+    }
+  },
+  "saved": {
+    "kind": "RB_SAVED",
+    "at": "2026-11-02T16:36:18.232152Z",
+    "namespace": "route-birth",
+    "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "characterId": "route-9a72946c91d56cc41e1a27a6",
+    "count": 1
+  },
+  "boundaries": {
+    "kind": "RB_BOUNDARIES",
+    "at": "2026-11-02T16:36:18.434814Z",
+    "namespace": "route-birth",
+    "passed": 9,
+    "checks": [
+      "valid artifact and actual submitted input",
+      "wrong input under same request id rejected",
+      "canonical input digest change rejected",
+      "destination field mismatch rejected",
+      "malformed supplied outline rejected",
+      "pending voice identity cannot change at READY",
+      "committed name cannot change",
+      "retry preserves arrived and collection state",
+      "AtomicFile interrupted write keeps committed bytes"
+    ]
+  },
+  "restored": {
+    "kind": "RB_RESTORED",
+    "at": "2026-11-02T16:36:18.839683Z",
+    "namespace": "route-birth",
+    "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "characterId": "route-9a72946c91d56cc41e1a27a6",
+    "visualSha256": "e78f4c51dad019de3d1072e6e9dde01ba7c88a947157fe7bb45bb53d0ff2a7d3",
+    "arrived": true,
+    "collected": 1,
+    "automaticSpeech": false
+  },
+  "ready": {
+    "kind": "RB_READY",
+    "at": "2026-11-02T16:36:19.147567Z",
+    "namespace": "route-birth",
+    "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "characterId": "route-9a72946c91d56cc41e1a27a6",
+    "visualSha256": "e78f4c51dad019de3d1072e6e9dde01ba7c88a947157fe7bb45bb53d0ff2a7d3",
+    "bindingId": "dvb-45d4c7232cc03802625812f3f1623434"
+  },
+  "returnAutomaticSpeech": false,
+  "quietConsentRestored": false,
+  "humanListeningOrVoiceQualityApproved": false,
+  "calibratedAcousticIdentityVerdict": false
+}

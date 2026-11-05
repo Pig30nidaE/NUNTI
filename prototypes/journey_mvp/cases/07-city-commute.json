@@ -1,0 +1,22 @@
+{
+  "requestId": "mvp-request-07-city-commute",
+  "journeyId": "mvp-journey-07-city-commute",
+  "destination": {
+    "semanticTags": [
+      "city"
+    ]
+  },
+  "route": {
+    "distanceKm": 18,
+    "semanticTags": [
+      "urban",
+      "highway"
+    ],
+    "verifiedRoadFacts": {
+      "status": "UNKNOWN",
+      "roadTypes": [],
+      "source": null
+    }
+  },
+  "purpose": "commute"
+}

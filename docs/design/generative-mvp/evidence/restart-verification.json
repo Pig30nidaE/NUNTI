@@ -1,0 +1,8 @@
+{
+  "status": "PASS_GRACEFUL_RESTART_AND_NEW_FIXTURE_JOB",
+  "previousArtifactUnchanged": true,
+  "freshRequestId": "326f64b0-d8a3-4159-b18b-cfcff4bfb8b1",
+  "seconds": 1.859,
+  "providerApiCalls": 0,
+  "mode": "OFFLINE_FIXTURE"
+}

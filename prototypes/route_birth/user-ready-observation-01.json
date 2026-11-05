@@ -1,0 +1,7 @@
+{
+  "status": "FAIL_OBSERVER_FIELD_EXPECTATION",
+  "scope": "Read-only final foreground observation; installed APK hash, selected state and gate assertions passed before this observer assertion.",
+  "expectedField": "mResumedActivity",
+  "observedField": "topResumedActivity / ResumedActivity",
+  "correction": "Persistent observer accepts actual Android resumed-activity fields. No app/source/data mutation was needed."
+}

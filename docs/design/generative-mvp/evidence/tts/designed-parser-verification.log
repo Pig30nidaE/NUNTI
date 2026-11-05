@@ -1,0 +1,22 @@
+PASS manifest schema 3 accepts honest fixture and supported retained provider identities
+PASS manifest optional raw original hash can be absent
+PASS manifest unknown schema fails before interpreting clips
+PASS manifest schema kind cannot be changed to an old or unknown source
+PASS manifest old schema cannot interpret designed metadata
+PASS manifest root source and optional clip providers must match
+PASS manifest source missing extra and non-string fields fail
+PASS manifest designed clip cannot carry legacy binding aliases
+PASS manifest fixture cannot claim provider-generated origin
+PASS manifest real provider cannot claim fixture origin or unsupported model
+PASS manifest speaker metadata cannot silently name Anna or Sohee
+PASS manifest raw original hash is strict and normalized audio bytes are independently checked
+PASS manifest integer PCM constraints are checked without string coercion
+PASS manifest same voice survives JSON append and process-style parser restart
+  6 preserved WAVs verified with production JSON parser
+PASS manifest existing journey-voice manifest parses and all original WAVs load
+  12 preserved WAVs verified with production JSON parser
+PASS manifest existing journey-dynamic manifest parses and all original WAVs load
+  3 designed catalog WAVs verified
+PASS manifest supplied schema 3 catalog parses and every WAV loads
+17 production JSON manifest tests passed; no model/provider call or speaker playback
+Evidence: /Users/pig30nidae/NUNTI/android/feature/voice/build/manifest-verification; cached JVM org.json implementation; Android runtime NOT tested.

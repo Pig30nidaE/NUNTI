@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "verifiedRealWavClips": 6,
+  "threeDifferentSpeakerAssets": true,
+  "humanListeningEvaluated": false,
+  "clips": [
+    {
+      "clipId": "coast-common",
+      "speakerId": "F1",
+      "durationMs": 4278,
+      "audioSha256": "c4f646a221829ad1626bdae83d8cb5d5351c6d6c95b8fb8a4f183dddc6e77e4c"
+    },
+    {
+      "clipId": "coast-greeting",
+      "speakerId": "F1",
+      "durationMs": 7144,
+      "audioSha256": "efe4b616e79989c0c0e09be643dd2584cb849c01aefa8eb23ad234e52d8a85de"
+    },
+    {
+      "clipId": "mountain-common",
+      "speakerId": "M3",
+      "durationMs": 3357,
+      "audioSha256": "3eebbd08b5ed1fd170d3a863cfce59d2e5fcd251fa2f765f5bd30827b9e62f1f"
+    },
+    {
+      "clipId": "mountain-greeting",
+      "speakerId": "M3",
+      "durationMs": 5586,
+      "audioSha256": "d3782b0d3ef8c8bfa944cb8422151a9998647b5e434a27a6cc39d0132052c019"
+    },
+    {
+      "clipId": "city-common",
+      "speakerId": "F2",
+      "durationMs": 3809,
+      "audioSha256": "9cb72b6f737782b0e05b2801109093f146d9f9a940e1d14280981b7aad12e974"
+    },
+    {
+      "clipId": "city-greeting",
+      "speakerId": "F2",
+      "durationMs": 6923,
+      "audioSha256": "c5349124c9d2310285dfdfc4604a12b4ebc67d80f131d7efbd415aabfa30da69"
+    }
+  ]
+}

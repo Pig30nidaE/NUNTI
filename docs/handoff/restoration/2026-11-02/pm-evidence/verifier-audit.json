@@ -1,0 +1,62 @@
+{
+  "scope": "Verification-tool negative cases in disposable evidence copies and a temporary independent Git repository; no project worktree was removed or modified.",
+  "ok": true,
+  "results": [
+    {
+      "case": "original",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "failedChecks": []
+    },
+    {
+      "case": "duplicate-lifecycle",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "failedChecks": [
+        "lifecycle cancellation and repeat suppression"
+      ]
+    },
+    {
+      "case": "missing-drive-rejection",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "failedChecks": [
+        "D at zero speed rejects a new request"
+      ]
+    },
+    {
+      "case": "missing-roles",
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "pureJsonStdout": true
+    },
+    {
+      "case": "create",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "pureJsonStdout": true
+    },
+    {
+      "case": "idempotent-create",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "pureJsonStdout": true
+    },
+    {
+      "case": "verify",
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "pureJsonStdout": true
+    },
+    {
+      "case": "missing-registered-path",
+      "exitCode": 1,
+      "expectedExitCode": 1
+    },
+    {
+      "case": "missing-registered-path with create",
+      "exitCode": 1,
+      "expectedExitCode": 1
+    }
+  ]
+}

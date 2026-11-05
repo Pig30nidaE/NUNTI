@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "catalogId": "nunti-keepsake-small-listening-candidates-v2",
+  "status": "LISTENING_CANDIDATES_NOT_PRODUCT_APPROVED",
+  "profiles": {
+    "calm_warmth": {"profileId": "nunti-keepsake-calm-v2", "speakerId": "F3", "speed": 1.04, "steps": 16},
+    "gentle_curiosity": {"profileId": "nunti-keepsake-curious-v2", "speakerId": "F4", "speed": 1.08, "steps": 16},
+    "quiet_delight": {"profileId": "nunti-keepsake-clear-v2", "speakerId": "F5", "speed": 1.06, "steps": 16}
+  },
+  "postprocess": {"type": "duration_preserving_pitch_shift", "semitones": 3.0, "library": "librosa", "version": "0.11.0", "resampler": "soxr_hq", "nFft": 1024, "hopLength": 256, "maxPeak": 0.95},
+  "interpretation": "Three different source speakers and mild duration-preserving pitch lift. Small/cute is a listening hypothesis, not a verified outcome. No voice cloning or emotion model."
+}

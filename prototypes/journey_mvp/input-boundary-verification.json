@@ -1,0 +1,63 @@
+{
+  "status": "PASS",
+  "tests": 15,
+  "utf16TextLimits": {
+    "caseId": 120,
+    "label": 60,
+    "summary": 240
+  },
+  "maxUniqueCharacters": 32,
+  "actualBoundaryRejectionProcesses": 7,
+  "gpuOrModelInferenceUsed": false,
+  "rejectionEvidence": [
+    {
+      "expectedError": "INVALID_CASE_COUNT",
+      "exitCode": 2,
+      "rejectedBeforeEngineSetup": true,
+      "stateFilesByteUnchanged": 40,
+      "caseIndexByteUnchanged": true
+    },
+    {
+      "expectedError": "INVALID_CASE_COUNT",
+      "exitCode": 2,
+      "rejectedBeforeEngineSetup": true,
+      "stateFilesByteUnchanged": 40,
+      "caseIndexByteUnchanged": true
+    },
+    {
+      "expectedError": "INVALID_CASE_TEXT",
+      "exitCode": 2,
+      "rejectedBeforeEngineSetup": true,
+      "stateFilesByteUnchanged": 40,
+      "caseIndexByteUnchanged": true
+    },
+    {
+      "expectedError": "INVALID_CASE_TEXT",
+      "exitCode": 2,
+      "rejectedBeforeEngineSetup": true,
+      "stateFilesByteUnchanged": 40,
+      "caseIndexByteUnchanged": true
+    },
+    {
+      "expectedError": "INVALID_CASE_TEXT",
+      "exitCode": 2,
+      "rejectedBeforeEngineSetup": true,
+      "stateFilesByteUnchanged": 40,
+      "caseIndexByteUnchanged": true
+    },
+    {
+      "expectedError": "INVALID_CASE_TEXT",
+      "exitCode": 2,
+      "rejectedBeforeEngineSetup": true,
+      "stateFilesByteUnchanged": 40,
+      "caseIndexByteUnchanged": true
+    },
+    {
+      "expectedError": "INVALID_CASE_TEXT:caseId",
+      "exitCode": 2,
+      "rejectedBeforeEngineSetup": true,
+      "stateFilesByteUnchanged": 40,
+      "caseIndexByteUnchanged": true
+    }
+  ]
+}

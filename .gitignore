@@ -10,3 +10,5 @@ __pycache__/
 backend/data/
 *.sqlite3*
 .DS_Store
+.worktrees/
+.local/

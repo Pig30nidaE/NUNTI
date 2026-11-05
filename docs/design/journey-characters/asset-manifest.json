@@ -1,0 +1,67 @@
+{
+  "mode": "built-in image_gen",
+  "selectedDirection": "C",
+  "latestRefinement": "concepts/c-luminous-v2.png",
+  "recipeBasedExample": "concepts/recipe-coastal-001.png",
+  "productionLayeredRig": false,
+  "assets": [
+    {
+      "path": "concepts/a-soft-sculpt.png",
+      "bytes": 1682443,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "sha256": "93c9d450c9ff922768ed0683f60fb40c0b68fae874781f0e645993fc1853697c",
+      "status": "STATIC_CONCEPT_ONLY"
+    },
+    {
+      "path": "concepts/b-plush.png",
+      "bytes": 2066753,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "sha256": "b4883b81bd2fd01a4dd5bf1336e2b7ffcaf7d98c4741f1926fe595ffcb908102",
+      "status": "STATIC_CONCEPT_ONLY"
+    },
+    {
+      "path": "concepts/c-luminous-v2.png",
+      "bytes": 1613867,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "sha256": "9165fa1b2f1286e84a0f22afd42ff9d91a43d4f47c2ca353a0e56a9e6c811f3a",
+      "status": "STATIC_CONCEPT_ONLY"
+    },
+    {
+      "path": "concepts/c-luminous.png",
+      "bytes": 1617786,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "sha256": "babde31ab665438ba58f45ca7141652a381b9e3f5ba24d45a88a34348698e1cc",
+      "status": "STATIC_CONCEPT_ONLY"
+    },
+    {
+      "path": "concepts/d-plush-morphology.png",
+      "bytes": 1987283,
+      "width": 1774,
+      "height": 887,
+      "mode": "RGB",
+      "sha256": "c36c73731fa90b0fc9b5ddb6a84ae4fd3547a1d7d27319b3042c85ca5bc51ba8",
+      "status": "STATIC_CONCEPT_ONLY"
+    },
+    {
+      "path": "concepts/recipe-coastal-001.png",
+      "bytes": 892805,
+      "width": 1312,
+      "height": 1199,
+      "mode": "RGBA",
+      "sha256": "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47",
+      "status": "STATIC_CONCEPT_ONLY",
+      "alphaExtrema": [
+        0,
+        255
+      ]
+    }
+  ]
+}

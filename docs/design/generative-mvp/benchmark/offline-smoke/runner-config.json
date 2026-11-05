@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "serverProfiles": {
+    "primary": {
+      "baseUrl": "http://127.0.0.1:8090",
+      "mode": "OFFLINE_FIXTURE",
+      "expectedPipeline": "OPENAI_ELEVEN",
+      "tokenFile": "/Users/pig30nidae/NUNTI/.local/generative-mvp/connection-offline_fixture.json",
+      "tokenField": "token"
+    },
+    "value": {
+      "baseUrl": "http://127.0.0.1:8091",
+      "mode": "OFFLINE_FIXTURE",
+      "expectedPipeline": "GOOGLE_COMPARE",
+      "tokenFile": "/Users/pig30nidae/NUNTI/.local/generative-mvp/connection-offline_fixture.json",
+      "tokenField": "token"
+    }
+  },
+  "limits": {
+    "perGenerationUsd": 0.3,
+    "comparisonBudgetUsd": 3.6,
+    "validationBudgetUsd": 4.2,
+    "maximumRequests": 26
+  },
+  "notice": "Only server configuration chooses models. API mode requires --allow-api. Unknown actual cost stops API batching."
+}

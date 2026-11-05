@@ -1,0 +1,19 @@
+{"event": "transcribing", "id": "qwen/bright-pebble-comfort"}
+Traceback (most recent call last):
+  File "/Users/pig30nidae/NUNTI/prototypes/voice_audition/asr/transcribe.py", line 96, in <module>
+    main()
+  File "/Users/pig30nidae/NUNTI/prototypes/voice_audition/asr/transcribe.py", line 81, in main
+    result = mlx_whisper.transcribe(audio, path_or_hf_repo=lock["localPath"], verbose=None, **settings)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pig30nidae/NUNTI/.local/voice-audition-asr/venv/lib/python3.12/site-packages/mlx_whisper/transcribe.py", line 297, in transcribe
+    result: DecodingResult = decode_with_fallback(mel_segment)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pig30nidae/NUNTI/.local/voice-audition-asr/venv/lib/python3.12/site-packages/mlx_whisper/transcribe.py", line 224, in decode_with_fallback
+    decode_result = model.decode(segment, options)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pig30nidae/NUNTI/.local/voice-audition-asr/venv/lib/python3.12/site-packages/mlx_whisper/decoding.py", line 740, in decode
+    result = DecodingTask(model, options).run(mel)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/pig30nidae/NUNTI/.local/voice-audition-asr/venv/lib/python3.12/site-packages/mlx_whisper/decoding.py", line 437, in __init__
+    raise NotImplementedError("Beam search decoder is not yet implemented")
+NotImplementedError: Beam search decoder is not yet implemented

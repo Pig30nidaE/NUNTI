@@ -1,0 +1,59 @@
+{
+  "actualClipCount": 9,
+  "elapsedSeconds": 42.57678079199832,
+  "files": {
+    "case-1-ready.json": "f0f342be27f04aae4b9f55e0f17b3dccbdba96f86831998c01b694f5ab7e1b5d",
+    "case-1-request.json": "8b297ab82227dbd0c57ec8645dc9bc9beed86cfb6015cb0142ed0a7ca5a2264f",
+    "case-1-submitted.json": "cc38a3f076bae02a5578dc8c0145120c807faece4c4ea142d60ad31086def449",
+    "case-2-ready.json": "2858141590d50266d8abec04f5e757f195eaad12e3a09598736c0b1a1cf3ce1e",
+    "case-2-request.json": "842ec3e4152a8adc468b971699ccfce493a38e61d8752c0c34cdae496795cd90",
+    "case-2-submitted.json": "b665eb2243f0bd0dde51da637b3b095157fba6c05fcc78c6846d251add8ff8a4",
+    "case-3-ready.json": "510493b2ca6bf02608e6529087a8cfac7f6f4a8a2e468fdafb6cfe7676dde210",
+    "case-3-request.json": "f5b1ce5b842696d38d65827ccedbe4ea6a536e7423493d4c0a4f21b502a92303",
+    "case-3-submitted.json": "41ae3f5a6d36d14ae642075cf6d4b8f0fd816e3132c417e391d15b5b3e483e31",
+    "health-observations.json": "860443e1fded4f9085d6d9a32928c875ed4985f8736ec2cd5f2ad652b555206b",
+    "route-772ed85f808ed850c1cf9df1-arrival.wav": "07d73df94571649b0573a4488c4ba8cd7b2e6d65200b350d57df0224a9588b2a",
+    "route-772ed85f808ed850c1cf9df1-common.wav": "0e3836e9b1504accffbeb6941d49efabd41b112f22b547c90ec6436d596302f7",
+    "route-772ed85f808ed850c1cf9df1-greeting.wav": "2df0192ed90a58505d1ac74ac539f180051105b2d2da7b13273c095a758f2fd7",
+    "route-8dc95bd05422eef8794bad12-arrival.wav": "06b383bd1dbf2b7d25e0c2833d1aa3b20be8fd10374e6f64288127899830c0f7",
+    "route-8dc95bd05422eef8794bad12-common.wav": "1420e056e8c1396027aa77824eaaa590f9b2bcde2dee6e7cdda5797bfa180c17",
+    "route-8dc95bd05422eef8794bad12-greeting.wav": "e113dafdb1c1023c5c2b462fe8f157e3022a91510b4eb07561d19cc859d0e12e",
+    "route-dd24ce2aaf1c4d882344e44d-arrival.wav": "68af71f6a2cbe1c6c89b2ddcf00a29550bcfc25f993239f607c9d246ac756f7c",
+    "route-dd24ce2aaf1c4d882344e44d-common.wav": "2f97b2a0143405ab074d84692b55ed9cab1e78a3f0094ef5c47afd4f4908dc06",
+    "route-dd24ce2aaf1c4d882344e44d-greeting.wav": "df14446df2b01520f111734dfbb0154773f9382c468883880166407f65977d42"
+  },
+  "generatorSha256": "55c67fbb03487a0acb1165f27c8a8cd8921588f9949ff09676125f714b3391ec",
+  "healthSamples": 43,
+  "limits": "Geometry measurements are not human cuteness or naturalness approval. One Sohee speaker with delivery variations.",
+  "maximumHealthLatencySeconds": 0.015152624997426756,
+  "outlinePairMeasurements": [
+    {
+      "cases": [
+        1,
+        2
+      ],
+      "outlineCoordinateRmse": 0.030810194802874218
+    },
+    {
+      "cases": [
+        1,
+        3
+      ],
+      "outlineCoordinateRmse": 0.037608340886995904
+    },
+    {
+      "cases": [
+        2,
+        3
+      ],
+      "outlineCoordinateRmse": 0.021753334853463563
+    }
+  ],
+  "requests": [
+    "8b906e5a-3089-4795-bdce-a2625ef9fb02",
+    "9177741e-fcb4-454c-be70-226a918f4024",
+    "9807d3bf-b021-4e0b-9f57-b6112992d0cd"
+  ],
+  "status": "THREE_FRESH_INPUTS_NINE_REAL_OFFLINE_WAVS_READY",
+  "workerSha256": "9a7e27f592a7caa38c29f3817c886602d30cb05ddfce46e4727ccd003c329b23"
+}

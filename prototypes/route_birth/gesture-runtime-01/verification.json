@@ -1,0 +1,67 @@
+{
+  "status": "PASS_REAL_TEXT_GESTURE_BUTTON_GENERATION_AND_GREETING",
+  "startedAt": "2026-11-02T16:31:50.894762+00:00",
+  "scope": "Real text/touch/button flow, synthetic UI data, current user namespace; creates one fresh local-model journey.",
+  "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+  "characterId": "route-9a72946c91d56cc41e1a27a6",
+  "source": "actual native fields + touch path + create button; no submit intent",
+  "pointCount": 6,
+  "installedWavHashes": {
+    "route-9a72946c91d56cc41e1a27a6-greeting": "64c6ddef8707a0dd4fe8a90d4d696552e4ea9d43131ff4873d15745f167f430a",
+    "route-9a72946c91d56cc41e1a27a6-arrival": "bf2014e1590e7556836dd951795cdd17b2693464d33ec38e6472b063501f3895",
+    "route-9a72946c91d56cc41e1a27a6-common": "9d06000f36becc67a89fa76259a58cd5d8558ffd1b7f5ebf91f9f32084c20622"
+  },
+  "submitted": {
+    "kind": "RB_SUBMITTED",
+    "at": "2026-11-02T16:31:58.722236Z",
+    "namespace": "route-birth",
+    "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "pointCount": 6
+  },
+  "visual": {
+    "kind": "RB_VISUAL",
+    "at": "2026-11-02T16:31:58.831210Z",
+    "namespace": "route-birth",
+    "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "characterId": "route-9a72946c91d56cc41e1a27a6",
+    "inputSha256": "d6fb0a41a03cb8d79e0647c1a177f4c8f4516ac411e8e7b2ddc2b738fe7f05a5",
+    "visualSha256": "e78f4c51dad019de3d1072e6e9dde01ba7c88a947157fe7bb45bb53d0ff2a7d3"
+  },
+  "ready": {
+    "kind": "RB_READY",
+    "at": "2026-11-02T16:32:15.149319Z",
+    "namespace": "route-birth",
+    "requestId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "characterId": "route-9a72946c91d56cc41e1a27a6",
+    "visualSha256": "e78f4c51dad019de3d1072e6e9dde01ba7c88a947157fe7bb45bb53d0ff2a7d3",
+    "bindingId": "dvb-45d4c7232cc03802625812f3f1623434"
+  },
+  "speechRequest": {
+    "kind": "RB_SPEECH_REQUEST",
+    "at": "2026-11-02T16:32:19.809608Z",
+    "namespace": "route-birth",
+    "requestId": "rb-a06039df-8938-4d9a-8360-f09e8a6dc998",
+    "tripId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "clipId": "route-9a72946c91d56cc41e1a27a6-greeting",
+    "characterId": "route-9a72946c91d56cc41e1a27a6",
+    "profileId": "route-sohee-b754a80758b5eab5b8cc",
+    "audioSha256": "64c6ddef8707a0dd4fe8a90d4d696552e4ea9d43131ff4873d15745f167f430a"
+  },
+  "speechTerminal": {
+    "kind": "RB_SPEECH",
+    "at": "2026-11-02T16:32:26.497258Z",
+    "namespace": "route-birth",
+    "requestId": "rb-a06039df-8938-4d9a-8360-f09e8a6dc998",
+    "tripId": "1e657e4c-62bd-4a87-8e91-46abd5a71e47",
+    "status": "COMPLETED",
+    "reason": null,
+    "profileId": "route-sohee-b754a80758b5eab5b8cc",
+    "providerId": "qwen3-tts-sohee-local"
+  },
+  "apkRebuiltDuringInput": false,
+  "perceptualUniquenessOrHumanVoiceFitApproved": false,
+  "screenrecordExit": 0,
+  "screenrecordStderr": "",
+  "videoSha256": "09033902e738aa3df37c3a323de80dd8baa805ed161b71a98ff4305fd766a8c9",
+  "finishedAt": "2026-11-02T16:32:26.996920+00:00"
+}

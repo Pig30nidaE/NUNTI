@@ -1,0 +1,16 @@
+[
+  {
+    "id": "qwen-base/arrival",
+    "path": "prototypes/journey_voice_v3/identity/samples/arrival.wav",
+    "sha256": "120dbc7679c258adaeadefcbbae4d11d8757ad616170593d52eef66e2ef894d2",
+    "referenceText": "와, 도착했다! 여기서 어떤 기억을 만나게 될까?",
+    "referenceMetadataSha256": "716d7b9794558f72f4fb92fe774cd16e6f2582a2bd73c454841d0ab594b8dcbb"
+  },
+  {
+    "id": "qwen-base/comfort",
+    "path": "prototypes/journey_voice_v3/identity/samples/comfort.wav",
+    "sha256": "e0cfda7512b5bd54448f9bab3bfd13e9f5aa28ecdb07a8b83a2eb8cb92f422b6",
+    "referenceText": "천천히 가도 괜찮아. 나는 네 옆에 있을게.",
+    "referenceMetadataSha256": "e794fbcf78892eb7f3c96465a27eec76b760d6dba78ae72d32cfb90bef0791a7"
+  }
+]

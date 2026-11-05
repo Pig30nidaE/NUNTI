@@ -1,0 +1,91 @@
+{
+  "reviewedAt": "2026-11-02T18:19:11.218668+09:00",
+  "sourceDirectory": "/Users/pig30nidae/NUNTI/docs/handoff/restoration/2026-11-02/pm-evidence",
+  "sourceSha256": {
+    "events-moving.jsonl": "05c289a250ec98679e047510894eec2ddf13752a44128abacab1e559da742ca9",
+    "events-reparked.jsonl": "b101b8358d76b5b3647ba3072304f20a2452ecdb8fafa7148e2ae27c98ae0694",
+    "events-cancel-on-drive.jsonl": "c0ac212cd2a4a0671002ca35883216f9cf97bb1389b3d9d2ae6c55379bcab6e2",
+    "parked.png": "7711574f4a19b35d6e5e8770152eecbc3de6dfad245724efde5491f9a6f4f767",
+    "moving.png": "61107992c8e30d71fb07f763f71da2228800b57be7d1a2b6f0ef6d55b3b2d34f",
+    "reparked.png": "ace6f56931a5f52380133f9499b7b449d085b6943cb7273b337e118818b67d24",
+    "vehicle-state-moving.json": "1bac9dc4e2ba2c2e67abb92abd64327c4de8afa7b4b0337bde71ba65ec736e30",
+    "vehicle-state-reparked.json": "1e01703c5c76e8c05fd919d61ab4c3769647f1e2e80b8fbff76df109c7bb55c5",
+    "ux-moving.txt": "ee4b5d6b9ca6eb3016dc72ec8bb905f1aabd1801be7760c023140ac5995bf78c"
+  },
+  "cumulativeEventCounts": {
+    "events-moving.jsonl": 56,
+    "events-reparked.jsonl": 71,
+    "events-cancel-on-drive.jsonl": 80
+  },
+  "logsAreCumulativePrefixes": true,
+  "uniqueDriveSamples": 36,
+  "uniqueMovingSamples": 30,
+  "allDriveSamplesBlocked": true,
+  "firstDrive": {
+    "kind": "PLATFORM",
+    "at": "2026-11-02T09:16:13.187565Z",
+    "gear": 8,
+    "speed": 0,
+    "parked": false,
+    "uxKnown": true,
+    "requiresDO": true,
+    "avatarVisible": false,
+    "reason": "PLATFORM_BLOCKED",
+    "audioContext": "OPERATOR_CONTROLLED_TEST"
+  },
+  "firstMoving": {
+    "kind": "PLATFORM",
+    "at": "2026-11-02T09:16:37.397012Z",
+    "gear": 8,
+    "speed": 1.6666667,
+    "parked": false,
+    "uxKnown": true,
+    "requiresDO": true,
+    "avatarVisible": false,
+    "reason": "PLATFORM_BLOCKED",
+    "audioContext": "OPERATOR_CONTROLLED_TEST"
+  },
+  "maximumLoggedSpeed": 15,
+  "reparked": {
+    "kind": "PLATFORM",
+    "at": "2026-11-02T09:17:14.811264Z",
+    "gear": 4,
+    "speed": 0,
+    "parked": true,
+    "uxKnown": true,
+    "requiresDO": false,
+    "avatarVisible": true,
+    "reason": "PARKED_STATIC_MVP",
+    "audioContext": "OPERATOR_CONTROLLED_TEST"
+  },
+  "cancelledSpeechSequence": [
+    {
+      "kind": "SPEECH",
+      "at": "2026-11-02T09:17:28.872359Z",
+      "requestId": "probe-086591f3-b14f-4067-8eb0-1c9e78f348d8",
+      "status": "QUEUED",
+      "reason": null,
+      "mode": "ON_DEVICE",
+      "startLatencyMs": null
+    },
+    {
+      "kind": "SPEECH",
+      "at": "2026-11-02T09:17:28.929259Z",
+      "requestId": "probe-086591f3-b14f-4067-8eb0-1c9e78f348d8",
+      "status": "STARTED",
+      "reason": null,
+      "mode": "ON_DEVICE",
+      "startLatencyMs": 57
+    },
+    {
+      "kind": "SPEECH",
+      "at": "2026-11-02T09:17:31.708980Z",
+      "requestId": "probe-086591f3-b14f-4067-8eb0-1c9e78f348d8",
+      "status": "CANCELLED",
+      "reason": "SPEECH_NOT_ALLOWED",
+      "mode": "ON_DEVICE",
+      "startLatencyMs": null
+    }
+  ],
+  "scope": "Read-only review of PM capture. No new emulator run, audio capture, listening, accessibility inspection, or timing benchmark."
+}

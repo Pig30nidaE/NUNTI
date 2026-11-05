@@ -1,0 +1,11 @@
+{
+  "requestId": "request-mountain-001",
+  "journeyId": "synthetic-mountain-001",
+  "destination": {"semanticTags": ["mountain", "forest"]},
+  "route": {
+    "distanceKm": 208,
+    "semanticTags": ["mountain", "curving", "tree_lined"],
+    "verifiedRoadFacts": {"status": "UNKNOWN", "roadTypes": [], "source": null}
+  },
+  "purpose": "camping"
+}

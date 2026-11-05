@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "language": "Korean",
+  "sentences": [
+    {"id": "hello", "text": "안녕하세요. 오늘의 여행도 함께할게요."},
+    {"id": "comfort", "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게."}
+  ],
+  "styles": [
+    {
+      "id": "round-smile",
+      "label": "둥근 미소",
+      "instruct": "A native Korean adult woman with a small, rounded, soft voice, as a lovable little travel companion in a beautifully animated film. A gentle natural smile, relaxed warmth, clear native Korean articulation and naturally flowing conversational intonation. Moderate normal speaking pace and ordinary conversational volume. Sincere and understated, like talking to one close friend. No exaggerated aegyo, no baby voice, no whisper, no announcer cadence, no robotic rhythm."
+    },
+    {
+      "id": "bright-pebble",
+      "label": "반짝 조약돌",
+      "instruct": "A native Korean adult woman with a light, rounded, clear voice, as a tiny curious keepsake creature in an animated film. Friendly and quietly delighted, a subtle smile with a playful sparkle. Clear native Korean vowels and consonants, naturally connected conversational phrasing. Moderate normal speaking pace and ordinary conversational volume. Expressive but restrained. No forced high pitch, no baby voice, no exaggerated aegyo, no whisper, no announcer cadence, no robotic rhythm."
+    },
+    {
+      "id": "soft-moss",
+      "label": "포근 이끼",
+      "instruct": "A native Korean adult woman with a cozy, softly rounded, delicate voice, as a lovable small forest travel companion. Reassuring, grounded and gently affectionate with a natural smile. Clear native Korean pronunciation, easy conversational melody and sincere emotional phrasing. Moderate normal speaking pace and ordinary conversational volume. No breathy whisper, no forced high pitch, no baby voice, no exaggerated aegyo, no announcer cadence, no robotic rhythm."
+    }
+  ],
+  "generation": {"seed": 20261102, "temperature": 0.7, "topP": 0.95, "topK": 50, "repetitionPenalty": 1.05, "maxTokens": 375},
+  "postprocessing": "none; raw model waveform is only encoded as PCM16 WAV"
+}

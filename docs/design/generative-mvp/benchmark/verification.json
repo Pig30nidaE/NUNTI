@@ -1,0 +1,31 @@
+{
+  "status": "OFFLINE_BENCHMARK_PREPARATION_AND_ONE_FIXTURE_CLIENT_VERIFIED",
+  "distinctPreparedInputs": 20,
+  "maximumOutputPlan": 26,
+  "comparisonOutputs": 12,
+  "newValidationOutputs": 14,
+  "unitTestsPassed": 17,
+  "actualNuntiFixtureJobsSubmitted": 1,
+  "actualApiModeJobsSubmitted": 0,
+  "newImageOrTtsProviderCalls": 0,
+  "fixtureCostReturnedByServer": {
+    "reservedMicros": 0,
+    "actualMicros": 0,
+    "complete": true,
+    "currency": "USD",
+    "pricingVersion": "2026-11-03"
+  },
+  "fixtureCostIsGenerationQualityEvidence": false,
+  "verifiedMediaSha256": {
+    "arrival.wav": "8cbe1eb5990553e24ce795d3eee2c1c8fb92eead01744971c0b6eae2ac033fc8",
+    "common.wav": "2ccf4e6823960decaa85b6adf7c2339d2716ff7bcd8722b471bff8c9329f7850",
+    "greeting.wav": "8fe597f715b3da2e66026856b1928430fafc63d606a68d116a987af166333895",
+    "image.png": "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47"
+  },
+  "unratedStatus": "NOT_ADOPTED",
+  "fixtureEvaluationRejected": true,
+  "humanQualityApproved": false,
+  "tokenLeakScanFileCount": 25,
+  "tokenFoundInArtifacts": false,
+  "scriptSha256": "7762ca5cf2852ff2ebffdfc8282c937bda8bbf421680ddfba897c7f87bcdc264"
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python3",
+    "docs/handoff/restoration/2026-11-02/tts-evidence/collect.py"
+  ],
+  "cwd": "/Users/pig30nidae/NUNTI/.worktrees/tts",
+  "startedAt": "2026-11-02T18:07:09.545900+09:00",
+  "environment": {
+    "JAVA_HOME": "/Users/pig30nidae/NUNTI/.local/tts-tools/jdk/jdk-21.0.8+9/Contents/Home"
+  },
+  "log": "collect.log",
+  "endedAt": "2026-11-02T18:07:09.754086+09:00",
+  "exitCode": 0
+}

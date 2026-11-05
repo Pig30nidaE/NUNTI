@@ -1,0 +1,311 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :feature:voice:preBuild UP-TO-DATE
+> Task :feature:tts:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:avatar:preBuild UP-TO-DATE
+> Task :feature:emotion:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :feature:navigation:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:avatar:preDebugBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :feature:voice:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:emotion:processResources NO-SOURCE
+> Task :feature:voice:writeDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :feature:avatar:writeDebugAarMetadata UP-TO-DATE
+> Task :feature:voice:generateDebugResValues UP-TO-DATE
+> Task :feature:avatar:generateDebugResValues UP-TO-DATE
+> Task :feature:avatar:generateDebugResources UP-TO-DATE
+> Task :feature:voice:generateDebugResources UP-TO-DATE
+> Task :feature:avatar:packageDebugResources UP-TO-DATE
+> Task :feature:voice:packageDebugResources UP-TO-DATE
+> Task :feature:voice:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:avatar:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:voice:processDebugManifest UP-TO-DATE
+> Task :feature:voice:compileDebugLibraryResources UP-TO-DATE
+> Task :feature:avatar:processDebugManifest UP-TO-DATE
+> Task :feature:avatar:compileDebugLibraryResources UP-TO-DATE
+> Task :feature:voice:parseDebugLocalResources UP-TO-DATE
+> Task :feature:avatar:parseDebugLocalResources UP-TO-DATE
+> Task :feature:avatar:generateDebugRFile UP-TO-DATE
+> Task :feature:voice:generateDebugRFile UP-TO-DATE
+> Task :feature:avatar:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:voice:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:avatar:javaPreCompileDebug UP-TO-DATE
+> Task :feature:voice:javaPreCompileDebug UP-TO-DATE
+> Task :feature:avatar:mergeDebugShaders UP-TO-DATE
+> Task :feature:avatar:compileDebugShaders NO-SOURCE
+> Task :feature:voice:mergeDebugShaders UP-TO-DATE
+> Task :feature:avatar:generateDebugAssets UP-TO-DATE
+> Task :feature:navigation:compileKotlin UP-TO-DATE
+> Task :feature:avatar:mergeDebugAssets UP-TO-DATE
+> Task :feature:voice:compileDebugShaders NO-SOURCE
+> Task :feature:tts:compileKotlin UP-TO-DATE
+> Task :feature:voice:generateDebugAssets UP-TO-DATE
+> Task :feature:avatar:mergeDebugJniLibFolders UP-TO-DATE
+> Task :feature:navigation:compileJava NO-SOURCE
+> Task :feature:voice:mergeDebugAssets UP-TO-DATE
+> Task :feature:navigation:processResources NO-SOURCE
+> Task :feature:navigation:classes UP-TO-DATE
+> Task :feature:avatar:mergeDebugNativeLibs NO-SOURCE
+> Task :feature:voice:mergeDebugJniLibFolders UP-TO-DATE
+> Task :feature:tts:compileJava NO-SOURCE
+> Task :feature:voice:mergeDebugNativeLibs NO-SOURCE
+> Task :feature:avatar:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :feature:tts:processResources NO-SOURCE
+> Task :feature:tts:classes UP-TO-DATE
+> Task :feature:avatar:stripDebugDebugSymbols NO-SOURCE
+> Task :feature:voice:copyDebugJniLibsProjectOnly UP-TO-DATE
+> Task :feature:navigation:jar UP-TO-DATE
+> Task :feature:avatar:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :feature:tts:jar UP-TO-DATE
+> Task :feature:voice:stripDebugDebugSymbols NO-SOURCE
+> Task :feature:avatar:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :feature:avatar:prepareDebugArtProfile UP-TO-DATE
+> Task :feature:avatar:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:avatar:writeDebugLintModelMetadata UP-TO-DATE
+> Task :feature:avatar:extractProguardFiles UP-TO-DATE
+> Task :feature:avatar:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature:avatar:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :feature:avatar:preDebugUnitTestBuild UP-TO-DATE
+> Task :feature:avatar:preReleaseBuild UP-TO-DATE
+> Task :feature:avatar:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :feature:avatar:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:avatar:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :feature:avatar:generateReleaseResValues UP-TO-DATE
+> Task :feature:avatar:generateReleaseResources UP-TO-DATE
+> Task :feature:avatar:packageReleaseResources UP-TO-DATE
+> Task :feature:avatar:parseReleaseLocalResources UP-TO-DATE
+> Task :feature:avatar:generateReleaseRFile UP-TO-DATE
+> Task :feature:avatar:javaPreCompileRelease UP-TO-DATE
+> Task :feature:emotion:compileKotlin UP-TO-DATE
+> Task :feature:avatar:writeReleaseAarMetadata UP-TO-DATE
+> Task :feature:emotion:compileJava NO-SOURCE
+> Task :feature:emotion:classes UP-TO-DATE
+> Task :feature:avatar:extractDeepLinksRelease UP-TO-DATE
+> Task :feature:avatar:processReleaseManifest UP-TO-DATE
+> Task :feature:emotion:jar UP-TO-DATE
+> Task :feature:avatar:compileReleaseLibraryResources UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :feature:voice:compileDebugKotlin UP-TO-DATE
+> Task :feature:voice:compileDebugJavaWithJavac NO-SOURCE
+> Task :feature:voice:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :feature:voice:bundleLibRuntimeToJarDebug UP-TO-DATE
+> Task :feature:voice:processDebugJavaRes UP-TO-DATE
+> Task :feature:voice:bundleLibRuntimeToDirDebug UP-TO-DATE
+> Task :feature:voice:copyDebugJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:voice:extractDebugAnnotations UP-TO-DATE
+> Task :feature:voice:extractDeepLinksForAarDebug UP-TO-DATE
+> Task :feature:voice:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :feature:voice:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :feature:voice:prepareDebugArtProfile UP-TO-DATE
+> Task :feature:voice:prepareLintJarForPublish UP-TO-DATE
+> Task :feature:voice:mergeDebugJavaResource UP-TO-DATE
+> Task :feature:voice:syncDebugLibJars UP-TO-DATE
+> Task :feature:voice:bundleDebugLocalLintAar UP-TO-DATE
+> Task :feature:voice:createFullJarDebug UP-TO-DATE
+> Task :feature:voice:writeDebugLintModelMetadata UP-TO-DATE
+> Task :feature:voice:extractProguardFiles UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :feature:voice:generateDebugLintModel UP-TO-DATE
+> Task :feature:voice:lintAnalyzeDebug UP-TO-DATE
+> Task :feature:voice:preDebugAndroidTestBuild UP-TO-DATE
+> Task :feature:voice:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:mergeDebugShaders UP-TO-DATE
+> Task :app:compileDebugShaders NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :feature:voice:generateDebugAndroidTestLintModel UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :feature:voice:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :feature:voice:generateDebugUnitTestLintModel UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :feature:voice:lintAnalyzeDebugAndroidTest UP-TO-DATE
+> Task :feature:voice:lintAnalyzeDebugUnitTest UP-TO-DATE
+> Task :feature:voice:preReleaseBuild UP-TO-DATE
+> Task :feature:voice:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :feature:voice:mergeReleaseNativeLibs NO-SOURCE
+> Task :feature:voice:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :feature:voice:generateReleaseResValues UP-TO-DATE
+> Task :feature:voice:generateReleaseResources UP-TO-DATE
+> Task :feature:voice:packageReleaseResources UP-TO-DATE
+> Task :feature:voice:parseReleaseLocalResources UP-TO-DATE
+> Task :feature:voice:generateReleaseRFile UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:mergeDebugNativeLibs UP-TO-DATE
+> Task :app:stripDebugDebugSymbols UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :feature:voice:compileReleaseKotlin UP-TO-DATE
+> Task :app:preDebugAndroidTestBuild SKIPPED
+> Task :app:generateDebugAndroidTestResValues UP-TO-DATE
+> Task :feature:voice:javaPreCompileRelease UP-TO-DATE
+> Task :feature:voice:compileReleaseJavaWithJavac NO-SOURCE
+> Task :app:extractProguardFiles UP-TO-DATE
+> Task :app:preDebugUnitTestBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :feature:voice:bundleLibRuntimeToDirRelease UP-TO-DATE
+> Task :feature:voice:writeReleaseAarMetadata UP-TO-DATE
+> Task :feature:voice:extractDeepLinksRelease UP-TO-DATE
+> Task :feature:voice:processReleaseManifest UP-TO-DATE
+> Task :feature:voice:compileReleaseLibraryResources UP-TO-DATE
+> Task :feature:voice:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :feature:voice:prepareReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseNativeLibs UP-TO-DATE
+> Task :feature:voice:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :feature:voice:mergeReleaseShaders UP-TO-DATE
+> Task :app:stripReleaseDebugSymbols UP-TO-DATE
+> Task :feature:voice:compileReleaseShaders NO-SOURCE
+> Task :feature:voice:generateReleaseAssets UP-TO-DATE
+> Task :app:extractReleaseNativeSymbolTables UP-TO-DATE
+> Task :feature:voice:mergeReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :feature:voice:processReleaseJavaRes UP-TO-DATE
+> Task :app:checkReleaseDuplicateClasses UP-TO-DATE
+> Task :feature:voice:createFullJarRelease UP-TO-DATE
+> Task :feature:voice:generateReleaseLintModel UP-TO-DATE
+> Task :feature:voice:stripReleaseDebugSymbols NO-SOURCE
+> Task :feature:voice:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :feature:voice:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:voice:extractReleaseAnnotations UP-TO-DATE
+> Task :feature:voice:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :feature:voice:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :app:buildKotlinToolingMetadata UP-TO-DATE
+> Task :feature:voice:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:checkReleaseAarMetadata UP-TO-DATE
+> Task :feature:voice:syncReleaseLibJars UP-TO-DATE
+> Task :app:generateReleaseResValues UP-TO-DATE
+> Task :feature:voice:bundleReleaseLocalLintAar UP-TO-DATE
+> Task :app:mapReleaseSourceSetPaths UP-TO-DATE
+> Task :app:generateReleaseResources UP-TO-DATE
+> Task :feature:voice:lintVitalAnalyzeRelease UP-TO-DATE
+> Task :feature:voice:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :feature:voice:generateReleaseLintVitalModel UP-TO-DATE
+> Task :app:mergeReleaseResources UP-TO-DATE
+> Task :app:packageReleaseResources UP-TO-DATE
+> Task :app:parseReleaseLocalResources UP-TO-DATE
+> Task :app:createReleaseCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksRelease UP-TO-DATE
+> Task :app:processReleaseMainManifest UP-TO-DATE
+> Task :app:processReleaseManifest UP-TO-DATE
+> Task :app:processReleaseManifestForPackage UP-TO-DATE
+> Task :app:processReleaseResources UP-TO-DATE
+> Task :app:javaPreCompileRelease UP-TO-DATE
+> Task :app:desugarReleaseFileDependencies UP-TO-DATE
+> Task :app:mergeReleaseStartupProfile UP-TO-DATE
+> Task :app:mergeExtDexRelease UP-TO-DATE
+> Task :app:mergeReleaseShaders UP-TO-DATE
+> Task :app:compileReleaseShaders NO-SOURCE
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:extractReleaseVersionControlInfo UP-TO-DATE
+> Task :app:optimizeReleaseResources UP-TO-DATE
+> Task :app:collectReleaseDependencies UP-TO-DATE
+> Task :app:sdkReleaseDependencyData UP-TO-DATE
+> Task :app:writeReleaseAppMetadata UP-TO-DATE
+> Task :app:writeReleaseSigningConfigVersions UP-TO-DATE
+> Task :feature:avatar:prepareReleaseArtProfile UP-TO-DATE
+> Task :feature:avatar:mergeReleaseShaders UP-TO-DATE
+> Task :feature:avatar:compileReleaseShaders NO-SOURCE
+> Task :feature:avatar:generateReleaseAssets UP-TO-DATE
+> Task :feature:avatar:mergeReleaseAssets UP-TO-DATE
+> Task :feature:avatar:stripReleaseDebugSymbols NO-SOURCE
+> Task :feature:avatar:copyReleaseJniLibsProjectAndLocalJars UP-TO-DATE
+> Task :feature:avatar:extractDeepLinksForAarRelease UP-TO-DATE
+> Task :feature:avatar:writeReleaseLintModelMetadata UP-TO-DATE
+> Task :app:mergeReleaseArtProfile UP-TO-DATE
+> Task :app:mergeReleaseAssets UP-TO-DATE
+> Task :app:compressReleaseAssets UP-TO-DATE
+> Task :feature:avatar:compileDebugKotlin
+> Task :feature:avatar:compileReleaseKotlin
+> Task :feature:avatar:compileDebugJavaWithJavac NO-SOURCE
+> Task :feature:avatar:processDebugJavaRes UP-TO-DATE
+> Task :feature:avatar:bundleLibRuntimeToJarDebug
+> Task :feature:avatar:bundleLibRuntimeToDirDebug
+> Task :feature:avatar:bundleLibCompileToJarDebug
+> Task :feature:avatar:extractDebugAnnotations
+> Task :feature:avatar:mergeDebugGeneratedProguardFiles UP-TO-DATE
+> Task :feature:avatar:mergeDebugConsumerProguardFiles UP-TO-DATE
+> Task :feature:avatar:mergeDebugJavaResource UP-TO-DATE
+> Task :feature:avatar:syncDebugLibJars
+> Task :feature:avatar:bundleDebugLocalLintAar
+> Task :feature:avatar:createFullJarDebug
+> Task :feature:avatar:generateDebugLintModel
+> Task :feature:avatar:generateDebugAndroidTestLintModel
+> Task :feature:avatar:generateDebugUnitTestLintModel
+> Task :feature:avatar:compileReleaseJavaWithJavac NO-SOURCE
+> Task :feature:avatar:bundleLibRuntimeToDirRelease
+> Task :feature:avatar:processReleaseJavaRes UP-TO-DATE
+> Task :feature:avatar:bundleLibRuntimeToJarRelease
+> Task :feature:avatar:bundleLibCompileToJarRelease
+> Task :feature:avatar:generateReleaseLintModel
+> Task :feature:avatar:createFullJarRelease
+> Task :feature:avatar:extractReleaseAnnotations
+> Task :feature:avatar:mergeReleaseGeneratedProguardFiles UP-TO-DATE
+> Task :feature:avatar:mergeReleaseConsumerProguardFiles UP-TO-DATE
+> Task :feature:avatar:mergeReleaseJavaResource UP-TO-DATE
+> Task :feature:avatar:syncReleaseLibJars
+> Task :feature:avatar:bundleReleaseLocalLintAar
+> Task :feature:avatar:generateReleaseLintVitalModel
+> Task :app:compileReleaseKotlin
+> Task :app:compileReleaseJavaWithJavac NO-SOURCE
+> Task :app:dexBuilderRelease UP-TO-DATE
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:processReleaseJavaRes UP-TO-DATE
+> Task :app:mergeReleaseJavaResource UP-TO-DATE
+> Task :app:mergeLibDexDebug
+> Task :app:mergeReleaseGlobalSynthetics UP-TO-DATE
+> Task :feature:avatar:lintAnalyzeDebugAndroidTest
+> Task :app:compileDebugKotlin
+> Task :app:compileDebugJavaWithJavac NO-SOURCE
+> Task :app:dexBuilderDebug
+> Task :app:mergeDebugGlobalSynthetics UP-TO-DATE
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:bundleDebugClassesToCompileJar
+> Task :app:generateDebugLintReportModel
+> Task :app:mergeProjectDexDebug
+> Task :app:generateDebugAndroidTestLintModel
+> Task :app:generateDebugUnitTestLintModel
+> Task :app:packageDebug
+> Task :app:createDebugApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleDebug
+> Task :app:mergeDexRelease
+> Task :app:compileReleaseArtProfile
+> Task :feature:avatar:lintVitalAnalyzeRelease
+> Task :feature:avatar:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebugUnitTest
+> Task :app:lintAnalyzeDebugAndroidTest
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease UP-TO-DATE
+> Task :app:lintVitalRelease
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleRelease
+> Task :feature:avatar:lintAnalyzeDebug
+> Task :app:lintAnalyzeDebug
+
+> Task :app:lintReportDebug
+Wrote HTML report to file:///Users/pig30nidae/NUNTI/android/build/app/reports/lint-results-debug.html
+
+> Task :app:lintDebug
+
+BUILD SUCCESSFUL in 29s
+242 actionable tasks: 46 executed, 196 up-to-date

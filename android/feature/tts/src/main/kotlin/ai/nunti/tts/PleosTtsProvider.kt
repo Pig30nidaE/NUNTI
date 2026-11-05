@@ -24,6 +24,8 @@ class PleosCredentials(val clientId: String, val clientSecret: String) {
 class PleosTtsProvider(private val factory: (EngineMode) -> PleosConnection,
     override val mode: EngineMode = EngineMode.ON_DEVICE,
     private val credentials: (() -> PleosCredentials?) = { null }) : TtsProvider {
+    init { require(mode != EngineMode.LOCAL_FILE) { "INVALID_PLEOS_MODE" } }
+    override fun source(request: SpeechRequest) = SpeechSource(mode, "pleos")
     override val capabilities = ProviderCapabilities(locales = setOf("ko-KR", "en-US", "fr-CA", "es-US", "es-MX"))
     private var listener: TtsProvider.Listener? = null
     private var generation = 0L

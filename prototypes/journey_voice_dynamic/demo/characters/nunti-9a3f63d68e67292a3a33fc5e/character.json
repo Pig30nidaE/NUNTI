@@ -1,0 +1,242 @@
+{
+  "androidConnected": false,
+  "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+  "clips": {
+    "arrival": {
+      "audioPath": "clips/bf7b4df671cb41fd4921e00951b7a052a1464f7b008dc1c2aab5d9d7f32442ef/audio.wav",
+      "audioSha256": "d16339a6171850175407269ee1d9e0fe799ffec5989e5a9ae95747dacb5387c3",
+      "cacheKey": "bf7b4df671cb41fd4921e00951b7a052a1464f7b008dc1c2aab5d9d7f32442ef",
+      "durationMs": 4080,
+      "text": "어떤 바다를 만나게 될까? 같이 천천히 바라보자.",
+      "textSha256": "6ef2bf934ee4dbf1d3efcdef654f10084d77331cb739037940b382596e108fcf"
+    },
+    "common": {
+      "audioPath": "clips/7637ff9a1ed81377053759da7d340784932eeae65aa6c4da6c02da1e194f8195/audio.wav",
+      "audioSha256": "f849c960ea9c36b97465ccf5fd1c0af5094eb87b65f6f1e65869fdc03be7e338",
+      "cacheKey": "7637ff9a1ed81377053759da7d340784932eeae65aa6c4da6c02da1e194f8195",
+      "durationMs": 2960,
+      "text": "안녕. 오늘은 나랑 같이 가자.",
+      "textSha256": "7745678aca1b128c67ed3d90d610ab78a4ca9550bf13aa3608eba60f8cdacb8f"
+    },
+    "greeting": {
+      "audioPath": "clips/4005cdbbd8b24e31f071eb5d82e97835a2b4b197e0b5a0e5c9828adab42d8fe4/audio.wav",
+      "audioSha256": "be69d9e9191b738a345746134b49fae581a9d7edfadfa65921161d08dbe8632b",
+      "cacheKey": "4005cdbbd8b24e31f071eb5d82e97835a2b4b197e0b5a0e5c9828adab42d8fe4",
+      "durationMs": 4240,
+      "text": "바다 보러 가는 날이네. 오늘은 느긋하게 함께 가자.",
+      "textSha256": "ae1b96733f54c5c73223fe3bbf0519d359a9d826baf7c6c6bb9bd22d01278a97"
+    }
+  },
+  "creativeRecipe": {
+    "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+    "creativeInspiration": {
+      "axisOwnership": {
+        "destination": "translucent material, palette, inner motif, name root",
+        "history": "body-family and shape repetition penalty",
+        "purpose": "personality, inner light, name tone, requested voice delivery",
+        "route": "body affinity, width and height proportions, inner pattern layout"
+      },
+      "destinationTags": [
+        "coastal_city"
+      ],
+      "interpretation": "Creative hints only. Tags and distance do not establish road safety facts or rewards.",
+      "purpose": "rest",
+      "purposeStatus": "USER_SUPPLIED",
+      "routeDistanceKm": 128.0,
+      "routeSemanticTags": [
+        "coastal",
+        "curving",
+        "mixed"
+      ]
+    },
+    "design": {
+      "bodyFamily": "droplet",
+      "interiorIntent": {
+        "destinationMotif": "tiny pearlescent foam beads",
+        "light": {
+          "color": "#FFE8BB",
+          "diffusion": "broad soft glow",
+          "placement": "low inner core"
+        },
+        "motionIntent": "STATIC_ONLY",
+        "renderingStatus": "NOT_RENDERED",
+        "routePattern": "layered shallow wave ribbons"
+      },
+      "materialIntent": "frosted aqua translucent resin with pearly edges",
+      "nameDirection": {
+        "finalName": null,
+        "rootSuggestion": "파도",
+        "tone": "포근한 이름"
+      },
+      "palette": [
+        "#93D6CF",
+        "#F4C6A0",
+        "#FFF0D4"
+      ],
+      "personalityIntent": [
+        "unhurried",
+        "quietly_affectionate"
+      ],
+      "routeProportions": {
+        "distanceBand": "medium",
+        "heightMultiplier": 1.0,
+        "widthMultiplier": 1.0
+      },
+      "shapeId": "tilted_water_drop",
+      "silhouette": "round base with one soft top point"
+    },
+    "journeyId": "synthetic-coast-001",
+    "novelty": {
+      "method": "minimize prior body-family uses, then shape uses; route affinity and seeded tie-break follow",
+      "priorBodyFamilyUses": 0,
+      "priorCharacterCount": 0,
+      "priorShapeUses": 0,
+      "repetitionAfterRegistryExhaustion": true
+    },
+    "providers": {
+      "animation": "UNCONNECTED",
+      "image": "UNCONNECTED",
+      "tts": "UNCONNECTED"
+    },
+    "qualityStatus": {
+      "collectibilityTested": false,
+      "cutenessTested": false,
+      "drivingImprovementTested": false,
+      "renderedAvatar": false
+    },
+    "registryVersion": "translucent-keepsake-0.2",
+    "schemaVersion": 1,
+    "seed": "2072cb0857b58924",
+    "status": "RECIPE_ONLY",
+    "verifiedRoadFacts": {
+      "roadTypes": [],
+      "source": null,
+      "status": "UNKNOWN"
+    },
+    "verifiedRoadFactsScope": "CREATION_SNAPSHOT_NOT_CURRENT_DRIVING_STATE",
+    "voiceIntent": {
+      "confirmedSupportedControls": [],
+      "fallback": {
+        "assetAvailability": "UNVERIFIED",
+        "assetMatchRequirement": "same_character_voice_binding_and_same_utterance",
+        "characterVoiceIdentityGuaranteed": false,
+        "implementationStatus": "PROPOSAL_ONLY",
+        "strategy": "same_character_asset_else_pending_or_silent"
+      },
+      "identityKey": "voice-nunti-9a3f63d68e67292a3a33fc5e",
+      "provider": null,
+      "requested": {
+        "affect": "calm_warmth",
+        "pace": "unhurried_but_clear",
+        "timbre": "soft_and_airy"
+      },
+      "status": "UNBOUND_INTENT"
+    },
+    "world": {
+      "artDirection": "C: translucent commemorative object",
+      "cameraIntent": "three-quarter orthographic, readable silhouette at small size",
+      "faceGrammar": "two widely spaced bead eyes, one small mouth, no text on body",
+      "id": "translucent_keepsake_25d",
+      "interiorGrammar": "few suspended motifs in shallow depth layers, broad diffused inner light, face and silhouette remain clear",
+      "renderIntent": "2.5D translucent keepsake, rounded solid body, softly frosted resin shell, visible miniature inner motifs, small face, soft contact shadow"
+    }
+  },
+  "displayName": "파도방울",
+  "imageGenerated": false,
+  "journeyId": "synthetic-coast-001",
+  "planSha256": "9d25601f3cebb3a7db3cb63feabd0065beb4094406cbde4ef89fc1d7fb6c6366",
+  "qualityScope": "Prototype continuation authorized; no final Sohee casting or individual direction quality approval is claimed.",
+  "schemaVersion": 1,
+  "status": "VOICE_READY_AVATAR_RECIPE_ONLY",
+  "voiceBinding": {
+    "bindingId": "dvb-eea3c37415d581fb6acbe1d67e68c140",
+    "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+    "direction": "Native Korean conversational speech with a small smile, calm warmth and clear unhurried phrasing, and a light fluid tone.",
+    "engineFingerprint": "8dee3e6076393f5d26cf1e6de72b0b8b23626b9ebe5570e9ed4be5ea7c99ec06",
+    "engineIdentity": {
+      "defaults": {
+        "channels": 1,
+        "maxDurationMs": 30000,
+        "maxTextCharacters": 100,
+        "postprocessing": "none; raw waveform only encoded as PCM16 WAV",
+        "referenceAudio": null,
+        "sampleRateHz": 24000,
+        "sampleWidthBytes": 2
+      },
+      "generation": {
+        "maxTokens": 375,
+        "repetitionPenalty": 1.05,
+        "temperature": 0.7,
+        "topK": 50,
+        "topP": 0.95
+      },
+      "language": "Korean",
+      "languageId": 2064,
+      "modelId": "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit",
+      "modelLockSha256": "0563bb1b7eeec13c116698e21c6cecb91c807f1e1e38bf35f802c7f6b211d0f1",
+      "providerId": "qwen3-tts-sohee-local",
+      "revision": "41d3337e8b7f2843a75841595fc14e4b9a7a4b96",
+      "runtimePin": {
+        "packages": {
+          "annotated-doc": "0.0.5",
+          "anyio": "4.16.0",
+          "cffi": "2.1.1",
+          "click": "8.5.0",
+          "filelock": "4.2.6",
+          "fsspec": "2026.9.0",
+          "h11": "0.16.0",
+          "hf-xet": "1.8.0",
+          "httpcore2": "2.16.0",
+          "httpx2": "2.16.0",
+          "huggingface-hub": "2.4.0",
+          "idna": "3.20",
+          "jinja2": "3.1.6",
+          "markdown-it-py": "4.2.0",
+          "markupsafe": "3.0.4",
+          "mdurl": "0.1.2",
+          "miniaudio": "1.71",
+          "mlx": "0.32.4",
+          "mlx-audio": "0.6.3",
+          "mlx-metal": "0.32.4",
+          "numpy": "2.5.4",
+          "packaging": "26.3",
+          "pycparser": "3.12",
+          "pygments": "2.21.0",
+          "pyyaml": "6.0.3",
+          "regex": "2026.9.29",
+          "rich": "15.0.0",
+          "safetensors": "0.8.0",
+          "scipy": "1.18.1",
+          "sentencepiece": "0.2.2",
+          "shellingham": "1.5.4",
+          "sounddevice": "0.5.6",
+          "soundfile": "0.14.0",
+          "tokenizers": "0.23.3",
+          "tqdm": "4.70.1",
+          "transformers": "5.22.1",
+          "truststore": "0.10.5",
+          "typer": "0.27.3",
+          "typing-extensions": "4.16.0"
+        },
+        "qwenCodeSha256": "cf264ff51fa16c232cca5ded3ce052af6f4f1137d1371b86ba9f4e2a1a526f0a",
+        "requirementsLockSha256": "56e6df439bde9b9a26ba8d15b2f514e9c0e094a6ee4f05e3457080f90c2a7469"
+      },
+      "speaker": "Sohee",
+      "speakerId": 2864
+    },
+    "identityKey": "voice-nunti-9a3f63d68e67292a3a33fc5e",
+    "journeyId": "synthetic-coast-001",
+    "locale": "ko-KR",
+    "postprocessing": "none",
+    "profileId": "journey-sohee-e3551e7ad2c14fc320b1",
+    "providerId": "qwen3-tts-sohee-local",
+    "requestedCharacterTraits": {
+      "affect": "calm_warmth",
+      "pace": "unhurried_but_clear",
+      "timbre": "soft_and_airy"
+    },
+    "seed": 1471514916,
+    "speaker": "Sohee",
+    "variationScope": "Delivery variation within native Korean Sohee; not a newly cloned or unique speaker."
+  }
+}

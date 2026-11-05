@@ -1,0 +1,287 @@
+{
+  "bundleId": "journey-mvp-9c9e1cb3ef613440c58f",
+  "characters": [
+    {
+      "bindingId": "dvb-eea3c37415d581fb6acbe1d67e68c140",
+      "caseId": "01-coast-rest",
+      "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+      "clipIds": {
+        "arrival": "nunti-9a3f63d68e67292a3a33fc5e-arrival",
+        "common": "nunti-9a3f63d68e67292a3a33fc5e-common",
+        "greeting": "nunti-9a3f63d68e67292a3a33fc5e-greeting"
+      },
+      "directionSha256": "54dcc191635407cda2f6772f33881e3549b61acfa02adc94b0230058f048e6a9",
+      "displayName": "파도방울",
+      "journeyId": "synthetic-coast-001",
+      "label": "바다로 쉬러 가는 날",
+      "recipeSha256": "d7a146e90a41229250e0877223b82d58a8a4e2e71014360426b1b46771093d2e",
+      "sourcePlanSha256": "9d25601f3cebb3a7db3cb63feabd0065beb4094406cbde4ef89fc1d7fb6c6366",
+      "summary": "해안 경로 · 휴식 · 128km",
+      "visual": {
+        "bodyFamily": "droplet",
+        "characterId": "nunti-9a3f63d68e67292a3a33fc5e",
+        "heightMultiplier": 1.0,
+        "motif": "coastal_city",
+        "palette": [
+          "#93D6CF",
+          "#F4C6A0",
+          "#FFF0D4"
+        ],
+        "purpose": "rest",
+        "routePattern": "coastal",
+        "seed": "2072cb0857b58924",
+        "shapeId": "tilted_water_drop",
+        "widthMultiplier": 1.0
+      },
+      "visualSha256": "faa202c07aa2272d430d9cbd1761117db7e616a0a78704b90547284d4e4cf9dc",
+      "voiceProfileId": "journey-sohee-e3551e7ad2c14fc320b1"
+    },
+    {
+      "bindingId": "dvb-5513aeec1fdca10edcd66e6cc1f54a18",
+      "caseId": "02-mountain-camping",
+      "characterId": "nunti-8da06e4267f4a71820a06e65",
+      "clipIds": {
+        "arrival": "nunti-8da06e4267f4a71820a06e65-arrival",
+        "common": "nunti-8da06e4267f4a71820a06e65-common",
+        "greeting": "nunti-8da06e4267f4a71820a06e65-greeting"
+      },
+      "directionSha256": "b1166c3f2dcda33b2c99e44f380b6288fe43d516a6ad161aa5b83527739b43a3",
+      "displayName": "이끼토리",
+      "journeyId": "synthetic-mountain-001",
+      "label": "산으로 캠핑 가는 날",
+      "recipeSha256": "f5f40a068297dac0ce7bef2e7ab0f1a6e4270ce0a2b9ffaf21a545c9cb8006a4",
+      "sourcePlanSha256": "5bc17800a08bf782860341ade78196a0cc19fca8d4ed065745dcaa8b393ac45e",
+      "summary": "산과 숲 경로 · 캠핑 · 208km",
+      "visual": {
+        "bodyFamily": "sprout",
+        "characterId": "nunti-8da06e4267f4a71820a06e65",
+        "heightMultiplier": 1.06,
+        "motif": "mountain",
+        "palette": [
+          "#A9C993",
+          "#B89C85",
+          "#FFE1B0"
+        ],
+        "purpose": "camping",
+        "routePattern": "mountain",
+        "seed": "a4f7f5abf625515f",
+        "shapeId": "split_top_pear",
+        "widthMultiplier": 0.96
+      },
+      "visualSha256": "1adc0beab70c88dcfe0dd8fa37bb64523f15b50d79ca001c8f561bf86d905313",
+      "voiceProfileId": "journey-sohee-17716fb2ba76a2de62c9"
+    },
+    {
+      "bindingId": "dvb-be9a118f29789566eaa97ef7f01571f9",
+      "caseId": "03-city-exhibition",
+      "characterId": "nunti-a455dd81d2c487095fc66e7d",
+      "clipIds": {
+        "arrival": "nunti-a455dd81d2c487095fc66e7d-arrival",
+        "common": "nunti-a455dd81d2c487095fc66e7d-common",
+        "greeting": "nunti-a455dd81d2c487095fc66e7d-greeting"
+      },
+      "directionSha256": "2efef4aad8f344cc25f3fc7d1b6289d2c9073080a9dca2822bff4695af1b8872",
+      "displayName": "조각몽",
+      "journeyId": "synthetic-city-001",
+      "label": "도시 전시를 보러 가는 날",
+      "recipeSha256": "3b7d8c052d82c42b51c05064f22181746421360b7f292325e1bf6086294abe7a",
+      "sourcePlanSha256": "2ddf1af51f1a37fad819669fbeaf5d7a071ac41e8e29df0f378d44a784950ecf",
+      "summary": "도심 경로 · 전시 · 16km",
+      "visual": {
+        "bodyFamily": "pillow",
+        "characterId": "nunti-a455dd81d2c487095fc66e7d",
+        "heightMultiplier": 0.94,
+        "motif": "art",
+        "palette": [
+          "#EFBDCA",
+          "#826AB8",
+          "#FFF0D4"
+        ],
+        "purpose": "exhibition",
+        "routePattern": "urban",
+        "seed": "df1c06736d8d2694",
+        "shapeId": "tilted_cushion",
+        "widthMultiplier": 1.08
+      },
+      "visualSha256": "7cfbee28e76f1287a12c351dee79099af0e95bd11b38f19c4962e264d0675f57",
+      "voiceProfileId": "journey-sohee-f186549054b0d014c041"
+    },
+    {
+      "bindingId": "dvb-39082082f9a5d17e1ad177df9537517d",
+      "caseId": "04-coast-next",
+      "characterId": "nunti-2d6aecb00617ef2899eff678",
+      "clipIds": {
+        "arrival": "nunti-2d6aecb00617ef2899eff678-arrival",
+        "common": "nunti-2d6aecb00617ef2899eff678-common",
+        "greeting": "nunti-2d6aecb00617ef2899eff678-greeting"
+      },
+      "directionSha256": "4c6852938f61537b89540e06479579944d92ab0f860881c7ed451d5b23c88453",
+      "displayName": "파도몽",
+      "journeyId": "synthetic-coast-002",
+      "label": "같은 바다, 다음 여정",
+      "recipeSha256": "8caeb3ad1362f9aa2a797e5db2737c82ab16efb01d987596c4a298438ab74035",
+      "sourcePlanSha256": "1a69febf423097dc28653e5d89ff94bb5d6f1b16d33151d1e5aebb8d0152ff22",
+      "summary": "같은 해안 경로의 새 출발 · 휴식 · 128km",
+      "visual": {
+        "bodyFamily": "pebble",
+        "characterId": "nunti-2d6aecb00617ef2899eff678",
+        "heightMultiplier": 1.0,
+        "motif": "coastal_city",
+        "palette": [
+          "#93D6CF",
+          "#F4C6A0",
+          "#FFF0D4"
+        ],
+        "purpose": "rest",
+        "routePattern": "coastal",
+        "seed": "75ec04d209594753",
+        "shapeId": "wide_flat_oval",
+        "widthMultiplier": 1.0
+      },
+      "visualSha256": "09dabd084d45eed3db4e0a60ede94a692abf10a0657a2fa2a776f2b7dea18c4d",
+      "voiceProfileId": "journey-sohee-3a8beb66e2461046793b"
+    },
+    {
+      "bindingId": "dvb-13fcace461bcb3925e7209ee0021c79a",
+      "caseId": "05-forest-visit",
+      "characterId": "nunti-6ec3150a7c2ee12d410391de",
+      "clipIds": {
+        "arrival": "nunti-6ec3150a7c2ee12d410391de-arrival",
+        "common": "nunti-6ec3150a7c2ee12d410391de-common",
+        "greeting": "nunti-6ec3150a7c2ee12d410391de-greeting"
+      },
+      "directionSha256": "72bbf87fd8c964d363bd3e6319c4e2cd9d59a5c22a845ac75caeb5ab8c60765f",
+      "displayName": "숲토리",
+      "journeyId": "mvp-journey-05-forest-visit",
+      "label": "초록빛을 지나 만나러 가는 날",
+      "recipeSha256": "56968de91f3bf5d43fb3cfb5ec169accf1f89015707835f7e65e4a9821d4195c",
+      "sourcePlanSha256": "170bdd5e4b98b8c86a2f9dd8b7672711cb3835566b4904b757aed00c6280ae0c",
+      "summary": "숲 모티브 · 방문 · 42km",
+      "visual": {
+        "bodyFamily": "acorn",
+        "characterId": "nunti-6ec3150a7c2ee12d410391de",
+        "heightMultiplier": 1.0,
+        "motif": "forest",
+        "palette": [
+          "#B7CC9D",
+          "#E4B681",
+          "#FFF1D6"
+        ],
+        "purpose": "visit",
+        "routePattern": "tree_lined",
+        "seed": "976c44f3bb8f68ff",
+        "shapeId": "broad_top_oval",
+        "widthMultiplier": 1.0
+      },
+      "visualSha256": "89253b2a3c1f2ef44b60f8d34e7bd433c4e3d1de7c5d4d08a4bd958899e76626",
+      "voiceProfileId": "journey-sohee-aa99b4179816aaeade17"
+    },
+    {
+      "bindingId": "dvb-07e2dd6359fb4b5bee86655889de53ae",
+      "caseId": "06-lake-errand",
+      "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+      "clipIds": {
+        "arrival": "nunti-17eeb4f278a6a6188a8b068c-arrival",
+        "common": "nunti-17eeb4f278a6a6188a8b068c-common",
+        "greeting": "nunti-17eeb4f278a6a6188a8b068c-greeting"
+      },
+      "directionSha256": "b86c0d336b4a778e76a3dfdb6bbf5944bbf61a5d8f916ee31e0f00a90588f8e1",
+      "displayName": "물빛콩",
+      "journeyId": "mvp-journey-06-lake-errand",
+      "label": "물빛 곁에서 볼일 보는 날",
+      "recipeSha256": "57be7e6a5608c99ee933b43bd23428830dd3e079cdd19895b0bc2a8d13c24fc3",
+      "sourcePlanSha256": "37fa812ed00f013d51c4363e4f628f4ab9e0b863ca2090282671ed442977517e",
+      "summary": "호수 모티브 · 용무 · 25km",
+      "visual": {
+        "bodyFamily": "bean",
+        "characterId": "nunti-17eeb4f278a6a6188a8b068c",
+        "heightMultiplier": 0.94,
+        "motif": "lakeside",
+        "palette": [
+          "#A8CFE3",
+          "#B9ADE2",
+          "#FFF0D4"
+        ],
+        "purpose": "errand",
+        "routePattern": "curving",
+        "seed": "817c872ab7eace7a",
+        "shapeId": "upright_kidney",
+        "widthMultiplier": 1.08
+      },
+      "visualSha256": "787b057f404c44fcecc2fdfd35a2054bdb0af18c9e5e1426bd755b09d4ffb49b",
+      "voiceProfileId": "journey-sohee-6c628822b140c38e6a68"
+    },
+    {
+      "bindingId": "dvb-17643e620aa9fc242093c3860b79c4aa",
+      "caseId": "07-city-commute",
+      "characterId": "nunti-14e8ecb1317597b175d0ac40",
+      "clipIds": {
+        "arrival": "nunti-14e8ecb1317597b175d0ac40-arrival",
+        "common": "nunti-14e8ecb1317597b175d0ac40-common",
+        "greeting": "nunti-14e8ecb1317597b175d0ac40-greeting"
+      },
+      "directionSha256": "7ccc622f95b09e8e53633a72755ffe9aa62a3eefc4bc031011e7247b4a132656",
+      "displayName": "반짝별",
+      "journeyId": "mvp-journey-07-city-commute",
+      "label": "도시로 출근하는 날",
+      "recipeSha256": "078d09f30699dfca607b3c143fa6a15010885be8d0d23f9538665d3e6fbe9693",
+      "sourcePlanSha256": "050d9d779236eaa468d0e6ebffa7976050edfc91e32fd799bf47265b3da45502",
+      "summary": "도시 모티브 · 출퇴근 · 18km",
+      "visual": {
+        "bodyFamily": "lantern",
+        "characterId": "nunti-14e8ecb1317597b175d0ac40",
+        "heightMultiplier": 0.94,
+        "motif": "city",
+        "palette": [
+          "#C6B8E2",
+          "#E8BCB3",
+          "#F5EDD9"
+        ],
+        "purpose": "commute",
+        "routePattern": "urban",
+        "seed": "ba28f91310ce0191",
+        "shapeId": "tapered_oval",
+        "widthMultiplier": 1.08
+      },
+      "visualSha256": "37a17f18708a5f2bdf006cab86564925a53523f4e18e790d6d7e22ff9a5f9430",
+      "voiceProfileId": "journey-sohee-8e4ba2b4c4336b8bcdd2"
+    },
+    {
+      "bindingId": "dvb-1e5008ab2ff4b658c3e05e82aee1d715",
+      "caseId": "08-unplanned",
+      "characterId": "nunti-2cf018a4ab81917bafef386b",
+      "clipIds": {
+        "arrival": "nunti-2cf018a4ab81917bafef386b-arrival",
+        "common": "nunti-2cf018a4ab81917bafef386b-common",
+        "greeting": "nunti-2cf018a4ab81917bafef386b-greeting"
+      },
+      "directionSha256": "77126a145798d1749ef3aeb2a99afffd07215479dc3937af65ef2cc23724f4f5",
+      "displayName": "보송몽",
+      "journeyId": "mvp-journey-08-unplanned",
+      "label": "목적을 정하지 않은 이동",
+      "recipeSha256": "502ea3452f36693f9498772d168e3fef1bde27f4fc23dda5e45cf1673a528966",
+      "sourcePlanSha256": "c0e0081e853b18682283aedd4e725f87f3df4f3f069bd5d97a7709d3690cb4d7",
+      "summary": "목적지·목적 미지정 · 75km",
+      "visual": {
+        "bodyFamily": "cloud",
+        "characterId": "nunti-2cf018a4ab81917bafef386b",
+        "heightMultiplier": 1.0,
+        "motif": "unspecified",
+        "palette": [
+          "#E8D4B8",
+          "#C6B8DC",
+          "#FFF3DD"
+        ],
+        "purpose": "unspecified",
+        "routePattern": "unspecified",
+        "seed": "fd4941158ddd7b53",
+        "shapeId": "low_three_lobe",
+        "widthMultiplier": 1.0
+      },
+      "visualSha256": "14e90cb9cb7e22d3f419410fb03fa80ef8f1be7b0c892a4da59b90290516ca46",
+      "voiceProfileId": "journey-sohee-6bf415c57d20ac0b147d"
+    }
+  ],
+  "rendererVersion": "journey-keepsake-canvas-1",
+  "schemaVersion": 1
+}

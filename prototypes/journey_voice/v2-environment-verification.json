@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "environments": {
+    "v1": {
+      "environment": ".local/journey-voice/venv",
+      "exactLockedPackageCount": 9,
+      "versionsMatchLock": true
+    },
+    "v2": {
+      "environment": ".local/journey-voice/venv-v2",
+      "exactLockedPackageCount": 34,
+      "versionsMatchLock": true
+    }
+  },
+  "separateVersionedBindings": true,
+  "repeatGeneratorCacheHits": 6,
+  "sameSavedWavAndManifestHashes": true,
+  "preservedComparedFiles": 13
+}

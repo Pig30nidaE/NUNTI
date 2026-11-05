@@ -58,6 +58,7 @@ class SpeechQueueManager(private val provider: TtsProvider, private val focus: A
             return reject("DUPLICATE_TEXT")
         val why = reason(speech.request)
         if (why != null) return reject(why)
+        provider.rejection(speech)?.let { return reject(it) }
         if (pending.size >= capacity) {
             val worst = pending.minWithOrNull(compareBy<Entry> { it.speech.request.priority.ordinal }.thenByDescending { it.sequence })!!
             if (worst.speech.request.priority >= r.priority) return reject("QUEUE_FULL")
@@ -117,9 +118,13 @@ class SpeechQueueManager(private val provider: TtsProvider, private val focus: A
         if (closed || failed || !ready || current != null) return
         while (pending.isNotEmpty() && current == null) {
             val entry = pending.maxWithOrNull(compareBy<Entry> { it.speech.request.priority.ordinal }.thenBy { -it.sequence })!!
-            pending.remove(entry)
             val why = if (clock.monotonicMs() >= entry.deadline) "EXPIRED" else reason(entry.speech.request)
-            if (why != null) { emit(entry.speech.request, SpeechStatus.CANCELLED, why); continue }
+            if (why != null) { pending.remove(entry); emit(entry.speech.request, SpeechStatus.CANCELLED, why); continue }
+            val selected = try { provider.select(entry.speech) } catch (_: Exception) {
+                onError(null, "PROVIDER_SELECTION_FAILED"); return
+            }
+            if (!selected) { ready = false; initialize(); return }
+            pending.remove(entry)
             current = entry
             val granted = try { focus.request { onFocusLoss() } } catch (_: Exception) { false }
             if (!granted || current !== entry) {
@@ -182,7 +187,8 @@ class SpeechQueueManager(private val provider: TtsProvider, private val focus: A
     private fun emit(r: SpeechRequest, status: SpeechStatus, reason: String? = null,
         voice: AppliedVoiceProfile? = null, latency: Long? = null) {
         // Observers cannot break focus cleanup or playback. Never log text or credentials here.
-        try { sink(SpeechEvent(r.requestId, r.tripId, status, reason, voice, provider.mode, latency)) }
+        val source = provider.source(r)
+        try { sink(SpeechEvent(r.requestId, r.tripId, status, reason, voice, source.mode, latency, source.providerId)) }
         catch (_: Exception) { }
     }
 }

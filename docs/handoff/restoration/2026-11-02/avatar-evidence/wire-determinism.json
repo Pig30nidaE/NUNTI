@@ -1,0 +1,18 @@
+{
+  "verifiedAt": "2026-11-02T18:07:55.741530+09:00",
+  "scope": "Freshly compiled Kotlin wire JSON compared to preserved deterministic output; this is not API integration validation.",
+  "jsonCount": 10,
+  "passed": true,
+  "sha256": {
+    "EmotionSnapshot.json": "a0ba349e59e728b8f03e91cc0c10c0aa26a524a508a762cabe263f744b1b939b",
+    "VoiceProfile.json": "e3346737b9b3b888afd81ac89dfe947a432602db8bdc56417b66663ee147a89f",
+    "mock-long-journey.AvatarSpec.json": "5ff1af38016e3f84468332f1ecd1da6621be0e1ee087c190eebce19fc371b3b0",
+    "mock-long-journey.RouteSnapshot.json": "e6948420aae0c393517f6eca35b7cd1f4f4b8d4814164e79bce5d7769a561461",
+    "mock-seoul-city.AvatarSpec.json": "8352ff6bc542829e98ac002fe2ae5198be4c628816c30d4792194f6363af6f52",
+    "mock-seoul-city.RouteSnapshot.json": "65bb1e2952e36e34ccc62aaf53c4b217bf74a296bc45579e79e51da7dfb8b963",
+    "mock-verified-coast.AvatarSpec.json": "245be48acfbfc4f59294eb3c877513d8605747f0f3f27be0a1d65461e77bcd10",
+    "mock-verified-coast.RouteSnapshot.json": "c51d7ce4365ec779f21c9a24ff6bae1c0c6da4f6730e211679b86895e98840a2",
+    "mock-verified-mountain.AvatarSpec.json": "e9887eba9df0c06f3c17c7aa966cdb32682bc8d0827b377ede8d46315260b87d",
+    "mock-verified-mountain.RouteSnapshot.json": "eed2452bffe7fcd8a00e467275924789cb00074ffcf088b6943194d0c4b044db"
+  }
+}

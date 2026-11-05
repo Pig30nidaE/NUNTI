@@ -1,0 +1,73 @@
+{
+  "ruleDigest": "f2168a5ee05c1c65ff5b0fcc43b1e5d8b1cb2b88eccd1b6978692abfd962d0fa",
+  "route": {
+    "distanceMeters": 180000,
+    "collectedAt": "2026-11-01T02:00:00Z",
+    "estimatedDurationSeconds": 10000,
+    "schemaVersion": "1.0",
+    "routeId": "mock-verified-coast",
+    "featureEvidence": {
+      "distanceMeters": {
+        "verificationStatus": "VERIFIED",
+        "observedAt": "2026-11-01T02:00:00Z",
+        "confidence": 0.95,
+        "source": {
+          "provider": "avatar-fixture-v1",
+          "kind": "MOCK",
+          "version": "1"
+        },
+        "validity": "VALID"
+      },
+      "estimatedDurationSeconds": {
+        "verificationStatus": "VERIFIED",
+        "observedAt": "2026-11-01T02:00:00Z",
+        "confidence": 0.95,
+        "source": {
+          "provider": "avatar-fixture-v1",
+          "kind": "MOCK",
+          "version": "1"
+        },
+        "validity": "VALID"
+      },
+      "roadTypeRatios": {
+        "verificationStatus": "VERIFIED",
+        "observedAt": "2026-11-01T02:00:00Z",
+        "confidence": 0.95,
+        "source": {
+          "provider": "avatar-fixture-v1",
+          "kind": "MOCK",
+          "version": "1"
+        },
+        "validity": "VALID"
+      },
+      "scenicTags": {
+        "verificationStatus": "VERIFIED",
+        "observedAt": "2026-11-01T02:00:00Z",
+        "confidence": 0.95,
+        "source": {
+          "provider": "avatar-fixture-v1",
+          "kind": "MOCK",
+          "version": "1"
+        },
+        "validity": "VALID"
+      }
+    },
+    "regionTags": [],
+    "source": {
+      "provider": "avatar-fixture-v1",
+      "kind": "MOCK",
+      "version": "1"
+    },
+    "roadTypeRatios": {
+      "rural": 0.75,
+      "highway": 0.25
+    },
+    "scenicTags": ["COASTAL"],
+    "routeOption": "RECOMMENDED",
+    "routeRevision": 1
+  },
+  "seed": "1234",
+  "format": "avatar-replay-1",
+  "assetDigest": "029983bf947492086781b0f76ca15ddf65fb36dc76dc9aadcc46e77c9073cc7a",
+  "evaluatedAtEpochMillis": 1793498400000
+}

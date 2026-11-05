@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v2:SpeechInput",
+  "additionalProperties": false,
+  "properties": {
+    "requestId": {
+      "title": "Requestid",
+      "type": "string"
+    },
+    "text": {
+      "title": "Text",
+      "type": "string"
+    }
+  },
+  "required": [
+    "requestId",
+    "text"
+  ],
+  "title": "SpeechInput",
+  "type": "object"
+}

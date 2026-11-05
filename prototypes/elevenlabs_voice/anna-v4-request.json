@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "status": "OFFLINE_REQUEST_ONLY",
+  "synthesisImplemented": false,
+  "networkRequests": 0,
+  "accessVerified": false,
+  "voiceModelCombinationVerified": false,
+  "endpointCompatibility": "Official request shape; not tested with this account and voice",
+  "request": {
+    "method": "POST",
+    "endpoint": "/v1/text-to-speech/uyVNoMrnUku1dZyVEXwD",
+    "url": "https://api.elevenlabs.io/v1/text-to-speech/uyVNoMrnUku1dZyVEXwD?output_format=mp3_44100_128",
+    "query": {
+      "output_format": "mp3_44100_128"
+    },
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "body": {
+      "text": "안녕하세요. 오늘의 여행도 함께할게요. 와, 도착했다! 여기서 어떤 기억을 만나게 될까?",
+      "model_id": "eleven_v4"
+    }
+  },
+  "authentication": {
+    "headerName": "xi-api-key",
+    "environmentVariable": "ELEVENLABS_API_KEY",
+    "valueIncluded": false
+  },
+  "input": {
+    "encoding": "UTF-8",
+    "originalByteLength": 117,
+    "originalSha256": "08ca0ac9a0667210e37131fcf281589de4332546fc9d2c9ad7266e36ade2e7d3",
+    "bodyTextUtf8Sha256": "08ca0ac9a0667210e37131fcf281589de4332546fc9d2c9ad7266e36ade2e7d3",
+    "characters": 49,
+    "normalizationByThisTool": "none"
+  },
+  "sources": {
+    "models": "https://elevenlabs.io/docs/api-reference/models/list",
+    "voice": "https://elevenlabs.io/docs/api-reference/voices/get",
+    "createSpeech": "https://elevenlabs.io/docs/api-reference/text-to-speech/convert",
+    "v4ProductGuide": "https://elevenlabs.io/docs/eleven-creative/playground/text-to-speech",
+    "v4ConvertExample": "https://elevenlabs.io/docs/overview/intro"
+  },
+  "notProven": [
+    "account model entitlement",
+    "Anna voice entitlement",
+    "credits or subscription",
+    "exact public-UI model/settings reproduction",
+    "synthesis success or audio quality"
+  ]
+}

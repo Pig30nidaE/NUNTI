@@ -1,0 +1,5 @@
+{"event": "transcribing", "clipId": "normal-journey"}
+{"event": "transcribed", "clipId": "normal-journey", "transcript": " 오늘은 바다 보러 가는 날이네? 같이 예쁜 기억을 모아보자. 천천히 가도 괜찮아. 나는 내 옆에 있을게. 와, 도착했다. 오늘 만난 풍경은 내가 간직할게.", "cer": 0.017543859649122806, "asrRecognizedFullEnding": true}
+{"event": "transcribing", "clipId": "small-smile-journey"}
+{"event": "transcribed", "clipId": "small-smile-journey", "transcript": " 오늘은 바다 보러 가는 날이네 같이 예쁜 기억을 모아보자 천천히 가도 괜찮아 나는 내 옆에 있을게 와 도착했다 오늘 만난 풍경은 내가 간직할게", "cer": 0.017543859649122806, "asrRecognizedFullEnding": true}
+{"event": "complete", "clips": 2}

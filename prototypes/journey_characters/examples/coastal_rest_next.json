@@ -1,0 +1,11 @@
+{
+  "requestId": "request-coast-002",
+  "journeyId": "synthetic-coast-002",
+  "destination": {"semanticTags": ["coastal_city"]},
+  "route": {
+    "distanceKm": 128,
+    "semanticTags": ["coastal", "curving", "mixed"],
+    "verifiedRoadFacts": {"status": "UNKNOWN", "roadTypes": [], "source": null}
+  },
+  "purpose": "rest"
+}

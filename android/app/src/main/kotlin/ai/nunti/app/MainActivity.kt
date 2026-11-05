@@ -18,12 +18,28 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 
-/** Runnable fixture viewer. Vehicle devices remain blocked until a real host feeds UX + parked approval.
- * No network, scores, final report generation, or synthetic vehicle permission is enabled on AAOS.
- */
+/** Production and Debug use the same parked avatar-generation host. */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        startActivity(android.content.Intent(this, ai.nunti.app.studio.AvatarStudioActivity::class.java).addFlags(
+            android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP,
+        ))
+        finish()
+    }
+}
+
+/** Preserved fixture viewer. Vehicle devices remain blocked until a real host feeds UX + parked approval.
+ * No network, scores, final report generation, or synthetic vehicle permission is enabled on AAOS.
+ */
+class LegacyMockActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (resources.getBoolean(R.bool.journey_mvp_enabled)) {
+            startActivity(android.content.Intent().setClassName(this, "ai.nunti.app.generated.GeneratedCompanionActivity"))
+            finish()
+            return
+        }
         if (packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
             setContent { /* Fail closed: production host must wire CarUxPolicyBinding + actual trip state. */ }
             return

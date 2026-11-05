@@ -1,0 +1,45 @@
+{
+  "status": "PASS_AVATAR_INPUT_EDGES",
+  "surface": "ACTUAL_HEADLESS_CHROME_9225",
+  "recordings": false,
+  "audioPlayed": false,
+  "providerApiCalls": 0,
+  "injection": "actual HTTP responses held; one actual collection GET replaced with 503",
+  "checks": [
+    {
+      "name": "late-extraction-does-not-overwrite-new-example"
+    },
+    {
+      "name": "stale-extraction-does-not-leave-busy-state"
+    },
+    {
+      "name": "confirmation-disabled-before-original-image-load"
+    },
+    {
+      "name": "confirmation-enabled-after-original-image-load"
+    },
+    {
+      "name": "successful-result-survives-collection-refresh-failure"
+    },
+    {
+      "name": "collection-failure-does-not-submit-new-uuid"
+    },
+    {
+      "name": "gate-test-starts-during-birth"
+    },
+    {
+      "name": "gate-denial-disables-creation"
+    },
+    {
+      "name": "gate-return-restores-complete-static-artifact"
+    },
+    {
+      "name": "gate-return-does-not-generate-or-speak"
+    }
+  ],
+  "generated": {
+    "requestId": "4c243c7c-733d-49a1-a1f8-e894f45f0eac",
+    "characterId": "nunti-4c243c7c-733d-49a1-a1f8-e894f45f0eac",
+    "mediaOrigin": "LOCAL_RENDER"
+  }
+}

@@ -1,0 +1,1142 @@
+Classfile jar:file:///Users/pig30nidae/NUNTI/.worktrees/tts/android/feature/tts/build/verification/voice-compile.jar!/ai/nunti/voice/AndroidVoiceSession.class
+  Last modified 1980. 1. 1.; size 15380 bytes
+  SHA-256 checksum 76cef335548fdd63ae8b8c5fb6dfbb55cf52d7fb3fd3f58babe733b695ed67ef
+  Compiled from "AndroidVoiceSession.kt"
+public final class ai.nunti.voice.AndroidVoiceSession
+  minor version: 0
+  major version: 61
+  flags: (0x0031) ACC_PUBLIC, ACC_FINAL, ACC_SUPER
+  this_class: #2                          // ai/nunti/voice/AndroidVoiceSession
+  super_class: #4                         // java/lang/Object
+  interfaces: 0, fields: 10, methods: 27, attributes: 6
+Constant pool:
+    #1 = Utf8               ai/nunti/voice/AndroidVoiceSession
+    #2 = Class              #1            // ai/nunti/voice/AndroidVoiceSession
+    #3 = Utf8               java/lang/Object
+    #4 = Class              #3            // java/lang/Object
+    #5 = Utf8               <init>
+    #6 = Utf8               (Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+    #7 = Utf8               (Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0<Lai/nunti/tts/PleosCredentials;>;Ljava/util/List<Lai/nunti/tts/VoiceProfile;>;Lkotlin/jvm/functions/Function1<-Lai/nunti/tts/SpeechEvent;Lkotlin/Unit;>;)V
+    #8 = Utf8               Lorg/jetbrains/annotations/NotNull;
+    #9 = Utf8               context
+   #10 = String             #9            // context
+   #11 = Utf8               kotlin/jvm/internal/Intrinsics
+   #12 = Class              #11           // kotlin/jvm/internal/Intrinsics
+   #13 = Utf8               checkNotNullParameter
+   #14 = Utf8               (Ljava/lang/Object;Ljava/lang/String;)V
+   #15 = NameAndType        #13:#14       // checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+   #16 = Methodref          #12.#15       // kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+   #17 = Utf8               mode
+   #18 = String             #17           // mode
+   #19 = Utf8               credentials
+   #20 = String             #19           // credentials
+   #21 = Utf8               profiles
+   #22 = String             #21           // profiles
+   #23 = Utf8               onEvent
+   #24 = String             #23           // onEvent
+   #25 = Utf8               ()V
+   #26 = NameAndType        #5:#25        // "<init>":()V
+   #27 = Methodref          #4.#26        // java/lang/Object."<init>":()V
+   #28 = Utf8               Lkotlin/jvm/functions/Function1;
+   #29 = NameAndType        #23:#28       // onEvent:Lkotlin/jvm/functions/Function1;
+   #30 = Fieldref           #2.#29        // ai/nunti/voice/AndroidVoiceSession.onEvent:Lkotlin/jvm/functions/Function1;
+   #31 = Utf8               android/content/Context
+   #32 = Class              #31           // android/content/Context
+   #33 = Utf8               getApplicationContext
+   #34 = Utf8               ()Landroid/content/Context;
+   #35 = NameAndType        #33:#34       // getApplicationContext:()Landroid/content/Context;
+   #36 = Methodref          #32.#35       // android/content/Context.getApplicationContext:()Landroid/content/Context;
+   #37 = Utf8               appContext
+   #38 = Utf8               Landroid/content/Context;
+   #39 = NameAndType        #37:#38       // appContext:Landroid/content/Context;
+   #40 = Fieldref           #2.#39        // ai/nunti/voice/AndroidVoiceSession.appContext:Landroid/content/Context;
+   #41 = Utf8               android/os/Handler
+   #42 = Class              #41           // android/os/Handler
+   #43 = Utf8               android/os/Looper
+   #44 = Class              #43           // android/os/Looper
+   #45 = Utf8               getMainLooper
+   #46 = Utf8               ()Landroid/os/Looper;
+   #47 = NameAndType        #45:#46       // getMainLooper:()Landroid/os/Looper;
+   #48 = Methodref          #44.#47       // android/os/Looper.getMainLooper:()Landroid/os/Looper;
+   #49 = Utf8               (Landroid/os/Looper;)V
+   #50 = NameAndType        #5:#49        // "<init>":(Landroid/os/Looper;)V
+   #51 = Methodref          #42.#50       // android/os/Handler."<init>":(Landroid/os/Looper;)V
+   #52 = Utf8               handler
+   #53 = Utf8               Landroid/os/Handler;
+   #54 = NameAndType        #52:#53       // handler:Landroid/os/Handler;
+   #55 = Fieldref           #2.#54        // ai/nunti/voice/AndroidVoiceSession.handler:Landroid/os/Handler;
+   #56 = Utf8               ai/nunti/voice/AndroidVoiceSession$clock$1
+   #57 = Class              #56           // ai/nunti/voice/AndroidVoiceSession$clock$1
+   #58 = Methodref          #57.#26       // ai/nunti/voice/AndroidVoiceSession$clock$1."<init>":()V
+   #59 = Utf8               clock
+   #60 = Utf8               Lai/nunti/voice/AndroidVoiceSession$clock$1;
+   #61 = NameAndType        #59:#60       // clock:Lai/nunti/voice/AndroidVoiceSession$clock$1;
+   #62 = Fieldref           #2.#61        // ai/nunti/voice/AndroidVoiceSession.clock:Lai/nunti/voice/AndroidVoiceSession$clock$1;
+   #63 = Utf8               (JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+   #64 = MethodType         #63           //  (JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+   #65 = Utf8               scheduler$lambda$0
+   #66 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+   #67 = NameAndType        #65:#66       // scheduler$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+   #68 = Methodref          #2.#67        // ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+   #69 = MethodHandle       6:#68         // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+   #70 = Utf8               java/lang/invoke/LambdaMetafactory
+   #71 = Class              #70           // java/lang/invoke/LambdaMetafactory
+   #72 = Utf8               metafactory
+   #73 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+   #74 = NameAndType        #72:#73       // metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+   #75 = Methodref          #71.#74       // java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+   #76 = MethodHandle       6:#75         // REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+   #77 = Utf8               after
+   #78 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;)Lai/nunti/tts/SpeechScheduler;
+   #79 = NameAndType        #77:#78       // after:(Lai/nunti/voice/AndroidVoiceSession;)Lai/nunti/tts/SpeechScheduler;
+   #80 = InvokeDynamic      #0:#79        // #0:after:(Lai/nunti/voice/AndroidVoiceSession;)Lai/nunti/tts/SpeechScheduler;
+   #81 = Utf8               scheduler
+   #82 = Utf8               Lai/nunti/tts/SpeechScheduler;
+   #83 = NameAndType        #81:#82       // scheduler:Lai/nunti/tts/SpeechScheduler;
+   #84 = Fieldref           #2.#83        // ai/nunti/voice/AndroidVoiceSession.scheduler:Lai/nunti/tts/SpeechScheduler;
+   #85 = Utf8               ai/nunti/voice/AndroidAudioFocusController
+   #86 = Class              #85           // ai/nunti/voice/AndroidAudioFocusController
+   #87 = Utf8               Companion
+   #88 = Utf8               Lai/nunti/voice/AndroidAudioFocusController$Companion;
+   #89 = NameAndType        #87:#88       // Companion:Lai/nunti/voice/AndroidAudioFocusController$Companion;
+   #90 = Fieldref           #86.#89       // ai/nunti/voice/AndroidAudioFocusController.Companion:Lai/nunti/voice/AndroidAudioFocusController$Companion;
+   #91 = Utf8               ai/nunti/voice/AndroidAudioFocusController$Companion
+   #92 = Class              #91           // ai/nunti/voice/AndroidAudioFocusController$Companion
+   #93 = Utf8               notificationAttributes
+   #94 = Utf8               ()Landroid/media/AudioAttributes;
+   #95 = NameAndType        #93:#94       // notificationAttributes:()Landroid/media/AudioAttributes;
+   #96 = Methodref          #92.#95       // ai/nunti/voice/AndroidAudioFocusController$Companion.notificationAttributes:()Landroid/media/AudioAttributes;
+   #97 = Utf8               attributes
+   #98 = Utf8               Landroid/media/AudioAttributes;
+   #99 = NameAndType        #97:#98       // attributes:Landroid/media/AudioAttributes;
+  #100 = Fieldref           #2.#99        // ai/nunti/voice/AndroidVoiceSession.attributes:Landroid/media/AudioAttributes;
+  #101 = Utf8               ai/nunti/tts/PleosTtsProvider
+  #102 = Class              #101          // ai/nunti/tts/PleosTtsProvider
+  #103 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #104 = MethodType         #103          //  (Ljava/lang/Object;)Ljava/lang/Object;
+  #105 = Utf8               provider$lambda$0
+  #106 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+  #107 = NameAndType        #105:#106     // provider$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+  #108 = Methodref          #2.#107       // ai/nunti/voice/AndroidVoiceSession.provider$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+  #109 = MethodHandle       6:#108        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.provider$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+  #110 = Utf8               (Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+  #111 = MethodType         #110          //  (Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+  #112 = Utf8               invoke
+  #113 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function1;
+  #114 = NameAndType        #112:#113     // invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function1;
+  #115 = InvokeDynamic      #1:#114       // #1:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function1;
+  #116 = Utf8               (Lkotlin/jvm/functions/Function1;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;)V
+  #117 = NameAndType        #5:#116       // "<init>":(Lkotlin/jvm/functions/Function1;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;)V
+  #118 = Methodref          #102.#117     // ai/nunti/tts/PleosTtsProvider."<init>":(Lkotlin/jvm/functions/Function1;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;)V
+  #119 = Utf8               provider
+  #120 = Utf8               Lai/nunti/tts/PleosTtsProvider;
+  #121 = NameAndType        #119:#120     // provider:Lai/nunti/tts/PleosTtsProvider;
+  #122 = Fieldref           #2.#121       // ai/nunti/voice/AndroidVoiceSession.provider:Lai/nunti/tts/PleosTtsProvider;
+  #123 = Utf8               audio
+  #124 = String             #123          // audio
+  #125 = Utf8               getSystemService
+  #126 = Utf8               (Ljava/lang/String;)Ljava/lang/Object;
+  #127 = NameAndType        #125:#126     // getSystemService:(Ljava/lang/String;)Ljava/lang/Object;
+  #128 = Methodref          #32.#127      // android/content/Context.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;
+  #129 = Utf8               null cannot be cast to non-null type android.media.AudioManager
+  #130 = String             #129          // null cannot be cast to non-null type android.media.AudioManager
+  #131 = Utf8               checkNotNull
+  #132 = NameAndType        #131:#14      // checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+  #133 = Methodref          #12.#132      // kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+  #134 = Utf8               android/media/AudioManager
+  #135 = Class              #134          // android/media/AudioManager
+  #136 = Utf8               (Landroid/media/AudioManager;Landroid/media/AudioAttributes;Landroid/os/Handler;)V
+  #137 = NameAndType        #5:#136       // "<init>":(Landroid/media/AudioManager;Landroid/media/AudioAttributes;Landroid/os/Handler;)V
+  #138 = Methodref          #86.#137      // ai/nunti/voice/AndroidAudioFocusController."<init>":(Landroid/media/AudioManager;Landroid/media/AudioAttributes;Landroid/os/Handler;)V
+  #139 = Utf8               focus
+  #140 = Utf8               Lai/nunti/voice/AndroidAudioFocusController;
+  #141 = NameAndType        #139:#140     // focus:Lai/nunti/voice/AndroidAudioFocusController;
+  #142 = Fieldref           #2.#141       // ai/nunti/voice/AndroidVoiceSession.focus:Lai/nunti/voice/AndroidAudioFocusController;
+  #143 = Utf8               myLooper
+  #144 = NameAndType        #143:#46      // myLooper:()Landroid/os/Looper;
+  #145 = Methodref          #44.#144      // android/os/Looper.myLooper:()Landroid/os/Looper;
+  #146 = Utf8               areEqual
+  #147 = Utf8               (Ljava/lang/Object;Ljava/lang/Object;)Z
+  #148 = NameAndType        #146:#147     // areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z
+  #149 = Methodref          #12.#148      // kotlin/jvm/internal/Intrinsics.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z
+  #150 = Utf8               Construct on the main thread
+  #151 = String             #150          // Construct on the main thread
+  #152 = Utf8               java/lang/IllegalStateException
+  #153 = Class              #152          // java/lang/IllegalStateException
+  #154 = Utf8               toString
+  #155 = Utf8               ()Ljava/lang/String;
+  #156 = NameAndType        #154:#155     // toString:()Ljava/lang/String;
+  #157 = Methodref          #4.#156       // java/lang/Object.toString:()Ljava/lang/String;
+  #158 = Utf8               (Ljava/lang/String;)V
+  #159 = NameAndType        #5:#158       // "<init>":(Ljava/lang/String;)V
+  #160 = Methodref          #153.#159     // java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+  #161 = Utf8               ai/nunti/tts/SpeechQueueManager
+  #162 = Class              #161          // ai/nunti/tts/SpeechQueueManager
+  #163 = Utf8               ai/nunti/tts/TtsProvider
+  #164 = Class              #163          // ai/nunti/tts/TtsProvider
+  #165 = Utf8               ai/nunti/tts/AudioFocusController
+  #166 = Class              #165          // ai/nunti/tts/AudioFocusController
+  #167 = Utf8               ai/nunti/tts/SpeechClock
+  #168 = Class              #167          // ai/nunti/tts/SpeechClock
+  #169 = Utf8               ai/nunti/tts/SpeechRequestBuilder
+  #170 = Class              #169          // ai/nunti/tts/SpeechRequestBuilder
+  #171 = Utf8               ai/nunti/tts/VoiceProfileManager
+  #172 = Class              #171          // ai/nunti/tts/VoiceProfileManager
+  #173 = Utf8               (Ljava/util/List;)V
+  #174 = NameAndType        #5:#173       // "<init>":(Ljava/util/List;)V
+  #175 = Methodref          #172.#174     // ai/nunti/tts/VoiceProfileManager."<init>":(Ljava/util/List;)V
+  #176 = Utf8               (Lai/nunti/tts/VoiceProfileManager;)V
+  #177 = NameAndType        #5:#176       // "<init>":(Lai/nunti/tts/VoiceProfileManager;)V
+  #178 = Methodref          #170.#177     // ai/nunti/tts/SpeechRequestBuilder."<init>":(Lai/nunti/tts/VoiceProfileManager;)V
+  #179 = Utf8               (Lai/nunti/tts/TtsProvider;Lai/nunti/tts/AudioFocusController;Lai/nunti/tts/SpeechClock;Lai/nunti/tts/SpeechScheduler;Lai/nunti/tts/SpeechRequestBuilder;Lai/nunti/tts/SpeechPlaybackPolicy;IILkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #180 = NameAndType        #5:#179       // "<init>":(Lai/nunti/tts/TtsProvider;Lai/nunti/tts/AudioFocusController;Lai/nunti/tts/SpeechClock;Lai/nunti/tts/SpeechScheduler;Lai/nunti/tts/SpeechRequestBuilder;Lai/nunti/tts/SpeechPlaybackPolicy;IILkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #181 = Methodref          #162.#180     // ai/nunti/tts/SpeechQueueManager."<init>":(Lai/nunti/tts/TtsProvider;Lai/nunti/tts/AudioFocusController;Lai/nunti/tts/SpeechClock;Lai/nunti/tts/SpeechScheduler;Lai/nunti/tts/SpeechRequestBuilder;Lai/nunti/tts/SpeechPlaybackPolicy;IILkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #182 = Utf8               queue
+  #183 = Utf8               Lai/nunti/tts/SpeechQueueManager;
+  #184 = NameAndType        #182:#183     // queue:Lai/nunti/tts/SpeechQueueManager;
+  #185 = Fieldref           #2.#184       // ai/nunti/voice/AndroidVoiceSession.queue:Lai/nunti/tts/SpeechQueueManager;
+  #186 = Utf8               ai/nunti/tts/SpeechLifecycleManager
+  #187 = Class              #186          // ai/nunti/tts/SpeechLifecycleManager
+  #188 = Utf8               (Lai/nunti/tts/SpeechQueueManager;)V
+  #189 = NameAndType        #5:#188       // "<init>":(Lai/nunti/tts/SpeechQueueManager;)V
+  #190 = Methodref          #187.#189     // ai/nunti/tts/SpeechLifecycleManager."<init>":(Lai/nunti/tts/SpeechQueueManager;)V
+  #191 = Utf8               lifecycle
+  #192 = Utf8               Lai/nunti/tts/SpeechLifecycleManager;
+  #193 = NameAndType        #191:#192     // lifecycle:Lai/nunti/tts/SpeechLifecycleManager;
+  #194 = Fieldref           #2.#193       // ai/nunti/voice/AndroidVoiceSession.lifecycle:Lai/nunti/tts/SpeechLifecycleManager;
+  #195 = Utf8               $i$a$-check-AndroidVoiceSession$3
+  #196 = Utf8               I
+  #197 = Utf8               this
+  #198 = Utf8               Lai/nunti/voice/AndroidVoiceSession;
+  #199 = Utf8               Lai/nunti/tts/EngineMode;
+  #200 = Utf8               Lkotlin/jvm/functions/Function0;
+  #201 = Utf8               Ljava/util/List;
+  #202 = Utf8               ai/nunti/tts/EngineMode
+  #203 = Class              #202          // ai/nunti/tts/EngineMode
+  #204 = Utf8               kotlin/jvm/functions/Function0
+  #205 = Class              #204          // kotlin/jvm/functions/Function0
+  #206 = Utf8               java/util/List
+  #207 = Class              #206          // java/util/List
+  #208 = Utf8               kotlin/jvm/functions/Function1
+  #209 = Class              #208          // kotlin/jvm/functions/Function1
+  #210 = Utf8               (Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #211 = Utf8               ON_DEVICE
+  #212 = NameAndType        #211:#199     // ON_DEVICE:Lai/nunti/tts/EngineMode;
+  #213 = Fieldref           #203.#212     // ai/nunti/tts/EngineMode.ON_DEVICE:Lai/nunti/tts/EngineMode;
+  #214 = Utf8               ai/nunti/voice/AndroidVoiceSession$1
+  #215 = Class              #214          // ai/nunti/voice/AndroidVoiceSession$1
+  #216 = Utf8               INSTANCE
+  #217 = Utf8               Lai/nunti/voice/AndroidVoiceSession$1;
+  #218 = NameAndType        #216:#217     // INSTANCE:Lai/nunti/voice/AndroidVoiceSession$1;
+  #219 = Fieldref           #215.#218     // ai/nunti/voice/AndroidVoiceSession$1.INSTANCE:Lai/nunti/voice/AndroidVoiceSession$1;
+  #220 = Utf8               ai/nunti/tts/VoiceProfile
+  #221 = Class              #220          // ai/nunti/tts/VoiceProfile
+  #222 = Utf8               (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Lai/nunti/tts/EngineMode;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #223 = NameAndType        #5:#222       // "<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Lai/nunti/tts/EngineMode;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #224 = Methodref          #221.#223     // ai/nunti/tts/VoiceProfile."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Lai/nunti/tts/EngineMode;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #225 = Utf8               kotlin/collections/CollectionsKt
+  #226 = Class              #225          // kotlin/collections/CollectionsKt
+  #227 = Utf8               listOf
+  #228 = Utf8               (Ljava/lang/Object;)Ljava/util/List;
+  #229 = NameAndType        #227:#228     // listOf:(Ljava/lang/Object;)Ljava/util/List;
+  #230 = Methodref          #226.#229     // kotlin/collections/CollectionsKt.listOf:(Ljava/lang/Object;)Ljava/util/List;
+  #231 = Utf8               _init_$lambda$0
+  #232 = Utf8               (Lai/nunti/tts/SpeechEvent;)Lkotlin/Unit;
+  #233 = NameAndType        #231:#232     // _init_$lambda$0:(Lai/nunti/tts/SpeechEvent;)Lkotlin/Unit;
+  #234 = Methodref          #2.#233       // ai/nunti/voice/AndroidVoiceSession._init_$lambda$0:(Lai/nunti/tts/SpeechEvent;)Lkotlin/Unit;
+  #235 = MethodHandle       6:#234        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession._init_$lambda$0:(Lai/nunti/tts/SpeechEvent;)Lkotlin/Unit;
+  #236 = MethodType         #232          //  (Lai/nunti/tts/SpeechEvent;)Lkotlin/Unit;
+  #237 = Utf8               ()Lkotlin/jvm/functions/Function1;
+  #238 = NameAndType        #112:#237     // invoke:()Lkotlin/jvm/functions/Function1;
+  #239 = InvokeDynamic      #2:#238       // #2:invoke:()Lkotlin/jvm/functions/Function1;
+  #240 = NameAndType        #5:#6         // "<init>":(Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+  #241 = Methodref          #2.#240       // ai/nunti/voice/AndroidVoiceSession."<init>":(Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+  #242 = Utf8               run
+  #243 = Utf8               (Lkotlin/jvm/functions/Function0;)V
+  #244 = Utf8               (Lkotlin/jvm/functions/Function0<Lkotlin/Unit;>;)V
+  #245 = Utf8               getLooper
+  #246 = NameAndType        #245:#46      // getLooper:()Landroid/os/Looper;
+  #247 = Methodref          #42.#246      // android/os/Handler.getLooper:()Landroid/os/Looper;
+  #248 = Utf8               ()Ljava/lang/Object;
+  #249 = NameAndType        #112:#248     // invoke:()Ljava/lang/Object;
+  #250 = InterfaceMethodref #205.#249     // kotlin/jvm/functions/Function0.invoke:()Ljava/lang/Object;
+  #251 = MethodType         #25           //  ()V
+  #252 = Utf8               run$lambda$0
+  #253 = NameAndType        #252:#243     // run$lambda$0:(Lkotlin/jvm/functions/Function0;)V
+  #254 = Methodref          #2.#253       // ai/nunti/voice/AndroidVoiceSession.run$lambda$0:(Lkotlin/jvm/functions/Function0;)V
+  #255 = MethodHandle       6:#254        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.run$lambda$0:(Lkotlin/jvm/functions/Function0;)V
+  #256 = Utf8               (Lkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
+  #257 = NameAndType        #242:#256     // run:(Lkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
+  #258 = InvokeDynamic      #3:#257       // #3:run:(Lkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
+  #259 = Utf8               post
+  #260 = Utf8               (Ljava/lang/Runnable;)Z
+  #261 = NameAndType        #259:#260     // post:(Ljava/lang/Runnable;)Z
+  #262 = Methodref          #42.#261      // android/os/Handler.post:(Ljava/lang/Runnable;)Z
+  #263 = Utf8               action
+  #264 = Utf8               beginTrip
+  #265 = Utf8               tripId
+  #266 = String             #265          // tripId
+  #267 = MethodType         #248          //  ()Ljava/lang/Object;
+  #268 = Utf8               beginTrip$lambda$0
+  #269 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+  #270 = NameAndType        #268:#269     // beginTrip$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+  #271 = Methodref          #2.#270       // ai/nunti/voice/AndroidVoiceSession.beginTrip$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+  #272 = MethodHandle       6:#271        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.beginTrip$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+  #273 = Utf8               ()Lkotlin/Unit;
+  #274 = MethodType         #273          //  ()Lkotlin/Unit;
+  #275 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/jvm/functions/Function0;
+  #276 = NameAndType        #112:#275     // invoke:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/jvm/functions/Function0;
+  #277 = InvokeDynamic      #4:#276       // #4:invoke:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/jvm/functions/Function0;
+  #278 = NameAndType        #242:#243     // run:(Lkotlin/jvm/functions/Function0;)V
+  #279 = Methodref          #2.#278       // ai/nunti/voice/AndroidVoiceSession.run:(Lkotlin/jvm/functions/Function0;)V
+  #280 = Utf8               Ljava/lang/String;
+  #281 = Utf8               updateContext
+  #282 = Utf8               (Lai/nunti/tts/PlaybackContext;)V
+  #283 = Utf8               value
+  #284 = String             #283          // value
+  #285 = Utf8               updateContext$lambda$0
+  #286 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+  #287 = NameAndType        #285:#286     // updateContext$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+  #288 = Methodref          #2.#287       // ai/nunti/voice/AndroidVoiceSession.updateContext$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+  #289 = MethodHandle       6:#288        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.updateContext$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+  #290 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/jvm/functions/Function0;
+  #291 = NameAndType        #112:#290     // invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/jvm/functions/Function0;
+  #292 = InvokeDynamic      #5:#291       // #5:invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/jvm/functions/Function0;
+  #293 = Utf8               Lai/nunti/tts/PlaybackContext;
+  #294 = Utf8               submit
+  #295 = Utf8               (Lai/nunti/tts/ApprovedSpeech;)V
+  #296 = Utf8               speech
+  #297 = String             #296          // speech
+  #298 = Utf8               submit$lambda$0
+  #299 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/Unit;
+  #300 = NameAndType        #298:#299     // submit$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/Unit;
+  #301 = Methodref          #2.#300       // ai/nunti/voice/AndroidVoiceSession.submit$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/Unit;
+  #302 = MethodHandle       6:#301        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.submit$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/Unit;
+  #303 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/jvm/functions/Function0;
+  #304 = NameAndType        #112:#303     // invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/jvm/functions/Function0;
+  #305 = InvokeDynamic      #6:#304       // #6:invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/jvm/functions/Function0;
+  #306 = Utf8               Lai/nunti/tts/ApprovedSpeech;
+  #307 = Utf8               submitWire
+  #308 = Utf8               (Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;)V
+  #309 = Utf8               Lorg/jetbrains/annotations/Nullable;
+  #310 = Utf8               wire
+  #311 = String             #310          // wire
+  #312 = Utf8               avatar
+  #313 = String             #312          // avatar
+  #314 = Utf8               evidence
+  #315 = String             #314          // evidence
+  #316 = Utf8               submitWire$lambda$0
+  #317 = Utf8               (Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #318 = NameAndType        #316:#317     // submitWire$lambda$0:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #319 = Methodref          #2.#318       // ai/nunti/voice/AndroidVoiceSession.submitWire$lambda$0:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #320 = MethodHandle       6:#319        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.submitWire$lambda$0:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #321 = Utf8               (Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #322 = NameAndType        #112:#321     // invoke:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #323 = InvokeDynamic      #7:#322       // #7:invoke:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #324 = Utf8               Lai/nunti/tts/WireSpeechRequest;
+  #325 = Utf8               Lai/nunti/tts/AvatarVoiceInput;
+  #326 = Utf8               snapshot
+  #327 = Utf8               Lai/nunti/tts/EmotionSnapshot;
+  #328 = Utf8               Lai/nunti/tts/SpeechEvidence;
+  #329 = Utf8               cancel
+  #330 = Utf8               requestId
+  #331 = String             #330          // requestId
+  #332 = Utf8               cancel$lambda$0
+  #333 = NameAndType        #332:#269     // cancel$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+  #334 = Methodref          #2.#333       // ai/nunti/voice/AndroidVoiceSession.cancel$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+  #335 = MethodHandle       6:#334        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.cancel$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+  #336 = InvokeDynamic      #8:#276       // #8:invoke:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/jvm/functions/Function0;
+  #337 = Utf8               onForeground
+  #338 = Utf8               onForeground$lambda$0
+  #339 = NameAndType        #338:#286     // onForeground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+  #340 = Methodref          #2.#339       // ai/nunti/voice/AndroidVoiceSession.onForeground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+  #341 = MethodHandle       6:#340        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.onForeground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+  #342 = InvokeDynamic      #9:#291       // #9:invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/jvm/functions/Function0;
+  #343 = Utf8               onBackground
+  #344 = Utf8               onBackground$lambda$0
+  #345 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #346 = NameAndType        #344:#345     // onBackground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #347 = Methodref          #2.#346       // ai/nunti/voice/AndroidVoiceSession.onBackground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #348 = MethodHandle       6:#347        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.onBackground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #349 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #350 = NameAndType        #112:#349     // invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #351 = InvokeDynamic      #10:#350      // #10:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #352 = Utf8               onSuspend
+  #353 = Utf8               onSuspend$lambda$0
+  #354 = NameAndType        #353:#345     // onSuspend$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #355 = Methodref          #2.#354       // ai/nunti/voice/AndroidVoiceSession.onSuspend$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #356 = MethodHandle       6:#355        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.onSuspend$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #357 = InvokeDynamic      #11:#350      // #11:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #358 = Utf8               close
+  #359 = Utf8               close$lambda$0
+  #360 = NameAndType        #359:#345     // close$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #361 = Methodref          #2.#360       // ai/nunti/voice/AndroidVoiceSession.close$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #362 = MethodHandle       6:#361        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.close$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+  #363 = InvokeDynamic      #12:#350      // #12:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+  #364 = Utf8               it
+  #365 = String             #364          // it
+  #366 = Utf8               kotlin/Unit
+  #367 = Class              #366          // kotlin/Unit
+  #368 = Utf8               Lkotlin/Unit;
+  #369 = NameAndType        #216:#368     // INSTANCE:Lkotlin/Unit;
+  #370 = Fieldref           #367.#369     // kotlin/Unit.INSTANCE:Lkotlin/Unit;
+  #371 = Utf8               Lai/nunti/tts/SpeechEvent;
+  #372 = String             #263          // action
+  #373 = Utf8               scheduler$lambda$0$0
+  #374 = NameAndType        #373:#243     // scheduler$lambda$0$0:(Lkotlin/jvm/functions/Function0;)V
+  #375 = Methodref          #2.#374       // ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0$0:(Lkotlin/jvm/functions/Function0;)V
+  #376 = MethodHandle       6:#375        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0$0:(Lkotlin/jvm/functions/Function0;)V
+  #377 = InvokeDynamic      #13:#257      // #13:run:(Lkotlin/jvm/functions/Function0;)Ljava/lang/Runnable;
+  #378 = Utf8               postDelayed
+  #379 = Utf8               (Ljava/lang/Runnable;J)Z
+  #380 = NameAndType        #378:#379     // postDelayed:(Ljava/lang/Runnable;J)Z
+  #381 = Methodref          #42.#380      // android/os/Handler.postDelayed:(Ljava/lang/Runnable;J)Z
+  #382 = Utf8               scheduler$lambda$0$1
+  #383 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)V
+  #384 = NameAndType        #382:#383     // scheduler$lambda$0$1:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)V
+  #385 = Methodref          #2.#384       // ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0$1:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)V
+  #386 = MethodHandle       6:#385        // REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0$1:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)V
+  #387 = Utf8               (Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)Lai/nunti/tts/Cancellation;
+  #388 = NameAndType        #329:#387     // cancel:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)Lai/nunti/tts/Cancellation;
+  #389 = InvokeDynamic      #14:#388      // #14:cancel:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)Lai/nunti/tts/Cancellation;
+  #390 = Utf8               task
+  #391 = Utf8               Ljava/lang/Runnable;
+  #392 = Utf8               this$0
+  #393 = Utf8               delay
+  #394 = Utf8               J
+  #395 = Utf8               $tmp0
+  #396 = Utf8               removeCallbacks
+  #397 = Utf8               (Ljava/lang/Runnable;)V
+  #398 = NameAndType        #396:#397     // removeCallbacks:(Ljava/lang/Runnable;)V
+  #399 = Methodref          #42.#398      // android/os/Handler.removeCallbacks:(Ljava/lang/Runnable;)V
+  #400 = Utf8               $task
+  #401 = Utf8               ai/nunti/voice/AndroidPleosConnection
+  #402 = Class              #401          // ai/nunti/voice/AndroidPleosConnection
+  #403 = String             #37           // appContext
+  #404 = Utf8               checkNotNullExpressionValue
+  #405 = NameAndType        #404:#14      // checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+  #406 = Methodref          #12.#405      // kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+  #407 = Utf8               (Landroid/content/Context;Lai/nunti/tts/EngineMode;Landroid/media/AudioAttributes;Landroid/os/Handler;)V
+  #408 = NameAndType        #5:#407       // "<init>":(Landroid/content/Context;Lai/nunti/tts/EngineMode;Landroid/media/AudioAttributes;Landroid/os/Handler;)V
+  #409 = Methodref          #402.#408     // ai/nunti/voice/AndroidPleosConnection."<init>":(Landroid/content/Context;Lai/nunti/tts/EngineMode;Landroid/media/AudioAttributes;Landroid/os/Handler;)V
+  #410 = Utf8               ai/nunti/tts/PleosConnection
+  #411 = Class              #410          // ai/nunti/tts/PleosConnection
+  #412 = NameAndType        #264:#158     // beginTrip:(Ljava/lang/String;)V
+  #413 = Methodref          #162.#412     // ai/nunti/tts/SpeechQueueManager.beginTrip:(Ljava/lang/String;)V
+  #414 = Utf8               $tripId
+  #415 = NameAndType        #281:#282     // updateContext:(Lai/nunti/tts/PlaybackContext;)V
+  #416 = Methodref          #162.#415     // ai/nunti/tts/SpeechQueueManager.updateContext:(Lai/nunti/tts/PlaybackContext;)V
+  #417 = Utf8               $value
+  #418 = Utf8               (Lai/nunti/tts/ApprovedSpeech;)Lai/nunti/tts/SpeechStatus;
+  #419 = NameAndType        #294:#418     // submit:(Lai/nunti/tts/ApprovedSpeech;)Lai/nunti/tts/SpeechStatus;
+  #420 = Methodref          #162.#419     // ai/nunti/tts/SpeechQueueManager.submit:(Lai/nunti/tts/ApprovedSpeech;)Lai/nunti/tts/SpeechStatus;
+  #421 = Utf8               $speech
+  #422 = Utf8               java/lang/Throwable
+  #423 = Class              #422          // java/lang/Throwable
+  #424 = Utf8               ai/nunti/tts/SpeechContractBridge
+  #425 = Class              #424          // ai/nunti/tts/SpeechContractBridge
+  #426 = Utf8               Lai/nunti/tts/SpeechContractBridge;
+  #427 = NameAndType        #216:#426     // INSTANCE:Lai/nunti/tts/SpeechContractBridge;
+  #428 = Fieldref           #425.#427     // ai/nunti/tts/SpeechContractBridge.INSTANCE:Lai/nunti/tts/SpeechContractBridge;
+  #429 = Utf8               tryFromWire
+  #430 = Utf8               (Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;)Lai/nunti/tts/SpeechMappingResult;
+  #431 = NameAndType        #429:#430     // tryFromWire:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;)Lai/nunti/tts/SpeechMappingResult;
+  #432 = Methodref          #425.#431     // ai/nunti/tts/SpeechContractBridge.tryFromWire:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;)Lai/nunti/tts/SpeechMappingResult;
+  #433 = Utf8               ai/nunti/tts/SpeechMappingResult$Accepted
+  #434 = Class              #433          // ai/nunti/tts/SpeechMappingResult$Accepted
+  #435 = Utf8               getSpeech
+  #436 = Utf8               ()Lai/nunti/tts/ApprovedSpeech;
+  #437 = NameAndType        #435:#436     // getSpeech:()Lai/nunti/tts/ApprovedSpeech;
+  #438 = Methodref          #434.#437     // ai/nunti/tts/SpeechMappingResult$Accepted.getSpeech:()Lai/nunti/tts/ApprovedSpeech;
+  #439 = Utf8               java/io/Serializable
+  #440 = Class              #439          // java/io/Serializable
+  #441 = Utf8               ai/nunti/tts/SpeechMappingResult$Rejected
+  #442 = Class              #441          // ai/nunti/tts/SpeechMappingResult$Rejected
+  #443 = Utf8               kotlin/Result
+  #444 = Class              #443          // kotlin/Result
+  #445 = Utf8               Lkotlin/Result$Companion;
+  #446 = NameAndType        #87:#445      // Companion:Lkotlin/Result$Companion;
+  #447 = Fieldref           #444.#446     // kotlin/Result.Companion:Lkotlin/Result$Companion;
+  #448 = Utf8               ai/nunti/tts/SpeechEvent
+  #449 = Class              #448          // ai/nunti/tts/SpeechEvent
+  #450 = Utf8               getRequestId
+  #451 = NameAndType        #450:#155     // getRequestId:()Ljava/lang/String;
+  #452 = Methodref          #442.#451     // ai/nunti/tts/SpeechMappingResult$Rejected.getRequestId:()Ljava/lang/String;
+  #453 = Utf8               getTripId
+  #454 = NameAndType        #453:#155     // getTripId:()Ljava/lang/String;
+  #455 = Methodref          #442.#454     // ai/nunti/tts/SpeechMappingResult$Rejected.getTripId:()Ljava/lang/String;
+  #456 = Utf8               ai/nunti/tts/SpeechStatus
+  #457 = Class              #456          // ai/nunti/tts/SpeechStatus
+  #458 = Utf8               REJECTED
+  #459 = Utf8               Lai/nunti/tts/SpeechStatus;
+  #460 = NameAndType        #458:#459     // REJECTED:Lai/nunti/tts/SpeechStatus;
+  #461 = Fieldref           #457.#460     // ai/nunti/tts/SpeechStatus.REJECTED:Lai/nunti/tts/SpeechStatus;
+  #462 = Utf8               getReason
+  #463 = NameAndType        #462:#155     // getReason:()Ljava/lang/String;
+  #464 = Methodref          #442.#463     // ai/nunti/tts/SpeechMappingResult$Rejected.getReason:()Ljava/lang/String;
+  #465 = Utf8               (Ljava/lang/String;Ljava/lang/String;Lai/nunti/tts/SpeechStatus;Ljava/lang/String;Lai/nunti/tts/AppliedVoiceProfile;Lai/nunti/tts/EngineMode;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #466 = NameAndType        #5:#465       // "<init>":(Ljava/lang/String;Ljava/lang/String;Lai/nunti/tts/SpeechStatus;Ljava/lang/String;Lai/nunti/tts/AppliedVoiceProfile;Lai/nunti/tts/EngineMode;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #467 = Methodref          #449.#466     // ai/nunti/tts/SpeechEvent."<init>":(Ljava/lang/String;Ljava/lang/String;Lai/nunti/tts/SpeechStatus;Ljava/lang/String;Lai/nunti/tts/AppliedVoiceProfile;Lai/nunti/tts/EngineMode;Ljava/lang/Long;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+  #468 = NameAndType        #112:#103     // invoke:(Ljava/lang/Object;)Ljava/lang/Object;
+  #469 = InterfaceMethodref #209.#468     // kotlin/jvm/functions/Function1.invoke:(Ljava/lang/Object;)Ljava/lang/Object;
+  #470 = Utf8               constructor-impl
+  #471 = NameAndType        #470:#103     // "constructor-impl":(Ljava/lang/Object;)Ljava/lang/Object;
+  #472 = Methodref          #444.#471     // kotlin/Result."constructor-impl":(Ljava/lang/Object;)Ljava/lang/Object;
+  #473 = Utf8               kotlin/ResultKt
+  #474 = Class              #473          // kotlin/ResultKt
+  #475 = Utf8               createFailure
+  #476 = Utf8               (Ljava/lang/Throwable;)Ljava/lang/Object;
+  #477 = NameAndType        #475:#476     // createFailure:(Ljava/lang/Throwable;)Ljava/lang/Object;
+  #478 = Methodref          #474.#477     // kotlin/ResultKt.createFailure:(Ljava/lang/Throwable;)Ljava/lang/Object;
+  #479 = Utf8               box-impl
+  #480 = Utf8               (Ljava/lang/Object;)Lkotlin/Result;
+  #481 = NameAndType        #479:#480     // "box-impl":(Ljava/lang/Object;)Lkotlin/Result;
+  #482 = Methodref          #444.#481     // kotlin/Result."box-impl":(Ljava/lang/Object;)Lkotlin/Result;
+  #483 = Utf8               kotlin/NoWhenBranchMatchedException
+  #484 = Class              #483          // kotlin/NoWhenBranchMatchedException
+  #485 = Methodref          #484.#26      // kotlin/NoWhenBranchMatchedException."<init>":()V
+  #486 = Utf8               $i$a$-runCatching-AndroidVoiceSession$submitWire$1$1
+  #487 = Utf8               $this$submitWire_u24lambda_u240_u240
+  #488 = Utf8               mapped
+  #489 = Utf8               Lai/nunti/tts/SpeechMappingResult;
+  #490 = Utf8               $wire
+  #491 = Utf8               $avatar
+  #492 = Utf8               $snapshot
+  #493 = Utf8               $evidence
+  #494 = Utf8               ai/nunti/tts/SpeechMappingResult
+  #495 = Class              #494          // ai/nunti/tts/SpeechMappingResult
+  #496 = Utf8               ai/nunti/tts/WireSpeechRequest
+  #497 = Class              #496          // ai/nunti/tts/WireSpeechRequest
+  #498 = Utf8               ai/nunti/tts/AvatarVoiceInput
+  #499 = Class              #498          // ai/nunti/tts/AvatarVoiceInput
+  #500 = Utf8               ai/nunti/tts/EmotionSnapshot
+  #501 = Class              #500          // ai/nunti/tts/EmotionSnapshot
+  #502 = Utf8               ai/nunti/tts/SpeechEvidence
+  #503 = Class              #502          // ai/nunti/tts/SpeechEvidence
+  #504 = NameAndType        #329:#158     // cancel:(Ljava/lang/String;)V
+  #505 = Methodref          #162.#504     // ai/nunti/tts/SpeechQueueManager.cancel:(Ljava/lang/String;)V
+  #506 = Utf8               $requestId
+  #507 = NameAndType        #337:#282     // onForeground:(Lai/nunti/tts/PlaybackContext;)V
+  #508 = Methodref          #187.#507     // ai/nunti/tts/SpeechLifecycleManager.onForeground:(Lai/nunti/tts/PlaybackContext;)V
+  #509 = NameAndType        #343:#25      // onBackground:()V
+  #510 = Methodref          #187.#509     // ai/nunti/tts/SpeechLifecycleManager.onBackground:()V
+  #511 = NameAndType        #352:#25      // onSuspend:()V
+  #512 = Methodref          #187.#511     // ai/nunti/tts/SpeechLifecycleManager.onSuspend:()V
+  #513 = NameAndType        #358:#25      // close:()V
+  #514 = Methodref          #187.#513     // ai/nunti/tts/SpeechLifecycleManager.close:()V
+  #515 = Utf8               Lkotlin/jvm/functions/Function1<Lai/nunti/tts/SpeechEvent;Lkotlin/Unit;>;
+  #516 = Utf8               Lkotlin/Metadata;
+  #517 = Utf8               mv
+  #518 = Integer            2
+  #519 = Integer            0
+  #520 = Utf8               k
+  #521 = Integer            1
+  #522 = Utf8               xi
+  #523 = Integer            48
+  #524 = Utf8               d1
+  #525 = Utf8               \u0000\u009f\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u0017\u0018\u00002\u00020\u0001BQ\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\u0010\b\u0002\u0010\u0006\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\b0\u0007\u0012\u000e\b\u0002\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u000b0\n\u0012\u0014\b\u0002\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020\u000f0\r¢\u0006\u0004\b\u0010\u0010\u0011J\u0016\u0010%\u001a\u00020\u000f2\f\u0010&\u001a\b\u0012\u0004\u0012\u00020\u000f0\u0007H\u0002J\u000e\u0010\'\u001a\u00020\u000f2\u0006\u0010(\u001a\u00020)J\u000e\u0010*\u001a\u00020\u000f2\u0006\u0010+\u001a\u00020,J\u000e\u0010-\u001a\u00020\u000f2\u0006\u0010.\u001a\u00020/J(\u00100\u001a\u00020\u000f2\u0006\u00101\u001a\u0002022\u0006\u00103\u001a\u0002042\b\u00105\u001a\u0004\u0018\u0001062\u0006\u00107\u001a\u000208J\u000e\u00109\u001a\u00020\u000f2\u0006\u0010:\u001a\u00020)J\u000e\u0010;\u001a\u00020\u000f2\u0006\u0010+\u001a\u00020,J\u0006\u0010<\u001a\u00020\u000fJ\u0006\u0010=\u001a\u00020\u000fJ\u0006\u0010>\u001a\u00020\u000fR\u001a\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020\u000f0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0012\u001a\n \u0013*\u0004\u0018\u00010\u00030\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0018R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082\u0004¢\u0006\u0002\n\u0000
+  #526 = Utf8               d2
+  #527 = Utf8
+  #528 = Utf8               Lkotlin/Function0;
+  #529 = Utf8               Lai/nunti/tts/PleosCredentials;
+  #530 = Utf8               Lai/nunti/tts/VoiceProfile;
+  #531 = Utf8               Lkotlin/Function1;
+  #532 = Utf8               kotlin.jvm.PlatformType
+  #533 = Utf8               Accepted
+  #534 = Utf8               Rejected
+  #535 = Utf8               AndroidVoiceSession.kt
+  #536 = Utf8               Lkotlin/jvm/internal/SourceDebugExtension;
+  #537 = Utf8               SMAP\nAndroidVoiceSession.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AndroidVoiceSession.kt\nai/nunti/voice/AndroidVoiceSession\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,56:1\n1#2:57\n*E\n
+  #538 = Utf8               Signature
+  #539 = Utf8               RuntimeInvisibleAnnotations
+  #540 = Utf8               Code
+  #541 = Utf8               StackMapTable
+  #542 = Utf8               LineNumberTable
+  #543 = Utf8               LocalVariableTable
+  #544 = Utf8               RuntimeInvisibleParameterAnnotations
+  #545 = Utf8               InnerClasses
+  #546 = Utf8               SourceFile
+  #547 = Utf8               SourceDebugExtension
+  #548 = Utf8               RuntimeVisibleAnnotations
+  #549 = Utf8               BootstrapMethods
+{
+  public ai.nunti.voice.AndroidVoiceSession(android.content.Context, ai.nunti.tts.EngineMode, kotlin.jvm.functions.Function0<ai.nunti.tts.PleosCredentials>, java.util.List<ai.nunti.tts.VoiceProfile>, kotlin.jvm.functions.Function1<? super ai.nunti.tts.SpeechEvent, kotlin.Unit>);
+    descriptor: (Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=14, locals=7, args_size=6
+         0: aload_1
+         1: ldc           #10                 // String context
+         3: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         6: aload_2
+         7: ldc           #18                 // String mode
+         9: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+        12: aload_3
+        13: ldc           #20                 // String credentials
+        15: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+        18: aload         4
+        20: ldc           #22                 // String profiles
+        22: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+        25: aload         5
+        27: ldc           #24                 // String onEvent
+        29: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+        32: aload_0
+        33: invokespecial #27                 // Method java/lang/Object."<init>":()V
+        36: aload_0
+        37: aload         5
+        39: putfield      #30                 // Field onEvent:Lkotlin/jvm/functions/Function1;
+        42: aload_0
+        43: aload_1
+        44: invokevirtual #36                 // Method android/content/Context.getApplicationContext:()Landroid/content/Context;
+        47: putfield      #40                 // Field appContext:Landroid/content/Context;
+        50: aload_0
+        51: new           #42                 // class android/os/Handler
+        54: dup
+        55: invokestatic  #48                 // Method android/os/Looper.getMainLooper:()Landroid/os/Looper;
+        58: invokespecial #51                 // Method android/os/Handler."<init>":(Landroid/os/Looper;)V
+        61: putfield      #55                 // Field handler:Landroid/os/Handler;
+        64: aload_0
+        65: new           #57                 // class ai/nunti/voice/AndroidVoiceSession$clock$1
+        68: dup
+        69: invokespecial #58                 // Method ai/nunti/voice/AndroidVoiceSession$clock$1."<init>":()V
+        72: putfield      #62                 // Field clock:Lai/nunti/voice/AndroidVoiceSession$clock$1;
+        75: aload_0
+        76: aload_0
+        77: invokedynamic #80,  0             // InvokeDynamic #0:after:(Lai/nunti/voice/AndroidVoiceSession;)Lai/nunti/tts/SpeechScheduler;
+        82: putfield      #84                 // Field scheduler:Lai/nunti/tts/SpeechScheduler;
+        85: aload_0
+        86: getstatic     #90                 // Field ai/nunti/voice/AndroidAudioFocusController.Companion:Lai/nunti/voice/AndroidAudioFocusController$Companion;
+        89: invokevirtual #96                 // Method ai/nunti/voice/AndroidAudioFocusController$Companion.notificationAttributes:()Landroid/media/AudioAttributes;
+        92: putfield      #100                // Field attributes:Landroid/media/AudioAttributes;
+        95: aload_0
+        96: new           #102                // class ai/nunti/tts/PleosTtsProvider
+        99: dup
+       100: aload_0
+       101: invokedynamic #115,  0            // InvokeDynamic #1:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function1;
+       106: aload_2
+       107: aload_3
+       108: invokespecial #118                // Method ai/nunti/tts/PleosTtsProvider."<init>":(Lkotlin/jvm/functions/Function1;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;)V
+       111: putfield      #122                // Field provider:Lai/nunti/tts/PleosTtsProvider;
+       114: aload_0
+       115: new           #86                 // class ai/nunti/voice/AndroidAudioFocusController
+       118: dup
+       119: aload_0
+       120: getfield      #40                 // Field appContext:Landroid/content/Context;
+       123: ldc           #124                // String audio
+       125: invokevirtual #128                // Method android/content/Context.getSystemService:(Ljava/lang/String;)Ljava/lang/Object;
+       128: dup
+       129: ldc           #130                // String null cannot be cast to non-null type android.media.AudioManager
+       131: invokestatic  #133                // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;Ljava/lang/String;)V
+       134: checkcast     #135                // class android/media/AudioManager
+       137: aload_0
+       138: getfield      #100                // Field attributes:Landroid/media/AudioAttributes;
+       141: aload_0
+       142: getfield      #55                 // Field handler:Landroid/os/Handler;
+       145: invokespecial #138                // Method ai/nunti/voice/AndroidAudioFocusController."<init>":(Landroid/media/AudioManager;Landroid/media/AudioAttributes;Landroid/os/Handler;)V
+       148: putfield      #142                // Field focus:Lai/nunti/voice/AndroidAudioFocusController;
+       151: nop
+       152: invokestatic  #145                // Method android/os/Looper.myLooper:()Landroid/os/Looper;
+       155: invokestatic  #48                 // Method android/os/Looper.getMainLooper:()Landroid/os/Looper;
+       158: invokestatic  #149                // Method kotlin/jvm/internal/Intrinsics.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z
+       161: ifne          184
+       164: iconst_0
+       165: istore        6
+       167: ldc           #151                // String Construct on the main thread
+       169: astore        6
+       171: new           #153                // class java/lang/IllegalStateException
+       174: dup
+       175: aload         6
+       177: invokevirtual #157                // Method java/lang/Object.toString:()Ljava/lang/String;
+       180: invokespecial #160                // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+       183: athrow
+       184: aload_0
+       185: new           #162                // class ai/nunti/tts/SpeechQueueManager
+       188: dup
+       189: aload_0
+       190: getfield      #122                // Field provider:Lai/nunti/tts/PleosTtsProvider;
+       193: checkcast     #164                // class ai/nunti/tts/TtsProvider
+       196: aload_0
+       197: getfield      #142                // Field focus:Lai/nunti/voice/AndroidAudioFocusController;
+       200: checkcast     #166                // class ai/nunti/tts/AudioFocusController
+       203: aload_0
+       204: getfield      #62                 // Field clock:Lai/nunti/voice/AndroidVoiceSession$clock$1;
+       207: checkcast     #168                // class ai/nunti/tts/SpeechClock
+       210: aload_0
+       211: getfield      #84                 // Field scheduler:Lai/nunti/tts/SpeechScheduler;
+       214: new           #170                // class ai/nunti/tts/SpeechRequestBuilder
+       217: dup
+       218: new           #172                // class ai/nunti/tts/VoiceProfileManager
+       221: dup
+       222: aload         4
+       224: invokespecial #175                // Method ai/nunti/tts/VoiceProfileManager."<init>":(Ljava/util/List;)V
+       227: invokespecial #178                // Method ai/nunti/tts/SpeechRequestBuilder."<init>":(Lai/nunti/tts/VoiceProfileManager;)V
+       230: aconst_null
+       231: iconst_0
+       232: iconst_0
+       233: aload_0
+       234: getfield      #30                 // Field onEvent:Lkotlin/jvm/functions/Function1;
+       237: sipush        224
+       240: aconst_null
+       241: invokespecial #181                // Method ai/nunti/tts/SpeechQueueManager."<init>":(Lai/nunti/tts/TtsProvider;Lai/nunti/tts/AudioFocusController;Lai/nunti/tts/SpeechClock;Lai/nunti/tts/SpeechScheduler;Lai/nunti/tts/SpeechRequestBuilder;Lai/nunti/tts/SpeechPlaybackPolicy;IILkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+       244: putfield      #185                // Field queue:Lai/nunti/tts/SpeechQueueManager;
+       247: aload_0
+       248: new           #187                // class ai/nunti/tts/SpeechLifecycleManager
+       251: dup
+       252: aload_0
+       253: getfield      #185                // Field queue:Lai/nunti/tts/SpeechQueueManager;
+       256: invokespecial #190                // Method ai/nunti/tts/SpeechLifecycleManager."<init>":(Lai/nunti/tts/SpeechQueueManager;)V
+       259: putfield      #194                // Field lifecycle:Lai/nunti/tts/SpeechLifecycleManager;
+       262: nop
+       263: return
+      StackMapTable: number_of_entries = 1
+        frame_type = 255 /* full_frame */
+          offset_delta = 184
+          locals = [ class ai/nunti/voice/AndroidVoiceSession, class android/content/Context, class ai/nunti/tts/EngineMode, class kotlin/jvm/functions/Function0, class java/util/List, class kotlin/jvm/functions/Function1 ]
+          stack = []
+      LineNumberTable:
+        line 11: 32
+        line 13: 36
+        line 14: 42
+        line 15: 50
+        line 16: 64
+        line 20: 75
+        line 24: 85
+        line 25: 95
+        line 26: 114
+        line 27: 137
+        line 26: 145
+        line 30: 151
+        line 31: 152
+        line 57: 164
+        line 31: 167
+        line 31: 169
+        line 32: 184
+        line 33: 214
+        line 32: 230
+        line 33: 233
+        line 32: 237
+        line 34: 247
+        line 35: 262
+        line 11: 263
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+          167       2     6 $i$a$-check-AndroidVoiceSession$3   I
+            0     264     0  this   Lai/nunti/voice/AndroidVoiceSession;
+            0     264     1 context   Landroid/content/Context;
+            0     264     2  mode   Lai/nunti/tts/EngineMode;
+            0     264     3 credentials   Lkotlin/jvm/functions/Function0;
+            0     264     4 profiles   Ljava/util/List;
+            0     264     5 onEvent   Lkotlin/jvm/functions/Function1;
+    Signature: #7                           // (Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0<Lai/nunti/tts/PleosCredentials;>;Ljava/util/List<Lai/nunti/tts/VoiceProfile;>;Lkotlin/jvm/functions/Function1<-Lai/nunti/tts/SpeechEvent;Lkotlin/Unit;>;)V
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+      parameter 1:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+      parameter 2:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+      parameter 3:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+      parameter 4:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+
+  public ai.nunti.voice.AndroidVoiceSession(android.content.Context, ai.nunti.tts.EngineMode, kotlin.jvm.functions.Function0, java.util.List, kotlin.jvm.functions.Function1, int, kotlin.jvm.internal.DefaultConstructorMarker);
+    descriptor: (Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    flags: (0x1001) ACC_PUBLIC, ACC_SYNTHETIC
+    Code:
+      stack=10, locals=8, args_size=8
+         0: iload         6
+         2: iconst_2
+         3: iand
+         4: ifeq          11
+         7: getstatic     #213                // Field ai/nunti/tts/EngineMode.ON_DEVICE:Lai/nunti/tts/EngineMode;
+        10: astore_2
+        11: iload         6
+        13: iconst_4
+        14: iand
+        15: ifeq          25
+        18: getstatic     #219                // Field ai/nunti/voice/AndroidVoiceSession$1.INSTANCE:Lai/nunti/voice/AndroidVoiceSession$1;
+        21: checkcast     #205                // class kotlin/jvm/functions/Function0
+        24: astore_3
+        25: iload         6
+        27: bipush        8
+        29: iand
+        30: ifeq          54
+        33: new           #221                // class ai/nunti/tts/VoiceProfile
+        36: dup
+        37: aconst_null
+        38: aconst_null
+        39: aconst_null
+        40: aconst_null
+        41: aconst_null
+        42: aconst_null
+        43: bipush        63
+        45: aconst_null
+        46: invokespecial #224                // Method ai/nunti/tts/VoiceProfile."<init>":(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Set;Lai/nunti/tts/EngineMode;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+        49: invokestatic  #230                // Method kotlin/collections/CollectionsKt.listOf:(Ljava/lang/Object;)Ljava/util/List;
+        52: astore        4
+        54: iload         6
+        56: bipush        16
+        58: iand
+        59: ifeq          69
+        62: invokedynamic #239,  0            // InvokeDynamic #2:invoke:()Lkotlin/jvm/functions/Function1;
+        67: astore        5
+        69: aload_0
+        70: aload_1
+        71: aload_2
+        72: aload_3
+        73: aload         4
+        75: aload         5
+        77: invokespecial #241                // Method "<init>":(Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+        80: return
+      StackMapTable: number_of_entries = 4
+        frame_type = 11 /* same */
+        frame_type = 13 /* same */
+        frame_type = 28 /* same */
+        frame_type = 14 /* same */
+      LineNumberTable:
+        line 11: 0
+        line 12: 18
+        line 11: 25
+        line 13: 33
+        line 11: 54
+        line 13: 62
+        line 11: 69
+        line 13: 80
+
+  public final void beginTrip(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_1
+         1: ldc_w         #266                // String tripId
+         4: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         7: aload_0
+         8: aload_0
+         9: aload_1
+        10: invokedynamic #277,  0            // InvokeDynamic #4:invoke:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/jvm/functions/Function0;
+        15: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        18: return
+      LineNumberTable:
+        line 39: 7
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Lai/nunti/voice/AndroidVoiceSession;
+            0      19     1 tripId   Ljava/lang/String;
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+
+  public final void updateContext(ai.nunti.tts.PlaybackContext);
+    descriptor: (Lai/nunti/tts/PlaybackContext;)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_1
+         1: ldc_w         #284                // String value
+         4: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         7: aload_0
+         8: aload_0
+         9: aload_1
+        10: invokedynamic #292,  0            // InvokeDynamic #5:invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/jvm/functions/Function0;
+        15: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        18: return
+      LineNumberTable:
+        line 40: 7
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Lai/nunti/voice/AndroidVoiceSession;
+            0      19     1 value   Lai/nunti/tts/PlaybackContext;
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+
+  public final void submit(ai.nunti.tts.ApprovedSpeech);
+    descriptor: (Lai/nunti/tts/ApprovedSpeech;)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_1
+         1: ldc_w         #297                // String speech
+         4: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         7: aload_0
+         8: aload_0
+         9: aload_1
+        10: invokedynamic #305,  0            // InvokeDynamic #6:invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/jvm/functions/Function0;
+        15: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        18: return
+      LineNumberTable:
+        line 41: 7
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Lai/nunti/voice/AndroidVoiceSession;
+            0      19     1 speech   Lai/nunti/tts/ApprovedSpeech;
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+
+  public final void submitWire(ai.nunti.tts.WireSpeechRequest, ai.nunti.tts.AvatarVoiceInput, ai.nunti.tts.EmotionSnapshot, ai.nunti.tts.SpeechEvidence);
+    descriptor: (Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=6, locals=5, args_size=5
+         0: aload_1
+         1: ldc_w         #311                // String wire
+         4: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         7: aload_2
+         8: ldc_w         #313                // String avatar
+        11: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+        14: aload         4
+        16: ldc_w         #315                // String evidence
+        19: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+        22: aload_0
+        23: aload_1
+        24: aload_2
+        25: aload_3
+        26: aload         4
+        28: aload_0
+        29: invokedynamic #323,  0            // InvokeDynamic #7:invoke:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+        34: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        37: return
+      LineNumberTable:
+        line 42: 22
+        line 49: 37
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      38     0  this   Lai/nunti/voice/AndroidVoiceSession;
+            0      38     1  wire   Lai/nunti/tts/WireSpeechRequest;
+            0      38     2 avatar   Lai/nunti/tts/AvatarVoiceInput;
+            0      38     3 snapshot   Lai/nunti/tts/EmotionSnapshot;
+            0      38     4 evidence   Lai/nunti/tts/SpeechEvidence;
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+      parameter 1:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+      parameter 2:
+        0: #309()
+          org.jetbrains.annotations.Nullable
+      parameter 3:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+
+  public final void cancel(java.lang.String);
+    descriptor: (Ljava/lang/String;)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_1
+         1: ldc_w         #331                // String requestId
+         4: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         7: aload_0
+         8: aload_0
+         9: aload_1
+        10: invokedynamic #336,  0            // InvokeDynamic #8:invoke:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/jvm/functions/Function0;
+        15: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        18: return
+      LineNumberTable:
+        line 50: 7
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Lai/nunti/voice/AndroidVoiceSession;
+            0      19     1 requestId   Ljava/lang/String;
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+
+  public final void onForeground(ai.nunti.tts.PlaybackContext);
+    descriptor: (Lai/nunti/tts/PlaybackContext;)V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=3, locals=2, args_size=2
+         0: aload_1
+         1: ldc_w         #284                // String value
+         4: invokestatic  #16                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+         7: aload_0
+         8: aload_0
+         9: aload_1
+        10: invokedynamic #342,  0            // InvokeDynamic #9:invoke:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/jvm/functions/Function0;
+        15: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        18: return
+      LineNumberTable:
+        line 51: 7
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      19     0  this   Lai/nunti/voice/AndroidVoiceSession;
+            0      19     1 value   Lai/nunti/tts/PlaybackContext;
+    RuntimeInvisibleParameterAnnotations:
+      parameter 0:
+        0: #8()
+          org.jetbrains.annotations.NotNull
+
+  public final void onBackground();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: aload_0
+         2: invokedynamic #351,  0            // InvokeDynamic #10:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+         7: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        10: return
+      LineNumberTable:
+        line 52: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Lai/nunti/voice/AndroidVoiceSession;
+
+  public final void onSuspend();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: aload_0
+         2: invokedynamic #357,  0            // InvokeDynamic #11:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+         7: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        10: return
+      LineNumberTable:
+        line 53: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Lai/nunti/voice/AndroidVoiceSession;
+
+  public final void close();
+    descriptor: ()V
+    flags: (0x0011) ACC_PUBLIC, ACC_FINAL
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: aload_0
+         2: invokedynamic #363,  0            // InvokeDynamic #12:invoke:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/jvm/functions/Function0;
+         7: invokespecial #279                // Method run:(Lkotlin/jvm/functions/Function0;)V
+        10: return
+      LineNumberTable:
+        line 54: 0
+      LocalVariableTable:
+        Start  Length  Slot  Name   Signature
+            0      11     0  this   Lai/nunti/voice/AndroidVoiceSession;
+}
+InnerClasses:
+  public static final #533= #434 of #495; // Accepted=class ai/nunti/tts/SpeechMappingResult$Accepted of class ai/nunti/tts/SpeechMappingResult
+  public static final #534= #442 of #495; // Rejected=class ai/nunti/tts/SpeechMappingResult$Rejected of class ai/nunti/tts/SpeechMappingResult
+  public static final #87= #92 of #86;    // Companion=class ai/nunti/voice/AndroidAudioFocusController$Companion of class ai/nunti/voice/AndroidAudioFocusController
+  static final #215;                      // class ai/nunti/voice/AndroidVoiceSession$1
+  public static final #57;                // class ai/nunti/voice/AndroidVoiceSession$clock$1
+SourceFile: "AndroidVoiceSession.kt"
+SourceDebugExtension:
+  SMAP
+  AndroidVoiceSession.kt
+  Kotlin
+  *S Kotlin
+  *F
+  + 1 AndroidVoiceSession.kt
+  ai/nunti/voice/AndroidVoiceSession
+  + 2 fake.kt
+  kotlin/jvm/internal/FakeKt
+  *L
+  1#1,56:1
+  1#2:57
+  *E
+RuntimeVisibleAnnotations:
+  0: #516(#517=[I#518,I#518,I#519],#520=I#521,#522=I#523,#524=[s#525],#526=[s#198,s#527,s#9,s#38,s#17,s#199,s#19,s#528,s#529,s#21,s#527,s#530,s#23,s#531,s#371,s#527,s#5,s#6,s#37,s#532,s#52,s#53,s#59,s#56,s#60,s#81,s#82,s#97,s#98,s#119,s#120,s#139,s#140,s#182,s#183,s#191,s#192,s#242,s#263,s#264,s#265,s#527,s#281,s#283,s#293,s#294,s#296,s#306,s#307,s#310,s#324,s#312,s#325,s#326,s#327,s#314,s#328,s#329,s#330,s#337,s#343,s#352,s#358])
+    kotlin.Metadata(
+      mv=[2,2,0]
+      k=1
+      xi=48
+      d1=["\u0000\u009f\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u0017\u0018\u00002\u00020\u0001BQ\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0005\u0012\u0010\b\u0002\u0010\u0006\u001a\n\u0012\u0006\u0012\u0004\u0018\u00010\b0\u0007\u0012\u000e\b\u0002\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u000b0\n\u0012\u0014\b\u0002\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020\u000f0\r¢\u0006\u0004\b\u0010\u0010\u0011J\u0016\u0010%\u001a\u00020\u000f2\f\u0010&\u001a\b\u0012\u0004\u0012\u00020\u000f0\u0007H\u0002J\u000e\u0010\'\u001a\u00020\u000f2\u0006\u0010(\u001a\u00020)J\u000e\u0010*\u001a\u00020\u000f2\u0006\u0010+\u001a\u00020,J\u000e\u0010-\u001a\u00020\u000f2\u0006\u0010.\u001a\u00020/J(\u00100\u001a\u00020\u000f2\u0006\u00101\u001a\u0002022\u0006\u00103\u001a\u0002042\b\u00105\u001a\u0004\u0018\u0001062\u0006\u00107\u001a\u000208J\u000e\u00109\u001a\u00020\u000f2\u0006\u0010:\u001a\u00020)J\u000e\u0010;\u001a\u00020\u000f2\u0006\u0010+\u001a\u00020,J\u0006\u0010<\u001a\u00020\u000fJ\u0006\u0010=\u001a\u00020\u000fJ\u0006\u0010>\u001a\u00020\u000fR\u001a\u0010\f\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020\u000f0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\u0012\u001a\n \u0013*\u0004\u0018\u00010\u00030\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0016\u001a\u00020\u0017X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0018R\u000e\u0010\u0019\u001a\u00020\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001b\u001a\u00020\u001cX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001f\u001a\u00020 X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010#\u001a\u00020$X\u0082\u0004¢\u0006\u0002\n\u0000"]
+      d2=["Lai/nunti/voice/AndroidVoiceSession;","","context","Landroid/content/Context;","mode","Lai/nunti/tts/EngineMode;","credentials","Lkotlin/Function0;","Lai/nunti/tts/PleosCredentials;","profiles","","Lai/nunti/tts/VoiceProfile;","onEvent","Lkotlin/Function1;","Lai/nunti/tts/SpeechEvent;","","<init>","(Landroid/content/Context;Lai/nunti/tts/EngineMode;Lkotlin/jvm/functions/Function0;Ljava/util/List;Lkotlin/jvm/functions/Function1;)V","appContext","kotlin.jvm.PlatformType","handler","Landroid/os/Handler;","clock","ai/nunti/voice/AndroidVoiceSession$clock$1","Lai/nunti/voice/AndroidVoiceSession$clock$1;","scheduler","Lai/nunti/tts/SpeechScheduler;","attributes","Landroid/media/AudioAttributes;","provider","Lai/nunti/tts/PleosTtsProvider;","focus","Lai/nunti/voice/AndroidAudioFocusController;","queue","Lai/nunti/tts/SpeechQueueManager;","lifecycle","Lai/nunti/tts/SpeechLifecycleManager;","run","action","beginTrip","tripId","","updateContext","value","Lai/nunti/tts/PlaybackContext;","submit","speech","Lai/nunti/tts/ApprovedSpeech;","submitWire","wire","Lai/nunti/tts/WireSpeechRequest;","avatar","Lai/nunti/tts/AvatarVoiceInput;","snapshot","Lai/nunti/tts/EmotionSnapshot;","evidence","Lai/nunti/tts/SpeechEvidence;","cancel","requestId","onForeground","onBackground","onSuspend","close"]
+    )
+RuntimeInvisibleAnnotations:
+  0: #536(#283=[s#537])
+    kotlin.jvm.internal.SourceDebugExtension(
+      value=["SMAP\nAndroidVoiceSession.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AndroidVoiceSession.kt\nai/nunti/voice/AndroidVoiceSession\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,56:1\n1#2:57\n*E\n"]
+    )
+BootstrapMethods:
+  0: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #64 (JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+      #69 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+      #64 (JLkotlin/jvm/functions/Function0;)Lai/nunti/tts/Cancellation;
+  1: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #104 (Ljava/lang/Object;)Ljava/lang/Object;
+      #109 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.provider$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+      #111 (Lai/nunti/tts/EngineMode;)Lai/nunti/tts/PleosConnection;
+  2: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #104 (Ljava/lang/Object;)Ljava/lang/Object;
+      #235 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession._init_$lambda$0:(Lai/nunti/tts/SpeechEvent;)Lkotlin/Unit;
+      #236 (Lai/nunti/tts/SpeechEvent;)Lkotlin/Unit;
+  3: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #251 ()V
+      #255 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.run$lambda$0:(Lkotlin/jvm/functions/Function0;)V
+      #251 ()V
+  4: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #272 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.beginTrip$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  5: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #289 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.updateContext$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  6: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #302 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.submit$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/ApprovedSpeech;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  7: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #320 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.submitWire$lambda$0:(Lai/nunti/tts/WireSpeechRequest;Lai/nunti/tts/AvatarVoiceInput;Lai/nunti/tts/EmotionSnapshot;Lai/nunti/tts/SpeechEvidence;Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  8: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #335 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.cancel$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/String;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  9: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #341 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.onForeground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;Lai/nunti/tts/PlaybackContext;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  10: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #348 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.onBackground$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  11: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #356 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.onSuspend$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  12: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #267 ()Ljava/lang/Object;
+      #362 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.close$lambda$0:(Lai/nunti/voice/AndroidVoiceSession;)Lkotlin/Unit;
+      #274 ()Lkotlin/Unit;
+  13: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #251 ()V
+      #376 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0$0:(Lkotlin/jvm/functions/Function0;)V
+      #251 ()V
+  14: #76 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #251 ()V
+      #386 REF_invokeStatic ai/nunti/voice/AndroidVoiceSession.scheduler$lambda$0$1:(Lai/nunti/voice/AndroidVoiceSession;Ljava/lang/Runnable;)V
+      #251 ()V

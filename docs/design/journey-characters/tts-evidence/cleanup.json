@@ -1,0 +1,40 @@
+{
+  "at": "2026-11-02T11:44:20.279829+00:00",
+  "carWasReturnedToParkedBeforeShutdown": true,
+  "appForceStopAndEmulatorShutdown": [
+    {
+      "argv": [
+        "adb",
+        "-s",
+        "emulator-5554",
+        "shell",
+        "am",
+        "force-stop",
+        "--user",
+        "10",
+        "ai.nunti.avatar.demo"
+      ],
+      "returnCode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "adb",
+        "-s",
+        "emulator-5554",
+        "emu",
+        "kill"
+      ],
+      "returnCode": 0,
+      "stdout": "OK: killing emulator, bye bye\nOK",
+      "stderr": ""
+    }
+  ],
+  "sourceApkSha256": "695d70b56b80a8b1be3f14bc681ba3012b78d361ed4c50d846f9e86d50a07668",
+  "runtimeApkSha256": "b25907f9c753d3cbf9cc4a3727032ffeb03bb1a7599ba4f737434551f9af30ca",
+  "apkContentEqualOutsideMetaInf": true,
+  "cacheAndAvdDeleted": false,
+  "adbServerShutdownExitCode": 0,
+  "temporaryConsoleTabClosed": true
+}

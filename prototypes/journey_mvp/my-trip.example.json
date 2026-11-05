@@ -1,0 +1,11 @@
+{
+  "requestId": "my-forest-weekend-request-001",
+  "journeyId": "my-forest-weekend-001",
+  "destination": {"semanticTags": ["forest"]},
+  "route": {
+    "distanceKm": 58,
+    "semanticTags": ["tree_lined", "curving"],
+    "verifiedRoadFacts": {"status": "UNKNOWN", "roadTypes": [], "source": null}
+  },
+  "purpose": "visit"
+}

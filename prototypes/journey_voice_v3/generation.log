@@ -1,0 +1,17 @@
+{"event": "loading", "model": "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-8bit", "revision": "f90d617701d9f7f4ca499291e0b57f2b3c2fd2ee"}
+[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+  Initialized encoder codebooks
+Loaded speech tokenizer from /Users/pig30nidae/NUNTI/.local/journey-voice-v3/hf/hub/models--mlx-community--Qwen3-TTS-12Hz-1.7B-VoiceDesign-8bit/snapshots/f90d617701d9f7f4ca499291e0b57f2b3c2fd2ee/speech_tokenizer
+{"event": "loaded", "seconds": 16.258965958000772}
+{"event": "generating", "clipId": "round-smile-hello", "text": "안녕하세요. 오늘의 여행도 함께할게요."}
+{"event": "generated", "clipId": "round-smile-hello", "duration": 3.92, "generationSeconds": 5.5249139170009585, "peakMemoryBytes": 5492513865}
+{"event": "generating", "clipId": "round-smile-comfort", "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게."}
+{"event": "generated", "clipId": "round-smile-comfort", "duration": 5.04, "generationSeconds": 3.188944666999305, "peakMemoryBytes": 5652473517}
+{"event": "generating", "clipId": "bright-pebble-hello", "text": "안녕하세요. 오늘의 여행도 함께할게요."}
+{"event": "generated", "clipId": "bright-pebble-hello", "duration": 3.92, "generationSeconds": 2.505204541999774, "peakMemoryBytes": 5652473517}
+{"event": "generating", "clipId": "bright-pebble-comfort", "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게."}
+{"event": "generated", "clipId": "bright-pebble-comfort", "duration": 3.68, "generationSeconds": 2.2869817499995406, "peakMemoryBytes": 5652473517}
+{"event": "generating", "clipId": "soft-moss-hello", "text": "안녕하세요. 오늘의 여행도 함께할게요."}
+{"event": "generated", "clipId": "soft-moss-hello", "duration": 3.68, "generationSeconds": 2.2980895420005254, "peakMemoryBytes": 5652473517}
+{"event": "generating", "clipId": "soft-moss-comfort", "text": "천천히 가도 괜찮아. 나는 네 옆에 있을게."}
+{"event": "generated", "clipId": "soft-moss-comfort", "duration": 4.0, "generationSeconds": 2.5420722080016276, "peakMemoryBytes": 5652473517}

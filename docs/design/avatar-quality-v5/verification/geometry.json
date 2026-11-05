@@ -1,0 +1,31 @@
+{
+  "status": "PASS_FORMATION_GEOMETRY",
+  "frames": 10010,
+  "realFixtures": 7,
+  "effectStyles": [
+    "STARDUST",
+    "PETAL_BLOOM",
+    "AURORA_RIBBON"
+  ],
+  "effectSamples": 603,
+  "checks": [
+    "real-area-growth",
+    "zero-whole-png-before-handoff",
+    "exact-final-contour",
+    "fixed-face-center",
+    "source-arc-index-correspondence",
+    "continuous-body-fit",
+    "initial-full-route",
+    "arc-length-trace",
+    "source-immutability",
+    "bounded-metadata",
+    "old-and-api-fallback",
+    "measured-local-ai-provenance",
+    "unknown-ai-face-patch-omitted",
+    "route-ink-clears-before-grown-body",
+    "bounded-celebration-particles",
+    "celebration-clear-before-rest",
+    "no-entry-flash"
+  ],
+  "sourceSha256": "32b6a793d40d86b36dbe745667f4a11ceb977d3844faa60b49daaeb5fe45d52b"
+}

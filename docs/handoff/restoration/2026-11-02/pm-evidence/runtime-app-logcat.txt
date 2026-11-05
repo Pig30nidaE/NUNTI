@@ -1,0 +1,67 @@
+--------- beginning of main
+11-02 01:17:28.387 14514 14514 I nti.avatar.demo: Late-enabling -Xcheck:jni
+11-02 01:17:28.405 14514 14514 I nti.avatar.demo: Using CollectorTypeCC GC.
+11-02 01:17:28.449 14514 14514 D CompatibilityChangeReporter: Compat change id reported: 171979766; UID 1010174; state: ENABLED
+11-02 01:17:28.449 14514 14514 D CompatibilityChangeReporter: Compat change id reported: 242716250; UID 1010174; state: ENABLED
+11-02 01:17:28.455 14514 14514 W ziparchive: Unable to open '/data/app/~~xeFlGuGAD6AAs9hbiEQ_Aw==/ai.nunti.avatar.demo-L-mDe3e0uUh-fCeM8RIzVQ==/base.dm': No such file or directory
+11-02 01:17:28.455 14514 14514 W ziparchive: Unable to open '/data/app/~~xeFlGuGAD6AAs9hbiEQ_Aw==/ai.nunti.avatar.demo-L-mDe3e0uUh-fCeM8RIzVQ==/base.dm': No such file or directory
+11-02 01:17:28.536 14514 14514 D nativeloader: Configuring clns-6 for other apk /data/app/~~xeFlGuGAD6AAs9hbiEQ_Aw==/ai.nunti.avatar.demo-L-mDe3e0uUh-fCeM8RIzVQ==/base.apk. target_sdk_version=35, uses_libraries=, library_path=/data/app/~~xeFlGuGAD6AAs9hbiEQ_Aw==/ai.nunti.avatar.demo-L-mDe3e0uUh-fCeM8RIzVQ==/lib/arm64:/data/app/~~xeFlGuGAD6AAs9hbiEQ_Aw==/ai.nunti.avatar.demo-L-mDe3e0uUh-fCeM8RIzVQ==/base.apk!/lib/arm64-v8a, permitted_path=/data:/mnt/expand:/data/user/10/ai.nunti.avatar.demo
+11-02 01:17:28.564 14514 14514 V GraphicsEnvironment: Currently set values for:
+11-02 01:17:28.564 14514 14514 V GraphicsEnvironment:   angle_gl_driver_selection_pkgs=[]
+11-02 01:17:28.564 14514 14514 V GraphicsEnvironment:   angle_gl_driver_selection_values=[]
+11-02 01:17:28.564 14514 14514 V GraphicsEnvironment: ANGLE GameManagerService for ai.nunti.avatar.demo: false
+11-02 01:17:28.564 14514 14514 V GraphicsEnvironment: ai.nunti.avatar.demo is not listed in per-application setting
+11-02 01:17:28.564 14514 14514 V GraphicsEnvironment: Neither updatable production driver nor prerelease driver is supported.
+11-02 01:17:28.585 14514 14568 D libEGL  : loaded /vendor/lib64/egl/libEGL_emulation.so
+11-02 01:17:28.586 14514 14568 D libEGL  : loaded /vendor/lib64/egl/libGLESv1_CM_emulation.so
+11-02 01:17:28.586 14514 14568 D libEGL  : loaded /vendor/lib64/egl/libGLESv2_emulation.so
+11-02 01:17:28.625 14514 14514 I NuntiRuntime: {"kind":"PROBE_CREATED","at":"2026-11-02T09:17:28.625629Z","hardware":"ranchu","fingerprint":"Pleos\/crp_avd_arm64\/crp_avd_arm64:14\/RELEASE.release_connect_v2.1.0\/release_connect_v2.1.0:user\/test-keys","source":"DEBUG_EMULATOR_ONLY","inputs":"MOCK_ROUTE_AND_EMOTION"}
+11-02 01:17:28.630 14514 14514 I NuntiRuntime: {"kind":"CAR_CONNECTION","at":"2026-11-02T09:17:28.629991Z","ready":true}
+11-02 01:17:28.630 14514 14514 D CarUxRManager: Context returns associated display ID 0
+11-02 01:17:28.635 14514 14514 I NuntiRuntime: {"kind":"PLATFORM","at":"2026-11-02T09:17:28.635411Z","gear":4,"speed":0,"parked":true,"uxKnown":true,"requiresDO":false,"avatarVisible":false,"reason":"PLATFORM_BLOCKED","audioContext":"OPERATOR_CONTROLLED_TEST"}
+11-02 01:17:28.658 14514 14514 I [GAAS][SDK]TextToSpeech: [main]initialize - ON_DEVICE with listener
+11-02 01:17:28.658 14514 14514 I [GAAS][SDK]TtsServiceManager: [main]createTts ON_DEVICE
+11-02 01:17:28.661 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]connectService with listener
+11-02 01:17:28.663 14514 14514 I NuntiRuntime: {"kind":"PLATFORM","at":"2026-11-02T09:17:28.662824Z","gear":4,"speed":0,"parked":true,"uxKnown":true,"requiresDO":false,"avatarVisible":true,"reason":"PARKED_STATIC_MVP","audioContext":"OPERATOR_CONTROLLED_TEST"}
+11-02 01:17:28.665 14514 14514 D CompatibilityChangeReporter: Compat change id reported: 237531167; UID 1010174; state: DISABLED
+11-02 01:17:28.668 14514 14514 W OpenGLRenderer: Unknown dataspace 0
+11-02 01:17:28.787 14514 14566 W OpenGLRenderer: Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+11-02 01:17:28.787 14514 14566 W OpenGLRenderer: Failed to initialize 101010-2 format, error = EGL_SUCCESS
+11-02 01:17:28.797 14514 14566 I Gralloc4: mapper 4.x is not supported
+11-02 01:17:28.803 14514 14566 E OpenGLRenderer: Unable to match the desired swap behavior.
+11-02 01:17:28.871 14514 14514 D CompatibilityChangeReporter: Compat change id reported: 247079863; UID 1010174; state: ENABLED
+11-02 01:17:28.872 14514 14514 I NuntiRuntime: {"kind":"SPEECH","at":"2026-11-02T09:17:28.872359Z","requestId":"probe-086591f3-b14f-4067-8eb0-1c9e78f348d8","status":"QUEUED","reason":null,"mode":"ON_DEVICE","startLatencyMs":null}
+11-02 01:17:28.883 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]onServiceConnected
+11-02 01:17:28.883 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]registerCallback
+11-02 01:17:28.897 14514 14514 D VRI[RuntimeProbeActivity]: Cancelling draw. cancelDueToPreDrawListener=false cancelDueToSync=true
+11-02 01:17:28.904 14514 14514 I [GAAS][SDK]TextToSpeech: [main]setAudioAttributes AudioAttributes: usage=USAGE_NOTIFICATION content=CONTENT_TYPE_SPEECH flags=0x800 tags= bundle=null
+11-02 01:17:28.904 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]setAudioAttributes AudioAttributes: usage=USAGE_NOTIFICATION content=CONTENT_TYPE_SPEECH flags=0x800 tags= bundle=null
+11-02 01:17:28.904 14514 14514 I [GAAS][SDK]TextToSpeech: [main]addEventListener
+11-02 01:17:28.904 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]addEventListener
+11-02 01:17:28.904 14514 14514 I [GAAS][SDK]TextToSpeech: [main]updateLocale ko_KR
+11-02 01:17:28.904 14514 14586 D [GAAS][SDK]OnDeviceStreamTts: [DefaultDispatcher-worker-2]setLocale ko_KR ai.nunti.avatar.demo
+11-02 01:17:28.909 14514 14514 I [GAAS][SDK]TextToSpeech: [main]updateLocale ko_KR
+11-02 01:17:28.912 14514 14586 D [GAAS][SDK]OnDeviceStreamTts: [DefaultDispatcher-worker-2]setLocale ko_KR ai.nunti.avatar.demo
+11-02 01:17:28.912 14514 14586 D [GAAS][SDK]OnDeviceStreamTts: [DefaultDispatcher-worker-2]doSpeak(ai.nunti.avatar.demo) text=안녕하세요. 눈티예요. 오늘의 여행도 함께할게요., isFinal=true
+11-02 01:17:28.915 14514 14542 D [GAAS][SDK]TtsCallback: [binder:14514_3]onResponse UpdateTtsReady 
+11-02 01:17:28.915 14514 14542 D [GAAS][SDK]TtsCallback: [binder:14514_3]onReady
+11-02 01:17:28.915 14514 14542 D [GAAS][SDK]TtsCallback: [binder:14514_3]onReady
+11-02 01:17:28.917 14514 14542 D [GAAS][SDK]TtsCallback: [binder:14514_3]onResponse UpdateTtsStart 
+11-02 01:17:28.917 14514 14542 D [GAAS][SDK]TtsCallback: [binder:14514_3]onStart
+11-02 01:17:28.918 14514 14542 D [GAAS][SDK]TtsCallback: [binder:14514_3]onStart
+11-02 01:17:28.929 14514 14514 I NuntiRuntime: {"kind":"SPEECH","at":"2026-11-02T09:17:28.929259Z","requestId":"probe-086591f3-b14f-4067-8eb0-1c9e78f348d8","status":"STARTED","reason":null,"mode":"ON_DEVICE","startLatencyMs":57}
+11-02 01:17:31.702 14514 14514 I [GAAS][SDK]TextToSpeech: [main]stop
+11-02 01:17:31.702 14514 14586 D [GAAS][SDK]OnDeviceStreamTts: [DefaultDispatcher-worker-2]stop
+11-02 01:17:31.703 14514 14514 I [GAAS][SDK]TextToSpeech: [main]removeEventListener
+11-02 01:17:31.703 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]removeEventListener
+11-02 01:17:31.703 14514 14514 I [GAAS][SDK]TextToSpeech: [main]release
+11-02 01:17:31.703 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]disconnectService
+11-02 01:17:31.703 14514 14514 D [GAAS][SDK]OnDeviceStreamTts: [main]unregisterCallback
+11-02 01:17:31.709 14514 14514 I NuntiRuntime: {"kind":"SPEECH","at":"2026-11-02T09:17:31.708980Z","requestId":"probe-086591f3-b14f-4067-8eb0-1c9e78f348d8","status":"CANCELLED","reason":"SPEECH_NOT_ALLOWED","mode":"ON_DEVICE","startLatencyMs":null}
+11-02 01:17:31.710 14514 14514 I NuntiRuntime: {"kind":"PLATFORM","at":"2026-11-02T09:17:31.709889Z","gear":8,"speed":0,"parked":false,"uxKnown":true,"requiresDO":true,"avatarVisible":false,"reason":"PLATFORM_BLOCKED","audioContext":"UNKNOWN"}
+11-02 01:17:31.734 14514 14566 D EGL_emulation: app_time_stats: avg=961.99ms min=28.88ms max=2786.70ms count=3
+11-02 01:17:32.905 14514 14514 I NuntiRuntime: {"kind":"PLATFORM","at":"2026-11-02T09:17:32.905283Z","gear":8,"speed":0,"parked":false,"uxKnown":true,"requiresDO":true,"avatarVisible":false,"reason":"PLATFORM_BLOCKED","audioContext":"OPERATOR_CONTROLLED_TEST"}
+11-02 01:17:34.655 14514 15725 D ProfileInstaller: Installing profile for ai.nunti.avatar.demo
+11-02 01:17:50.188 14514 14514 I NuntiRuntime: {"kind":"PLATFORM","at":"2026-11-02T09:17:50.187916Z","gear":4,"speed":0,"parked":true,"uxKnown":true,"requiresDO":false,"avatarVisible":true,"reason":"PARKED_STATIC_MVP","audioContext":"UNKNOWN"}
+11-02 01:17:50.213 14514 14566 D EGL_emulation: app_time_stats: avg=18478.56ms min=18478.56ms max=18478.56ms count=1
+11-02 01:17:52.038 14514 14514 I NuntiRuntime: {"kind":"PLATFORM","at":"2026-11-02T09:17:52.037847Z","gear":4,"speed":0,"parked":true,"uxKnown":true,"requiresDO":false,"avatarVisible":true,"reason":"PARKED_STATIC_MVP","audioContext":"OPERATOR_CONTROLLED_TEST"}

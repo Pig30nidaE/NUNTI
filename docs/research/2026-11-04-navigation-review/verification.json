@@ -1,0 +1,7 @@
+{
+  "status": "PASS_LOCAL_RESEARCH_EVIDENCE",
+  "localLinksChecked": 8,
+  "findingsSha256": "7d4be5e2ecad04ac673bcc833086b6c9cf80ad65faa87e1f138922acec89816b",
+  "inspectionToolSha256": "09ac98ed84f74a4e2701401ad6945041e2be0abe3355309e844c8aeb18f62678",
+  "scope": "Local artifact links and hashes only; no SDK live callback or application integration."
+}

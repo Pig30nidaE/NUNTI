@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NUNTI · Anna와 새 여행 대사 듣기</title>
+<style>
+:root{color-scheme:light;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;color:#243935;background:#f4f3ed;line-height:1.65}body{margin:0}main{max-width:920px;margin:auto;padding:34px 22px 48px}h1{font-size:clamp(27px,5vw,39px);line-height:1.3;margin:12px 0 20px}h2{font-size:23px;line-height:1.4}h3{font-size:18px}p{margin:12px 0}section{padding:24px;border:1px solid #dfe6df;border-radius:24px;background:#fff;margin:24px 0}.eyebrow{font-size:14px;color:#526c61}.note{background:#e6eee5;border-radius:16px;padding:18px 20px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}audio{display:block;width:100%;margin:14px 0}small{color:#586a62}a{color:#17624f;text-underline-offset:3px}.script{font-size:19px;line-height:1.8;border-left:3px solid #b5cbbd;padding-left:18px}.state{display:inline-block;padding:5px 12px;border-radius:20px;background:#e6eee5;font-size:14px}footer{font-size:14px;color:#586a62}@media(max-width:680px){.pair{grid-template-columns:1fr}section{padding:20px}}
+</style>
+</head>
+<body>
+<main>
+<p class="eyebrow">NUNTI · 두 번째 음성 비교 · 2026-11-02</p>
+<h1>Anna로 새 여행 대사를 들어보세요</h1>
+<p class="state">사용자 선호 · Anna</p>
+<p>사용자는 같은 여행 대사 비교에서도 "Anna가 여전히 가장 가까움"이라고 선택했습니다. Anna를 선호 음성으로 유지합니다. 계정 없는 캐릭터별 자동 생성은 <a href="../journey_voice_dynamic/demo/listen.html">Sohee 생성 결과</a>와 <a href="../journey_voice_dynamic/README.md">실행 가이드</a>에서 시험할 수 있습니다.</p>
+<div class="note">
+<p>계정 없이 공식 데모에서 받은 파일을 재생합니다. Anna의 정확한 API 모델과 설정은 미확인입니다. 사용자가 계정 연결을 보류해, 이 페이지에서는 새 문장을 입력해 자동 합성할 수 없습니다.</p>
+<p>이전 Qwen Base의 후속 두 문장은 사용자 청취에서 탈락했습니다. 앞선 A 선호는 상대 비교 기록으로 남깁니다.</p>
+<p>모두 원음입니다. 음정·속도·음량 후처리는 하지 않았습니다. 원음 음량이 서로 다르므로 재생 전 볼륨을 편안하게 맞춰 비교하세요.</p>
+</div>
+<section aria-labelledby="anna-journey">
+<h2 id="anna-journey">Anna · 새 여행 대사</h2>
+<p class="script">오늘은 바다 보러 가는 날이네. 같이 예쁜 기억을 모아보자.<br>천천히 가도 괜찮아. 나는 네 옆에 있을게.<br>와, 도착했다! 오늘 만난 풍경은 내가 간직할게.</p>
+<audio controls preload="none" src="commercial/elevenlabs-anna-journey.mp3">브라우저에서 MP3 재생을 지원하지 않습니다.</audio>
+<p>출발·동행·도착 대사를 이어 읽은 약 12.75초 원음입니다. 실제 주행이나 차량 입력을 연결한 결과는 아닙니다.</p>
+<details><summary>생성 기록</summary><p><a href="commercial/elevenlabs-anna-journey.json">원문과 원본 파일 기록</a> · <a href="evidence/anna-journey-demo.png">공식 데모 생성 화면</a></p></details>
+</section>
+<section aria-labelledby="sohee-journey">
+<h2 id="sohee-journey">같은 여행 대사 · 로컬 Sohee</h2>
+<p>위 Anna와 정확히 같은 원문을 읽었습니다. 계정 없이 이 컴퓨터에서 새 문장을 합성한 후보입니다. 음량·속도는 원음 그대로입니다.</p>
+<div class="pair">
+<div><h3>기본 연기</h3><audio controls preload="none" src="../qwen_sohee_audition/journey/samples/normal-journey.wav">브라우저에서 WAV 재생을 지원하지 않습니다.</audio><p><small>약 19.76초 · 별도 연기 지시 없음</small></p></div>
+<div><h3>가벼운 미소</h3><audio controls preload="none" src="../qwen_sohee_audition/journey/samples/small-smile-journey.wav">브라우저에서 WAV 재생을 지원하지 않습니다.</audio><p><small>약 16.88초 · 미소 연기 지시</small></p></div>
+</div>
+<p>Anna의 음원을 참조하거나 학습에 사용하지 않았습니다. 같은 원문 비교에서 사용자는 Anna를 계속 선호했습니다. 현재 Sohee는 계정 없이 생성 흐름을 시험하는 엔진이며 최종 선호 음성으로 선택된 상태는 아닙니다.</p>
+<details><summary>생성·검사 기록</summary><p><a href="../qwen_sohee_audition/journey/README.md">실행과 보존 결과</a> · <a href="../qwen_sohee_audition/journey/verification.json">파일·전사 검사</a></p><p>자동 전사에서는 두 파일 모두 '네'를 '내'로 기록했습니다. 마지막 구절은 전사됐고 반복·누락 후보는 없었습니다. 실제 발음은 청취로 확인해야 합니다.</p></details>
+</section>
+<section aria-labelledby="shared-text">
+<h2 id="shared-text">같은 원문</h2>
+<p class="script">안녕하세요. 오늘의 여행도 함께할게요.<br>와, 도착했다! 여기서 어떤 기억을 만나게 될까?</p>
+<p>상용 두 파일은 위 두 문장을 이어서 읽었습니다. Sohee는 인사와 도착 대사를 각각 별도로 합성했습니다. 문장 연결과 앞뒤 맥락 조건이 다르므로 완전히 같은 합성 조건의 실험은 아닙니다.</p>
+</section>
+<section aria-labelledby="commercial">
+<h2 id="commercial">ElevenLabs · 공식 데모에서 받은 원음</h2>
+<p>등록·API 키 없이 공식 한국어 데모에서 생성한 뒤, 제공된 다운로드 버튼으로 저장했습니다. 공개 UI에는 정확한 모델 ID가 나오지 않았습니다. 이 파일을 v4나 v3 결과로 단정하지 않습니다.</p>
+<div class="pair">
+<div>
+<h3>Anna Kim · 사용자 선호</h3>
+<p><small>공개 이름 · Tender, Calm and Clear</small></p>
+<audio controls preload="none" src="commercial/elevenlabs-anna-common-arrival.mp3">브라우저에서 MP3 재생을 지원하지 않습니다.</audio>
+<p><small>인사와 도착 대사 이어 읽기 · 약 7.47초</small></p>
+<p><a href="commercial/elevenlabs-anna-common-arrival.json">원문·다운로드 기록</a></p>
+</div>
+<div>
+<h3>Stella</h3>
+<p><small>공개 이름 · Steady, Clear and Cheerful</small></p>
+<audio controls preload="none" src="commercial/elevenlabs-stella-common-arrival.mp3">브라우저에서 MP3 재생을 지원하지 않습니다.</audio>
+<p><small>인사와 도착 대사 이어 읽기 · 약 7.47초</small></p>
+<p><a href="commercial/elevenlabs-stella-common-arrival.json">원문·다운로드 기록</a> · <a href="commercial/stella-public-voice-id.json">공개 UI 화자 값</a></p>
+</div>
+</div>
+<p><small>파일을 받을 수 있다는 사실은 NUNTI 제품의 상업 이용 승인을 뜻하지 않습니다. 두 원음의 길이와 파일 크기는 같지만, 해시와 디코딩한 파형은 서로 다릅니다.</small></p>
+</section>
+<section aria-labelledby="sohee">
+<h2 id="sohee">한국어 프리셋 Sohee · 가벼운 미소</h2>
+<p>새 음색 설계나 참조 음성 복제 없이 한국어 프리셋을 사용했습니다. 연기 지시는 작은 미소를 담은 자연스러운 한국어 대화입니다. 이는 모델에 보낸 지시이며, 결과의 자연스러움을 보장하는 설명은 아닙니다.</p>
+<div class="pair">
+<div>
+<h3>인사</h3>
+<p>안녕하세요. 오늘의 여행도 함께할게요.</p>
+<audio controls preload="none" src="../qwen_sohee_audition/samples/small-smile-hello.wav">브라우저에서 WAV 재생을 지원하지 않습니다.</audio>
+<p><small>독립 합성 · 3.44초</small></p>
+</div>
+<div>
+<h3>도착</h3>
+<p>와, 도착했다! 여기서 어떤 기억을 만나게 될까?</p>
+<audio controls preload="none" src="../qwen_sohee_audition/samples/small-smile-arrival.wav">브라우저에서 WAV 재생을 지원하지 않습니다.</audio>
+<p><small>독립 합성 · 4.80초</small></p>
+</div>
+</div>
+<p><a href="../qwen_sohee_audition/listen.html">기본 Sohee와 미소 연기를 나란히 듣기</a> · <a href="../qwen_sohee_audition/README.md">실행 보고</a></p>
+</section>
+<section aria-labelledby="typecast">
+<h2 id="typecast">Typecast · 공식 페이지에서 미리듣기</h2>
+<p>한국어 홈의 주하 목소리에 원하는 문장을 넣어 재생하는 공개 데모도 확인했습니다. 저장은 로그인 제한을 존중해 파일을 추출하지 않았습니다.</p>
+<p><a href="https://typecast.ai/kr/">Typecast 한국어 공식 미리듣기</a></p>
+</section>
+<footer>
+<p>이 페이지는 로컬 파일만 재생하며 자동 재생·외부 스크립트·서버·업로드를 사용하지 않습니다. 외부 미리듣기 링크는 직접 눌렀을 때 열립니다.</p>
+<p>자동 전사가 원문과 일치해도 자연스러움·귀여움·발음·문장 간 음색 일치가 검증되는 것은 아닙니다.</p>
+<p><a href="commercial/README.md">상용 원음 확보와 비교 조건</a> · <a href="../../docs/design/journey-characters/tts-research-commercial.md">상용 TTS 조사</a> · <a href="listen.html">이전 비교 기록</a></p>
+</footer>
+</main>
+</body>
+</html>

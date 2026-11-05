@@ -1,0 +1,121 @@
+{
+  "checkedAt": "2026-11-02T18:15:47.199099+09:00",
+  "operations": "Read PM snapshots, write copies and comparison into SERVER evidence. No ADB, browser, or HTTP requests.",
+  "ok": true,
+  "snapshots": {
+    "vehicle-state-before-browser.json": {
+      "source": "/Users/pig30nidae/NUNTI/docs/handoff/restoration/2026-11-02/pm-evidence/vehicle-state-before-browser.json",
+      "copy": "console-vehicle-state-before-browser.json",
+      "sha256": "081076d6a7fad48c4352749f54c5e1e3b510cd9463d6fdad82803774817d6f26",
+      "browser": {
+        "active": false,
+        "clients": 0,
+        "timeout_ms": 3000
+      },
+      "gear": {
+        "bridge_ready": false,
+        "input_mode": "http-g29",
+        "actual_topic": "SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR",
+        "supported_gears": [
+          "Park",
+          "Reverse",
+          "Neutral",
+          "Drive"
+        ],
+        "actual": null
+      },
+      "controls": {
+        "source": "default",
+        "timestamp_ms": 0,
+        "emulator_active": false,
+        "input_active": false,
+        "dds_ready": {
+          "speed": false,
+          "accelerator": false,
+          "brake": false,
+          "brake_pressed": false,
+          "steering": false,
+          "all": false
+        }
+      },
+      "availability": {
+        "available": false,
+        "attempted": false,
+        "strict_success": false,
+        "effective_success": false,
+        "source": "not-run",
+        "timestamp_ms": 0,
+        "commands": 0,
+        "results": 0,
+        "successful_results": 0,
+        "failed_results": 0,
+        "failed_commands": 0,
+        "command_prefix": "dds-only",
+        "first_failure": "",
+        "transport": "dds",
+        "direct_vhal_write": false
+      }
+    },
+    "vehicle-state-browser-open.json": {
+      "source": "/Users/pig30nidae/NUNTI/docs/handoff/restoration/2026-11-02/pm-evidence/vehicle-state-browser-open.json",
+      "copy": "console-vehicle-state-browser-open.json",
+      "sha256": "e8fdf106e99d33edda05242dc9663f1043ce7749d45047e72758fa7cc0452156",
+      "browser": {
+        "active": true,
+        "clients": 1,
+        "timeout_ms": 3000
+      },
+      "gear": {
+        "bridge_ready": true,
+        "input_mode": "http-g29",
+        "actual_topic": "SDV_MOTION_GEAR_BASE_GEARBASE_ACTUAL_GEAR",
+        "supported_gears": [
+          "Park",
+          "Reverse",
+          "Neutral",
+          "Drive"
+        ],
+        "actual": {
+          "value": "Park",
+          "source": "activation",
+          "timestamp_ms": 1793610863279,
+          "source_timestamp": 0,
+          "source_location": ""
+        }
+      },
+      "controls": {
+        "source": "activation",
+        "timestamp_ms": 1793610863281,
+        "emulator_active": true,
+        "input_active": false,
+        "dds_ready": {
+          "speed": true,
+          "accelerator": true,
+          "brake": true,
+          "brake_pressed": true,
+          "steering": true,
+          "all": true
+        }
+      },
+      "availability": {
+        "available": true,
+        "attempted": true,
+        "strict_success": true,
+        "effective_success": true,
+        "source": "web-activation",
+        "timestamp_ms": 1793610863283,
+        "commands": 0,
+        "results": 0,
+        "successful_results": 0,
+        "failed_results": 0,
+        "failed_commands": 0,
+        "command_prefix": "dds-only",
+        "first_failure": "",
+        "transport": "dds",
+        "direct_vhal_write": false
+      }
+    }
+  },
+  "confirmed": "In the restored environment the official browser session activation coincides with emulator active, DDS ready, gear bridge ready, Park actual state and availability web-activation success.",
+  "limits": "No gear change, speed, Car API observation, UX restriction or app response is validated by this comparison."
+}

@@ -1,0 +1,43 @@
+{
+  "status": "PASS_AVATAR_GENERATOR_UI",
+  "surface": "ACTUAL_CHROME",
+  "screenshotsCaptured": true,
+  "videoRecorded": false,
+  "speakerRecorded": false,
+  "providerApiCalls": 0,
+  "checks": [
+    "three-navigation-inputs-not-character-presets",
+    "confirmation-required-before-generation",
+    "typed-input-reaches-generation",
+    "actual-new-rgba-local-render",
+    "motifs-have-input-evidence",
+    "no-automatic-speech",
+    "retry-preserves-identity-and-image",
+    "same-destination-new-journey-new-appearance",
+    "screenshot-extracted-and-requires-confirmation",
+    "screenshot-source-and-selected-line-persisted",
+    "saved-companion-selectable-after-reload",
+    "cold-reload-preserves-appearance-and-voice-recipe",
+    "no-javascript-runtime-exceptions"
+  ],
+  "artifacts": [
+    {
+      "characterId": "nunti-02a81cf1-4f72-4e2a-878f-1d0c5cd33d50",
+      "imageSha256": "c792f51f0e4d5f633e4e53b4d619eccba9ae7e262625e8fc4335a8a77f2a6489",
+      "inputOrigin": "TEST_ROUTE",
+      "mediaOrigin": "LOCAL_RENDER"
+    },
+    {
+      "characterId": "nunti-ae7a4f55-b503-4b0a-b600-23a44e01b6ea",
+      "imageSha256": "6679861ee11dd729a41b90d39b94bef9ba9373715baca284005519f5476bba26",
+      "inputOrigin": "TEST_ROUTE",
+      "mediaOrigin": "LOCAL_RENDER"
+    },
+    {
+      "characterId": "nunti-28c1f611-a79c-4f64-8221-0826b4963efb",
+      "imageSha256": "6be5a62a14f51b9ee2846bd2dbcdd3a1f10db8da3e7382fc8fc4dba141d1d6e0",
+      "inputOrigin": "NAVIGATION_SCREENSHOT",
+      "mediaOrigin": "LOCAL_RENDER"
+    }
+  ]
+}

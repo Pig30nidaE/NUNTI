@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "nunti-v6-ai-subset-1",
+  "expectedCases": 30,
+  "baseManifest": "cases.json",
+  "selectionReason": "서울역·수원역·을왕리 각 3목적 대조를 포함. 20목적지, 10시험역할 각 3건, 12몸형을 균형 있게 고른 실제 AI 검증 하위집합.",
+  "notCoveredRoles": [
+    "STUDY",
+    "FOOD",
+    "EXPLORE"
+  ],
+  "caseIds": [
+    "01-business",
+    "01-swim",
+    "01-date",
+    "02-business",
+    "02-swim",
+    "02-date",
+    "03-business",
+    "03-swim",
+    "03-rest",
+    "04-hiking",
+    "04-art",
+    "05-date",
+    "06-cafe",
+    "07-night",
+    "08-play",
+    "09-art",
+    "10-art",
+    "10-rest",
+    "11-hiking",
+    "12-night",
+    "13-cafe",
+    "14-cafe",
+    "15-hiking",
+    "15-rest",
+    "16-play",
+    "17-play",
+    "17-celebrate",
+    "18-night",
+    "19-celebrate",
+    "20-celebrate"
+  ],
+  "coverage": {
+    "destinations": 20,
+    "purposeRoles": {
+      "ART": 3,
+      "BUSINESS": 3,
+      "CAFE": 3,
+      "CELEBRATE": 3,
+      "DATE": 3,
+      "HIKING": 3,
+      "NIGHT": 3,
+      "PLAY": 3,
+      "REST": 3,
+      "SWIM": 3
+    },
+    "bodyFamilies": {
+      "BEAR": 3,
+      "BIRD": 2,
+      "BUNNY": 2,
+      "CAT": 2,
+      "DEER": 2,
+      "FOX": 3,
+      "MOUSE": 3,
+      "OTTER": 3,
+      "PANDA": 3,
+      "PENGUIN": 2,
+      "PUP": 2,
+      "SEAL": 3
+    }
+  }
+}

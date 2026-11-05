@@ -1,0 +1,4 @@
+{"kind":"PROBE_CREATED","at":"2026-11-02T09:14:46.058686Z","hardware":"ranchu","fingerprint":"Pleos\/crp_avd_arm64\/crp_avd_arm64:14\/RELEASE.release_connect_v2.1.0\/release_connect_v2.1.0:user\/test-keys","source":"DEBUG_EMULATOR_ONLY","inputs":"MOCK_ROUTE_AND_EMOTION"}
+{"kind":"CAR_CONNECTION","at":"2026-11-02T09:14:46.068756Z","ready":true}
+{"kind":"PLATFORM","at":"2026-11-02T09:14:46.078689Z","gear":4,"speed":0,"parked":true,"uxKnown":true,"requiresDO":false,"avatarVisible":false,"reason":"PLATFORM_BLOCKED","audioContext":"OPERATOR_CONTROLLED_TEST"}
+{"kind":"PLATFORM","at":"2026-11-02T09:14:46.188971Z","gear":4,"speed":0,"parked":true,"uxKnown":true,"requiresDO":false,"avatarVisible":true,"reason":"PARKED_STATIC_MVP","audioContext":"OPERATOR_CONTROLLED_TEST"}

@@ -1,0 +1,17 @@
+{
+  "719eff397d34398a86838aa6d250fdea89a87d0bc3d7ef320338ba6d420f0fed": {
+    "audioSha256": "674a6d1cdd96028643f705a00b89a91220e2e91883c1c1cf976710f1e465ddc6",
+    "bindingId": "dvb-5513aeec1fdca10edcd66e6cc1f54a18",
+    "textSha256": "7745678aca1b128c67ed3d90d610ab78a4ca9550bf13aa3608eba60f8cdacb8f"
+  },
+  "a3a2ecf529525de35210fd12f343f3a927b2c84383c32f49d23a0196af6e9199": {
+    "audioSha256": "16fe4d88961176ff2f152ecbd5f239f8270c3dee9ddbd907f6bb2274bf62df56",
+    "bindingId": "dvb-5513aeec1fdca10edcd66e6cc1f54a18",
+    "textSha256": "701e7e1a5bbb6b8b3fda97c0baae271f0229791eabcf1cb6adb093fa1bf6f9fa"
+  },
+  "fd6aea6f1eaefe7f2be7b80f635478af52b2245229861f641b66baaee603e3dc": {
+    "audioSha256": "14508c4b8b2d78fec0cf7263a15327795938901a9aae665f6df7b6414ccd9f60",
+    "bindingId": "dvb-5513aeec1fdca10edcd66e6cc1f54a18",
+    "textSha256": "d0dab321dba784bd277b9293851e1ad5c47043be3f0932f74ffb54be2ec70b91"
+  }
+}

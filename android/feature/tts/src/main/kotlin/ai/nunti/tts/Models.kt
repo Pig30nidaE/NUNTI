@@ -5,7 +5,7 @@ enum class Emotion { NEUTRAL, RELAXED, CONCERNED, STARTLED, RELIEVED, JOYFUL }
 enum class TripPhase { PRE_TRIP, DRIVING, STOPPED, POST_TRIP }
 enum class Priority { LOW, NORMAL, HIGH }
 enum class ContentSource { PRE_DRIVE_GREETING, VERIFIED_EVENT_RESPONSE, USER_INITIATED, POST_DRIVE_REPORT }
-enum class EngineMode { ON_DEVICE, HYBRID, SERVER }
+enum class EngineMode { ON_DEVICE, HYBRID, SERVER, LOCAL_FILE }
 enum class Control { LOCALE, SPEAKER, RATE, PITCH, EMOTION }
 data class AvatarVoiceInput(val avatarId: String, val baseCharacterId: String,
     val voiceProfileId: String? = null, val persona: String? = null, val voiceStyleHint: String? = null)
@@ -30,7 +30,8 @@ data class PreparedSpeech(val request: SpeechRequest, val voice: AppliedVoicePro
 enum class SpeechStatus { QUEUED, STARTED, COMPLETED, CANCELLED, REJECTED, FAILED }
 data class SpeechEvent(val requestId: String, val tripId: String, val status: SpeechStatus,
     val reason: String? = null, val appliedVoice: AppliedVoiceProfile? = null,
-    val mode: EngineMode? = null, val startLatencyMs: Long? = null)
+    val mode: EngineMode? = null, val startLatencyMs: Long? = null, val providerId: String? = null)
+data class SpeechSource(val mode: EngineMode, val providerId: String)
 interface SpeechClock { fun epochMs(): Long; fun monotonicMs(): Long }
 fun interface Cancellation { fun cancel() }
 /** Callbacks must run on the same serial executor as the queue. */

@@ -1,0 +1,22 @@
+{
+  "requestId": "mvp-request-05-forest-visit",
+  "journeyId": "mvp-journey-05-forest-visit",
+  "destination": {
+    "semanticTags": [
+      "forest"
+    ]
+  },
+  "route": {
+    "distanceKm": 42,
+    "semanticTags": [
+      "tree_lined",
+      "mixed"
+    ],
+    "verifiedRoadFacts": {
+      "status": "UNKNOWN",
+      "roadTypes": [],
+      "source": null
+    }
+  },
+  "purpose": "visit"
+}

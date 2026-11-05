@@ -1,0 +1,35 @@
+{
+  "status": "PASS_KEYLESS_V2_BACKEND",
+  "at": "2026-11-02T18:10:59.819558+00:00",
+  "pytest": {
+    "tests": 132,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "newV2Tests": 41,
+  "externalProviderRequests": 0,
+  "paidRequests": 0,
+  "actualModelsExecuted": 0,
+  "liveProviderContractVerified": false,
+  "fixtureNativeRgbaOriginalAndThreeOriginalWavsPlusFourthOriginalFollowup": true,
+  "asrOrHumanQualityApproved": false,
+  "rawProviderAndUsagePersistenceImplemented": true,
+  "actualApiCostWhenUnknown": null,
+  "costReservationsAreActualBilling": false,
+  "billingReconciliationCliVerifiedOffline": true,
+  "googleMaintenanceEnqueueAndSameVoiceTtlUpdateVerifiedWithTransportDouble": true,
+  "liveGoogleTtlRenewalVerified": false,
+  "automationRegistered": false,
+  "sources": {
+    "nunti/characters/__init__.py": "3eb4d4ddaf5173ffb7f839531fe85cc8c907a0f1360c9ee73f68c0ef6e5f58ce",
+    "nunti/characters/api.py": "3c2be21e0ad9aa633f41b3b969814f4d4b3fb3f6fcdfc1bb4dfce44240edf7b7",
+    "nunti/characters/maintenance.py": "289fe7fc1db264dcb248bb11acd9c1af7ff718e332bac96686b48cf4281640c7",
+    "nunti/characters/media.py": "66f86905fbc83b6c1f22e0c2362f1562c8e1fa625114f8b2a1272e44b8c42f8c",
+    "nunti/characters/models.py": "c7780fdd18c92b7395612821f08d3490cf5134e53c20c8b840f1f1536628d99b",
+    "nunti/characters/providers.py": "06e13088246968264da2179324e4b834d41866f7c8404375384e66232ad9857f",
+    "nunti/characters/reconcile.py": "e12e59f07ce7bbb71174271aaa2e44415e7412c04c0c8f0714e819c01c9414fb",
+    "nunti/characters/store.py": "d30b66398362dc916e5a98e59aada47e279790047e3beaa651223d85d710d03f",
+    "nunti/characters/worker.py": "8ada6250aec4605f44a0e1232be0465bbd3b84205415febbbaeb56a24e08a102"
+  }
+}
