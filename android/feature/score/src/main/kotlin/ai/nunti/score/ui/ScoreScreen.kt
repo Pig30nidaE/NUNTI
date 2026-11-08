@@ -39,6 +39,8 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.ui.platform.LocalContext
 import ai.nunti.score.live.PleosSignalSource
+import ai.nunti.score.live.PleosSpeechSink
+import ai.nunti.score.EventSpeaker
 import ai.nunti.score.VehicleSample
 import ai.nunti.score.AreaResult
 import ai.nunti.score.Emotion
@@ -67,6 +69,8 @@ fun ScoreScreen() {
     val engine = remember { ScoreEngine() }
     val context = LocalContext.current
     var live by remember { mutableStateOf(false) }
+    var lastLine by remember { mutableStateOf<String?>(null) }
+    var lastResult by remember { mutableStateOf<String?>(null) }
     var scenarioIdx by remember { mutableIntStateOf(0) }
     var cursor by remember { mutableIntStateOf(0) }
     var playing by remember { mutableStateOf(true) }
@@ -105,6 +109,16 @@ fun ScoreScreen() {
     }
     val emotion = engine.emotion(report, finished)
 
+    var voiceOn by remember { mutableStateOf(true) }
+    val sink = remember { PleosSpeechSink(context, drivingAllowed = true) { lastResult = it } }
+    val speaker = remember { EventSpeaker(sink) }
+    DisposableEffect(Unit) { onDispose { sink.close() } }
+    LaunchedEffect(live, scenarioIdx) { speaker.reset() }
+    LaunchedEffect(report) {
+        val line = speaker.onUpdate(report, emotion, android.os.SystemClock.elapsedRealtime().takeIf { voiceOn } ?: return@LaunchedEffect)
+        if (line != null) lastLine = line
+    }
+
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Row(Modifier.fillMaxSize().padding(16.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             Column(Modifier.width(260.dp).fillMaxHeight(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -112,7 +126,9 @@ fun ScoreScreen() {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     FilterChip(selected = !live, onClick = { live = false }, label = { Text("시연") })
                     FilterChip(selected = live, onClick = { live = true }, label = { Text("실시간") })
+                    FilterChip(selected = voiceOn, onClick = { voiceOn = !voiceOn }, label = { Text("음성") })
                 }
+                lastLine?.let { Text("눈티: $it  [${lastResult ?: "대기"}]", fontSize = 12.sp) }
                 if (live) {
                     Text("실시간 수신 현황 (1초 간격)", color = Muted, fontSize = 12.sp)
                     received.forEach { (k, v) -> Text("$k: $v", fontSize = 12.sp, color = if (v == "미수신") Warn else Good) }
