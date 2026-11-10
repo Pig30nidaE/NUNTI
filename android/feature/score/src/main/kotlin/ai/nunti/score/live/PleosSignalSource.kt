@@ -41,6 +41,9 @@ class PleosSignalSource(private val context: Context) {
     @Volatile private var turn: TurnSignal? = null
     @Volatile private var lowBeam: Boolean? = null
     @Volatile private var steeringDeg: Float? = null
+    // 앞차 거리(mm): Vehicle 서비스 직접 구독으로 받는다 (RawSpeedProbe). 표준 CarPropertyManager 경로는 앱에 막혀 있다.
+    @Volatile private var leadDistanceMm: Int? = null
+    @Volatile private var leadReceivedAtMs = 0L
     private val belts = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
     private val occupied = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
     private val doorOpen = java.util.concurrent.ConcurrentHashMap<DoorValue, Boolean>()
@@ -51,7 +54,9 @@ class PleosSignalSource(private val context: Context) {
     private var vehicleRegistered = false
     private var speedRegistered = false
     private var startedAtMs = 0L
-    private val rawSpeed = RawSpeedProbe(context) { speedKmh = it }
+    private val rawSpeed = RawSpeedProbe(context, onLeadDistanceMm = {
+        leadDistanceMm = it; leadReceivedAtMs = System.currentTimeMillis()
+    }) { speedKmh = it }
     private val navi = NaviSignalSource(context) { System.currentTimeMillis() - startedAtMs }
 
     private val speedCallback = object : CarPropertyManager.CarPropertyEventCallback {
@@ -174,9 +179,17 @@ class PleosSignalSource(private val context: Context) {
             doorOpen = if (doors.isEmpty()) null else doors.any { it },
             headlightOn = lowBeam,
             speedLimitKmh = navi.speedLimitKmh,
+            leadDistanceM = leadDistanceM(),
             steeringDeg = steeringDeg,
             // 어두움 감지는 보류 상태이므로 null → 야간 전조등은 평가 불가
         )
+    }
+
+    /** 앞차 거리(m). 최근 3초 안에 받은 양수 값만 쓴다 (앞차가 없으면 값이 오지 않거나 0이다). */
+    private fun leadDistanceM(): Float? {
+        val mm = leadDistanceMm ?: return null
+        if (mm <= 0 || System.currentTimeMillis() - leadReceivedAtMs > LEAD_STALE_MS) return null
+        return mm / 1000f
     }
 
     /** 화면 확인용: 항목별 수신 여부. */
@@ -187,6 +200,8 @@ class PleosSignalSource(private val context: Context) {
         SignalReading("브레이크", brake?.let { if (it) "밟음" else "뗌" }),
         SignalReading("지시등", turn?.name),
         SignalReading("핸들 각도", steeringDeg?.let { "%.0f°".format(it) }),
+        SignalReading("앞차 거리", leadDistanceM()?.let { "%.1f m".format(it) }),
+        SignalReading("앞차 거리 구독", "${rawSpeed.leadStatus.text}${rawSpeed.lastLeadRaw?.let { " ($it)" } ?: ""}"),
         SignalReading("하향등", lowBeam?.let { if (it) "ON" else "OFF" }),
         SignalReading("벨트 운전석/동승석", "${belts[SeatValue.ROW_1_LEFT] ?: "-"} / ${belts[SeatValue.ROW_1_RIGHT] ?: "-"}"),
         SignalReading("내비", navi.status.text),
@@ -205,7 +220,7 @@ class PleosSignalSource(private val context: Context) {
         runCatching { car?.disconnect() }
         runCatching { vehicle?.release() }
         vehicle = null; car = null; carProps = null
-        vehicleRegistered = false; speedRegistered = false
+        vehicleRegistered = false; speedRegistered = false; leadDistanceMm = null
     }
 
     private fun VehicleGear.toGear() = when (this) {
@@ -220,5 +235,9 @@ class PleosSignalSource(private val context: Context) {
         TurnSignalValue.LEFT -> TurnSignal.LEFT
         TurnSignalValue.RIGHT -> TurnSignal.RIGHT
         else -> TurnSignal.NONE
+    }
+
+    private companion object {
+        const val LEAD_STALE_MS = 3_000L
     }
 }

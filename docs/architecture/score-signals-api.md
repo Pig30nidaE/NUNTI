@@ -44,7 +44,8 @@
 | 다음 회전 | `NaviHelper` `onTBTInfo` | ✅ 값 수신 (`LEFT 80m`) | 회전 이벤트 생성 |
 | 회전 이벤트 | `onTBTInfo`의 회전 지점이 60 m 이내로 지나가면 `DrivingEvent(TURN, 방향)` | ⚠️ 차가 움직이지 않아 미검증 | 회전 전 감속 |
 | 도로 제한속도 | `NaviHelper` `onCurrentRoadSpeedLimit` | ⚠️ 콜백 미수신 (위치 고정 때문으로 추정) | 제한속도 준수 |
-| 앞차 거리 | 없음 | ❌ 에뮬레이터 ADAS에 항목 없음 | 앞차 거리 → 평가 불가 처리 |
+| 핸들 각도 | `vehicle.getSteeringWheel()` → `registerSteeringWheelAngle` (도, 콘솔 부호는 반대) | ✅ 에뮬레이터 확인 | 커브 속도 조절 |
+| 앞차 거리 | 🔧 Vehicle 서비스 직접 구독 `ADAPTIVE_CRUISE_CONTROL_LEAD_VEHICLE_MEASURED_DISTANCE` (INT32, mm) | ✅ 값 수신 (에뮬레이터 기본 100000 = 100 m). ⚠️ 실차에서는 크루즈가 앞차를 잴 때만 값이 올 것으로 추정(미확인) | 앞차 거리 |
 | 차선 변경 | 없음 | ❌ | 차선 변경 지시등 → 평가 불가 처리 |
 | 연비·전비 | 미연결 | ❌ | 효율적 운전 영역 → 평가 불가 |
 
@@ -54,14 +55,17 @@
   - 바인드: `ComponentName("ai.pleos.playground.service.vehicle", "ai.pleos.playground.service.vehicle.VehicleService")`, action `ai.pleos.playground.vehicle.VEHICLE_START`
   - 구독 콜백은 다른 속성 이벤트도 같이 받으므로 `prop == "PERF_VEHICLE_SPEED"`만 거른다.
   - **공모전 기획서에 비공식 경로 사용을 명시해야 한다** (SDK 사용이 심사 항목).
-- AAOS `CarPropertyManager`는 앱에 속성 목록을 비워 줘서 `PERF_VEHICLE_SPEED` 등록이 실패한다 (코드는 남아 있으나 실제 값은 직접 구독으로 받음).
+- AAOS `CarPropertyManager`는 앱에 속성 목록을 비워 줘서 `PERF_VEHICLE_SPEED`·앞차 거리 등록이 모두 실패한다 (표준 속성은 시스템 서명 권한이 필요하고 앱에는 부여되지 않음). 같은 이름의 속성을 Vehicle 서비스 직접 구독으로는 받을 수 있다.
+- Pleos 플랫폼에는 `ai.pleos.playground.service.adas` 서비스와 `ADAS_TRACKED_OBJECT`·`ADAS_DRIVING_WARN` 권한이 있으나 공개 문서·SDK는 없다. 쓰려면 Pleos 확인이 필요하다.
+- 에뮬레이터의 외부 카메라(`ai.umos.car.evs`, AAOS EVS)는 전방·후방·좌·우 화면 **미리보기만** 하는 시스템 앱이다. 녹화 기능은 없고, 앱이 카메라 프레임을 받으려면 시스템 서명 권한(`USE_CAR_EVS_CAMERA`)이 필요해 일반 앱은 쓸 수 없다.
 - FusedLocation 1.1.3에는 속도 필드가 없다 (속도 용도로 쓰지 않음).
 
 ## 5. 에뮬레이터에서 값을 만들 수 있는 방법
 
 - 가상 콘솔: `adb forward tcp:8088 tcp:8088` 후 http://127.0.0.1:8088
   - Motion: 기어, 브레이크, 주행거리, 조향각. 액셀은 `button.pedal`을 누르고 있는 동안 가속.
-  - ADAS: 크루즈 상태·목표 속도만 있음.
+  - ADAS: 크루즈 상태·목표 속도만 있음. **앞차 거리 카드는 없어서 값을 바꿀 수 없다** (차량 속성에는 있으며 기본값만 나온다).
+  - 속도·브레이크·조향각은 `PUT /vehicle/controls?speed_kph=..&brake_pct=..&steering_deg=..` (정수만). 값을 한 번 넣으면 콘솔이 관성으로 줄이므로 유지하려면 계속 다시 넣는다. 콘솔은 웹 화면의 세션(`POST /browser/session`)이 끊기면 `web-deactivation`으로 꺼져 503을 준다. 웹 화면을 열어 둔 채로는 화면이 자체 감속을 보내 값이 섞인다.
 - `adb emu geo fix <lon> <lat>`: Pleos FusedLocation만 바뀌고 내비 엔진 위치는 고정이다.
 - 내비 경로 모의 주행은 찾지 못했다. 회전·제한속도는 실주행 또는 대회 측 문의가 필요하다.
 
