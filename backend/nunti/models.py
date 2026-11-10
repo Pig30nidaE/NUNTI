@@ -227,6 +227,8 @@ class TelemetrySample(WireModel):
     leadDistanceM: Annotated[float, Field(ge=0, le=1000, allow_inf_nan=False)] | None = None
     speedLimitKmh: Annotated[int, Field(ge=0, le=300)] | None = None
     roadType: Literal["HIGHWAY", "GENERAL"] = "GENERAL"
+    # Steering wheel angle in degrees (+ right / - left); input to the app's curve-speed score.
+    steeringDeg: Annotated[float, Field(ge=-1080, le=1080, allow_inf_nan=False)] | None = None
     # Optional in requests: the server fills it from the batch so demo (MOCK) data stays
     # distinguishable from real vehicle data after storage.
     source: Source | None = None

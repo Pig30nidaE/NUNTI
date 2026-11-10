@@ -257,6 +257,20 @@
           "title": "Roadtype",
           "type": "string"
         },
+        "steeringDeg": {
+          "anyOf": [
+            {
+              "maximum": 1080,
+              "minimum": -1080,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Steeringdeg"
+        },
         "source": {
           "anyOf": [
             {
