@@ -102,7 +102,7 @@ class ScoreEngineTest {
     @Test
     fun reverseItemExplainsWhyItIsEmpty() {
         val noGear = engine.evaluate((0..30).map { VehicleSample(it * 1000L, speedKmh = 40f) }, emptyList())
-        assertEquals(Basis(BasisKind.NO_GEAR_SIGNAL), item(noGear, Item.REVERSE_SPEED).basis)
+        assertEquals(Basis(BasisKind.NOT_CONNECTED), item(noGear, Item.REVERSE_SPEED).basis)
         assertTrue(noGear.gears.isEmpty())
 
         val forwardOnly = engine.evaluate(gearSamples(0..30, { Gear.D }, { 40f }), emptyList())
@@ -238,6 +238,27 @@ class ScoreEngineTest {
     fun zeroLeadDistanceMeansNoTargetNotTailgating() {
         val none = drive { VehicleSample(it * 1000L, speedKmh = 50f, leadDistanceM = 0f) }
         assertNull(item(none, Item.LEAD_GAP).score)
+    }
+
+    @Test
+    fun notConnectedAndNotApplicableAreDifferentReasons() {
+        val kind = { r: ScoreReport, i: Item -> item(r, i).basis.kind }
+        // 낮 주행: 밤 신호·전조등은 받았지만 밤이 아니다 → 해당 상황 없음. 전비는 한 번도 안 왔다 → 미연동
+        val day = drive { VehicleSample(it * 1000L, speedKmh = 50f, isNight = false, headlightOn = false, steeringDeg = 0f) }
+        assertEquals(BasisKind.NOT_APPLICABLE, kind(day, Item.HEADLIGHT))
+        assertEquals(BasisKind.NOT_APPLICABLE, kind(day, Item.CURVE_SPEED)) // 핸들 신호는 있는데 커브가 없었다
+        assertEquals(BasisKind.NOT_CONNECTED, kind(day, Item.EFFICIENCY))
+        assertEquals(BasisKind.NOT_CONNECTED, kind(day, Item.LANE_SIGNAL))
+        assertTrue(Item.EFFICIENCY in day.notConnected && Item.HEADLIGHT !in day.notConnected)
+
+        // 내비가 연결돼 있으면 회전이 없던 것은 해당 상황 없음, 연결이 없으면 미연동
+        val naviOn = drive { VehicleSample(it * 1000L, speedKmh = 50f, naviConnected = true) }
+        assertEquals(BasisKind.NOT_APPLICABLE, kind(naviOn, Item.TURN_DECEL))
+        assertEquals(BasisKind.NOT_CONNECTED, kind(day, Item.TURN_DECEL))
+
+        // 정차만 했다: 벨트 신호는 있지만 주행이 없어 평가할 상황이 아니다
+        val parked = drive { VehicleSample(it * 1000L, speedKmh = 0f, driverSeat = SeatState(true, true)) }
+        assertEquals(BasisKind.NOT_APPLICABLE, kind(parked, Item.SEATBELT))
     }
 
     @Test

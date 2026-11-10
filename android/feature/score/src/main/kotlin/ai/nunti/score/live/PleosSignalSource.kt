@@ -19,8 +19,6 @@ import ai.pleos.playground.vehicle.listener.GearSelectionListener
 import ai.pleos.playground.vehicle.listener.SteeringWheelAngleListener
 import ai.pleos.playground.vehicle.listener.LightStateListener
 import ai.pleos.playground.vehicle.listener.EvBatteryEfficiencyListener
-import ai.pleos.playground.vehicle.listener.TelltaleInfoListener
-import ai.pleos.playground.vehicle.api.model.telltale.Telltales
 import ai.pleos.playground.vehicle.constant.telltale.TelltaleState
 import ai.pleos.playground.vehicle.constant.telltale.TelltaleType
 import ai.pleos.playground.vehicle.listener.SeatBeltBuckledStateListener
@@ -59,7 +57,10 @@ class PleosSignalSource(private val context: Context) {
     private var vehicle: Vehicle? = null
     private var car: Car? = null
     private var carProps: CarPropertyManager? = null
-    private var vehicleRegistered = false
+    /** 신호 묶음별로 따로 등록한다. 한 묶음이 실패(권한·미지원)해도 나머지는 등록되고, 실패한 묶음만 다시 시도한다. */
+    private enum class Group { BRAKE, GEAR, STEERING, TURN_SIGNAL, LIGHT, ENERGY, TELLTALES, SEATS, DOORS }
+    private val registered = java.util.concurrent.ConcurrentHashMap.newKeySet<Group>()
+    private val failed = java.util.concurrent.ConcurrentHashMap<Group, String>()
     private var speedRegistered = false
     private var startedAtMs = 0L
     private val rawSpeed = RawSpeedProbe(context, onLeadDistanceMm = {
@@ -89,8 +90,16 @@ class PleosSignalSource(private val context: Context) {
 
     /** 서비스 연결이 늦을 수 있어 snapshot 때마다 미등록 항목을 다시 시도한다. */
     private fun retryRegistrations() {
-        if (!vehicleRegistered) vehicleRegistered = runCatching { registerVehicle() }
-            .onFailure { Log.w(tag, "Vehicle register failed: ${it.message}") }.isSuccess
+        val v = vehicle
+        if (v != null) for (g in Group.entries) {
+            if (g in registered) continue
+            runCatching { register(v, g) }
+                .onSuccess { registered += g; failed.remove(g) }
+                .onFailure { e ->
+                    val why = e.message ?: e.javaClass.simpleName
+                    if (failed.put(g, why) != why) Log.w(tag, "Vehicle register failed: $g: $why") // 같은 실패는 한 번만 남긴다
+                }
+        }
         if (!speedRegistered) speedRegistered = runCatching { registerSpeed() }
             .onFailure { Log.w(tag, "Speed register failed: ${it.message}") }.isSuccess
     }
@@ -105,94 +114,97 @@ class PleosSignalSource(private val context: Context) {
         check(ok) { "no speed property" }
     }
 
-    private fun registerVehicle() {
-        val v = vehicle ?: error("no vehicle")
+    private fun register(v: Vehicle, group: Group) {
         val noop = { _: Exception -> }
-
-        v.getBrake().apply {
-            getCurrentBrakePedalStatus({ brake = it }, noop)
-            registerBrakePedalStatus(object : BrakePedalStatusListener {
-                override fun onBrakePedalStatusUpdated(p0: Boolean?) { brake = p0 }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getGear().apply {
-            getCurrentGearSelectionState({ gear = it?.toGear() }, noop)
-            registerGearSelection(object : GearSelectionListener {
-                override fun onSelected(p0: VehicleGear?) { gear = p0?.toGear() }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getSteeringWheel().apply {
-            getCurrentSteeringWheelAngle({ steeringDeg = it }, noop)
-            registerSteeringWheelAngle(object : SteeringWheelAngleListener {
-                override fun onSteeringWheelAngleUpdated(p0: Float?) { steeringDeg = p0 }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getTurnSignal().apply {
-            getCurrentTurnSignalState({ turn = it?.toTurn() }, noop)
-            registerTurnSignalState(object : TurnSignalStateListener {
-                override fun onTurnSignalStateUpdated(p0: TurnSignalValue?) { turn = p0?.toTurn() }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getLight().apply {
-            getCurrentLowBeamLightState({ lowBeam = it?.let { v -> v == LightState.ON } }, noop)
-            registerLowBeamLightState(object : LightStateListener {
-                override fun onLightStateUpdated(p0: LightState?) { lowBeam = p0?.let { it == LightState.ON } }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getEvBattery().apply {
-            val efficiency = object : EvBatteryEfficiencyListener {
-                override fun onEvBatteryEfficiencyUpdated(p0: Float?) { p0?.let { evEfficiency = it } }
-                override fun onFailed(p0: Exception) = Unit
-            }
-            registerCurrentEvEfficiency(efficiency) // 이번 주행 평균 전비
-        }
-        v.getSafety().apply {
-            // 목록에 OVER_SPEED 가 없으면 이 차가 그 경고등을 지원하지 않는 것으로 보고 null(평가 불가)로 둔다.
-            // false 로 두면 경고등이 없는 차(에뮬레이터 포함)에서 제한속도가 늘 100점이 된다.
-            val onTelltales: (Telltales?) -> Unit = { t ->
-                t?.telltales?.firstOrNull { it.type == TelltaleType.OVER_SPEED }
-                    ?.let { overSpeed = it.state != TelltaleState.OFF }
-            }
-            getTelltalesInfo(onTelltales, noop)
-            registerTelltales(object : TelltaleInfoListener {
-                override fun onTelltaleInfoUpdated(p0: Telltales?) = onTelltales(p0)
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getSeat().apply {
-            for (s in seatAreas) {
-                val area = SeatArea(s)
-                getCurrentSeatBeltBuckledState(area, { it?.let { v -> belts[s] = v } }, noop)
-                registerSeatBeltBuckledState(area, object : SeatBeltBuckledStateListener {
-                    override fun onSeatBeltBuckledStateUpdated(p0: Boolean?) { p0?.let { belts[s] = it } }
-                    override fun onFailed(p0: Exception) = Unit
-                })
-                getCurrentSeatOccupancy(area, { it?.let { v -> occupied[s] = v } }, noop)
-                registerSeatOccupancy(area, object : SeatOccupancyListener {
-                    override fun onSeatOccupancyUpdated(p0: Boolean?) { p0?.let { occupied[s] = it } }
+        when (group) {
+            Group.BRAKE -> v.getBrake().apply {
+                getCurrentBrakePedalStatus({ brake = it }, noop)
+                registerBrakePedalStatus(object : BrakePedalStatusListener {
+                    override fun onBrakePedalStatusUpdated(p0: Boolean?) { brake = p0 }
                     override fun onFailed(p0: Exception) = Unit
                 })
             }
-        }
-        v.getDoor().apply {
-            for (d in doorAreas) {
-                val area = DoorArea(d)
-                getCurrentDoorPosition(area, { it?.let { v -> doorOpen[d] = v > 0 } }, noop) // 0 = 닫힘 (에뮬레이터로 확인 필요)
-                registerDoorPosition(area, object : DoorPositionListener {
-                    override fun onPositionUpdated(p0: Int?) { p0?.let { doorOpen[d] = it > 0 } }
+            Group.GEAR -> v.getGear().apply {
+                getCurrentGearSelectionState({ gear = it?.toGear() }, noop)
+                registerGearSelection(object : GearSelectionListener {
+                    override fun onSelected(p0: VehicleGear?) { gear = p0?.toGear() }
                     override fun onFailed(p0: Exception) = Unit
                 })
+            }
+            Group.STEERING -> v.getSteeringWheel().apply {
+                getCurrentSteeringWheelAngle({ steeringDeg = it }, noop)
+                registerSteeringWheelAngle(object : SteeringWheelAngleListener {
+                    override fun onSteeringWheelAngleUpdated(p0: Float?) { steeringDeg = p0 }
+                    override fun onFailed(p0: Exception) = Unit
+                })
+            }
+            Group.TURN_SIGNAL -> v.getTurnSignal().apply {
+                getCurrentTurnSignalState({ turn = it?.toTurn() }, noop)
+                registerTurnSignalState(object : TurnSignalStateListener {
+                    override fun onTurnSignalStateUpdated(p0: TurnSignalValue?) { turn = p0?.toTurn() }
+                    override fun onFailed(p0: Exception) = Unit
+                })
+            }
+            Group.LIGHT -> v.getLight().apply {
+                getCurrentLowBeamLightState({ lowBeam = it?.let { v -> v == LightState.ON } }, noop)
+                registerLowBeamLightState(object : LightStateListener {
+                    override fun onLightStateUpdated(p0: LightState?) { lowBeam = p0?.let { it == LightState.ON } }
+                    override fun onFailed(p0: Exception) = Unit
+                })
+            }
+            Group.ENERGY -> v.getEvBattery().apply {
+                val efficiency = object : EvBatteryEfficiencyListener {
+                    override fun onEvBatteryEfficiencyUpdated(p0: Float?) { p0?.let { evEfficiency = it } }
+                    override fun onFailed(p0: Exception) = Unit
+                }
+                registerCurrentEvEfficiency(efficiency) // 이번 주행 평균 전비
+            }
+            // 경고등 구독(registerTelltales)은 PRIVATE_CAR_SAFETY(signature|privileged)라 일반 앱은 못 쓴다.
+            // 한 번 읽기(getTelltalesInfo)는 CAR_SAFETY(normal)이므로 snapshot 때 주기적으로 읽는다.
+            Group.TELLTALES -> pollTelltales(v, force = true)
+            Group.SEATS -> v.getSeat().apply {
+                for (s in seatAreas) {
+                    val area = SeatArea(s)
+                    getCurrentSeatBeltBuckledState(area, { it?.let { v -> belts[s] = v } }, noop)
+                    registerSeatBeltBuckledState(area, object : SeatBeltBuckledStateListener {
+                        override fun onSeatBeltBuckledStateUpdated(p0: Boolean?) { p0?.let { belts[s] = it } }
+                        override fun onFailed(p0: Exception) = Unit
+                    })
+                    getCurrentSeatOccupancy(area, { it?.let { v -> occupied[s] = v } }, noop)
+                    registerSeatOccupancy(area, object : SeatOccupancyListener {
+                        override fun onSeatOccupancyUpdated(p0: Boolean?) { p0?.let { occupied[s] = it } }
+                        override fun onFailed(p0: Exception) = Unit
+                    })
+                }
+            }
+            Group.DOORS -> v.getDoor().apply {
+                for (d in doorAreas) {
+                    val area = DoorArea(d)
+                    getCurrentDoorPosition(area, { it?.let { v -> doorOpen[d] = v > 0 } }, noop) // 0 = 닫힘 (에뮬레이터로 확인 필요)
+                    registerDoorPosition(area, object : DoorPositionListener {
+                        override fun onPositionUpdated(p0: Int?) { p0?.let { doorOpen[d] = it > 0 } }
+                        override fun onFailed(p0: Exception) = Unit
+                    })
+                }
             }
         }
     }
 
+    @Volatile private var telltalesReadAtMs = 0L
+
+    /** OVER_SPEED 가 목록에 없으면 이 차가 그 경고등을 지원하지 않는 것으로 보고 null(평가 불가)로 둔다. */
+    private fun pollTelltales(v: Vehicle, force: Boolean = false) {
+        val now = System.currentTimeMillis()
+        if (!force && now - telltalesReadAtMs < TELLTALE_POLL_MS) return
+        telltalesReadAtMs = now
+        v.getSafety().getTelltalesInfo({ t ->
+            t.telltales.firstOrNull { it.type == TelltaleType.OVER_SPEED }?.let { overSpeed = it.state != TelltaleState.OFF }
+        }, { _ -> })
+    }
+
     fun snapshot(): VehicleSample {
         retryRegistrations()
+        vehicle?.takeIf { Group.TELLTALES in registered }?.let { v -> runCatching { pollTelltales(v) } }
         fun seat(s: SeatValue) =
             if (occupied[s] == null && belts[s] == null) null else SeatState(occupied[s], belts[s])
         val doors = doorOpen.values
@@ -209,6 +221,7 @@ class PleosSignalSource(private val context: Context) {
             speedLimitKmh = navi.speedLimitKmh,
             leadDistanceM = leadDistanceM(),
             steeringDeg = steeringDeg,
+            naviConnected = if (navi.status.state == LinkState.CONNECTED) true else null,
             overSpeedWarning = overSpeed,
             isNight = night,
             evEfficiencyKmPerKwh = evEfficiency,
@@ -242,6 +255,7 @@ class PleosSignalSource(private val context: Context) {
         SignalReading("제한속도", navi.speedLimitKmh?.let { "$it km/h" }),
         SignalReading("탑승 운전석/동승석", "${occupied[SeatValue.ROW_1_LEFT] ?: "-"} / ${occupied[SeatValue.ROW_1_RIGHT] ?: "-"}"),
         SignalReading("문 열림", if (doorOpen.isEmpty()) null else doorOpen.values.any { it }.toString()),
+        SignalReading("등록 실패", failed.keys.sorted().joinToString().ifEmpty { "없음" }),
     )
 
     fun events() = navi.events.toList()
@@ -253,7 +267,7 @@ class PleosSignalSource(private val context: Context) {
         runCatching { car?.disconnect() }
         runCatching { vehicle?.release() }
         vehicle = null; car = null; carProps = null
-        vehicleRegistered = false; speedRegistered = false; leadDistanceMm = null
+        registered.clear(); failed.clear(); speedRegistered = false; leadDistanceMm = null
     }
 
     private fun VehicleGear.toGear() = when (this) {
@@ -272,5 +286,6 @@ class PleosSignalSource(private val context: Context) {
 
     private companion object {
         const val LEAD_STALE_MS = 3_000L
+        const val TELLTALE_POLL_MS = 2_000L
     }
 }

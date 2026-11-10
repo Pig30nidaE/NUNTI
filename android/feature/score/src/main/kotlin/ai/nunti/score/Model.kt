@@ -26,6 +26,8 @@ data class VehicleSample(
     /** 내비가 알려 주는 현재 도로 제한속도 (km/h). null = 정보 없음 → 평가하지 않는다. */
     val speedLimitKmh: Int? = null,
     val roadType: RoadType = RoadType.GENERAL,
+    /** 내비 연결 여부. null = 내비 미연결 → 회전 이벤트가 없어도 "기회 없음"이 아니라 미연동으로 본다. */
+    val naviConnected: Boolean? = null,
     /** 핸들 각도(도, +오른쪽/-왼쪽). 커브 판정에 쓴다. null = 미수신 → 커브 평가 안 함. */
     val steeringDeg: Float? = null,
     /** 계기판 과속 경고등(OVER_SPEED). 내비 제한속도가 없을 때 대신 쓴다. */
@@ -121,20 +123,33 @@ data class DetectedEvent(val tMs: Long, val kind: Kind) {
     val label: String get() = kind.label
 }
 
+/**
+ * 평가하지 못한 이유를 둘로 나눈다. 둘을 섞으면 "되는 척"하는 항목과 진짜 해당 상황이 없던 항목을 구별할 수 없다.
+ * - [NOT_CONNECTED]: 이 항목에 필요한 신호를 한 번도 받지 못했다 (기능 미연동·미지원).
+ * - [NOT_APPLICABLE]: 신호는 받았지만 평가할 상황이 없었다 (낮이라 전조등, 커브 없음, 정차만 함 등).
+ */
+enum class Availability { EVALUATED, NOT_CONNECTED, NOT_APPLICABLE, TOO_FEW }
+
 /** 항목 점수의 근거. 종류는 enum, 화면 글귀는 [text] 이고 [amount] 는 초/횟수다. */
-enum class BasisKind {
-    NO_SIGNAL, TOO_FEW, VALID_SECONDS, OPPORTUNITIES, NO_GEAR_SIGNAL, REVERSE_UNUSED, REVERSE_SECONDS,
+enum class BasisKind(val availability: Availability) {
+    NOT_CONNECTED(Availability.NOT_CONNECTED),
+    NOT_APPLICABLE(Availability.NOT_APPLICABLE),
+    REVERSE_UNUSED(Availability.NOT_APPLICABLE),
+    TOO_FEW(Availability.TOO_FEW),
+    VALID_SECONDS(Availability.EVALUATED),
+    OPPORTUNITIES(Availability.EVALUATED),
+    REVERSE_SECONDS(Availability.EVALUATED),
 }
 
 data class Basis(val kind: BasisKind, val amount: Int = 0) {
     val text: String
         get() = when (kind) {
-            BasisKind.NO_SIGNAL -> "수신 없음"
+            BasisKind.NOT_CONNECTED -> "미연동"
+            BasisKind.NOT_APPLICABLE -> "해당 상황 없음"
+            BasisKind.REVERSE_UNUSED -> "후진 기어 안 씀"
             BasisKind.TOO_FEW -> "표본 부족"
             BasisKind.VALID_SECONDS -> "유효 ${amount}초"
             BasisKind.OPPORTUNITIES -> "기회 ${amount}회"
-            BasisKind.NO_GEAR_SIGNAL -> "기어 신호 없음"
-            BasisKind.REVERSE_UNUSED -> "후진 기어 안 씀"
             BasisKind.REVERSE_SECONDS -> "후진 ${amount}초"
         }
 }
@@ -168,7 +183,10 @@ data class ScoreReport(
     /** 속도를 받은 유효 시간(초)과 그 중 실제로 움직인 시간(초). 종료해도 되는지(일시저장 여부) 판단에 쓴다. */
     val speedSeconds: Int = 0,
     val movingSeconds: Int = 0,
-)
+) {
+    /** 신호를 한 번도 받지 못한 항목. 최종 보고서의 미연동 신호 목록에 쓴다. */
+    val notConnected: List<Item> get() = items.filter { it.basis.kind.availability == Availability.NOT_CONNECTED }.map { it.item }
+}
 
 enum class Emotion(val label: String, val face: String, val line: String) {
     NEUTRAL("중립", "🙂", "함께 살펴보고 있어요."),

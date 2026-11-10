@@ -24,7 +24,7 @@ import org.junit.Test
 private fun report(total: Float? = 96.5f, events: List<DetectedEvent> = emptyList()) = ScoreReport(
     total = total, coverage = 0.9f,
     areas = listOf(AreaResult(Area.CONTROL, 100f, 35f), AreaResult(Area.EFFICIENCY, null, null)),
-    items = listOf(ItemResult(Item.ACCEL_DECEL, 100f, Basis(BasisKind.VALID_SECONDS, 4), emptyList()), ItemResult(Item.EFFICIENCY, null, Basis(BasisKind.NO_SIGNAL), emptyList())),
+    items = listOf(ItemResult(Item.ACCEL_DECEL, 100f, Basis(BasisKind.VALID_SECONDS, 4), emptyList()), ItemResult(Item.EFFICIENCY, null, Basis(BasisKind.NOT_CONNECTED), emptyList())),
     windowOverall = listOf(100f, null), events = events,
 )
 

@@ -45,10 +45,10 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
             val minWeight = if (item.byOpportunity || item == Item.REVERSE_SPEED) 1.0 else cfg.minValidSec
             val enough = total.weight >= minWeight
             val basis = when {
-                total.weight == 0.0 && item == Item.REVERSE_SPEED ->
-                    Basis(if (gears.isEmpty()) BasisKind.NO_GEAR_SIGNAL else BasisKind.REVERSE_UNUSED)
+                total.weight == 0.0 && !connected(item, samples, events) -> Basis(BasisKind.NOT_CONNECTED)
+                total.weight == 0.0 && item == Item.REVERSE_SPEED -> Basis(BasisKind.REVERSE_UNUSED)
                 item == Item.REVERSE_SPEED && enough -> Basis(BasisKind.REVERSE_SECONDS, total.weight.toInt())
-                total.weight == 0.0 -> Basis(BasisKind.NO_SIGNAL)
+                total.weight == 0.0 -> Basis(BasisKind.NOT_APPLICABLE)
                 !enough -> Basis(BasisKind.TOO_FEW)
                 item.byOpportunity -> Basis(BasisKind.OPPORTUNITIES, total.weight.toInt())
                 else -> Basis(BasisKind.VALID_SECONDS, total.weight.toInt())
@@ -82,6 +82,24 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
      * 영역 점수. [Item.sharesDriveTime] 항목들은 평가 시간 비율로 합쳐 하나의 몫이 되고,
      * 나머지 항목은 각자 하나의 몫이다. 몫들을 단순 평균한다.
      */
+    /**
+     * 이 항목에 필요한 신호를 한 번이라도 받았는가. 받았는데 점수가 없으면 "해당 상황 없음",
+     * 못 받았으면 "미연동"이다. 기회 기반 항목은 이벤트를 만드는 출처(내비 등)가 연결됐는지로 본다.
+     */
+    private fun connected(item: Item, samples: List<VehicleSample>, events: List<DrivingEvent>): Boolean = when (item) {
+        Item.ACCEL_DECEL -> samples.any { it.speedKmh != null }
+        Item.REVERSE_SPEED -> samples.any { it.gear != null }
+        Item.LEAD_GAP -> samples.any { it.leadDistanceM != null }
+        Item.SPEED_LIMIT -> samples.any { it.speedLimitKmh != null || it.overSpeedWarning != null }
+        Item.TURN_DECEL -> samples.any { it.naviConnected == true } || events.any { it.kind == DrivingEvent.Kind.TURN }
+        Item.CURVE_SPEED -> samples.any { it.steeringDeg != null }
+        Item.LANE_SIGNAL -> events.any { it.kind == DrivingEvent.Kind.LANE_CHANGE }
+        Item.SEATBELT -> samples.any { it.driverSeat?.buckled != null || it.passengerSeat?.buckled != null }
+        Item.DOOR -> samples.any { it.doorOpen != null }
+        Item.HEADLIGHT -> samples.any { it.isNight != null } && samples.any { it.headlightOn != null }
+        Item.EFFICIENCY -> samples.any { it.evEfficiencyKmPerKwh != null }
+    }
+
     private fun areaScore(items: List<Scored>): Float? {
         val known = items.filter { it.score != null }
         val timed = known.filter { it.item.sharesDriveTime && it.weight > 0 }
@@ -348,7 +366,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
     private fun emptyReport() = ScoreReport(
         null, 0f,
         Area.entries.map { AreaResult(it, null, null) },
-        Item.entries.map { ItemResult(it, null, Basis(BasisKind.NO_SIGNAL), emptyList()) },
+        Item.entries.map { ItemResult(it, null, Basis(BasisKind.NOT_CONNECTED), emptyList()) },
         emptyList(), emptyList(),
     )
 
