@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "acceptedForFinalComparison": true,
+  "review": "Actual captures visually inspected after viewport/font/header corrections; dynamic values preserved.",
+  "captures": {
+    "pre-trip": {
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready.png",
+      "displayMode": "day",
+      "appBoundsXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "visiblePlatformBlock": false,
+      "statePath": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready-state.json",
+      "xmlPath": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready.xml",
+      "carUxPath": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready-car-ux.txt",
+      "serial": "emulator-5554",
+      "package": "ai.nunti.avatar.demo",
+      "activity": "AvatarStudioActivity"
+    },
+    "reveal-parked": {
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day.png",
+      "displayMode": "day",
+      "appBoundsXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "visiblePlatformBlock": false,
+      "statePath": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day-state.json",
+      "xmlPath": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day.xml",
+      "carUxPath": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day-car-ux.txt",
+      "serial": "emulator-5554",
+      "package": "ai.nunti.avatar.demo",
+      "activity": "AvatarStudioActivity"
+    },
+    "driving-restricted": {
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted.png",
+      "displayMode": "day",
+      "appBoundsXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "visiblePlatformBlock": true,
+      "statePath": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted-state.json",
+      "xmlPath": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted.xml",
+      "carUxPath": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted-car-ux.txt",
+      "serial": "emulator-5554",
+      "package": "ai.nunti.avatar.demo",
+      "activity": "AvatarStudioActivity"
+    },
+    "post-trip": {
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day.png",
+      "displayMode": "day",
+      "appBoundsXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "visiblePlatformBlock": false,
+      "statePath": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day-latest.json",
+      "xmlPath": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day.xml",
+      "carUxPath": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day-car-ux.txt",
+      "serial": "emulator-5554",
+      "package": "ai.nunti.avatar.demo",
+      "activity": "JourneyActivity"
+    }
+  }
+}

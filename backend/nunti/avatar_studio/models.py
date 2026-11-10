@@ -8,6 +8,8 @@ from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from .variant_spec import VariantContext
+
 
 def canonical(value):
     return json.dumps(
@@ -147,8 +149,9 @@ class AvatarInput(Strict):
     requestId: str
     destination: Destination
     purpose: str = ""
-    route: Route
-    renderMode: Literal["LOCAL_RENDER", "IMAGE_API", "LOCAL_MODEL"] = "LOCAL_RENDER"
+    route: Route | None = None
+    renderMode: Literal["LOCAL_RENDER", "IMAGE_API", "LOCAL_MODEL", "LOCAL_LAYERS"] = "LOCAL_RENDER"
+    variantContext: VariantContext | None = None
 
     _uuid = field_validator("requestId")(uuid_text)
 
@@ -156,6 +159,15 @@ class AvatarInput(Strict):
     @classmethod
     def purpose_text(cls, value):
         return text(value, 120)
+
+    @model_validator(mode="after")
+    def layered_context_is_opt_in(self):
+        if self.renderMode != "LOCAL_LAYERS":
+            if self.route is None:
+                raise ValueError("ROUTE_REQUIRED")
+            if self.variantContext is not None:
+                raise ValueError("VARIANT_CONTEXT_REQUIRES_LOCAL_LAYERS")
+        return self
 
 
 class ExtractionInput(Strict):

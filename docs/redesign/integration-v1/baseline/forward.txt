@@ -1,0 +1,3 @@
+emulator-5554 tcp:8088 tcp:8088
+emulator-5554 tcp:9224 localabstract:webview_devtools_remote_14875
+

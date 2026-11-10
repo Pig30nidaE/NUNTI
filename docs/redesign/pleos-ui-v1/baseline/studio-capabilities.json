@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 3,
+  "mode": "LOCAL_RENDER",
+  "layeredRenderAvailable": true,
+  "layeredRenderInfo": {
+    "renderMode": "LOCAL_LAYERS",
+    "mappingVersion": "nunti-layers-v1",
+    "assetVersion": "nunti-a-layers-v1",
+    "offline": true,
+    "paidApiCalls": 0,
+    "requiresExplicitMood": true,
+    "missingRouteBehavior": "STATIC_BASE",
+    "motion": "none"
+  },
+  "inputOrigins": [
+    "TEST_ROUTE",
+    "NAVIGATION_SCREENSHOT",
+    "ROUTE_FILE",
+    "API_ROUTE"
+  ],
+  "routeApiAvailable": false,
+  "routeApiInfo": {
+    "provider": "OSRM_FOSSGIS",
+    "mode": "EXTERNAL_DEVELOPMENT_ROUTING",
+    "geometryOrigin": "OSRM_ROUTE_SERVICE",
+    "apiKeyRequired": false,
+    "paidApiCalls": 0,
+    "geometryMatchesHyundaiRoute": false,
+    "rawCoordinateSystem": "WGS84",
+    "rawCoordinateOrder": "LONGITUDE_LATITUDE",
+    "requiresUserConfirmation": true,
+    "requestLimit": 12,
+    "minimumIntervalSeconds": 1.1,
+    "notice": "OSRM / OpenStreetMap에서 자동차 경로를 조회하는 개발 시험입니다. 현대 내비가 선택한 경로와의 일치는 검증되지 않았습니다. 입력한 출발지·목적지 위경도가 외부 공개 서버에 전송됩니다."
+  },
+  "imageApiAvailable": false,
+  "localImageModelAvailable": false,
+  "localImageModelInfo": {
+    "engine": "mflux-mlx",
+    "model": "mlx-community/FLUX.2-Klein-4B-4bit",
+    "offline": true,
+    "observedSeconds": 45,
+    "observedRangeSeconds": [
+      42.25,
+      48.63
+    ],
+    "paidApiCalls": 0,
+    "newImagesGenerated": true,
+    "routeCorrespondenceVerified": false,
+    "humanQualityApproved": false,
+    "notice": "무료 로컬 AI 시험입니다. 생성에 약 1분 걸립니다. 경로·모티브와 미적 품질은 미검증입니다."
+  },
+  "imageApiPaidApprovalRequired": true,
+  "imageApiPaidApproved": false,
+  "imageApiPromptVersion": "journey-character-7",
+  "imageApiRenderingStyle": "MATTE_ILLUSTRATED_2_5D",
+  "imageApiStyleReferenceConfigured": true,
+  "imageApiModel": "gpt-image-2.5-flare",
+  "imageApiBudget": {
+    "reservationMicros": 0,
+    "perRequestCapMicros": 300000,
+    "totalCapMicros": 6000000,
+    "requestLimit": 20,
+    "actualCostVerified": false
+  },
+  "voice": {
+    "mode": "LOCAL_VOICE_DESIGN",
+    "available": true,
+    "newVoiceGenerated": true,
+    "notice": "캐릭터의 역할과 성격으로 한국어 목소리를 새로 만들어요. 첫 듣기는 준비 시간이 필요해요.",
+    "automaticPlayback": false,
+    "blocksVisualReady": false
+  },
+  "habitImprovementEffectVerified": false,
+  "localRenderNotice": "입력과 여정 ID에서 새 RGBA를 그리는 로컬 렌더입니다. AI 생성이 아닙니다."
+}

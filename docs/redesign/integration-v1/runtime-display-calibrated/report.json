@@ -1,0 +1,78 @@
+{
+  "status": "FAIL",
+  "surface": "ACTUAL_PRODUCTION_ANDROID",
+  "checks": [
+    {
+      "name": "native-configuration-drives-night-theme",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-narrow-window-calibrates-830-physical-pixels",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-background-stops-motion",
+      "status": "PASS",
+      "details": {
+        "allowed": false,
+        "hidden": true,
+        "motion": {
+          "active": true,
+          "status": "SETTLED",
+          "reason": "RESTRICTED",
+          "elapsedMs": 4000,
+          "frameCount": 34,
+          "intervalsMs": [
+            33.39999999999418,
+            33.30000000000291,
+            33.400000000001455,
+            33.299999999995634,
+            33.30000000000291,
+            33.400000000001455,
+            33.299999999995634,
+            33.30000000000291,
+            33.400000000001455,
+            33.299999999995634,
+            33.400000000001455,
+            33.200000000004366,
+            33.39999999999418,
+            33.30000000000291,
+            33.400000000001455,
+            33.299999999995634,
+            33.30000000000291,
+            33.30000000000291,
+            33.39999999999418,
+            33.30000000000291,
+            33.400000000001455,
+            33.299999999995634,
+            33.30000000000291,
+            33.400000000001455,
+            33.299999999995634,
+            33.30000000000291,
+            33.400000000001455,
+            33.19999999999709,
+            33.5,
+            33.30000000000291,
+            33.299999999995634,
+            33.400000000001455,
+            33.200000000004366
+          ],
+          "reducedMotion": false,
+          "userReducedMotion": false,
+          "layerReady": true,
+          "finalReady": true
+        }
+      }
+    },
+    {
+      "name": "foreground-return-remains-static",
+      "status": "PASS"
+    },
+    {
+      "name": "native-system-reduced-setting-stops-motion",
+      "status": "PASS"
+    }
+  ],
+  "error": "Error: WebView condition timed out: !window.NuntiBirth.diagnostics().reducedMotion\n    at Object.wait (file:///Users/pig30nidae/NUNTI/scripts/nunti_integration_runtime_lib.mjs:93:11)\n    at async file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_integration_display.mjs:60:3",
+  "vehicleRestored": true
+}

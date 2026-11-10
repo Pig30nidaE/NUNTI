@@ -1,0 +1,2405 @@
+[
+  {
+    "slug": "coast-curious",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-352c8b4a-6bf2-4514-bc81-73d4bbb81c3d",
+      "requestId": "352c8b4a-6bf2-4514-bc81-73d4bbb81c3d",
+      "inputSha256": "69d3c50cb279abcdb8a314c0f00ae654b207e0091190173a103224cd14a51b2a",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · 바다\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"352c8b4a-6bf2-4514-bc81-73d4bbb81c3d\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"coast\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"curious\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · 바다",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/ddde1f7d0e18317f473409f7137210be66a5b7388b4403959617bc6bc171ae9c",
+        "sha256": "ddde1f7d0e18317f473409f7137210be66a5b7388b4403959617bc6bc171ae9c",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "바다의 물결을 담은 호기심 많은 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "coast",
+          "displayMode": "day",
+          "expression": "curious",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-curious",
+              "path": "expressions/curious.png"
+            },
+            {
+              "id": "destination-coast",
+              "path": "destinations/coast.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "coast",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "curious"
+          },
+          "palette": {
+            "accent": "#5595B0",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-f6ff8e50915757068f01dcd1"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "ddde1f7d0e18317f473409f7137210be66a5b7388b4403959617bc6bc171ae9c",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/coast.png": "9be1365db724f6e8c44564ec931763ca7f119079289202492a65c900dab7e1fc",
+          "expressions/curious.png": "e6bdc0a991758af336bd2a24c0ee8e61134af7d8afc68b4503d550683b72a5bd",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "푸른 스카프와 포켓의 물결에 바다를 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 호기심을 올라간 눈썹과 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#5595B0",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 1333425562,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is velvety and gently bright, the phrase rhythm is lightly animated. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · 바다 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · 바다",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-a1ee95520c1329664d08ca043bf4360022d53f59073936ace19cb929fdeea2d4"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:36.347366+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/56b52d23ccd3264527c895ceb0e18bfdb0989797a23d69b9a9e6709740534a57",
+        "sha256": "56b52d23ccd3264527c895ceb0e18bfdb0989797a23d69b9a9e6709740534a57",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "coast-calm",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-d032ccb0-34b0-471d-a225-a68562637aec",
+      "requestId": "d032ccb0-34b0-471d-a225-a68562637aec",
+      "inputSha256": "09abde9d565eab6835193349dc62a48081558de717b90d9df9c22a74b7622ece",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · coast-calm\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"d032ccb0-34b0-471d-a225-a68562637aec\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"coast\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"calm\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · coast-calm",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/2494aa712f4135946baa386f06d6507fb17defb0bb36150aae9423134bd90007",
+        "sha256": "2494aa712f4135946baa386f06d6507fb17defb0bb36150aae9423134bd90007",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "바다의 물결을 담은 차분한 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "coast",
+          "displayMode": "day",
+          "expression": "calm",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-calm",
+              "path": "expressions/calm.png"
+            },
+            {
+              "id": "destination-coast",
+              "path": "destinations/coast.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "coast",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "calm"
+          },
+          "palette": {
+            "accent": "#5595B0",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-8c315da8ff0aabdf4e969233"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "2494aa712f4135946baa386f06d6507fb17defb0bb36150aae9423134bd90007",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/coast.png": "9be1365db724f6e8c44564ec931763ca7f119079289202492a65c900dab7e1fc",
+          "expressions/calm.png": "69b36cd85365daaf5ffabdd7935eebc05cb0c6bd4d2c5160e34216c400772f37",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "푸른 스카프와 포켓의 물결에 바다를 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 차분함을 감은 눈과 작은 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#5595B0",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 686560062,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is crisp and mellow, the phrase rhythm is calmly assured. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · coast-calm 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · coast-calm",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-4d67a5a8e921a6c486a1246378990161c8fe260a94654406740308310c37dc19"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:57.431871+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/bf262cde65737e21982cd8bb128fcd678d5be8514421f10e929ce1baedd6128e",
+        "sha256": "bf262cde65737e21982cd8bb128fcd678d5be8514421f10e929ce1baedd6128e",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "coast-adventurous",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-31f8ac69-4b57-4df6-9e67-a946d9b31c33",
+      "requestId": "31f8ac69-4b57-4df6-9e67-a946d9b31c33",
+      "inputSha256": "d4bb65e409ef9ac3827aef9fe606438388afb31b4dce001b9b55e6bf72ad3f03",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · coast-adventurous\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"31f8ac69-4b57-4df6-9e67-a946d9b31c33\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"coast\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"adventurous\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · coast-adventurous",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/0816a2aece782611cd2d07020f37596f13c5971177060b25443c88c073b73f9d",
+        "sha256": "0816a2aece782611cd2d07020f37596f13c5971177060b25443c88c073b73f9d",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "바다의 물결을 담은 씩씩한 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "coast",
+          "displayMode": "day",
+          "expression": "adventurous",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-adventurous",
+              "path": "expressions/adventurous.png"
+            },
+            {
+              "id": "destination-coast",
+              "path": "destinations/coast.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "coast",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "adventurous"
+          },
+          "palette": {
+            "accent": "#5595B0",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-97f41b3dccb0f0b6dc205b7e"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "0816a2aece782611cd2d07020f37596f13c5971177060b25443c88c073b73f9d",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/coast.png": "9be1365db724f6e8c44564ec931763ca7f119079289202492a65c900dab7e1fc",
+          "expressions/adventurous.png": "53227b028ce5d44c917a9af4758680e8a18418639dc4b0857ae786cceac794c2",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "푸른 스카프와 포켓의 물결에 바다를 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 씩씩함을 또렷한 눈썹과 밝은 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#5595B0",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 2819447515,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is velvety and gently bright, the phrase rhythm is lightly animated. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · coast-adventurous 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · coast-adventurous",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-ee983f3fc8b4366fb19def95a165e7148cbaa9dde4cccdbcce3f151d540b75a3"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:57.493244+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/e04b50cb99dae272f4c83d421cbe22c58dcb6440723731075672dedba4f8f362",
+        "sha256": "e04b50cb99dae272f4c83d421cbe22c58dcb6440723731075672dedba4f8f362",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "mountain-calm",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-1406a3b6-3e93-4529-abfd-ccce45700290",
+      "requestId": "1406a3b6-3e93-4529-abfd-ccce45700290",
+      "inputSha256": "44fec00d2e1e2d96ced20d88a98712e10a8be5db0afab4828ca4f9a3d6686448",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · mountain-calm\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"1406a3b6-3e93-4529-abfd-ccce45700290\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"mountain\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"calm\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · mountain-calm",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/2234c435bb71d06aea52ce02c5fbb8dab3499b89b8de7dda1cf35f6221dd8d0a",
+        "sha256": "2234c435bb71d06aea52ce02c5fbb8dab3499b89b8de7dda1cf35f6221dd8d0a",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "산의 능선을 담은 차분한 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "mountain",
+          "displayMode": "day",
+          "expression": "calm",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-calm",
+              "path": "expressions/calm.png"
+            },
+            {
+              "id": "destination-mountain",
+              "path": "destinations/mountain.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "mountain",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "calm"
+          },
+          "palette": {
+            "accent": "#709260",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-b002367de19ca0cafec02d72"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "2234c435bb71d06aea52ce02c5fbb8dab3499b89b8de7dda1cf35f6221dd8d0a",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/mountain.png": "f0079e609ecb39c7bca0d4af981ee3f77e097612e727937283e0ac6ee092a480",
+          "expressions/calm.png": "69b36cd85365daaf5ffabdd7935eebc05cb0c6bd4d2c5160e34216c400772f37",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "초록 스카프와 작은 능선에 산의 풍경을 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 차분함을 감은 눈과 작은 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#709260",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 4096158705,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is light and clear with a warm core, the phrase rhythm is gently lilting. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · mountain-calm 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · mountain-calm",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-740f44fecc4d62eef3366349017c80a0b28d4d211a8a4b46042348b57c726e5a"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:57.593813+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/a2e1e9a7d442beee2de97fbfb5a374cb2bb64c2c8933177f7d9af2e7aa424e3e",
+        "sha256": "a2e1e9a7d442beee2de97fbfb5a374cb2bb64c2c8933177f7d9af2e7aa424e3e",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "mountain-curious",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-d664a204-bf26-49dd-810c-b48f3644bb91",
+      "requestId": "d664a204-bf26-49dd-810c-b48f3644bb91",
+      "inputSha256": "681c9cd522eebd83057e4def989e745dffe275a4023ad6bba3a90bd2bbe10cdf",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · mountain-curious\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"d664a204-bf26-49dd-810c-b48f3644bb91\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"mountain\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"curious\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · mountain-curious",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/6c993bcb9cf6cd596bb2b934bf62e63c9212d7919a156980be3ddf33e467d1f7",
+        "sha256": "6c993bcb9cf6cd596bb2b934bf62e63c9212d7919a156980be3ddf33e467d1f7",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "산의 능선을 담은 호기심 많은 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "mountain",
+          "displayMode": "day",
+          "expression": "curious",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-curious",
+              "path": "expressions/curious.png"
+            },
+            {
+              "id": "destination-mountain",
+              "path": "destinations/mountain.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "mountain",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "curious"
+          },
+          "palette": {
+            "accent": "#709260",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-77dc2ddc42581823377dac9e"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "6c993bcb9cf6cd596bb2b934bf62e63c9212d7919a156980be3ddf33e467d1f7",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/mountain.png": "f0079e609ecb39c7bca0d4af981ee3f77e097612e727937283e0ac6ee092a480",
+          "expressions/curious.png": "e6bdc0a991758af336bd2a24c0ee8e61134af7d8afc68b4503d550683b72a5bd",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "초록 스카프와 작은 능선에 산의 풍경을 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 호기심을 올라간 눈썹과 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#709260",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 385401439,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is light and clear with a warm core, the phrase rhythm is lightly animated. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · mountain-curious 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · mountain-curious",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-c28791708d5e46b5263093f32a8c9383dbd6f4330f76b7ab6b025b86acbda7d6"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:57.701418+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/a85edaffdf53944efabe59fa446db69374d57e7849e59f3ed7ab9360fdd44e0c",
+        "sha256": "a85edaffdf53944efabe59fa446db69374d57e7849e59f3ed7ab9360fdd44e0c",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "mountain-adventurous",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-4df603b4-bc78-4d87-8b9c-f7d81d9395c1",
+      "requestId": "4df603b4-bc78-4d87-8b9c-f7d81d9395c1",
+      "inputSha256": "bb1007cc3ee5abb9562dbf741126e94f35028725073d48c8feef6247aed152ca",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · mountain-adventurous\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"4df603b4-bc78-4d87-8b9c-f7d81d9395c1\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"mountain\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"adventurous\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · mountain-adventurous",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/b2cc1c2dde9d2397f05372a1347c19216303441b5ffdc7f7c61b89a7e34f4998",
+        "sha256": "b2cc1c2dde9d2397f05372a1347c19216303441b5ffdc7f7c61b89a7e34f4998",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "산의 능선을 담은 씩씩한 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "mountain",
+          "displayMode": "day",
+          "expression": "adventurous",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-adventurous",
+              "path": "expressions/adventurous.png"
+            },
+            {
+              "id": "destination-mountain",
+              "path": "destinations/mountain.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "mountain",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "adventurous"
+          },
+          "palette": {
+            "accent": "#709260",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-e69e752def06f196375992f6"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "b2cc1c2dde9d2397f05372a1347c19216303441b5ffdc7f7c61b89a7e34f4998",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/mountain.png": "f0079e609ecb39c7bca0d4af981ee3f77e097612e727937283e0ac6ee092a480",
+          "expressions/adventurous.png": "53227b028ce5d44c917a9af4758680e8a18418639dc4b0857ae786cceac794c2",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "초록 스카프와 작은 능선에 산의 풍경을 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 씩씩함을 또렷한 눈썹과 밝은 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#709260",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 4037325776,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is velvety and gently bright, the phrase rhythm is calmly assured. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · mountain-adventurous 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · mountain-adventurous",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-cd282747be0b47499e1c4cd41845b016492224d4994ef637b99854b98bef3e66"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:57.803466+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/63f6af8d853e0f23d3d851a9563bae2fce93370ffd5db53c7d082946795fe6e5",
+        "sha256": "63f6af8d853e0f23d3d851a9563bae2fce93370ffd5db53c7d082946795fe6e5",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "city-calm",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-f41742e0-8d4d-4f5b-8feb-ef33b40bc2ea",
+      "requestId": "f41742e0-8d4d-4f5b-8feb-ef33b40bc2ea",
+      "inputSha256": "1201b559749025501f7a8a6844cc2a7a6e947db4196c9e11b61db9a87d1d3026",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · city-calm\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"f41742e0-8d4d-4f5b-8feb-ef33b40bc2ea\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"city\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"calm\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · city-calm",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/3e4a220c4f8a94120cb39848e749fafccf4ab8c853a8f82df05261266f216196",
+        "sha256": "3e4a220c4f8a94120cb39848e749fafccf4ab8c853a8f82df05261266f216196",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "도시의 창문을 담은 차분한 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "city",
+          "displayMode": "day",
+          "expression": "calm",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-calm",
+              "path": "expressions/calm.png"
+            },
+            {
+              "id": "destination-city",
+              "path": "destinations/city.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "city",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "calm"
+          },
+          "palette": {
+            "accent": "#9780B1",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-27476a5bd953c031fa2b73ae"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "3e4a220c4f8a94120cb39848e749fafccf4ab8c853a8f82df05261266f216196",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/city.png": "e60a4ebc4f316dbdc29a57abec07dba18b789d739135b57f9b1103d802e421a2",
+          "expressions/calm.png": "69b36cd85365daaf5ffabdd7935eebc05cb0c6bd4d2c5160e34216c400772f37",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "연보라 스카프와 작은 창문에 도시의 풍경을 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 차분함을 감은 눈과 작은 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#9780B1",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 3118254075,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is velvety and gently bright, the phrase rhythm is gently lilting. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · city-calm 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · city-calm",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-a14614f5a6a3a8fb96e1fb6730f4872eacd5dd7e6d91a1e39925535b62d71015"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:57.914948+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/71238a282eaed6ca27db7732f07f8b8ac5d7fb38285f69acfc30e240ee100aa0",
+        "sha256": "71238a282eaed6ca27db7732f07f8b8ac5d7fb38285f69acfc30e240ee100aa0",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "city-curious",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-313bc223-5a7c-4c2f-ad87-5415519cb006",
+      "requestId": "313bc223-5a7c-4c2f-ad87-5415519cb006",
+      "inputSha256": "dcb00496ed105fd9c5d1951f8fb313adf134258c2a3925509a8f47d4bc2338c9",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · city-curious\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"313bc223-5a7c-4c2f-ad87-5415519cb006\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"city\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"curious\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · city-curious",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/2d8be9f2943c9afff591a97c9522ac8bf7c4f1b38ac31ef17f827e5b3e2ae703",
+        "sha256": "2d8be9f2943c9afff591a97c9522ac8bf7c4f1b38ac31ef17f827e5b3e2ae703",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "도시의 창문을 담은 호기심 많은 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "city",
+          "displayMode": "day",
+          "expression": "curious",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-curious",
+              "path": "expressions/curious.png"
+            },
+            {
+              "id": "destination-city",
+              "path": "destinations/city.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "city",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "curious"
+          },
+          "palette": {
+            "accent": "#9780B1",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-16878f779a8c1fc5f846903b"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "2d8be9f2943c9afff591a97c9522ac8bf7c4f1b38ac31ef17f827e5b3e2ae703",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/city.png": "e60a4ebc4f316dbdc29a57abec07dba18b789d739135b57f9b1103d802e421a2",
+          "expressions/curious.png": "e6bdc0a991758af336bd2a24c0ee8e61134af7d8afc68b4503d550683b72a5bd",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "연보라 스카프와 작은 창문에 도시의 풍경을 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 호기심을 올라간 눈썹과 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#9780B1",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 3724012653,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is velvety and gently bright, the phrase rhythm is gently lilting. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · city-curious 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · city-curious",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-574df03f29cfd265b4d787c234030acb79c520a15e7e9225bbb9aedbe657dd64"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:58.021604+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/d47ce2fa9d4e7e7152a9c6f9ceab3b003d1136857e0fbf380dc80df5362d3908",
+        "sha256": "d47ce2fa9d4e7e7152a9c6f9ceab3b003d1136857e0fbf380dc80df5362d3908",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  },
+  {
+    "slug": "city-adventurous",
+    "artifact": {
+      "schemaVersion": 3,
+      "characterId": "nunti-7ab0baab-feaf-4fdc-b0e3-2df7459946b7",
+      "requestId": "7ab0baab-feaf-4fdc-b0e3-2df7459946b7",
+      "inputSha256": "6cd9e6af7d3b29b6c2004b2f5c46915a0900003df49558015ab8bfdb471a5bbe",
+      "inputCanonical": "{\"destination\":{\"name\":\"통합 검증 · city-adventurous\",\"traits\":\"통합 검증용 저장 기록\"},\"purpose\":\"승인 A 모습과 실제 변신 확인\",\"renderMode\":\"LOCAL_LAYERS\",\"requestId\":\"7ab0baab-feaf-4fdc-b0e3-2df7459946b7\",\"route\":{\"confirmed\":true,\"inputOrigin\":\"TEST_ROUTE\",\"points\":[[0.2854167,0.784375],[0.3385417,0.7109375],[0.4052083,0.6890625],[0.4614583,0.6234375],[0.4822917,0.5296875],[0.5354167,0.4625],[0.6145833,0.4375],[0.6885417,0.36875],[0.7729167,0.353125],[0.8572917,0.26875]],\"sourceLabel\":\"직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.\"},\"variantContext\":{\"destinationCategory\":\"city\",\"displayMode\":\"day\",\"mappingVersion\":\"nunti-layers-v1\",\"provenance\":{\"destinationCategory\":\"user-selected\",\"roadType\":\"user-selected\",\"routeId\":\"app-derived\",\"userSelectedMood\":\"user-selected\"},\"roadType\":\"highway\",\"routeId\":\"route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7\",\"routeRevision\":1,\"seed\":\"0\",\"userSelectedMood\":\"adventurous\"}}",
+      "displayName": "눈티",
+      "destination": {
+        "name": "통합 검증 · city-adventurous",
+        "traits": "통합 검증용 저장 기록"
+      },
+      "purpose": "승인 A 모습과 실제 변신 확인",
+      "route": {
+        "points": [
+          [
+            0.2854167,
+            0.784375
+          ],
+          [
+            0.3385417,
+            0.7109375
+          ],
+          [
+            0.4052083,
+            0.6890625
+          ],
+          [
+            0.4614583,
+            0.6234375
+          ],
+          [
+            0.4822917,
+            0.5296875
+          ],
+          [
+            0.5354167,
+            0.4625
+          ],
+          [
+            0.6145833,
+            0.4375
+          ],
+          [
+            0.6885417,
+            0.36875
+          ],
+          [
+            0.7729167,
+            0.353125
+          ],
+          [
+            0.8572917,
+            0.26875
+          ]
+        ],
+        "inputOrigin": "TEST_ROUTE",
+        "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+        "confirmed": true
+      },
+      "visual": {
+        "path": "/v3/assets/538449fce6d72a36484af6803a56311de65cc92a2cd7013c6c046603be9d0952",
+        "sha256": "538449fce6d72a36484af6803a56311de65cc92a2cd7013c6c046603be9d0952",
+        "width": 768,
+        "height": 768
+      },
+      "design": {
+        "avatarSpec": {
+          "accessibilityLabel": "도시의 창문을 담은 씩씩한 눈티",
+          "assetVersion": "nunti-a-layers-v1",
+          "baseAsset": "base.png",
+          "characterId": "nunti-a-v1",
+          "destinationMotif": "city",
+          "displayMode": "day",
+          "expression": "adventurous",
+          "fallbackReasons": [],
+          "layers": [
+            {
+              "id": "core-body",
+              "path": "core/body.png"
+            },
+            {
+              "id": "core-head",
+              "path": "core/head.png"
+            },
+            {
+              "id": "core-sprout",
+              "path": "core/sprout.png"
+            },
+            {
+              "id": "core-scarf",
+              "path": "core/scarf.png"
+            },
+            {
+              "id": "core-bag",
+              "path": "core/bag.png"
+            },
+            {
+              "id": "core-badge",
+              "path": "core/badge.png"
+            },
+            {
+              "id": "expression-adventurous",
+              "path": "expressions/adventurous.png"
+            },
+            {
+              "id": "destination-city",
+              "path": "destinations/city.png"
+            },
+            {
+              "id": "road-highway",
+              "path": "roads/highway-1.png"
+            }
+          ],
+          "mappingVersion": "nunti-layers-v1",
+          "motion": "none",
+          "normalizedContext": {
+            "destinationCategory": "city",
+            "displayMode": "day",
+            "mappingVersion": "nunti-layers-v1",
+            "roadType": "highway",
+            "routeGeometrySource": "TEST_ROUTE",
+            "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+            "routePointCount": 10,
+            "routeRevision": 1,
+            "seed": "0",
+            "userSelectedMood": "adventurous"
+          },
+          "palette": {
+            "accent": "#9780B1",
+            "background": "#F6F4EF",
+            "blue": "#B6D1E4",
+            "body": "#F5E6D8",
+            "face": "#FED7C6",
+            "ink": "#51362C",
+            "mint": "#ACDABF"
+          },
+          "provenance": {
+            "destinationCategory": "user-selected",
+            "roadType": "user-selected",
+            "routeGeometry": "mock",
+            "routeId": "app-derived",
+            "routeRevision": "app-derived",
+            "userSelectedMood": "user-selected"
+          },
+          "roadMotif": "highway",
+          "routeFingerprint": "c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7",
+          "routeVariant": 1,
+          "schemaVersion": "nunti.avatar.layers/1",
+          "seed": "0",
+          "variantId": "nunti-a-6587eee9963c860a89fff917"
+        },
+        "designVersion": "nunti-layers-v1",
+        "displayName": "눈티",
+        "faceAnchors": {
+          "leftEye": [
+            316,
+            274
+          ],
+          "mouth": [
+            391,
+            337
+          ],
+          "rightEye": [
+            463,
+            274
+          ]
+        },
+        "imageSha256": "538449fce6d72a36484af6803a56311de65cc92a2cd7013c6c046603be9d0952",
+        "layerAssets": {
+          "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+          "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+          "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+          "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+          "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+          "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+          "destinations/city.png": "e60a4ebc4f316dbdc29a57abec07dba18b789d739135b57f9b1103d802e421a2",
+          "expressions/adventurous.png": "53227b028ce5d44c917a9af4758680e8a18418639dc4b0857ae786cceac794c2",
+          "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+        },
+        "mediaOrigin": "LOCAL_LAYERS",
+        "motifs": [
+          {
+            "detail": "연보라 스카프와 작은 창문에 도시의 풍경을 담았어요.",
+            "label": "목적지 장식",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "pocket-and-scarf-accent"
+          },
+          {
+            "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+            "label": "경로 무늬",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "scarf-stitch"
+          },
+          {
+            "detail": "직접 고른 씩씩함을 또렷한 눈썹과 밝은 미소로 표현했어요.",
+            "label": "명시적으로 선택한 표정",
+            "source": "NORMALIZED_VARIANT_CONTEXT",
+            "target": "fixed-face-anchors"
+          }
+        ],
+        "palette": [
+          "#F5E6D8",
+          "#ACDABF",
+          "#B6D1E4",
+          "#FED7C6",
+          "#51362C",
+          "#9780B1",
+          "#F6F4EF"
+        ],
+        "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+        "renderStatus": "COMPOSITED",
+        "renderVersion": "nunti-a-layers-v1",
+        "staticOnly": true,
+        "voice": {
+          "description": "따뜻하고 절제된 눈티의 목소리",
+          "pitch": 1.08,
+          "rate": 0.96
+        }
+      },
+      "voice": {
+        "status": "PLANNED",
+        "description": "작고 맑은 여행 동반자",
+        "rate": 0.97,
+        "pitch": 1.09,
+        "plan": {
+          "schemaVersion": 1,
+          "version": "journey-voice-design-6",
+          "role": "companion",
+          "ageImpression": "young-adult",
+          "description": "작고 맑은 여행 동반자",
+          "language": "Korean",
+          "seed": 321054432,
+          "instruct": "A compact rounded young Korean adult voice with a sincere natural smile, friendly warmth, clear native articulation and naturally flowing conversational intonation. A lovable small animated companion speaking to one close friend. The tone is velvety and gently bright, the phrase rhythm is calmly assured. Speak only the provided text in fluent Korean. Ordinary conversational volume; no singing, no sound effects, no robotic cadence. This is an invented character, not an imitation of any real person.",
+          "greeting": "통합 검증 · city-adventurous 가는 길, 눈티랑 함께해요. 오늘의 길을 함께 걸어볼까요?",
+          "displayName": "눈티",
+          "destination": "통합 검증 · city-adventurous",
+          "purpose": "승인 A 모습과 실제 변신 확인",
+          "rate": 0.97,
+          "pitch": 1.09,
+          "modelFamily": "Qwen3-TTS-VoiceDesign",
+          "synthetic": true,
+          "realPersonReference": false,
+          "automaticPlayback": false,
+          "humanListeningVerified": false,
+          "speakerUniquenessVerified": false,
+          "profileId": "nv6-a10436d9ada3721977acecb6021967311d34990753e9030e0450d134f895cfc6"
+        },
+        "provider": "LOCAL_QWEN_VOICE_DESIGN",
+        "newVoiceGenerated": false,
+        "automaticPlayback": false
+      },
+      "mediaOrigin": "LOCAL_LAYERS",
+      "createdAt": "2026-11-09T16:17:58.127309+00:00",
+      "humanQualityApproved": false,
+      "habitImprovementEffectVerified": false,
+      "motifsVerification": "LOCAL_SHARED_LAYER_RECIPE",
+      "avatarSpec": {
+        "path": "/v3/assets/5d7c40e33c768745be510fa9c5480d66fe773db327948a37f879fcdbddf168ca",
+        "sha256": "5d7c40e33c768745be510fa9c5480d66fe773db327948a37f879fcdbddf168ca",
+        "schemaVersion": "nunti.avatar.layers/1"
+      },
+      "formationStatus": "STATIC_LAYER_COMPOSITE"
+    }
+  }
+]

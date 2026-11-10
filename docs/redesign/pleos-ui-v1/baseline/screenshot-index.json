@@ -1,0 +1,86 @@
+[
+  {
+    "file": "debug-reveal-2200.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "7b018950f7bdf90910cfbe672fcc70cd8afa2a1c7d2891b2bb96d4ae2822ebf3"
+  },
+  {
+    "file": "initial-debug-motion.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "48e0d394b935af0b4a333afe0ebcf9cbc23b7b6e50a8e5cad26ccb65d49a592c"
+  },
+  {
+    "file": "production-active-parked.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "86fa9d50a4b14cd8da6f17c2eab8559c1feeefbb305e370e900159b4545506b2"
+  },
+  {
+    "file": "production-connection-code.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "0c5bfdd99b1a7e883c7d1db1db7936b35e205c2c6e3b75a0aa66c85a194b7375"
+  },
+  {
+    "file": "production-connection-failure.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "45a078a9b7436325fa50f16ed73f7a98967c621ae3fad2422a34c6e3d2dd4dcc"
+  },
+  {
+    "file": "production-driving-active.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "ebed06706713e84d06af0368cb08cb754b3b79970d0481227b6501bb46de3b23"
+  },
+  {
+    "file": "production-driving-restricted-saved-report.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "d5704debaa7af26443956a08cdbba37d807c1c23ffdd7bfeba428d8c5ba92d44"
+  },
+  {
+    "file": "production-driving-studio-blocked.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "65d3ec7b07792b6706dd4b33ecd2094e6087e4c3a1e1c5bdd33f74b57acb992a"
+  },
+  {
+    "file": "production-post-trip-review.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "242a77bdfeab0d4798f2875b3c5a5c8ac9510e329d3c338c94d0194e773cbbc1"
+  },
+  {
+    "file": "production-post-trip.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "fb18ca964429967e9c5cb9cd452fb13e90862e9bfd45caaccdfa5fa5278ab08c"
+  },
+  {
+    "file": "production-pre-trip.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "97640ce161cc5c823add6ccde12248fc08911b5d3c6f71e908c56e8287c5578c"
+  },
+  {
+    "file": "production-result-actions.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "afca14d5839c43f49bddda468b123e9c969b649c5c2ffa1b4f10e61be2756b7a"
+  },
+  {
+    "file": "production-reveal-settled.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "3c1bd9074df4f53c02abf3909191f3114f49baaac03493f7555176cbe6b0a37a"
+  },
+  {
+    "file": "restored-debug-final.png",
+    "width": 2560,
+    "height": 1440,
+    "sha256": "52a2632e96e07b72c3446f8d26f3d276eeaf2edf338272b8a280c4f77dad2292"
+  }
+]

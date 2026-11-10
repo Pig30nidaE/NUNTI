@@ -1,0 +1,143 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "wide-day-no-horizontal-overflow",
+      "status": "PASS",
+      "details": {
+        "width": 1683,
+        "height": 1210,
+        "scrollWidth": 1683,
+        "theme": "day",
+        "nodes": {
+          ".topbar": {
+            "x": 40,
+            "y": 28,
+            "width": 1602.9091796875,
+            "height": 68
+          },
+          ".intro": {
+            "x": 40,
+            "y": 120,
+            "width": 1602.9091796875,
+            "height": 107.43182373046875
+          },
+          ".result-grid": {
+            "x": 40,
+            "y": 251.43182373046875,
+            "width": 1602.9091796875,
+            "height": 814.0227661132812
+          },
+          ".birth-stage": {
+            "x": 97.9772720336914,
+            "y": 298.44317626953125,
+            "width": 720,
+            "height": 720
+          },
+          ".identity-panel": {
+            "x": 915.9659423828125,
+            "y": 251.43182373046875,
+            "width": 726.9318237304688,
+            "height": 814.0227661132812
+          },
+          ".result-actions": {
+            "x": 40,
+            "y": 1089.45458984375,
+            "width": 1602.9091796875,
+            "height": 88
+          },
+          "#create-button": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "compact-day-no-horizontal-overflow",
+      "status": "PASS",
+      "details": {
+        "width": 830,
+        "height": 1209,
+        "scrollWidth": 830,
+        "theme": "day",
+        "nodes": {
+          ".topbar": {
+            "x": 28,
+            "y": 22,
+            "width": 774.5454711914062,
+            "height": 64
+          },
+          ".intro": {
+            "x": 28,
+            "y": 106,
+            "width": 774.5454711914062,
+            "height": 88
+          },
+          ".result-grid": {
+            "x": 28,
+            "y": 214,
+            "width": 774.5454711914062,
+            "height": 871.45458984375
+          },
+          ".birth-stage": {
+            "x": 195.27273559570312,
+            "y": 230.72727966308594,
+            "width": 440,
+            "height": 440
+          },
+          ".identity-panel": {
+            "x": 28.72727394104004,
+            "y": 670.727294921875,
+            "width": 773.0909423828125,
+            "height": 453.3863830566406
+          },
+          ".result-actions": {
+            "x": 28,
+            "y": 1105.45458984375,
+            "width": 774.5454711914062,
+            "height": 80
+          },
+          "#create-button": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        }
+      }
+    },
+    {
+      "name": "native-materialization-renderer-used",
+      "status": "PASS",
+      "details": {
+        "phase": "DEFAULT_IDLE",
+        "elapsedMs": 7.200000000280852,
+        "reason": "PLAYING",
+        "skinId": "sea",
+        "visited": [
+          "DEFAULT_IDLE"
+        ],
+        "running": true,
+        "reducedMotion": false,
+        "systemReducedMotion": false,
+        "active": true,
+        "renderer": "NATIVE_CANVAS"
+      }
+    },
+    {
+      "name": "driving-disables-finishing-journey",
+      "status": "PASS"
+    },
+    {
+      "name": "teammate-score-engine-produces-stored-report",
+      "status": "PASS",
+      "details": {
+        "total": 100,
+        "coverage": 0.9
+      }
+    }
+  ]
+}

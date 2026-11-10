@@ -2,6 +2,8 @@
 
 사용자 작업 선호: 사용자가 명시적으로 종료를 요청할 때만 관련 로컬 서버·AI 모델 프로세스·에뮬레이터·VSCode를 정상 종료한다. 작업이나 검증이 끝났다는 이유로 자동 종료하지 않는다. 미저장 편집을 강제로 폐기하지 않는다.
 
+2026-11-05 통합은 [생성·주행·리포트 구조](docs/architecture/integrated-journey.md)와 [직접 시험](docs/design/avatar-v6/INTEGRATED-TESTING.ko.md)을 따른다. 생성한 같은 눈티를 점수 세션에 연결하고, 캐릭터 음색의 감정 대사와 주차 후 리포트를 제공한다. Virtual Console의 실시간 차량 입력과 내비 지도 이동은 별도다. 실제 Android 검증은 `python3 scripts/verify_integrated_journey.py --run`의 결과로 확인한다. 아래 기록은 이전 기능별 검증 이력이다.
+
 2026-11-04 최신은 [목적지·방문 이유별 눈티 v6](docs/design/avatar-v6/README.md)다. 의상·목적지 기념품·경로 탄생 효과·캐릭터별 로컬 TTS를 연결했다. 사용자 요청에 따라 실제 AI는 30개 상황을 검증했고, 빠른 일러스트와 실제 음원은 각각 200개를 유지했다. 재시도를 포함한 수량, 세부 소품 편차, 청취 미검증은 [결과 보고](docs/design/avatar-v6/RESULT.ko.md)에 구분했다. [직접 시험](docs/design/avatar-v6/TESTING.ko.md): `python3 scripts/run_avatar_generator.py --local-ai --navigation-api --restart-server`. 외부 키·유료 호출·녹화는 필요 없다. 아래 기기 TTS·새 음색 미구현 설명은 이전 시점의 기록이다.
 
 2026-11-04 최신은 [사진 없는 내비 API 연결 결과](docs/design/navigation-integration/RESULT.ko.md)와 [직접 시험 안내](docs/design/navigation-integration/TESTING.ko.md)다. 실제 NaviHelper 목적지·위치·상태와 별도 OSRM 도로 경로를 연결했고, Android 3여정 생성·보관·복원 및 무료 로컬 AI 새 그림을 검증했다. 실행은 `python3 scripts/run_avatar_generator.py --local-ai --navigation-api --restart-server`다. 외부 API 키·유료 호출·녹화는 필요 없다. 현대 선택 경로와 OSRM 선의 일치, SDK의 GPS 이동 반영·재탐색 완료는 미검증이다. 아래 내비 미구현·사진 입력·v5/v4 상태는 각 시점의 이력이다.

@@ -1,0 +1,17 @@
+{
+  "allowed": true,
+  "motion": {
+    "active": false,
+    "status": "BASE",
+    "reason": "SCREEN_CHANGED",
+    "elapsedMs": 0,
+    "frameCount": 0,
+    "intervalsMs": [],
+    "reducedMotion": false,
+    "userReducedMotion": false,
+    "layerReady": false,
+    "finalReady": false
+  },
+  "notice": "검증용 연결 오류 같은 입력으로 다시 누르면 기존 요청을 이어서 확인해요.",
+  "view": "input"
+}

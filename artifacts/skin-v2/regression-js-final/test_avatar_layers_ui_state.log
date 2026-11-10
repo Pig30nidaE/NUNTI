@@ -1,0 +1,60 @@
+{
+  "source": "prototypes/avatar_generator/studio.js",
+  "boundary": "Node VM executing production handlers; no HTTP, browser layout, GPU or Android runtime",
+  "checks": 13,
+  "passed": 13,
+  "results": [
+    {
+      "name": "layer fields and mode are present in the real HTML with explicit fallback choices",
+      "status": "PASS"
+    },
+    {
+      "name": "available layer capability selects the approved A renderer as the UI default",
+      "status": "PASS"
+    },
+    {
+      "name": "server without layer capability keeps the new option unavailable",
+      "status": "PASS"
+    },
+    {
+      "name": "no route is accepted only by LOCAL_LAYERS and shows a static default receipt",
+      "status": "PASS"
+    },
+    {
+      "name": "existing route still needs image readiness, confirmation, vehicle permission and current API plan",
+      "status": "PASS"
+    },
+    {
+      "name": "explicit choices produce stable route identity, seed and correctly sourced context",
+      "status": "PASS"
+    },
+    {
+      "name": "API plan identity is reused and unknown choices remain explicit fallbacks",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy rendering still submits without a variantContext",
+      "status": "PASS"
+    },
+    {
+      "name": "identical layer retry reuses requestId after an uncertain API failure",
+      "status": "PASS"
+    },
+    {
+      "name": "vehicle permission revoked during route hashing prevents a generation request",
+      "status": "PASS"
+    },
+    {
+      "name": "staticOnly and LOCAL_LAYERS each bypass formation, idle RAF and replay",
+      "status": "PASS"
+    },
+    {
+      "name": "normal artifact retains the existing animation entry and route receipt",
+      "status": "PASS"
+    },
+    {
+      "name": "static drawing respects visibility and native vehicle permission",
+      "status": "PASS"
+    }
+  ]
+}

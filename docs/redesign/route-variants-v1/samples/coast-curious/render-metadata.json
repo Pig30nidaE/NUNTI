@@ -1,0 +1,155 @@
+{
+  "avatarSpec": {
+    "accessibilityLabel": "바다의 물결을 담은 호기심 많은 눈티",
+    "assetVersion": "nunti-a-layers-v1",
+    "baseAsset": "base.png",
+    "characterId": "nunti-a-v1",
+    "destinationMotif": "coast",
+    "displayMode": "day",
+    "expression": "curious",
+    "fallbackReasons": [],
+    "layers": [
+      {
+        "id": "core-body",
+        "path": "core/body.png"
+      },
+      {
+        "id": "core-head",
+        "path": "core/head.png"
+      },
+      {
+        "id": "core-sprout",
+        "path": "core/sprout.png"
+      },
+      {
+        "id": "core-scarf",
+        "path": "core/scarf.png"
+      },
+      {
+        "id": "core-bag",
+        "path": "core/bag.png"
+      },
+      {
+        "id": "core-badge",
+        "path": "core/badge.png"
+      },
+      {
+        "id": "expression-curious",
+        "path": "expressions/curious.png"
+      },
+      {
+        "id": "destination-coast",
+        "path": "destinations/coast.png"
+      },
+      {
+        "id": "road-highway",
+        "path": "roads/highway-1.png"
+      }
+    ],
+    "mappingVersion": "nunti-layers-v1",
+    "motion": "none",
+    "normalizedContext": {
+      "destinationCategory": "coast",
+      "displayMode": "day",
+      "mappingVersion": "nunti-layers-v1",
+      "roadType": "highway",
+      "routeGeometrySource": "TEST_ROUTE",
+      "routeId": "mock-nunti-coast-v1",
+      "routePointCount": 5,
+      "routeRevision": 1,
+      "seed": "0",
+      "userSelectedMood": "curious"
+    },
+    "palette": {
+      "accent": "#5595B0",
+      "background": "#F6F4EF",
+      "blue": "#B6D1E4",
+      "body": "#F5E6D8",
+      "face": "#FED7C6",
+      "ink": "#51362C",
+      "mint": "#ACDABF"
+    },
+    "provenance": {
+      "destinationCategory": "mock",
+      "roadType": "mock",
+      "routeGeometry": "mock",
+      "routeId": "mock",
+      "routeRevision": "mock",
+      "userSelectedMood": "mock"
+    },
+    "roadMotif": "highway",
+    "routeFingerprint": "5231c855648ac1c76f6fcb004d9f6b5371e6da283f8b7780f60b776c22e71381",
+    "routeId": "mock-nunti-coast-v1",
+    "routeVariant": 1,
+    "schemaVersion": "nunti.avatar.layers/1",
+    "seed": "0",
+    "variantId": "nunti-a-12e273330fba6692121dd45f"
+  },
+  "designVersion": "nunti-layers-v1",
+  "displayName": "눈티",
+  "faceAnchors": {
+    "leftEye": [
+      316,
+      274
+    ],
+    "mouth": [
+      391,
+      337
+    ],
+    "rightEye": [
+      463,
+      274
+    ]
+  },
+  "imageSha256": "ddde1f7d0e18317f473409f7137210be66a5b7388b4403959617bc6bc171ae9c",
+  "layerAssets": {
+    "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+    "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+    "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+    "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+    "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+    "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+    "destinations/coast.png": "9be1365db724f6e8c44564ec931763ca7f119079289202492a65c900dab7e1fc",
+    "expressions/curious.png": "e6bdc0a991758af336bd2a24c0ee8e61134af7d8afc68b4503d550683b72a5bd",
+    "roads/highway-1.png": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542"
+  },
+  "mediaOrigin": "LOCAL_LAYERS",
+  "motifs": [
+    {
+      "detail": "푸른 스카프와 포켓의 물결에 바다를 담았어요.",
+      "label": "목적지 장식",
+      "source": "NORMALIZED_VARIANT_CONTEXT",
+      "target": "pocket-and-scarf-accent"
+    },
+    {
+      "detail": "길게 이어지는 길을 스카프의 작은 선으로 담았어요.",
+      "label": "경로 무늬",
+      "source": "NORMALIZED_VARIANT_CONTEXT",
+      "target": "scarf-stitch"
+    },
+    {
+      "detail": "직접 고른 호기심을 올라간 눈썹과 미소로 표현했어요.",
+      "label": "명시적으로 선택한 표정",
+      "source": "NORMALIZED_VARIANT_CONTEXT",
+      "target": "fixed-face-anchors"
+    }
+  ],
+  "palette": [
+    "#F5E6D8",
+    "#ACDABF",
+    "#B6D1E4",
+    "#FED7C6",
+    "#51362C",
+    "#5595B0",
+    "#F6F4EF"
+  ],
+  "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+  "renderStatus": "COMPOSITED",
+  "renderVersion": "nunti-a-layers-v1",
+  "staticOnly": true,
+  "voice": {
+    "description": "따뜻하고 절제된 눈티의 목소리",
+    "pitch": 1.08,
+    "rate": 0.96
+  }
+}

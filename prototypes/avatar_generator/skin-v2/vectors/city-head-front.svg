@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><linearGradient id="sweep" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#968bad"/><stop offset="0.500" stop-color="#615779"/><stop offset="1.000" stop-color="#38304d"/></linearGradient><linearGradient id="earCup" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#7186a0"/><stop offset="0.500" stop-color="#4b5578"/><stop offset="1.000" stop-color="#323951"/></linearGradient></defs>
+<!-- Sculpted side sweep and thick wireless over-ear cups -->
+<path fill="url(#sweep)" d="M210 258Q185 205 229 154Q279 96 356 107Q423 64 506 89Q546 104 569 81Q569 132 524 153Q509 184 467 193Q435 200 412 186Q375 212 322 198Q271 183 248 221L229 269Z"/>
+<path d="M245 167Q283 119 362 126Q404 102 468 101Q513 105 538 101" stroke="#9c91bc" stroke-width="7" stroke-linecap="round" fill="none" opacity=".65"/>
+<path d="M278 185Q315 167 349 178Q388 181 416 157" stroke="#b0a2cb" stroke-width="4" stroke-linecap="round" fill="none" opacity=".34"/>
+<path d="M208 251Q201 172 249 139Q273 121 297 119M559 257Q572 181 525 150" fill="none" stroke="#a3adce" stroke-width="13" stroke-linecap="round"/>
+<path d="M208 250Q204 179 250 147M561 253Q563 187 534 166" fill="none" stroke="#545678" stroke-width="5" stroke-linecap="round"/>
+<g fill="url(#earCup)" stroke="#747c9f" stroke-width="3">
+ <path d="M208 232Q228 230 238 253L245 300Q249 325 224 332L196 332Q173 326 170 305L164 269Q163 245 187 237Z"/>
+ <path d="M555 232Q532 234 525 256L519 301Q515 326 541 333L569 330Q593 325 597 305L601 267Q601 246 578 238Z"/>
+</g>
+<path d="M178 267Q180 248 200 245L212 246M588 267Q586 248 566 246L554 246" fill="none" stroke="#a9ecd9" stroke-width="6" stroke-linecap="round"/>
+<path d="M185 280L192 307M580 280L573 307" stroke="#8999c5" stroke-width="7" stroke-linecap="round"/>
+</svg>

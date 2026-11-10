@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "tasks": [
+    ":app:testDebugUnitTest",
+    ":app:assembleDebug"
+  ],
+  "apk": "android/build/app/outputs/apk/debug/app-debug.apk",
+  "bytes": 66762654,
+  "sha256": "05ae6bce7f2a0b6772346e5e81a2c2ab62bdfa0da4f221b851a8d79c5be6a567",
+  "tests": [
+    {
+      "name": "ai.nunti.app.transformation.TransformationTimelineTest",
+      "tests": "10",
+      "failures": "0",
+      "errors": "0",
+      "time": "0.02"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "status": "PASS",
+  "boundary": "production submit handler in Node VM; no inference or HTTP",
+  "checks": 7,
+  "results": [
+    {
+      "mode": "LOCAL_MODEL",
+      "error": "LOCAL_MODEL_BACKGROUND_NOT_FLAT",
+      "newRequestOnExplicitClick": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "LOCAL_MODEL",
+      "error": "LOCAL_MODEL_MULTIPLE_LARGE_OBJECTS",
+      "newRequestOnExplicitClick": true,
+      "status": "PASS"
+    },
+    {
+      "mode": "LOCAL_MODEL",
+      "error": "LOCAL_MODEL_BUSY",
+      "newRequestOnExplicitClick": false,
+      "status": "PASS"
+    },
+    {
+      "mode": "LOCAL_MODEL",
+      "error": "LOCAL_MODEL_TIMEOUT",
+      "newRequestOnExplicitClick": false,
+      "status": "PASS"
+    },
+    {
+      "mode": "LOCAL_MODEL",
+      "error": "Failed to fetch",
+      "newRequestOnExplicitClick": false,
+      "status": "PASS"
+    },
+    {
+      "mode": "IMAGE_API",
+      "error": "LOCAL_MODEL_BACKGROUND_NOT_FLAT",
+      "newRequestOnExplicitClick": false,
+      "status": "PASS"
+    },
+    {
+      "mode": "IMAGE_API",
+      "error": "RESULT_UNKNOWN",
+      "newRequestOnExplicitClick": false,
+      "status": "PASS"
+    }
+  ]
+}

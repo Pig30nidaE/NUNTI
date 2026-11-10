@@ -1,0 +1,22 @@
+{
+  "pid": 23702,
+  "serial": "emulator-5554",
+  "avd": "Nunti_Restore_2_1",
+  "userdataWiped": false,
+  "grpcTokenRequired": true,
+  "command": [
+    "/Users/pig30nidae/NUNTI/.local/pm-tools/sdk/emulator/emulator",
+    "-avd",
+    "Nunti_Restore_2_1",
+    "-port",
+    "5554",
+    "-no-snapshot-load",
+    "-no-snapshot-save",
+    "-no-boot-anim",
+    "-memory",
+    "4096",
+    "-grpc",
+    "8554",
+    "-grpc-use-token"
+  ]
+}

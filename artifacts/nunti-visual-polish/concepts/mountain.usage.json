@@ -1,0 +1,23 @@
+{
+  "model": "gpt-image-2.6-flare",
+  "phase": "draft",
+  "skin": "mountain",
+  "quality": "medium",
+  "request_id": "req_0aa17a092c084b20a069f553a0ba4679",
+  "utc": "2026-11-09T18:17:15.695009+00:00",
+  "usage": {
+    "input_tokens": 1404,
+    "input_tokens_details": {
+      "image_tokens": 1024,
+      "text_tokens": 380
+    },
+    "output_tokens": 1449,
+    "output_tokens_details": {
+      "image_tokens": 1449,
+      "text_tokens": 0
+    },
+    "total_tokens": 2853
+  },
+  "estimated_usd": 0.053562,
+  "file": "artifacts/nunti-visual-polish/concepts/mountain.png"
+}

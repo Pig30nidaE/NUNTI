@@ -1,0 +1,92 @@
+{
+  "fileKey": "LHLHBra8ON3OdVW0qhBnbm",
+  "fileUrl": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm",
+  "team": "TOZI",
+  "canvas": [
+    768,
+    768
+  ],
+  "sourceRoot": "android/app/src/debug/assets/nunti_motion_v1",
+  "assets": [
+    {
+      "path": "core.png",
+      "sourceNodeId": "3:2",
+      "figmaImageHash": "95b5df3022ee46c1c381d3a671519f51357e0064",
+      "sha256": "10efc0e79d35a21183f3921aea4ef9fa42844d2d7d1b715ff96bebb0bba1c1fc",
+      "bytes": 293063
+    },
+    {
+      "path": "expression-base.png",
+      "sourceNodeId": "3:3",
+      "figmaImageHash": "3ee243181e60ed485fd69d496f6149a6b2921f95",
+      "sha256": "6a2c0076900701060768db73fb832de7bbea4a8dadc319a52841485b0a4e664d",
+      "bytes": 302209
+    },
+    {
+      "path": "expression-curious.png",
+      "sourceNodeId": "3:4",
+      "figmaImageHash": "435b438f23c3f6f5a63be8fdce90e73fc4d939bb",
+      "sha256": "e6bdc0a991758af336bd2a24c0ee8e61134af7d8afc68b4503d550683b72a5bd",
+      "bytes": 54665
+    },
+    {
+      "path": "destinations/coast-scarf.png",
+      "sourceNodeId": "3:5",
+      "figmaImageHash": "4172befa8d4f0275c5ce9dffb38ce98250fc6bf5",
+      "sha256": "e7fc2559db9e2a44f5c591fd9ca5210a7d9e59ca0e3f3877230e1943dcfdb8fd",
+      "bytes": 5659
+    },
+    {
+      "path": "destinations/coast-pocket.png",
+      "sourceNodeId": "3:6",
+      "figmaImageHash": "72303f4b5cf83e12fe3a66048de36d3b3edd476b",
+      "sha256": "fc3745b7d8f51332d0c6129b0911a2f855bf67549b207e2da7a0036a3677b346",
+      "bytes": 6572
+    },
+    {
+      "path": "roads/highway-1.png",
+      "sourceNodeId": "3:7",
+      "figmaImageHash": "fc769e661afd1c0fe2d0b225ac26da82a6886834",
+      "sha256": "137c87f980669c290361ca3657bbfadb8bbc7f93ba6b1711fbb25ce0728b8542",
+      "bytes": 2937
+    },
+    {
+      "path": "finals/coast-curious.png",
+      "sourceNodeId": "3:8",
+      "figmaImageHash": "9267bd06cd286b3e692443fe30d026123d5581df",
+      "sha256": "ddde1f7d0e18317f473409f7137210be66a5b7388b4403959617bc6bc171ae9c",
+      "bytes": 309840
+    }
+  ],
+  "render": {
+    "fps": 24,
+    "width": 768,
+    "height": 768,
+    "timelineMs": 4000,
+    "containerDurationSeconds": 4.041666666666667,
+    "source": "Figma Motion server-side export, not image/video model generation",
+    "expressionTransitionMs": [
+      2850,
+      3050
+    ],
+    "glowRGB": [
+      249,
+      216,
+      146
+    ],
+    "glowColorDecision": "Match existing Android warm-gold value; Figma ellipse fills 4:38 and 4:47 changed, timing and B unchanged."
+  },
+  "sampleTimes": {
+    "0.0": 0,
+    "0.4": 0.375,
+    "0.8": 0.7916666666666666,
+    "1.0": 1,
+    "1.4": 1.375,
+    "2.0": 2,
+    "2.2": 2.1666666666666665,
+    "2.6": 2.5833333333333335,
+    "3.0": 3,
+    "3.8": 3.7916666666666665,
+    "4.0": 4
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "sessionId": "5406ddd0-6c62-41ec-9e95-10c6d4797872",
+  "characterId": "nunti-skin-c38a58fadd8d14c3b45726a7e62963a3",
+  "displayName": "바닷길 눈티",
+  "destination": "파도 해변",
+  "purpose": "스킨 시험 여정",
+  "staticOnly": true,
+  "imageFile": "/data/user/10/ai.nunti.avatar.demo/files/journeys/assets/cd2246a6c8f83a7f24ddc12a3e75b30fe854c39c1dfb2e058bd60be0d182f3d9.png",
+  "voices": {},
+  "source": "DEMO",
+  "startedAtEpochMs": 1794315460393,
+  "state": "ACTIVE",
+  "elapsedMs": 0,
+  "sampleCount": 0,
+  "total": null,
+  "coverage": 0,
+  "emotion": "NEUTRAL",
+  "line": "함께 살펴보고 있어요.",
+  "canFinish": true,
+  "voiceStatus": "감정 음성 0/4 준비 · 없는 대사는 화면으로 안내해요",
+  "muted": false,
+  "updatedAtEpochMs": 1794315460451,
+  "items": [
+    {
+      "label": "급가속·급감속·급제동",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "후진 속도",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "앞차 거리",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "제한속도 준수",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "회전 전 감속",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "차선 변경 지시등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "안전벨트",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "주행 중 문 열림",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "야간 전조등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "연비·전비",
+      "score": null,
+      "basis": "수신 없음"
+    }
+  ],
+  "events": [],
+  "speedKmh": null,
+  "gear": null,
+  "signalDetails": []
+}

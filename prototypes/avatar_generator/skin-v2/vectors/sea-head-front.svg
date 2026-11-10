@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><linearGradient id="cap" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#fff9eb"/><stop offset="0.500" stop-color="#e0eadc"/><stop offset="1.000" stop-color="#bcd5ce"/></linearGradient><linearGradient id="brim" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#559cad"/><stop offset="0.500" stop-color="#2f657c"/><stop offset="1.000" stop-color="#254a63"/></linearGradient></defs>
+<path fill="url(#cap)" d="M211 169Q213 112 267 89Q320 61 381 98Q412 77 457 87Q526 95 548 155Q537 182 489 184Q353 196 231 182Z"/>
+<path fill="#fff9e6" opacity=".63" d="M225 142Q251 94 307 90Q345 85 375 104Q307 100 271 127Q253 139 225 142Z"/>
+<path fill="url(#brim)" d="M215 158Q359 134 545 153Q565 158 556 175Q534 198 440 195Q338 181 241 198Q213 200 203 184Q196 170 215 158Z"/>
+<path d="M222 165Q370 146 535 160" stroke="#b9e4dd" stroke-width="5" fill="none" stroke-linecap="round"/>
+<path d="M287 119Q303 104 319 119Q334 131 350 116" fill="none" stroke="#4c8c9e" stroke-width="6" stroke-linecap="round"/>
+<path d="M288 134Q304 119 320 134Q334 146 350 132" fill="none" stroke="#83b8bf" stroke-width="4" stroke-linecap="round"/>
+</svg>

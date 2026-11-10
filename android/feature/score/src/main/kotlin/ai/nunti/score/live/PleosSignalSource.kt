@@ -5,6 +5,8 @@ import android.car.VehiclePropertyIds
 import android.car.hardware.CarPropertyValue
 import android.car.hardware.property.CarPropertyManager
 import android.content.Context
+import android.os.SystemClock
+import android.util.Log
 import ai.pleos.playground.vehicle.Vehicle
 import ai.pleos.playground.vehicle.api.model.area.DoorArea
 import ai.pleos.playground.vehicle.api.model.area.SeatArea
@@ -20,181 +22,230 @@ import ai.pleos.playground.vehicle.listener.LightStateListener
 import ai.pleos.playground.vehicle.listener.SeatBeltBuckledStateListener
 import ai.pleos.playground.vehicle.listener.SeatOccupancyListener
 import ai.pleos.playground.vehicle.listener.TurnSignalStateListener
-import android.util.Log
 import ai.nunti.score.Gear
 import ai.nunti.score.SeatState
 import ai.nunti.score.TurnSignal
 import ai.nunti.score.VehicleSample
 
 /**
- * 실제 차량 신호 수신. 마지막으로 받은 값을 보관하고 snapshot()에서 한 시점의 VehicleSample로 만든다.
- * 한 번도 수신하지 못한 신호는 null(평가 불가)로 남는다.
- * 속도는 Pleos Vehicle SDK 2.3.2에 없어 AAOS CarPropertyManager(PERF_VEHICLE_SPEED)로 받는다.
+ * One live subscription lifetime. Unknown/error/disconnected readings remain null.
+ * Speed uses AAOS when available, plus the explicitly experimental VehicleService AIDL probe.
+ * Change-only signals do not expire merely because a car stays at a constant speed or gear.
  */
 class PleosSignalSource(private val context: Context) {
-    private val tag = "NuntiSignal"
-
-    @Volatile private var speedKmh: Float? = null
-    @Volatile private var brake: Boolean? = null
-    @Volatile private var gear: Gear? = null
-    @Volatile private var turn: TurnSignal? = null
-    @Volatile private var lowBeam: Boolean? = null
-    private val belts = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
-    private val occupied = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
-    private val doorOpen = java.util.concurrent.ConcurrentHashMap<DoorValue, Boolean>()
+    private val gate = SignalSessionGate()
+    private var carSpeed: Float? = null
+    private var rawSpeedValue: Float? = null
+    private var brake: Boolean? = null
+    private var gear: Gear? = null
+    private var turn: TurnSignal? = null
+    private var lowBeam: Boolean? = null
+    private val belts = mutableMapOf<SeatValue, Boolean>()
+    private val occupied = mutableMapOf<SeatValue, Boolean>()
+    private val doors = mutableMapOf<String, Boolean>()
+    private val doorAreas = listOf(DoorValue.ROW_1_LEFT, DoorValue.ROW_1_RIGHT, DoorValue.ROW_2_LEFT, DoorValue.ROW_2_RIGHT)
+    private val expectedDoors = doorAreas.map { it.name }.toSet()
+    private val seatAreas = listOf(SeatValue.ROW_1_LEFT, SeatValue.ROW_1_RIGHT)
 
     private var vehicle: Vehicle? = null
     private var car: Car? = null
     private var carProps: CarPropertyManager? = null
-    private var vehicleRegistered = false
+    private var speedCallback: CarPropertyManager.CarPropertyEventCallback? = null
+    private val registered = mutableSetOf<String>()
     private var speedRegistered = false
     private var startedAtMs = 0L
-    private val rawSpeed = RawSpeedProbe(context) { speedKmh = it }
-    private val navi = NaviSignalSource(context) { System.currentTimeMillis() - startedAtMs }
+    private var lastSnapshotMs = 0L
+    private var lastSnapshotSpeed: Float? = null
+    private var lastNaviPollMs = Long.MIN_VALUE
+    private var rawSpeed: RawSpeedProbe? = null
+    private var navi: NaviSignalSource? = null
 
-    private val speedCallback = object : CarPropertyManager.CarPropertyEventCallback {
-        override fun onChangeEvent(value: CarPropertyValue<*>) {
-            (value.value as? Float)?.let { speedKmh = it * 3.6f } // m/s -> km/h
-        }
-        override fun onErrorEvent(propId: Int, zone: Int) = Unit
+    private fun resetReadings() {
+        carSpeed = null; rawSpeedValue = null; brake = null; gear = null; turn = null; lowBeam = null
+        belts.clear(); occupied.clear(); doors.clear(); lastSnapshotMs = 0; lastSnapshotSpeed = null
     }
 
-    private val doorAreas = listOf(DoorValue.ROW_1_LEFT, DoorValue.ROW_1_RIGHT, DoorValue.ROW_2_LEFT, DoorValue.ROW_2_RIGHT)
-    private val seatAreas = listOf(SeatValue.ROW_1_LEFT, SeatValue.ROW_1_RIGHT)
-
+    @Synchronized
     fun start() {
-        startedAtMs = System.currentTimeMillis()
-        runCatching {
-            vehicle = Vehicle(context).also { it.initialize() }
-        }.onFailure { Log.w(tag, "Vehicle init failed", it) }
-        rawSpeed.start()
-        navi.start()
-        retryRegistrations()
+        val epoch = gate.begin { resetReadings() } ?: return
+        startedAtMs = SystemClock.elapsedRealtime()
+        lastNaviPollMs = Long.MIN_VALUE
+        registered.clear(); speedRegistered = false
+        vehicle = runCatching { Vehicle(context).also { it.initialize() } }
+            .onFailure { Log.w("NuntiSignal", "Vehicle init failed", it) }.getOrNull()
+        rawSpeed = RawSpeedProbe(
+            context,
+            onSpeed = { value -> gate.accept(epoch) { rawSpeedValue = value.takeIf { it.isFinite() } } },
+            onUnavailable = { gate.accept(epoch) { rawSpeedValue = null } },
+        ).also { it.start() }
+        navi = NaviSignalSource(context) { SystemClock.elapsedRealtime() - startedAtMs }.also { it.start() }
+        retryRegistrations(epoch)
     }
 
-    /** 서비스 연결이 늦을 수 있어 snapshot 때마다 미등록 항목을 다시 시도한다. */
-    private fun retryRegistrations() {
-        if (!vehicleRegistered) vehicleRegistered = runCatching { registerVehicle() }
-            .onFailure { Log.w(tag, "Vehicle register failed: ${it.message}") }.isSuccess
-        if (!speedRegistered) speedRegistered = runCatching { registerSpeed() }
-            .onFailure { Log.w(tag, "Speed register failed: ${it.message}") }.isSuccess
+    private fun retryRegistrations(epoch: Long) {
+        if (vehicle == null) vehicle = runCatching { Vehicle(context).also { it.initialize() } }.getOrNull()
+        vehicle?.let { registerVehicle(it, epoch) }
+        if (!speedRegistered) speedRegistered = runCatching { registerSpeed(epoch) }
+            .onFailure { Log.w("NuntiSignal", "Speed register failed: ${it.message}") }.getOrDefault(false)
     }
 
-    private fun registerSpeed() {
+    private fun registerSpeed(epoch: Long): Boolean {
         val c = car ?: Car.createCar(context).also { car = it }
         val mgr = carProps ?: (c.getCarManager(Car.PROPERTY_SERVICE) as CarPropertyManager).also { carProps = it }
-        // 에뮬레이터에 따라 PERF_VEHICLE_SPEED 가 목록에 없을 수 있어 클러스터용 DISPLAY 속도를 대체로 쓴다.
-        val ok = listOf(VehiclePropertyIds.PERF_VEHICLE_SPEED, VehiclePropertyIds.PERF_VEHICLE_SPEED_DISPLAY).any {
-            mgr.registerCallback(speedCallback, it, CarPropertyManager.SENSOR_RATE_NORMAL)
+        val cb = speedCallback ?: object : CarPropertyManager.CarPropertyEventCallback {
+            override fun onChangeEvent(value: CarPropertyValue<*>) {
+                gate.accept(epoch) {
+                    carSpeed = if (value.status == CarPropertyValue.STATUS_AVAILABLE)
+                        (value.value as? Float)?.takeIf { it.isFinite() }?.times(3.6f) else null
+                }
+            }
+            override fun onErrorEvent(propId: Int, zone: Int) { gate.accept(epoch) { carSpeed = null } }
+        }.also { speedCallback = it }
+        return listOf(VehiclePropertyIds.PERF_VEHICLE_SPEED, VehiclePropertyIds.PERF_VEHICLE_SPEED_DISPLAY).any {
+            runCatching { mgr.registerCallback(cb, it, CarPropertyManager.SENSOR_RATE_NORMAL) }.getOrDefault(false)
         }
-        check(ok) { "no speed property" }
     }
 
-    private fun registerVehicle() {
-        val v = vehicle ?: error("no vehicle")
-        val noop = { _: Exception -> }
+    /** A failure in one property does not register all the already-connected listeners a second time. */
+    private fun registerOnce(key: String, block: () -> Unit) {
+        if (key in registered) return
+        runCatching { block(); registered += key }.onFailure { Log.w("NuntiSignal", "$key registration failed", it) }
+    }
 
-        v.getBrake().apply {
-            getCurrentBrakePedalStatus({ brake = it }, noop)
-            registerBrakePedalStatus(object : BrakePedalStatusListener {
-                override fun onBrakePedalStatusUpdated(p0: Boolean?) { brake = p0 }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getGear().apply {
-            getCurrentGearSelectionState({ gear = it?.toGear() }, noop)
-            registerGearSelection(object : GearSelectionListener {
-                override fun onSelected(p0: VehicleGear?) { gear = p0?.toGear() }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getTurnSignal().apply {
-            getCurrentTurnSignalState({ turn = it?.toTurn() }, noop)
-            registerTurnSignalState(object : TurnSignalStateListener {
-                override fun onTurnSignalStateUpdated(p0: TurnSignalValue?) { turn = p0?.toTurn() }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getLight().apply {
-            getCurrentLowBeamLightState({ lowBeam = it?.let { v -> v == LightState.ON } }, noop)
-            registerLowBeamLightState(object : LightStateListener {
-                override fun onLightStateUpdated(p0: LightState?) { lowBeam = p0?.let { it == LightState.ON } }
-                override fun onFailed(p0: Exception) = Unit
-            })
-        }
-        v.getSeat().apply {
-            for (s in seatAreas) {
-                val area = SeatArea(s)
-                getCurrentSeatBeltBuckledState(area, { it?.let { v -> belts[s] = v } }, noop)
-                registerSeatBeltBuckledState(area, object : SeatBeltBuckledStateListener {
-                    override fun onSeatBeltBuckledStateUpdated(p0: Boolean?) { p0?.let { belts[s] = it } }
-                    override fun onFailed(p0: Exception) = Unit
-                })
-                getCurrentSeatOccupancy(area, { it?.let { v -> occupied[s] = v } }, noop)
-                registerSeatOccupancy(area, object : SeatOccupancyListener {
-                    override fun onSeatOccupancyUpdated(p0: Boolean?) { p0?.let { occupied[s] = it } }
-                    override fun onFailed(p0: Exception) = Unit
+    private fun registerVehicle(v: Vehicle, epoch: Long) {
+        registerOnce("brake") {
+            v.getBrake().apply {
+                runCatching { getCurrentBrakePedalStatus({ gate.accept(epoch) { brake = it } }, { gate.accept(epoch) { brake = null } }) }
+                registerBrakePedalStatus(object : BrakePedalStatusListener {
+                    override fun onBrakePedalStatusUpdated(p0: Boolean?) { gate.accept(epoch) { brake = p0 } }
+                    override fun onFailed(p0: Exception) { gate.accept(epoch) { brake = null } }
                 })
             }
         }
-        v.getDoor().apply {
-            for (d in doorAreas) {
-                val area = DoorArea(d)
-                getCurrentDoorPosition(area, { it?.let { v -> doorOpen[d] = v > 0 } }, noop) // 0 = 닫힘 (에뮬레이터로 확인 필요)
+        registerOnce("gear") {
+            v.getGear().apply {
+                runCatching { getCurrentGearSelectionState({ gate.accept(epoch) { gear = it?.toGear() } }, { gate.accept(epoch) { gear = null } }) }
+                registerGearSelection(object : GearSelectionListener {
+                    override fun onSelected(p0: VehicleGear?) { gate.accept(epoch) { gear = p0?.toGear() } }
+                    override fun onFailed(p0: Exception) { gate.accept(epoch) { gear = null } }
+                })
+            }
+        }
+        registerOnce("turn") {
+            v.getTurnSignal().apply {
+                runCatching { getCurrentTurnSignalState({ gate.accept(epoch) { turn = it?.toTurn() } }, { gate.accept(epoch) { turn = null } }) }
+                registerTurnSignalState(object : TurnSignalStateListener {
+                    override fun onTurnSignalStateUpdated(p0: TurnSignalValue?) { gate.accept(epoch) { turn = p0?.toTurn() } }
+                    override fun onFailed(p0: Exception) { gate.accept(epoch) { turn = null } }
+                })
+            }
+        }
+        registerOnce("lowBeam") {
+            v.getLight().apply {
+                runCatching { getCurrentLowBeamLightState({ state -> gate.accept(epoch) { lowBeam = state?.let { it == LightState.ON } } }, { gate.accept(epoch) { lowBeam = null } }) }
+                registerLowBeamLightState(object : LightStateListener {
+                    override fun onLightStateUpdated(p0: LightState?) { gate.accept(epoch) { lowBeam = p0?.let { it == LightState.ON } } }
+                    override fun onFailed(p0: Exception) { gate.accept(epoch) { lowBeam = null } }
+                })
+            }
+        }
+        for (seat in seatAreas) {
+            registerOnce("belt:$seat") {
+                v.getSeat().apply {
+                    val area = SeatArea(seat)
+                    fun update(value: Boolean?) { gate.accept(epoch) { if (value == null) belts.remove(seat) else belts[seat] = value } }
+                    runCatching { getCurrentSeatBeltBuckledState(area, { update(it) }, { update(null) }) }
+                    registerSeatBeltBuckledState(area, object : SeatBeltBuckledStateListener {
+                        override fun onSeatBeltBuckledStateUpdated(p0: Boolean?) { update(p0) }
+                        override fun onFailed(p0: Exception) { update(null) }
+                    })
+                }
+            }
+            registerOnce("occupancy:$seat") {
+                v.getSeat().apply {
+                    val area = SeatArea(seat)
+                    fun update(value: Boolean?) { gate.accept(epoch) { if (value == null) occupied.remove(seat) else occupied[seat] = value } }
+                    runCatching { getCurrentSeatOccupancy(area, { update(it) }, { update(null) }) }
+                    registerSeatOccupancy(area, object : SeatOccupancyListener {
+                        override fun onSeatOccupancyUpdated(p0: Boolean?) { update(p0) }
+                        override fun onFailed(p0: Exception) { update(null) }
+                    })
+                }
+            }
+        }
+        for (door in doorAreas) registerOnce("door:$door") {
+            v.getDoor().apply {
+                val area = DoorArea(door)
+                fun update(value: Int?) { gate.accept(epoch) { if (value == null) doors.remove(door.name) else doors[door.name] = value > 0 } }
+                runCatching { getCurrentDoorPosition(area, { update(it) }, { update(null) }) }
                 registerDoorPosition(area, object : DoorPositionListener {
-                    override fun onPositionUpdated(p0: Int?) { p0?.let { doorOpen[d] = it > 0 } }
-                    override fun onFailed(p0: Exception) = Unit
+                    override fun onPositionUpdated(p0: Int?) { update(p0) }
+                    override fun onFailed(p0: Exception) { update(null) }
                 })
             }
         }
     }
 
+    @Synchronized
     fun snapshot(): VehicleSample {
-        retryRegistrations()
-        fun seat(s: SeatValue) =
-            if (occupied[s] == null && belts[s] == null) null else SeatState(occupied[s], belts[s])
-        val doors = doorOpen.values
-        return VehicleSample(
-            tMs = System.currentTimeMillis() - startedAtMs,
-            speedKmh = speedKmh,
-            brakePressed = brake,
-            gear = gear,
-            turnSignal = turn,
-            driverSeat = seat(SeatValue.ROW_1_LEFT),
-            passengerSeat = seat(SeatValue.ROW_1_RIGHT),
-            doorOpen = if (doors.isEmpty()) null else doors.any { it },
-            headlightOn = lowBeam,
-            speedLimitKmh = navi.speedLimitKmh,
-            // 어두움 감지는 보류 상태이므로 null → 야간 전조등은 평가 불가
+        val epoch = gate.current() ?: return VehicleSample(0)
+        retryRegistrations(epoch)
+        val now = SystemClock.elapsedRealtime() - startedAtMs
+        if (lastNaviPollMs == Long.MIN_VALUE || now - lastNaviPollMs >= 1000) {
+            lastNaviPollMs = now
+            navi?.poll()
+        }
+        // Read transport health outside the readings lock: callbacks acquire transport then readings.
+        val rawAlive = rawSpeed?.isConnected() == true
+        val carAlive = car?.isConnected == true
+        val speedLimit = navi?.speedLimitKmh
+        return gate.read {
+            fun seat(s: SeatValue) = if (occupied[s] == null && belts[s] == null) null else SeatState(occupied[s], belts[s])
+            lastSnapshotMs = now
+            lastSnapshotSpeed = (if (rawAlive) rawSpeedValue else null) ?: (if (carAlive) carSpeed else null)
+            VehicleSample(
+                tMs = now,
+                speedKmh = lastSnapshotSpeed,
+                brakePressed = brake, gear = gear, turnSignal = turn,
+                driverSeat = seat(SeatValue.ROW_1_LEFT), passengerSeat = seat(SeatValue.ROW_1_RIGHT),
+                doorOpen = aggregateDoorState(doors, expectedDoors), headlightOn = lowBeam, speedLimitKmh = speedLimit,
+            )
+        }
+    }
+
+    fun received(): List<Pair<String, String>> = gate.read {
+        listOf(
+            "속도" to (lastSnapshotSpeed?.let { "%.1f km/h".format(it) } ?: "미수신"),
+            "속도(직접구독)" to (rawSpeed?.lastRaw ?: rawSpeed?.status ?: "중지"),
+            "기어" to (gear?.name ?: "미수신"),
+            "브레이크" to (brake?.let { if (it) "밟음" else "뗌" } ?: "미수신"),
+            "지시등" to (turn?.name ?: "미수신"),
+            "하향등" to (lowBeam?.let { if (it) "ON" else "OFF" } ?: "미수신"),
+            "벨트 운전석/동승석" to "${belts[SeatValue.ROW_1_LEFT] ?: "-"} / ${belts[SeatValue.ROW_1_RIGHT] ?: "-"}",
+            "내비" to (navi?.status ?: "중지"),
+            "다음 회전" to (navi?.nextTurn ?: "-"),
+            "제한속도" to (navi?.speedLimitKmh?.let { "$it km/h" } ?: "미수신"),
+            "탑승 운전석/동승석" to "${occupied[SeatValue.ROW_1_LEFT] ?: "-"} / ${occupied[SeatValue.ROW_1_RIGHT] ?: "-"}",
+            "문 열림" to (aggregateDoorState(doors, expectedDoors)?.toString() ?: "미수신"),
         )
     }
 
-    /** 화면 확인용: 항목별 수신 여부. */
-    fun received(): List<Pair<String, String>> = listOf(
-        "속도" to (speedKmh?.let { "%.1f km/h".format(it) } ?: "미수신"),
-        "속도(직접구독)" to (rawSpeed.lastRaw ?: rawSpeed.status),
-        "기어" to (gear?.name ?: "미수신"),
-        "브레이크" to (brake?.let { if (it) "밟음" else "뗌" } ?: "미수신"),
-        "지시등" to (turn?.name ?: "미수신"),
-        "하향등" to (lowBeam?.let { if (it) "ON" else "OFF" } ?: "미수신"),
-        "벨트 운전석/동승석" to "${belts[SeatValue.ROW_1_LEFT] ?: "-"} / ${belts[SeatValue.ROW_1_RIGHT] ?: "-"}",
-        "내비" to navi.status,
-        "다음 회전" to navi.nextTurn,
-        "제한속도" to (navi.speedLimitKmh?.let { "$it km/h" } ?: "미수신"),
-        "탑승 운전석/동승석" to "${occupied[SeatValue.ROW_1_LEFT] ?: "-"} / ${occupied[SeatValue.ROW_1_RIGHT] ?: "-"}",
-        "문 열림" to (if (doorOpen.isEmpty()) "미수신" else doorOpen.values.any { it }.toString()),
-    )
+    fun events(): List<ai.nunti.score.DrivingEvent> {
+        val observedUntil = gate.read { lastSnapshotMs }
+        return navi?.events.orEmpty().filter { it.tMs <= observedUntil }
+    }
 
-    fun events() = navi.events.toList()
+    fun navigationLocation(): NavigationLocation? = navi?.location
 
+    @Synchronized
     fun stop() {
-        navi.stop()
-        rawSpeed.stop()
-        runCatching { carProps?.unregisterCallback(speedCallback) }
+        if (!gate.end { resetReadings() }) return
+        navi?.stop(); rawSpeed?.stop()
+        speedCallback?.let { runCatching { carProps?.unregisterCallback(it) } }
         runCatching { car?.disconnect() }
         runCatching { vehicle?.release() }
-        vehicle = null; car = null; carProps = null
-        vehicleRegistered = false; speedRegistered = false
+        navi = null; rawSpeed = null; vehicle = null; car = null; carProps = null; speedCallback = null
+        registered.clear(); speedRegistered = false
     }
 
     private fun VehicleGear.toGear() = when (this) {

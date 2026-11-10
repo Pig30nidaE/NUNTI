@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "surface": "PRODUCTION_CONTROLLER_VM_REAL_ASSET_BYTES_STUB_CANVAS",
+  "sourceSha256": "cf3c1a4ee779d06e95d23e2581e5dd729f450996d197e0388bd4e57eba374688",
+  "checks": 14,
+  "passed": 14,
+  "networkRequests": 0,
+  "deviceChanges": 0,
+  "paidApiCalls": 0,
+  "results": [
+    {
+      "name": "all nine persisted AvatarSpecs resolve their real layer contract; base has no changes",
+      "status": "PASS"
+    },
+    {
+      "name": "malformed, future, modified or failed renderer contracts are refused",
+      "status": "PASS"
+    },
+    {
+      "name": "4-second timeline keeps expression last with finite monotone tracks",
+      "status": "PASS"
+    },
+    {
+      "name": "real package hashes decode and playback settles to the exact supplied final image",
+      "status": "PASS"
+    },
+    {
+      "name": "an earlier first RAF timestamp cannot report negative elapsed progress",
+      "status": "PASS"
+    },
+    {
+      "name": "park permission and foreground are checked before every next frame",
+      "status": "PASS"
+    },
+    {
+      "name": "skip and reduced-motion controls settle and never resume automatically",
+      "status": "PASS"
+    },
+    {
+      "name": "base, existing result, denied gate and persisted reduced preference start without motion",
+      "status": "PASS"
+    },
+    {
+      "name": "a corrupt or unavailable layer falls back to the supplied final without partial playback",
+      "status": "PASS"
+    },
+    {
+      "name": "permission revoked during asynchronous loading cannot restart animation",
+      "status": "PASS"
+    },
+    {
+      "name": "late canceled loading failure cannot overwrite a newer settled result",
+      "status": "PASS"
+    },
+    {
+      "name": "system reduced motion during layer loading cancels ownership even when toggled off again",
+      "status": "PASS"
+    },
+    {
+      "name": "switching renderer releases the canvas and cancels late layer drawing",
+      "status": "PASS"
+    },
+    {
+      "name": "diagnostic capture obeys the actual gate and foreground boundaries",
+      "status": "PASS"
+    }
+  ]
+}

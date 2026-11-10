@@ -1,0 +1,123 @@
+{
+  "surface": "Pleos Android Automotive emulator",
+  "displayPixels": [
+    2560,
+    1440
+  ],
+  "shockwaveMs": 3300,
+  "riveSha256": "3b17f84055e642b2eba2158c5ba63b6aedc56b190d884b60529807b7af916d1b",
+  "runs": {
+    "seaPilot": {
+      "apkSha256": "4eda9ea5a38be3502c9d64596544e971fef34f2e73742c038fdcf940675a8306",
+      "passed": 25,
+      "checks": [
+        "host-Studio-transport-disconnected",
+        "installed-APK-matches-reviewed-build",
+        "cold-start-actual-pre-trip-UI-offline",
+        "native-WebView-denies-avatar-mutation",
+        "sea-uses-existing-create-and-native-Rive",
+        "sea-native-phases-and-final-pixels",
+        "sea-04-charge-native-frame-in-time-window",
+        "sea-05-burst-native-frame-in-time-window",
+        "sea-01-sense-native-frame-in-time-window",
+        "sea-02-gather-native-frame-in-time-window",
+        "sea-03-equip-native-frame-in-time-window",
+        "sea-06-settle-native-frame-in-time-window",
+        "sea-repeat-keeps-original-final-pixels",
+        "skip-matches-original-final-PNG",
+        "in-app-reduced-motion-stops-and-matches-final-PNG",
+        "real-Virtual-Console-restriction-stops-a-Sea-burst",
+        "restricted-stage-has-no-changing-VFX-pixels",
+        "interrupted-burst-never-finishes-natively",
+        "return-to-Park-restores-exact-final-still-without-replay",
+        "controlled-native-failure-uses-animated-Canvas",
+        "fallback-WebView-advances-through-outfit",
+        "fallback-preserves-exact-final-still",
+        "real-stage-drew-the-native-AGSL-effect",
+        "Sea-new-process-observed-Rive-start-and-finish",
+        "no-remote-or-mutating-network-request-during-app-scenarios"
+      ],
+      "performanceSingleReplay": {
+        "totalFrames": 333,
+        "p95FrameMs": 38,
+        "jankPercent": 12.91,
+        "pssKiB": 163437
+      },
+      "restored": true,
+      "externalGenerationCalls": 0
+    },
+    "threeThemes": {
+      "apkSha256": "760b5280695aff60c135865e52a48a68350d8931be0347d21037ca80605d6297",
+      "passed": 33,
+      "checks": [
+        "host-Studio-transport-disconnected",
+        "installed-APK-matches-reviewed-build",
+        "cold-start-actual-pre-trip-UI-offline",
+        "native-WebView-denies-avatar-mutation",
+        "sea-uses-existing-create-and-native-Rive",
+        "sea-native-phases-and-final-pixels",
+        "sea-04-charge-native-frame-in-time-window",
+        "sea-05-burst-native-frame-in-time-window",
+        "sea-repeat-keeps-original-final-pixels",
+        "city-uses-existing-create-and-native-Rive",
+        "city-native-phases-and-final-pixels",
+        "city-05-burst-native-frame-in-time-window",
+        "city-repeat-keeps-original-final-pixels",
+        "mountain-uses-existing-create-and-native-Rive",
+        "mountain-native-phases-and-final-pixels",
+        "mountain-05-burst-native-frame-in-time-window",
+        "mountain-repeat-keeps-original-final-pixels",
+        "themed-final-pixels-remain-distinct",
+        "sea-remains-exact-after-other-themes",
+        "skip-matches-original-final-PNG",
+        "in-app-reduced-motion-stops-and-matches-final-PNG",
+        "real-Virtual-Console-restriction-stops-a-Sea-burst",
+        "restricted-stage-has-no-changing-VFX-pixels",
+        "interrupted-burst-never-finishes-natively",
+        "return-to-Park-restores-exact-final-still-without-replay",
+        "controlled-native-failure-uses-animated-Canvas",
+        "fallback-WebView-advances-through-outfit",
+        "fallback-preserves-exact-final-still",
+        "real-stage-drew-native-AGSL-for-each-verified-theme",
+        "Sea-new-process-observed-Rive-start-and-finish",
+        "City-new-process-observed-Rive-start-and-finish",
+        "Mountain-new-process-observed-Rive-start-and-finish",
+        "no-remote-or-mutating-network-request-during-app-scenarios"
+      ],
+      "performanceSingleReplay": {
+        "totalFrames": 354,
+        "p95FrameMs": 32,
+        "jankPercent": 7.34,
+        "pssKiB": 174061
+      },
+      "restored": true,
+      "externalGenerationCalls": 0
+    },
+    "finalHeadroom": {
+      "apkSha256": "20c9b580f1b529def435efe2e85a3679754707e539ebfc5d49437b046306a87a",
+      "passed": 12,
+      "checks": [
+        "host-Studio-transport-disconnected",
+        "installed-APK-matches-reviewed-build",
+        "cold-start-actual-pre-trip-UI-offline",
+        "native-WebView-denies-avatar-mutation",
+        "sea-uses-existing-create-and-native-Rive",
+        "sea-native-phases-and-final-pixels",
+        "sea-04-charge-native-frame-in-time-window",
+        "sea-05-burst-native-frame-in-time-window",
+        "sea-repeat-keeps-original-final-pixels",
+        "real-stage-drew-native-AGSL-for-each-verified-theme",
+        "Sea-new-process-observed-Rive-start-and-finish",
+        "no-remote-or-mutating-network-request-during-app-scenarios"
+      ],
+      "performanceSingleReplay": {
+        "totalFrames": 352,
+        "p95FrameMs": 36,
+        "jankPercent": 7.67,
+        "pssKiB": 172792
+      },
+      "restored": true,
+      "externalGenerationCalls": 0
+    }
+  }
+}

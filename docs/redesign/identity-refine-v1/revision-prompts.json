@@ -1,0 +1,53 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "mode": "reference edit",
+  "status": "CONCEPT_REVIEW",
+  "items": [
+    {
+      "id": "b-expression-badge-v2",
+      "prompt": "Use case: precise-object-edit and identity-preserve. Reference image 1 is the complete Nunti B character sheet to edit. Reference image 2 is the original canonical Nunti image, used ONLY to clarify the tiny blue badge's white route mark. Preserve the entire layout, title, labels, 3 full-body turnarounds, all seven portraits, palette, flat illustration style, colors, hood and face geometry of IMAGE 1. Perform exactly two targeted corrections:\n1. In the bottom row CENTER portrait labeled RELIEVED, change its eyelids from downward relaxed curves to soft UPWARD smiling crescent curves, keep the brows in their fixed positions with a slightly relaxed arch, and use a small gently parted smile with a subtle visible peach mouth interior. This must visibly distinguish RELIEVED from CALM, which must keep its down-curved closed eyelids and tiny closed smile. JOYFUL remains the widest upward smile and broad open mouth. Keep all face anchors.\n2. Wherever the blue four-point chest badge is visible, correct the white internal mark to a tiny continuous winding S-like route line as in the original image 2. It must not look like a question mark and must have no separated dot. Keep badge shape and position.\nDo not change anything else or redesign the mascot. Output the COMPLETE revised B sheet at the same square composition with an ivory-white background. Maintain all 3 views and exactly 7 labeled expression portraits.",
+      "references": [
+        "nunti-b-sheet-v1.png",
+        "../../design/avatar-v6/assets/nunti-base-character.png"
+      ],
+      "output": "nunti-b-sheet-v2.png",
+      "transparent_background": false
+    },
+    {
+      "id": "a-turnaround-v2",
+      "prompt": "Use case: precise-object-edit, identity-preserve.\nEdit target: the attached Nunti A character sheet. Preserve the complete sheet, style, layout, front and side figures, seven expressions, all labels and palette, except ONE targeted correction: replace the top CENTER full-body figure with a distinctly rotated true three-quarter view looking toward viewer RIGHT, around 45 degrees.\nThis middle view must be visibly midway between the existing front and profile views. The near eye at viewer left stays large and the far eye at viewer right becomes noticeably narrower, about 50 to 60 percent the apparent width, due to perspective, not a different eye design. Face oval projects to the right, near cheek and ivory hood rear volume show at viewer left, a little nose projection is clear. Shoulders, torso, shoes and sprout rotate with the head. Keep the original face geometry, identical hood and body proportions, cream sideways forelock, mint two-lobe sprout, brown eyes, scarf knot at character left, bag at character right hip, blue four-point badge with the existing white winding route line, mist blue pants and mint shoes. Keep warm soft matte 2.5D material exactly as source. NO new accessories. Do not change original front view or side profile.\nReplace ONLY the caption beneath the middle figure from \"3/4 (45°)\" to \"3/4 VIEW\". Keep FRONT (0°) and SIDE (90°) as they are. Output the FULL complete square 1254px reference sheet on ivory white, with all seven expressions still present.",
+      "references": [
+        "nunti-a-sheet-v1.png"
+      ],
+      "output": "nunti-a-sheet-v2.png",
+      "transparent_background": false
+    },
+    {
+      "id": "b-turnaround-badge-v3",
+      "prompt": "Use case: precise-object-edit, identity-preserve.\nImage 1 is the COMPLETE Nunti B sheet to edit. Keep its graphic illustration style, palette, identity, layout, front view, profile view and all seven expression portraits.\nChange only the top CENTER body figure into a clear three-quarter view rotated toward viewer RIGHT, about halfway between the existing front and profile drawings. It must be a different camera angle, not a sideways glance: make the far eye at viewer right visibly narrow in perspective (half the width of the near eye), the face opening project right, the near ivory hood side at viewer left broader, show the nose profile slightly, rotate the torso/shoulders/feet with the head. The two sprout lobes also overlap slightly from perspective. The scarf knot remains on character LEFT, the bag on character RIGHT hip. Same proportions, existing brown eyes and curl and clothes and matte flat graphic style. Replace the center caption \"3/4 (45°)\" with \"3/4 VIEW\"; no numeric angle.\nAlso preserve the blue four-point badges but make each tiny white mark an uncomplicated CONTINUOUS WINDING S-SHAPED ROAD CURVE, like a single flowing narrow ribbon, WITHOUT any separated dot, circle, hook ending or question-mark punctuation. Treat it as a tiny route logo, not a letter or a question mark.\nEverything else must remain as image 1, including CALM down-curved closed eyes, RELIEVED upward crescent smiling eyes and small parted smile, JOYFUL broad smiling eyes and larger open mouth.\nOutput the FULL complete square sheet, same ivory-white background, same title, all 3 views and exactly 7 expression portraits.",
+      "references": [
+        "nunti-b-sheet-v2.png"
+      ],
+      "output": "nunti-b-sheet-v3.png",
+      "transparent_background": false
+    },
+    {
+      "id": "a-front-extraction-v1",
+      "prompt": "Use case: background-extraction, identity-preserve.\nInput: image 1 is the approved-for-this-extraction Nunti A reference SHEET. Extract ONLY the top LEFT full-body FRONT character as a single large isolated figure on a truly TRANSPARENT background. Preserve that front figure's exact design, anatomy, warm matte 2.5D shading, palette, ivory round hood, two asymmetric mint sprout lobes, side-curved cream forelock, brown oval eyes, small open happy mouth, mint scarf knot on character left/viewer right, sage satchel on character right/viewer left, diagonal strap, blue four-point chest badge and tiny continuous white winding route mark, pale mint pocket, mist-blue pants, cream/mint shoes. Do not redesign or reinterpret it.\nOutput one FRONT full-body figure only, centered, feet visible, a narrow transparent margin on all sides, no floor shadow, no background color, no backdrop, no labels, no swatches, no extra figures. The aim is a clean RGBA cutout for 64px/128px readability and silhouette testing. Retain subtle anti-aliased edges and the exact look of source A.",
+      "references": [
+        "nunti-a-sheet-v2.png"
+      ],
+      "output": "nunti-a-front-transparent-v1.png",
+      "transparent_background": true
+    },
+    {
+      "id": "b-front-extraction-v1",
+      "prompt": "Use case: background-extraction, identity-preserve.\nImage 1 is the Nunti B reference sheet. Extract ONLY its top LEFT full-body FRONT figure into a single isolated, large centered figure with genuine transparent background. Exact same B flat graphic illustration, same thin warm taupe outline, clean ivory fills with shallow shading, two asymmetric mint sprout lobes, cream side forelock, dark warm brown eyes, small open friendly mouth, mint scarf knot on character left/viewer right, sage satchel on character right/viewer left, diagonal strap, blue four-point badge with continuous white S-shaped winding route, pale mint pocket, mist blue pants, cream/mint shoes. Preserve face and body proportions. Do not add new texture or deepen it into 3D. Retain source linework.\nOutput ONE full-body FRONT figure only, both feet visible, narrow transparent margins, no text or swatches, no other figures, no background, no floor shadow. Smooth accurate antialiased alpha contour without white matte fringe or floating opaque pixels. This is a front cutout for small-size readability and silhouette testing, not a redesign.",
+      "references": [
+        "nunti-b-sheet-v3.png"
+      ],
+      "output": "nunti-b-front-transparent-v1.png",
+      "transparent_background": true
+    }
+  ]
+}

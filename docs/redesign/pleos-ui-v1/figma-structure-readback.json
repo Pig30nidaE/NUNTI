@@ -1,0 +1,2520 @@
+{
+  "schema": "nunti-figma-ui-readback-v1",
+  "fileKey": "LHLHBra8ON3OdVW0qhBnbm",
+  "pageId": "15:4",
+  "readAt": "2026-11-09T15:44:50.335Z",
+  "motionAvailable": true,
+  "motionApiError": null,
+  "imageSizes": {
+    "2893d38594281749383c75afa1b9636d2b84398c": {
+      "width": 768,
+      "height": 768
+    },
+    "9267bd06cd286b3e692443fe30d026123d5581df": {
+      "width": 768,
+      "height": 768
+    }
+  },
+  "masterRefs": [
+    {
+      "id": "18:181",
+      "name": "Type=Secondary, Size=Medium, State=Enabled",
+      "count": 100,
+      "minWidth": 142,
+      "minHeight": 80,
+      "exampleIds": [
+        "22:154",
+        "22:175",
+        "22:217"
+      ]
+    },
+    {
+      "id": "22:133",
+      "name": "Character / Base",
+      "count": 14,
+      "minWidth": 220,
+      "minHeight": 220,
+      "exampleIds": [
+        "22:163",
+        "22:362",
+        "24:235"
+      ]
+    },
+    {
+      "id": "22:137",
+      "name": "Route preview / synthetic confirmed",
+      "count": 6,
+      "minWidth": 270,
+      "minHeight": 110,
+      "exampleIds": [
+        "22:168",
+        "22:356",
+        "24:240"
+      ]
+    },
+    {
+      "id": "22:120",
+      "name": "Route confirmation",
+      "count": 6,
+      "minWidth": 642,
+      "minHeight": 80,
+      "exampleIds": [
+        "22:219",
+        "22:390",
+        "24:291"
+      ]
+    },
+    {
+      "id": "18:467",
+      "name": "Active=True, State=Enabled",
+      "count": 6,
+      "minWidth": 64,
+      "minHeight": 64,
+      "exampleIds": [
+        "I22:219;22:121",
+        "I22:390;22:121",
+        "I24:291;22:121"
+      ]
+    },
+    {
+      "id": "18:441",
+      "name": "Type=basic",
+      "count": 6,
+      "minWidth": 44,
+      "minHeight": 44,
+      "exampleIds": [
+        "I22:219;22:121;18:469",
+        "I22:390;22:121;18:469",
+        "I24:291;22:121;18:469"
+      ]
+    },
+    {
+      "id": "22:104",
+      "name": "Field",
+      "count": 42,
+      "minWidth": 351,
+      "minHeight": 122,
+      "exampleIds": [
+        "22:229",
+        "22:240",
+        "22:250"
+      ]
+    },
+    {
+      "id": "18:318",
+      "name": "Size=Small, State=Entered",
+      "count": 42,
+      "minWidth": 351,
+      "minHeight": 80,
+      "exampleIds": [
+        "I22:229;22:106",
+        "I22:240;22:106",
+        "I22:250;22:106"
+      ]
+    },
+    {
+      "id": "22:101",
+      "name": "State=Default",
+      "count": 14,
+      "minWidth": 228,
+      "minHeight": 76,
+      "exampleIds": [
+        "22:284",
+        "22:288",
+        "22:455"
+      ]
+    },
+    {
+      "id": "22:99",
+      "name": "State=Selected",
+      "count": 10,
+      "minWidth": 230,
+      "minHeight": 76,
+      "exampleIds": [
+        "22:286",
+        "22:457",
+        "24:363"
+      ]
+    },
+    {
+      "id": "18:145",
+      "name": "Type=Primary, Size=Medium, State=Enabled",
+      "count": 30,
+      "minWidth": 438,
+      "minHeight": 80,
+      "exampleIds": [
+        "22:297",
+        "22:468",
+        "24:374"
+      ]
+    },
+    {
+      "id": "22:135",
+      "name": "Character / CoastCurious",
+      "count": 16,
+      "minWidth": 220,
+      "minHeight": 220,
+      "exampleIds": [
+        "24:428",
+        "24:540",
+        "24:610"
+      ]
+    },
+    {
+      "id": "22:127",
+      "name": "Status",
+      "count": 12,
+      "minWidth": 718,
+      "minHeight": 72,
+      "exampleIds": [
+        "24:434",
+        "24:627",
+        "24:830"
+      ]
+    },
+    {
+      "id": "22:116",
+      "name": "Motion toggle",
+      "count": 4,
+      "minWidth": 368,
+      "minHeight": 80,
+      "exampleIds": [
+        "24:476",
+        "24:872",
+        "26:837"
+      ]
+    },
+    {
+      "id": "18:411",
+      "name": "Active=false, Size=Medium, State=Enabled",
+      "count": 4,
+      "minWidth": 80,
+      "minHeight": 48,
+      "exampleIds": [
+        "I24:476;22:118",
+        "I24:872;22:118",
+        "I26:837;22:118"
+      ]
+    },
+    {
+      "id": "22:129",
+      "name": "Metric",
+      "count": 8,
+      "minWidth": 351,
+      "minHeight": 204,
+      "exampleIds": [
+        "24:616",
+        "24:620",
+        "24:1012"
+      ]
+    },
+    {
+      "id": "18:153",
+      "name": "Type=Primary, Size=Medium, State=Disabled",
+      "count": 6,
+      "minWidth": 718,
+      "minHeight": 80,
+      "exampleIds": [
+        "27:689",
+        "27:879",
+        "31:1285"
+      ]
+    }
+  ],
+  "screens": [
+    {
+      "id": "22:149",
+      "name": "Direction A / Journey card",
+      "actualName": "Direction A / Journey card",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 84,
+      "types": {
+        "FRAME": 24,
+        "TEXT": 31,
+        "INSTANCE": 24,
+        "RECTANGLE": 1,
+        "VECTOR": 4
+      },
+      "autoLayoutCount": 44,
+      "instanceCount": 24,
+      "textCount": 31,
+      "visibleTextCount": 31,
+      "fontCounts": {
+        "Noto Sans KR": 31
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I22:163;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 332,
+          "height": 332,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "22:163",
+            "22:162",
+            "22:160"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 84,
+      "actionableCount": 15,
+      "minActionWidth": 142,
+      "minActionHeight": 76
+    },
+    {
+      "id": "22:339",
+      "name": "Direction B / Route first",
+      "actualName": "Direction B / Route first",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 84,
+      "types": {
+        "FRAME": 24,
+        "TEXT": 31,
+        "INSTANCE": 24,
+        "VECTOR": 4,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 44,
+      "instanceCount": 24,
+      "textCount": 31,
+      "visibleTextCount": 31,
+      "fontCounts": {
+        "Noto Sans KR": 31
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I22:362;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 240,
+          "height": 240,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "22:362",
+            "22:352",
+            "22:350"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 84,
+      "actionableCount": 15,
+      "minActionWidth": 142,
+      "minActionHeight": 76
+    },
+    {
+      "id": "24:221",
+      "name": "PRE_TRIP / Day",
+      "actualName": "PRE_TRIP / Day",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 84,
+      "types": {
+        "FRAME": 24,
+        "TEXT": 31,
+        "INSTANCE": 24,
+        "RECTANGLE": 1,
+        "VECTOR": 4
+      },
+      "autoLayoutCount": 44,
+      "instanceCount": 24,
+      "textCount": 31,
+      "visibleTextCount": 31,
+      "fontCounts": {
+        "Noto Sans KR": 31
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:235;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 332,
+          "height": 332,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:235",
+            "24:234",
+            "24:232"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "24:298",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "27:1016",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:368",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1249",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:374",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:416",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 84,
+      "actionableCount": 15,
+      "minActionWidth": 142,
+      "minActionHeight": 76
+    },
+    {
+      "id": "24:416",
+      "name": "REVEAL_PARKED / Day",
+      "actualName": "REVEAL_PARKED / Day",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 51,
+      "types": {
+        "FRAME": 15,
+        "TEXT": 23,
+        "INSTANCE": 11,
+        "RECTANGLE": 2
+      },
+      "autoLayoutCount": 25,
+      "instanceCount": 11,
+      "textCount": 23,
+      "visibleTextCount": 23,
+      "fontCounts": {
+        "Noto Sans KR": 23
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:428;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 650,
+          "height": 650,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:428",
+            "24:427",
+            "24:426"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "24:471",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1159",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:481",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:221",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:507",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "30:823",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 51,
+      "actionableCount": 8,
+      "minActionWidth": 142,
+      "minActionHeight": 80
+    },
+    {
+      "id": "24:530",
+      "name": "DRIVING_RESTRICTED / Day",
+      "actualName": "DRIVING_RESTRICTED / Day",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 28,
+      "types": {
+        "FRAME": 11,
+        "TEXT": 13,
+        "INSTANCE": 3,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 13,
+      "instanceCount": 3,
+      "textCount": 13,
+      "visibleTextCount": 13,
+      "fontCounts": {
+        "Noto Sans KR": 13
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:540;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 650,
+          "height": 650,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:540",
+            "24:539",
+            "24:538"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 28,
+      "actionableCount": 2,
+      "minActionWidth": 240,
+      "minActionHeight": 80
+    },
+    {
+      "id": "24:600",
+      "name": "POST_TRIP / Day",
+      "actualName": "POST_TRIP / Day",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 38,
+      "types": {
+        "FRAME": 12,
+        "TEXT": 19,
+        "INSTANCE": 6,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 17,
+      "instanceCount": 6,
+      "textCount": 19,
+      "visibleTextCount": 19,
+      "fontCounts": {
+        "Noto Sans KR": 19
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:610;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 566,
+          "height": 566,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:610",
+            "24:609",
+            "24:608"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "24:637",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:416",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 38,
+      "actionableCount": 2,
+      "minActionWidth": 220,
+      "minActionHeight": 80
+    },
+    {
+      "id": "24:660",
+      "name": "PRE_TRIP / Night",
+      "actualName": "PRE_TRIP / Night",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 84,
+      "types": {
+        "FRAME": 24,
+        "TEXT": 31,
+        "INSTANCE": 24,
+        "RECTANGLE": 1,
+        "VECTOR": 4
+      },
+      "autoLayoutCount": 44,
+      "instanceCount": 24,
+      "textCount": 31,
+      "visibleTextCount": 31,
+      "fontCounts": {
+        "Noto Sans KR": 31
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:674;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 332,
+          "height": 332,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:674",
+            "24:673",
+            "24:671"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "24:718",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "27:1309",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:783",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1475",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:789",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:812",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 84,
+      "actionableCount": 15,
+      "minActionWidth": 142,
+      "minActionHeight": 76
+    },
+    {
+      "id": "24:812",
+      "name": "REVEAL_PARKED / Night",
+      "actualName": "REVEAL_PARKED / Night",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 51,
+      "types": {
+        "FRAME": 15,
+        "TEXT": 23,
+        "INSTANCE": 11,
+        "RECTANGLE": 2
+      },
+      "autoLayoutCount": 25,
+      "instanceCount": 11,
+      "textCount": 23,
+      "visibleTextCount": 23,
+      "fontCounts": {
+        "Noto Sans KR": 23
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:824;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 650,
+          "height": 650,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:824",
+            "24:823",
+            "24:822"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "24:867",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1385",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:877",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:660",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "24:903",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "30:1118",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 51,
+      "actionableCount": 8,
+      "minActionWidth": 142,
+      "minActionHeight": 80
+    },
+    {
+      "id": "24:926",
+      "name": "DRIVING_RESTRICTED / Night",
+      "actualName": "DRIVING_RESTRICTED / Night",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 28,
+      "types": {
+        "FRAME": 11,
+        "TEXT": 13,
+        "INSTANCE": 3,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 13,
+      "instanceCount": 3,
+      "textCount": 13,
+      "visibleTextCount": 13,
+      "fontCounts": {
+        "Noto Sans KR": 13
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:936;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 650,
+          "height": 650,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:936",
+            "24:935",
+            "24:934"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 28,
+      "actionableCount": 2,
+      "minActionWidth": 240,
+      "minActionHeight": 80
+    },
+    {
+      "id": "24:996",
+      "name": "POST_TRIP / Night",
+      "actualName": "POST_TRIP / Night",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 38,
+      "types": {
+        "FRAME": 12,
+        "TEXT": 19,
+        "INSTANCE": 6,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 17,
+      "instanceCount": 6,
+      "textCount": 19,
+      "visibleTextCount": 19,
+      "fontCounts": {
+        "Noto Sans KR": 19
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I24:1006;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 566,
+          "height": 566,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "24:1006",
+            "24:1005",
+            "24:1004"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "24:1033",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:812",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 38,
+      "actionableCount": 2,
+      "minActionWidth": 220,
+      "minActionHeight": 80
+    },
+    {
+      "id": "26:454",
+      "name": "PRE_TRIP / Compact / Day",
+      "actualName": "PRE_TRIP / Compact / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 77,
+      "types": {
+        "FRAME": 20,
+        "TEXT": 28,
+        "INSTANCE": 24,
+        "RECTANGLE": 1,
+        "VECTOR": 4
+      },
+      "autoLayoutCount": 40,
+      "instanceCount": 24,
+      "textCount": 28,
+      "visibleTextCount": 28,
+      "fontCounts": {
+        "Noto Sans KR": 28
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:507;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 220,
+          "height": 220,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:507",
+            "26:506",
+            "26:505"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 14,
+      "scrollViewports": [
+        {
+          "id": "26:504",
+          "name": "Parked manual scroll viewport",
+          "direction": "VERTICAL",
+          "clipsContent": true
+        }
+      ],
+      "reactions": [
+        {
+          "id": "26:660",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1249",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "26:684",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:726",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 77,
+      "actionableCount": 15,
+      "minActionWidth": 180,
+      "minActionHeight": 76
+    },
+    {
+      "id": "26:726",
+      "name": "REVEAL_PARKED / Compact / Day",
+      "actualName": "REVEAL_PARKED / Compact / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 37,
+      "types": {
+        "FRAME": 10,
+        "TEXT": 14,
+        "INSTANCE": 11,
+        "RECTANGLE": 2
+      },
+      "autoLayoutCount": 20,
+      "instanceCount": 11,
+      "textCount": 14,
+      "visibleTextCount": 14,
+      "fontCounts": {
+        "Noto Sans KR": 14
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:760;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 320,
+          "height": 320,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:760",
+            "26:759",
+            "26:758"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [
+        {
+          "id": "26:757",
+          "name": "Parked manual scroll viewport",
+          "direction": "VERTICAL",
+          "clipsContent": true
+        }
+      ],
+      "reactions": [
+        {
+          "id": "26:841",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1159",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "26:865",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:454",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "26:888",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "30:992",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 37,
+      "actionableCount": 8,
+      "minActionWidth": 180,
+      "minActionHeight": 80
+    },
+    {
+      "id": "26:911",
+      "name": "DRIVING_RESTRICTED / Compact / Day",
+      "actualName": "DRIVING_RESTRICTED / Compact / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 21,
+      "types": {
+        "FRAME": 7,
+        "TEXT": 10,
+        "INSTANCE": 3,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 3,
+      "textCount": 10,
+      "visibleTextCount": 10,
+      "fontCounts": {
+        "Noto Sans KR": 10
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:921;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 360,
+          "height": 360,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:921",
+            "26:920",
+            "26:919"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 21,
+      "actionableCount": 2,
+      "minActionWidth": 310,
+      "minActionHeight": 80
+    },
+    {
+      "id": "26:974",
+      "name": "POST_TRIP / Compact / Day",
+      "actualName": "POST_TRIP / Compact / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 34,
+      "types": {
+        "FRAME": 10,
+        "TEXT": 17,
+        "INSTANCE": 6,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 15,
+      "instanceCount": 6,
+      "textCount": 17,
+      "visibleTextCount": 17,
+      "fontCounts": {
+        "Noto Sans KR": 17
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:985;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 220,
+          "height": 220,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:985",
+            "26:984",
+            "26:983"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [
+        {
+          "id": "26:982",
+          "name": "Parked manual scroll viewport",
+          "direction": "VERTICAL",
+          "clipsContent": true
+        }
+      ],
+      "reactions": [
+        {
+          "id": "26:1027",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:726",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 34,
+      "actionableCount": 2,
+      "minActionWidth": 718,
+      "minActionHeight": 80
+    },
+    {
+      "id": "26:1050",
+      "name": "PRE_TRIP / Compact / Night",
+      "actualName": "PRE_TRIP / Compact / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 77,
+      "types": {
+        "FRAME": 20,
+        "TEXT": 28,
+        "INSTANCE": 24,
+        "RECTANGLE": 1,
+        "VECTOR": 4
+      },
+      "autoLayoutCount": 40,
+      "instanceCount": 24,
+      "textCount": 28,
+      "visibleTextCount": 28,
+      "fontCounts": {
+        "Noto Sans KR": 28
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:1084;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 220,
+          "height": 220,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:1084",
+            "26:1083",
+            "26:1082"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 14,
+      "scrollViewports": [
+        {
+          "id": "26:1081",
+          "name": "Parked manual scroll viewport",
+          "direction": "VERTICAL",
+          "clipsContent": true
+        }
+      ],
+      "reactions": [
+        {
+          "id": "26:1232",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1475",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "26:1256",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:1279",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 77,
+      "actionableCount": 15,
+      "minActionWidth": 180,
+      "minActionHeight": 76
+    },
+    {
+      "id": "26:1279",
+      "name": "REVEAL_PARKED / Compact / Night",
+      "actualName": "REVEAL_PARKED / Compact / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 37,
+      "types": {
+        "FRAME": 10,
+        "TEXT": 14,
+        "INSTANCE": 11,
+        "RECTANGLE": 2
+      },
+      "autoLayoutCount": 20,
+      "instanceCount": 11,
+      "textCount": 14,
+      "visibleTextCount": 14,
+      "fontCounts": {
+        "Noto Sans KR": 14
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:1313;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 320,
+          "height": 320,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:1313",
+            "26:1312",
+            "26:1311"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [
+        {
+          "id": "26:1310",
+          "name": "Parked manual scroll viewport",
+          "direction": "VERTICAL",
+          "clipsContent": true
+        }
+      ],
+      "reactions": [
+        {
+          "id": "26:1394",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "31:1385",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "26:1418",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:1050",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "26:1441",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "30:1249",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 37,
+      "actionableCount": 8,
+      "minActionWidth": 180,
+      "minActionHeight": 80
+    },
+    {
+      "id": "26:1464",
+      "name": "DRIVING_RESTRICTED / Compact / Night",
+      "actualName": "DRIVING_RESTRICTED / Compact / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 21,
+      "types": {
+        "FRAME": 7,
+        "TEXT": 10,
+        "INSTANCE": 3,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 3,
+      "textCount": 10,
+      "visibleTextCount": 10,
+      "fontCounts": {
+        "Noto Sans KR": 10
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:1474;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 360,
+          "height": 360,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:1474",
+            "26:1473",
+            "26:1472"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 21,
+      "actionableCount": 2,
+      "minActionWidth": 310,
+      "minActionHeight": 80
+    },
+    {
+      "id": "26:1527",
+      "name": "POST_TRIP / Compact / Night",
+      "actualName": "POST_TRIP / Compact / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 34,
+      "types": {
+        "FRAME": 10,
+        "TEXT": 17,
+        "INSTANCE": 6,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 15,
+      "instanceCount": 6,
+      "textCount": 17,
+      "visibleTextCount": 17,
+      "fontCounts": {
+        "Noto Sans KR": 17
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I26:1538;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 220,
+          "height": 220,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "26:1538",
+            "26:1537",
+            "26:1536"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [
+        {
+          "id": "26:1535",
+          "name": "Parked manual scroll viewport",
+          "direction": "VERTICAL",
+          "clipsContent": true
+        }
+      ],
+      "reactions": [
+        {
+          "id": "26:1580",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:1279",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 34,
+      "actionableCount": 2,
+      "minActionWidth": 718,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:674",
+      "name": "Loading / Day",
+      "actualName": "Loading / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 17,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 6,
+        "INSTANCE": 2,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 2,
+      "textCount": 6,
+      "visibleTextCount": 6,
+      "fontCounts": {
+        "Noto Sans KR": 6
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:684;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:684",
+            "27:682",
+            "27:674"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 17,
+      "actionableCount": 1,
+      "minActionWidth": 766,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:731",
+      "name": "Offline / Day",
+      "actualName": "Offline / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 17,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 6,
+        "INSTANCE": 2,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 2,
+      "textCount": 6,
+      "visibleTextCount": 6,
+      "fontCounts": {
+        "Noto Sans KR": 6
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:741;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:741",
+            "27:739",
+            "27:731"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 17,
+      "actionableCount": 1,
+      "minActionWidth": 766,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:788",
+      "name": "MissingRoute / Day",
+      "actualName": "MissingRoute / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 19,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 7,
+        "INSTANCE": 3,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 10,
+      "instanceCount": 3,
+      "textCount": 7,
+      "visibleTextCount": 7,
+      "fontCounts": {
+        "Noto Sans KR": 7
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:798;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:798",
+            "27:796",
+            "27:788"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 19,
+      "actionableCount": 2,
+      "minActionWidth": 304,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:826",
+      "name": "AssetFailure / Day",
+      "actualName": "AssetFailure / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 17,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 6,
+        "INSTANCE": 2,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 2,
+      "textCount": 6,
+      "visibleTextCount": 6,
+      "fontCounts": {
+        "Noto Sans KR": 6
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:836;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:836",
+            "27:834",
+            "27:826"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 17,
+      "actionableCount": 1,
+      "minActionWidth": 766,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:864",
+      "name": "Loading / Night",
+      "actualName": "Loading / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 17,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 6,
+        "INSTANCE": 2,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 2,
+      "textCount": 6,
+      "visibleTextCount": 6,
+      "fontCounts": {
+        "Noto Sans KR": 6
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:874;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:874",
+            "27:872",
+            "27:864"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 17,
+      "actionableCount": 1,
+      "minActionWidth": 766,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:902",
+      "name": "Offline / Night",
+      "actualName": "Offline / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 17,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 6,
+        "INSTANCE": 2,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 2,
+      "textCount": 6,
+      "visibleTextCount": 6,
+      "fontCounts": {
+        "Noto Sans KR": 6
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:912;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:912",
+            "27:910",
+            "27:902"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 17,
+      "actionableCount": 1,
+      "minActionWidth": 766,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:940",
+      "name": "MissingRoute / Night",
+      "actualName": "MissingRoute / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 19,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 7,
+        "INSTANCE": 3,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 10,
+      "instanceCount": 3,
+      "textCount": 7,
+      "visibleTextCount": 7,
+      "fontCounts": {
+        "Noto Sans KR": 7
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:950;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:950",
+            "27:948",
+            "27:940"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 19,
+      "actionableCount": 2,
+      "minActionWidth": 304,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:978",
+      "name": "AssetFailure / Night",
+      "actualName": "AssetFailure / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 17,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 6,
+        "INSTANCE": 2,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 9,
+      "instanceCount": 2,
+      "textCount": 6,
+      "visibleTextCount": 6,
+      "fontCounts": {
+        "Noto Sans KR": 6
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I27:988;22:134",
+          "name": "Approved A PNG",
+          "hash": "2893d38594281749383c75afa1b9636d2b84398c",
+          "width": 530,
+          "height": 530,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "27:988",
+            "27:986",
+            "27:978"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [],
+      "motionNodes": [],
+      "motionCheckedNodes": 17,
+      "actionableCount": 1,
+      "minActionWidth": 766,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:1016",
+      "name": "ROUTE_TOOLS / Day",
+      "actualName": "ROUTE_TOOLS / Day",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 71,
+      "types": {
+        "FRAME": 21,
+        "TEXT": 30,
+        "INSTANCE": 20
+      },
+      "autoLayoutCount": 41,
+      "instanceCount": 20,
+      "textCount": 30,
+      "visibleTextCount": 30,
+      "fontCounts": {
+        "Noto Sans KR": 30
+      },
+      "fontErrors": [],
+      "images": [],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "27:1286",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:221",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 71,
+      "actionableCount": 14,
+      "minActionWidth": 280,
+      "minActionHeight": 80
+    },
+    {
+      "id": "27:1309",
+      "name": "ROUTE_TOOLS / Night",
+      "actualName": "ROUTE_TOOLS / Night",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 71,
+      "types": {
+        "FRAME": 21,
+        "TEXT": 30,
+        "INSTANCE": 20
+      },
+      "autoLayoutCount": 41,
+      "instanceCount": 20,
+      "textCount": 30,
+      "visibleTextCount": 30,
+      "fontCounts": {
+        "Noto Sans KR": 30
+      },
+      "fontErrors": [],
+      "images": [],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "27:1555",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:660",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 71,
+      "actionableCount": 14,
+      "minActionWidth": 280,
+      "minActionHeight": 80
+    },
+    {
+      "id": "30:823",
+      "name": "JOURNEY_PARKED / Day",
+      "actualName": "JOURNEY_PARKED / Day",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 31,
+      "types": {
+        "FRAME": 11,
+        "TEXT": 14,
+        "INSTANCE": 5,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 15,
+      "instanceCount": 5,
+      "textCount": 14,
+      "visibleTextCount": 14,
+      "fontCounts": {
+        "Noto Sans KR": 14
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I30:833;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 650,
+          "height": 650,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "30:833",
+            "30:832",
+            "30:831"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "30:855",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:416",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "30:944",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:600",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 31,
+      "actionableCount": 4,
+      "minActionWidth": 240,
+      "minActionHeight": 80
+    },
+    {
+      "id": "30:992",
+      "name": "JOURNEY_PARKED / Compact / Day",
+      "actualName": "JOURNEY_PARKED / Compact / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 26,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 12,
+        "INSTANCE": 5,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 12,
+      "instanceCount": 5,
+      "textCount": 12,
+      "visibleTextCount": 12,
+      "fontCounts": {
+        "Noto Sans KR": 12
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I30:1002;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 264,
+          "height": 264,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "30:1002",
+            "30:1001",
+            "30:1000"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "30:1064",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:726",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "30:1087",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:974",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 26,
+      "actionableCount": 4,
+      "minActionWidth": 270,
+      "minActionHeight": 80
+    },
+    {
+      "id": "30:1118",
+      "name": "JOURNEY_PARKED / Night",
+      "actualName": "JOURNEY_PARKED / Night",
+      "type": "FRAME",
+      "width": 1682,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 31,
+      "types": {
+        "FRAME": 11,
+        "TEXT": 14,
+        "INSTANCE": 5,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 15,
+      "instanceCount": 5,
+      "textCount": 14,
+      "visibleTextCount": 14,
+      "fontCounts": {
+        "Noto Sans KR": 14
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I30:1128;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 650,
+          "height": 650,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "30:1128",
+            "30:1127",
+            "30:1126"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "30:1150",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:812",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "30:1220",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:996",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 31,
+      "actionableCount": 4,
+      "minActionWidth": 240,
+      "minActionHeight": 80
+    },
+    {
+      "id": "30:1249",
+      "name": "JOURNEY_PARKED / Compact / Night",
+      "actualName": "JOURNEY_PARKED / Compact / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 26,
+      "types": {
+        "FRAME": 8,
+        "TEXT": 12,
+        "INSTANCE": 5,
+        "RECTANGLE": 1
+      },
+      "autoLayoutCount": 12,
+      "instanceCount": 5,
+      "textCount": 12,
+      "visibleTextCount": 12,
+      "fontCounts": {
+        "Noto Sans KR": 12
+      },
+      "fontErrors": [],
+      "images": [
+        {
+          "id": "I30:1259;22:136",
+          "name": "Approved A PNG",
+          "hash": "9267bd06cd286b3e692443fe30d026123d5581df",
+          "width": 264,
+          "height": 264,
+          "visible": true,
+          "approved": true,
+          "characterAncestor": true,
+          "ancestorIds": [
+            "30:1259",
+            "30:1258",
+            "30:1257"
+          ]
+        }
+      ],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "30:1321",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:1279",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "30:1344",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "26:1527",
+              "transition": null
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 26,
+      "actionableCount": 4,
+      "minActionWidth": 270,
+      "minActionHeight": 80
+    },
+    {
+      "id": "31:1159",
+      "name": "JOURNEY_OPTIONS / Day",
+      "actualName": "JOURNEY_OPTIONS / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 27,
+      "types": {
+        "FRAME": 7,
+        "TEXT": 14,
+        "INSTANCE": 6
+      },
+      "autoLayoutCount": 13,
+      "instanceCount": 6,
+      "textCount": 14,
+      "visibleTextCount": 14,
+      "fontCounts": {
+        "Noto Sans KR": 14
+      },
+      "fontErrors": [],
+      "images": [],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "31:1200",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:600",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "31:1226",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 27,
+      "actionableCount": 5,
+      "minActionWidth": 351,
+      "minActionHeight": 76
+    },
+    {
+      "id": "31:1249",
+      "name": "GENERATION_OPTIONS / Day",
+      "actualName": "GENERATION_OPTIONS / Day",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 26,
+      "types": {
+        "FRAME": 7,
+        "TEXT": 13,
+        "INSTANCE": 6
+      },
+      "autoLayoutCount": 13,
+      "instanceCount": 6,
+      "textCount": 13,
+      "visibleTextCount": 13,
+      "fontCounts": {
+        "Noto Sans KR": 13
+      },
+      "fontErrors": [],
+      "images": [],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "31:1336",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 26,
+      "actionableCount": 5,
+      "minActionWidth": 718,
+      "minActionHeight": 76
+    },
+    {
+      "id": "31:1385",
+      "name": "JOURNEY_OPTIONS / Night",
+      "actualName": "JOURNEY_OPTIONS / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 27,
+      "types": {
+        "FRAME": 7,
+        "TEXT": 14,
+        "INSTANCE": 6
+      },
+      "autoLayoutCount": 13,
+      "instanceCount": 6,
+      "textCount": 14,
+      "visibleTextCount": 14,
+      "fontCounts": {
+        "Noto Sans KR": 14
+      },
+      "fontErrors": [],
+      "images": [],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "31:1426",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "NODE",
+              "destinationId": "24:996",
+              "transition": null
+            }
+          ]
+        },
+        {
+          "id": "31:1452",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 27,
+      "actionableCount": 5,
+      "minActionWidth": 351,
+      "minActionHeight": 76
+    },
+    {
+      "id": "31:1475",
+      "name": "GENERATION_OPTIONS / Night",
+      "actualName": "GENERATION_OPTIONS / Night",
+      "type": "FRAME",
+      "width": 830,
+      "height": 1210,
+      "layoutMode": "VERTICAL",
+      "clipsContent": true,
+      "nodeCount": 26,
+      "types": {
+        "FRAME": 7,
+        "TEXT": 13,
+        "INSTANCE": 6
+      },
+      "autoLayoutCount": 13,
+      "instanceCount": 6,
+      "textCount": 13,
+      "visibleTextCount": 13,
+      "fontCounts": {
+        "Noto Sans KR": 13
+      },
+      "fontErrors": [],
+      "images": [],
+      "touchErrors": [],
+      "overflow": [],
+      "intentionalScrollOverflowCount": 0,
+      "scrollViewports": [],
+      "reactions": [
+        {
+          "id": "31:1562",
+          "trigger": "ON_CLICK",
+          "actions": [
+            {
+              "type": "CLOSE"
+            }
+          ]
+        }
+      ],
+      "motionNodes": [],
+      "motionCheckedNodes": 26,
+      "actionableCount": 5,
+      "minActionWidth": 718,
+      "minActionHeight": 76
+    }
+  ]
+}

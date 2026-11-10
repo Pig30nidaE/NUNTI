@@ -1,0 +1,20 @@
+{
+  "destination": {
+    "name": "기본 눈티",
+    "traits": "MOCK 검토 입력. 실제 GPS·지형·SDK 분류 근거가 아닙니다."
+  },
+  "purpose": "레이어 변형 검토",
+  "renderMode": "LOCAL_LAYERS",
+  "requestId": "e1d18428-dd6c-512d-8a13-2f4b9313a7a7",
+  "variantContext": {
+    "destinationCategory": "unknown",
+    "displayMode": "day",
+    "mappingVersion": "nunti-layers-v1",
+    "provenance": {},
+    "roadType": "unknown",
+    "routeId": null,
+    "routeRevision": 1,
+    "seed": "0",
+    "userSelectedMood": "unset"
+  }
+}

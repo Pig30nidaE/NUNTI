@@ -1,0 +1,1364 @@
+{
+  "stages": [
+    {
+      "id": "4:13",
+      "name": "A · 빛길 · 4000ms",
+      "width": 768,
+      "height": 768,
+      "timelines": [
+        {
+          "id": "4:13",
+          "duration": 4
+        }
+      ],
+      "nodes": [
+        {
+          "id": "4:14",
+          "name": "01 / 같은 눈티 · 항상 100%",
+          "type": "INSTANCE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": []
+        },
+        {
+          "id": "I4:14;4:3",
+          "name": "고정 원화",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "95b5df3022ee46c1c381d3a671519f51357e0064"
+            }
+          ]
+        },
+        {
+          "id": "4:16",
+          "name": "02 / 기본 표정 · 얼굴 안쪽",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 0,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:17",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 0
+              },
+              "keyframes": [
+                {
+                  "id": "7:4",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 2.85
+                },
+                {
+                  "id": "7:5",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 3.05
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "3ee243181e60ed485fd69d496f6149a6b2921f95"
+            }
+          ]
+        },
+        {
+          "id": "4:20",
+          "name": "03 / 호기심 · 마지막 변화",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:21",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 1
+              },
+              "keyframes": [
+                {
+                  "id": "7:6",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 2.85
+                },
+                {
+                  "id": "7:7",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 3.05
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "435b438f23c3f6f5a63be8fdce90e73fc4d939bb"
+            }
+          ]
+        },
+        {
+          "id": "4:24",
+          "name": "04 / 바다 스카프 색",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:25",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 1
+              },
+              "keyframes": [
+                {
+                  "id": "4:26",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 1.3
+                },
+                {
+                  "id": "4:27",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 1.9
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "4172befa8d4f0275c5ce9dffb38ce98250fc6bf5"
+            }
+          ]
+        },
+        {
+          "id": "4:28",
+          "name": "05 / 바다 포켓 무늬",
+          "type": "FRAME",
+          "x": 367,
+          "y": 503,
+          "width": 70,
+          "height": 26,
+          "opacity": 1,
+          "tracks": {
+            "WIDTH": {
+              "id": "KeyframeTrackId:4:30",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 70
+              },
+              "keyframes": [
+                {
+                  "id": "4:31",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0.0010000000474974513
+                  },
+                  "timelinePosition": 1.7
+                },
+                {
+                  "id": "4:32",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 70
+                  },
+                  "timelinePosition": 2.5
+                }
+              ]
+            }
+          },
+          "fills": []
+        },
+        {
+          "id": "4:29",
+          "name": "05 / 바다 포켓 무늬 / 登録PNG",
+          "type": "RECTANGLE",
+          "x": -367,
+          "y": -503,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "72303f4b5cf83e12fe3a66048de36d3b3edd476b"
+            }
+          ]
+        },
+        {
+          "id": "4:33",
+          "name": "06 / 스카프의 길",
+          "type": "FRAME",
+          "x": 328,
+          "y": 403,
+          "width": 55,
+          "height": 11,
+          "opacity": 1,
+          "tracks": {
+            "WIDTH": {
+              "id": "KeyframeTrackId:4:35",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 55
+              },
+              "keyframes": [
+                {
+                  "id": "4:36",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0.0010000000474974513
+                  },
+                  "timelinePosition": 0.45
+                },
+                {
+                  "id": "4:37",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 55
+                  },
+                  "timelinePosition": 1.3
+                }
+              ]
+            }
+          },
+          "fills": []
+        },
+        {
+          "id": "4:34",
+          "name": "06 / 스카프의 길 / 登録PNG",
+          "type": "RECTANGLE",
+          "x": -328,
+          "y": -403,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "fc769e661afd1c0fe2d0b225ac26da82a6886834"
+            }
+          ]
+        },
+        {
+          "id": "4:38",
+          "name": "07 / 국소 빛 · 잔광",
+          "type": "ELLIPSE",
+          "x": 320,
+          "y": 400.5,
+          "width": 16,
+          "height": 16,
+          "opacity": 0,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:42",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 0
+              },
+              "keyframes": [
+                {
+                  "id": "4:43",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 0.45
+                },
+                {
+                  "id": "4:44",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 0.55
+                },
+                {
+                  "id": "4:45",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 1.2
+                },
+                {
+                  "id": "4:46",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 1.3
+                }
+              ]
+            },
+            "TRANSLATION_X": {
+              "id": "KeyframeTrackId:4:39",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 0
+              },
+              "keyframes": [
+                {
+                  "id": "4:40",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 0.45
+                },
+                {
+                  "id": "4:41",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 55
+                  },
+                  "timelinePosition": 1.3
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 0.1599999964237213,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9764705896377563,
+                "g": 0.8470588326454163,
+                "b": 0.572549045085907
+              },
+              "boundVariables": {}
+            }
+          ]
+        },
+        {
+          "id": "4:47",
+          "name": "08 / 국소 빛 · 중심",
+          "type": "ELLIPSE",
+          "x": 325,
+          "y": 405.5,
+          "width": 6,
+          "height": 6,
+          "opacity": 0,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:51",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 0
+              },
+              "keyframes": [
+                {
+                  "id": "4:52",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 0.45
+                },
+                {
+                  "id": "4:53",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 0.55
+                },
+                {
+                  "id": "4:54",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 1.2
+                },
+                {
+                  "id": "4:55",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 1.3
+                }
+              ]
+            },
+            "TRANSLATION_X": {
+              "id": "KeyframeTrackId:4:48",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 0
+              },
+              "keyframes": [
+                {
+                  "id": "4:49",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 0.45
+                },
+                {
+                  "id": "4:50",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 55
+                  },
+                  "timelinePosition": 1.3
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "SOLID",
+              "visible": true,
+              "opacity": 0.699999988079071,
+              "blendMode": "NORMAL",
+              "color": {
+                "r": 0.9764705896377563,
+                "g": 0.8470588326454163,
+                "b": 0.572549045085907
+              },
+              "boundVariables": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4:56",
+      "name": "B · 잔잔한 색 · 4000ms",
+      "width": 768,
+      "height": 768,
+      "timelines": [
+        {
+          "id": "4:56",
+          "duration": 4
+        }
+      ],
+      "nodes": [
+        {
+          "id": "4:57",
+          "name": "01 / 같은 눈티 · 항상 100%",
+          "type": "INSTANCE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": []
+        },
+        {
+          "id": "I4:57;4:3",
+          "name": "고정 원화",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "95b5df3022ee46c1c381d3a671519f51357e0064"
+            }
+          ]
+        },
+        {
+          "id": "4:59",
+          "name": "02 / 기본 표정 · 얼굴 안쪽",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 0,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:60",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 0
+              },
+              "keyframes": [
+                {
+                  "id": "7:8",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 2.85
+                },
+                {
+                  "id": "7:9",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 3.05
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "3ee243181e60ed485fd69d496f6149a6b2921f95"
+            }
+          ]
+        },
+        {
+          "id": "4:63",
+          "name": "03 / 호기심 · 마지막 변화",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:64",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 1
+              },
+              "keyframes": [
+                {
+                  "id": "7:10",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 2.85
+                },
+                {
+                  "id": "7:11",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 3.05
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "435b438f23c3f6f5a63be8fdce90e73fc4d939bb"
+            }
+          ]
+        },
+        {
+          "id": "4:67",
+          "name": "04 / 바다 스카프 색",
+          "type": "RECTANGLE",
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:4:68",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 1
+              },
+              "keyframes": [
+                {
+                  "id": "4:69",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 1.3
+                },
+                {
+                  "id": "4:70",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 1.9
+                }
+              ]
+            }
+          },
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "4172befa8d4f0275c5ce9dffb38ce98250fc6bf5"
+            }
+          ]
+        },
+        {
+          "id": "4:71",
+          "name": "05 / 바다 포켓 무늬",
+          "type": "FRAME",
+          "x": 367,
+          "y": 503,
+          "width": 70,
+          "height": 26,
+          "opacity": 1,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:5:4",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 1
+              },
+              "keyframes": [
+                {
+                  "id": "5:5",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.5,
+                      "y1": 0,
+                      "x2": 0.5,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 1.7
+                },
+                {
+                  "id": "5:6",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 2.5
+                }
+              ]
+            }
+          },
+          "fills": []
+        },
+        {
+          "id": "4:72",
+          "name": "05 / 바다 포켓 무늬 / 登録PNG",
+          "type": "RECTANGLE",
+          "x": -367,
+          "y": -503,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "72303f4b5cf83e12fe3a66048de36d3b3edd476b"
+            }
+          ]
+        },
+        {
+          "id": "4:76",
+          "name": "06 / 스카프의 길",
+          "type": "FRAME",
+          "x": 328,
+          "y": 403,
+          "width": 55,
+          "height": 11,
+          "opacity": 1,
+          "tracks": {
+            "OPACITY": {
+              "id": "KeyframeTrackId:5:7",
+              "baseValue": {
+                "type": "FLOAT",
+                "value": 1
+              },
+              "keyframes": [
+                {
+                  "id": "5:8",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.5,
+                      "y1": 0,
+                      "x2": 0.5,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 0
+                  },
+                  "timelinePosition": 0.45
+                },
+                {
+                  "id": "5:9",
+                  "easing": {
+                    "type": "CUSTOM_CUBIC_BEZIER",
+                    "easingFunctionCubicBezier": {
+                      "x1": 0.4000000059604645,
+                      "y1": 0,
+                      "x2": 0.20000000298023224,
+                      "y2": 1
+                    }
+                  },
+                  "value": {
+                    "type": "FLOAT",
+                    "value": 1
+                  },
+                  "timelinePosition": 1.3
+                }
+              ]
+            }
+          },
+          "fills": []
+        },
+        {
+          "id": "4:77",
+          "name": "06 / 스카프의 길 / 登録PNG",
+          "type": "RECTANGLE",
+          "x": -328,
+          "y": -403,
+          "width": 768,
+          "height": 768,
+          "opacity": 1,
+          "tracks": {},
+          "fills": [
+            {
+              "type": "IMAGE",
+              "visible": true,
+              "opacity": 1,
+              "blendMode": "NORMAL",
+              "scaleMode": "FIT",
+              "scalingFactor": 0.5,
+              "rotation": 0,
+              "filters": {
+                "exposure": 0,
+                "contrast": 0,
+                "saturation": 0,
+                "temperature": 0,
+                "tint": 0,
+                "highlights": 0,
+                "shadows": 0
+              },
+              "imageTransform": [
+                [
+                  1,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  1,
+                  0
+                ]
+              ],
+              "imageHash": "fc769e661afd1c0fe2d0b225ac26da82a6886834"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

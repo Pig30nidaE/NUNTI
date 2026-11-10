@@ -1,0 +1,571 @@
+{
+  "surface": "isolated headless Chrome fixture",
+  "realEmulator": false,
+  "paidCalls": 0,
+  "screens": [
+    {
+      "name": "pre-1682-day",
+      "width": 1682,
+      "documentWidth": 1682,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 1192,
+        "y": 1090,
+        "w": 450,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "base": {
+        "x": 72,
+        "y": 368,
+        "w": 332,
+        "h": 332,
+        "hidden": false,
+        "visible": true
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "journey": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "replay": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": true,
+        "visible": false
+      },
+      "options": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "routeTools": {
+        "x": 72,
+        "y": 908,
+        "w": 364.890625,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "resultContentHeight": 0,
+      "resultViewportHeight": 0,
+      "inputContentHeight": 790,
+      "inputViewportHeight": 790
+    },
+    {
+      "name": "pre-1682-night",
+      "width": 1682,
+      "documentWidth": 1682,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 1192,
+        "y": 1090,
+        "w": 450,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "base": {
+        "x": 72,
+        "y": 368,
+        "w": 332,
+        "h": 332,
+        "hidden": false,
+        "visible": true
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "journey": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "replay": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": true,
+        "visible": false
+      },
+      "options": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "routeTools": {
+        "x": 72,
+        "y": 908,
+        "w": 364.890625,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "resultContentHeight": 0,
+      "resultViewportHeight": 0,
+      "inputContentHeight": 790,
+      "inputViewportHeight": 790
+    },
+    {
+      "name": "result-1682-day",
+      "width": 1682,
+      "documentWidth": 1682,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "base": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "canvas": {
+        "x": 100,
+        "y": 308,
+        "w": 650,
+        "h": 650,
+        "hidden": false,
+        "visible": true
+      },
+      "journey": {
+        "x": 1192,
+        "y": 1090,
+        "w": 450,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "replay": {
+        "x": 874,
+        "y": 954,
+        "w": 222.09375,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "options": {
+        "x": 1251,
+        "y": 858,
+        "w": 359,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "routeTools": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "resultContentHeight": 790,
+      "resultViewportHeight": 790,
+      "inputContentHeight": 0,
+      "inputViewportHeight": 0
+    },
+    {
+      "name": "result-1682-night",
+      "width": 1682,
+      "documentWidth": 1682,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "base": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "canvas": {
+        "x": 100,
+        "y": 308,
+        "w": 650,
+        "h": 650,
+        "hidden": false,
+        "visible": true
+      },
+      "journey": {
+        "x": 1192,
+        "y": 1090,
+        "w": 450,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "replay": {
+        "x": 874,
+        "y": 954,
+        "w": 222.09375,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "options": {
+        "x": 1251,
+        "y": 858,
+        "w": 359,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "routeTools": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "resultContentHeight": 790,
+      "resultViewportHeight": 790,
+      "inputContentHeight": 0,
+      "inputViewportHeight": 0
+    },
+    {
+      "name": "pre-830-day",
+      "width": 830,
+      "documentWidth": 830,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 32,
+        "y": 1098,
+        "w": 766,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "base": {
+        "x": 56,
+        "y": 292,
+        "w": 220,
+        "h": 220,
+        "hidden": false,
+        "visible": true
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "journey": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "replay": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": true,
+        "visible": false
+      },
+      "options": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "routeTools": {
+        "x": 56,
+        "y": 1276,
+        "w": 718,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "resultContentHeight": 0,
+      "resultViewportHeight": 0,
+      "inputContentHeight": 1208,
+      "inputViewportHeight": 806
+    },
+    {
+      "name": "pre-830-night",
+      "width": 830,
+      "documentWidth": 830,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 32,
+        "y": 1098,
+        "w": 766,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "base": {
+        "x": 56,
+        "y": 292,
+        "w": 220,
+        "h": 220,
+        "hidden": false,
+        "visible": true
+      },
+      "canvas": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "journey": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "replay": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": true,
+        "visible": false
+      },
+      "options": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "routeTools": {
+        "x": 56,
+        "y": 1276,
+        "w": 718,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "resultContentHeight": 0,
+      "resultViewportHeight": 0,
+      "inputContentHeight": 1208,
+      "inputViewportHeight": 806
+    },
+    {
+      "name": "result-830-day",
+      "width": 830,
+      "documentWidth": 830,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "base": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "canvas": {
+        "x": 255,
+        "y": 292,
+        "w": 320,
+        "h": 320,
+        "hidden": false,
+        "visible": true
+      },
+      "journey": {
+        "x": 360,
+        "y": 1098,
+        "w": 438,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "replay": {
+        "x": 56,
+        "y": 872,
+        "w": 334,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "options": {
+        "x": 56,
+        "y": 968,
+        "w": 718,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "routeTools": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "resultContentHeight": 806,
+      "resultViewportHeight": 806,
+      "inputContentHeight": 0,
+      "inputViewportHeight": 0
+    },
+    {
+      "name": "result-830-night",
+      "width": 830,
+      "documentWidth": 830,
+      "bodyScrollHeight": 1210,
+      "font": true,
+      "create": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "base": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "canvas": {
+        "x": 255,
+        "y": 292,
+        "w": 320,
+        "h": 320,
+        "hidden": false,
+        "visible": true
+      },
+      "journey": {
+        "x": 360,
+        "y": 1098,
+        "w": 438,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "replay": {
+        "x": 56,
+        "y": 872,
+        "w": 334,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "options": {
+        "x": 56,
+        "y": 968,
+        "w": 718,
+        "h": 80,
+        "hidden": false,
+        "visible": true
+      },
+      "routeTools": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "hidden": false,
+        "visible": false
+      },
+      "resultContentHeight": 806,
+      "resultViewportHeight": 806,
+      "inputContentHeight": 0,
+      "inputViewportHeight": 0
+    }
+  ],
+  "checks": [
+    {
+      "width": 1682,
+      "unset": true,
+      "selected": true,
+      "opened": true,
+      "closed": true
+    },
+    {
+      "width": 830,
+      "unset": true,
+      "selected": true,
+      "opened": true,
+      "closed": true
+    }
+  ],
+  "errors": [],
+  "requests": [
+    "/v3/capabilities",
+    "/v3/examples",
+    "/v3/avatars",
+    "/fixture-final.png",
+    "/v3/capabilities",
+    "/v3/examples",
+    "/v3/avatars",
+    "/fixture-final.png"
+  ],
+  "status": "PASS"
+}

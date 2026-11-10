@@ -1,0 +1,57 @@
+{
+  "decoder" : "macOS AVFoundation",
+  "durationSeconds" : 7.7363,
+  "frames" : [
+    {
+      "actualSeconds" : 0,
+      "file" : "video-0000.png",
+      "height" : 1440,
+      "requestedSeconds" : 0,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 0.97011111111111115,
+      "file" : "video-1000.png",
+      "height" : 1440,
+      "requestedSeconds" : 1,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 1.9870888888888889,
+      "file" : "video-2000.png",
+      "height" : 1440,
+      "requestedSeconds" : 2,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 2.9721111111111109,
+      "file" : "video-3000.png",
+      "height" : 1440,
+      "requestedSeconds" : 3,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 3.9870555555555556,
+      "file" : "video-4000.png",
+      "height" : 1440,
+      "requestedSeconds" : 4,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 4.9873444444444441,
+      "file" : "video-5000.png",
+      "height" : 1440,
+      "requestedSeconds" : 5,
+      "width" : 2560
+    }
+  ],
+  "source" : "\/Users\/pig30nidae\/NUNTI\/artifacts\/nunti-atelier-v3\/motion-final\/mountain.mp4",
+  "videoTracks" : [
+    {
+      "estimatedDataRate" : 8327001.5,
+      "height" : 1440,
+      "nominalFrameRate" : 52.221195220947266,
+      "width" : 2560
+    }
+  ]
+}

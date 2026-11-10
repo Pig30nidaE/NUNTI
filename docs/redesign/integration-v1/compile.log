@@ -1,0 +1,95 @@
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.11.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Warning: SDK processing. This version only understands SDK XML versions up to 3 but an SDK XML file of version 4 was encountered. This can happen if you use versions of Android Studio and the command-line tools that were released at different times.
+> Task :feature:tts:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:voice:preBuild UP-TO-DATE
+> Task :feature:navigation:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:emotion:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:score:preBuild UP-TO-DATE
+> Task :feature:avatar:preBuild UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:preBuild UP-TO-DATE
+> Task :feature:avatar:preDebugBuild UP-TO-DATE
+> Task :feature:score:preDebugBuild UP-TO-DATE
+> Task :feature:voice:preDebugBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :feature:emotion:processResources NO-SOURCE
+> Task :feature:voice:writeDebugAarMetadata UP-TO-DATE
+> Task :feature:score:writeDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :feature:avatar:writeDebugAarMetadata UP-TO-DATE
+> Task :feature:avatar:generateDebugResValues UP-TO-DATE
+> Task :feature:score:generateDebugResValues UP-TO-DATE
+> Task :feature:voice:generateDebugResValues UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :feature:voice:generateDebugResources UP-TO-DATE
+> Task :feature:score:generateDebugResources UP-TO-DATE
+> Task :feature:avatar:generateDebugResources UP-TO-DATE
+> Task :feature:voice:packageDebugResources UP-TO-DATE
+> Task :feature:avatar:packageDebugResources UP-TO-DATE
+> Task :feature:score:packageDebugResources UP-TO-DATE
+> Task :feature:avatar:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:voice:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:score:extractDeepLinksDebug UP-TO-DATE
+> Task :feature:voice:processDebugManifest UP-TO-DATE
+> Task :feature:score:processDebugManifest UP-TO-DATE
+> Task :feature:avatar:processDebugManifest UP-TO-DATE
+> Task :feature:voice:compileDebugLibraryResources UP-TO-DATE
+> Task :feature:avatar:compileDebugLibraryResources UP-TO-DATE
+> Task :feature:score:compileDebugLibraryResources UP-TO-DATE
+> Task :feature:score:parseDebugLocalResources UP-TO-DATE
+> Task :feature:voice:parseDebugLocalResources UP-TO-DATE
+> Task :feature:avatar:parseDebugLocalResources UP-TO-DATE
+> Task :feature:avatar:generateDebugRFile UP-TO-DATE
+> Task :feature:score:generateDebugRFile UP-TO-DATE
+> Task :feature:tts:compileKotlin UP-TO-DATE
+> Task :feature:voice:generateDebugRFile UP-TO-DATE
+> Task :feature:navigation:compileKotlin UP-TO-DATE
+> Task :feature:score:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:avatar:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:voice:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :feature:tts:compileJava NO-SOURCE
+> Task :feature:avatar:javaPreCompileDebug UP-TO-DATE
+> Task :feature:navigation:compileJava NO-SOURCE
+> Task :feature:voice:javaPreCompileDebug UP-TO-DATE
+> Task :feature:navigation:processResources NO-SOURCE
+> Task :feature:tts:processResources NO-SOURCE
+> Task :feature:navigation:classes UP-TO-DATE
+> Task :feature:tts:classes UP-TO-DATE
+> Task :feature:tts:jar UP-TO-DATE
+> Task :feature:navigation:jar UP-TO-DATE
+> Task :feature:emotion:compileKotlin UP-TO-DATE
+> Task :feature:emotion:compileJava NO-SOURCE
+> Task :feature:emotion:classes UP-TO-DATE
+> Task :feature:emotion:jar UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :feature:voice:compileDebugKotlin UP-TO-DATE
+> Task :feature:voice:compileDebugJavaWithJavac NO-SOURCE
+> Task :feature:voice:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :feature:score:compileDebugKotlin UP-TO-DATE
+> Task :feature:avatar:compileDebugKotlin UP-TO-DATE
+> Task :feature:score:javaPreCompileDebug UP-TO-DATE
+> Task :feature:avatar:compileDebugJavaWithJavac NO-SOURCE
+> Task :feature:score:compileDebugJavaWithJavac NO-SOURCE
+> Task :feature:avatar:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :feature:score:bundleLibCompileToJarDebug UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest
+> Task :app:processDebugManifest
+> Task :app:processDebugManifestForPackage
+> Task :app:processDebugResources
+
+> Task :app:compileDebugKotlin
+w: file:///Users/pig30nidae/NUNTI/android/app/src/main/kotlin/ai/nunti/app/studio/AvatarStudioActivity.kt:151:26 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/pig30nidae/NUNTI/android/app/src/main/kotlin/ai/nunti/app/studio/AvatarStudioActivity.kt:361:23 'val status: Int' is deprecated. Deprecated in Java.
+w: file:///Users/pig30nidae/NUNTI/android/app/src/main/kotlin/ai/nunti/app/studio/AvatarStudioActivity.kt:368:35 'fun unregisterCallback(p0: CarPropertyManager.CarPropertyEventCallback!): Unit' is deprecated. Deprecated in Java.
+w: file:///Users/pig30nidae/NUNTI/android/app/src/main/kotlin/ai/nunti/app/studio/AvatarStudioActivity.kt:373:43 'fun registerCallback(p0: CarPropertyManager.CarPropertyEventCallback!, p1: Int, p2: Float): Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/pig30nidae/NUNTI/android/app/src/main/kotlin/ai/nunti/app/studio/AvatarStudioActivity.kt:388:54 'fun unregisterCallback(p0: CarPropertyManager.CarPropertyEventCallback!): Unit' is deprecated. Deprecated in Java.
+
+BUILD SUCCESSFUL in 12s
+56 actionable tasks: 5 executed, 51 up-to-date

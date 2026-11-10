@@ -1,0 +1,117 @@
+[
+  {
+    "id": "67:22538",
+    "text": [
+      {
+        "id": "67:22540",
+        "text": "Label",
+        "fonts": [
+          {
+            "font": {
+              "family": "Asta Sans",
+              "style": "Bold",
+              "variationSettings": {
+                "wght": 700
+              }
+            },
+            "size": 30
+          }
+        ],
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.07450980693101883,
+              "g": 0.0784313753247261,
+              "b": 0.09019608050584793
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f928e3fcfa99fee2c099909ce794cad7fde4e328/49421:317"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "67:27051",
+    "text": [
+      {
+        "id": "67:27053",
+        "text": "Place holder",
+        "fonts": [
+          {
+            "font": {
+              "family": "Asta Sans",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "size": 30
+          }
+        ],
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.6399999856948853,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.07450980693101883,
+              "g": 0.0784313753247261,
+              "b": 0.09019608050584793
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:fba7bba198b151202aedf827efe6e6596334b173/49421:107"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "67:27057",
+        "text": "Help Text",
+        "fonts": [
+          {
+            "font": {
+              "family": "Asta Sans",
+              "style": "Regular",
+              "variationSettings": {
+                "wght": 400
+              }
+            },
+            "size": 26
+          }
+        ],
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.8399999737739563,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.07450980693101883,
+              "g": 0.0784313753247261,
+              "b": 0.09019608050584793
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3c8fc343a92e12738bedb1fdd16b44c65f045d64/49421:170"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "dpr": 1.375,
+  "innerWidth": 1224,
+  "innerHeight": 880,
+  "visualViewport": {
+    "width": 1224,
+    "height": 880,
+    "scale": 1
+  },
+  "body": "1",
+  "rootFont": "16px",
+  "meta": "width=device-width,initial-scale=1",
+  "rect": {
+    "x": 0,
+    "y": 0,
+    "width": 1224,
+    "height": 880,
+    "top": 0,
+    "right": 1224,
+    "bottom": 880,
+    "left": 0
+  }
+}

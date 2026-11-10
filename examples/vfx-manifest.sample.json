@@ -1,0 +1,23 @@
+{
+  "schema": "nunti-vfx-v1",
+  "note": "EXAMPLE ONLY. Replace paths and timings after exporting actual licensed sprite frames.",
+  "effects": [
+    {
+      "id": "ocean-tide-burst",
+      "theme": "sea",
+      "asset": "assets/vfx/sea/tide_normal.png",
+      "glow_asset": "assets/vfx/sea/tide_add.png",
+      "source_url": "https://effekseer.github.io/en/contributes/MAGICALxSPIRAL/index.html",
+      "license": "CC0 - verify selected effect source",
+      "frame_width": 256,
+      "frame_height": 256,
+      "columns": 8,
+      "frame_count": 48,
+      "frame_duration_ms": 33,
+      "blend_normal": "SrcOver",
+      "blend_glow": "Plus",
+      "placement": "character-stage",
+      "trigger": "skin-transform-peak"
+    }
+  ]
+}

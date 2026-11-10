@@ -1,0 +1,1 @@
+    topResumedActivity=ActivityRecord{fd93323 u10 ai.nunti.avatar.demo/ai.nunti.app.studio.AvatarStudioActivity t1000185}

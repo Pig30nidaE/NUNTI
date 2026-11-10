@@ -1,0 +1,69 @@
+{
+  "requestId": "97bc2446-e71b-4482-bdc0-2f9ac35f361c",
+  "destination": {
+    "name": "통합 검증 · 실패 후 재시도",
+    "traits": "제어된 503 이후 같은 요청으로 복구"
+  },
+  "purpose": "최종 APK 검증",
+  "route": {
+    "points": [
+      [
+        0.2854167,
+        0.784375
+      ],
+      [
+        0.3385417,
+        0.7109375
+      ],
+      [
+        0.4052083,
+        0.6890625
+      ],
+      [
+        0.4614583,
+        0.6234375
+      ],
+      [
+        0.4822917,
+        0.5296875
+      ],
+      [
+        0.5354167,
+        0.4625
+      ],
+      [
+        0.6145833,
+        0.4375
+      ],
+      [
+        0.6885417,
+        0.36875
+      ],
+      [
+        0.7729167,
+        0.353125
+      ],
+      [
+        0.8572917,
+        0.26875
+      ]
+    ],
+    "inputOrigin": "TEST_ROUTE",
+    "sourceLabel": "직접 그린 합성 내비 시험 이미지. 실제 지도·GPS·도로 정보 없음.",
+    "confirmed": true
+  },
+  "renderMode": "LOCAL_LAYERS",
+  "variantContext": {
+    "seed": "0",
+    "destinationCategory": "coast",
+    "roadType": "highway",
+    "userSelectedMood": "curious",
+    "provenance": {
+      "routeId": "app-derived",
+      "destinationCategory": "user-selected",
+      "roadType": "user-selected",
+      "userSelectedMood": "user-selected"
+    },
+    "routeId": "route-c43dcbbb46b50f47c2583b3f82887407ca3425d8feccda3928ed787d04e548b7"
+  }
+}

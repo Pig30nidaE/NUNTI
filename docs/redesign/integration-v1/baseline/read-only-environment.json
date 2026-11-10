@@ -1,0 +1,47 @@
+{
+  "devices": {
+    "exitCode": 0,
+    "bytes": 142
+  },
+  "current-user": {
+    "exitCode": 0,
+    "bytes": 3
+  },
+  "display": {
+    "exitCode": 0,
+    "bytes": 25
+  },
+  "density": {
+    "exitCode": 0,
+    "bytes": 22
+  },
+  "activities": {
+    "exitCode": 0,
+    "bytes": 35623
+  },
+  "car-ux": {
+    "exitCode": 0,
+    "bytes": 1755
+  },
+  "package": {
+    "exitCode": 0,
+    "bytes": 8015
+  },
+  "forward": {
+    "exitCode": 0,
+    "bytes": 100
+  },
+  "reverse": {
+    "exitCode": 0,
+    "bytes": 27
+  },
+  "console": {
+    "httpStatus": 200,
+    "sha256": "4577fb96a7ae7d751e7f547e05cc2511c7f9d449e4ff56b922fa333be4029bb7"
+  },
+  "studio": {
+    "httpStatus": 200,
+    "sha256": "e89556568bc02b76560c3ea6b4e44aa431a5b59404357f9fcff762e232987e99"
+  },
+  "capturedAt": "2026-11-09T16:03:44.622541+00:00"
+}

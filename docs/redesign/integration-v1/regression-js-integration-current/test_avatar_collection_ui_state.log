@@ -1,0 +1,41 @@
+{
+  "source": "prototypes/avatar_generator/studio.js",
+  "boundary": "Node VM with controlled DOM and HTTP, no real browser navigation or model inference",
+  "checks": 8,
+  "passed": 7,
+  "results": [
+    {
+      "name": "latest selection B survives late response for older selection A",
+      "status": "PASS"
+    },
+    {
+      "name": "older selection cannot display while the latest selection is still loading",
+      "status": "PASS"
+    },
+    {
+      "name": "leaving collection cancels a pending selected avatar display",
+      "status": "PASS"
+    },
+    {
+      "name": "new collection request survives an older list response arriving last",
+      "status": "PASS"
+    },
+    {
+      "name": "leaving collection before list response does not build an obsolete list",
+      "status": "PASS"
+    },
+    {
+      "name": "vehicle revocation invalidates a selected avatar even if permission later returns",
+      "status": "FAIL",
+      "error": "document.querySelectorAll is not a function"
+    },
+    {
+      "name": "background invalidates a selected avatar even after foreground returns",
+      "status": "PASS"
+    },
+    {
+      "name": "an obsolete selection failure cannot overwrite the current notice",
+      "status": "PASS"
+    }
+  ]
+}

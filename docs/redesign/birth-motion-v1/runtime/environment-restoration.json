@@ -1,0 +1,23 @@
+{
+  "ownedHeartbeatClosed": true,
+  "browser": {
+    "active": false,
+    "clients": 0,
+    "timeout_ms": 3000
+  },
+  "gear": {
+    "value": "Park",
+    "source": "web",
+    "timestamp_ms": 1794235117767,
+    "source_timestamp": 0,
+    "source_location": ""
+  },
+  "controls": {
+    "speed_kph": 0,
+    "accelerator_pct": 0,
+    "brake_pct": 0,
+    "steering_deg": 0
+  },
+  "emulatorLeftRunning": true,
+  "existingServersPreserved": true
+}

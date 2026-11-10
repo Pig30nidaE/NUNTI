@@ -1,0 +1,121 @@
+{
+  "status": "PASS",
+  "surface": "ACTUAL_PRODUCTION_WEBVIEW_CANVAS",
+  "endpointChecks": [
+    {
+      "sample": "coast-curious",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated/coast-curious-final.png",
+      "captureSha256": "d9db7454fc1d598580876a971ef94da6eb6307d46c3385d043f8766102f31195",
+      "serverSourceSha256": "ddde1f7d0e18317f473409f7137210be66a5b7388b4403959617bc6bc171ae9c"
+    },
+    {
+      "sample": "coast-calm",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated/coast-calm-final.png",
+      "captureSha256": "008512f90c34060917db562f9724bd05bf998f3bd7fc6de68955967e8c270de9",
+      "serverSourceSha256": "2494aa712f4135946baa386f06d6507fb17defb0bb36150aae9423134bd90007"
+    },
+    {
+      "sample": "coast-adventurous",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated/coast-adventurous-final.png",
+      "captureSha256": "8f4ab5311b571211a1f04977d26904e5fe1226ae4b04481bf360f557c3b21511",
+      "serverSourceSha256": "0816a2aece782611cd2d07020f37596f13c5971177060b25443c88c073b73f9d"
+    },
+    {
+      "sample": "mountain-calm",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated/mountain-calm-final.png",
+      "captureSha256": "9d10ed4c55035547beb440cde88f403ec84a68a45d2988b51f9eddaa7e9424d6",
+      "serverSourceSha256": "2234c435bb71d06aea52ce02c5fbb8dab3499b89b8de7dda1cf35f6221dd8d0a"
+    },
+    {
+      "sample": "mountain-curious",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated/mountain-curious-final.png",
+      "captureSha256": "c6e0875e1efc2736e4b60098e4e14a63098e79deae53383a36336fa91db052d1",
+      "serverSourceSha256": "6c993bcb9cf6cd596bb2b934bf62e63c9212d7919a156980be3ddf33e467d1f7"
+    },
+    {
+      "sample": "mountain-adventurous",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated/mountain-adventurous-final.png",
+      "captureSha256": "b9eabb69f6d5e6b59a2b71e2447fbf2472a1abaf052393905949261b7941d336",
+      "serverSourceSha256": "b2cc1c2dde9d2397f05372a1347c19216303441b5ffdc7f7c61b89a7e34f4998"
+    },
+    {
+      "sample": "city-calm",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated/city-calm-final.png",
+      "captureSha256": "dafe37eff1b396cde273482f633da8333ded0befd327f8e5cdc200be8635a95a",
+      "serverSourceSha256": "3e4a220c4f8a94120cb39848e749fafccf4ab8c853a8f82df05261266f216196"
+    },
+    {
+      "sample": "city-curious",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated-continuation/city-curious-final.png",
+      "captureSha256": "377c30daa58689823f37bc42f792a126005a65671d0c9a4e9c9ba8cfd5484d1f",
+      "serverSourceSha256": "2d8be9f2943c9afff591a97c9522ac8bf7c4f1b38ac31ef17f827e5b3e2ae703"
+    },
+    {
+      "sample": "city-adventurous",
+      "canvasEqualsBrowserDecodedServerPixels": true,
+      "capture": "/Users/pig30nidae/NUNTI/docs/redesign/integration-v1/runtime-studio-calibrated-continuation/city-adventurous-final.png",
+      "captureSha256": "49fff560ac7923d7902717537967a923c5b05e006354ef99a00492b16a272407",
+      "serverSourceSha256": "538449fce6d72a36484af6803a56311de65cc92a2cd7013c6c046603be9d0952"
+    }
+  ],
+  "frameChecks": [
+    {
+      "elapsedMs": 0,
+      "actualParkedGateAllowed": true,
+      "protectedRgbaMaximumDifference": 0
+    },
+    {
+      "elapsedMs": 1000,
+      "actualParkedGateAllowed": true,
+      "protectedRgbaMaximumDifference": 0
+    },
+    {
+      "elapsedMs": 2200,
+      "actualParkedGateAllowed": true,
+      "protectedRgbaMaximumDifference": 0
+    },
+    {
+      "elapsedMs": 3000,
+      "actualParkedGateAllowed": true,
+      "protectedRgbaMaximumDifference": 0
+    },
+    {
+      "elapsedMs": 4000,
+      "actualParkedGateAllowed": true,
+      "protectedRgbaMaximumDifference": 0
+    }
+  ],
+  "excludedVariableRegions768": [
+    [
+      235,
+      160,
+      545,
+      397
+    ],
+    [
+      275,
+      380,
+      555,
+      476
+    ],
+    [
+      360,
+      488,
+      450,
+      536
+    ]
+  ],
+  "limitations": [
+    "Five sampled instants prove protected-pixel continuity at those instants.",
+    "Final comparison uses the same browser decoder; original server PNG encoding can differ.",
+    "This is character-art evidence, not a claim that the entire emulator UI equals Figma pixels."
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "reason": "Initial screenshot shows climate on at 22 C; Console session activation switched power off; restored observed power on",
+  "power_on": true,
+  "auto_on": false,
+  "ac_on": true,
+  "driver": {
+    "temp_c": 22.0,
+    "seat_temp": 0,
+    "seat_mode": "Off",
+    "fan_direction": 1,
+    "fan_direction_label": "Face"
+  },
+  "passenger": {
+    "temp_c": 22.0,
+    "seat_temp": 0,
+    "seat_mode": "Off",
+    "fan_direction": 1,
+    "fan_direction_label": "Face"
+  }
+}

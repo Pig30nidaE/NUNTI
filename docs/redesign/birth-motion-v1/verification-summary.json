@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-09",
+  "functionalStatus": "PASS",
+  "scope": "DEBUG_ANDROID_PROTOTYPE_AND_FIGMA_MOTION",
+  "figmaFile": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm",
+  "durationMs": 4000,
+  "nativeChecks": 29,
+  "junitTests": 10,
+  "nativeFinalPixelComparisons": 9,
+  "protectedBodyFrameComparisons": 5,
+  "performanceStatus": "REVIEW_REQUIRED",
+  "performanceNotes": [
+    "Observed approximately 28 updates/second.",
+    "Unrecorded modern deadline jank83.08%, legacy0%, p95 17ms on Pleos emulator.",
+    "CPU samples7–9%; process PSS84.6MiB."
+  ],
+  "productionDefaultChanged": false,
+  "providerModelApiCalls": 0,
+  "evidence": {
+    "native": "runtime/run-20261109T143534Z/report.json",
+    "figma": "figma-verification.json",
+    "pixel": "pixel-verification.json",
+    "build": "runtime/build-report.json",
+    "restoration": "runtime/environment-restoration.json"
+  },
+  "remainingReleaseWork": [
+    "Choose a motion direction before making it the production default.",
+    "Connect arbitrary new Studio AvatarSpec/final PNG to this renderer.",
+    "Verify physical vehicle GPU deadline behavior, long-session resources and TalkBack navigation."
+  ]
+}

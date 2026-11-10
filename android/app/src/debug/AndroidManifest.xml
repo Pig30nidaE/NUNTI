@@ -3,6 +3,10 @@
     <uses-permission android:name="android.car.permission.CAR_SPEED" />
     <uses-permission android:name="android.permission.INTERNET" />
     <application android:usesCleartextTraffic="true" android:label="Nunti · 여정 MVP" tools:replace="android:label">
+        <!-- Offline motion review only; no distraction-optimized approval is asserted. -->
+        <activity android:name="ai.nunti.app.transformation.TransformationPreviewActivity"
+            android:exported="true" android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name="ai.nunti.app.generated.GeneratedCompanionActivity" android:exported="true" android:launchMode="singleTop" />
         <activity android:name="ai.nunti.app.routebirth.RouteBirthActivity" android:exported="true" android:launchMode="singleTop" />
         <activity android:name="ai.nunti.app.journey.JourneyMvpActivity"

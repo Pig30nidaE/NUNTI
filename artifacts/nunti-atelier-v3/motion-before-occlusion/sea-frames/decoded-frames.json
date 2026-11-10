@@ -1,0 +1,57 @@
+{
+  "decoder" : "macOS AVFoundation",
+  "durationSeconds" : 7.6860555555555559,
+  "frames" : [
+    {
+      "actualSeconds" : 0,
+      "file" : "video-0000.png",
+      "height" : 1440,
+      "requestedSeconds" : 0,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 0.96486666666666665,
+      "file" : "video-1000.png",
+      "height" : 1440,
+      "requestedSeconds" : 1,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 1.9988333333333332,
+      "file" : "video-2000.png",
+      "height" : 1440,
+      "requestedSeconds" : 2,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 2.9819555555555555,
+      "file" : "video-3000.png",
+      "height" : 1440,
+      "requestedSeconds" : 3,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 3.9990666666666668,
+      "file" : "video-4000.png",
+      "height" : 1440,
+      "requestedSeconds" : 4,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 4.9821555555555559,
+      "file" : "video-5000.png",
+      "height" : 1440,
+      "requestedSeconds" : 5,
+      "width" : 2560
+    }
+  ],
+  "source" : "\/Users\/pig30nidae\/NUNTI\/artifacts\/nunti-atelier-v3\/motion-final\/sea.mp4",
+  "videoTracks" : [
+    {
+      "estimatedDataRate" : 7583463.5,
+      "height" : 1440,
+      "nominalFrameRate" : 48.789653778076172,
+      "width" : 2560
+    }
+  ]
+}

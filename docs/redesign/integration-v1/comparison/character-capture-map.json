@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "approvedBase": "prototypes/avatar_generator/nunti-motion/base.png",
+  "captures": {
+    "coast-calm": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/coast-calm-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/coast-calm-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "coast-curious": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/coast-curious-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/coast-curious-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "coast-adventurous": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/coast-adventurous-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/coast-adventurous-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "mountain-calm": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/mountain-calm-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/mountain-calm-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "mountain-curious": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/mountain-curious-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/mountain-curious-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "mountain-adventurous": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/mountain-adventurous-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/mountain-adventurous-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "city-calm": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/city-calm-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/city-calm-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "city-curious": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/city-curious-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/city-curious-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    },
+    "city-adventurous": {
+      "path": "docs/redesign/integration-v1/runtime-endpoints-final/city-adventurous-final.png",
+      "browserReferencePath": "docs/redesign/integration-v1/runtime-endpoints-final/city-adventurous-browser-reference.png",
+      "artifactsPath": "docs/redesign/integration-v1/runtime-endpoints-final/artifacts.json",
+      "endpointReportPath": "docs/redesign/integration-v1/runtime-endpoints-final/report.json",
+      "captureScript": "scripts/verify_nunti_integration_endpoints.mjs"
+    }
+  }
+}

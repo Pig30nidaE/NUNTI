@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ai.nunti.score.ScoreEngineTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-09T17:22:42" hostname="isanghyoui-Macmini-2.local" time="0.031">
+  <properties/>
+  <testcase name="scenariosBehaveAsDesigned" classname="ai.nunti.score.ScoreEngineTest" time="0.028"/>
+  <testcase name="hardBrakeIsCountedOnceAndLabelledAsBrake" classname="ai.nunti.score.ScoreEngineTest" time="0.0"/>
+  <testcase name="recoveryAveragesOverValidTime" classname="ai.nunti.score.ScoreEngineTest" time="0.001"/>
+  <testcase name="onlyEvaluableAreasAreRenormalized" classname="ai.nunti.score.ScoreEngineTest" time="0.0"/>
+  <testcase name="emptySeatAndUnknownBeltAreNotPenalized" classname="ai.nunti.score.ScoreEngineTest" time="0.001"/>
+  <testcase name="missingSignalsAreNotEvaluated" classname="ai.nunti.score.ScoreEngineTest" time="0.0"/>
+  <testcase name="turnWithoutSlowingScoresZeroButNoOpportunityIsNull" classname="ai.nunti.score.ScoreEngineTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

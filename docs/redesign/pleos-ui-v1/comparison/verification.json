@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "inputCount": 12,
+  "beforeLosslessCrops": 4,
+  "figmaPixelIdenticalCopies": 8,
+  "outputImageCount": 14,
+  "identicalSecondBuildIncludingManifest": true,
+  "manifestSha256": "649af2c1836aea72835a28f69841006d1fa58b49470154498fe0045f2a6f5e1d",
+  "sourceImagesUnchanged": true,
+  "visualReview": "All final eight 1682x1210 Figma exports inspected. Secondary outlines and post-trip button padding fixes visible. No major text clipping or overlap found.",
+  "drivingRuntimeVisibilityApproved": false,
+  "checks": [
+    {
+      "id": "pre-trip-before",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "pre-trip-day",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "pre-trip-night",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "reveal-parked-before",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "reveal-parked-day",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "reveal-parked-night",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "driving-restricted-before",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "driving-restricted-day",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "driving-restricted-night",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "post-trip-before",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "post-trip-day",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    },
+    {
+      "id": "post-trip-night",
+      "inputSha256Verified": true,
+      "normalizedPixelsIdentical": true
+    }
+  ]
+}

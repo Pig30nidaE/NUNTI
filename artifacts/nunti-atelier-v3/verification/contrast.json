@@ -1,0 +1,130 @@
+[
+  {
+    "mode": "day",
+    "foreground": "ink",
+    "background": "bg",
+    "contrast": 10.66,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "day",
+    "foreground": "muted",
+    "background": "bg",
+    "contrast": 5.31,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "day",
+    "foreground": "muted",
+    "background": "mint",
+    "contrast": 5.0,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "day",
+    "foreground": "green",
+    "background": "mint",
+    "contrast": 7.67,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "day",
+    "foreground": "on-accent",
+    "background": "green",
+    "contrast": 8.95,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "day",
+    "foreground": "control-line",
+    "background": "bg",
+    "contrast": 3.55,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "day",
+    "foreground": "control-line",
+    "background": "paper",
+    "contrast": 3.9,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "day",
+    "foreground": "control-line",
+    "background": "mint",
+    "contrast": 3.35,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "ink",
+    "background": "bg",
+    "contrast": 15.31,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "muted",
+    "background": "bg",
+    "contrast": 9.82,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "muted",
+    "background": "mint",
+    "contrast": 6.99,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "green",
+    "background": "mint",
+    "contrast": 8.3,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "on-accent",
+    "background": "green",
+    "contrast": 8.34,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "control-line",
+    "background": "bg",
+    "contrast": 5.08,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "control-line",
+    "background": "paper",
+    "contrast": 4.33,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "mode": "night",
+    "foreground": "control-line",
+    "background": "mint",
+    "contrast": 3.61,
+    "minimum": 3,
+    "pass": true
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "decoder" : "macOS AVFoundation",
+  "durationSeconds" : 6.9903777777777778,
+  "frames" : [
+    {
+      "actualSeconds" : 0,
+      "file" : "video-0000.png",
+      "height" : 1440,
+      "requestedSeconds" : 0,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 0.99088888888888893,
+      "file" : "video-1000.png",
+      "height" : 1440,
+      "requestedSeconds" : 1,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 1.9914444444444444,
+      "file" : "video-2000.png",
+      "height" : 1440,
+      "requestedSeconds" : 2,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 2.9896333333333334,
+      "file" : "video-3000.png",
+      "height" : 1440,
+      "requestedSeconds" : 3,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 3.9901111111111112,
+      "file" : "video-4000.png",
+      "height" : 1440,
+      "requestedSeconds" : 4,
+      "width" : 2560
+    },
+    {
+      "actualSeconds" : 4.9896444444444441,
+      "file" : "video-5000.png",
+      "height" : 1440,
+      "requestedSeconds" : 5,
+      "width" : 2560
+    }
+  ],
+  "source" : "\/Users\/pig30nidae\/NUNTI\/docs\/redesign\/integration-v1\/runtime-display-optimized\/production-motion.mp4",
+  "videoTracks" : [
+    {
+      "estimatedDataRate" : 3961553,
+      "height" : 1440,
+      "nominalFrameRate" : 49.353557586669922,
+      "width" : 2560
+    }
+  ]
+}

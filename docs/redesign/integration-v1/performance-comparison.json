@@ -1,0 +1,68 @@
+{
+  "observations": {
+    "runtime-display-final": {
+      "frames": 121,
+      "intervalCount": 120,
+      "meanIntervalMs": 33.333333333333336,
+      "p95IntervalMs": 33.40000000002328,
+      "maximumIntervalMs": 33.40000000002328,
+      "updatesPerSecond": 29.999999999999996,
+      "cpuPercentOneCoreSamples": [
+        56.0,
+        52.0,
+        54.0,
+        52.0,
+        41.0,
+        0.0
+      ],
+      "pssKiB": 155845,
+      "rssKiB": 277572,
+      "gfxinfoLines": [
+        "Total frames rendered: 121",
+        "Janky frames: 87 (71.90%)",
+        "Janky frames (legacy): 58 (47.93%)",
+        "50th percentile: 18ms",
+        "95th percentile: 32ms",
+        "95th gpu percentile: 17ms"
+      ],
+      "videoBytes": 3373311,
+      "pssMiB": 152.19,
+      "rssMiB": 271.07
+    },
+    "runtime-display-optimized": {
+      "frames": 121,
+      "intervalCount": 120,
+      "meanIntervalMs": 33.333333333333336,
+      "p95IntervalMs": 33.40000000000873,
+      "maximumIntervalMs": 50,
+      "updatesPerSecond": 29.999999999999996,
+      "cpuPercentOneCoreSamples": [
+        56.0,
+        53.0,
+        50.0,
+        51.0,
+        37.0,
+        2.0
+      ],
+      "pssKiB": 149682,
+      "rssKiB": 271000,
+      "gfxinfoLines": [
+        "Total frames rendered: 121",
+        "Janky frames: 91 (75.21%)",
+        "Janky frames (legacy): 57 (47.11%)",
+        "50th percentile: 17ms",
+        "95th percentile: 34ms",
+        "95th gpu percentile: 17ms"
+      ],
+      "videoBytes": 3476176,
+      "pssMiB": 146.17,
+      "rssMiB": 264.65
+    }
+  },
+  "limitations": [
+    "Single emulator measurements, not a real-vehicle certification.",
+    "top process CPU is expressed against one core; emulator has four virtual cores.",
+    "Both measurements use warmed nine-variant motion layer caches and no simultaneous screenrecord.",
+    "Report both controller 30Hz and Android gfxinfo jank; they measure different boundaries."
+  ]
+}

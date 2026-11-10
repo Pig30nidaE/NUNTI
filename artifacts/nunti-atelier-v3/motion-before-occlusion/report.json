@@ -1,0 +1,311 @@
+{
+  "status": "PASS",
+  "videos": [
+    {
+      "skin": "sea",
+      "file": "sea.mp4",
+      "final": {
+        "motion": {
+          "phase": "FINAL_IDLE",
+          "elapsedMs": 4000,
+          "reason": "COMPLETE",
+          "skinId": "sea",
+          "visited": [
+            "DEFAULT_IDLE",
+            "ROUTE_ENERGY",
+            "OUTFIT_SWAP",
+            "HEAD_AND_EYES_TRANSFORM",
+            "SKIN_REVEAL",
+            "FINAL_IDLE"
+          ],
+          "running": false,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true,
+          "renderer": "CANVAS"
+        },
+        "artifact": {
+          "characterId": "nunti-skin-c38a58fadd8d14c3b45726a7e62963a3",
+          "savedAt": 1794315022155,
+          "destination": {
+            "name": "파도 해변",
+            "traits": ""
+          },
+          "purpose": "스킨 시험 여정",
+          "route": {
+            "points": [
+              [
+                0.08,
+                0.72
+              ],
+              [
+                0.25,
+                0.54
+              ],
+              [
+                0.46,
+                0.63
+              ],
+              [
+                0.71,
+                0.32
+              ],
+              [
+                0.92,
+                0.26
+              ]
+            ],
+            "inputOrigin": "TEST_ROUTE",
+            "sourceLabel": "스킨 시험 입력",
+            "confirmed": true
+          },
+          "displayName": "바닷길 눈티",
+          "mediaOrigin": "MOCK_SKIN",
+          "visual": {
+            "path": "/skin-v2/atelier/sea/final.png"
+          },
+          "design": {
+            "skinSpec": {
+              "skinId": "sea",
+              "name": "바닷길 눈티",
+              "outfit": "바다색 코트에 나침반을 챙겼어요.",
+              "headStyle": "산호 장식 후드",
+              "earStyle": "작은 산호",
+              "eyeStyle": "웃는 눈",
+              "accessories": [
+                "유리 나침반",
+                "작은 여행 가방"
+              ],
+              "palette": "#2A6870",
+              "pattern": "파도가 남긴 자수",
+              "version": "skin-v2.2",
+              "mood": "calm",
+              "road": "highway",
+              "routeId": "route-debe7eaba6a6cca104474daaa84445c8d8cc294e1aace4fed5d284d5c916e92a",
+              "animationPreset": {
+                "ribbon": "solid",
+                "sweep": "horizontal"
+              }
+            },
+            "staticOnly": true,
+            "personality": "바다색 코트에 나침반을 챙겼어요.",
+            "motifs": []
+          },
+          "voice": {
+            "provider": "DEVICE_SPEECH",
+            "description": "기기에 설치된 오프라인 음성",
+            "pitch": 1.08,
+            "rate": 1
+          }
+        }
+      }
+    },
+    {
+      "skin": "city",
+      "file": "city.mp4",
+      "final": {
+        "motion": {
+          "phase": "FINAL_IDLE",
+          "elapsedMs": 4000,
+          "reason": "COMPLETE",
+          "skinId": "city",
+          "visited": [
+            "DEFAULT_IDLE",
+            "ROUTE_ENERGY",
+            "OUTFIT_SWAP",
+            "HEAD_AND_EYES_TRANSFORM",
+            "SKIN_REVEAL",
+            "FINAL_IDLE"
+          ],
+          "running": false,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true,
+          "renderer": "CANVAS"
+        },
+        "artifact": {
+          "characterId": "nunti-skin-0ff97a10e9ce642ce6eec6bc10aba760",
+          "savedAt": 1794315038138,
+          "destination": {
+            "name": "밤의 도시",
+            "traits": ""
+          },
+          "purpose": "스킨 시험 여정",
+          "route": {
+            "points": [
+              [
+                0.08,
+                0.8
+              ],
+              [
+                0.26,
+                0.8
+              ],
+              [
+                0.26,
+                0.53
+              ],
+              [
+                0.57,
+                0.53
+              ],
+              [
+                0.57,
+                0.25
+              ],
+              [
+                0.89,
+                0.25
+              ]
+            ],
+            "inputOrigin": "TEST_ROUTE",
+            "sourceLabel": "스킨 시험 입력",
+            "confirmed": true
+          },
+          "displayName": "도시의 눈티",
+          "mediaOrigin": "MOCK_SKIN",
+          "visual": {
+            "path": "/skin-v2/atelier/city/final.png"
+          },
+          "design": {
+            "skinSpec": {
+              "skinId": "city",
+              "name": "도시의 눈티",
+              "outfit": "헤드폰을 쓰고 새로운 골목을 찾아요.",
+              "headStyle": "새싹 후드와 헤드폰",
+              "earStyle": "남색 헤드폰",
+              "eyeStyle": "호기심 어린 눈",
+              "accessories": [
+                "길 안내 배지",
+                "여행 크로스백"
+              ],
+              "palette": "#685B91",
+              "pattern": "도시의 작은 불빛",
+              "version": "skin-v2.2",
+              "mood": "curious",
+              "road": "urban",
+              "routeId": "route-942c7dd4823f789a92aeb48d1b2fa5b320c8be560344d9fb09bb4daafddd43a7",
+              "animationPreset": {
+                "ribbon": "segmented",
+                "sweep": "diagonal"
+              }
+            },
+            "staticOnly": true,
+            "personality": "헤드폰을 쓰고 새로운 골목을 찾아요.",
+            "motifs": []
+          },
+          "voice": {
+            "provider": "DEVICE_SPEECH",
+            "description": "기기에 설치된 오프라인 음성",
+            "pitch": 1.08,
+            "rate": 1
+          }
+        }
+      }
+    },
+    {
+      "skin": "mountain",
+      "file": "mountain.mp4",
+      "final": {
+        "motion": {
+          "phase": "FINAL_IDLE",
+          "elapsedMs": 4000,
+          "reason": "COMPLETE",
+          "skinId": "mountain",
+          "visited": [
+            "DEFAULT_IDLE",
+            "ROUTE_ENERGY",
+            "OUTFIT_SWAP",
+            "HEAD_AND_EYES_TRANSFORM",
+            "SKIN_REVEAL",
+            "FINAL_IDLE"
+          ],
+          "running": false,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true,
+          "renderer": "CANVAS"
+        },
+        "artifact": {
+          "characterId": "nunti-skin-a7e1491da5665c6712f26fb806810c49",
+          "savedAt": 1794315043641,
+          "destination": {
+            "name": "새싹 능선",
+            "traits": ""
+          },
+          "purpose": "스킨 시험 여정",
+          "route": {
+            "points": [
+              [
+                0.08,
+                0.82
+              ],
+              [
+                0.24,
+                0.69
+              ],
+              [
+                0.38,
+                0.72
+              ],
+              [
+                0.51,
+                0.44
+              ],
+              [
+                0.62,
+                0.54
+              ],
+              [
+                0.87,
+                0.2
+              ]
+            ],
+            "inputOrigin": "TEST_ROUTE",
+            "sourceLabel": "스킨 시험 입력",
+            "confirmed": true
+          },
+          "displayName": "산길 눈티",
+          "mediaOrigin": "MOCK_SKIN",
+          "visual": {
+            "path": "/skin-v2/atelier/mountain/final.png"
+          },
+          "design": {
+            "skinSpec": {
+              "skinId": "mountain",
+              "name": "산길 눈티",
+              "outfit": "따뜻한 옷과 튼튼한 신발을 준비했어요.",
+              "headStyle": "이끼색 니트 모자",
+              "earStyle": "새싹",
+              "eyeStyle": "웃는 눈",
+              "accessories": [
+                "등산 배낭",
+                "호박빛 나뭇잎"
+              ],
+              "palette": "#687247",
+              "pattern": "능선을 따라 놓은 자수",
+              "version": "skin-v2.2",
+              "mood": "adventurous",
+              "road": "rural",
+              "routeId": "route-a82291a2d61108cd6fb814b0d4e87dffcb7ae7da9d43c4778ea4ca5ee38e7d6d",
+              "animationPreset": {
+                "ribbon": "dotted",
+                "sweep": "uphill"
+              }
+            },
+            "staticOnly": true,
+            "personality": "따뜻한 옷과 튼튼한 신발을 준비했어요.",
+            "motifs": []
+          },
+          "voice": {
+            "provider": "DEVICE_SPEECH",
+            "description": "기기에 설치된 오프라인 음성",
+            "pitch": 1.08,
+            "rate": 1
+          }
+        }
+      }
+    }
+  ],
+  "headingStableAfterWindowResize": true
+}

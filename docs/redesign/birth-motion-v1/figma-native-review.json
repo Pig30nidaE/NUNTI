@@ -1,0 +1,168 @@
+{
+  "reviewed": "2026-11-09",
+  "scope": "Read-only Kotlin and actual saved Figma API readbacks; no emulator operation or code changes. Rendered-screen comparison is a separate root task.",
+  "sources": [
+    "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+    "https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html"
+  ],
+  "contrastMethod": "WCAG sRGB relative luminance, channel breakpoint .04045, weights .2126/.7152/.0722, (Llighter+.05)/(Ldarker+.05). Active text assessed against 4.5 without rounding.",
+  "contrast": [
+    {
+      "theme": "day",
+      "role": "primary/shield",
+      "foreground": "#2A4036",
+      "background": "#F6F4EF",
+      "ratio": 10.135002805452658,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "day",
+      "role": "secondary subtitle/details",
+      "foreground": "#5C7263",
+      "background": "#F6F4EF",
+      "ratio": 4.7264944564834925,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "day",
+      "role": "enabled secondary buttons",
+      "foreground": "#2A4036",
+      "background": "#EEF2E7",
+      "ratio": 9.808727528689195,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "day",
+      "role": "enabled play",
+      "foreground": "#223D2C",
+      "background": "#C2DCB4",
+      "ratio": 8.00854258144117,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "day",
+      "role": "inactive secondary buttons",
+      "foregroundComposited": "#9AA39C",
+      "backgroundComposited": "#F2F3EB",
+      "ratio": 2.325593513095073,
+      "status": "INACTIVE_COMPONENT_EXEMPT",
+      "note": "Assumes opaque control text/surface composited as a group with View.alpha=.45 over content background."
+    },
+    {
+      "theme": "day",
+      "role": "inactive play",
+      "foregroundComposited": "#97A297",
+      "backgroundComposited": "#DFE9D4",
+      "ratio": 2.1212527192368498,
+      "status": "INACTIVE_COMPONENT_EXEMPT",
+      "note": "Assumes opaque control text/surface composited as a group with View.alpha=.45 over content background."
+    },
+    {
+      "theme": "night",
+      "role": "primary/shield",
+      "foreground": "#EDF4EA",
+      "background": "#1C2D29",
+      "ratio": 12.856905132642666,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "night",
+      "role": "secondary subtitle/details",
+      "foreground": "#BED1C3",
+      "background": "#1C2D29",
+      "ratio": 8.991009138836212,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "night",
+      "role": "enabled secondary buttons",
+      "foreground": "#EDF4EA",
+      "background": "#263C38",
+      "ratio": 10.487529681997529,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "night",
+      "role": "enabled play",
+      "foreground": "#223D2C",
+      "background": "#C2DCB4",
+      "ratio": 8.00854258144117,
+      "passNormalText4_5": true
+    },
+    {
+      "theme": "night",
+      "role": "inactive secondary buttons",
+      "foregroundComposited": "#7A8780",
+      "backgroundComposited": "#203430",
+      "ratio": 3.504735393651048,
+      "status": "INACTIVE_COMPONENT_EXEMPT",
+      "note": "Assumes opaque control text/surface composited as a group with View.alpha=.45 over content background."
+    },
+    {
+      "theme": "night",
+      "role": "inactive play",
+      "foregroundComposited": "#1F342A",
+      "backgroundComposited": "#677C68",
+      "ratio": 2.926640018085524,
+      "status": "INACTIVE_COMPONENT_EXEMPT",
+      "note": "Assumes opaque control text/surface composited as a group with View.alpha=.45 over content background."
+    }
+  ],
+  "matching": [
+    "4000ms duration",
+    "cubic-bezier(.4,0,.2,1), solving x before y",
+    "road 450-1300ms",
+    "scarf 1300-1900ms",
+    "pocket 1700-2500ms",
+    "expression 2850-3050ms",
+    "base expression 1-p and target p",
+    "LIGHT_TRAIL road/pocket left-to-right clip, QUIET_COLOR opacity only",
+    "coast-curious road bounds [328,403,383,414], pocket bounds [367,503,437,529]",
+    "glow centers x=328+55*roadProgress,y=408.5; radii8/3; paint opacity.16/.7",
+    "glow envelope 450-550ms up, hold until1200ms,1200-1300ms down, same cubic",
+    "core drawn at full alpha with no per-frame transform",
+    "glow RGB [249,216,146] on both platforms, Figma readback verified after parity fix"
+  ],
+  "differences": [
+    {
+      "severity": "expected rasterization tolerance",
+      "item": "clip origin and width epsilon",
+      "figma": "Exact alpha bbox; width interpolates .001->width",
+      "native": "clipRect left/top/bottom extends1px; right edge interpolates0->width; at0 draw skipped",
+      "source": "TransformationCanvasView.kt:88-94",
+      "effect": "Outside bbox source pixels are transparent. Right-edge difference below .001px; possible subpixel filtering differences need pixel QA, not a timing mismatch."
+    },
+    {
+      "severity": "expected rasterization tolerance",
+      "item": "alpha conversion",
+      "figma": "float layer opacity",
+      "native": "floor(opacity*255)/255",
+      "source": "TransformationCanvasView.kt:97-102",
+      "effect": "Native alpha can be lower by less than1/255. No logic mismatch."
+    },
+    {
+      "severity": "presentation difference",
+      "item": "day stage background",
+      "figma": "#F6F4EF",
+      "native": "#EEF2E7 (outer content is #F6F4EF)",
+      "source": "TransformationPreviewActivity.kt:224-231",
+      "effect": "Full-screen stage surface differs; compare transparent captureArtwork flattened over a common color for asset/motion fidelity."
+    },
+    {
+      "severity": "intentional runtime policy",
+      "item": "final and loop behavior",
+      "figma": "Composite layers; editor loop preview",
+      "native": "At4000ms exact finalPNG, runtime one-shot; terminal/restricted states do not auto-resume",
+      "source": "TransformationCanvasView.kt:57, TransformationTimeline.kt:99-131",
+      "effect": "Correct application safety/endpoint policy, not a missing animation."
+    }
+  ],
+  "recommendation": "All active text passes normal-text4.5 in both themes. No remaining intended motion-value mismatch. Known stage background and rasterization differences remain documented; real pixel QA is separate.",
+  "resolved": [
+    {
+      "item": "glow paint RGB",
+      "resolution": "Figma A ellipse fills 4:38/4:47 changed to native warm gold [249,216,146]. Android code unchanged.",
+      "verification": "Actual Figma node fill readback; manual tracks unchanged; fresh 24fps MP4 and decoded PNGs."
+    }
+  ]
+}

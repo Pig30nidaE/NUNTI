@@ -1,0 +1,39 @@
+{
+  "setting": "null",
+  "motion": {
+    "active": true,
+    "status": "SETTLED",
+    "reason": "REDUCED_MOTION",
+    "elapsedMs": 4000,
+    "frameCount": 18,
+    "intervalsMs": [
+      33.299999999995634,
+      33.400000000001455,
+      33.200000000004366,
+      33.39999999999418,
+      33.30000000000291,
+      33.400000000001455,
+      33.299999999995634,
+      33.400000000001455,
+      33.30000000000291,
+      33.299999999995634,
+      33.30000000000291,
+      33.400000000001455,
+      33.299999999995634,
+      33.400000000001455,
+      33.200000000004366,
+      33.39999999999418,
+      33.30000000000291
+    ],
+    "reducedMotion": true,
+    "userReducedMotion": false,
+    "layerReady": true,
+    "finalReady": true
+  },
+  "appearance": {
+    "theme": "day",
+    "systemReducedMotion": true,
+    "viewportWidth": 1682,
+    "viewportHeight": 1210
+  }
+}

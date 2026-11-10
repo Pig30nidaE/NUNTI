@@ -1,0 +1,155 @@
+{
+  "avatarSpec": {
+    "accessibilityLabel": "산의 능선을 담은 씩씩한 눈티",
+    "assetVersion": "nunti-a-layers-v1",
+    "baseAsset": "base.png",
+    "characterId": "nunti-a-v1",
+    "destinationMotif": "mountain",
+    "displayMode": "day",
+    "expression": "adventurous",
+    "fallbackReasons": [],
+    "layers": [
+      {
+        "id": "core-body",
+        "path": "core/body.png"
+      },
+      {
+        "id": "core-head",
+        "path": "core/head.png"
+      },
+      {
+        "id": "core-sprout",
+        "path": "core/sprout.png"
+      },
+      {
+        "id": "core-scarf",
+        "path": "core/scarf.png"
+      },
+      {
+        "id": "core-bag",
+        "path": "core/bag.png"
+      },
+      {
+        "id": "core-badge",
+        "path": "core/badge.png"
+      },
+      {
+        "id": "expression-adventurous",
+        "path": "expressions/adventurous.png"
+      },
+      {
+        "id": "destination-mountain",
+        "path": "destinations/mountain.png"
+      },
+      {
+        "id": "road-rural",
+        "path": "roads/rural-2.png"
+      }
+    ],
+    "mappingVersion": "nunti-layers-v1",
+    "motion": "none",
+    "normalizedContext": {
+      "destinationCategory": "mountain",
+      "displayMode": "day",
+      "mappingVersion": "nunti-layers-v1",
+      "roadType": "rural",
+      "routeGeometrySource": "TEST_ROUTE",
+      "routeId": "mock-nunti-mountain-v1",
+      "routePointCount": 6,
+      "routeRevision": 1,
+      "seed": "0",
+      "userSelectedMood": "adventurous"
+    },
+    "palette": {
+      "accent": "#709260",
+      "background": "#F6F4EF",
+      "blue": "#B6D1E4",
+      "body": "#F5E6D8",
+      "face": "#FED7C6",
+      "ink": "#51362C",
+      "mint": "#ACDABF"
+    },
+    "provenance": {
+      "destinationCategory": "mock",
+      "roadType": "mock",
+      "routeGeometry": "mock",
+      "routeId": "mock",
+      "routeRevision": "mock",
+      "userSelectedMood": "mock"
+    },
+    "roadMotif": "rural",
+    "routeFingerprint": "5a1320f318000bb0d3516c304584758682a26d105a058740b80c1802dfb2ef9c",
+    "routeId": "mock-nunti-mountain-v1",
+    "routeVariant": 2,
+    "schemaVersion": "nunti.avatar.layers/1",
+    "seed": "0",
+    "variantId": "nunti-a-add82338ca757ed2ab540a53"
+  },
+  "designVersion": "nunti-layers-v1",
+  "displayName": "눈티",
+  "faceAnchors": {
+    "leftEye": [
+      316,
+      274
+    ],
+    "mouth": [
+      391,
+      337
+    ],
+    "rightEye": [
+      463,
+      274
+    ]
+  },
+  "imageSha256": "2bef89e10f0f0bdca997b34af4c31ab9a181aed3b423e436996cb70dd3ab84b8",
+  "layerAssets": {
+    "core/badge.png": "8a7593ee07797cd5351751368d5779eda3d8833ef33a1100be7edd9bba2d418c",
+    "core/bag.png": "fc0c2d1e6464823f26a44523d65166c4332450da11f430297c15b7f1bb06020f",
+    "core/body.png": "524649793ba10c8227d677e0177be42d0c111c82e11e32c5240c48a99f9d2ca8",
+    "core/head.png": "77cf4d8dcc83047719e44094e3feb9291a494ab69e22ec831e7ad3d81b4e3316",
+    "core/scarf.png": "ee1e650c83879fdbb5bc19f198dd85233be20649e77e888ea5dc4e33726796e5",
+    "core/sprout.png": "65537c0a0c9c10cddaf8c72dcbc046d0e42b4ef40cbdda664ef9a221adf4e1c7",
+    "destinations/mountain.png": "f0079e609ecb39c7bca0d4af981ee3f77e097612e727937283e0ac6ee092a480",
+    "expressions/adventurous.png": "53227b028ce5d44c917a9af4758680e8a18418639dc4b0857ae786cceac794c2",
+    "roads/rural-2.png": "22b295ab28502a113c70c7565bd818605c170a519f57ccc7a7d32dd14679c61e"
+  },
+  "mediaOrigin": "LOCAL_LAYERS",
+  "motifs": [
+    {
+      "detail": "초록 스카프와 작은 능선에 산의 풍경을 담았어요.",
+      "label": "목적지 장식",
+      "source": "NORMALIZED_VARIANT_CONTEXT",
+      "target": "pocket-and-scarf-accent"
+    },
+    {
+      "detail": "완만한 시골길을 스카프의 작은 곡선으로 담았어요.",
+      "label": "경로 무늬",
+      "source": "NORMALIZED_VARIANT_CONTEXT",
+      "target": "scarf-stitch"
+    },
+    {
+      "detail": "직접 고른 씩씩함을 또렷한 눈썹과 밝은 미소로 표현했어요.",
+      "label": "명시적으로 선택한 표정",
+      "source": "NORMALIZED_VARIANT_CONTEXT",
+      "target": "fixed-face-anchors"
+    }
+  ],
+  "palette": [
+    "#F5E6D8",
+    "#ACDABF",
+    "#B6D1E4",
+    "#FED7C6",
+    "#51362C",
+    "#709260",
+    "#F6F4EF"
+  ],
+  "personality": "여행의 풍경과 사용자가 고른 기분을 담는 같은 동반자",
+  "renderStatus": "COMPOSITED",
+  "renderVersion": "nunti-a-layers-v1",
+  "staticOnly": true,
+  "voice": {
+    "description": "따뜻하고 절제된 눈티의 목소리",
+    "pitch": 1.08,
+    "rate": 0.96
+  }
+}

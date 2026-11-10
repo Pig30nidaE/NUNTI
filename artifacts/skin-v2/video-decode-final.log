@@ -1,0 +1,42 @@
+<unknown>:0: error: module '_DarwinFoundation1' is defined in both '/private/tmp/nunti-videoqa-swift-cache/VHB6UM9UC5Z8/_DarwinFoundation1-29KYSLY2NX7JV.pcm' and '/tmp/nunti-videoqa-swift-cache/VHB6UM9UC5Z8/_DarwinFoundation1-29KYSLY2NX7JV.pcm'
+<unknown>:0: error: cannot load underlying module for '_DarwinFoundation1'
+Stack dump:
+0.	Program arguments: /Library/Developer/CommandLineTools/usr/bin/swift-frontend -frontend -interpret scripts/verify_nunti_video_frames.swift -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -no-color-diagnostics -Xcc -fno-color-diagnostics -module-cache-path /tmp/nunti-videoqa-swift-cache -new-driver-path /Library/Developer/CommandLineTools/usr/bin/swift-driver -empty-abi-descriptor -no-auto-bridging-header-chaining -module-name verify_nunti_video_frames -disable-clang-spi -target-sdk-version 26.5 -target-sdk-name macosx26.5 -external-plugin-path /Library/Developer/Developer/usr/lib/swift/host/plugins#/Library/Developer/Developer/usr/bin/swift-plugin-server -external-plugin-path /Library/Developer/Developer/usr/local/lib/swift/host/plugins#/Library/Developer/Developer/usr/bin/swift-plugin-server -in-process-plugin-server-path /Library/Developer/CommandLineTools/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -plugin-path /Library/Developer/CommandLineTools/usr/lib/swift/host/plugins -plugin-path /Library/Developer/CommandLineTools/usr/local/lib/swift/host/plugins -- artifacts/nunti-skin-v2/runtime-caption-final/nunti-skin-transform-demo.mp4 artifacts/nunti-skin-v2/runtime-caption-final/video-frames
+1.	Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+2.	Compiling with effective version 5.10
+3.	While reading from module 'Foundation', builder version '6.3.3(5.10)/Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)', built from swiftinterface against SDK , resilient, loaded from '/tmp/nunti-videoqa-swift-cache/Foundation-2TXBJ1027Q2MU.swiftmodule'
+4.	While reading from module 'Dispatch', builder version '6.3.3(5.10)/Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)', built from swiftinterface against SDK , resilient, loaded from '/tmp/nunti-videoqa-swift-cache/Dispatch-JCC13RC0X9AC.swiftmodule'
+Stack dump without symbol names (ensure you have llvm-symbolizer in your PATH or set the environment var `LLVM_SYMBOLIZER_PATH` to point to it):
+0  swift-frontend           0x00000001072c508c llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) + 56
+1  swift-frontend           0x00000001072c252c llvm::sys::RunSignalHandlers() + 172
+2  swift-frontend           0x00000001072c567c SignalHandler(int, __siginfo*, void*) + 356
+3  libsystem_platform.dylib 0x00000001839c97a4 _sigtramp + 56
+4  swift-frontend           0x0000000104c65438 clang::ASTReader::ReadASTBlock(clang::serialization::ModuleFile&, unsigned int) + 1028
+5  swift-frontend           0x0000000104c6d3e8 clang::ASTReader::ReadAST(llvm::StringRef, clang::serialization::ModuleKind, clang::SourceLocation, unsigned int, clang::serialization::ModuleFile**) + 1040
+6  swift-frontend           0x00000001048395d8 clang::CompilerInstance::loadModule(clang::SourceLocation, llvm::ArrayRef<clang::IdentifierLoc>, clang::Module::NameVisibilityKind, bool) + 5336
+7  swift-frontend           0x00000001010d57a0 swift::ClangImporter::Implementation::loadModuleClang(swift::SourceLoc, swift::ImportPath::Module)::$_0::operator()(llvm::ArrayRef<clang::IdentifierLoc>, clang::Module::NameVisibilityKind) const + 296
+8  swift-frontend           0x00000001010d6030 swift::ClangImporter::Implementation::loadModule(swift::SourceLoc, swift::ImportPath::Module) + 632
+9  swift-frontend           0x00000001015a8420 swift::ModuleFile::getModule(swift::ImportPath::Module, bool) + 728
+10 swift-frontend           0x00000001015fbc04 swift::ModuleFile::loadDependenciesForFileContext(swift::FileUnit const*, swift::SourceLoc, bool) + 2140
+11 swift-frontend           0x00000001015fc5cc swift::ModuleFile::associateWithFileContext(swift::FileUnit*, swift::SourceLoc, bool) + 1348
+12 swift-frontend           0x00000001016921fc swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::__1::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::__1::unique_ptr<llvm::MemoryBuffer, std::__1::default_delete<llvm::MemoryBuffer>>, std::__1::unique_ptr<llvm::MemoryBuffer, std::__1::default_delete<llvm::MemoryBuffer>>, std::__1::unique_ptr<llvm::MemoryBuffer, std::__1::default_delete<llvm::MemoryBuffer>>, bool) + 2548
+13 swift-frontend           0x00000001016984c8 void llvm::function_ref<void (swift::ModuleDecl*, llvm::function_ref<void (swift::FileUnit*)>)>::callback_fn<swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)::$_0>(long, swift::ModuleDecl*, llvm::function_ref<void (swift::FileUnit*)>) + 208
+14 swift-frontend           0x00000001028dcfe0 swift::ModuleDecl::ModuleDecl(swift::Identifier, swift::ASTContext&, swift::ImplicitImportInfo, llvm::function_ref<void (swift::ModuleDecl*, llvm::function_ref<void (swift::FileUnit*)>)>, bool) + 840
+15 swift-frontend           0x000000010169596c swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool) + 512
+16 swift-frontend           0x00000001025af408 swift::ASTContext::getModule(swift::ImportPath::Module, bool) + 180
+17 swift-frontend           0x00000001015fbc04 swift::ModuleFile::loadDependenciesForFileContext(swift::FileUnit const*, swift::SourceLoc, bool) + 2140
+18 swift-frontend           0x00000001015fc5cc swift::ModuleFile::associateWithFileContext(swift::FileUnit*, swift::SourceLoc, bool) + 1348
+19 swift-frontend           0x00000001016921fc swift::SerializedModuleLoaderBase::loadAST(swift::ModuleDecl&, std::__1::optional<swift::SourceLoc>, llvm::StringRef, llvm::StringRef, std::__1::unique_ptr<llvm::MemoryBuffer, std::__1::default_delete<llvm::MemoryBuffer>>, std::__1::unique_ptr<llvm::MemoryBuffer, std::__1::default_delete<llvm::MemoryBuffer>>, std::__1::unique_ptr<llvm::MemoryBuffer, std::__1::default_delete<llvm::MemoryBuffer>>, bool) + 2548
+20 swift-frontend           0x00000001016984c8 void llvm::function_ref<void (swift::ModuleDecl*, llvm::function_ref<void (swift::FileUnit*)>)>::callback_fn<swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool)::$_0>(long, swift::ModuleDecl*, llvm::function_ref<void (swift::FileUnit*)>) + 208
+21 swift-frontend           0x00000001028dcfe0 swift::ModuleDecl::ModuleDecl(swift::Identifier, swift::ASTContext&, swift::ImplicitImportInfo, llvm::function_ref<void (swift::ModuleDecl*, llvm::function_ref<void (swift::FileUnit*)>)>, bool) + 840
+22 swift-frontend           0x000000010169596c swift::SerializedModuleLoaderBase::loadModule(swift::SourceLoc, swift::ImportPath::Module, bool) + 512
+23 swift-frontend           0x00000001025af408 swift::ASTContext::getModule(swift::ImportPath::Module, bool) + 180
+24 swift-frontend           0x000000010219c32c (anonymous namespace)::ImportResolver::bindPendingImports() + 1020
+25 swift-frontend           0x00000001021987c0 swift::ASTVisitor<(anonymous namespace)::ImportResolver, void, void, void, void, void, void>::visit(swift::Decl*) + 640
+26 swift-frontend           0x00000001021983b0 swift::performImportResolution(swift::SourceFile&) + 680
+27 swift-frontend           0x000000010124b780 swift::CompilerInstance::performSema() + 180
+28 swift-frontend           0x0000000100e424b8 withSemanticAnalysis(swift::CompilerInstance&, swift::FrontendObserver*, llvm::function_ref<bool (swift::CompilerInstance&)>, bool) + 40
+29 swift-frontend           0x0000000100e343a0 performCompile(swift::CompilerInstance&, int&, swift::FrontendObserver*, llvm::ArrayRef<char const*>) + 4028
+30 swift-frontend           0x0000000100e30818 swift::performFrontend(llvm::ArrayRef<char const*>, char const*, void*, swift::FrontendObserver*) + 3308
+31 swift-frontend           0x0000000100db0424 swift::mainEntry(int, char const**) + 5224
+32 dyld                     0x0000000183603da4 start + 6992

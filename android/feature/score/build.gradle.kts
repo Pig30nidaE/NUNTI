@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "ai.nunti.score"
-    compileSdk = 37
+    compileSdk = 35
     useLibrary("android.car")
 
     defaultConfig {

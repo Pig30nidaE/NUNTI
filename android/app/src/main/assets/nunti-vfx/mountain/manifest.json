@@ -1,0 +1,205 @@
+{
+  "sheets": [
+    {
+      "file": "forest-wind-left.png",
+      "width": 155,
+      "height": 158,
+      "columns": 7,
+      "frames": 38,
+      "fps": 24
+    },
+    {
+      "file": "forest-wind-right.png",
+      "width": 155,
+      "height": 158,
+      "columns": 7,
+      "frames": 38,
+      "fps": 24
+    },
+    {
+      "file": "forest-bloom.png",
+      "width": 160,
+      "height": 234,
+      "columns": 5,
+      "frames": 20,
+      "fps": 30
+    },
+    {
+      "file": "forest-leaves.png",
+      "width": 162,
+      "height": 135,
+      "columns": 6,
+      "frames": 22,
+      "fps": 30
+    }
+  ],
+  "cues": [
+    {
+      "file": "forest-wind-left.png",
+      "pass": "back",
+      "at": 0.39,
+      "bounds": [
+        25,
+        299,
+        399,
+        680
+      ],
+      "rate": 0.85,
+      "opacity": 0.68,
+      "fadeIn": 0.19,
+      "fadeOut": 0.17
+    },
+    {
+      "file": "forest-wind-right.png",
+      "pass": "back",
+      "at": 0.78,
+      "bounds": [
+        417,
+        246,
+        752,
+        588
+      ],
+      "rate": 0.85,
+      "opacity": 0.64,
+      "fadeIn": 0.18,
+      "fadeOut": 0.2
+    },
+    {
+      "file": "forest-wind-left.png",
+      "pass": "back",
+      "at": 1.92,
+      "bounds": [
+        9,
+        246,
+        413,
+        658
+      ],
+      "rate": 1.12,
+      "opacity": 0.87,
+      "fadeIn": 0.14,
+      "fadeOut": 0.24
+    },
+    {
+      "file": "forest-wind-right.png",
+      "pass": "back",
+      "at": 2.08,
+      "bounds": [
+        384,
+        206,
+        760,
+        589
+      ],
+      "rate": 1.18,
+      "opacity": 0.84,
+      "fadeIn": 0.16,
+      "fadeOut": 0.17
+    },
+    {
+      "file": "forest-leaves.png",
+      "pass": "back",
+      "at": 1.23,
+      "bounds": [
+        39,
+        380,
+        304,
+        601
+      ],
+      "rate": 0.95,
+      "opacity": 0.56,
+      "fadeIn": 0.1,
+      "fadeOut": 0.21
+    },
+    {
+      "file": "forest-leaves.png",
+      "pass": "back",
+      "at": 2.2,
+      "bounds": [
+        494,
+        317,
+        731,
+        515
+      ],
+      "rate": 0.92,
+      "opacity": 0.65,
+      "fadeIn": 0.11,
+      "fadeOut": 0.19
+    },
+    {
+      "file": "forest-bloom.png",
+      "pass": "back",
+      "at": 3.17,
+      "bounds": [
+        44,
+        332,
+        311,
+        722
+      ],
+      "fadeIn": 0.07,
+      "fadeOut": 0.12,
+      "opacity": 0.98,
+      "clipBottom": 624
+    },
+    {
+      "file": "forest-bloom.png",
+      "pass": "front",
+      "at": 3.17,
+      "bounds": [
+        44,
+        332,
+        311,
+        722
+      ],
+      "fadeIn": 0.07,
+      "fadeOut": 0.12,
+      "opacity": 0.88,
+      "clipTop": 624
+    },
+    {
+      "file": "forest-bloom.png",
+      "pass": "back",
+      "at": 3.22,
+      "bounds": [
+        475,
+        282,
+        734,
+        661
+      ],
+      "rate": 1.0,
+      "fadeIn": 0.08,
+      "fadeOut": 0.11,
+      "opacity": 0.92
+    },
+    {
+      "file": "forest-leaves.png",
+      "pass": "back",
+      "at": 3.28,
+      "bounds": [
+        428,
+        390,
+        759,
+        666
+      ],
+      "rate": 1.08,
+      "fadeIn": 0.05,
+      "fadeOut": 0.19,
+      "opacity": 0.97,
+      "clipBottom": 594
+    },
+    {
+      "file": "forest-leaves.png",
+      "pass": "front",
+      "at": 3.28,
+      "bounds": [
+        428,
+        390,
+        759,
+        666
+      ],
+      "rate": 1.08,
+      "fadeIn": 0.05,
+      "fadeOut": 0.19,
+      "opacity": 0.78,
+      "clipTop": 594
+    }
+  ]
+}

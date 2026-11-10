@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><linearGradient id="bottle" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#a9c7a1"/><stop offset="0.500" stop-color="#769a7e"/><stop offset="1.000" stop-color="#56795d"/></linearGradient></defs>
+<path d="M302 398Q275 444 297 535M465 398Q491 447 466 535" stroke="#5e6549" stroke-width="33" stroke-linecap="round" fill="none"/>
+<path d="M303 400Q277 444 297 535M464 400Q489 447 467 535" stroke="#d0a369" stroke-width="23" stroke-linecap="round" fill="none"/>
+<path d="M298 408Q280 448 291 498M470 408Q484 447 473 498" stroke="#f0c88b" stroke-width="4" stroke-linecap="round" fill="none"/>
+<path d="M293 477Q378 499 472 477" stroke="#646044" stroke-width="14" fill="none"/>
+<rect x="371" y="481" width="36" height="20" rx="5" fill="#eed5a0" stroke="#61583f" stroke-width="3"/>
+<path d="M389 485L389 497" stroke="#766646" stroke-width="3"/>
+<path fill="url(#bottle)" stroke="#526c57" stroke-width="2" d="M553 527L568 513L591 520L600 538L594 574Q588 588 572 584L552 579Q537 573 540 556Z"/>
+<path d="M571 510L574 500L596 507L592 522Z" fill="#717b62"/>
+<path d="M549 550Q572 560 596 561" stroke="#e3e8ba" stroke-width="6" fill="none"/>
+</svg>

@@ -22,7 +22,9 @@ import kotlinx.coroutines.delay
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        startActivity(android.content.Intent(this, ai.nunti.app.studio.AvatarStudioActivity::class.java).addFlags(
+        val host = if (ai.nunti.app.journey.JourneyRuntime.isRunning) ai.nunti.app.journey.JourneyActivity::class.java
+            else ai.nunti.app.studio.AvatarStudioActivity::class.java
+        startActivity(android.content.Intent(this, host).addFlags(
             android.content.Intent.FLAG_ACTIVITY_REORDER_TO_FRONT or android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP,
         ))
         finish()

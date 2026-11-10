@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "surface": "ACTUAL_PRODUCTION_ANDROID",
+  "checks": [
+    {
+      "name": "native-configuration-drives-night-theme",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-narrow-window-calibrates-830-physical-pixels",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-background-stops-motion",
+      "status": "PASS",
+      "details": {
+        "allowed": false,
+        "hidden": true,
+        "motion": {
+          "active": true,
+          "status": "SETTLED",
+          "reason": "RESTRICTED",
+          "elapsedMs": 4000,
+          "frameCount": 32,
+          "intervalsMs": [
+            33.30000000001746,
+            33.29999999998836,
+            33.29999999998836,
+            33.40000000002328,
+            33.39999999999418,
+            33.29999999998836,
+            33.20000000001164,
+            33.39999999999418,
+            33.39999999999418,
+            33.30000000001746,
+            33.29999999998836,
+            33.39999999999418,
+            33.20000000001164,
+            33.39999999999418,
+            33.39999999999418,
+            33.30000000001746,
+            33.29999999998836,
+            33.39999999999418,
+            33.30000000001746,
+            33.29999999998836,
+            33.29999999998836,
+            33.30000000001746,
+            33.39999999999418,
+            33.39999999999418,
+            33.30000000001746,
+            33.29999999998836,
+            33.29999999998836,
+            33.40000000002328,
+            33.29999999998836,
+            33.29999999998836,
+            33.40000000002328
+          ],
+          "reducedMotion": false,
+          "userReducedMotion": false,
+          "layerReady": true,
+          "finalReady": true
+        }
+      }
+    },
+    {
+      "name": "foreground-return-remains-static",
+      "status": "PASS"
+    },
+    {
+      "name": "native-system-reduced-setting-stops-motion",
+      "status": "PASS"
+    },
+    {
+      "name": "system-reduced-restoration-does-not-autoplay",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-production-motion-recorded",
+      "status": "PASS"
+    }
+  ],
+  "vehicleRestored": true
+}

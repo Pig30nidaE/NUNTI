@@ -1,0 +1,313 @@
+{
+  "status": "PASS",
+  "surface": "Pleos Android WebView and native journey",
+  "apkSha256": "c956baa5a9ec03bf4e4504c4ed73895dfd24bfce57d04a2f38691d689fa4ddcd",
+  "devicePixels": [
+    2560,
+    1440
+  ],
+  "webViewPixels": [
+    1683,
+    1210
+  ],
+  "controls": {
+    "canvas": {
+      "width": 650,
+      "height": 592,
+      "label": "눈티 · 바닷길 탐험가"
+    },
+    "journey": {
+      "width": 450,
+      "height": 80,
+      "label": "눈티와 함께하기 ↗"
+    },
+    "replay": {
+      "width": 222.09091186523438,
+      "height": 80,
+      "label": "변신 다시 보기"
+    },
+    "reducedMotion": {
+      "width": 368,
+      "height": 80,
+      "label": "움직임 줄이기"
+    }
+  },
+  "checks": [
+    {
+      "name": "host-Studio-transport-disconnected",
+      "status": "PASS"
+    },
+    {
+      "name": "installed-APK-matches-reviewed-build",
+      "status": "PASS"
+    },
+    {
+      "name": "cold-start-actual-pre-trip-UI-offline",
+      "status": "PASS"
+    },
+    {
+      "name": "native-WebView-denies-avatar-mutation",
+      "status": "PASS"
+    },
+    {
+      "name": "existing-create-control-starts-visible-transform",
+      "status": "PASS"
+    },
+    {
+      "name": "real-create-uses-polished-asset",
+      "status": "PASS"
+    },
+    {
+      "name": "all-six-phases-visited-in-order",
+      "status": "PASS"
+    },
+    {
+      "name": "sea-SkinSpec-and-timeline-final",
+      "status": "PASS"
+    },
+    {
+      "name": "sea-terminal-canvas-equals-bundled-final-PNG",
+      "status": "PASS"
+    },
+    {
+      "name": "final-stage-and-controls-fit-real-WebView",
+      "status": "PASS"
+    },
+    {
+      "name": "live-start-screenshot-captured-before-outfit",
+      "status": "PASS"
+    },
+    {
+      "name": "live-mid-screenshot-captured-during-transformation",
+      "status": "PASS"
+    },
+    {
+      "name": "Skip-displays-the-identical-final-pixels",
+      "status": "PASS"
+    },
+    {
+      "name": "in-app-reduced-motion-settles-to-identical-final-pixels",
+      "status": "PASS"
+    },
+    {
+      "name": "advertised-image-and-local-model-capability-cannot-enable-generation",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-save-reopen-matches-SkinSpec-and-final-pixels",
+      "status": "PASS"
+    },
+    {
+      "name": "legacy-wardrobe-record-reopens-with-its-exact-v2.0-pixels",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-demo-default-distinct-and-matches-bundled-PNG",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-demo-city-distinct-and-matches-bundled-PNG",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-demo-mountain-distinct-and-matches-bundled-PNG",
+      "status": "PASS"
+    },
+    {
+      "name": "normal-route-file-and-form-create-the-matching-skin-offline",
+      "status": "PASS"
+    },
+    {
+      "name": "identical-input-and-rapid-taps-keep-one-record-and-the-same-result",
+      "status": "PASS"
+    },
+    {
+      "name": "app-background-stops-motion",
+      "status": "PASS"
+    },
+    {
+      "name": "foreground-return-does-not-replay",
+      "status": "PASS"
+    },
+    {
+      "name": "OS-reduced-motion-stops-the-transform",
+      "status": "PASS"
+    },
+    {
+      "name": "Virtual-Console-D-at-30-stops-motion",
+      "status": "PASS"
+    },
+    {
+      "name": "return-to-P-keeps-static-final",
+      "status": "PASS"
+    },
+    {
+      "name": "controlled-final-decode-failure-uses-approved-default-and-saves-fallback-SkinSpec",
+      "status": "PASS"
+    },
+    {
+      "name": "actual-offline-journey-uses-bundled-static-skin-and-no-voice-assets",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-journey-finishes-through-existing-native-control",
+      "status": "PASS"
+    },
+    {
+      "name": "no-remote-or-mutating-network-request-during-app-scenarios",
+      "status": "PASS"
+    }
+  ],
+  "phaseCaptureTimes": {
+    "02-sea-default-idle": {
+      "before": {
+        "phase": "DEFAULT_IDLE",
+        "elapsedMs": 0,
+        "running": true
+      },
+      "after": {
+        "phase": "DEFAULT_IDLE",
+        "elapsedMs": 305.5999999985106,
+        "running": true
+      }
+    },
+    "02b-sea-route-energy": {
+      "before": {
+        "phase": "ROUTE_ENERGY",
+        "elapsedMs": 813.3999999996267,
+        "running": true
+      },
+      "after": {
+        "phase": "ROUTE_ENERGY",
+        "elapsedMs": 1180.0999999996275,
+        "running": true
+      }
+    },
+    "03-sea-outfit-swap": {
+      "before": {
+        "phase": "OUTFIT_SWAP",
+        "elapsedMs": 1805.4999999985102,
+        "running": true
+      },
+      "after": {
+        "phase": "HEAD_AND_EYES_TRANSFORM",
+        "elapsedMs": 2172.199999998509,
+        "running": true
+      }
+    },
+    "03b-sea-head-eyes": {
+      "before": {
+        "phase": "HEAD_AND_EYES_TRANSFORM",
+        "elapsedMs": 2738.7999999985095,
+        "running": true
+      },
+      "after": {
+        "phase": "HEAD_AND_EYES_TRANSFORM",
+        "elapsedMs": 3072.199999998509,
+        "running": true
+      }
+    },
+    "03c-sea-reveal": {
+      "before": {
+        "phase": "SKIN_REVEAL",
+        "elapsedMs": 3513.3999999996267,
+        "running": true
+      },
+      "after": {
+        "phase": "SKIN_REVEAL",
+        "elapsedMs": 3846.799999999628,
+        "running": true
+      }
+    },
+    "04-sea-final": {
+      "before": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      },
+      "after": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      }
+    },
+    "06-default-final": {
+      "before": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      },
+      "after": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      }
+    },
+    "06-city-final": {
+      "before": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      },
+      "after": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      }
+    },
+    "06-city-head-eyes": {
+      "before": {
+        "phase": "HEAD_AND_EYES_TRANSFORM",
+        "elapsedMs": 2864.4000000011183,
+        "running": true
+      },
+      "after": {
+        "phase": "HEAD_AND_EYES_TRANSFORM",
+        "elapsedMs": 3231.100000001117,
+        "running": true
+      }
+    },
+    "06-mountain-final": {
+      "before": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      },
+      "after": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      }
+    },
+    "08-controlled-asset-fallback": {
+      "before": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      },
+      "after": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "running": false
+      }
+    }
+  },
+  "restored": {
+    "localStorageRestored": true,
+    "ownedJourneyRestored": true,
+    "adbReverseRestored": true,
+    "vehicleAndJourneyRestored": true
+  },
+  "externalGenerationCalls": 0,
+  "videoRecorded": false,
+  "performance": {
+    "totalFrames": 130,
+    "modernJankPercent": 69.23,
+    "legacyJankPercent": 70.0,
+    "p95FrameMs": 32,
+    "pssKiB": 149175,
+    "appCpuPercentIdleSnapshot": 4.0,
+    "appCpuPercentReplaySnapshot": 48.0,
+    "notes": "Single unrecorded emulator replay for gfxinfo. CPU values are separate instantaneous app-process samples."
+  }
+}

@@ -1,0 +1,42 @@
+Tasks: 1 total,   1 running,   0 sleeping,   0 stopped,   0 zombie
+  Mem:  4016816K total,  3781324K used,   235492K free,    68988K buffers
+ Swap:  3012608K total,    40704K used,  2971904K free,  1555824K cached
+400%cpu  56%user   0%nice 196%sys 124%idle   0%iow  24%irq   0%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+19750 u10_a174     10 -10  31G 297M 192M R  100   7.5   0:29.99 ai.nunti.avatar.demo
+
+
+
+Tasks: 1 total,   1 running,   0 sleeping,   0 stopped,   0 zombie
+  Mem:  4016816K total,  3782080K used,   234736K free,    69028K buffers
+ Swap:  3012608K total,    40448K used,  2972160K free,  1555828K cached
+400%cpu  67%user   1%nice 185%sys 119%idle   0%iow  27%irq   1%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+19750 u10_a174     10 -10  31G 297M 192M R 99.0   7.5   0:30.24 ai.nunti.avatar.demo
+
+
+
+Tasks: 1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+  Mem:  4016816K total,  3787848K used,   228968K free,    69056K buffers
+ Swap:  3012608K total,    40448K used,  2972160K free,  1555936K cached
+400%cpu  65%user   0%nice 196%sys 113%idle   0%iow  25%irq   1%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+19750 u10_a174     10 -10  31G 298M 192M S  102   7.5   0:31.23 ai.nunti.avatar.demo
+
+
+
+Tasks: 1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+  Mem:  4016816K total,  3788352K used,   228464K free,    69088K buffers
+ Swap:  3012608K total,    40448K used,  2972160K free,  1555932K cached
+400%cpu  60%user   1%nice 197%sys 115%idle   1%iow  25%irq   1%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+19750 u10_a174     10 -10  31G 298M 192M S  103   7.5   0:32.25 ai.nunti.avatar.demo
+
+
+
+Tasks: 1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+  Mem:  4016816K total,  3790620K used,   226196K free,    69116K buffers
+ Swap:  3012608K total,    40448K used,  2972160K free,  1555936K cached
+400%cpu  64%user   1%nice 197%sys 111%idle   0%iow  27%irq   0%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+19750 u10_a174     10 -10  31G 298M 192M S 99.0   7.5   0:33.28 ai.nunti.avatar.demo

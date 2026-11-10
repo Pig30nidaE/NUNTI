@@ -1,0 +1,72 @@
+scripts/verify_nunti_video_frames.swift:18:31: warning: 'copyCGImage(at:actualTime:)' was deprecated in macOS 15.0: Use generateCGImageAsynchronouslyForTime:completionHandler: instead [#DeprecatedDeclaration]
+16 | for seconds in [0.0, 1.0, 2.0, 3.0, 4.0, 5.0] {
+17 |     var actual = CMTime.zero
+18 |     let image = try generator.copyCGImage(at: CMTime(seconds: seconds, preferredTimescale: 600), actualTime: &actual)
+   |                               `- warning: 'copyCGImage(at:actualTime:)' was deprecated in macOS 15.0: Use generateCGImageAsynchronouslyForTime:completionHandler: instead [#DeprecatedDeclaration]
+19 |     let name = String(format: "video-%04d.png", Int(seconds * 1000))
+20 |     let bitmap = NSBitmapImageRep(cgImage: image)
+
+scripts/verify_nunti_video_frames.swift:26:20: warning: 'tracks(withMediaType:)' was deprecated in macOS 13.0: Use loadTracks(withMediaType:) instead [#DeprecatedDeclaration]
+24 |                    "width": image.width, "height": image.height, "file": name])
+25 | }
+26 | let tracks = asset.tracks(withMediaType: .video).map { track -> [String: Any] in
+   |                    `- warning: 'tracks(withMediaType:)' was deprecated in macOS 13.0: Use loadTracks(withMediaType:) instead [#DeprecatedDeclaration]
+27 |     ["nominalFrameRate": track.nominalFrameRate, "estimatedDataRate": track.estimatedDataRate,
+28 |      "width": track.naturalSize.width, "height": track.naturalSize.height]
+
+scripts/verify_nunti_video_frames.swift:27:32: warning: 'nominalFrameRate' was deprecated in macOS 13.0: Use load(.nominalFrameRate) instead [#DeprecatedDeclaration]
+25 | }
+26 | let tracks = asset.tracks(withMediaType: .video).map { track -> [String: Any] in
+27 |     ["nominalFrameRate": track.nominalFrameRate, "estimatedDataRate": track.estimatedDataRate,
+   |                                `- warning: 'nominalFrameRate' was deprecated in macOS 13.0: Use load(.nominalFrameRate) instead [#DeprecatedDeclaration]
+28 |      "width": track.naturalSize.width, "height": track.naturalSize.height]
+29 | }
+
+scripts/verify_nunti_video_frames.swift:27:77: warning: 'estimatedDataRate' was deprecated in macOS 13.0: Use load(.estimatedDataRate) instead [#DeprecatedDeclaration]
+25 | }
+26 | let tracks = asset.tracks(withMediaType: .video).map { track -> [String: Any] in
+27 |     ["nominalFrameRate": track.nominalFrameRate, "estimatedDataRate": track.estimatedDataRate,
+   |                                                                             `- warning: 'estimatedDataRate' was deprecated in macOS 13.0: Use load(.estimatedDataRate) instead [#DeprecatedDeclaration]
+28 |      "width": track.naturalSize.width, "height": track.naturalSize.height]
+29 | }
+
+scripts/verify_nunti_video_frames.swift:28:21: warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead [#DeprecatedDeclaration]
+26 | let tracks = asset.tracks(withMediaType: .video).map { track -> [String: Any] in
+27 |     ["nominalFrameRate": track.nominalFrameRate, "estimatedDataRate": track.estimatedDataRate,
+28 |      "width": track.naturalSize.width, "height": track.naturalSize.height]
+   |                     `- warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead [#DeprecatedDeclaration]
+29 | }
+30 | let metadata: [String: Any] = ["source": input.path, "decoder": "macOS AVFoundation",
+
+scripts/verify_nunti_video_frames.swift:28:56: warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead [#DeprecatedDeclaration]
+26 | let tracks = asset.tracks(withMediaType: .video).map { track -> [String: Any] in
+27 |     ["nominalFrameRate": track.nominalFrameRate, "estimatedDataRate": track.estimatedDataRate,
+28 |      "width": track.naturalSize.width, "height": track.naturalSize.height]
+   |                                                        `- warning: 'naturalSize' was deprecated in macOS 13.0: Use load(.naturalSize) instead [#DeprecatedDeclaration]
+29 | }
+30 | let metadata: [String: Any] = ["source": input.path, "decoder": "macOS AVFoundation",
+
+sysctlbyname for kern.hv_vmm_present failed with status -1Swift/ErrorType.swift:254: Fatal error: Error raised at top level: Error Domain=AVFoundationErrorDomain Code=-11821 "Cannot Decode" UserInfo={NSLocalizedFailureReason=The media data could not be decoded. It may be damaged., NSLocalizedDescription=Cannot Decode, NSUnderlyingError=0xb06a0af40 {Error Domain=NSOSStatusErrorDomain Code=-12911 "(null)"}}
+Stack dump:
+0.	Program arguments: /Library/Developer/CommandLineTools/usr/bin/swift-frontend -frontend -interpret scripts/verify_nunti_video_frames.swift -Xllvm -aarch64-use-tbi -enable-objc-interop -stack-check -sdk /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -no-color-diagnostics -Xcc -fno-color-diagnostics -module-cache-path /tmp/nunti-skin-v2-swift-cache -new-driver-path /Library/Developer/CommandLineTools/usr/bin/swift-driver -empty-abi-descriptor -no-auto-bridging-header-chaining -module-name verify_nunti_video_frames -disable-clang-spi -target-sdk-version 26.5 -target-sdk-name macosx26.5 -external-plugin-path /Library/Developer/Developer/usr/lib/swift/host/plugins#/Library/Developer/Developer/usr/bin/swift-plugin-server -external-plugin-path /Library/Developer/Developer/usr/local/lib/swift/host/plugins#/Library/Developer/Developer/usr/bin/swift-plugin-server -in-process-plugin-server-path /Library/Developer/CommandLineTools/usr/lib/swift/host/libSwiftInProcPluginServer.dylib -plugin-path /Library/Developer/CommandLineTools/usr/lib/swift/host/plugins -plugin-path /Library/Developer/CommandLineTools/usr/local/lib/swift/host/plugins -- artifacts/nunti-skin-v2/runtime-caption-final/nunti-skin-transform-demo.mp4 artifacts/nunti-skin-v2/runtime-caption-final/video-frames
+1.	Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+2.	Compiling with effective version 5.10
+3.	While running user code "scripts/verify_nunti_video_frames.swift"
+Stack dump without symbol names (ensure you have llvm-symbolizer in your PATH or set the environment var `LLVM_SYMBOLIZER_PATH` to point to it):
+0  swift-frontend           0x0000000108c8508c llvm::sys::PrintStackTrace(llvm::raw_ostream&, int) + 56
+1  swift-frontend           0x0000000108c8252c llvm::sys::RunSignalHandlers() + 172
+2  swift-frontend           0x0000000108c8567c SignalHandler(int, __siginfo*, void*) + 356
+3  libsystem_platform.dylib 0x00000001839c97a4 _sigtramp + 56
+4  libswiftCore.dylib       0x00000001971abcc8 $ss17_assertionFailure__4file4line5flagss5NeverOs12StaticStringV_SSAHSus6UInt32VtF + 172
+5  libswiftCore.dylib       0x000000019708c258 swift_errorInMain + 632
+6  (error)                  0x0000000114acd0bc
+7  swift-frontend           0x0000000102978c48 llvm::orc::runAsMain(int (*)(int, char**), llvm::ArrayRef<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>, std::__1::optional<llvm::StringRef>) + 908
+8  swift-frontend           0x0000000102875f94 swift::SwiftJIT::runMain(llvm::ArrayRef<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>) + 636
+9  swift-frontend           0x000000010288223c swift::RunImmediately(swift::CompilerInstance&, std::__1::vector<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>, std::__1::allocator<std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char>>>> const&, swift::IRGenOptions const&, swift::SILOptions const&, std::__1::unique_ptr<swift::SILModule, std::__1::default_delete<swift::SILModule>>&&) + 964
+10 swift-frontend           0x00000001027f60d0 processCommandLineAndRunImmediately(swift::CompilerInstance&, std::__1::unique_ptr<swift::SILModule, std::__1::default_delete<swift::SILModule>>&&, llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>, swift::FrontendObserver*, int&) + 484
+11 swift-frontend           0x00000001027ef89c performCompileStepsPostSILGen(swift::CompilerInstance&, std::__1::unique_ptr<swift::SILModule, std::__1::default_delete<swift::SILModule>>, llvm::PointerUnion<swift::ModuleDecl*, swift::SourceFile*>, swift::PrimarySpecificPaths const&, int&, swift::FrontendObserver*, llvm::ArrayRef<char const*>) + 2068
+12 swift-frontend           0x00000001027eeecc swift::performCompileStepsPostSema(swift::CompilerInstance&, int&, swift::FrontendObserver*, llvm::ArrayRef<char const*>) + 4560
+13 swift-frontend           0x00000001027f43a0 performCompile(swift::CompilerInstance&, int&, swift::FrontendObserver*, llvm::ArrayRef<char const*>) + 4028
+14 swift-frontend           0x00000001027f0818 swift::performFrontend(llvm::ArrayRef<char const*>, char const*, void*, swift::FrontendObserver*) + 3308
+15 swift-frontend           0x0000000102770424 swift::mainEntry(int, char const**) + 5224
+16 dyld                     0x0000000183603da4 start + 6992

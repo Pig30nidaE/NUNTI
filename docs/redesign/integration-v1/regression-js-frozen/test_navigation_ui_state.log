@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "surface": "REAL_UI_SCRIPTS_VM_WITH_STUB_BOUNDARIES",
+  "checks": [
+    "import blocks creation and route calculation, including direct handlers",
+    "a preset chosen during native import survives delayed callbacks",
+    "native route revision invalidates confirmation until a new plan",
+    "new input survives a delayed road API response",
+    "editing an API plan coordinate prevents reconfirmation and submission",
+    "editing an API plan destination name prevents submission",
+    "vehicle gate blocks a pending native import from changing inputs",
+    "vehicle gate prevents applying an awaited road API response"
+  ],
+  "sourceSha256": {
+    "studio.js": "71137921fc33fa10669bec02fd0b1f79591b89e3bd09dc3ee9d77f177c60d9e7",
+    "navigation.js": "7fdbacb3106f3fd0304d2fde19f6c95e4d5e7da6c902b44a61aba1bfbb10ee0c"
+  },
+  "externalRequests": 0,
+  "deviceChanges": 0,
+  "paidApiCalls": 0,
+  "videoRecorded": false,
+  "speakerRecorded": false
+}
