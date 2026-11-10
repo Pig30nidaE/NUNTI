@@ -38,6 +38,8 @@ class PleosSpeechSink(
     private val profileId = "nunti-default-v1"
     private val avatar = AvatarVoiceInput(avatarId, "nunti-base", profileId)
     private var closed = false
+    /** 이 시각(elapsedRealtime)까지는 "주행 후(정차)" 상태로 공급한다. 주행 후 보고를 말하는 동안만 쓴다. */
+    @Volatile private var postTripUntil = 0L
     private val session = AndroidVoiceSession(context,
         profiles = listOf(VoiceProfile(profileId, preferredVoiceId = speaker,
             supportedControls = if (speaker == null) setOf(Control.LOCALE) else setOf(Control.LOCALE, Control.SPEAKER))),
@@ -61,18 +63,35 @@ class PleosSpeechSink(
         heartbeat.run()
     }
 
-    private fun playbackContext() = PlaybackContext(
-        tripId = tripId, phase = TripPhase.DRIVING, observedAtMonotonicMs = SystemClock.elapsedRealtime(),
-        voiceEnabled = true, foreground = true, suspended = false, motion = VehicleMotion.MOVING,
-        uxRestrictionsKnown = true, requiresDistractionOptimization = true,
+    private fun playbackContext(): PlaybackContext {
+        val now = SystemClock.elapsedRealtime()
+        val parked = now < postTripUntil
+        return PlaybackContext(
+        tripId = tripId, phase = if (parked) TripPhase.POST_TRIP else TripPhase.DRIVING, observedAtMonotonicMs = now,
+        voiceEnabled = true, foreground = true, suspended = false,
+        motion = if (parked) VehicleMotion.PARKED else VehicleMotion.MOVING,
+        uxRestrictionsKnown = true, requiresDistractionOptimization = !parked,
         appAllowedWhileDriving = if (drivingAllowed) Permission.ALLOWED else Permission.DENIED,
         speechPermission = Permission.ALLOWED,
         call = AudioActivity.QUIET, navigation = AudioActivity.QUIET, criticalAudio = AudioActivity.QUIET,
-    )
+        )
+    }
 
     override fun speak(text: String, utteranceId: String, emotion: Emotion) {
         if (closed) return
         session.submit(SpeechMapping.approvedSpeech(
+            text, utteranceId, emotion, tripId, avatarId, profileId, avatar, System.currentTimeMillis()))
+    }
+
+    /**
+     * 주행 후 보고(마무리 멘트·일시저장 안내). 차가 멈춘 것이 확인된 때만 부른다 — 호출한 쪽이 정차를 보증한다.
+     * 주행 중 대사의 15초 간격 정책을 받지 않고, 같은 문장 반복(60초)만 막힌다.
+     */
+    fun speakTripReport(text: String, utteranceId: String, emotion: Emotion) {
+        if (closed) return
+        postTripUntil = SystemClock.elapsedRealtime() + REPORT_WINDOW_MS
+        session.onForeground(playbackContext()) // 곧바로 주행 후 상태를 반영한다 (다음 1초 박자를 기다리지 않는다)
+        session.submit(SpeechMapping.tripReportSpeech(
             text, utteranceId, emotion, tripId, avatarId, profileId, avatar, System.currentTimeMillis()))
     }
 
@@ -83,5 +102,8 @@ class PleosSpeechSink(
         session.close()
     }
 
-    private companion object { const val TAG = "PleosSpeechSink" }
+    private companion object {
+        const val TAG = "PleosSpeechSink"
+        const val REPORT_WINDOW_MS = 20_000L // 문장을 말하는 동안 주행 후 상태를 유지한다
+    }
 }

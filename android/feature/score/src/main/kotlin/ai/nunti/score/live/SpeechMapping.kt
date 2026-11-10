@@ -40,6 +40,24 @@ internal object SpeechMapping {
         )
     }
 
+    /**
+     * 주행이 끝나 멈춘 뒤 하는 말(마무리 멘트·일시저장 안내). 주행 중 대사가 아니라 "주행 후 보고"로 요청한다.
+     * 이 요청은 차가 멈춘 것이 확인된 때만 만들어야 한다.
+     */
+    fun tripReportSpeech(
+        text: String, utteranceId: String, emotion: Emotion,
+        tripId: String, avatarId: String, profileId: String, avatar: AvatarVoiceInput, nowMs: Long,
+    ): ApprovedSpeech {
+        val voiceEmotion = voiceEmotion(emotion)
+        val snapshot = EmotionSnapshot("emo-$utteranceId", tripId, avatarId, voiceEmotion, nowMs)
+        return ApprovedSpeech(
+            SpeechRequest(utteranceId, tripId, avatarId, text, voiceEmotion, profileId, TripPhase.POST_TRIP,
+                Priority.NORMAL, nowMs, nowMs + TTL_MS, ContentSource.POST_DRIVE_REPORT,
+                snapshot.emotionId, null),
+            avatar, snapshot, contentVerified = true,
+        )
+    }
+
     /** 화면 표시용 "STATUS" 또는 "STATUS:REASON". */
     fun describe(status: SpeechStatus, reason: String?): String = status.name + (reason?.let { ":$it" } ?: "")
 
