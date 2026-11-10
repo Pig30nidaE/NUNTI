@@ -10,12 +10,14 @@ import org.json.JSONArray
 import org.json.JSONObject
 
 /** 서버 계약 v1 (contracts/v1/SampleBatch, ScoreBatch, TripCreate)의 JSON 을 만든다. 순수 JVM. */
-data class SourceTag(val kind: String, val provider: String, val version: String) {
+enum class SourceKind { MOCK, ANDROID_ADAPTER, EXTERNAL_MODULE, USER_INPUT }
+
+data class SourceTag(val kind: SourceKind, val provider: String, val version: String) {
     companion object {
         /** 실제 Pleos 신호를 읽은 앱의 값. */
-        val LIVE = SourceTag("ANDROID_ADAPTER", "nunti-score", "1")
+        val LIVE = SourceTag(SourceKind.ANDROID_ADAPTER, "nunti-score", "1")
         /** 시연 시나리오. 실제 주행 데이터가 아니므로 서버에서도 MOCK 으로 구분된다. */
-        val DEMO = SourceTag("MOCK", "nunti-demo", "1")
+        val DEMO = SourceTag(SourceKind.MOCK, "nunti-demo", "1")
     }
 }
 
@@ -53,7 +55,7 @@ object TelemetryWire {
 
     private fun batch(tripId: String, source: SourceTag) = JSONObject()
         .put("schemaVersion", "1.0").put("tripId", tripId)
-        .put("source", JSONObject().put("kind", source.kind).put("provider", source.provider).put("version", source.version))
+        .put("source", JSONObject().put("kind", source.kind.name).put("provider", source.provider).put("version", source.version))
 
     /** 수신하지 못한 신호는 null 그대로 보낸다 (0이나 정상값으로 바꾸지 않는다). */
     private fun sample(item: IndexedSample, startEpochMs: Long, firstTMs: Long): JSONObject {
@@ -72,6 +74,7 @@ object TelemetryWire {
             .put("leadDistanceM", number(s.leadDistanceM, 0.0, 1000.0))
             .put("speedLimitKmh", s.speedLimitKmh?.coerceIn(0, 300) ?: JSONObject.NULL)
             .put("roadType", s.roadType.name)
+            .put("steeringDeg", number(s.steeringDeg, -1080.0, 1080.0))
     }
 
     private fun seat(seat: SeatState?): Any = seat?.let {
@@ -94,7 +97,7 @@ object TelemetryWire {
             .put("items", JSONArray().apply {
                 report.items.forEach {
                     put(JSONObject().put("item", it.item.name).put("score", number(it.score, 0.0, 100.0))
-                        .put("basis", it.basis.take(64)))
+                        .put("basis", it.basis.text.take(64)))
                 }
             })
             .put("windowOverall", JSONArray().apply { report.windowOverall.forEach { put(number(it, 0.0, 100.0)) } })

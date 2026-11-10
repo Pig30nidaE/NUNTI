@@ -40,19 +40,31 @@ class EventSpeaker(
     fun reset() { seen.clear(); primed = false; lastEmotion = Emotion.NEUTRAL; lastSpokenAt = Long.MIN_VALUE; spokenByKind.clear() }
 
     companion object {
-        /** 사건 종류별 대사. 같은 종류가 이어지면 순서대로 번갈아 쓴다. 각 대사는 80자 이하여야 한다. */
+        /**
+         * 사건 종류별 대사. 가르치는 말투가 아니라 옆자리 동승자가 반사적으로 내는 반응이다.
+         * 같은 종류가 이어지면 순서대로 번갈아 쓴다. 각 대사는 80자 이하여야 한다.
+         */
         val lines: Map<DetectedEvent.Kind, List<String>> = mapOf(
             DetectedEvent.Kind.HARD_BRAKE to listOf(
-                "앗, 급제동이었어요. 앞차와 거리를 조금 더 둬요.",
-                "방금 꽤 세게 멈췄어요. 차간 거리를 넉넉히 둬요.",
+                "꺅! 깜짝이야!",
+                "악! 놀랐잖아요!",
+                "헉! 심장 떨어지는 줄 알았어요!",
             ),
             DetectedEvent.Kind.HARD_ACCEL to listOf(
-                "출발이 조금 급했어요. 천천히 밟아 봐요.",
-                "가속이 빨랐어요. 페달을 부드럽게 눌러 봐요.",
+                "우왓! 몸이 확 쏠렸어요!",
+                "으악, 출발이 엄청 빨랐어요!",
             ),
             DetectedEvent.Kind.HARD_DECEL to listOf(
-                "속도가 갑자기 줄었어요. 미리 여유 있게 줄여요.",
-                "감속이 갑작스러웠어요. 조금 일찍 발을 떼 봐요.",
+                "어어어? 갑자기 확 줄었어요!",
+                "앗! 몸이 앞으로 쏠렸어요!",
+            ),
+            DetectedEvent.Kind.CURVE_TOO_FAST to listOf(
+                "꺄악! 커브에서 몸이 확 쏠렸어요!",
+                "으아, 커브 너무 빨라요!",
+            ),
+            DetectedEvent.Kind.REVERSE_ENGAGED to listOf(
+                "후진이에요? 뒤는 제가 같이 볼게요!",
+                "뒤로 가요~ 천천히 가요!",
             ),
         )
 
@@ -65,8 +77,7 @@ class EventSpeaker(
         fun emotionLine(from: Emotion, to: Emotion): String? = when {
             from == to -> null
             to == Emotion.RELIEF -> Emotion.RELIEF.line
-            to == Emotion.JOY -> Emotion.JOY.line
-            else -> null // 걱정은 사건 대사가 이미 전한다. 중립 복귀는 말하지 않는다.
+            else -> null // 기쁨(주행 종료)은 마무리 멘트(ClosingMessage)가 맡는다. 걱정은 사건 대사가 이미 전한다. 중립 복귀는 말하지 않는다.
         }
     }
 }

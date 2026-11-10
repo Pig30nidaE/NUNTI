@@ -15,7 +15,7 @@ import android.util.Log
  */
 class RawSpeedProbe(private val context: Context, private val onSpeed: (Float) -> Unit) {
     private val tag = "NuntiRawSpeed"
-    @Volatile var status: String = "대기"
+    @Volatile var status: LinkStatus = LinkStatus(LinkState.IDLE)
         private set
     @Volatile var lastRaw: String? = null
         private set
@@ -31,8 +31,8 @@ class RawSpeedProbe(private val context: Context, private val onSpeed: (Float) -
             value?.trim()?.trim('"')?.toFloatOrNull()?.let { onSpeed(it * 3.6f) }
         }
         override fun onErrorEvent(prop: String?, message: String?) {
-            status = "오류 $prop: $message"
-            Log.w(tag, status)
+            status = LinkStatus(LinkState.FAILED, "$prop: $message")
+            Log.w(tag, status.text)
         }
     }
 
@@ -40,13 +40,13 @@ class RawSpeedProbe(private val context: Context, private val onSpeed: (Float) -
         override fun onServiceConnected(name: ComponentName, binder: IBinder) {
             val svc = IVehicleService.Stub.asInterface(binder)
             service = svc
-            status = "연결됨"
+            status = LinkStatus(LinkState.CONNECTED)
             runCatching {
                 svc.registerPropertyCallback(context.packageName, "PERF_VEHICLE_SPEED", 0, callback)
-                status = "구독 요청 완료"
-            }.onFailure { status = "구독 실패: ${it.message}"; Log.w(tag, status, it) }
+                status = LinkStatus(LinkState.SUBSCRIBED)
+            }.onFailure { status = LinkStatus(LinkState.FAILED, "구독 ${it.message}"); Log.w(tag, status.text, it) }
         }
-        override fun onServiceDisconnected(name: ComponentName) { service = null; status = "연결 끊김" }
+        override fun onServiceDisconnected(name: ComponentName) { service = null; status = LinkStatus(LinkState.DISCONNECTED) }
     }
 
     fun start() {
@@ -54,8 +54,8 @@ class RawSpeedProbe(private val context: Context, private val onSpeed: (Float) -
             ComponentName("ai.pleos.playground.service.vehicle", "ai.pleos.playground.service.vehicle.VehicleService"),
         )
         bound = runCatching { context.bindService(intent, conn, Context.BIND_AUTO_CREATE) }
-            .onFailure { status = "바인드 예외: ${it.message}" }.getOrDefault(false)
-        if (!bound && status == "대기") status = "바인드 실패"
+            .onFailure { status = LinkStatus(LinkState.FAILED, "바인드 ${it.message}") }.getOrDefault(false)
+        if (!bound && status.state == LinkState.IDLE) status = LinkStatus(LinkState.FAILED, "바인드")
     }
 
     fun stop() {

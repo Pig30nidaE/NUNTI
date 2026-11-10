@@ -16,6 +16,7 @@ import ai.pleos.playground.vehicle.constant.control.VehicleGear
 import ai.pleos.playground.vehicle.listener.BrakePedalStatusListener
 import ai.pleos.playground.vehicle.listener.DoorPositionListener
 import ai.pleos.playground.vehicle.listener.GearSelectionListener
+import ai.pleos.playground.vehicle.listener.SteeringWheelAngleListener
 import ai.pleos.playground.vehicle.listener.LightStateListener
 import ai.pleos.playground.vehicle.listener.SeatBeltBuckledStateListener
 import ai.pleos.playground.vehicle.listener.SeatOccupancyListener
@@ -39,6 +40,7 @@ class PleosSignalSource(private val context: Context) {
     @Volatile private var gear: Gear? = null
     @Volatile private var turn: TurnSignal? = null
     @Volatile private var lowBeam: Boolean? = null
+    @Volatile private var steeringDeg: Float? = null
     private val belts = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
     private val occupied = java.util.concurrent.ConcurrentHashMap<SeatValue, Boolean>()
     private val doorOpen = java.util.concurrent.ConcurrentHashMap<DoorValue, Boolean>()
@@ -108,6 +110,13 @@ class PleosSignalSource(private val context: Context) {
                 override fun onFailed(p0: Exception) = Unit
             })
         }
+        v.getSteeringWheel().apply {
+            getCurrentSteeringWheelAngle({ steeringDeg = it }, noop)
+            registerSteeringWheelAngle(object : SteeringWheelAngleListener {
+                override fun onSteeringWheelAngleUpdated(p0: Float?) { steeringDeg = p0 }
+                override fun onFailed(p0: Exception) = Unit
+            })
+        }
         v.getTurnSignal().apply {
             getCurrentTurnSignalState({ turn = it?.toTurn() }, noop)
             registerTurnSignalState(object : TurnSignalStateListener {
@@ -165,24 +174,26 @@ class PleosSignalSource(private val context: Context) {
             doorOpen = if (doors.isEmpty()) null else doors.any { it },
             headlightOn = lowBeam,
             speedLimitKmh = navi.speedLimitKmh,
+            steeringDeg = steeringDeg,
             // 어두움 감지는 보류 상태이므로 null → 야간 전조등은 평가 불가
         )
     }
 
     /** 화면 확인용: 항목별 수신 여부. */
-    fun received(): List<Pair<String, String>> = listOf(
-        "속도" to (speedKmh?.let { "%.1f km/h".format(it) } ?: "미수신"),
-        "속도(직접구독)" to (rawSpeed.lastRaw ?: rawSpeed.status),
-        "기어" to (gear?.name ?: "미수신"),
-        "브레이크" to (brake?.let { if (it) "밟음" else "뗌" } ?: "미수신"),
-        "지시등" to (turn?.name ?: "미수신"),
-        "하향등" to (lowBeam?.let { if (it) "ON" else "OFF" } ?: "미수신"),
-        "벨트 운전석/동승석" to "${belts[SeatValue.ROW_1_LEFT] ?: "-"} / ${belts[SeatValue.ROW_1_RIGHT] ?: "-"}",
-        "내비" to navi.status,
-        "다음 회전" to navi.nextTurn,
-        "제한속도" to (navi.speedLimitKmh?.let { "$it km/h" } ?: "미수신"),
-        "탑승 운전석/동승석" to "${occupied[SeatValue.ROW_1_LEFT] ?: "-"} / ${occupied[SeatValue.ROW_1_RIGHT] ?: "-"}",
-        "문 열림" to (if (doorOpen.isEmpty()) "미수신" else doorOpen.values.any { it }.toString()),
+    fun received(): List<SignalReading> = listOf(
+        SignalReading("속도", speedKmh?.let { "%.1f km/h".format(it) }),
+        SignalReading("속도(직접구독)", rawSpeed.lastRaw ?: rawSpeed.status.text),
+        SignalReading("기어", gear?.name),
+        SignalReading("브레이크", brake?.let { if (it) "밟음" else "뗌" }),
+        SignalReading("지시등", turn?.name),
+        SignalReading("핸들 각도", steeringDeg?.let { "%.0f°".format(it) }),
+        SignalReading("하향등", lowBeam?.let { if (it) "ON" else "OFF" }),
+        SignalReading("벨트 운전석/동승석", "${belts[SeatValue.ROW_1_LEFT] ?: "-"} / ${belts[SeatValue.ROW_1_RIGHT] ?: "-"}"),
+        SignalReading("내비", navi.status.text),
+        SignalReading("다음 회전", navi.nextTurn),
+        SignalReading("제한속도", navi.speedLimitKmh?.let { "$it km/h" }),
+        SignalReading("탑승 운전석/동승석", "${occupied[SeatValue.ROW_1_LEFT] ?: "-"} / ${occupied[SeatValue.ROW_1_RIGHT] ?: "-"}"),
+        SignalReading("문 열림", if (doorOpen.isEmpty()) null else doorOpen.values.any { it }.toString()),
     )
 
     fun events() = navi.events.toList()

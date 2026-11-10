@@ -1,6 +1,8 @@
 package ai.nunti.score.sync
 
 import ai.nunti.score.AreaResult
+import ai.nunti.score.Basis
+import ai.nunti.score.BasisKind
 import ai.nunti.score.Area
 import ai.nunti.score.DetectedEvent
 import ai.nunti.score.Gear
@@ -22,7 +24,7 @@ import org.junit.Test
 private fun report(total: Float? = 96.5f, events: List<DetectedEvent> = emptyList()) = ScoreReport(
     total = total, coverage = 0.9f,
     areas = listOf(AreaResult(Area.CONTROL, 100f, 35f), AreaResult(Area.EFFICIENCY, null, null)),
-    items = listOf(ItemResult(Item.ACCEL_DECEL, 100f, "유효 4초", emptyList()), ItemResult(Item.EFFICIENCY, null, "수신 없음", emptyList())),
+    items = listOf(ItemResult(Item.ACCEL_DECEL, 100f, Basis(BasisKind.VALID_SECONDS, 4), emptyList()), ItemResult(Item.EFFICIENCY, null, Basis(BasisKind.NO_SIGNAL), emptyList())),
     windowOverall = listOf(100f, null), events = events,
 )
 

@@ -49,7 +49,8 @@ class EventSpeakerTest {
         }
         assertEquals(4, spoken.size)
         spoken.zipWithNext().forEach { (a, b) -> assertNotEquals(a, b) }
-        assertEquals(spoken[0], spoken[2])
+        val n = EventSpeaker.lines.getValue(DetectedEvent.Kind.HARD_BRAKE).size
+        assertEquals(spoken[0], spoken[n % 4]) // 대사 수만큼 지나면 처음으로 돌아온다
     }
 
     @Test fun droppedEventDoesNotConsumeVariant() {
@@ -70,7 +71,8 @@ class EventSpeakerTest {
         DetectedEvent.Kind.entries.forEach { kind ->
             (0..3).forEach { v -> val t = EventSpeaker.eventLine(kind, v); assertTrue(t.codePointCount(0, t.length) <= 80) }
         }
-        assertEquals(EventSpeaker.eventLine(DetectedEvent.Kind.HARD_BRAKE, 2), EventSpeaker.eventLine(DetectedEvent.Kind.HARD_BRAKE, 0))
+        val n = EventSpeaker.lines.getValue(DetectedEvent.Kind.HARD_BRAKE).size
+        assertEquals(EventSpeaker.eventLine(DetectedEvent.Kind.HARD_BRAKE, n), EventSpeaker.eventLine(DetectedEvent.Kind.HARD_BRAKE, 0))
     }
 
     @Test fun scoreEngineLabelsAreDerivedFromKind() {
