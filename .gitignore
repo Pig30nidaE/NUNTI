@@ -12,3 +12,5 @@ backend/data/
 .DS_Store
 .worktrees/
 .local/
+
+.claude/settings.local.json
