@@ -28,6 +28,10 @@ data class VehicleSample(
     val roadType: RoadType = RoadType.GENERAL,
     /** 핸들 각도(도, +오른쪽/-왼쪽). 커브 판정에 쓴다. null = 미수신 → 커브 평가 안 함. */
     val steeringDeg: Float? = null,
+    /** 계기판 과속 경고등(OVER_SPEED). 내비 제한속도가 없을 때 대신 쓴다. */
+    val overSpeedWarning: Boolean? = null,
+    /** 이번 주행 평균 전비(km/kWh, 클수록 좋음). 단위는 문서에 없어 가정이다. */
+    val evEfficiencyKmPerKwh: Float? = null,
 )
 
 /** 기회 기반 평가(회전 전 감속, 차선 변경 지시등)를 위한 실제 행동 이벤트. */
@@ -42,9 +46,18 @@ enum class Area(val label: String, val maxPoints: Int) {
     EFFICIENCY("효율적 운전", 10),
 }
 
-enum class Item(val label: String, val area: Area, val byOpportunity: Boolean = false) {
-    ACCEL_DECEL("급가속·급감속·급제동", Area.CONTROL),
-    REVERSE_SPEED("후진 속도", Area.CONTROL),
+/**
+ * [sharesDriveTime] 인 항목끼리는 영역 안에서 단순 평균하지 않고 각자 평가한 시간만큼 비중을 나눠 갖는다.
+ * 후진처럼 잠깐 쓰는 항목이 몇 초만으로 전체 주행과 같은 비중을 갖지 않게 하기 위함이다.
+ */
+enum class Item(
+    val label: String,
+    val area: Area,
+    val byOpportunity: Boolean = false,
+    val sharesDriveTime: Boolean = false,
+) {
+    ACCEL_DECEL("급가속·급감속·급제동", Area.CONTROL, sharesDriveTime = true),
+    REVERSE_SPEED("후진 속도", Area.CONTROL, sharesDriveTime = true),
     LEAD_GAP("앞차 거리", Area.SURROUND),
     SPEED_LIMIT("제한속도 준수", Area.SURROUND),
     TURN_DECEL("회전 전 감속", Area.SURROUND, byOpportunity = true),
@@ -81,15 +94,17 @@ data class ScoreConfig(
     // 커브: 핸들을 curveSteeringDeg 이상 curveMinHoldMs 동안 유지하면 한 번의 커브(평가 기회)로 본다.
     val curveSteeringDeg: Float = 40f,
     val curveMinHoldMs: Long = 2_000,
-    val curveMinKmh: Float = 20f,
-    val curveEntryLookbackMs: Long = 5_000,
-    /** 커브 안의 최저 속도가 진입 속도의 이 비율 이하면 "줄였다"고 본다. */
-    val curveSlowRatio: Float = 0.9f,
+    val curveMinKmh: Float = 30f,
     /** 횡가속도 한도(m/s²). 이 이하면 쾌적한 커브, 넘으면 속도를 못 줄인 것으로 감점한다. */
     val curveComfortLatAccel: Float = 2.5f,
     /** 조향비(핸들각 ÷ 바퀴각)와 축거(m): 핸들각으로 횡가속도를 어림하는 상수. 차종 값 확인 전 초안. */
     val steeringRatio: Float = 15f,
     val wheelbaseM: Float = 2.9f,
+    /** 커브 안에서 제한속도 이하로 줄였으면 주는 가점. 제한속도를 모르면 가점 없음. */
+    val curveWithinLimitBonus: Float = 20f,
+    /** 전비(km/kWh) 점수: poor 이하 0점, good 이상 100점, 사이는 직선. 차종 값 확인 전 초안. */
+    val efficiencyPoorKmPerKwh: Float = 3f,
+    val efficiencyGoodKmPerKwh: Float = 6f,
 )
 
 /** 점수 엔진이 찾아낸 순간 사건. 종류는 [kind] 로 구분하고, 화면에 보이는 한글 이름은 [label] 이다. */
@@ -129,6 +144,9 @@ data class ItemResult(
     val score: Float?,
     val basis: Basis,
     val windowScores: List<Float?>,
+    /** 평가에 쓰인 시간(초) 또는 기회 수. [Item.sharesDriveTime] 항목의 비중 계산에 쓴다. */
+    val weight: Double = 0.0,
+    val windowWeights: List<Double> = emptyList(),
 )
 
 data class AreaResult(val area: Area, val score: Float?, val points: Float?)

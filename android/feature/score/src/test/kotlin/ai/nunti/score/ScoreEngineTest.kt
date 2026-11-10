@@ -152,6 +152,35 @@ class ScoreEngineTest {
         )
     }
 
+    private fun withLimit(samples: List<VehicleSample>, limit: Int) = samples.map { it.copy(speedLimitKmh = limit) }
+
+    @Test
+    fun slowingToTheLimitInACurveEarnsABonusButDangerStaysAnEvent() {
+        // 커브를 돌기엔 빠르지만(62 km/h) 제한속도(70) 안: 가점은 받되 커브 과속 사건은 남는다
+        val fast = curveSamples(entry = 62f, inCurve = 62f)
+        val raw = item(engine.evaluate(fast, emptyList()), Item.CURVE_SPEED).score!!
+        val legal = engine.evaluate(withLimit(fast, 70), emptyList())
+        assertEquals(raw + 20f, item(legal, Item.CURVE_SPEED).score!!, 0.5f)
+        assertEquals(1, legal.events.count { it.kind == DetectedEvent.Kind.CURVE_TOO_FAST })
+
+        // 제한속도(50)보다 빠르면 가점이 없다
+        val over = engine.evaluate(withLimit(fast, 50), emptyList())
+        assertEquals(raw, item(over, Item.CURVE_SPEED).score!!, 0.5f)
+    }
+
+    @Test
+    fun reverseCountsByItsShareOfTheDriveNotAsHalfTheArea() {
+        // 10분 거친 주행 + 2초 천천히 후진: 후진 100점이 거친 주행을 가리면 안 된다
+        val rough = (0..600).map { VehicleSample(it * 1000L, speedKmh = if (it % 20 < 2) 20f else 60f, gear = Gear.D) }
+        val park = (601..604).map { VehicleSample(it * 1000L, speedKmh = 4f, gear = Gear.R) }
+        val alone = engine.evaluate(rough, emptyList())
+        val withPark = engine.evaluate(rough + park, emptyList())
+        val control = { r: ScoreReport -> r.areas.first { it.area == Area.CONTROL }.score!! }
+        assertEquals(100f, item(withPark, Item.REVERSE_SPEED).score!!, 0.1f)
+        assertTrue(control(alone) < 90f)
+        assertEquals(control(alone), control(withPark), 1f)
+    }
+
     @Test
     fun slowingIntoACurveScoresWellAndCarryingSpeedDoesNot() {
         val slowed = engine.evaluate(curveSamples(entry = 60f, inCurve = 35f), emptyList())
@@ -164,6 +193,61 @@ class ScoreEngineTest {
         assertEquals(1, fast.events.count { it.kind == DetectedEvent.Kind.CURVE_TOO_FAST })
     }
 
+    private fun drive(n: Int = 40, f: (Int) -> VehicleSample) = engine.evaluate((0..n).map(f), emptyList())
+
+    @Test
+    fun efficiencyScoresTripEfficiencyAndNeedsMovementAndSignal() {
+        val good = drive { VehicleSample(it * 1000L, speedKmh = 50f, evEfficiencyKmPerKwh = 6f) }
+        val poor = drive { VehicleSample(it * 1000L, speedKmh = 50f, evEfficiencyKmPerKwh = 3f) }
+        val mid = drive { VehicleSample(it * 1000L, speedKmh = 50f, evEfficiencyKmPerKwh = 4.5f) }
+        assertEquals(100f, item(good, Item.EFFICIENCY).score!!, 0.1f)
+        assertEquals(0f, item(poor, Item.EFFICIENCY).score!!, 0.1f)
+        assertEquals(50f, item(mid, Item.EFFICIENCY).score!!, 0.1f)
+        assertNull(item(drive { VehicleSample(it * 1000L, speedKmh = 50f) }, Item.EFFICIENCY).score)
+        assertNull(item(drive { VehicleSample(it * 1000L, speedKmh = 0f, evEfficiencyKmPerKwh = 6f) }, Item.EFFICIENCY).score)
+    }
+
+    @Test
+    fun overSpeedWarningStandsInForNaviSpeedLimit() {
+        val warned = drive { VehicleSample(it * 1000L, speedKmh = 100f, overSpeedWarning = it > 20) }
+        val clean = drive { VehicleSample(it * 1000L, speedKmh = 100f, overSpeedWarning = false) }
+        assertTrue(item(warned, Item.SPEED_LIMIT).score!! < 70f)
+        assertEquals(100f, item(clean, Item.SPEED_LIMIT).score!!, 0.1f)
+        // 내비 제한속도가 있으면 그쪽이 우선한다
+        val navi = drive { VehicleSample(it * 1000L, speedKmh = 100f, speedLimitKmh = 100, overSpeedWarning = true) }
+        assertEquals(100f, item(navi, Item.SPEED_LIMIT).score!!, 0.1f)
+    }
+
+    @Test
+    fun stoppedTimeDoesNotDiluteSpeedingOrHarshAccel() {
+        // 20초 과속 + 10분 정차: 정차 시간이 감점을 묽히면 안 된다
+        val speeding = (0..20).map { VehicleSample(it * 1000L, speedKmh = 100f, speedLimitKmh = 60) }
+        val parked = (21..620).map { VehicleSample(it * 1000L, speedKmh = 0f, speedLimitKmh = 60) }
+        assertEquals(0f, item(engine.evaluate(speeding + parked, emptyList()), Item.SPEED_LIMIT).score!!, 0.1f)
+
+        // 10분 신호 대기 뒤 급출발: 대기 시간이 급가속 감점을 묽히면 안 된다
+        fun launch(from: Int) = (from..from + 20).map { VehicleSample(it * 1000L, speedKmh = if (it < from + 2) 0f else 50f) }
+        val idle = (0 until 600).map { VehicleSample(it * 1000L, speedKmh = 0f) }
+        val alone = item(engine.evaluate(launch(0), emptyList()), Item.ACCEL_DECEL).score!!
+        val afterIdle = item(engine.evaluate(idle + launch(600), emptyList()), Item.ACCEL_DECEL).score!!
+        assertTrue(alone < 100f)
+        assertEquals(alone, afterIdle, 1f)
+    }
+
+    @Test
+    fun zeroLeadDistanceMeansNoTargetNotTailgating() {
+        val none = drive { VehicleSample(it * 1000L, speedKmh = 50f, leadDistanceM = 0f) }
+        assertNull(item(none, Item.LEAD_GAP).score)
+    }
+
+    @Test
+    fun parkingManeuversWithFullLockAreNeverSharpTurns() {
+        val lot = (0..40).map { VehicleSample(it * 1000L, speedKmh = 8f, steeringDeg = 540f, gear = Gear.D) }
+        val r = engine.evaluate(lot, emptyList())
+        assertNull(item(r, Item.CURVE_SPEED).score)
+        assertTrue(r.events.none { it.kind == DetectedEvent.Kind.CURVE_TOO_FAST })
+    }
+
     @Test
     fun curveNeedsSteeringSignalSustainedSpeedAndForwardGear() {
         val noSteering = engine.evaluate(curveSamples(60f, 60f).map { it.copy(steeringDeg = null) }, emptyList())
@@ -172,7 +256,7 @@ class ScoreEngineTest {
         val reversing = engine.evaluate(curveSamples(60f, 60f, gear = Gear.R), emptyList())
         assertNull(item(reversing, Item.CURVE_SPEED).score)
 
-        val slow = engine.evaluate(curveSamples(15f, 15f), emptyList()) // 20km/h 미만은 커브로 보지 않는다
+        val slow = engine.evaluate(curveSamples(25f, 25f), emptyList()) // 30km/h 미만은 커브로 보지 않는다
         assertNull(item(slow, Item.CURVE_SPEED).score)
 
         val brief = engine.evaluate(

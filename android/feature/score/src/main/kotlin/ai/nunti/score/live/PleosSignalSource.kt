@@ -18,6 +18,11 @@ import ai.pleos.playground.vehicle.listener.DoorPositionListener
 import ai.pleos.playground.vehicle.listener.GearSelectionListener
 import ai.pleos.playground.vehicle.listener.SteeringWheelAngleListener
 import ai.pleos.playground.vehicle.listener.LightStateListener
+import ai.pleos.playground.vehicle.listener.EvBatteryEfficiencyListener
+import ai.pleos.playground.vehicle.listener.TelltaleInfoListener
+import ai.pleos.playground.vehicle.api.model.telltale.Telltales
+import ai.pleos.playground.vehicle.constant.telltale.TelltaleState
+import ai.pleos.playground.vehicle.constant.telltale.TelltaleType
 import ai.pleos.playground.vehicle.listener.SeatBeltBuckledStateListener
 import ai.pleos.playground.vehicle.listener.SeatOccupancyListener
 import ai.pleos.playground.vehicle.listener.TurnSignalStateListener
@@ -41,6 +46,9 @@ class PleosSignalSource(private val context: Context) {
     @Volatile private var turn: TurnSignal? = null
     @Volatile private var lowBeam: Boolean? = null
     @Volatile private var steeringDeg: Float? = null
+    @Volatile private var overSpeed: Boolean? = null
+    @Volatile private var night: Boolean? = null
+    @Volatile private var evEfficiency: Float? = null
     // 앞차 거리(mm): Vehicle 서비스 직접 구독으로 받는다 (RawSpeedProbe). 표준 CarPropertyManager 경로는 앱에 막혀 있다.
     @Volatile private var leadDistanceMm: Int? = null
     @Volatile private var leadReceivedAtMs = 0L
@@ -56,7 +64,7 @@ class PleosSignalSource(private val context: Context) {
     private var startedAtMs = 0L
     private val rawSpeed = RawSpeedProbe(context, onLeadDistanceMm = {
         leadDistanceMm = it; leadReceivedAtMs = System.currentTimeMillis()
-    }) { speedKmh = it }
+    }, onNightMode = { night = it }) { speedKmh = it }
     private val navi = NaviSignalSource(context) { System.currentTimeMillis() - startedAtMs }
 
     private val speedCallback = object : CarPropertyManager.CarPropertyEventCallback {
@@ -136,6 +144,26 @@ class PleosSignalSource(private val context: Context) {
                 override fun onFailed(p0: Exception) = Unit
             })
         }
+        v.getEvBattery().apply {
+            val efficiency = object : EvBatteryEfficiencyListener {
+                override fun onEvBatteryEfficiencyUpdated(p0: Float?) { p0?.let { evEfficiency = it } }
+                override fun onFailed(p0: Exception) = Unit
+            }
+            registerCurrentEvEfficiency(efficiency) // 이번 주행 평균 전비
+        }
+        v.getSafety().apply {
+            // 목록에 OVER_SPEED 가 없으면 이 차가 그 경고등을 지원하지 않는 것으로 보고 null(평가 불가)로 둔다.
+            // false 로 두면 경고등이 없는 차(에뮬레이터 포함)에서 제한속도가 늘 100점이 된다.
+            val onTelltales: (Telltales?) -> Unit = { t ->
+                t?.telltales?.firstOrNull { it.type == TelltaleType.OVER_SPEED }
+                    ?.let { overSpeed = it.state != TelltaleState.OFF }
+            }
+            getTelltalesInfo(onTelltales, noop)
+            registerTelltales(object : TelltaleInfoListener {
+                override fun onTelltaleInfoUpdated(p0: Telltales?) = onTelltales(p0)
+                override fun onFailed(p0: Exception) = Unit
+            })
+        }
         v.getSeat().apply {
             for (s in seatAreas) {
                 val area = SeatArea(s)
@@ -181,7 +209,9 @@ class PleosSignalSource(private val context: Context) {
             speedLimitKmh = navi.speedLimitKmh,
             leadDistanceM = leadDistanceM(),
             steeringDeg = steeringDeg,
-            // 어두움 감지는 보류 상태이므로 null → 야간 전조등은 평가 불가
+            overSpeedWarning = overSpeed,
+            isNight = night,
+            evEfficiencyKmPerKwh = evEfficiency,
         )
     }
 
@@ -203,6 +233,9 @@ class PleosSignalSource(private val context: Context) {
         SignalReading("앞차 거리", leadDistanceM()?.let { "%.1f m".format(it) }),
         SignalReading("앞차 거리 구독", "${rawSpeed.leadStatus.text}${rawSpeed.lastLeadRaw?.let { " ($it)" } ?: ""}"),
         SignalReading("하향등", lowBeam?.let { if (it) "ON" else "OFF" }),
+        SignalReading("밤 모드", night?.let { if (it) "밤" else "낮" }),
+        SignalReading("과속 경고등", overSpeed?.let { if (it) "ON" else "OFF" }),
+        SignalReading("전비", evEfficiency?.let { "%.1f".format(it) }),
         SignalReading("벨트 운전석/동승석", "${belts[SeatValue.ROW_1_LEFT] ?: "-"} / ${belts[SeatValue.ROW_1_RIGHT] ?: "-"}"),
         SignalReading("내비", navi.status.text),
         SignalReading("다음 회전", navi.nextTurn),

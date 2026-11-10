@@ -58,14 +58,16 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
                 if (enough) total.score!!.toFloat() else null,
                 basis,
                 per.map { it.score?.toFloat() },
+                total.weight,
+                per.map { it.weight },
             )
         }
 
         val windowOverall = (0 until windowCount).map { w ->
-            overall(items.map { it.item to it.windowScores[w] })
+            overall(items.map { Scored(it.item, it.windowScores[w], it.windowWeights[w]) })
         }
         val areas = Area.entries.map { area ->
-            val s = areaScore(items.filter { it.item.area == area }.map { it.score })
+            val s = areaScore(items.filter { it.item.area == area }.map { Scored(it.item, it.score, it.weight) })
             AreaResult(area, s, s?.let { it * area.maxPoints / 100f })
         }
         val evaluable = areas.filter { it.score != null }
@@ -74,12 +76,23 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         return ScoreReport(total, maxSum / 100f, areas, items, windowOverall, detected.sortedBy { it.tMs }, gears, speedSeconds, movingSeconds)
     }
 
-    private fun areaScore(scores: List<Float?>): Float? =
-        scores.filterNotNull().takeIf { it.isNotEmpty() }?.average()?.toFloat()
+    private class Scored(val item: Item, val score: Float?, val weight: Double)
 
-    private fun overall(itemScores: List<Pair<Item, Float?>>): Float? {
+    /**
+     * 영역 점수. [Item.sharesDriveTime] 항목들은 평가 시간 비율로 합쳐 하나의 몫이 되고,
+     * 나머지 항목은 각자 하나의 몫이다. 몫들을 단순 평균한다.
+     */
+    private fun areaScore(items: List<Scored>): Float? {
+        val known = items.filter { it.score != null }
+        val timed = known.filter { it.item.sharesDriveTime && it.weight > 0 }
+        val shares = known.filterNot { it in timed }.map { it.score!!.toDouble() }.toMutableList()
+        if (timed.isNotEmpty()) shares += timed.sumOf { it.score!! * it.weight } / timed.sumOf { it.weight }
+        return shares.takeIf { it.isNotEmpty() }?.average()?.toFloat()
+    }
+
+    private fun overall(itemScores: List<Scored>): Float? {
         val areaScores = Area.entries.mapNotNull { area ->
-            areaScore(itemScores.filter { it.first.area == area }.map { it.second })?.let { area to it }
+            areaScore(itemScores.filter { it.item.area == area })?.let { area to it }
         }
         val maxSum = areaScores.sumOf { it.first.maxPoints }
         if (maxSum == 0) return null
@@ -103,7 +116,8 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
     /**
      * 커브 속도 조절. 핸들을 크게 꺾은 상태가 이어지는 구간을 커브 하나(평가 기회)로 본다.
      * 점수 = 횡가속도(v²·tan(바퀴각)/축거)가 한도 이하면 100, 넘으면 한도/횡가속도 비율.
-     * 진입 속도보다 충분히 줄였으면 최소 80점을 준다 ("줄이는지"를 본다). 한도를 크게 넘기면 사건으로 남긴다.
+     * 커브 안에서 제한속도 이하로 줄였으면 가점을 준다. 여전히 빠른 것은 제한속도 항목에서 감점된다.
+     * 사건(커브 과속)은 가점 전 점수로 판단해, 줄였더라도 위험하게 빨랐으면 남긴다.
      */
     private fun accumulateCurves(
         samples: List<VehicleSample>,
@@ -118,26 +132,29 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
             while (j + 1 < samples.size && inCurve(samples[j + 1]) && samples[j + 1].tMs - samples[j].tMs <= cfg.maxGapMs) j++
             val start = samples[i].tMs
             if (samples[j].tMs - start >= cfg.curveMinHoldMs) {
-                val score = curveScore(samples, i, j)
-                acc.getValue(Item.CURVE_SPEED)[win(start)].add(score, 1.0)
-                if (score < CURVE_EVENT_BELOW) detected += DetectedEvent(start, DetectedEvent.Kind.CURVE_TOO_FAST)
+                val raw = curveScore(samples, i, j)
+                val bonus = if (slowedToLimit(samples, i, j)) cfg.curveWithinLimitBonus.toDouble() else 0.0
+                acc.getValue(Item.CURVE_SPEED)[win(start)].add(min(100.0, raw + bonus), 1.0)
+                if (raw < CURVE_EVENT_BELOW) detected += DetectedEvent(start, DetectedEvent.Kind.CURVE_TOO_FAST)
             }
             i = j + 1
         }
     }
 
+    /** 커브 안의 최저 속도가 그 지점 제한속도 이하인가. 제한속도를 모르면 false (가점 없음). */
+    private fun slowedToLimit(samples: List<VehicleSample>, from: Int, to: Int): Boolean {
+        val segment = samples.subList(from, to + 1)
+        val limit = segment.mapNotNull { it.speedLimitKmh?.takeIf { l -> l > 0 } }.minOrNull() ?: return false
+        return segment.minOf { abs(it.speedKmh ?: 0f) } <= limit
+    }
+
     private fun curveScore(samples: List<VehicleSample>, from: Int, to: Int): Double {
         val segment = samples.subList(from, to + 1)
-        val start = segment.first().tMs
-        val entry = samples.filter { it.tMs in (start - cfg.curveEntryLookbackMs)..start }
-            .maxOf { abs(it.speedKmh ?: 0f) }
-        val slowest = segment.minOf { abs(it.speedKmh ?: 0f) }
         val sharpest = segment.maxBy { abs(it.steeringDeg ?: 0f) }
         val v = abs(sharpest.speedKmh ?: 0f) / 3.6f
         val wheelAngle = Math.toRadians((abs(sharpest.steeringDeg ?: 0f) / cfg.steeringRatio).toDouble())
         val latAccel = v * v * kotlin.math.tan(wheelAngle) / cfg.wheelbaseM
-        var score = if (latAccel <= cfg.curveComfortLatAccel) 100.0 else 100.0 * cfg.curveComfortLatAccel / latAccel
-        if (slowest <= entry * cfg.curveSlowRatio) score = max(score, 80.0)
+        val score = if (latAccel <= cfg.curveComfortLatAccel) 100.0 else 100.0 * cfg.curveComfortLatAccel / latAccel
         return score.coerceIn(0.0, 100.0)
     }
 
@@ -175,6 +192,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
             put(Item.SEATBELT, seatbelt(s))
             put(Item.DOOR, if (moving(s) && s.doorOpen != null) (if (s.doorOpen) 0.0 else 100.0) else null)
             put(Item.HEADLIGHT, headlight(s))
+            put(Item.EFFICIENCY, efficiency(s))
             // 앞차 거리·제한속도는 전진 기준이라 후진 중에는 평가하지 않는다.
             put(Item.LEAD_GAP, if (reversing(s)) null else leadGap(s))
             put(Item.SPEED_LIMIT, if (reversing(s)) null else speedLimit(s))
@@ -198,16 +216,26 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
     }
 
     private fun leadGap(s: VehicleSample): Double? {
-        val d = s.leadDistanceM ?: return null
+        // 0 이하는 앞차를 못 잡은 상태(측정값 없음)로 본다. 0m 로 계산하면 0점이 된다.
+        val d = s.leadDistanceM?.takeIf { it > 0f } ?: return null
         if (!moving(s)) return null
         val gapSec = d / (abs(s.speedKmh!!) / 3.6f)
         val ratio = (gapSec - cfg.gapZeroSec) / (cfg.gapFullSec - cfg.gapZeroSec)
         return (ratio.coerceIn(0f, 1f) * 100f).toDouble()
     }
 
+    private fun efficiency(s: VehicleSample): Double? {
+        val e = s.evEfficiencyKmPerKwh?.takeIf { it > 0f && moving(s) } ?: return null
+        val span = cfg.efficiencyGoodKmPerKwh - cfg.efficiencyPoorKmPerKwh
+        return (100.0 * (e - cfg.efficiencyPoorKmPerKwh) / span).coerceIn(0.0, 100.0)
+    }
+
     private fun speedLimit(s: VehicleSample): Double? {
-        val limit = s.speedLimitKmh?.takeIf { it > 0 } ?: return null
-        val sp = abs(s.speedKmh ?: return null)
+        // 정차 중은 "지켰다"로 세지 않는다. 신호 대기 시간이 과속 감점을 희석하지 않게 한다.
+        if (!moving(s)) return null
+        val limit = s.speedLimitKmh?.takeIf { it > 0 }
+            ?: return s.overSpeedWarning?.let { if (it) 0.0 else 100.0 } // 내비 제한속도 없이 계기판 과속 경고로 대신한다
+        val sp = abs(s.speedKmh!!)
         val over = sp - limit - cfg.overLimitToleranceKmh
         return if (over <= 0f) 100.0 else max(0f, 100f - over * cfg.overLimitPenaltyPerKmh).toDouble()
     }
@@ -252,7 +280,8 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
                 close(openDecel); openDecel = null
                 continue
             }
-            driving[win(prev.tMs)] += dtMs / 1000.0
+            // 정차 시간은 주행 시간으로 세지 않는다: 오래 서 있으면 급가속 감점이 묽어지기 때문.
+            if (moving(prev) || moving(cur)) driving[win(prev.tMs)] += dtMs / 1000.0
 
             val accelLimit = accelThr(cur, abs(prev.speedKmh!!))
             if (a >= accelLimit) {
