@@ -73,7 +73,46 @@ class TelemetryWireTest {
     }
 }
 
+class TripReportWireTest {
+    private val brake = DetectedEvent(7_000, DetectedEvent.Kind.HARD_BRAKE)
+
+    @Test fun eventsCarryContractFieldsAndStableIds() {
+        val rec = EventRecord(TelemetryWire.eventId(2_000, brake.kind), 2_000, brake)
+        val batch = JSONObject(TelemetryWire.eventBatch("trip-1", SourceTag.LIVE, 1_000, listOf(rec)))
+        assertEquals("1.0", batch.getString("schemaVersion"))
+        val e = batch.getJSONArray("events").getJSONObject(0)
+        assertEquals("ev-000002000-HARD_BRAKE", e.getString("eventId"))
+        assertEquals("1.0", e.getString("schemaVersion")); assertEquals("trip-1", e.getString("tripId"))
+        assertEquals("HARD_BRAKE", e.getString("eventType")); assertEquals("HIGH", e.getString("severity"))
+        assertEquals("1970-01-01T00:00:03Z", e.getString("occurredAt"))
+        assertEquals("VERIFIED", e.getString("verificationStatus")); assertTrue(e.isNull("confidence"))
+        val demo = JSONObject(TelemetryWire.eventBatch("t", SourceTag.DEMO, 0, listOf(rec))).getJSONArray("events").getJSONObject(0)
+        assertEquals("UNVERIFIED", demo.getString("verificationStatus")) // 시연 사건은 검증된 사건이 아니다
+    }
+
+    @Test fun reportListsNotConnectedSignalsAndKeepsSecondsConsistent() {
+        val r = report().copy(movingSeconds = 500)
+        val json = JSONObject(TelemetryWire.tripReport("trip-1", TripReportRecord(r, "  오늘 편안했어요.  ", 300.0, listOf("ev-1"), 0)))
+        assertEquals(96.5, json.getDouble("overallScore"), 0.01)
+        val cov = json.getJSONObject("dataCoverage")
+        assertEquals("SUFFICIENT", cov.getString("status"))
+        assertEquals(300.0, cov.getDouble("evaluatedSeconds"), 0.0) // 평가 시간은 전체 시간을 넘지 않는다
+        assertEquals("EFFICIENCY", cov.getJSONArray("unavailableSignals").getString(0))
+        assertEquals("오늘 편안했어요.", json.getString("finalText"))
+        assertEquals("ev-1", json.getJSONArray("evidenceEventIds").getString(0))
+        assertTrue(JSONObject(TelemetryWire.tripReport("t", TripReportRecord(report(total = null), "x", 1.0, emptyList(), 0)))
+            .isNull("overallScore"))
+    }
+}
+
 class OutboxTest {
+    @Test fun methodSurvivesRestart() {
+        val dir = Files.createTempDirectory("outbox").toFile()
+        FileOutbox(dir).add("/r", "{}", "PUT")
+        assertEquals("PUT", FileOutbox(dir).peek()!!.method)
+        dir.deleteRecursively()
+    }
+
     @Test fun fileOutboxKeepsOrderAndSurvivesRestart() {
         val dir = Files.createTempDirectory("outbox").toFile()
         val a = FileOutbox(dir)
@@ -101,8 +140,9 @@ class OutboxTest {
 class UploaderTest {
     private class Fake(val results: MutableList<Any>) : HttpTransport {
         val urls = mutableListOf<String>()
-        override fun post(url: String, token: String, json: String): Int {
-            urls += url
+        val methods = mutableListOf<String>()
+        override fun send(method: String, url: String, token: String, json: String): Int {
+            urls += url; methods += method
             val next = if (results.isEmpty()) 200 else results.removeAt(0)
             if (next is IOException) throw next
             return next as Int
@@ -147,6 +187,7 @@ class UploaderTest {
         val outbox = MemoryOutbox().apply { add("/bad", "{}"); add("/good", "{}") }
         val status = TelemetryUploader(outbox, Fake(mutableListOf(422)), config).flush()
         assertEquals(0, status.pending); assertEquals(1, status.dropped); assertEquals(1, status.sent)
+        assertTrue(status.lastError!!.startsWith("rejected")) // 뒤 요청이 성공해도 버린 기록은 남는다
     }
 
     @Test fun unauthorizedKeepsEverythingAndReportsBlocked() {
@@ -207,6 +248,37 @@ class RecorderTest {
         val sizes = generateSequence { outbox.peek()?.also { outbox.remove(it.id) } }.filter { it.path.endsWith("/samples") }
             .map { JSONObject(it.body).getJSONArray("samples").length() }.toList()
         assertEquals(listOf(100, 100, 50), sizes)
+    }
+
+    @Test fun eventsAreSentOnceAndTheReportGoesLastAsPutOnlyOnce() {
+        val outbox = MemoryOutbox(); var now = 0L
+        val r = recorder(outbox) { now }
+        val brake = DetectedEvent(7_000, DetectedEvent.Kind.HARD_BRAKE)
+        val curve = DetectedEvent(8_000, DetectedEvent.Kind.CURVE_TOO_FAST)
+        r.onUpdate(samples(3), report(events = listOf(brake)), false)
+        now = 2000; r.onUpdate(samples(4), report(events = listOf(brake)), true)
+        r.finish(report(events = listOf(brake, curve)), "오늘 편안했어요.") // 보고서에만 실린 사건도 먼저 보낸다
+        r.finish(report(), "두 번째는 무시") // 한 여정에 보고서는 한 번
+        r.flushBuffers()
+        val items = generateSequence { outbox.peek()?.also { outbox.remove(it.id) } }.toList()
+        val events = items.filter { it.path.endsWith("/events") }.flatMap { item ->
+            val arr = JSONObject(item.body).getJSONArray("events"); (0 until arr.length()).map { arr.getJSONObject(it).getString("eventId") }
+        }
+        assertEquals(listOf("ev-000002000-HARD_BRAKE", "ev-000003000-CURVE_TOO_FAST"), events)
+        val reports = items.filter { it.path.endsWith("/report") }
+        assertEquals(1, reports.size); assertEquals("PUT", reports[0].method)
+        assertEquals(items.last(), reports[0])
+        val report = JSONObject(reports[0].body)
+        assertEquals("오늘 편안했어요.", report.getString("finalText"))
+        assertEquals(events, (0 until 2).map { report.getJSONArray("evidenceEventIds").getString(it) })
+        assertEquals(3.0, report.getJSONObject("dataCoverage").getDouble("totalSeconds"), 0.0)
+    }
+
+    @Test fun finishBeforeAnySampleSendsNothing() {
+        val outbox = MemoryOutbox()
+        val r = recorder(outbox) { 0 }
+        r.finish(report(), "x"); r.flushBuffers()
+        assertEquals(0, outbox.size())
     }
 
     @Test fun nothingIsRecordedWithoutSamples() {

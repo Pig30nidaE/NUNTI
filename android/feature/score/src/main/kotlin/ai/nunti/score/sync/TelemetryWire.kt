@@ -9,10 +9,13 @@ import java.time.temporal.ChronoUnit
 import org.json.JSONArray
 import org.json.JSONObject
 
-/** 서버 계약 v1 (contracts/v1/SampleBatch, ScoreBatch, TripCreate)의 JSON 을 만든다. 순수 JVM. */
+/** 서버 계약 v1 (contracts/v1/SampleBatch, ScoreBatch, EventBatch, TripReport, TripCreate)의 JSON 을 만든다. 순수 JVM. */
 enum class SourceKind { MOCK, ANDROID_ADAPTER, EXTERNAL_MODULE, USER_INPUT }
 
 data class SourceTag(val kind: SourceKind, val provider: String, val version: String) {
+    /** 실제 차량 신호에서 감지한 사건만 VERIFIED 로 보낸다. 시연 데이터의 사건은 UNVERIFIED 다. */
+    val verified: Boolean get() = kind == SourceKind.ANDROID_ADAPTER
+
     companion object {
         /** 실제 Pleos 신호를 읽은 앱의 값. */
         val LIVE = SourceTag(SourceKind.ANDROID_ADAPTER, "nunti-score", "1")
@@ -35,6 +38,18 @@ data class ScoreRecord(
     val newEvents: List<DetectedEvent>,
 )
 
+/** 감지 사건 하나. [offsetMs] 는 여정 첫 샘플 기준 시각이고 [eventId] 는 그 시각과 종류로 정해져 재전송이 중복으로 처리된다. */
+data class EventRecord(val eventId: String, val offsetMs: Long, val event: DetectedEvent)
+
+/** 여정이 확정될 때 한 번 보내는 최종 결과. [evidenceEventIds] 는 /events 로 먼저 보낸 사건들이다. */
+data class TripReportRecord(
+    val report: ScoreReport,
+    val finalText: String,
+    val totalSeconds: Double,
+    val evidenceEventIds: List<String>,
+    val generatedAtEpochMs: Long,
+)
+
 object TelemetryWire {
     /** 점수 규칙 판본. 임계값은 아직 초안이라 규칙을 바꾸면 이 값도 올려야 서버 기록을 구분할 수 있다. */
     const val ENGINE_VERSION = "score-engine-draft-1"
@@ -54,8 +69,10 @@ object TelemetryWire {
         batch(tripId, source).put("scores", JSONArray().apply { scores.forEach { put(score(it)) } }).toString()
 
     private fun batch(tripId: String, source: SourceTag) = JSONObject()
-        .put("schemaVersion", "1.0").put("tripId", tripId)
-        .put("source", JSONObject().put("kind", source.kind.name).put("provider", source.provider).put("version", source.version))
+        .put("schemaVersion", "1.0").put("tripId", tripId).put("source", sourceJson(source))
+
+    private fun sourceJson(source: SourceTag) =
+        JSONObject().put("kind", source.kind.name).put("provider", source.provider).put("version", source.version)
 
     /** 수신하지 못한 신호는 null 그대로 보낸다 (0이나 정상값으로 바꾸지 않는다). */
     private fun sample(item: IndexedSample, startEpochMs: Long, firstTMs: Long): JSONObject {
@@ -105,6 +122,56 @@ object TelemetryWire {
                 r.newEvents.forEach { put(JSONObject().put("tMs", it.tMs).put("kind", it.kind.name)) }
             })
     }
+
+    fun eventBatch(tripId: String, source: SourceTag, startEpochMs: Long, events: List<EventRecord>): String = JSONObject()
+        .put("schemaVersion", "1.0")
+        .put("events", JSONArray().apply {
+            events.forEach {
+                put(JSONObject()
+                    .put("schemaVersion", "1.0").put("eventId", it.eventId).put("tripId", tripId)
+                    .put("eventType", it.event.kind.name).put("occurredAt", iso(startEpochMs + it.offsetMs))
+                    .put("severity", severity(it.event.kind)).put("confidence", JSONObject.NULL)
+                    .put("verificationStatus", if (source.verified) "VERIFIED" else "UNVERIFIED")
+                    .put("source", sourceJson(source)))
+            }
+        }).toString()
+
+    /** 사건 종류별 심각도. 후진 기어는 감점이 아닌 안내라 INFO 다. */
+    fun severity(kind: DetectedEvent.Kind) = when (kind) {
+        DetectedEvent.Kind.HARD_BRAKE, DetectedEvent.Kind.CURVE_TOO_FAST -> "HIGH"
+        DetectedEvent.Kind.HARD_ACCEL, DetectedEvent.Kind.HARD_DECEL -> "MEDIUM"
+        DetectedEvent.Kind.REVERSE_ENGAGED -> "INFO"
+    }
+
+    fun tripReport(tripId: String, r: TripReportRecord): String {
+        val report = r.report
+        val total = r.totalSeconds.coerceAtLeast(0.0)
+        val evaluated = report.movingSeconds.toDouble().coerceIn(0.0, total)
+        return JSONObject()
+            .put("schemaVersion", "1.0").put("tripId", tripId)
+            .put("overallScore", number(report.total, 0.0, 100.0))
+            .put("dataCoverage", JSONObject()
+                .put("status", coverageStatus(report))
+                .put("evaluatedSeconds", evaluated).put("totalSeconds", total)
+                .put("ratio", number(report.coverage, 0.0, 1.0))
+                .put("unavailableSignals", JSONArray(report.notConnected.map { it.name })))
+            .put("finalText", r.finalText.trim().take(2000).ifEmpty { "-" })
+            .put("evidenceEventIds", JSONArray(r.evidenceEventIds.takeLast(MAX_EVIDENCE)))
+            .put("generatedAt", iso(r.generatedAtEpochMs))
+            .toString()
+    }
+
+    /** 평가 범위(배점 비율)로 나눈다. 0.5 는 [ai.nunti.score.TripLifecycle.MIN_COVERAGE] 와 같은 기준이다. */
+    fun coverageStatus(report: ScoreReport) = when {
+        report.total == null -> "UNAVAILABLE"
+        report.coverage >= 0.9f -> "SUFFICIENT"
+        report.coverage >= ai.nunti.score.TripLifecycle.MIN_COVERAGE -> "PARTIAL"
+        else -> "INSUFFICIENT"
+    }
+
+    fun eventId(offsetMs: Long, kind: DetectedEvent.Kind) = "ev-%09d-%s".format(offsetMs, kind.name)
+
+    private const val MAX_EVIDENCE = 500
 
     fun sampleId(index: Int) = "s-%06d".format(index)
     fun scoreId(index: Int) = "score-%06d".format(index)

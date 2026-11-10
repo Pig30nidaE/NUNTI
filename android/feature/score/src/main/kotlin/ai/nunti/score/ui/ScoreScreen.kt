@@ -197,6 +197,11 @@ fun ScoreScreen() {
         // 실시간 모드에서 아직 한 번도 읽지 못했을 때의 자리표시 샘플은 기록하지 않는다.
         if (sync != null && !(live && liveSamples.isEmpty())) sync.recorder.onUpdate(shown, report, finished)
     }
+    // 확정된 여정의 최종 결과(점수·커버리지·마무리 멘트·근거 사건)를 한 번 보낸다. 일시저장 중에는 마무리 멘트가 없어 보내지 않는다.
+    LaunchedEffect(sync, closingText) {
+        val text = closingText ?: return@LaunchedEffect
+        if (finished) sync?.recorder?.finish(report, text)
+    }
 
     val currentGear = shown.lastOrNull { it.gear != null }?.gear
 

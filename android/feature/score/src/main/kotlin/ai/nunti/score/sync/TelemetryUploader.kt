@@ -23,15 +23,15 @@ data class SyncConfig(val baseUrl: String, val token: String) {
 }
 
 fun interface HttpTransport {
-    /** 응답 코드를 돌려준다. 연결 실패는 [IOException]. */
-    fun post(url: String, token: String, json: String): Int
+    /** [method](POST·PUT)로 JSON 을 보내고 응답 코드를 돌려준다. 연결 실패는 [IOException]. */
+    fun send(method: String, url: String, token: String, json: String): Int
 }
 
 class UrlConnectionTransport(private val timeoutMs: Int = 5_000) : HttpTransport {
-    override fun post(url: String, token: String, json: String): Int {
+    override fun send(method: String, url: String, token: String, json: String): Int {
         val connection = URL(url).openConnection() as HttpURLConnection
         try {
-            connection.requestMethod = "POST"
+            connection.requestMethod = method
             connection.connectTimeout = timeoutMs
             connection.readTimeout = timeoutMs
             connection.doOutput = true
@@ -75,14 +75,15 @@ class TelemetryUploader(
         while (true) {
             val item = outbox.peek() ?: break
             val outcome = try {
-                classify(transport.post(config.baseUrl + item.path, config.token, item.body)).also { lastError = null }
+                classify(transport.send(item.method, config.baseUrl + item.path, config.token, item.body))
             } catch (e: IOException) {
                 lastError = "network: ${e.javaClass.simpleName}"
                 Outcome.RETRY
             }
             when (outcome) {
-                Outcome.SENT -> { outbox.remove(item.id); sent++; failures = 0; blocked = false }
-                Outcome.DROP -> { outbox.remove(item.id); dropped++; lastError = "rejected: ${item.path}" }
+                // 성공해도 거부 기록(rejected)은 지우지 않는다: 뒤 요청이 성공하면 앞에서 버린 배치가 화면에서 사라지기 때문.
+                Outcome.SENT -> { outbox.remove(item.id); sent++; failures = 0; blocked = false; if (lastError?.startsWith("rejected") != true) lastError = null }
+                Outcome.DROP -> { outbox.remove(item.id); dropped++; lastError = "rejected: ${item.path.substringAfterLast('/')} ×$dropped" }
                 Outcome.BLOCKED -> { blocked = true; backOff(); break }
                 Outcome.RETRY -> { backOff(); break }
             }

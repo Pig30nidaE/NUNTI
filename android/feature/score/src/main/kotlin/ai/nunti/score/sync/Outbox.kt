@@ -2,12 +2,12 @@ package ai.nunti.score.sync
 
 import java.io.File
 
-/** 서버로 보낼 요청 하나 (POST). 같은 요청을 다시 보내도 서버가 중복으로 처리하므로 재전송은 안전하다. */
-data class OutboxItem(val id: String, val path: String, val body: String)
+/** 서버로 보낼 요청 하나. 같은 요청을 다시 보내도 서버가 중복으로 처리하므로 재전송은 안전하다. */
+data class OutboxItem(val id: String, val path: String, val body: String, val method: String = "POST")
 
 /** 보낼 요청을 순서대로 쌓아 두는 대기함. 순서가 중요하다: 여정 생성이 항상 샘플·점수보다 앞선다. */
 interface Outbox {
-    fun add(path: String, body: String)
+    fun add(path: String, body: String, method: String = "POST")
     fun peek(): OutboxItem?
     fun remove(id: String)
     fun size(): Int
@@ -16,7 +16,7 @@ interface Outbox {
 class MemoryOutbox : Outbox {
     private val items = ArrayDeque<OutboxItem>()
     private var counter = 0L
-    @Synchronized override fun add(path: String, body: String) { items.addLast(OutboxItem("${counter++}", path, body)) }
+    @Synchronized override fun add(path: String, body: String, method: String) { items.addLast(OutboxItem("${counter++}", path, body, method)) }
     @Synchronized override fun peek() = items.firstOrNull()
     @Synchronized override fun remove(id: String) { items.removeAll { it.id == id } }
     @Synchronized override fun size() = items.size
@@ -35,10 +35,10 @@ class FileOutbox(private val dir: File) : Outbox {
         dir.listFiles { f -> f.isFile && f.extension == "json" && f.nameWithoutExtension.toLongOrNull() != null }
             ?.sortedBy { it.nameWithoutExtension.toLong() } ?: emptyList()
 
-    @Synchronized override fun add(path: String, body: String) {
+    @Synchronized override fun add(path: String, body: String, method: String) {
         val name = "%019d".format(counter++)
         val temp = File(dir, "$name.tmp")
-        temp.writeText(org.json.JSONObject().put("path", path).put("body", body).toString())
+        temp.writeText(org.json.JSONObject().put("path", path).put("body", body).put("method", method).toString())
         check(temp.renameTo(File(dir, "$name.json"))) { "outbox write failed" }
     }
 
@@ -46,7 +46,7 @@ class FileOutbox(private val dir: File) : Outbox {
         val file = files().firstOrNull() ?: return null
         return try {
             val json = org.json.JSONObject(file.readText())
-            OutboxItem(file.nameWithoutExtension, json.getString("path"), json.getString("body"))
+            OutboxItem(file.nameWithoutExtension, json.getString("path"), json.getString("body"), json.optString("method", "POST"))
         } catch (_: Exception) {
             file.delete() // 읽을 수 없는 파일이 뒤의 요청을 막지 않게 한다
             peek()

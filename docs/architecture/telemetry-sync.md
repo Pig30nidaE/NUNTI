@@ -10,12 +10,18 @@
 | 여정 생성 (`syncConsent: true`) | 기록을 시작할 때 가장 먼저 | `POST /v1/trips` |
 | Pleos 샘플 (속도·브레이크·기어·지시등·좌석·문·전조등·제한속도 등, 1초 간격) | 샘플마다 기록, 5초마다 묶음(최대 100개) 전송 | `POST /v1/trips/{id}/samples` |
 | 점수 결과 (총점·영역·항목·구간별·새 사건) | 점수를 계산할 때마다 기록하되 1초 미만 간격은 건너뜀. 새 사건·마지막 결과는 항상 기록 | `POST /v1/trips/{id}/scores` |
+| 감지 사건 (급가속·급감속·급제동·커브 과속·후진 기어) | 사건마다 한 번. ID 는 여정 기준 시각과 종류(`ev-000120000-HARD_BRAKE`) | `POST /v1/trips/{id}/events` |
+| 최종 결과 보고 (총점·데이터 커버리지·미연동 신호·마무리 멘트·근거 사건 ID) | 여정이 **확정**될 때 한 번. 일시저장 중에는 보내지 않는다. 사건보다 뒤에 보낸다 | `PUT /v1/trips/{id}/report` |
 
 - 조회: `GET .../samples`, `GET .../scores` (offset/limit). `GET /v1/trips/{id}` 의 `sampleCount`, `scoreCount`.
 - 수신하지 못한 신호는 `null` 이다. 0이나 정상값으로 바꾸지 않는다.
 - 각 기록에 `source` 가 붙는다. 시연 시나리오는 `MOCK`, 실제 Pleos 신호는 `ANDROID_ADAPTER` 다.
 - 점수에는 `engineVersion` 이 있다. 임계값이 아직 초안이므로 규칙을 바꾸면 이 값도 올린다.
-- 계약: `contracts/v1/SampleBatch`, `ScoreBatch` (valid/missing/invalid 예제와 schema 포함).
+- 사건의 `verificationStatus` 는 실제 신호(`ANDROID_ADAPTER`)면 `VERIFIED`, 시연(`MOCK`)이면 `UNVERIFIED` 다.
+  심각도: 급제동·커브 과속 `HIGH`, 급가속·급감속 `MEDIUM`, 후진 기어 `INFO`.
+- 보고서 `dataCoverage.status`: 평가 범위 0.9 이상 `SUFFICIENT`, 0.5 이상 `PARTIAL`, 그 미만 `INSUFFICIENT`, 총점 없음 `UNAVAILABLE`.
+  `unavailableSignals` 는 신호를 한 번도 받지 못한 항목(미연동)이다. 해당 상황이 없던 항목은 넣지 않는다.
+- 계약: `contracts/v1/SampleBatch`, `ScoreBatch`, `EventBatch`, `TripReport` (valid/missing/invalid 예제와 schema 포함).
 
 ## 신뢰성
 
@@ -35,6 +41,8 @@
 ## 아직 안 된 것
 
 - **실제 Pleos 신호는 이 경로로 시험하지 않았다.** 시연 시나리오(MOCK)로만 검증했다. 실시간 모드는 가상 콘솔 확인 단계에서 같이 본다.
+  2026-11-10 에뮬레이터 → 로컬 서버: 샘플 481·점수 7·사건 1·보고서 1 저장, 보고서 근거 ID 가 저장된 사건과 일치함을 확인.
+- 시연 시나리오를 "끝까지"로 넘기면 사건·샘플 시각이 실제 시각보다 미래가 된다 (시나리오 시간을 시작 시각에 더하기 때문). 실시간은 해당 없음.
 - 샘플은 메모리에 모았다가 5초마다 파일로 넘긴다. 5초 안에 앱이 죽으면 그 구간은 사라진다.
 - 동의는 화면의 토글 하나다. 약관·보관 기간 고지·철회 UI(서버에는 `DELETE /v1/trips/{id}` 가 있다)는 없다.
 - 인증 토큰은 개발용 단일 값이다. 사용자별 로그인·발급은 없다.
