@@ -157,8 +157,9 @@ fun ScoreScreen() {
                     FilterChip(selected = !live, onClick = { live = false }, label = { Text("시연") })
                     FilterChip(selected = live, onClick = { live = true }, label = { Text("실시간") })
                     FilterChip(selected = voiceOn, onClick = { voiceOn = !voiceOn }, label = { Text("음성") })
-                    FilterChip(selected = saveOn, enabled = syncConfig != null, onClick = { saveOn = !saveOn }, label = { Text("서버 저장") })
                 }
+                FilterChip(selected = saveOn, enabled = syncConfig != null, onClick = { saveOn = !saveOn },
+                    label = { Text("서버 저장 (동의)", fontSize = 11.sp, maxLines = 1) })
                 if (syncConfig == null) Text("서버 설정 없음 (sync-config.json)", color = Muted, fontSize = 11.sp)
                 syncStatus?.let { Text(it, fontSize = 11.sp, color = Muted) }
                 if (voiceOn) Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
