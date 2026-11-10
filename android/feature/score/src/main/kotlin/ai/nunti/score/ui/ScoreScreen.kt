@@ -41,6 +41,10 @@ import androidx.compose.ui.platform.LocalContext
 import ai.nunti.score.live.PleosSignalSource
 import ai.nunti.score.live.PleosSpeechSink
 import ai.nunti.score.EventSpeaker
+import ai.nunti.score.sync.SourceTag
+import ai.nunti.score.sync.SyncConfig
+import ai.nunti.score.sync.TelemetrySync
+import java.io.File
 import ai.nunti.score.VehicleSample
 import ai.nunti.score.AreaResult
 import ai.nunti.score.Emotion
@@ -121,6 +125,30 @@ fun ScoreScreen() {
         if (line != null) lastLine = line
     }
 
+    // 서버 저장: 사용자가 켠 경우에만(= 동의) 샘플과 점수를 서버로 보낸다. 서버 주소·토큰은 기기의 sync-config.json 에서 읽는다.
+    val syncConfig = remember { SyncConfig.load(File(context.filesDir, "sync-config.json")) }
+    var saveOn by remember { mutableStateOf(false) }
+    val sync = remember(saveOn, live, scenarioIdx) {
+        if (saveOn && syncConfig != null) {
+            TelemetrySync(File(context.filesDir, "telemetry-outbox"), syncConfig, if (live) SourceTag.LIVE else SourceTag.DEMO)
+        } else null
+    }
+    DisposableEffect(sync) { onDispose { sync?.close() } }
+    var syncStatus by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(sync) {
+        while (sync != null) {
+            val st = sync.status(); val (samples, scores) = sync.recorder.counts()
+            syncStatus = "서버: 샘플 $samples · 점수 $scores · 전송 ${st.sent} · 대기 ${st.pending}" +
+                (if (st.blocked) " · 인증 필요" else "") + (st.lastError?.let { " · $it" } ?: "")
+            delay(1000)
+        }
+        syncStatus = null
+    }
+    LaunchedEffect(sync, live, scenarioIdx, cursor, liveSamples.size) {
+        // 실시간 모드에서 아직 한 번도 읽지 못했을 때의 자리표시 샘플은 기록하지 않는다.
+        if (sync != null && !(live && liveSamples.isEmpty())) sync.recorder.onUpdate(shown, report, finished)
+    }
+
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Row(Modifier.fillMaxSize().padding(16.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
             Column(Modifier.width(260.dp).fillMaxHeight(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
@@ -129,7 +157,10 @@ fun ScoreScreen() {
                     FilterChip(selected = !live, onClick = { live = false }, label = { Text("시연") })
                     FilterChip(selected = live, onClick = { live = true }, label = { Text("실시간") })
                     FilterChip(selected = voiceOn, onClick = { voiceOn = !voiceOn }, label = { Text("음성") })
+                    FilterChip(selected = saveOn, enabled = syncConfig != null, onClick = { saveOn = !saveOn }, label = { Text("서버 저장") })
                 }
+                if (syncConfig == null) Text("서버 설정 없음 (sync-config.json)", color = Muted, fontSize = 11.sp)
+                syncStatus?.let { Text(it, fontSize = 11.sp, color = Muted) }
                 if (voiceOn) Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
                     val voices = listOf<String?>(null) + ai.nunti.tts.PleosSpeakers.KOREAN
                     voices.chunked(3).forEach { rowVoices ->

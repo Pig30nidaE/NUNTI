@@ -45,4 +45,5 @@ dependencies {
     implementation(project(":feature:tts"))
     implementation(project(":feature:voice"))
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.json:json:20250517") // android.jar 의 org.json 은 JVM 시험에서 동작하지 않는다
 }
