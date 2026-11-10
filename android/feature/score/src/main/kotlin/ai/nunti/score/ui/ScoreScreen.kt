@@ -70,6 +70,7 @@ fun ScoreScreen() {
     val context = LocalContext.current
     var live by remember { mutableStateOf(false) }
     var lastLine by remember { mutableStateOf<String?>(null) }
+    var sampleIdx by remember { mutableIntStateOf(-1) }
     var lastResult by remember { mutableStateOf<String?>(null) }
     var scenarioIdx by remember { mutableIntStateOf(0) }
     var cursor by remember { mutableIntStateOf(0) }
@@ -110,9 +111,10 @@ fun ScoreScreen() {
     val emotion = engine.emotion(report, finished)
 
     var voiceOn by remember { mutableStateOf(true) }
-    val sink = remember { PleosSpeechSink(context, drivingAllowed = true) { lastResult = it } }
-    val speaker = remember { EventSpeaker(sink) }
-    DisposableEffect(Unit) { onDispose { sink.close() } }
+    var speakerId by remember { mutableStateOf<String?>(null) }
+    val sink = remember(speakerId) { PleosSpeechSink(context, drivingAllowed = true, speaker = speakerId) { lastResult = it } }
+    val speaker = remember(sink) { EventSpeaker(sink) }
+    DisposableEffect(sink) { onDispose { sink.close() } }
     LaunchedEffect(live, scenarioIdx) { speaker.reset() }
     LaunchedEffect(report) {
         val line = speaker.onUpdate(report, emotion, android.os.SystemClock.elapsedRealtime().takeIf { voiceOn } ?: return@LaunchedEffect)
@@ -128,6 +130,23 @@ fun ScoreScreen() {
                     FilterChip(selected = live, onClick = { live = true }, label = { Text("실시간") })
                     FilterChip(selected = voiceOn, onClick = { voiceOn = !voiceOn }, label = { Text("음성") })
                 }
+                if (voiceOn) Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+                    val voices = listOf<String?>(null) + ai.nunti.tts.PleosSpeakers.KOREAN
+                    voices.chunked(3).forEach { rowVoices ->
+                        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                            rowVoices.forEach { id ->
+                                FilterChip(selected = speakerId == id, onClick = { speakerId = id },
+                                    label = { Text(id ?: "기본", fontSize = 11.sp, maxLines = 1) })
+                            }
+                        }
+                    }
+                }
+                if (voiceOn) Button(onClick = {
+                    val samples = listOf("안녕하세요, 눈티예요. 오늘도 안전하게 같이 가요.", "앗, 방금은 조금 급했어요. 천천히 가요.", "휴, 이제 좀 안심돼요. 잘하고 있어요!")
+                    sampleIdx = (sampleIdx + 1) % samples.size
+                    sink.speak(samples[sampleIdx], "nunti-sample-${System.currentTimeMillis()}", ai.nunti.score.Emotion.NEUTRAL)
+                    lastLine = samples[sampleIdx]
+                }) { Text("목소리 듣기", fontSize = 12.sp) }
                 lastLine?.let { Text("눈티: $it  [${lastResult ?: "대기"}]", fontSize = 12.sp) }
                 if (live) {
                     Text("실시간 수신 현황 (1초 간격)", color = Muted, fontSize = 12.sp)

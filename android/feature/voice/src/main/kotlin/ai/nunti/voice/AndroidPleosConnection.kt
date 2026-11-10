@@ -55,6 +55,7 @@ class AndroidPleosConnection(context: Context, mode: EngineMode,
         })
     }
     override fun setLocale(locale: String) { lane(); sdk.setLocale(Locale.forLanguageTag(locale)) }
+    override fun setSpeaker(speakerId: String) { lane(); sdk.setSpeakerType(speakerId) }
     override fun speak(text: String) { lane(); sdk.speak(text, true) }
     override fun stop() { lane(); sdk.stop() }
     override fun release() {

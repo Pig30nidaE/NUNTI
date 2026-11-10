@@ -19,6 +19,7 @@ class EventSpeaker(
     private var lastEmotion = Emotion.NEUTRAL
     private var lastSpokenAt = Long.MIN_VALUE
     private var counter = 0
+    private val spokenByKind = HashMap<EventKind, Int>() // 종류별로 말한 횟수 = 다음 대사 변형 번호
 
     /** [nowMs] 는 단조 시계. 반환값은 말한 대사 (없으면 null). */
     fun onUpdate(report: ScoreReport, emotion: Emotion, nowMs: Long): String? {
@@ -26,23 +27,49 @@ class EventSpeaker(
         val prevEmotion = lastEmotion
         lastEmotion = emotion
         if (!primed) { primed = true; return null }
-        val line = fresh.lastOrNull()?.let { eventLine(it.label) } ?: emotionLine(prevEmotion, emotion) ?: return null
+        val kind = fresh.lastOrNull()?.let { kindOf(it.label) }
+        val line = kind?.let { eventLine(it, spokenByKind[it] ?: 0) } ?: emotionLine(prevEmotion, emotion) ?: return null
         if (lastSpokenAt != Long.MIN_VALUE && nowMs - lastSpokenAt < cooldownMs) return null
         if (line.codePointCount(0, line.length) > maxChars) return null
         lastSpokenAt = nowMs
+        if (kind != null) spokenByKind[kind] = (spokenByKind[kind] ?: 0) + 1 // 쿨다운·길이로 버려진 대사는 번호를 쓰지 않는다
         sink.speak(line, "nunti-event-${counter++}", emotion)
         return line
     }
 
-    fun reset() { seen.clear(); primed = false; lastEmotion = Emotion.NEUTRAL; lastSpokenAt = Long.MIN_VALUE }
+    fun reset() { seen.clear(); primed = false; lastEmotion = Emotion.NEUTRAL; lastSpokenAt = Long.MIN_VALUE; spokenByKind.clear() }
 
     companion object {
-        fun eventLine(label: String): String = when {
-            "급제동" in label -> "앗, 급제동이었어요. 앞차와 거리를 조금 더 둬요."
-            "급가속" in label -> "출발이 조금 급했어요. 천천히 밟아 봐요."
-            "급감속" in label -> "속도가 갑자기 줄었어요. 미리 여유 있게 줄여요."
-            else -> "방금 순간이 신경 쓰였어요. 천천히 가요."
+        enum class EventKind(val lines: List<String>) {
+            HARD_BRAKE(listOf(
+                "앗, 급제동이었어요. 앞차와 거리를 조금 더 둬요.",
+                "방금 꽤 세게 멈췄어요. 차간 거리를 넉넉히 둬요.",
+            )),
+            HARD_ACCEL(listOf(
+                "출발이 조금 급했어요. 천천히 밟아 봐요.",
+                "가속이 빨랐어요. 페달을 부드럽게 눌러 봐요.",
+            )),
+            HARD_DECEL(listOf(
+                "속도가 갑자기 줄었어요. 미리 여유 있게 줄여요.",
+                "감속이 갑작스러웠어요. 조금 일찍 발을 떼 봐요.",
+            )),
+            OTHER(listOf(
+                "방금 순간이 신경 쓰였어요. 천천히 가요.",
+                "방금 장면이 마음에 걸려요. 여유를 가져 봐요.",
+            )),
         }
+
+        fun kindOf(label: String): EventKind = when {
+            "급제동" in label -> EventKind.HARD_BRAKE
+            "급가속" in label -> EventKind.HARD_ACCEL
+            "급감속" in label -> EventKind.HARD_DECEL
+            else -> EventKind.OTHER
+        }
+
+        /** [variant] 를 종류별 대사 수로 나눈 나머지를 쓴다 (결정적 순환). */
+        fun eventLine(kind: EventKind, variant: Int = 0): String = kind.lines[Math.floorMod(variant, kind.lines.size)]
+
+        fun eventLine(label: String, variant: Int = 0): String = eventLine(kindOf(label), variant)
 
         fun emotionLine(from: Emotion, to: Emotion): String? = when {
             from == to -> null

@@ -55,6 +55,7 @@ private class FakeConnection : PleosConnection {
     var connected: (() -> Unit)? = null; var connectFailure: ((String) -> Unit)? = null
     var callback: PleosConnection.Events? = null
     var adds = 0; var removes = 0; var stops = 0; var releases = 0
+    var speakers = mutableListOf<String>(); var throwSpeaker = false
     var words = mutableListOf<String>(); var locales = mutableListOf<String>()
     var throwStop = false; var throwRemove = false
     override fun initialize(success: () -> Unit, failure: (String) -> Unit) { this.success = success; this.failure = failure }
@@ -64,6 +65,7 @@ private class FakeConnection : PleosConnection {
         this.connected = connected; connectFailure = failed
     }
     override fun setLocale(locale: String) { locales += locale }
+    override fun setSpeaker(speakerId: String) { if (throwSpeaker) error("speaker"); speakers += speakerId }
     override fun speak(text: String) { words += text }
     override fun stop() { stops++; if (throwStop) error("stop") }
     override fun release() { releases++ }
@@ -192,6 +194,22 @@ fun main() {
     test("Pleos initialization and listener are registered once") {
         val sdk=FakeConnection();val p=PleosTtsProvider({sdk});val l=Listener();p.initialize(l);p.initialize(l);sdk.success!!();sdk.success!!()
         check(sdk.adds==1);check(l.events==listOf("initialized"));p.release();p.release();check(sdk.removes==1);check(sdk.releases==1)
+    }
+    test("Pleos applies a verified speaker before speaking and falls back for unknown ids") {
+        fun profile(id: String) = VoiceProfileManager(listOf(VoiceProfile("nunti-default-v1", preferredVoiceId = id,
+            supportedControls = setOf(Control.LOCALE, Control.SPEAKER))))
+        val f=Fixture(); val sdk=FakeConnection(); val p=PleosTtsProvider({sdk}); val l=Listener(); p.initialize(l); sdk.success!!()
+        val known=SpeechRequestBuilder(profile("haeun")).build(f.input(),p.capabilities,f.time.wall)
+        check(known.voice.speakerId=="haeun"); p.speak(known)
+        check(sdk.speakers==listOf("haeun")); check(sdk.words==listOf(known.request.text))
+        val unknown=SpeechRequestBuilder(profile("not-a-speaker")).build(f.input("r2"),p.capabilities,f.time.wall)
+        check(unknown.voice.speakerId==null)
+    }
+    test("Pleos speaker failure is reported and nothing is spoken") {
+        val f=Fixture(); val sdk=FakeConnection(); val p=PleosTtsProvider({sdk}); val l=Listener(); p.initialize(l); sdk.success!!(); sdk.throwSpeaker=true
+        val known=SpeechRequestBuilder(VoiceProfileManager(listOf(VoiceProfile("nunti-default-v1", preferredVoiceId = "haeun",
+            supportedControls = setOf(Control.LOCALE, Control.SPEAKER))))).build(f.input(),p.capabilities,f.time.wall)
+        p.speak(known); check(sdk.words.isEmpty()); check(l.events.last().endsWith("SDK_SPEAKER_EXCEPTION"))
     }
     test("Pleos stale callbacks cannot finish next utterance") {
         val sessions=mutableListOf<FakeConnection>();val p=PleosTtsProvider({FakeConnection().also{sessions+=it}});val l=Listener();val f=Fixture()
