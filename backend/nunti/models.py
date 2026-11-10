@@ -194,6 +194,92 @@ class TripReport(Contract):
     generatedAt: Timestamp
 
 
+Score = Annotated[float, Field(ge=0, le=100, allow_inf_nan=False)]
+OffsetMs = Annotated[int, Field(ge=0, le=31_536_000_000)]
+
+
+class SeatSample(WireModel):
+    """null means the signal was not received. It is neither "empty" nor "unbuckled"."""
+
+    occupied: bool | None = None
+    buckled: bool | None = None
+
+
+class TelemetrySample(WireModel):
+    """One vehicle sample as the Android app read it (about once per second).
+
+    Every signal is nullable: null = not received, which is different from a normal or zero value.
+    tMs is the app's session clock (what its score engine used); occurredAt is the wall clock.
+    """
+
+    sampleId: Identifier
+    tMs: OffsetMs
+    occurredAt: Timestamp
+    speedKmh: Annotated[float, Field(ge=0, le=400, allow_inf_nan=False)] | None = None
+    brakePressed: bool | None = None
+    gear: Literal["P", "R", "N", "D"] | None = None
+    turnSignal: Literal["NONE", "LEFT", "RIGHT"] | None = None
+    driverSeat: SeatSample | None = None
+    passengerSeat: SeatSample | None = None
+    doorOpen: bool | None = None
+    headlightOn: bool | None = None
+    isNight: bool | None = None
+    leadDistanceM: Annotated[float, Field(ge=0, le=1000, allow_inf_nan=False)] | None = None
+    speedLimitKmh: Annotated[int, Field(ge=0, le=300)] | None = None
+    roadType: Literal["HIGHWAY", "GENERAL"] = "GENERAL"
+
+
+class SampleBatch(Contract):
+    tripId: Identifier
+    source: Source
+    samples: Annotated[list[TelemetrySample], Field(min_length=1, max_length=100)]
+
+
+class ScoreAreaResult(WireModel):
+    area: Token
+    score: Score | None
+    points: Annotated[float, Field(ge=0, le=100, allow_inf_nan=False)] | None
+
+
+class ScoreItemResult(WireModel):
+    item: Token
+    score: Score | None
+    basis: Annotated[str, Field(max_length=64)]
+
+
+class ScoreEventRecord(WireModel):
+    tMs: OffsetMs
+    kind: Token
+
+
+class ScoreSnapshot(WireModel):
+    """One result of the app's score engine. The app computes; the server only stores it.
+
+    score/points are null when the area or item could not be evaluated (not enough signals).
+    newEvents holds only the events found since the previous snapshot, so snapshots do not grow.
+    engineVersion names the rule set that produced the numbers; thresholds are still drafts.
+    """
+
+    scoreId: Identifier
+    computedAt: Timestamp
+    tMs: OffsetMs
+    sampleCount: Annotated[int, Field(ge=0, le=100_000_000)]
+    total: Score | None
+    coverage: Ratio
+    final: bool
+    engineVersion: Token
+    areas: Annotated[list[ScoreAreaResult], Field(max_length=16)]
+    items: Annotated[list[ScoreItemResult], Field(max_length=32)]
+    windowOverall: Annotated[list[Score | None], Field(max_length=1500)]
+    newEvents: Annotated[list[ScoreEventRecord], Field(max_length=100)] = []
+
+
+class ScoreBatch(Contract):
+    tripId: Identifier
+    source: Source
+    scores: Annotated[list[ScoreSnapshot], Field(min_length=1, max_length=100)]
+
+
 class TripCreate(Contract):
     tripId: Identifier
     startedAt: Timestamp
@@ -241,6 +327,16 @@ class StoredEmotion(WireModel):
     receivedAt: Timestamp
 
 
+class StoredSample(WireModel):
+    value: TelemetrySample
+    receivedAt: Timestamp
+
+
+class StoredScore(WireModel):
+    value: ScoreSnapshot
+    receivedAt: Timestamp
+
+
 class StoredReport(WireModel):
     value: TripReport
     receivedAt: Timestamp
@@ -256,6 +352,8 @@ class TripView(WireModel):
     eventCount: int
     emotionCount: int
     reportAvailable: bool
+    sampleCount: int = 0
+    scoreCount: int = 0
 
 
 class Capabilities(WireModel):
@@ -315,4 +413,6 @@ CONTRACTS = (
     TripCreate,
     EventBatch,
     EmotionBatch,
+    SampleBatch,
+    ScoreBatch,
 )

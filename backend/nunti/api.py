@@ -24,9 +24,13 @@ from .models import (
     Page,
     Receipt,
     RouteSnapshot,
+    SampleBatch,
+    ScoreBatch,
     StoredEmotion,
     StoredEvent,
     StoredReport,
+    StoredSample,
+    StoredScore,
     TripCreate,
     TripReport,
     TripView,
@@ -136,7 +140,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         version="1.0-draft",
         lifespan=lifespan,
         description=(
-            "Mock-supported asynchronous storage. No scoring, emotion calculation or TTS playback."
+            "Mock-supported asynchronous storage. The server stores what the app computes; "
+            "it does not score, calculate emotion or play TTS."
         ),
         responses={
             code: {"model": ErrorEnvelope} for code in (401, 403, 404, 409, 413, 415, 422, 503)
@@ -276,6 +281,58 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         limit: Annotated[int, Query(ge=1, le=100)] = 100,
     ):
         return envelope(request, store.timeline(principal, trip_id, "emotion", offset, limit))
+
+    @router.post("/trips/{trip_id}/samples", response_model=Envelope[list[Receipt]])
+    def post_samples(trip_id: Identifier, value: SampleBatch, request: Request, principal: Owner):
+        if value.tripId != trip_id:
+            raise APIError(409, "trip_id_mismatch", "Payload tripId must match the URL")
+        return envelope(
+            request,
+            store.append_telemetry(
+                principal,
+                trip_id,
+                "sample",
+                "sampleId",
+                "occurredAt",
+                [sample.model_dump() for sample in value.samples],
+            ),
+        )
+
+    @router.post("/trips/{trip_id}/scores", response_model=Envelope[list[Receipt]])
+    def post_scores(trip_id: Identifier, value: ScoreBatch, request: Request, principal: Owner):
+        if value.tripId != trip_id:
+            raise APIError(409, "trip_id_mismatch", "Payload tripId must match the URL")
+        return envelope(
+            request,
+            store.append_telemetry(
+                principal,
+                trip_id,
+                "score",
+                "scoreId",
+                "computedAt",
+                [score.model_dump() for score in value.scores],
+            ),
+        )
+
+    @router.get("/trips/{trip_id}/samples", response_model=Envelope[Page[StoredSample]])
+    def get_samples(
+        trip_id: Identifier,
+        request: Request,
+        principal: Owner,
+        offset: Annotated[int, Query(ge=0)] = 0,
+        limit: Annotated[int, Query(ge=1, le=100)] = 100,
+    ):
+        return envelope(request, store.timeline(principal, trip_id, "sample", offset, limit))
+
+    @router.get("/trips/{trip_id}/scores", response_model=Envelope[Page[StoredScore]])
+    def get_scores(
+        trip_id: Identifier,
+        request: Request,
+        principal: Owner,
+        offset: Annotated[int, Query(ge=0)] = 0,
+        limit: Annotated[int, Query(ge=1, le=100)] = 100,
+    ):
+        return envelope(request, store.timeline(principal, trip_id, "score", offset, limit))
 
     @router.put("/trips/{trip_id}/report", response_model=Envelope[Receipt])
     def put_report(trip_id: Identifier, value: TripReport, request: Request, principal: Owner):

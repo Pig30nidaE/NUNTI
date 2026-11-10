@@ -1,0 +1,387 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:SampleBatch",
+  "$defs": {
+    "SeatSample": {
+      "additionalProperties": false,
+      "description": "null means the signal was not received. It is neither \"empty\" nor \"unbuckled\".",
+      "properties": {
+        "occupied": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Occupied"
+        },
+        "buckled": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Buckled"
+        }
+      },
+      "title": "SeatSample",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "MOCK",
+            "ANDROID_ADAPTER",
+            "EXTERNAL_MODULE",
+            "USER_INPUT"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "provider": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Provider",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        }
+      },
+      "required": [
+        "kind",
+        "provider"
+      ],
+      "title": "Source",
+      "type": "object"
+    },
+    "TelemetrySample": {
+      "additionalProperties": false,
+      "description": "One vehicle sample as the Android app read it (about once per second).\n\nEvery signal is nullable: null = not received, which is different from a normal or zero value.\ntMs is the app's session clock (what its score engine used); occurredAt is the wall clock.",
+      "properties": {
+        "sampleId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Sampleid",
+          "type": "string"
+        },
+        "tMs": {
+          "maximum": 31536000000,
+          "minimum": 0,
+          "title": "Tms",
+          "type": "integer"
+        },
+        "occurredAt": {
+          "format": "date-time",
+          "maxLength": 40,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+          "title": "Occurredat",
+          "type": "string"
+        },
+        "speedKmh": {
+          "anyOf": [
+            {
+              "maximum": 400,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Speedkmh"
+        },
+        "brakePressed": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Brakepressed"
+        },
+        "gear": {
+          "anyOf": [
+            {
+              "enum": [
+                "P",
+                "R",
+                "N",
+                "D"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gear"
+        },
+        "turnSignal": {
+          "anyOf": [
+            {
+              "enum": [
+                "NONE",
+                "LEFT",
+                "RIGHT"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Turnsignal"
+        },
+        "driverSeat": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SeatSample"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "passengerSeat": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SeatSample"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "doorOpen": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dooropen"
+        },
+        "headlightOn": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Headlighton"
+        },
+        "isNight": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Isnight"
+        },
+        "leadDistanceM": {
+          "anyOf": [
+            {
+              "maximum": 1000,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Leaddistancem"
+        },
+        "speedLimitKmh": {
+          "anyOf": [
+            {
+              "maximum": 300,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Speedlimitkmh"
+        },
+        "roadType": {
+          "default": "GENERAL",
+          "enum": [
+            "HIGHWAY",
+            "GENERAL"
+          ],
+          "title": "Roadtype",
+          "type": "string"
+        }
+      },
+      "required": [
+        "sampleId",
+        "tMs",
+        "occurredAt"
+      ],
+      "title": "TelemetrySample",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "tripId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Tripid",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "samples": {
+      "items": {
+        "$ref": "#/$defs/TelemetrySample"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Samples",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "tripId",
+    "source",
+    "samples"
+  ],
+  "title": "SampleBatch",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "tripId": "trip-mock",
+      "source": {
+        "kind": "ANDROID_ADAPTER",
+        "provider": "nunti-score",
+        "version": "1"
+      },
+      "samples": [
+        {
+          "sampleId": "s-000000",
+          "tMs": 0,
+          "occurredAt": "2026-11-01T03:05:00Z",
+          "speedKmh": 55.0,
+          "brakePressed": false,
+          "gear": "D",
+          "turnSignal": "NONE",
+          "driverSeat": {
+            "occupied": true,
+            "buckled": true
+          },
+          "passengerSeat": {
+            "occupied": null,
+            "buckled": null
+          },
+          "doorOpen": false,
+          "headlightOn": true,
+          "isNight": false,
+          "leadDistanceM": null,
+          "speedLimitKmh": 60,
+          "roadType": "GENERAL"
+        },
+        {
+          "sampleId": "s-000001",
+          "tMs": 1000,
+          "occurredAt": "2026-11-01T03:05:01Z",
+          "speedKmh": 58.5,
+          "brakePressed": false,
+          "gear": "D",
+          "turnSignal": "NONE",
+          "driverSeat": {
+            "occupied": true,
+            "buckled": true
+          },
+          "passengerSeat": {
+            "occupied": null,
+            "buckled": null
+          },
+          "doorOpen": false,
+          "headlightOn": true,
+          "isNight": false,
+          "leadDistanceM": null,
+          "speedLimitKmh": 60,
+          "roadType": "GENERAL"
+        },
+        {
+          "sampleId": "s-000002",
+          "tMs": 2000,
+          "occurredAt": "2026-11-01T03:05:02Z",
+          "speedKmh": null,
+          "brakePressed": null,
+          "gear": "D",
+          "turnSignal": "NONE",
+          "driverSeat": {
+            "occupied": true,
+            "buckled": true
+          },
+          "passengerSeat": {
+            "occupied": null,
+            "buckled": null
+          },
+          "doorOpen": false,
+          "headlightOn": true,
+          "isNight": false,
+          "leadDistanceM": null,
+          "speedLimitKmh": 60,
+          "roadType": "GENERAL"
+        }
+      ]
+    }
+  ]
+}

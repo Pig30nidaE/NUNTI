@@ -150,9 +150,11 @@ class Store:
     def wrapped(row):
         return {"value": json.loads(row["body"]), "receivedAt": row["received_at"]} if row else None
 
-    def insert(self, db, owner, trip_id, kind, record_id, value, revision=None):
+    def insert(
+        self, db, owner, trip_id, kind, record_id, value, revision=None, time_field="occurredAt"
+    ):
         stamp = now()
-        occurred = value.get("occurredAt")
+        occurred = value.get(time_field)
         sort_time = instant(occurred).astimezone(UTC).isoformat() if occurred else None
         db.execute(
             "INSERT INTO records VALUES (?,?,?,?,?,?,?,?)",
@@ -227,6 +229,24 @@ class Store:
                 receipts.append(self.insert(db, owner, trip_id, kind, record_id, value))
         return receipts
 
+    def append_telemetry(self, owner, trip_id, kind, id_field, time_field, values):
+        """Store app-computed telemetry (samples or score snapshots). Idempotent per record id:
+        the same id with the same content is a duplicate; different content is a conflict."""
+        receipts = []
+        with self.transaction() as db:
+            self.trip(db, owner, trip_id)
+            for value in values:
+                record_id = value[id_field]
+                old = self.record(db, owner, trip_id, kind, record_id)
+                if old:
+                    self.same(old, value)
+                    receipts.append(self.receipt(record_id, old["received_at"], True))
+                    continue
+                receipts.append(
+                    self.insert(db, owner, trip_id, kind, record_id, value, time_field=time_field)
+                )
+        return receipts
+
     def get_trip(self, owner, trip_id):
         with self.connection() as db:
             db.execute("BEGIN")  # A consistent snapshot across all summary queries.
@@ -250,6 +270,8 @@ class Store:
                 "eventCount": counts.get("event", 0),
                 "emotionCount": counts.get("emotion", 0),
                 "reportAvailable": "report" in counts,
+                "sampleCount": counts.get("sample", 0),
+                "scoreCount": counts.get("score", 0),
             }
 
     def timeline(self, owner, trip_id, kind, offset, limit):

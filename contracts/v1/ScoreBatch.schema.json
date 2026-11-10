@@ -1,0 +1,375 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:nunti:contracts:v1:ScoreBatch",
+  "$defs": {
+    "ScoreAreaResult": {
+      "additionalProperties": false,
+      "properties": {
+        "area": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Area",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "points": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Points"
+        }
+      },
+      "required": [
+        "area",
+        "score",
+        "points"
+      ],
+      "title": "ScoreAreaResult",
+      "type": "object"
+    },
+    "ScoreEventRecord": {
+      "additionalProperties": false,
+      "properties": {
+        "tMs": {
+          "maximum": 31536000000,
+          "minimum": 0,
+          "title": "Tms",
+          "type": "integer"
+        },
+        "kind": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Kind",
+          "type": "string"
+        }
+      },
+      "required": [
+        "tMs",
+        "kind"
+      ],
+      "title": "ScoreEventRecord",
+      "type": "object"
+    },
+    "ScoreItemResult": {
+      "additionalProperties": false,
+      "properties": {
+        "item": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Item",
+          "type": "string"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Score"
+        },
+        "basis": {
+          "maxLength": 64,
+          "title": "Basis",
+          "type": "string"
+        }
+      },
+      "required": [
+        "item",
+        "score",
+        "basis"
+      ],
+      "title": "ScoreItemResult",
+      "type": "object"
+    },
+    "ScoreSnapshot": {
+      "additionalProperties": false,
+      "description": "One result of the app's score engine. The app computes; the server only stores it.\n\nscore/points are null when the area or item could not be evaluated (not enough signals).\nnewEvents holds only the events found since the previous snapshot, so snapshots do not grow.\nengineVersion names the rule set that produced the numbers; thresholds are still drafts.",
+      "properties": {
+        "scoreId": {
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Scoreid",
+          "type": "string"
+        },
+        "computedAt": {
+          "format": "date-time",
+          "maxLength": 40,
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d{1,6})?(Z|[+-]\\d{2}:\\d{2})$",
+          "title": "Computedat",
+          "type": "string"
+        },
+        "tMs": {
+          "maximum": 31536000000,
+          "minimum": 0,
+          "title": "Tms",
+          "type": "integer"
+        },
+        "sampleCount": {
+          "maximum": 100000000,
+          "minimum": 0,
+          "title": "Samplecount",
+          "type": "integer"
+        },
+        "total": {
+          "anyOf": [
+            {
+              "maximum": 100,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Total"
+        },
+        "coverage": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Coverage",
+          "type": "number"
+        },
+        "final": {
+          "title": "Final",
+          "type": "boolean"
+        },
+        "engineVersion": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Engineversion",
+          "type": "string"
+        },
+        "areas": {
+          "items": {
+            "$ref": "#/$defs/ScoreAreaResult"
+          },
+          "maxItems": 16,
+          "title": "Areas",
+          "type": "array"
+        },
+        "items": {
+          "items": {
+            "$ref": "#/$defs/ScoreItemResult"
+          },
+          "maxItems": 32,
+          "title": "Items",
+          "type": "array"
+        },
+        "windowOverall": {
+          "items": {
+            "anyOf": [
+              {
+                "maximum": 100,
+                "minimum": 0,
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "maxItems": 1500,
+          "title": "Windowoverall",
+          "type": "array"
+        },
+        "newEvents": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ScoreEventRecord"
+          },
+          "maxItems": 100,
+          "title": "Newevents",
+          "type": "array"
+        }
+      },
+      "required": [
+        "scoreId",
+        "computedAt",
+        "tMs",
+        "sampleCount",
+        "total",
+        "coverage",
+        "final",
+        "engineVersion",
+        "areas",
+        "items",
+        "windowOverall"
+      ],
+      "title": "ScoreSnapshot",
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "MOCK",
+            "ANDROID_ADAPTER",
+            "EXTERNAL_MODULE",
+            "USER_INPUT"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "provider": {
+          "maxLength": 64,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+          "title": "Provider",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "maxLength": 64,
+              "minLength": 1,
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Version"
+        }
+      },
+      "required": [
+        "kind",
+        "provider"
+      ],
+      "title": "Source",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "tripId": {
+      "maxLength": 128,
+      "minLength": 1,
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9_.:-]*$",
+      "title": "Tripid",
+      "type": "string"
+    },
+    "source": {
+      "$ref": "#/$defs/Source"
+    },
+    "scores": {
+      "items": {
+        "$ref": "#/$defs/ScoreSnapshot"
+      },
+      "maxItems": 100,
+      "minItems": 1,
+      "title": "Scores",
+      "type": "array"
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "tripId",
+    "source",
+    "scores"
+  ],
+  "title": "ScoreBatch",
+  "type": "object",
+  "examples": [
+    {
+      "schemaVersion": "1.0",
+      "tripId": "trip-mock",
+      "source": {
+        "kind": "ANDROID_ADAPTER",
+        "provider": "nunti-score",
+        "version": "1"
+      },
+      "scores": [
+        {
+          "scoreId": "score-000001",
+          "computedAt": "2026-11-01T03:05:03Z",
+          "tMs": 3000,
+          "sampleCount": 4,
+          "total": 96.5,
+          "coverage": 0.9,
+          "final": false,
+          "engineVersion": "score-engine-1",
+          "areas": [
+            {
+              "area": "CONTROL",
+              "score": 100.0,
+              "points": 35.0
+            },
+            {
+              "area": "SURROUND",
+              "score": 100.0,
+              "points": 35.0
+            },
+            {
+              "area": "SAFETY",
+              "score": 100.0,
+              "points": 20.0
+            },
+            {
+              "area": "EFFICIENCY",
+              "score": null,
+              "points": null
+            }
+          ],
+          "items": [
+            {
+              "item": "ACCEL_DECEL",
+              "score": 100.0,
+              "basis": "유효 4초"
+            },
+            {
+              "item": "EFFICIENCY",
+              "score": null,
+              "basis": "수신 없음"
+            }
+          ],
+          "windowOverall": [
+            100.0
+          ],
+          "newEvents": [
+            {
+              "tMs": 2000,
+              "kind": "HARD_BRAKE"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

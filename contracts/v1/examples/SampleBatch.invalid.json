@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0",
+  "tripId": "trip-mock",
+  "source": {
+    "kind": "ANDROID_ADAPTER",
+    "provider": "nunti-score",
+    "version": "1"
+  },
+  "samples": [
+    {
+      "sampleId": "s-000000",
+      "tMs": 0,
+      "occurredAt": "2026-11-01T03:05:00Z",
+      "speedKmh": -5,
+      "brakePressed": false,
+      "gear": "D",
+      "turnSignal": "NONE",
+      "driverSeat": {
+        "occupied": true,
+        "buckled": true
+      },
+      "passengerSeat": {
+        "occupied": null,
+        "buckled": null
+      },
+      "doorOpen": false,
+      "headlightOn": true,
+      "isNight": false,
+      "leadDistanceM": null,
+      "speedLimitKmh": 60,
+      "roadType": "GENERAL"
+    },
+    {
+      "sampleId": "s-000001",
+      "tMs": 1000,
+      "occurredAt": "2026-11-01T03:05:01Z",
+      "speedKmh": 58.5,
+      "brakePressed": false,
+      "gear": "D",
+      "turnSignal": "NONE",
+      "driverSeat": {
+        "occupied": true,
+        "buckled": true
+      },
+      "passengerSeat": {
+        "occupied": null,
+        "buckled": null
+      },
+      "doorOpen": false,
+      "headlightOn": true,
+      "isNight": false,
+      "leadDistanceM": null,
+      "speedLimitKmh": 60,
+      "roadType": "GENERAL"
+    },
+    {
+      "sampleId": "s-000002",
+      "tMs": 2000,
+      "occurredAt": "2026-11-01T03:05:02Z",
+      "speedKmh": null,
+      "brakePressed": null,
+      "gear": "D",
+      "turnSignal": "NONE",
+      "driverSeat": {
+        "occupied": true,
+        "buckled": true
+      },
+      "passengerSeat": {
+        "occupied": null,
+        "buckled": null
+      },
+      "doorOpen": false,
+      "headlightOn": true,
+      "isNight": false,
+      "leadDistanceM": null,
+      "speedLimitKmh": 60,
+      "roadType": "GENERAL"
+    }
+  ]
+}
