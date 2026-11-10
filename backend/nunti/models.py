@@ -227,6 +227,9 @@ class TelemetrySample(WireModel):
     leadDistanceM: Annotated[float, Field(ge=0, le=1000, allow_inf_nan=False)] | None = None
     speedLimitKmh: Annotated[int, Field(ge=0, le=300)] | None = None
     roadType: Literal["HIGHWAY", "GENERAL"] = "GENERAL"
+    # Optional in requests: the server fills it from the batch so demo (MOCK) data stays
+    # distinguishable from real vehicle data after storage.
+    source: Source | None = None
 
 
 class SampleBatch(Contract):
@@ -272,6 +275,7 @@ class ScoreSnapshot(WireModel):
     items: Annotated[list[ScoreItemResult], Field(max_length=32)]
     windowOverall: Annotated[list[Score | None], Field(max_length=1500)]
     newEvents: Annotated[list[ScoreEventRecord], Field(max_length=100)] = []
+    source: Source | None = None  # filled from the batch when omitted
 
 
 class ScoreBatch(Contract):

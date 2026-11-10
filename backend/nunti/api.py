@@ -282,6 +282,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     ):
         return envelope(request, store.timeline(principal, trip_id, "emotion", offset, limit))
 
+    def with_source(item, batch_source):
+        """Keep the batch's source on every stored record (an item's own source wins)."""
+        record = item.model_dump()
+        record["source"] = (item.source or batch_source).model_dump()
+        return record
+
     @router.post("/trips/{trip_id}/samples", response_model=Envelope[list[Receipt]])
     def post_samples(trip_id: Identifier, value: SampleBatch, request: Request, principal: Owner):
         if value.tripId != trip_id:
@@ -294,7 +300,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 "sample",
                 "sampleId",
                 "occurredAt",
-                [sample.model_dump() for sample in value.samples],
+                [with_source(sample, value.source) for sample in value.samples],
             ),
         )
 
@@ -310,7 +316,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 "score",
                 "scoreId",
                 "computedAt",
-                [score.model_dump() for score in value.scores],
+                [with_source(score, value.source) for score in value.scores],
             ),
         )
 

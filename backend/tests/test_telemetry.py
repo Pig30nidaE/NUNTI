@@ -45,6 +45,26 @@ def test_scores_round_trip_without_changing_values(client, trip, scores):
     assert client.get(trip).json()["data"]["scoreCount"] == 1
 
 
+def test_source_is_kept_so_demo_data_stays_distinguishable(client, trip, samples, scores):
+    samples["source"] = {"kind": "MOCK", "provider": "nunti-demo", "version": "1"}
+    client.post(trip + "/samples", json=samples)
+    client.post(trip + "/scores", json=scores)
+    sample = client.get(trip + "/samples").json()["data"]["items"][0]["value"]
+    score = client.get(trip + "/scores").json()["data"]["items"][0]["value"]
+    assert sample["source"]["kind"] == "MOCK"
+    assert score["source"] == scores["source"]
+    # An item's own source wins over the batch's.
+    own = copy.deepcopy(samples)
+    own["samples"][0]["sampleId"] = "own-source"
+    own["samples"][0]["source"] = {"kind": "ANDROID_ADAPTER", "provider": "x", "version": "1"}
+    client.post(trip + "/samples", json=own)
+    stored = {
+        i["value"]["sampleId"]: i["value"]
+        for i in client.get(trip + "/samples").json()["data"]["items"]
+    }
+    assert stored["own-source"]["source"]["kind"] == "ANDROID_ADAPTER"
+
+
 @pytest.mark.parametrize("path,fixture", [("/samples", "samples"), ("/scores", "scores")])
 def test_resending_the_same_batch_is_a_duplicate(client, trip, request, path, fixture):
     batch = request.getfixturevalue(fixture)
