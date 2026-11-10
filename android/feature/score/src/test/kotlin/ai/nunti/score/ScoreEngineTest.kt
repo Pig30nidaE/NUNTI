@@ -111,14 +111,14 @@ class ScoreEngineTest {
     }
 
     @Test
-    fun reverseEngagedIsDetectedOncePerEntryAndScoredEvenWhenShort() {
-        // D 10초 → R 5초(느림) → D 5초 → R 4초(빠름)
+    fun reverseTooFastIsDetectedOncePerCrossingAndScoredEvenWhenShort() {
+        // D 10초 → R 5초(느림) → D 5초 → R 4초(빠름). 느린 후진은 사건이 아니고, 빠른 후진은 넘은 순간 한 번만 남는다.
         val g = { t: Int -> if (t in 10..14 || t in 20..23) Gear.R else Gear.D }
         val v = { t: Int -> if (t in 20..23) 15f else if (g(t) == Gear.R) 4f else 30f }
         val r = engine.evaluate(gearSamples(0..30, g, v), emptyList())
         assertEquals(
-            listOf(10_000L to DetectedEvent.Kind.REVERSE_ENGAGED, 20_000L to DetectedEvent.Kind.REVERSE_ENGAGED),
-            r.events.filter { it.kind == DetectedEvent.Kind.REVERSE_ENGAGED }.map { it.tMs to it.kind },
+            listOf(20_000L to DetectedEvent.Kind.REVERSE_TOO_FAST),
+            r.events.filter { it.kind == DetectedEvent.Kind.REVERSE_TOO_FAST }.map { it.tMs to it.kind },
         )
         val rev = item(r, Item.REVERSE_SPEED)
         assertEquals(Basis(BasisKind.REVERSE_SECONDS, 9), rev.basis)
@@ -132,7 +132,7 @@ class ScoreEngineTest {
         val r = engine.evaluate(gearSamples(0..30, { Gear.R }, { -12f }, lead = 1f, limit = 5), emptyList())
         assertNull(item(r, Item.LEAD_GAP).score)
         assertNull(item(r, Item.SPEED_LIMIT).score)
-        assertTrue(r.events.none { it.kind != DetectedEvent.Kind.REVERSE_ENGAGED }) // 음수 속도가 급감속으로 오인되지 않는다
+        assertTrue(r.events.none { it.kind != DetectedEvent.Kind.REVERSE_TOO_FAST }) // 음수 속도가 급감속으로 오인되지 않는다 (12km/h 후진 자체는 과속)
     }
 
     @Test
@@ -140,7 +140,7 @@ class ScoreEngineTest {
         val r = Scenarios.parking.let { engine.evaluate(it.samples, it.events) }
         assertTrue(r.gears.first { it.gear == Gear.R }.seconds > 0)
         assertTrue(r.gears.first { it.gear == Gear.P }.seconds > 0)
-        assertEquals(2, r.events.count { it.kind == DetectedEvent.Kind.REVERSE_ENGAGED })
+        assertEquals(1, r.events.count { it.kind == DetectedEvent.Kind.REVERSE_TOO_FAST }) // 한 번 8km/h 를 넘긴다
         assertNotNull(item(r, Item.REVERSE_SPEED).score)
     }
 

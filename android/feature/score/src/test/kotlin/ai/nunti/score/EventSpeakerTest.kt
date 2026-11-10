@@ -66,7 +66,7 @@ class EventSpeakerTest {
     @Test fun everyKindHasDistinctLinesWithinLimit() {
         // 새 종류를 추가하면 대사 표에도 넣어야 한다 (넣지 않으면 getValue 가 실패해 이 시험이 잡는다).
         DetectedEvent.Kind.entries.forEach { kind -> assertTrue(EventSpeaker.lines.getValue(kind).isNotEmpty()) }
-        val all = EventSpeaker.lines.values.flatten()
+        val all = EventSpeaker.lines.values.distinct().flatten() // 같은 목록을 공유하는 종류(후진 과속 = 급가속)는 한 번만 센다
         assertEquals(all.size, all.toSet().size)
         DetectedEvent.Kind.entries.forEach { kind ->
             (0..3).forEach { v -> val t = EventSpeaker.eventLine(kind, v); assertTrue(t.codePointCount(0, t.length) <= 80) }

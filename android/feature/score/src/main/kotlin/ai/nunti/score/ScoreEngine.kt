@@ -32,7 +32,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         accumulateStates(samples, ::win, acc)
         accumulateAccelDecel(samples, ::win, acc, detected)
         accumulateCurves(samples, ::win, acc, detected)
-        detectReverseEngaged(samples, detected)
+        detectReverseTooFast(samples, detected)
         val gears = gearUsage(samples)
         val speedSeconds = samples.indices.sumOf { if (samples[it].speedKmh != null) duration(samples, it) else 0.0 }.toInt()
         val movingSeconds = samples.indices.sumOf { if (moving(samples[it])) duration(samples, it) else 0.0 }.toInt()
@@ -188,12 +188,14 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         return Gear.entries.map { GearUsage(it, (seconds[it] ?: 0.0).toInt()) }
     }
 
-    /** 직전 표본이 후진이 아니었다가 후진이 된 순간을 사건으로 남긴다 (첫 표본이 R 이어도 포함). */
-    private fun detectReverseEngaged(samples: List<VehicleSample>, detected: MutableList<DetectedEvent>) {
+    /**
+     * 후진 속도가 [ScoreConfig.reverseOkKmh] 를 넘어선 순간을 사건으로 남긴다 (첫 표본부터 빨라도 포함).
+     * 넘은 채로 이어지는 동안은 한 번만 남기고, 다시 느려지거나 후진을 벗어난 뒤 또 넘으면 새 사건이다.
+     */
+    private fun detectReverseTooFast(samples: List<VehicleSample>, detected: MutableList<DetectedEvent>) {
+        fun fast(s: VehicleSample) = s.gear == Gear.R && abs(s.speedKmh ?: 0f) > cfg.reverseOkKmh
         samples.forEachIndexed { i, s ->
-            if (s.gear == Gear.R && (i == 0 || samples[i - 1].gear != Gear.R)) {
-                detected += DetectedEvent(s.tMs, DetectedEvent.Kind.REVERSE_ENGAGED)
-            }
+            if (fast(s) && (i == 0 || !fast(samples[i - 1]))) detected += DetectedEvent(s.tMs, DetectedEvent.Kind.REVERSE_TOO_FAST)
         }
     }
 

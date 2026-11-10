@@ -40,32 +40,30 @@ class EventSpeaker(
     fun reset() { seen.clear(); primed = false; lastEmotion = Emotion.NEUTRAL; lastSpokenAt = Long.MIN_VALUE; spokenByKind.clear() }
 
     companion object {
+        private val brakeLines = listOf(
+            "꺅! 깜짝이야!",
+            "악! 놀랐잖아요!",
+            "헉! 심장 떨어지는 줄 알았어요!",
+        )
+        private val accelLines = listOf(
+            "우왓! 몸이 확 쏠렸어요!",
+            "으악, 출발이 엄청 빨랐어요!",
+        )
+
         /**
          * 사건 종류별 대사. 가르치는 말투가 아니라 옆자리 동승자가 반사적으로 내는 반응이다.
          * 같은 종류가 이어지면 순서대로 번갈아 쓴다. 각 대사는 80자 이하여야 한다.
          */
         val lines: Map<DetectedEvent.Kind, List<String>> = mapOf(
-            DetectedEvent.Kind.HARD_BRAKE to listOf(
-                "꺅! 깜짝이야!",
-                "악! 놀랐잖아요!",
-                "헉! 심장 떨어지는 줄 알았어요!",
-            ),
-            DetectedEvent.Kind.HARD_ACCEL to listOf(
-                "우왓! 몸이 확 쏠렸어요!",
-                "으악, 출발이 엄청 빨랐어요!",
-            ),
-            DetectedEvent.Kind.HARD_DECEL to listOf(
-                "어어어? 갑자기 확 줄었어요!",
-                "앗! 몸이 앞으로 쏠렸어요!",
-            ),
+            DetectedEvent.Kind.HARD_BRAKE to brakeLines,
+            // 급감속은 기준이 급제동과 같고 브레이크 신호만 없다 (회생제동이거나 신호를 못 받음). 몸으로는 똑같이 앞으로 쏠린다.
+            DetectedEvent.Kind.HARD_DECEL to brakeLines,
+            DetectedEvent.Kind.HARD_ACCEL to accelLines,
             DetectedEvent.Kind.CURVE_TOO_FAST to listOf(
                 "꺄악! 커브에서 몸이 확 쏠렸어요!",
                 "으아, 커브 너무 빨라요!",
             ),
-            DetectedEvent.Kind.REVERSE_ENGAGED to listOf(
-                "후진이에요? 뒤는 제가 같이 볼게요!",
-                "뒤로 가요~ 천천히 가요!",
-            ),
+            DetectedEvent.Kind.REVERSE_TOO_FAST to accelLines, // 후진 과속도 몸으로는 급가속처럼 느껴진다
         )
 
         /** [variant] 를 종류별 대사 수로 나눈 나머지를 쓴다 (결정적 순환). */

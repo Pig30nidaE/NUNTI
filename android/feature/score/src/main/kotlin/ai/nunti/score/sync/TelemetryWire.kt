@@ -136,11 +136,10 @@ object TelemetryWire {
             }
         }).toString()
 
-    /** 사건 종류별 심각도. 후진 기어는 감점이 아닌 안내라 INFO 다. */
+    /** 사건 종류별 심각도. */
     fun severity(kind: DetectedEvent.Kind) = when (kind) {
         DetectedEvent.Kind.HARD_BRAKE, DetectedEvent.Kind.CURVE_TOO_FAST -> "HIGH"
-        DetectedEvent.Kind.HARD_ACCEL, DetectedEvent.Kind.HARD_DECEL -> "MEDIUM"
-        DetectedEvent.Kind.REVERSE_ENGAGED -> "INFO"
+        DetectedEvent.Kind.HARD_ACCEL, DetectedEvent.Kind.HARD_DECEL, DetectedEvent.Kind.REVERSE_TOO_FAST -> "MEDIUM"
     }
 
     fun tripReport(tripId: String, r: TripReportRecord): String {

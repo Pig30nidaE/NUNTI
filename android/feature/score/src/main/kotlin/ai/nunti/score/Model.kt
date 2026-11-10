@@ -115,8 +115,8 @@ data class DetectedEvent(val tMs: Long, val kind: Kind) {
         HARD_ACCEL("급가속"),
         HARD_DECEL("급감속"),
         HARD_BRAKE("급제동"),
-        /** 기어를 후진(R)에 넣은 순간. 감점 사건이 아니라 "지금 후진 중" 을 알리는 안내다. */
-        REVERSE_ENGAGED("후진 기어"),
+        /** 후진 중 속도가 [ScoreConfig.reverseOkKmh] 를 넘은 순간. 후진 속도 항목이 감점되기 시작하는 지점이다. */
+        REVERSE_TOO_FAST("후진 과속"),
         /** 커브에서 속도를 줄이지 못해 횡가속도가 한도를 크게 넘은 순간. */
         CURVE_TOO_FAST("커브 과속"),
     }
