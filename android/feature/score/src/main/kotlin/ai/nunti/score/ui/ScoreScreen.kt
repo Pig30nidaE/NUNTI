@@ -48,7 +48,12 @@ import java.io.File
 import ai.nunti.score.VehicleSample
 import ai.nunti.score.AreaResult
 import ai.nunti.score.Emotion
+import ai.nunti.score.ClosingMessage
+import ai.nunti.score.Readiness
+import ai.nunti.score.TripLifecycle
+import ai.nunti.score.TripStatus
 import ai.nunti.score.ItemResult
+import android.util.Log
 import ai.nunti.score.ScoreEngine
 import ai.nunti.score.ScoreReport
 import ai.nunti.score.Scenarios
@@ -79,21 +84,27 @@ fun ScoreScreen() {
     var scenarioIdx by remember { mutableIntStateOf(0) }
     var cursor by remember { mutableIntStateOf(0) }
     var playing by remember { mutableStateOf(true) }
+    var showSignals by remember { mutableStateOf(false) }
+    var liveEndRequested by remember { mutableStateOf(false) } // 사용자가 주행 종료를 눌렀다 (확정 가능 여부는 별도)
+    var liveStopped by remember { mutableStateOf(false) } // 확정되어 표본 수집을 멈췄다
     val scenario = Scenarios.all[scenarioIdx]
     val last = scenario.samples.lastIndex
 
     val source = remember { PleosSignalSource(context.applicationContext) }
     val liveSamples = remember { mutableStateListOf<VehicleSample>() }
-    var received by remember { mutableStateOf(emptyList<Pair<String, String>>()) }
+    var received by remember { mutableStateOf(emptyList<ai.nunti.score.live.SignalReading>()) }
     var liveEvents by remember { mutableStateOf(emptyList<ai.nunti.score.DrivingEvent>()) }
 
     DisposableEffect(live) {
-        if (live) { liveSamples.clear(); source.start() }
+        if (live) { liveSamples.clear(); liveEndRequested = false; liveStopped = false; source.start() }
         onDispose { if (live) source.stop() }
     }
+    var liveSpeed by remember { mutableStateOf<Float?>(null) } // 확정 뒤에도 계속 읽는다 (정차 확인용)
     LaunchedEffect(live) {
         while (live) {
-            liveSamples.add(source.snapshot())
+            val snap = source.snapshot()
+            liveSpeed = snap.speedKmh
+            if (!liveStopped) liveSamples.add(snap) // 확정되면 점수 표본은 거기서 고정한다
             received = source.received()
             liveEvents = source.events()
             delay(1000)
@@ -108,10 +119,16 @@ fun ScoreScreen() {
 
     val shown = if (live) liveSamples.toList().ifEmpty { listOf(VehicleSample(0)) } else scenario.samples.take(cursor + 1)
     val events = if (live) liveEvents else scenario.events.filter { it.tMs <= shown.last().tMs }
-    val finished = !live && cursor >= last
     val report = remember(live, scenarioIdx, cursor, liveSamples.size) {
         engine.evaluate(shown, events)
     }
+    // 종료를 요청했는데 아직 확정할 수 없으면(정차·신호 부족) 일시저장하고, 충분해지면 이어서 확정한다.
+    val ended = if (live) liveEndRequested else cursor >= last
+    val status = if (!ended) TripStatus.DRIVING else TripLifecycle.onEndRequested(report)
+    val finished = status == TripStatus.FINISHED
+    val paused = status == TripStatus.PAUSED
+    val readiness = TripLifecycle.readiness(report)
+    LaunchedEffect(finished) { if (live) liveStopped = finished }
     val emotion = engine.emotion(report, finished)
 
     var voiceOn by remember { mutableStateOf(true) }
@@ -120,9 +137,41 @@ fun ScoreScreen() {
     val speaker = remember(sink) { EventSpeaker(sink) }
     DisposableEffect(sink) { onDispose { sink.close() } }
     LaunchedEffect(live, scenarioIdx) { speaker.reset() }
-    LaunchedEffect(report) {
-        val line = speaker.onUpdate(report, emotion, android.os.SystemClock.elapsedRealtime().takeIf { voiceOn } ?: return@LaunchedEffect)
-        if (line != null) lastLine = line
+    // 주행이 끝나면 마무리 멘트를 한 번 말한다 (쿨다운과 무관). 같은 분류가 이어지면 변형을 번갈아 쓴다.
+    var closingCount by remember { mutableIntStateOf(0) }
+    // 차가 멈춘 상태인가: 시연은 실제 주행이 아니므로 항상 true, 실시간은 마지막 속도가 거의 0일 때.
+    val stopped = !live || (liveSpeed ?: 0f) < 1f
+    var closingText by remember(live, scenarioIdx) { mutableStateOf<String?>(null) }
+    var closingSpoken by remember(live, scenarioIdx) { mutableStateOf(false) }
+    LaunchedEffect(finished, live, scenarioIdx) {
+        if (finished && shown.size >= 2 && closingText == null) {
+            closingText = ClosingMessage.compose(report, emotion, closingCount++).also { lastLine = it }
+        }
+    }
+    // 마무리 멘트는 확정되고 차가 멈춘 뒤에 "주행 후 보고"로 한 번만 말한다 (달리는 중에 확정되면 멈출 때까지 기다린다).
+    LaunchedEffect(closingText, stopped, voiceOn) {
+        val text = closingText ?: return@LaunchedEffect
+        if (closingSpoken || !stopped || !voiceOn) return@LaunchedEffect
+        closingSpoken = true
+        sink.speakTripReport(text, "nunti-closing-${System.currentTimeMillis()}", emotion)
+    }
+    // 일시저장 안내: 이유와 저장 사실을 한 번 말한다 (마무리 멘트는 하지 않는다). 같은 이유로는 다시 말하지 않는다.
+    var pauseSpokenFor by remember(live, scenarioIdx) { mutableStateOf<Readiness?>(null) }
+    LaunchedEffect(paused, readiness, stopped, voiceOn) {
+        if (!paused) { pauseSpokenFor = null; return@LaunchedEffect }
+        val text = TripLifecycle.pauseNotice(readiness) ?: return@LaunchedEffect
+        lastLine = text
+        if (pauseSpokenFor == readiness || !stopped || !voiceOn) return@LaunchedEffect
+        pauseSpokenFor = readiness
+        sink.speakTripReport(text, "nunti-pause-${System.currentTimeMillis()}", Emotion.NEUTRAL)
+    }
+    // 점수 확인용 로그: 항목별 점수·기어·상태를 한 줄로 남긴다 (adb logcat -s NuntiScore).
+    LaunchedEffect(report, status) {
+        Log.d("NuntiScore", "status=$status ready=$readiness total=${report.total?.let { "%.1f".format(it) }} cov=${"%.2f".format(report.coverage)} " +
+            "moving=${report.movingSeconds}s gear=${shown.lastOrNull { it.gear != null }?.gear} " +
+            "last=[v=${shown.last().speedKmh?.let { "%.1f".format(it) }} steer=${shown.last().steeringDeg?.let { "%.0f".format(it) }} brake=${shown.last().brakePressed} door=${shown.last().doorOpen}] " +
+            "items=" + report.items.joinToString(",") { "${it.item.name}=${it.score?.let { v -> "%.0f".format(v) } ?: "-"}" } +
+            " events=" + report.events.joinToString(",") { "${it.kind.name}@${it.tMs / 1000}" })
     }
 
     // 서버 저장: 사용자가 켠 경우에만(= 동의) 샘플과 점수를 서버로 보낸다. 서버 주소·토큰은 기기의 sync-config.json 에서 읽는다.
@@ -149,10 +198,12 @@ fun ScoreScreen() {
         if (sync != null && !(live && liveSamples.isEmpty())) sync.recorder.onUpdate(shown, report, finished)
     }
 
+    val currentGear = shown.lastOrNull { it.gear != null }?.gear
+
     Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Row(Modifier.fillMaxSize().padding(16.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Column(Modifier.width(260.dp).fillMaxHeight(), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                NuntiCard(emotion, report, finished)
+            Column(Modifier.width(260.dp).fillMaxHeight().verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                NuntiCard(emotion, report, status)
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     FilterChip(selected = !live, onClick = { live = false }, label = { Text("시연") })
                     FilterChip(selected = live, onClick = { live = true }, label = { Text("실시간") })
@@ -181,8 +232,10 @@ fun ScoreScreen() {
                 }) { Text("목소리 듣기", fontSize = 12.sp) }
                 lastLine?.let { Text("눈티: $it  [${lastResult ?: "대기"}]", fontSize = 12.sp) }
                 if (live) {
-                    Text("실시간 수신 현황 (1초 간격)", color = Muted, fontSize = 12.sp)
-                    received.forEach { (k, v) -> Text("$k: $v", fontSize = 12.sp, color = if (v == "미수신") Warn else Good) }
+                    // 신호별 수신 값은 진단용이라 접어 둔다 (점수 카드와 겹쳐 보이고 아래 버튼을 밀어내서).
+                    FilterChip(selected = showSignals, onClick = { showSignals = !showSignals },
+                        label = { Text("수신 신호 ${received.count { it.value != null }}/${received.size}", fontSize = 11.sp, maxLines = 1) })
+                    if (showSignals) received.forEach { Text("${it.label}: ${it.value ?: "미수신"}", fontSize = 12.sp, color = if (it.value == null) Warn else Good) }
                 } else Text("시연 데이터 (실제 Pleos 수신값 아님)", color = Muted, fontSize = 12.sp)
                 if (!live) Scenarios.all.forEachIndexed { i, sc ->
                     FilterChip(
@@ -198,14 +251,24 @@ fun ScoreScreen() {
                         Button(onClick = { cursor = last }) { Text("끝까지") }
                     }
                     Text("경과 ${cursor / 60}분 ${cursor % 60}초 / ${last / 60}분", color = Muted, fontSize = 12.sp)
-                } else Text("경과 ${liveSamples.size}초", color = Muted, fontSize = 12.sp)
+                } else {
+                    Text("경과 ${liveSamples.size}초", color = Muted, fontSize = 12.sp)
+                    Button(enabled = !liveEndRequested && liveSamples.size >= 2, onClick = { liveEndRequested = true }) {
+                        Text(if (paused) "일시저장 중" else "주행 종료")
+                    }
+                }
             }
             Column(Modifier.weight(1f).fillMaxHeight().verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(12.dp)) {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     report.areas.forEach { AreaCard(it, Modifier.weight(1f)) }
                 }
+                if (paused) PausedBanner(readiness)
                 WindowBars(report)
-                report.items.forEach { ItemRow(it) }
+                GearRow(report, currentGear)
+                // 후진 속도는 후진 기어(R)일 때만 보여 준다. 그 외에는 항목 자체를 숨긴다.
+                report.items
+                    .filter { it.item != ai.nunti.score.Item.REVERSE_SPEED || currentGear == ai.nunti.score.Gear.R }
+                    .forEach { ItemRow(it) }
                 EventLog(report)
             }
         }
@@ -213,7 +276,7 @@ fun ScoreScreen() {
 }
 
 @Composable
-private fun NuntiCard(emotion: Emotion, report: ScoreReport, finished: Boolean) {
+private fun NuntiCard(emotion: Emotion, report: ScoreReport, status: TripStatus) {
     Column(
         Modifier.fillMaxWidth().clip(RoundedCornerShape(16.dp)).background(MaterialTheme.colorScheme.surfaceVariant).padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -222,9 +285,15 @@ private fun NuntiCard(emotion: Emotion, report: ScoreReport, finished: Boolean) 
         Text("눈티 · ${emotion.label}", fontWeight = FontWeight.Bold)
         Text(emotion.line, fontSize = 13.sp)
         Spacer(Modifier.height(8.dp))
-        Text(fmt(report.total), fontSize = 40.sp, fontWeight = FontWeight.Bold, color = scoreColor(report.total))
+        if (status == TripStatus.PAUSED) {
+            Text("평가 대기", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = Muted) // 확정 전 점수를 숫자로 보여 주지 않는다
+        } else Text(fmt(report.total), fontSize = 40.sp, fontWeight = FontWeight.Bold, color = scoreColor(report.total))
         Text(
-            if (finished) "최종 주행 점수" else "현재까지 점수",
+            when (status) {
+                TripStatus.FINISHED -> "최종 주행 점수"
+                TripStatus.PAUSED -> "일시저장 · 아직 확정 아님"
+                TripStatus.DRIVING -> "현재까지 점수"
+            },
             fontSize = 12.sp, color = Muted,
         )
         Text("평가 범위 ${(report.coverage * 100).toInt()}%", fontSize = 12.sp, color = if (report.coverage < 1f) Warn else Muted)
@@ -260,6 +329,49 @@ private fun WindowBars(report: ScoreReport) {
     }
 }
 
+/** 일시저장 중임을 알리는 안내. 이유(정차/신호 부족)별로 문구가 다르다. */
+@Composable
+private fun PausedBanner(readiness: Readiness) {
+    Column(
+        Modifier.fillMaxWidth().clip(RoundedCornerShape(12.dp)).background(Warn.copy(alpha = 0.2f)).padding(12.dp),
+    ) {
+        Text("일시저장 중 — 아직 점수를 확정하지 않았어요", fontWeight = FontWeight.Bold, fontSize = 13.sp)
+        Text(
+            (readiness.notices.firstOrNull() ?: "") + " 신호가 충분히 들어오면 이어서 평가하고 마무리해요.",
+            fontSize = 12.sp, color = Muted,
+        )
+    }
+}
+
+/** 기어(P/R/N/D)별 시간과 현재 기어. 후진 기어에 들어간 동안은 R 칸을 강조한다. */
+@Composable
+private fun GearRow(report: ScoreReport, current: ai.nunti.score.Gear?) {
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        Text(
+            when {
+                report.gears.isEmpty() -> "기어별 시간 — 기어 신호 없음"
+                current == ai.nunti.score.Gear.R -> "기어별 시간 — 지금 후진 중"
+                else -> "기어별 시간 — 현재 ${current?.name ?: "-"}"
+            },
+            fontSize = 12.sp, color = if (current == ai.nunti.score.Gear.R) Warn else Muted,
+        )
+        if (report.gears.isNotEmpty()) Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            report.gears.forEach { g ->
+                val active = g.gear == current
+                Column(
+                    Modifier.weight(1f).clip(RoundedCornerShape(10.dp))
+                        .background(if (active) (if (g.gear == ai.nunti.score.Gear.R) Warn else Good).copy(alpha = 0.25f) else MaterialTheme.colorScheme.surfaceVariant)
+                        .padding(8.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Text(g.gear.name, fontWeight = FontWeight.Bold)
+                    Text(if (g.seconds >= 60) "${g.seconds / 60}분 ${g.seconds % 60}초" else "${g.seconds}초", fontSize = 11.sp, color = Muted)
+                }
+            }
+        }
+    }
+}
+
 @Composable
 private fun ItemRow(r: ItemResult) {
     Row(
@@ -269,7 +381,7 @@ private fun ItemRow(r: ItemResult) {
     ) {
         Column(Modifier.weight(1f)) {
             Text(r.item.label, fontWeight = FontWeight.Medium)
-            Text("${r.item.area.label} · ${r.basis}", fontSize = 11.sp, color = Muted)
+            Text("${r.item.area.label} · ${r.basis.text}", fontSize = 11.sp, color = Muted)
         }
         Text(fmt(r.score), fontWeight = FontWeight.Bold, color = scoreColor(r.score))
     }
