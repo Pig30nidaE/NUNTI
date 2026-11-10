@@ -74,7 +74,15 @@ data class ScoreConfig(
     val laneSignalLookbackMs: Long = 3_000,
 )
 
-data class DetectedEvent(val tMs: Long, val label: String)
+/** 점수 엔진이 찾아낸 순간 사건. 종류는 [kind] 로 구분하고, 화면에 보이는 한글 이름은 [label] 이다. */
+data class DetectedEvent(val tMs: Long, val kind: Kind) {
+    enum class Kind(val label: String) {
+        HARD_ACCEL("급가속"),
+        HARD_DECEL("급감속"),
+        HARD_BRAKE("급제동"),
+    }
+    val label: String get() = kind.label
+}
 
 data class ItemResult(
     val item: Item,

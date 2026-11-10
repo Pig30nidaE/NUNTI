@@ -18,7 +18,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         val score: Double? get() = if (weight > 0) weighted / weight else null
     }
 
-    private class Open(val windowIdx: Int, val startT: Long, var peak: Float, val label: String)
+    private class Open(val windowIdx: Int, val startT: Long, var peak: Float, val kind: DetectedEvent.Kind)
 
     fun evaluate(samples: List<VehicleSample>, events: List<DrivingEvent>): ScoreReport {
         if (samples.isEmpty()) return emptyReport()
@@ -158,7 +158,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
             o ?: return
             val severity = min(1f, o.peak / threshold - 1f)
             penalties[o.windowIdx] += 20.0 + 20.0 * severity
-            detected += DetectedEvent(o.startT, o.label)
+            detected += DetectedEvent(o.startT, o.kind)
         }
 
         for (i in 1 until samples.size) {
@@ -176,13 +176,13 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
             driving[win(prev.tMs)] += dtMs / 1000.0
 
             if (a >= accelThr(cur)) {
-                openAccel = (openAccel ?: Open(win(cur.tMs), cur.tMs, a, "급가속")).also { it.peak = max(it.peak, a) }
+                openAccel = (openAccel ?: Open(win(cur.tMs), cur.tMs, a, DetectedEvent.Kind.HARD_ACCEL)).also { it.peak = max(it.peak, a) }
             } else {
                 close(openAccel, accelThr(cur)); openAccel = null
             }
             if (-a >= decelThr(cur)) {
-                val label = if (cur.brakePressed == true) "급제동" else "급감속"
-                openDecel = (openDecel ?: Open(win(cur.tMs), cur.tMs, -a, label)).also { it.peak = max(it.peak, -a) }
+                val kind = if (cur.brakePressed == true) DetectedEvent.Kind.HARD_BRAKE else DetectedEvent.Kind.HARD_DECEL
+                openDecel = (openDecel ?: Open(win(cur.tMs), cur.tMs, -a, kind)).also { it.peak = max(it.peak, -a) }
             } else {
                 close(openDecel, decelThr(cur)); openDecel = null
             }
