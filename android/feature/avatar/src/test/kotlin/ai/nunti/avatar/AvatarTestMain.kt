@@ -145,16 +145,16 @@ fun main(args: Array<String>) {
     test("duplicate event and correlated incident suppressed") {
         val e = event("brake", EventType.HARSH_BRAKING, 1000, incident = "incident")
         val s = machine.accept(fresh(), e, 1000).state
-        same("DUPLICATE_EVENT", machine.accept(s, e, 2000).disposition)
-        same("DUPLICATE_INCIDENT", machine.accept(s, e.copy(eventId = "other", occurredAt = 3000), 3000).disposition)
+        same(Disposition.DUPLICATE_EVENT, machine.accept(s, e, 2000).disposition)
+        same(Disposition.DUPLICATE_INCIDENT, machine.accept(s, e.copy(eventId = "other", occurredAt = 3000), 3000).disposition)
         same(Emotion.RELIEVED, machine.accept(s, event("recovered", EventType.SAFETY_RECOVERED, 3000, "brake", "incident"), 3000).state.snapshot.emotion)
     }
     test("out of order/future/expired/cross-trip rejected") {
         val s = machine.accept(fresh(), event("b", EventType.HARSH_BRAKING, 3000), 3000).state
-        same("OUT_OF_ORDER", machine.accept(s, event("late", EventType.SAFETY_CONCERN, 2000), 4000).disposition)
-        same("FUTURE_EVENT", machine.accept(s, event("future", EventType.HARSH_BRAKING, 5000), 4000).disposition)
-        same("EXPIRED_EVENT", machine.accept(s, event("old", EventType.HARSH_BRAKING, 1000), 17000).disposition)
-        same("WRONG_TRIP", machine.accept(s, event("other", EventType.HARSH_BRAKING, 4000).copy(tripId = "different"), 4000).disposition)
+        same(Disposition.OUT_OF_ORDER, machine.accept(s, event("late", EventType.SAFETY_CONCERN, 2000), 4000).disposition)
+        same(Disposition.FUTURE_EVENT, machine.accept(s, event("future", EventType.HARSH_BRAKING, 5000), 4000).disposition)
+        same(Disposition.EXPIRED_EVENT, machine.accept(s, event("old", EventType.HARSH_BRAKING, 1000), 17000).disposition)
+        same(Disposition.WRONG_TRIP, machine.accept(s, event("other", EventType.HARSH_BRAKING, 4000).copy(tripId = "different"), 4000).disposition)
     }
     test("same timestamp higher priority hazard supersedes concern") {
         val s = machine.accept(fresh(), event("concern", EventType.SAFETY_CONCERN, 1000), 1000).state
@@ -168,21 +168,21 @@ fun main(args: Array<String>) {
     test("minimum dwell queues valid recovery") {
         val s = machine.accept(fresh(), event("b", EventType.HARSH_BRAKING, 1000), 1000).state
         val pending = machine.accept(s, event("r", EventType.SAFETY_RECOVERED, 1500, "b"), 1500)
-        same("MINIMUM_DWELL", pending.disposition); same(Emotion.RELIEVED, machine.tick(pending.state, 3000).snapshot.emotion)
+        same(Disposition.MINIMUM_DWELL, pending.disposition); same(Emotion.RELIEVED, machine.tick(pending.state, 3000).snapshot.emotion)
     }
     test("cooldown limits recurrent startle after recovery") {
         var s = machine.accept(fresh(), event("b", EventType.HARSH_BRAKING, 1000), 1000).state
         s = machine.accept(s, event("r", EventType.SAFETY_RECOVERED, 3000, "b"), 3000).state
-        same("COOLDOWN", machine.accept(s, event("b2", EventType.HARSH_BRAKING, 5000), 5000).disposition)
+        same(Disposition.COOLDOWN, machine.accept(s, event("b2", EventType.HARSH_BRAKING, 5000), 5000).disposition)
     }
     test("debounce suppresses rapid new event ids") {
         val s = machine.accept(fresh(), event("c", EventType.SAFETY_CONCERN, 1000), 1000).state
-        same("DEBOUNCED", machine.accept(s, event("c2", EventType.SAFETY_CONCERN, 1200), 1200).disposition)
+        same(Disposition.DEBOUNCED, machine.accept(s, event("c2", EventType.SAFETY_CONCERN, 1200), 1200).disposition)
     }
     test("unmatched recovery and positive feedback cannot erase concern") {
         val s = machine.accept(fresh(), event("c", EventType.SAFETY_CONCERN, 1000), 1000).state
-        same("UNMATCHED_RECOVERY", machine.accept(s, event("r", EventType.SAFETY_RECOVERED, 4000, "not-c"), 4000).disposition)
-        same("UNRESOLVED_CONCERN", machine.accept(s, event("p", EventType.POSITIVE_FEEDBACK, 5000), 5000).disposition)
+        same(Disposition.UNMATCHED_RECOVERY, machine.accept(s, event("r", EventType.SAFETY_RECOVERED, 4000, "not-c"), 4000).disposition)
+        same(Disposition.UNRESOLVED_CONCERN, machine.accept(s, event("p", EventType.POSITIVE_FEEDBACK, 5000), 5000).disposition)
     }
     test("stale calm returns to neutral; clock reversal rejected") {
         same(Emotion.NEUTRAL, machine.tick(stable(), 33000).snapshot.emotion)
@@ -191,7 +191,7 @@ fun main(args: Array<String>) {
     test("trip end freezes state; next trip fully resets") {
         val end = machine.accept(stable(), event("end", EventType.TRIP_ENDED, 7000), 7000).state
         same(end, machine.tick(end, 99000))
-        same("TRIP_ENDED", machine.accept(end, event("late", EventType.HARSH_BRAKING, 8000), 8000).disposition)
+        same(Disposition.TRIP_ENDED, machine.accept(end, event("late", EventType.HARSH_BRAKING, 8000), 8000).disposition)
         val new = machine.start("next", "avatar-test", 8000); same(emptySet<String>(), new.seenEvents); same(Emotion.NEUTRAL, new.snapshot.emotion)
     }
     test("trip end at same timestamp as hazard still closes trip") {
@@ -205,7 +205,7 @@ fun main(args: Array<String>) {
         val journal = EmotionJournal("trip-test", "avatar-test", 0, MockRoutes.EPOCH, digest, entries)
         val file = File(out, "emotion-journal.json").apply { writeText(journal.encode()) }
         val replay = EmotionJournal.decode(file.readText()).restore(machine, digest)
-        same("DUPLICATE_EVENT", machine.accept(replay, entries.last().event!!, 2000).disposition)
+        same(Disposition.DUPLICATE_EVENT, machine.accept(replay, entries.last().event!!, 2000).disposition)
         same(Emotion.RELIEVED, machine.tick(replay, 3000).snapshot.emotion)
         same(journal.restore(machine, digest), replay)
         fails { journal.restore(machine, "changed") }

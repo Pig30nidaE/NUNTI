@@ -21,7 +21,7 @@ class NaviSignalSource(private val context: Context, private val clockMs: () -> 
 
     @Volatile var speedLimitKmh: Int? = null
         private set
-    @Volatile var status: String = "대기"
+    @Volatile var status: LinkStatus = LinkStatus(LinkState.IDLE)
         private set
     @Volatile var nextTurn: String = "-"
         private set
@@ -51,15 +51,15 @@ class NaviSignalSource(private val context: Context, private val clockMs: () -> 
 
         override fun onRouteEnded() { head = null; headDistance = Double.MAX_VALUE; nextTurn = "경로 종료" }
         override fun onRouteCancelled() { head = null; headDistance = Double.MAX_VALUE; nextTurn = "경로 취소" }
-        override fun onError(code: ai.pleos.playground.navi.constants.NaviErrorCode) { status = "오류 ${code.name}" }
+        override fun onError(code: ai.pleos.playground.navi.constants.NaviErrorCode) { status = LinkStatus(LinkState.FAILED, code.name) }
     }
 
     fun start() {
         val h = NaviHelper(context)
         helper = h
         runCatching {
-            h.initialize({ status = "연결됨"; h.addListener(listener); h.getTBTInfo() }, { status = "초기화 실패: ${it.message}" })
-        }.onFailure { status = "예외: ${it.message}"; Log.w(tag, "init", it) }
+            h.initialize({ status = LinkStatus(LinkState.CONNECTED); h.addListener(listener); h.getTBTInfo() }, { status = LinkStatus(LinkState.FAILED, "초기화 ${it.message}") })
+        }.onFailure { status = LinkStatus(LinkState.FAILED, "예외 ${it.message}"); Log.w(tag, "init", it) }
     }
 
     /** 경로가 이미 진행 중이면 현재 안내를 한 번 요청해 초기 상태를 채운다. */

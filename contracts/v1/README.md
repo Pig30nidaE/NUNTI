@@ -19,7 +19,7 @@ Python 모델은 `backend/nunti/models.py`에 있으며 내보내기 후 schema 
 | SpeechRequest | 출처(contentSource)와 목적(speechPurpose)을 분리; 만료·근거 참조 포함 |
 | TripReport | 외부 생성 finalText 원문, 0..100 또는 null 점수, 평가 범위와 근거 |
 
-추가 전송 계약은 TripCreate, EventBatch, EmotionBatch다. 각 모델에 정상 `valid`,
+추가 전송 계약은 TripCreate, EventBatch, EmotionBatch, SampleBatch(Pleos 샘플), ScoreBatch(앱이 계산한 점수 결과)다. 앱이 계산하고 서버는 저장만 한다: [telemetry-sync](../../docs/architecture/telemetry-sync.md). 각 모델에 정상 `valid`,
 필수 schemaVersion 누락 `missing`, 잘못된 타입/범위 `invalid` 예제가 있다.
 문자열 ID는 1..128자 ASCII 토큰, 특징/감정/이벤트 이름은 1..64자 토큰이다.
 길이·배치·값 범위 한도는 전송 검증 한도이며 운전 평가 임계값이 아니다.
