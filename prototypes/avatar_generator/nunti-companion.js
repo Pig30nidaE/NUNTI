@@ -70,7 +70,7 @@
         if(!request?.ready||request.portrait!==portrait||now<request.nextTap||candidate()?.key!==request.key)return;
         const choices=request.skin==='default'?baseReactions:skinReactions;
         bridge.reactCharacterCompanion(request.id,choices[request.index++%choices.length]);
-        request.nextTap=now+3400;
+        request.nextTap=now+(request.skin==='default'?1200:4400);
       });
     }
     const changes=new MutationObserver(sync);

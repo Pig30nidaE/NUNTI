@@ -35,6 +35,8 @@ class JourneyCompanionView(context: Context) : View(context) {
     private var smile = .12f
     private var worry = 0f
     private var tapCount = 0
+    private val touchReactions=arrayOf("wink","happy","curious","proud","signature","surprised","nod","sleepy")
+    private fun touchReaction()=touchReactions[(tapCount-1).coerceAtLeast(0)%touchReactions.size]
 
     init {
         importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_YES
@@ -79,8 +81,10 @@ class JourneyCompanionView(context: Context) : View(context) {
     }
     override fun performClick(): Boolean {
         if(!allowed) return false
+        val now=SystemClock.uptimeMillis()
+        if(now-touchedAt<NuntiLifeMotion.reactionSeconds(touchReaction())*1000)return true
         super.performClick()
-        touchedAt=SystemClock.uptimeMillis(); tapCount++
+        touchedAt=now; tapCount++
         performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
         invalidate(); return true
     }
@@ -101,15 +105,15 @@ class JourneyCompanionView(context: Context) : View(context) {
         worry=fromWorry+((if(emotion=="WORRY") 1f else 0f)-fromWorry)*eased
         val time=(now-startedAt)/1000f
         val touchTime=(now-touchedAt)/1000f
-        val touch=if(allowed&&touchTime in 0f..1.8f) sin(touchTime/1.8f*Math.PI).toFloat() else 0f
         val scale=min(width.toFloat()/bitmap.width,height.toFloat()/bitmap.height)
         val bw=bitmap.width*scale; val bh=bitmap.height*scale
         canvas.save()
         canvas.translate((width-bw)/2f,(height-bh)/2f)
         canvas.scale(bw/768f,bh/768f)
         if(rig!="none"&&!imageFallback) {
-            val reaction=if(touchTime in 0f..3.2f) listOf("wink","happy","curious","proud","signature")[tapCount%5] else "idle"
-            life.draw(canvas,bitmap,rig,time,reaction,(touchTime/3.2f).coerceIn(0f,1f),animated=allowed,
+            val duration=NuntiLifeMotion.reactionSeconds(touchReaction())
+            val reaction=if(touchTime in 0f..duration) touchReaction() else "idle"
+            life.draw(canvas,bitmap,rig,time,reaction,(touchTime/duration).coerceIn(0f,1f),animated=allowed,
                 worry=worry,joy=(smile-.2f).coerceAtLeast(0f)/.8f)
 
         } else {

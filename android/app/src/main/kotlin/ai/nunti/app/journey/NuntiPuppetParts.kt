@@ -20,11 +20,15 @@ internal object NuntiPuppetParts {
         fun arm(shape:Path):Bitmap {val out=Bitmap.createBitmap(768,768,Bitmap.Config.ARGB_8888);val c=Canvas(out);c.clipPath(shape);c.drawBitmap(image,0f,0f,paint);return out}
         val left=arm(leftPath);val right=arm(rightPath)
         val front=image.copy(Bitmap.Config.ARGB_8888,true);val cut=Canvas(front)
-        val clear=Paint(Paint.ANTI_ALIAS_FLAG).apply{xfermode=PorterDuffXfermode(PorterDuff.Mode.CLEAR)}
+        // Remove the antialiased fringe too: an exact polygon leaves old fingers
+        // and sleeve-edge pixels behind when the arm rotates away.
+        val clear=Paint(Paint.ANTI_ALIAS_FLAG).apply{style=Paint.Style.FILL_AND_STROKE;strokeWidth=12f;strokeJoin=Paint.Join.ROUND;xfermode=PorterDuffXfermode(PorterDuff.Mode.CLEAR)}
         cut.drawPath(leftPath,clear);cut.drawPath(rightPath,clear)
         val body=Bitmap.createBitmap(768,768,Bitmap.Config.ARGB_8888);val c=Canvas(body)
         val underlay=assets.open("nunti-life-v5/"+rig.getString("underlay")).use{BitmapFactory.decodeStream(it)}
-        c.save();c.clipRect(155f,366f,600f,600f);c.drawBitmap(underlay,null,RectF(0f,0f,768f,768f),paint);c.restore()
+        val hidden=Path().apply{addRect(155f,366f,600f,600f,Path.Direction.CW)}
+        for(shape in listOf(leftPath,rightPath)){val edge=Path();clear.getFillPath(shape,edge);hidden.op(edge,Path.Op.UNION)}
+        c.save();c.clipPath(hidden);c.drawBitmap(underlay,null,RectF(0f,0f,768f,768f),paint);c.restore()
         c.drawBitmap(front,0f,0f,paint);front.recycle();underlay.recycle()
         fun pivot(key:String)=rig.getJSONArray(key).let{floatArrayOf(it.getDouble(0).toFloat(),it.getDouble(1).toFloat())}
         cache[image]=Parts(body,left,right,pivot("leftPivot"),pivot("rightPivot"),rig.getDouble("leftGain").toFloat(),rig.getDouble("rightGain").toFloat())

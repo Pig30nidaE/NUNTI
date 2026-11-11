@@ -13,9 +13,13 @@ internal class NuntiLifeRenderer {
     private val face=NuntiFaceRig()
     private val pose=NuntiLifeMotion.Pose()
     private var autoStartedAt=0f
+    private var previousTime=0f
+    private var previousImage:Bitmap?=null
     private val headWeights=FloatArray((GRID+1)*(GRID+1))
     init {var i=0;for(row in 0..GRID)for(col in 0..GRID){val y=row*768f/GRID;headWeights[i++]=1-smooth((y-350)/55f)}}
     fun draw(canvas:Canvas,image:Bitmap,skin:String,time:Float,reaction:String="idle",progress:Float=0f,animated:Boolean=true,worry:Float=0f,joy:Float=0f) {
+        if(image!==previousImage||time<previousTime)autoStartedAt=0f
+        previousImage=image;previousTime=time
         if(reaction!="idle")autoStartedAt=time
         NuntiLifeMotion.sample(if(animated)(time-autoStartedAt).coerceAtLeast(0f) else 0f,if(animated)reaction else "idle",progress,pose)
         if(!animated){pose.head=0f;pose.left=0f;pose.right=0f;pose.lift=0f}

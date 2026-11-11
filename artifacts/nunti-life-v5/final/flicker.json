@@ -1,0 +1,14 @@
+{
+  "decoderCompleted" : true,
+  "frames" : 1257,
+  "missingAtSeconds" : [
+
+  ],
+  "missingUiFrames" : 0,
+  "roi" : [
+    2200,
+    1200,
+    2440,
+    1240
+  ]
+}

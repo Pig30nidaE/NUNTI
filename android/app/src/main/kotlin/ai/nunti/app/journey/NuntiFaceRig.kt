@@ -4,6 +4,7 @@ import android.content.res.AssetManager
 import android.graphics.*
 import kotlin.math.abs
 import kotlin.math.sin
+import kotlin.math.sqrt
 
 /** Face assets and eyelids are rasterized once. No animated hardware clipPath touches the WebView. */
 internal class NuntiFaceRig {
@@ -56,7 +57,9 @@ internal class NuntiFaceRig {
                 for(y in 0 until 196)for(x in 0 until 300){
                     fun area(l:Float,t:Float,r:Float,b:Float):Float = minOf((x-l)/10f,(r-x)/10f,(y-t)/10f,(b-y)/10f).coerceIn(0f,1f)
                     // Only eyes, brows and mouth. Hood/hair/cheeks always remain the original artwork.
-                    val edge=maxOf(area(25f,22f,132f,145f),area(136f,22f,250f,145f),area(95f,116f,187f,186f))
+                    val dx=(x+244-384)/138f;val dy=(y+148-255)/112f
+                    val faceEdge=((1f-sqrt(dx*dx+dy*dy))*11.2f).coerceIn(0f,1f)
+                    val edge=minOf(faceEdge,maxOf(area(25f,22f,132f,145f),area(136f,22f,250f,145f),area(95f,116f,187f,186f)))
                     val a=(255*edge*edge*(3-2*edge)).toInt();pixels[y*300+x]=(pixels[y*300+x] and 0xffffff) or (a shl 24)
                 }
                 out.setPixels(pixels,0,300,0,0,300,196);out

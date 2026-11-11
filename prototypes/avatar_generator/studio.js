@@ -533,7 +533,11 @@ window.nuntiSpeechFinished=requestId=>{if(requestId!==undefined&&requestId!==nat
 window.nuntiSpeechFailed=requestId=>{if(requestId!==undefined&&requestId!==nativeVoiceRequestId())return;stopVoice();$('voice-notice').textContent='음성을 재생하지 못했어요. 연결을 확인한 뒤 다시 눌러 주세요.';};
 function restoreVisibleResult(){
   if(!state.artifact||$('result-view').hidden||!state.nativeAllowed||document.hidden)return;
-  if(!usesSkinMotion(state.artifact)||(!window.NuntiSkinMotion?.diagnostics().active&&!staticDisplay))showArtifact(state.artifact,false).catch(e=>message(errorText(e)));
+  const motion=window.NuntiSkinMotion?.diagnostics();
+  if(usesSkinMotion(state.artifact)&&motion?.active&&['RESTRICTED','BACKGROUNDED'].includes(motion.reason)){
+    // Settle the interrupted result; only the parked companion resumes, never the transformation.
+    window.NuntiSkinMotion.stop('STATIC');
+  }else if(!usesSkinMotion(state.artifact)||(!motion?.active&&!staticDisplay))showArtifact(state.artifact,false).catch(e=>message(errorText(e)));
 }
 function interruptSkin(reason){
   const current=window.NuntiSkinMotion?.diagnostics();
