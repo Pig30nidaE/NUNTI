@@ -30,6 +30,9 @@ internal class StudioCharacterMotion(
         }
         class Companion(id: Int, skin: String, bounds: Rect) : Request(id, skin, bounds) {
             var reaction: String? = null
+            var faceStartedAt = 0L
+            var nextIdleAction=12f
+            var idleAction=0
         }
     }
 
@@ -65,14 +68,22 @@ internal class StudioCharacterMotion(
             when (current) {
                 is Request.Transform -> if (!transform(current, art, elapsed + 1f)) return
                 is Request.Companion -> {
+                    val lifeSeconds=((frameTimeNanos-current.faceStartedAt)/1_000_000_000.0).toFloat()
+                    if(current.skin=="base" && current.reaction==null && lifeSeconds>=current.nextIdleAction) {
+                        current.reaction=BASE_REACTIONS.elementAt(current.idleAction++%BASE_REACTIONS.size)
+                        current.startedAt=frameTimeNanos;current.nextIdleAction=lifeSeconds+12f
+                        draw(art,checkNotNull(current.reaction),0f,lifeSeconds*60f)
+                        choreographer.postFrameCallback(this);return
+                    }
                     val reaction = current.reaction
-                    if (reaction != null && elapsed >= art.clips.getValue(reaction).frames) {
+                    if (reaction != null && elapsed >= clipFrames(art,reaction)) {
                         current.reaction = null
                         current.startedAt = frameTimeNanos
-                        draw(art, "idle", 0f)
+                        draw(art, "idle", 0f, ((frameTimeNanos-current.faceStartedAt)*60.0/1_000_000_000).toFloat())
                     } else {
                         val name = reaction ?: "idle"
-                        draw(art, name, elapsed % art.clips.getValue(name).frames)
+                        draw(art, name, elapsed % clipFrames(art,name),
+                            ((frameTimeNanos-current.faceStartedAt)*60.0/1_000_000_000).toFloat())
                     }
                 }
             }
@@ -85,7 +96,7 @@ internal class StudioCharacterMotion(
         lastTransformId = id
         stop(notify = request is Request.Companion)
         val bounds = stageBounds(left, top, width, height)
-        if (!allowed() || skin !in TRAVEL_SKINS || bounds == null) {
+        if (!allowed() || (skin !in TRAVEL_SKINS && !NuntiSkinStyle.isWardrobe(skin)) || bounds == null) {
             reportReady(id, false)
             return
         }
@@ -99,7 +110,7 @@ internal class StudioCharacterMotion(
         val artSkin = if (skin == "default") "base" else skin
         val bounds = stageBounds(left, top, width, height)
         val current = request
-        if (!allowed() || (artSkin != "base" && artSkin !in TRAVEL_SKINS) || bounds == null ||
+        if (!allowed() || (artSkin != "base" && artSkin !in TRAVEL_SKINS && !NuntiSkinStyle.isWardrobe(artSkin)) || bounds == null ||
             (current is Request.Transform && !current.finished)
         ) {
             reportCompanionReady(id, false)
@@ -117,7 +128,7 @@ internal class StudioCharacterMotion(
 
     fun reactCompanion(id: Int, reaction: String) {
         val current = request as? Request.Companion ?: return
-        if (current.id != id || current.startedAt == 0L || current.reaction != null || reaction !in REACTIONS) return
+        if (current.id != id || current.startedAt == 0L || current.reaction != null || reaction !in REACTIONS || (current.skin=="base" && reaction !in BASE_REACTIONS)) return
         if (!allowed()) {
             stop(notify = true)
             return
@@ -129,7 +140,7 @@ internal class StudioCharacterMotion(
 
     private fun load(next: Request) {
         request = next
-        main.postDelayed(deadline, 1500L)
+        main.postDelayed(deadline, if(next.skin.startsWith("wardrobe-")) 15000L else 1500L)
         val cached = prepared?.takeIf { it.skin == next.skin }
         val forTransform = next is Request.Transform
         if (cached != null && (!forTransform || cached.forTransform)) {
@@ -139,13 +150,15 @@ internal class StudioCharacterMotion(
         val assets = web.context.assets
         io.execute {
             val result = runCatching {
-                val clips = cached?.clips ?: StudioCharacterClip.load(assets, next.skin)
-                require(clips.keys.containsAll(REACTIONS + "idle"))
-                if (forTransform) require(clips.keys.containsAll(TRANSFORM_CLIPS))
+                val generated = next.skin.startsWith("wardrobe-")
+                val clips = cached?.clips ?: StudioCharacterClip.load(assets, if(generated) "base" else next.skin)
+                require(clips.keys.containsAll(BASE_REACTIONS + "idle"))
+                if (forTransform && !generated) require(clips.keys.containsAll(TRANSFORM_CLIPS))
+                val character=cached?.character ?: if(generated) StudioCharacterAssets.generated(web.context, next.skin) else StudioCharacterAssets.load(assets, next.skin)
                 Prepared(
-                    next.skin, cached?.character ?: StudioCharacterAssets.load(assets, next.skin), clips, forTransform,
-                    if (forTransform) StudioEvolutionEffects.decodeMasks(assets, next.skin) else null,
-                    if (forTransform) StudioAtlasVfx.load(assets, next.skin) else null,
+                    next.skin, character, clips, forTransform,
+                    if (forTransform) { if(generated) StudioEvolutionEffects.decodeMasks(character.base,character.travel) else StudioEvolutionEffects.decodeMasks(assets, next.skin) } else null,
+                    if (forTransform && !generated) StudioAtlasVfx.load(assets, next.skin) else null,
                 )
             }
             main.post {
@@ -202,13 +215,14 @@ internal class StudioCharacterMotion(
         draw(art, "idle", 0f)
         view.visibility = View.VISIBLE
         next.startedAt = System.nanoTime()
+        next.faceStartedAt = next.startedAt
         choreographer.postFrameCallback(tick)
         Log.i(TAG, "CANVAS_COMPANION_READY skin=" + next.skin)
         reportCompanionReady(next.id, true)
     }
 
     private fun transform(next: Request.Transform, art: Prepared, elapsed: Float): Boolean {
-        if (art.skin in TRAVEL_SKINS) {
+        if (art.skin in TRAVEL_SKINS || art.skin.startsWith("wardrobe-")) {
             val seconds = elapsed / 60f
             actor?.showEvolution(art.character, pose, seconds)
             if (seconds < 4.6f) return true
@@ -240,9 +254,13 @@ internal class StudioCharacterMotion(
         return false
     }
 
-    private fun draw(art: Prepared, clip: String, frame: Float) {
+    private fun clipFrames(art:Prepared,name:String):Float = if(art.skin!="base" && name in REACTIONS) ai.nunti.app.journey.NuntiLifeMotion.reactionSeconds(name)*60f else art.clips.getValue(name).frames.toFloat()
+
+    private fun draw(art: Prepared, clip: String, frame: Float, faceFrame: Float = frame) {
         pose.reset(art.skin, clip)
-        art.clips.getValue(clip).apply(frame, pose)
+        pose.faceTime = faceFrame
+        pose.faceReactionTime = frame / clipFrames(art,clip)
+        (art.clips[clip]?:art.clips.getValue("idle")).apply(frame, pose)
         actor?.show(art.character, pose)
     }
 
@@ -296,7 +314,8 @@ internal class StudioCharacterMotion(
     private companion object {
         const val TAG = "NuntiCharacter"
         val TRAVEL_SKINS = setOf("sea", "city", "mountain")
-        val REACTIONS = setOf("curious", "happy", "wink", "proud", "signature")
+        val BASE_REACTIONS = setOf("curious", "happy", "wink", "proud", "signature")
+        val REACTIONS = BASE_REACTIONS + setOf("surprised","nod","sleepy")
         val TRANSFORM_CLIPS = listOf("anticipation", "transform", "reveal", "signature")
     }
 }

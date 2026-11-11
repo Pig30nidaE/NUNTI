@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "checks": [
+    {
+      "name": "official-console-speed-and-drive-restrictions",
+      "details": {
+        "speed": 30.000002,
+        "canFinish": false
+      }
+    },
+    {
+      "name": "official-steering-signal-received",
+      "details": {
+        "steeringAngleDeg": -160
+      }
+    }
+  ],
+  "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n-160 !== 160\n\n    at file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_context_live.mjs:35:97"
+}

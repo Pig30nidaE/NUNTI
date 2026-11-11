@@ -6,7 +6,9 @@
   const light={
     sea:{glow:'#64DFF5',ink:'#1685A2',core:'#EAFFFF'},
     city:{glow:'#D395FF',ink:'#7848B8',core:'#FFF0FF'},
-    mountain:{glow:'#EABC6E',ink:'#678047',core:'#FFF4C9'}
+    mountain:{glow:'#EABC6E',ink:'#678047',core:'#FFF4C9'},
+    formal:{glow:'#D6B477',ink:'#27384D',core:'#FFF3D7'},medical:{glow:'#91CCB6',ink:'#416F64',core:'#F2FFF7'},
+    football:{glow:'#6AB58C',ink:'#25543D',core:'#EEFFF2'},personal:{glow:'#B9C5A4',ink:'#667352',core:'#F5F7E9'}
   };
   // Static regions lock to individual costume parts, with the face kept visible.
   const headLine=[[0,395],[230,395],[287,408],[481,408],[538,395],[768,395]];
@@ -82,7 +84,7 @@
       beginDraw();
       if(t>=4000){paint(final||base);return;}
       if(t===0){paint(base);return;}
-      const color=light[spec.skinId];
+      const color=light[spec.skinId]||light[spec.skinId.split('-')[1]]||light.personal;
       const charge=ease(t,650,3100)*(1-ease(t,3290,3540));
       const impact=ease(t,3275,3340)*(1-ease(t,3340,3630));
       const attention=.008*Math.sin(Math.PI*ease(t,30,600));
@@ -176,7 +178,7 @@
         base=await image('default');
         if(epoch!==token)return;
         draw(0);emit();
-        const target=await Promise.all(layers.map(layer=>image(spec.skinId,layer,spec.version)));
+        const target=spec.skinId.startsWith('wardrobe-')?[finalImage]:await Promise.all(layers.map(layer=>image(spec.skinId,layer,spec.version)));
         if(epoch!==token)return;
         // Compose at native size so the shared layer edges are resampled only once.
         wardrobe=document.createElement('canvas');

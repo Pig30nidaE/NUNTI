@@ -4,7 +4,7 @@
     const bridge=window.NuntiNative;
     if(!bridge?.startCharacterCompanion||!bridge.stopCharacterCompanion||!bridge.reactCharacterCompanion)return null;
     const baseReactions=['curious','happy','wink','proud'];
-    const skinReactions=[...baseReactions,'signature'];
+    const skinReactions=['wink','happy','curious','proud','signature','surprised','nod','sleepy'];
     const fullyVisible=new Set();
     let nextId=0, current=null, resultSkin=null, failedKey=null, timer=0;
 
@@ -70,7 +70,7 @@
         if(!request?.ready||request.portrait!==portrait||now<request.nextTap||candidate()?.key!==request.key)return;
         const choices=request.skin==='default'?baseReactions:skinReactions;
         bridge.reactCharacterCompanion(request.id,choices[request.index++%choices.length]);
-        request.nextTap=now+1200;
+        request.nextTap=now+3400;
       });
     }
     const changes=new MutationObserver(sync);

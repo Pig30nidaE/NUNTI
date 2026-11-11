@@ -30,6 +30,7 @@ from .models import (
 )
 from .storage import StudioError, StudioStore
 from .voice_render import voice_available
+from .wardrobe import WardrobeInput
 
 ROOT = Path(__file__).resolve().parents[3]
 COOKIE = "nunti_studio_session"
@@ -59,6 +60,11 @@ class Settings:
     local_model_weights: Path | None = None
     local_model_timeout: int = 150
     route_api_enabled: bool = False
+    wardrobe_enabled: bool = False
+
+    @property
+    def wardrobe_available(self):
+        return self.paid_api_approved and self.wardrobe_enabled and bool(self.image_key)
 
     def __post_init__(self):
         if not 32 <= len(self.token) <= 256 or not all(33 <= ord(c) <= 126 for c in self.token):
@@ -127,7 +133,8 @@ class Settings:
             port=int(os.getenv("NUNTI_STUDIO_PORT", "8768")),
             image_enabled=enabled,
             paid_api_approved=approved,
-            image_key=os.getenv("OPENAI_API_KEY", "") if approved and enabled else "",
+            image_key=os.getenv("OPENAI_API_KEY", "") if approved else "",
+            wardrobe_enabled=os.getenv("NUNTI_STUDIO_WARDROBE_ENABLED") == "true",
             image_model=os.getenv("NUNTI_STUDIO_IMAGE_MODEL", "gpt-image-2.5-flare"),
             image_prices_verified=os.getenv("NUNTI_STUDIO_IMAGE_PRICES_VERIFIED") == "true",
             image_reservation_micros=int(os.getenv("NUNTI_STUDIO_IMAGE_RESERVATION_MICROS", "0")),
@@ -336,6 +343,7 @@ def create_app(
         return {
             "data": {
                 "schemaVersion": 3,
+                "wardrobeAvailable": config.wardrobe_available,
                 "mode": "LOCAL_RENDER",
                 "layeredRenderAvailable": True,
                 "layeredRenderInfo": {
@@ -699,6 +707,16 @@ def create_app(
         except Exception as exc:
             store.fail(principal, value.requestId, "GENERATION_FAILED")
             raise StudioError("GENERATION_FAILED", 500) from exc
+
+    @application.get("/v3/wardrobe/budget")
+    def wardrobe_budget(request: Request, principal: Owner):
+        from .wardrobe import budget
+        return {"data": budget(request.app.state.store)}
+
+    @application.post("/v3/wardrobe")
+    def create_wardrobe(value: WardrobeInput, request: Request, principal: Owner):
+        from .wardrobe import create
+        return {"data": create(request.app.state.config, request.app.state.store, principal, value)}
 
     @application.get("/v3/avatars")
     def avatars(request: Request, principal: Owner):

@@ -22,6 +22,7 @@ import ai.pleos.playground.vehicle.listener.LightStateListener
 import ai.pleos.playground.vehicle.listener.SeatBeltBuckledStateListener
 import ai.pleos.playground.vehicle.listener.SeatOccupancyListener
 import ai.pleos.playground.vehicle.listener.TurnSignalStateListener
+import ai.pleos.playground.vehicle.listener.SteeringWheelAngleListener
 import ai.nunti.score.Gear
 import ai.nunti.score.SeatState
 import ai.nunti.score.TurnSignal
@@ -39,6 +40,7 @@ class PleosSignalSource(private val context: Context) {
     private var brake: Boolean? = null
     private var gear: Gear? = null
     private var turn: TurnSignal? = null
+    private var steering: Float? = null
     private var lowBeam: Boolean? = null
     private val belts = mutableMapOf<SeatValue, Boolean>()
     private val occupied = mutableMapOf<SeatValue, Boolean>()
@@ -61,7 +63,7 @@ class PleosSignalSource(private val context: Context) {
     private var navi: NaviSignalSource? = null
 
     private fun resetReadings() {
-        carSpeed = null; rawSpeedValue = null; brake = null; gear = null; turn = null; lowBeam = null
+        carSpeed = null; rawSpeedValue = null; brake = null; gear = null; turn = null; lowBeam = null; steering = null
         belts.clear(); occupied.clear(); doors.clear(); lastSnapshotMs = 0; lastSnapshotSpeed = null
     }
 
@@ -140,6 +142,16 @@ class PleosSignalSource(private val context: Context) {
                 })
             }
         }
+        registerOnce("steering") {
+            v.getSteeringWheel().apply {
+                fun update(value: Float?) { gate.accept(epoch) { steering = value?.takeIf { it.isFinite() && kotlin.math.abs(it) <= 1080f } } }
+                runCatching { getCurrentSteeringWheelAngle({ update(it) }, { update(null) }) }
+                registerSteeringWheelAngle(object : SteeringWheelAngleListener {
+                    override fun onSteeringWheelAngleUpdated(p0: Float?) { update(p0) }
+                    override fun onFailed(p0: Exception) { update(null) }
+                })
+            }
+        }
         registerOnce("lowBeam") {
             v.getLight().apply {
                 runCatching { getCurrentLowBeamLightState({ state -> gate.accept(epoch) { lowBeam = state?.let { it == LightState.ON } } }, { gate.accept(epoch) { lowBeam = null } }) }
@@ -209,6 +221,7 @@ class PleosSignalSource(private val context: Context) {
                 brakePressed = brake, gear = gear, turnSignal = turn,
                 driverSeat = seat(SeatValue.ROW_1_LEFT), passengerSeat = seat(SeatValue.ROW_1_RIGHT),
                 doorOpen = aggregateDoorState(doors, expectedDoors), headlightOn = lowBeam, speedLimitKmh = speedLimit,
+                steeringAngleDeg = steering,
             )
         }
     }
@@ -218,6 +231,7 @@ class PleosSignalSource(private val context: Context) {
             "속도" to (lastSnapshotSpeed?.let { "%.1f km/h".format(it) } ?: "미수신"),
             "속도(직접구독)" to (rawSpeed?.lastRaw ?: rawSpeed?.status ?: "중지"),
             "기어" to (gear?.name ?: "미수신"),
+            "핸들 각도" to (steering?.let { "%.1f°".format(it) } ?: "미수신"),
             "브레이크" to (brake?.let { if (it) "밟음" else "뗌" } ?: "미수신"),
             "지시등" to (turn?.name ?: "미수신"),
             "하향등" to (lowBeam?.let { if (it) "ON" else "OFF" } ?: "미수신"),

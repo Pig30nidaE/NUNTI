@@ -5,6 +5,8 @@ import ai.nunti.score.Scenarios
 import ai.nunti.score.journey.JourneySession
 import ai.nunti.score.journey.JourneySnapshot
 import ai.nunti.score.journey.JourneySource
+import ai.nunti.score.journey.JourneyAnalysis
+import ai.nunti.score.journey.TripPosition
 import ai.nunti.score.live.PleosSignalSource
 import android.app.Notification
 import android.app.NotificationChannel
@@ -30,7 +32,9 @@ import java.io.File
 class JourneyService : Service() {
     private val main = Handler(Looper.getMainLooper())
     private var session: JourneySession? = null
+    private val analysis = JourneyAnalysis()
     private var source: PleosSignalSource? = null
+    private var locationSource: JourneyLocationSource? = null
     private var gate: StudioCarGate? = null
     private lateinit var metadata: JSONObject
     private var voiceStatus = "캐릭터 음성 미준비 · 화면으로 안내해요"
@@ -48,14 +52,18 @@ class JourneyService : Service() {
             if (journey.snapshot().finished) return
             val snapshot = if (journey.source == JourneySource.LIVE) {
                 val signals = source ?: return
-                journey.add(signals.snapshot(), signals.events())
+                val sample = signals.snapshot()
+                if(locationSource==null)locationSource=JourneyLocationSource(this@JourneyService)
+                analysis.observe(sample, locationSource?.position(), signals.events())
+                journey.add(sample, signals.events())
             } else {
                 if (!canFinish()) { publish(journey.snapshot(), false); main.postDelayed(this, 500); return }
-                val scenario = Scenarios.recovery
+                val scenario = Scenarios.contextDrive
                 if (demoCursor > scenario.samples.lastIndex) {
                     publish(journey.snapshot(), false); main.postDelayed(this, 500); return
                 }
                 val sample = scenario.samples[demoCursor++]
+                analysis.observe(sample, simulationPosition(sample.tMs.toDouble()/scenario.samples.last().tMs), scenario.events.filter { it.tMs<=sample.tMs })
                 journey.add(sample, scenario.events.filter { it.tMs <= sample.tMs })
             }
             publish(snapshot, false)
@@ -66,7 +74,7 @@ class JourneyService : Service() {
                     speak(feedback.kind.name)
                 }
             }
-            main.postDelayed(this, if (journey.source == JourneySource.LIVE) 1000 else 100)
+            main.postDelayed(this, if (journey.source == JourneySource.LIVE) 1000 else 180)
         }
     }
 
@@ -121,11 +129,24 @@ class JourneyService : Service() {
 
     private fun canFinish() = gate?.canDisplay() ?: !packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)
 
+    private fun simulationPosition(progress: Double): TripPosition.Simulation {
+        val points=metadata.optJSONObject("route")?.optJSONArray("points")
+        val fallback=listOf(.08 to .8,.25 to .8,.25 to .48,.58 to .48,.58 to .22,.9 to .22)
+        val route=if(points!=null&&points.length()>=2) (0 until points.length()).map { i ->
+            val p=points.getJSONArray(i);p.getDouble(0) to p.getDouble(1)
+        } else fallback
+        val cursor=progress.coerceIn(0.0,1.0)*(route.size-1)
+        val index=cursor.toInt().coerceAtMost(route.size-2);val part=cursor-index
+        val a=route[index];val b=route[index+1]
+        return TripPosition.Simulation(a.first+(b.first-a.first)*part,a.second+(b.second-a.second)*part)
+    }
+
     private fun finishJourney() {
         val journey = session ?: return
         if (!canFinish() || journey.snapshot().finished) return
         main.removeCallbacks(tick)
         source?.stop(); source = null
+        locationSource?.close()
         val snapshot = journey.finish()
         consumedFeedback = snapshot.feedback?.key
         publish(snapshot, true)
@@ -139,25 +160,51 @@ class JourneyService : Service() {
         val persist = force || parked != lastCanFinish || now - lastPersist >= 5000
         lastCanFinish = parked
         val report = snapshot.report
-        val line = if (snapshot.finished && report.total == null) "수신된 주행 정보가 부족해 점수를 매기지 않았어요." else snapshot.emotion.line
+        val insights = analysis.build(report)
+        val recent = insights.events.lastOrNull()?.takeIf { !snapshot.finished && snapshot.currentSample!=null && snapshot.elapsedMs-it.tMs in 0..15_000 }
+        val eventAge = recent?.let { snapshot.elapsedMs-it.tMs }
+        // Vehicle events affect this presentation only; explicit mood and the team's score stay intact.
+        val expression = when { eventAge==null -> snapshot.emotion.name; eventAge<8000 -> "WORRY"; else -> "RELIEF" }
+        val line = when {
+            snapshot.finished && report.total == null -> "수신된 주행 정보가 부족해 점수를 매기지 않았어요."
+            eventAge!=null && eventAge<8000 -> recent.advice
+            eventAge!=null -> "다시 부드럽게 달리고 있어요."
+            else -> snapshot.emotion.line
+        }
         val value = JSONObject(metadata.toString())
             .put("state", if (snapshot.finished) "FINISHED" else "ACTIVE")
             .put("elapsedMs", snapshot.elapsedMs).put("sampleCount", snapshot.sampleCount)
             .put("total", report.total ?: JSONObject.NULL).put("coverage", report.coverage)
-            .put("emotion", snapshot.emotion.name).put("line", line).put("canFinish", parked)
+            .put("emotion", expression).put("line", line).put("canFinish", parked)
             .put("voiceStatus", if (muted) "음성 꺼짐" else voiceStatus).put("muted", muted)
             .put("updatedAtEpochMs", System.currentTimeMillis()).put("feedbackKey", consumedFeedback)
             .put("items", JSONArray().apply { report.items.forEach { item -> put(JSONObject()
-                .put("label", item.item.label).put("score", item.score ?: JSONObject.NULL).put("basis", item.basis)) } })
-            .put("events", JSONArray().apply { report.events.forEach { event -> put(JSONObject().put("tMs", event.tMs).put("label", event.label)) } })
+                .put("id",item.item.name).put("area",item.item.area.label).put("label", item.item.label).put("score", item.score ?: JSONObject.NULL).put("basis", item.basis)) } })
+            .put("areas",JSONArray().apply { report.areas.forEach { area -> put(JSONObject().put("label",area.area.label).put("maxPoints",area.area.maxPoints).put("score",area.score?:JSONObject.NULL)) } })
+            .put("events", JSONArray().apply { insights.events.forEach { event -> put(JSONObject().put("tMs",event.tMs).put("label",event.label)
+                .put("evidence",event.evidence).put("advice",event.advice).put("position",positionJson(event.position))
+                .put("speedKmh",event.speedKmh?:JSONObject.NULL).put("includedInScore",event.includedInScore)) } })
+            .put("habits",JSONArray().apply { insights.habits.forEach { habit -> put(JSONObject().put("positive",habit.positive).put("title",habit.title).put("detail",habit.detail)) } })
+            .put("distanceKm",insights.distanceKm).put("steeringAvailable",insights.steeringAvailable)
+            .put("locationStatus",locationSource?.status?:"시뮬레이션 경로")
+            .put("track",JSONArray().apply { val track=analysis.track(); val step=maxOf(1,track.size/600);track.filterIndexed { i,_ -> i%step==0||i==track.lastIndex }.forEach { point ->
+                put(JSONObject().put("tMs",point.sample.tMs).put("position",positionJson(point.position)).put("speedKmh",point.sample.speedKmh?:JSONObject.NULL)) } })
+            .put("windowScores",JSONArray().apply { report.windowOverall.forEach { put(it?:JSONObject.NULL) } })
             .put("speedKmh", snapshot.currentSample?.speedKmh ?: JSONObject.NULL)
             .put("gear", snapshot.currentSample?.gear?.name ?: JSONObject.NULL)
+            .put("steeringAngleDeg",snapshot.currentSample?.steeringAngleDeg?:JSONObject.NULL)
             .put("signalDetails", JSONArray().apply { source?.received()?.forEach { (key, value) -> put(JSONObject().put("label", key).put("value", value)) } })
         JourneyRuntime.publish(this, value, persist)
         if (persist) {
             lastPersist = now
             JourneyRuntime.write(File(filesDir, "journeys/${metadata.getString("sessionId")}-report.json"), value)
         }
+    }
+
+    private fun positionJson(position: TripPosition?): Any = when(position) {
+        is TripPosition.Geographic -> JSONObject().put("space","WGS84").put("latitude",position.latitude).put("longitude",position.longitude)
+        is TripPosition.Simulation -> JSONObject().put("space","SIMULATION").put("x",position.x).put("y",position.y)
+        null -> JSONObject.NULL
     }
 
     private fun notification(text: String): Notification = Notification.Builder(this, CHANNEL)
@@ -203,7 +250,7 @@ class JourneyService : Service() {
     }
 
     override fun onDestroy() {
-        main.removeCallbacksAndMessages(null); stopAudio(); source?.stop(); gate?.close()
+        main.removeCallbacksAndMessages(null); stopAudio(); source?.stop(); locationSource?.close(); gate?.close()
         session?.let { journey ->
             if (!journey.snapshot().finished) {
                 val saved = JourneyRuntime.current

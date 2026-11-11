@@ -169,3 +169,43 @@ ERROR        | Failed to find ColorBuffer: 1071
 ERROR        | Failed to bind to texture: invalid color buffer.
 ERROR        | Failed to find ColorBuffer: 1075
 ERROR        | Failed to bind to texture: invalid color buffer.
+ERROR        | Failed to find ColorBuffer: 1206
+ERROR        | Failed to bind to texture: invalid color buffer.
+ERROR        | Failed to find ColorBuffer: 1214
+ERROR        | Failed to bind to texture: invalid color buffer.
+ERROR        | Failed to find ColorBuffer: 1218
+ERROR        | Failed to bind to texture: invalid color buffer.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+ERROR        | Failed to find ColorBuffer: 1392
+ERROR        | Failed to bind to texture: invalid color buffer.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:''.
+INFO         | Created VkInstance:0x72e464800 for application:'' engine:'Dawn'.
+INFO         | Destroyed VkInstance:0x72e464800 for application:'' engine:'Dawn'.

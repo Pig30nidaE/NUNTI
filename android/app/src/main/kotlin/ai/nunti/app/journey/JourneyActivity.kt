@@ -68,6 +68,7 @@ class JourneyActivity : Activity() {
     private var displayName = "눈티"
     private var muted = false
     private var resumed = false
+    private var locationPermissionAsked = false
     private val poll = object : Runnable {
         override fun run() {
             if (!resumed) return
@@ -96,6 +97,8 @@ class JourneyActivity : Activity() {
         }
         // One bundled fallback decode per Activity, never during drawing or periodic refresh.
         images.execute {
+            NuntiLifeMotion.prepare(assets)
+            NuntiFaceRig.prepare(assets)
             val fallback = runCatching {
                 assets.open("nunti-motion/base.png").use { BitmapFactory.decodeStream(it) }
             }.getOrNull()
@@ -114,6 +117,11 @@ class JourneyActivity : Activity() {
         val state = snapshot?.optString("state", "INTERRUPTED")
         val active = state == "ACTIVE" && JourneyRuntime.isRunning
         val parked = parkedNow() && (!active || snapshot?.optBoolean("canFinish", false) == true)
+        if(active && parked && snapshot?.optString("source")=="LIVE" && !locationPermissionAsked) {
+            locationPermissionAsked=true
+            if(checkSelfPermission(JourneyLocationSource.PERMISSION)!=PackageManager.PERMISSION_GRANTED && JourneyLocationSource.supported(this))
+                requestPermissions(arrayOf(JourneyLocationSource.PERMISSION),2041)
+        }
         val nextScreen = when {
             snapshot == null -> Screen.EMPTY
             active && parked -> Screen.PARKED
@@ -148,14 +156,14 @@ class JourneyActivity : Activity() {
         }
         title?.text = when (nextScreen) {
             Screen.PARKED -> "눈티와 함께 출발해요"
-            Screen.REPORT -> if (finished) "함께한 길을 돌아봐요" else "마지막 여정을 돌아봐요"
+            Screen.REPORT -> if (finished) "이번 길을 돌아봐요" else "마지막 여정을 돌아봐요"
             else -> if (active) "이번 길도, 눈티와 함께" else "정차 후 여정을 확인해요"
         }
         val place = snapshot.optString("destination").takeIf { it.isNotBlank() }
         val purpose = snapshot.optString("purpose").takeIf { it.isNotBlank() }
         val trip = listOfNotNull(place, purpose).joinToString(" · ")
         destination?.text = if (nextScreen == Screen.REPORT && !compact) {
-            if (finished) "여정을 마친 뒤, 이번 운전을 차분히 살펴봐요."
+            if (finished) trip
             else "중단 전까지 받은 신호만 남겼어요. 중단 구간은 평가하지 않았어요."
         } else if (!compact && place != null && purpose == null) "${place}으로 가는 길" else trip
         displayName = snapshot.optString("displayName", "눈티")
@@ -167,7 +175,7 @@ class JourneyActivity : Activity() {
         val total = snapshot.numberOrNull("total")
         scoreCaption?.text = if (finished) "이번 길의 운전 점수" else "운전 점수"
         score?.text = total?.let { String.format(Locale.KOREA, "%.0f점", it) } ?: if (finished) "점수 없음" else "기록 중"
-        scoreContext?.text = if (total == null) "신호가 더 필요해요" else "확인된 항목으로 계산했어요"
+        scoreContext?.text = if (total == null) "신호가 더 필요해요" else "수신한 항목만 평가 · 100점 기준"
         val evaluated = (snapshot.optDouble("coverage", 0.0).coerceIn(0.0, 1.0) * 100).toInt()
         coverage?.text = if (nextScreen == Screen.REPORT) "평가 가능한 범위  $evaluated%"
             else if (total == null) "운전 정보를 모으고 있어요"
@@ -181,7 +189,8 @@ class JourneyActivity : Activity() {
         muteButton?.text = if (muted) "음성 켜기" else "음성 끄기"
         muteButton?.visibility = if (active) View.VISIBLE else View.GONE
         finishButton?.isEnabled = active && parked
-        avatarView.setEmotion(emotion, animate = resumed && active && parked && !snapshot.optBoolean("staticOnly", false))
+        avatarView.setFaceRig(snapshot.optString("faceRig", "none"))
+        avatarView.setEmotion(emotion, animate = resumed && parked)
         updateImage(snapshot.optString("imageFile"), displayName)
     }
 
@@ -269,59 +278,63 @@ class JourneyActivity : Activity() {
     }
 
     private fun buildReport(): View {
-        val report = column()
-        if (compact) {
-            report.background = shape(theme.surface, 28)
-            report.setPadding(dp(24), dp(24), dp(24), dp(24))
-            val saved = row().apply { gravity = Gravity.CENTER_VERTICAL }
-            saved.addView(avatarView, layout(220, 220))
-            val caption = column()
-            caption.addView(text("함께 다녀온 눈티", 30, 44, 500), layout(-1, -2))
-            caption.addView(text("내 눈티에서 다시 만나요.", 22, 34, color = theme.muted), layout(-1, -2, top = 16))
-            saved.addView(caption, LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(24) })
-            report.addView(saved, layout(-1, 220))
+        val snapshot = JourneyRuntime.current ?: restored ?: JSONObject()
+        val summary = card(theme.soft, 28)
+        summary.addView(text("이번 길의 운전 점수", 24, 36, color=theme.muted),layout(-1,-2))
+        score=text("",68,88,700);summary.addView(score,layout(-1,-2,top=8))
+        scoreContext=text("",22,34,color=theme.muted);summary.addView(scoreContext,layout(-1,-2,top=8))
+        if(!compact) summary.addView(avatarView,layout(-1,290,top=8))
+        elapsed=text("",28,42,500);summary.addView(elapsed,layout(-1,-2,top=16))
+        summary.addView(text("추정 주행 거리  %.2f km".format(snapshot.optDouble("distanceKm",0.0)),22,34,color=theme.muted),layout(-1,-2,top=8))
+        coverage=text("",22,34,color=theme.accent);summary.addView(coverage,layout(-1,-2,top=12))
+        summary.addView(button("점수 산정 기준",quiet=true){showDetails()},layout(-1,80,top=20))
+        val report=column()
+        val route=card(theme.surface,24)
+        route.addView(text("구간별 기록",30,44,700),layout(-1,-2))
+        val events=snapshot.optJSONArray("events")
+        val n=events?.length()?:0
+        val located=(0 until n).count { events?.optJSONObject(it)?.optJSONObject("position")!=null }
+        val source=if(snapshot.optString("source")=="DEMO") "시뮬레이션 경로 · 실제 GPS 기록 아님" else if(located>0) "수신한 위치와 차량 신호로 기록했어요" else "위치 미수신 · 이벤트는 시간순으로 확인해요"
+        route.addView(text(source,22,34,color=theme.muted),layout(-1,-2,top=4))
+        val detail=text(if(n>0) "번호를 누르면 그 순간을 볼 수 있어요" else "기록된 급격한 조작이 없어요",24,36,500)
+        val map=JourneyRouteView(this,snapshot,theme){ index ->
+            val e=events?.optJSONObject(index)
+            if(e!=null) detail.text="${index+1}. ${e.optString("label")} · ${clock(e.optLong("tMs")/1000)}\n${e.optString("evidence")}"
         }
-        val metrics = row()
-        val scoreCard = card(theme.surface, 24, 20)
-        scoreCard.addView(text("이번 길의 운전 점수", 22, 34, color = theme.muted), layout(-1, -2))
-        score = text("", 38, 52, 700)
-        scoreCard.addView(score, layout(-1, -2, top = 8))
-        scoreContext = text("", 22, 34, color = theme.muted)
-        scoreCard.addView(scoreContext, layout(-1, -2, top = 8))
-        metrics.addView(scoreCard, LinearLayout.LayoutParams(0, -1, 1f))
-        val timeCard = card(theme.surface, 24, 20)
-        timeCard.addView(text("함께한 시간", 22, 34, color = theme.muted), layout(-1, -2))
-        elapsed = text("", 38, 52, 700)
-        timeCard.addView(elapsed, layout(-1, -2, top = 8))
-        elapsedContext = text("", 22, 34, color = theme.muted)
-        timeCard.addView(elapsedContext, layout(-1, -2, top = 8))
-        metrics.addView(timeCard, LinearLayout.LayoutParams(0, -1, 1f).apply { leftMargin = dp(if (compact) 16 else 24) })
-        report.addView(metrics, layout(-1, 204, top = if (compact) 16 else 0))
-        val explanation = if (compact) column() else card(theme.surface, 32)
-        line = text("", 30, 44, 500)
-        explanation.addView(line, layout(-1, -2))
-        explanation.addView(text("받지 못한 항목은 점수에서 제외해요.", 26, 40, color = theme.muted), layout(-1, -2, top = 16))
-        coverage = text("", 22, 34, color = theme.accent).apply {
-            background = shape(theme.soft, 12)
-            gravity = Gravity.CENTER_VERTICAL
-            setPadding(dp(16), dp(16), dp(16), dp(16))
+        route.addView(map,layout(-1,230,top=8))
+        route.addView(detail,layout(-1,-2,top=8))
+        report.addView(route,layout(-1,-2))
+        val habits=snapshot.optJSONArray("habits")
+        fun habitCard(positive:Boolean):View {
+            val card=card(if(positive) theme.soft else theme.surface,24)
+            card.addView(text(if(positive) "잘한 습관" else "다음에는 이렇게",24,36,700,color=if(positive) theme.accent else theme.warm),layout(-1,-2))
+            val choices=(0 until (habits?.length()?:0)).mapNotNull { habits?.optJSONObject(it) }.filter { it.optBoolean("positive")==positive }.take(2)
+            if(choices.isEmpty()) card.addView(text(if(positive) "충분한 주행 정보를 받으면 잘한 습관을 알려드려요." else if(snapshot.numberOrNull("total")!=null) "평가된 항목에서 개선할 습관이 발견되지 않았어요." else "이번 기록은 정보가 부족해 습관을 평가하지 않았어요.",24,38),layout(-1,-2,top=12))
+            for(h in choices) card.addView(text(h.optString("detail"),24,38),layout(-1,-2,top=12))
+            return card
         }
-        explanation.addView(coverage, layout(-1, 72, top = 16))
-        report.addView(explanation, layout(-1, -2, top = if (compact) 16 else 24))
-        val details = if (compact) column() else card(theme.surface, 32)
-        if (!compact) details.addView(text("이번 여정의 세부 기록", 30, 44, 500), layout(-1, -2))
-        details.addView(button("세부 기록 보기", quiet = true) { showDetails() }, layout(if (compact) -1 else -2, 80, top = if (compact) 0 else 16))
-        report.addView(details, layout(-1, if (compact) -2 else 160, top = if (compact) 16 else 24))
-        val scroll = ScrollView(this).apply { isFillViewport = false; addView(report); isVerticalScrollBarEnabled = true }
-        if (compact) return scroll
-        val body = row()
-        val stage = card(theme.soft, 32).apply { gravity = Gravity.CENTER_HORIZONTAL }
-        stage.addView(avatarView, layout(-1, minOf(566, (bodyHeight() - 174).coerceAtLeast(100))))
-        characterName = text("", 30, 44, 500).apply { gravity = Gravity.CENTER; maxLines = 2 }
-        stage.addView(characterName, layout(-1, -2, top = 16))
-        stage.addView(text("내 눈티에 보관됐어요", 22, 34, color = theme.muted), layout(-2, -2, top = 16))
-        body.addView(stage, LinearLayout.LayoutParams(0, -1, 650f))
-        body.addView(scroll, LinearLayout.LayoutParams(0, -1, 920f).apply { leftMargin = dp(32) })
+        report.addView(habitCard(false),layout(-1,-2,top=20))
+        report.addView(habitCard(true),layout(-1,-2,top=20))
+        val log=card(theme.surface,24)
+        log.addView(text("기억할 순간  ${n}회",28,42,700),layout(-1,-2))
+        for(i in 0 until minOf(n,30)) {
+            val event=events?.optJSONObject(i)?:continue
+            val row=column()
+            row.addView(text("${i+1}  ${event.optString("label")}    ${clock(event.optLong("tMs")/1000)}",26,40,500),layout(-1,-2))
+            row.addView(text(event.optString("evidence"),22,34,color=theme.muted),layout(-1,-2,top=4))
+            row.addView(text(event.optString("advice"),22,34),layout(-1,-2,top=8))
+            if(event.optJSONObject("position")==null) row.addView(text("위치 정보 없음",20,30,color=theme.muted),layout(-1,-2,top=4))
+            log.addView(row,layout(-1,-2,top=24))
+        }
+        if(!snapshot.optBoolean("steeringAvailable"))log.addView(text("핸들 각도 미수신 · 급회전은 평가하지 않았어요",22,34,color=theme.muted),layout(-1,-2,top=16))
+        report.addView(log,layout(-1,-2,top=20))
+        if(compact) {
+            val all=column();all.addView(summary,layout(-1,-2));all.addView(report,layout(-1,-2,top=20))
+            return ScrollView(this).apply {addView(all);isFillViewport=false}
+        }
+        val body=row()
+        body.addView(ScrollView(this).apply {addView(summary)},LinearLayout.LayoutParams(0,-1,.85f))
+        body.addView(ScrollView(this).apply {addView(report);isFillViewport=false},LinearLayout.LayoutParams(0,-1,1.75f).apply {leftMargin=dp(24)})
         return body
     }
 
@@ -410,7 +423,7 @@ class JourneyActivity : Activity() {
                 check(bounds.outWidth > 0 && bounds.outHeight > 0)
                 val options = BitmapFactory.Options().apply { inSampleSize = 1 }
                 while (maxOf(bounds.outWidth, bounds.outHeight) / options.inSampleSize > 1600) options.inSampleSize *= 2
-                BitmapFactory.decodeFile(file.path, options)
+                BitmapFactory.decodeFile(file.path, options)?.also { NuntiPuppetParts.prepare(assets,file.nameWithoutExtension,it) }
             }.getOrNull()
             main.post {
                 if (!isDestroyed && request == imageRequest) {
@@ -453,32 +466,36 @@ class JourneyActivity : Activity() {
     }
 
     private fun updateDetails(snapshot: JSONObject, details: LinearLayout) {
-        details.addView(text(snapshot.optString("displayName", "눈티"), 30, 44, 500), layout(-1, -2))
-        details.addView(text(listOf(snapshot.optString("destination"), snapshot.optString("purpose"))
-            .filter { it.isNotBlank() }.joinToString(" · "), 22, 34, color = theme.muted), layout(-1, -2, top = 8))
-        val source = if (snapshot.optString("source") == "DEMO") "시연 데이터" else "실시간 차량 신호"
-        details.addView(text(source, 22, 34, color = theme.muted), layout(-1, -2, top = 8))
-        val voice = snapshot.optString("voiceStatus")
-        if (voice.isNotBlank()) details.addView(text(voice, 22, 34, color = theme.muted), layout(-1, -2, top = 8))
-        if (snapshot.optString("state") == "INTERRUPTED") details.addView(text(
-            "중단 전까지 받은 신호만 남겼어요. 중단 구간은 평가하지 않았어요.", 26, 40, color = theme.warm), layout(-1, -2, top = 24))
-        val items = snapshot.optJSONArray("items")
-        for (i in 0 until (items?.length() ?: 0)) {
-            val item = items?.optJSONObject(i) ?: continue
-            val value = item.numberOrNull("score")?.let { String.format(Locale.KOREA, "%.0f점", it) } ?: "평가 불가"
-            details.addView(text("${item.optString("label")}  $value", 26, 40, 500), layout(-1, -2, top = 24))
-            details.addView(text(item.optString("basis"), 22, 34, color = theme.muted), layout(-1, -2, top = 8))
+        details.addView(text("무엇을 평가하나요?",30,44,700),layout(-1,-2))
+        details.addView(text("속도·제어 35점, 주변 대응 35점, 안전 상태 20점, 효율 10점. 수신한 영역의 배점을 100점으로 환산해요.",24,38,color=theme.muted),layout(-1,-2,top=12))
+        details.addView(text("미수신 항목은 0점이나 만점으로 넣지 않아요. 점수는 프로젝트의 시험 기준이며 공인 운전 등급이 아닙니다.",22,34,color=theme.muted),layout(-1,-2,top=12))
+        val items=snapshot.optJSONArray("items")
+        val criteria=mapOf(
+            "ACCEL_DECEL" to "일반도로: 1초에 +10 km/h 이상 가속, −12 km/h 이상 감속. 고속도로는 +7 / −9. 연속 조작은 1회로 묶고 1분 구간에서 강도에 따라 20~40점을 차감해요.",
+            "TURN_DECEL" to "회전 진입 속도가 5초 전보다 15% 이상 낮거나 20 km/h 이하면 충족해요. 내비 안내 통과를 회전 기회로 사용해요.",
+            "LEAD_GAP" to "현재 속도로 앞차까지 2초 이상이면 100점, 0.5초 이하면 0점으로 계산해요.",
+            "SPEED_LIMIT" to "수신된 제한속도에 5 km/h 여유를 두고, 초과 1 km/h마다 4점을 차감해요.",
+            "LANE_SIGNAL" to "차선 변경 전 3초 안에 해당 방향의 지시등을 사용했는지 확인해요.",
+            "REVERSE_SPEED" to "후진 8 km/h 이하를 기준으로 계산해요.",
+            "SEATBELT" to "주행 중 탑승이 확인된 좌석의 벨트 상태를 확인해요.",
+            "DOOR" to "주행 중 문이 열린 시간이 있는지 확인해요.",
+            "HEADLIGHT" to "야간 신호가 확인된 주행에서 실제 전조등 점등을 확인해요.",
+            "EFFICIENCY" to "연비·전비 신호가 제공되지 않아 현재 총점에서 제외해요.")
+        for(i in 0 until (items?.length()?:0)) {
+            val item=items?.optJSONObject(i)?:continue
+            val value=item.numberOrNull("score")
+            val card=card(theme.soft,24)
+            card.addView(text(item.optString("label"),26,40,500),layout(-1,-2))
+            card.addView(text(if(value==null) "평가하지 않음 · ${item.optString("basis")}" else "%.0f점 · %s".format(value,item.optString("basis")),24,36,color=if(value!=null&&value<70) theme.warm else theme.accent),layout(-1,-2,top=8))
+            if(value!=null) card.addView(android.widget.ProgressBar(this,null,android.R.attr.progressBarStyleHorizontal).apply {
+                max=100;progress=value.toInt();progressTintList=ColorStateList.valueOf(if(value<70) theme.warm else theme.accent)
+                progressBackgroundTintList=ColorStateList.valueOf(theme.surface)
+                contentDescription="${item.optString("label")} ${value.toInt()}점"
+            },layout(-1,12,top=12))
+            card.addView(text(criteria[item.optString("id")]?:item.optString("basis"),22,34,color=theme.muted),layout(-1,-2,top=12))
+            details.addView(card,layout(-1,-2,top=20))
         }
-        val events = snapshot.optJSONArray("events")
-        if ((events?.length() ?: 0) > 0) {
-            details.addView(text("기억할 순간", 30, 44, 500), layout(-1, -2, top = 32))
-            for (i in 0 until minOf(events?.length() ?: 0, 30)) {
-                val event = events?.optJSONObject(i) ?: continue
-                details.addView(text("${duration(event.optLong("tMs") / 1000)}  ${event.optString("label")}",
-                    22, 34, color = theme.muted), layout(-1, -2, top = 12))
-            }
-        }
-        details.addView(button("현대 내비 열기") { openNavigation() }, layout(-1, 80, top = 32))
+        details.addView(text("급회전 참고 기록: 20 km/h 이상에서 핸들 각도가 초당 100° 이상 변할 때 표시해요. 총점에는 중복 반영하지 않아요.",22,34,color=theme.muted),layout(-1,-2,top=24))
     }
 
     private fun dismissDetails() { detailDialog?.dismiss(); detailDialog = null }

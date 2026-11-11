@@ -18,6 +18,27 @@ object Scenarios {
 
     private fun cruise(t: Int) = 55f + 5f * kotlin.math.sin(t / 20f)
 
+    /** Short, labelled simulator trip covering acceleration, braking, steering and recovery. */
+    val contextDrive = Scenario("구간별 운전 연습", (0..150).map { t ->
+        val speed = when {
+            t < 15 -> t*2f
+            t < 30 -> 30f
+            t == 30 -> 55f
+            t < 45 -> 55f
+            t == 45 -> 20f
+            t < 60 -> 20f+(t-45)*2f
+            t < 100 -> 50f
+            t < 110 -> 50f-(t-100)*4f
+            t < 140 -> 14f+(t-110).coerceAtMost(10)*2f
+            else -> (34f-(t-140)*3.4f).coerceAtLeast(0f)
+        }
+        VehicleSample(t*1000L,speed,brakePressed=t==45||t>=140,gear=Gear.D,
+            driverSeat=full,passengerSeat=SeatState(false,null),doorOpen=false,
+            leadDistanceM=if(t in 40..55) 5f else 50f,speedLimitKmh=60,
+            steeringAngleDeg=when(t){60->160f;61->170f;62->170f;63->80f;else->0f})
+    }, listOf(DrivingEvent(80_000,DrivingEvent.Kind.TURN,TurnSignal.RIGHT),
+        DrivingEvent(108_000,DrivingEvent.Kind.TURN,TurnSignal.LEFT)))
+
     val calm = build(
         "안정 주행",
         events = listOf(

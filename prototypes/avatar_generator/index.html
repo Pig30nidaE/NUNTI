@@ -32,9 +32,9 @@
         <article class="journey-panel card">
           <form id="journey-form">
             <div class="form-field destination-field"><label for="destination">목적지</label><input id="destination" maxlength="60" placeholder="어디로 떠나나요?" required></div>
-            <details class="trip-details"><summary>여행에 대해 더 알려주기 <span>선택</span></summary><div class="field-pair trip-context">
+            <div class="form-field purpose-field"><label for="purpose">어떤 일로 가나요?</label><input id="purpose" maxlength="120" placeholder="면접, 진료, 축구 경기 관람…"><div class="purpose-choices"><button type="button" data-purpose="면접·출근">면접·출근</button><button type="button" data-purpose="병원 진료">병원</button><button type="button" data-purpose="축구 경기 관람">축구 직관</button></div></div>
+            <details class="trip-details"><summary>분위기 더하기 <span>선택</span></summary><div class="trip-context">
               <div class="form-field"><label for="traits">그곳의 느낌</label><input id="traits" maxlength="240" placeholder="그곳의 풍경과 분위기"></div>
-              <div class="form-field"><label for="purpose">가는 이유</label><input id="purpose" maxlength="120" placeholder="이번 여정의 이유"></div>
             </div></details>
             <div id="layer-options" hidden>
               <div class="field-pair">
@@ -47,6 +47,7 @@
                 <p id="mood-selection-help" class="visually-hidden">선택한 기분을 다시 누르면 선택을 해제합니다.</p>
               </fieldset>
             </div>
+            <label id="wardrobe-option" class="wardrobe-option" hidden><input id="wardrobe-enabled" type="checkbox"><span><b>오늘의 옷을 새로 만들기</b><small>가는 이유와 기분에 맞춰요. 같은 여정의 옷은 다시 꺼내 입어요.</small></span></label>
             <button id="generation-options-open" class="quiet" type="button" aria-haspopup="dialog">눈티 설정</button>
           </form>
         </article>

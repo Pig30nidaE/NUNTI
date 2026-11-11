@@ -46,7 +46,8 @@ import org.json.JSONObject
 
 // This build must fail closed even if Studio reports configured provider keys.
 private const val MOCK_SKIN_MODE = true
-private val MOCK_STUDIO_MUTATIONS = setOf("/session", "/v3/route-extractions", "/v3/route-plans")
+// Wardrobe edits were explicitly authorized on 2026-11-11. The server owns the $30 cap.
+private val MOCK_STUDIO_MUTATIONS = setOf("/session", "/v3/route-extractions", "/v3/route-plans", "/v3/wardrobe")
 
 /** The same tested generator UI is used by the browser and the actual Android host.
  * Vehicle display is gated with actual Car service values; no query flag can authorize it.
@@ -120,6 +121,10 @@ class AvatarStudioActivity : ComponentActivity() {
         web.addJavascriptInterface(NativeBridge(), "NuntiNative")
         web.webViewClient = object : WebViewClient() {
             override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
+                if (request.method == "POST" && request.url.encodedPath == "/v3/wardrobe" && !allowed) {
+                    return WebResourceResponse("application/json", "UTF-8", 403, "Forbidden", emptyMap(),
+                        "{\"error\":{\"code\":\"PARK_REQUIRED\"}}".byteInputStream())
+                }
                 if (MOCK_SKIN_MODE && (!isStudio(request.url) ||
                         (request.method != "GET" && request.url.encodedPath !in MOCK_STUDIO_MUTATIONS))) {
                     android.util.Log.w("NuntiStudio", "MOCK_SKIN_NETWORK_BLOCKED")
@@ -371,7 +376,7 @@ class AvatarStudioActivity : ComponentActivity() {
             return startPreparedJourney(source) { ai.nunti.app.journey.JourneyAssets(this@AvatarStudioActivity).prepare(characterId, source) }
         }
         @JavascriptInterface fun startSkinJourney(selection: String, source: String): String {
-            if (!MOCK_SKIN_MODE || selection.length > 2048) return "{\"accepted\":false,\"error\":\"INVALID_JOURNEY\"}"
+            if (!MOCK_SKIN_MODE || selection.length > 65536) return "{\"accepted\":false,\"error\":\"INVALID_JOURNEY\"}"
             return startPreparedJourney(source) { ai.nunti.app.journey.prepareBundledSkinJourney(this@AvatarStudioActivity, selection, source) }
         }
         private fun startPreparedJourney(source: String, prepare: () -> File): String {

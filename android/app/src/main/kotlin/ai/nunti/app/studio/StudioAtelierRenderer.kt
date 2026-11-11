@@ -60,6 +60,7 @@ internal object StudioAtelierMotion {
 
 /** Registered artwork stays rigid. Light materializes the outfit without rubber-sheet deformation. */
 internal class StudioAtelierRenderer {
+    private val life = ai.nunti.app.journey.NuntiLifeRenderer()
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
     private val bounds = RectF(0f, 0f, 768f, 768f)
     private val white = PorterDuffColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN)
@@ -75,12 +76,7 @@ internal class StudioAtelierRenderer {
         }
         paint.alpha = 255
         if (time == null || time >= 4.6f) {
-            val state = canvas.save()
-            // Authored tap reactions keep a restrained whole-body nod; the painted face never warps.
-            canvas.translate(0f, (pose.bodyY - 721f).coerceIn(-14f, 8f))
-            canvas.rotate((pose.rotation[0] * 20f).coerceIn(-2.5f, 2.5f), 384f, 721f)
-            canvas.drawBitmap(assets.travel, null, bounds, paint)
-            canvas.restoreToCount(state)
+            life.draw(canvas, assets.travel, assets.skin, pose.faceTime/60f, pose.faceReaction, pose.faceReactionTime)
             return
         }
         val t = time.coerceAtLeast(0f)
@@ -122,8 +118,8 @@ internal class StudioAtelierRenderer {
             shader.setInputShader("materialTexture", BitmapShader(StudioAtelierMotion.materialMap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP).apply {
                 filterMode = BitmapShader.FILTER_MODE_LINEAR
             })
-            val color = when (assets.skin) { "city" -> floatArrayOf(.64f, .57f, 1f)
-                "mountain" -> floatArrayOf(1f, .76f, .36f); else -> floatArrayOf(.39f, .87f, .93f) }
+            val tint = NuntiSkinStyle.tint(assets.skin)
+            val color = floatArrayOf(Color.red(tint)/255f,Color.green(tint)/255f,Color.blue(tint)/255f)
             shader.setFloatUniform("tint", color)
         }
         fun at(time: Float): Shader { shader.setFloatUniform("time", time); return shader }

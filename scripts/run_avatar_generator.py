@@ -152,7 +152,12 @@ def server(configuration, allow_paid=False, local_ai=False, navigation_api=False
         NUNTI_STUDIO_LOCAL_MODEL_WEIGHTS=str(weights),
         NUNTI_STUDIO_LOCAL_MODEL_TIMEOUT_SECONDS="150",
         NUNTI_STUDIO_ROUTE_API_ENABLED="true" if navigation_api else "false",
+        NUNTI_STUDIO_WARDROBE_ENABLED="true" if allow_paid else "false",
     )
+    if allow_paid:
+        key_file = ROOT / ".local/credentials/openai-api-key"
+        if key_file.is_file():
+            env["OPENAI_API_KEY"] = key_file.read_text().strip()
     with (WORK / "server.log").open("ab") as log:
         process = subprocess.Popen(
             [

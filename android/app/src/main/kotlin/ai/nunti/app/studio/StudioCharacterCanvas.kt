@@ -27,12 +27,27 @@ internal class StudioCharacterAssets private constructor(
         )
 
         fun load(assets: AssetManager, skin: String): StudioCharacterAssets {
+            ai.nunti.app.journey.NuntiLifeMotion.prepare(assets)
+            ai.nunti.app.journey.NuntiFaceRig.prepare(assets)
             require(skin == "base" || skin == "sea" || skin == "city" || skin == "mountain")
             val base = plate(assets, "nunti-motion/base.png")
             val travel = if (skin == "base") base else plate(assets, "skin-v2/atelier/$skin/final.png")
             if (skin != "base") StudioAtelierMotion.materialMap // Prepare off the UI thread.
             val face = if (skin == "base") faceNames.map { name -> bitmap(assets, "plates/expressions/base-$name.png") } else emptyList()
             return StudioCharacterAssets(skin, base, travel, null, null, face)
+        }
+
+        fun generated(context: Context, skin: String): StudioCharacterAssets {
+            ai.nunti.app.journey.NuntiLifeMotion.prepare(context.assets)
+            ai.nunti.app.journey.NuntiFaceRig.prepare(context.assets)
+            val sha = NuntiSkinStyle.imageHash(skin)
+            require(sha.matches(Regex("[0-9a-f]{64}")))
+            val file = ai.nunti.app.journey.JourneyAssets(context).image(sha)
+            val bitmap = requireNotNull(BitmapFactory.decodeFile(file.path))
+            require(bitmap.width == 768 && bitmap.height == 768)
+            StudioAtelierMotion.materialMap
+            ai.nunti.app.journey.NuntiPuppetParts.prepare(context.assets,skin,bitmap)
+            return StudioCharacterAssets(skin, plate(context.assets, "nunti-motion/base.png"), bitmap, null, null, emptyList())
         }
 
         private fun plate(assets: AssetManager, path: String): Bitmap =
@@ -49,6 +64,9 @@ internal class StudioCharacterAssets private constructor(
 
 /** Mutable sample of the original rig's authored property tracks. */
 internal class StudioCharacterPose {
+    var faceTime = 0f
+    var faceReactionTime = 0f
+    var faceReaction = "idle"
     var bodyY = 721f
         private set
     var scaleX = 1f
@@ -70,6 +88,7 @@ internal class StudioCharacterPose {
 
     @Suppress("UNUSED_PARAMETER")
     fun reset(skin: String, phase: String) {
+        faceReaction = phase
         bodyY = 721f
         scaleX = 1f
         scaleY = 1f

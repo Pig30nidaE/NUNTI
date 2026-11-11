@@ -26,6 +26,8 @@ data class VehicleSample(
     /** 내비가 알려 주는 현재 도로 제한속도 (km/h). null = 정보 없음 → 평가하지 않는다. */
     val speedLimitKmh: Int? = null,
     val roadType: RoadType = RoadType.GENERAL,
+    /** Official Pleos steering-wheel angle, degrees. Null means unavailable. */
+    val steeringAngleDeg: Float? = null,
 )
 
 /** 기회 기반 평가(회전 전 감속, 차선 변경 지시등)를 위한 실제 행동 이벤트. */

@@ -1,0 +1,271 @@
+{
+  "version": "nunti-life-5.0",
+  "owner": "NUNTI",
+  "source": "Original wardrobe arm cutouts plus image_gen hidden torso underlays",
+  "export": "Source PNG, runtime 768x768 RGBA parts",
+  "fallback": "Unknown illustration keeps its original body and uses head and facial motion",
+  "rigs": {
+    "e82f61a88d6cd54aa51d6e8d9cafd3e9126f68b75238c626d5e2a5f48f6926c8": {
+      "look": "formal",
+      "underlay": "formal-underlay.png",
+      "leftPivot": [
+        287,
+        402
+      ],
+      "rightPivot": [
+        488,
+        402
+      ],
+      "leftGain": 1,
+      "rightGain": 0.3,
+      "left": [
+        [
+          275,
+          375
+        ],
+        [
+          310,
+          401
+        ],
+        [
+          278,
+          458
+        ],
+        [
+          250,
+          500
+        ],
+        [
+          244,
+          536
+        ],
+        [
+          232,
+          554
+        ],
+        [
+          175,
+          558
+        ],
+        [
+          158,
+          520
+        ],
+        [
+          190,
+          453
+        ],
+        [
+          228,
+          393
+        ]
+      ],
+      "right": [
+        [
+          480,
+          372
+        ],
+        [
+          530,
+          392
+        ],
+        [
+          580,
+          445
+        ],
+        [
+          592,
+          560
+        ],
+        [
+          517,
+          586
+        ],
+        [
+          436,
+          557
+        ],
+        [
+          429,
+          402
+        ]
+      ]
+    },
+    "6792d0aaa4bc29f0c7021734612622dd0a298a25ae2a229cc16bdcf7e37f7cfa": {
+      "look": "medical",
+      "underlay": "medical-underlay.png",
+      "leftPivot": [
+        287,
+        402
+      ],
+      "rightPivot": [
+        488,
+        402
+      ],
+      "leftGain": 1,
+      "rightGain": 0.3,
+      "left": [
+        [
+          268,
+          374
+        ],
+        [
+          296,
+          398
+        ],
+        [
+          278,
+          449
+        ],
+        [
+          254,
+          494
+        ],
+        [
+          242,
+          540
+        ],
+        [
+          170,
+          549
+        ],
+        [
+          153,
+          496
+        ],
+        [
+          193,
+          441
+        ],
+        [
+          229,
+          394
+        ]
+      ],
+      "right": [
+        [
+          478,
+          365
+        ],
+        [
+          506,
+          348
+        ],
+        [
+          500,
+          306
+        ],
+        [
+          578,
+          302
+        ],
+        [
+          600,
+          377
+        ],
+        [
+          579,
+          470
+        ],
+        [
+          521,
+          487
+        ],
+        [
+          478,
+          449
+        ],
+        [
+          461,
+          392
+        ]
+      ]
+    },
+    "e967f79c037cf0db28a4501c7ff81129daf98d44c2eface03289824b1eb05a17": {
+      "look": "football",
+      "underlay": "football-underlay.png",
+      "leftPivot": [
+        287,
+        402
+      ],
+      "rightPivot": [
+        488,
+        402
+      ],
+      "leftGain": 0.25,
+      "rightGain": 0.3,
+      "left": [
+        [
+          270,
+          365
+        ],
+        [
+          306,
+          390
+        ],
+        [
+          292,
+          429
+        ],
+        [
+          265,
+          468
+        ],
+        [
+          214,
+          464
+        ],
+        [
+          188,
+          403
+        ],
+        [
+          191,
+          328
+        ],
+        [
+          251,
+          319
+        ],
+        [
+          271,
+          355
+        ]
+      ],
+      "right": [
+        [
+          481,
+          377
+        ],
+        [
+          533,
+          392
+        ],
+        [
+          586,
+          428
+        ],
+        [
+          596,
+          503
+        ],
+        [
+          545,
+          548
+        ],
+        [
+          467,
+          548
+        ],
+        [
+          432,
+          487
+        ],
+        [
+          437,
+          422
+        ]
+      ]
+    }
+  }
+}

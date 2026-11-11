@@ -86,6 +86,8 @@ internal class JourneyAssets(private val context: Context) {
         return file
     }
 
+    fun image(sha: String): File = asset(JSONObject().put("sha256", sha).put("path", "/v3/assets/$sha"), "png")
+
     fun prepare(characterId: String, source: String): File {
         require(characterId.matches(Regex("nunti-[0-9a-f-]{36}")))
         require(source == "LIVE" || source == "DEMO")
@@ -110,6 +112,8 @@ internal class JourneyAssets(private val context: Context) {
             .put("displayName", artifact.getString("displayName"))
             .put("destination", artifact.getJSONObject("destination").getString("name"))
             .put("purpose", artifact.optString("purpose"))
+            .put("route", artifact.optJSONObject("route"))
+            .put("faceRig", artifact.optJSONObject("design")?.optJSONObject("wardrobe")?.optString("faceRig") ?: "none")
             .put("routePlanId", artifact.optJSONObject("route")?.optString("apiPlanId")?.ifBlank { null })
             .put("staticOnly", artifact.optJSONObject("design")?.optBoolean("staticOnly", false) == true ||
                 artifact.optString("mediaOrigin") == "LOCAL_LAYERS")
@@ -154,6 +158,7 @@ internal fun prepareBundledSkinJourney(context: Context, selection: String, sour
     val metadata = JSONObject().put("sessionId", sessionId).put("characterId", id)
         .put("displayName", name).put("destination", destination).put("purpose", purpose)
         .put("routePlanId", routePlan).put("staticOnly", true).put("imageFile", image.absolutePath)
+        .put("route", input.optJSONObject("route")).put("faceRig", if(version == "skin-v2.2" && skin != "default") skin else "none")
         .put("voices", JSONObject()).put("source", source).put("startedAtEpochMs", System.currentTimeMillis())
     val file = File(context.filesDir, "journeys/$sessionId-input.json")
     JourneyRuntime.write(file, metadata)

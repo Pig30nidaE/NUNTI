@@ -48,10 +48,17 @@ internal class StudioEvolutionEffects(context: Context) : View(context) {
     ) {
         SEA(0xff27c8df.toInt(), 0xfff3fbff.toInt()),
         CITY(0xffa084ff.toInt(), 0xfff3e9ff.toInt()),
-        MOUNTAIN(0xffedbd66.toInt(), 0xfffff2cd.toInt());
+        MOUNTAIN(0xffedbd66.toInt(), 0xfffff2cd.toInt()),
+        FORMAL(0xffd6b477.toInt(),0xfffff3d7.toInt()), MEDICAL(0xff91ccb6.toInt(),0xfff2fff7.toInt()),
+        FOOTBALL(0xff6ab58c.toInt(),0xffeefff2.toInt()), PERSONAL(0xffb9c5a4.toInt(),0xfff5f7e9.toInt());
 
         companion object {
-            fun from(skin: String) = when (skin) {
+            fun from(skin: String) = when (NuntiSkinStyle.theme(skin)) {
+                "formal" -> FORMAL
+                "medical" -> MEDICAL
+                "football" -> FOOTBALL
+                "personal" -> PERSONAL
+                "hiking" -> MOUNTAIN
                 "city" -> CITY
                 "mountain" -> MOUNTAIN
                 else -> SEA
@@ -61,13 +68,14 @@ internal class StudioEvolutionEffects(context: Context) : View(context) {
 
     private class Playback(
         val theme: Theme,
+        val skin: String,
         val masks: Masks?,
         val authored: StudioAtlasVfx?,
         val direction: Float,
         val allowed: () -> Boolean,
         val onCameraScale: (Float) -> Unit,
     ) {
-        val atelier = StudioAtelierVfx(theme.name.lowercase())
+        val atelier:StudioVfxScene = if(NuntiSkinStyle.isWardrobe(skin)) StudioWardrobeVfx(skin) else StudioAtelierVfx(theme.name.lowercase())
         val startedAt = System.nanoTime()
         var frame = StudioVfxFrame(0f, 0f, 0f, 0f, 0f, direction)
         val tint = PorterDuffColorFilter(theme.energy, PorterDuff.Mode.SRC_IN)
@@ -121,7 +129,7 @@ internal class StudioEvolutionEffects(context: Context) : View(context) {
     fun start(skin: String, masks: Masks?, authored: StudioAtlasVfx?, direction: Float, allowed: () -> Boolean, onCameraScale: (Float) -> Unit) {
         stop()
         if (!allowed()) return
-        val active = Playback(Theme.from(skin), masks, authored, direction.coerceIn(-1f, 1f), allowed, onCameraScale)
+        val active = Playback(Theme.from(skin), skin, masks, authored, direction.coerceIn(-1f, 1f), allowed, onCameraScale)
         if (Build.VERSION.SDK_INT >= 33 && masks != null && !shaderUnavailable) {
             try {
                 hardware = (hardware ?: HardwareGlow()).apply { bind(active) }
@@ -288,13 +296,18 @@ internal class StudioEvolutionEffects(context: Context) : View(context) {
             }.onFailure { Log.w(TAG, "Silhouette masks unavailable", it) }.getOrNull()
         }
 
+        fun decodeMasks(base: Bitmap, travel: Bitmap): Masks = Masks(mask(base),mask(travel))
+
         private fun mask(assets: AssetManager, path: String): Mask {
             val image = assets.open(path).use { requireNotNull(BitmapFactory.decodeStream(it)) }
+            return try { mask(image) } finally { image.recycle() }
+        }
+
+        private fun mask(image: Bitmap): Mask {
             val sample = Bitmap.createScaledBitmap(image, MAP_SIZE, MAP_SIZE, true)
-            if (sample !== image) image.recycle()
             val pixels = IntArray(MAP_SIZE * MAP_SIZE)
             sample.getPixels(pixels, 0, MAP_SIZE, 0, 0, MAP_SIZE, MAP_SIZE)
-            sample.recycle()
+            if(sample !== image) sample.recycle()
             val inside = BooleanArray(pixels.size) { Color.alpha(pixels[it]) >= 112 }
             val inner = distance(inside, source = false)
             val outer = distance(inside, source = true)

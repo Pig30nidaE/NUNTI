@@ -6,11 +6,15 @@ let viewEpoch=0, collectionEpoch=0;
 let reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const skins=window.NuntiSkins, mockSkins=skins?.MOCK_SKIN_MODE===true;
 const skinRecord=artifact=>skins?.isSkin(artifact)===true;
+const wardrobeRecord=artifact=>artifact?.mediaOrigin==='OPENAI_WARDROBE';
+const usesSkinMotion=artifact=>skinRecord(artifact)||wardrobeRecord(artifact);
+const motionSpec=artifact=>skinRecord(artifact)?artifact.design.skinSpec:{version:skins.version,
+  skinId:'wardrobe-'+(['formal','medical','football','hiking','seaside','personal'].includes(artifact.design.wardrobe.look)?artifact.design.wardrobe.look:'personal')+'-'+artifact.visual.sha256,animationPreset:{sweep:artifact.design.wardrobe.road==='highway'?'diagonal':'forward'}};
 const polishedSkin=spec=>spec&&spec.version===skins.version&&spec.skinId!=='default'?spec.skinId:null;
 window.NuntiBirth = window.NuntiTransformation?.create({
   canvas:$('birth-canvas'), allowed:()=>state.nativeAllowed, visible:()=>!document.hidden&&!$('result-view').hidden,
   onFrame:frame=>{
-    if(skinRecord(state.artifact))return;
+    if(usesSkinMotion(state.artifact))return;
     const wasReduced=reduced;reduced=frame.reducedMotion;
     if(reduced&&!wasReduced&&state.animation&&state.artifact?.mediaOrigin!=='LOCAL_LAYERS'){
       cancelAnimationFrame(state.animation);state.animation=0;
@@ -33,8 +37,8 @@ const skinPhaseText={DEFAULT_IDLE:'여행 준비 중',ROUTE_ENERGY:'여행 준�
 window.NuntiSkinMotion=window.NuntiSkinRenderer?.create({
   canvas:$('birth-canvas'),allowed:()=>state.nativeAllowed,visible:()=>!document.hidden&&!$('result-view').hidden,
   onFrame:frame=>{
-    if(!frame.active||!skinRecord(state.artifact))return;
-    const spec=state.artifact.design.skinSpec;
+    if(!frame.active||!usesSkinMotion(state.artifact))return;
+    const spec=motionSpec(state.artifact);
     const settled=frame.reason==='COMPLETE'||frame.reason==='STATIC'||frame.reason==='REDUCED';
     window.NuntiCompanionPlayer?.setResult(settled&&(spec.version===skins.version||spec.skinId==='default')?spec.skinId:null);
     const checkbox=$('reduced-motion');checkbox.checked=frame.reducedMotion;checkbox.disabled=frame.systemReducedMotion;
@@ -53,9 +57,9 @@ window.NuntiCompanionPlayer=mockSkins?window.NuntiCompanion?.create({
   preview:$('canonical-portrait'),result:$('result-portrait'),inputView:$('input-view'),resultView:$('result-view'),
   allowed:()=>state.nativeAllowed&&!window.NuntiSkinMotion?.diagnostics().reducedMotion,
 }):null;
-if($('motion-skip'))$('motion-skip').onclick=()=>(skinRecord(state.artifact)?window.NuntiSkinMotion:window.NuntiBirth)?.stop('SKIPPED');
+if($('motion-skip'))$('motion-skip').onclick=()=>(usesSkinMotion(state.artifact)?window.NuntiSkinMotion:window.NuntiBirth)?.stop('SKIPPED');
 if($('reduced-motion'))$('reduced-motion').onchange=event=>{
-  (skinRecord(state.artifact)?window.NuntiSkinMotion:window.NuntiBirth)?.setReduced(event.target.checked);
+  (usesSkinMotion(state.artifact)?window.NuntiSkinMotion:window.NuntiBirth)?.setReduced(event.target.checked);
   window.NuntiCompanionPlayer?.sync();
 };
 window.addEventListener('nunti:appearance',event=>{
@@ -74,6 +78,28 @@ async function api(path, body, method = 'GET') {
   if (!response.ok) { const e = new Error(value.error?.message || value.detail?.message || value.error?.code || (typeof value.detail === 'string' ? value.detail : '요청을 처리하지 못했어요.')); e.status=response.status; throw e; }
   return value.data ?? value;
 }
+async function createWardrobe(input){
+  const epoch=viewEpoch,button=$('create-button');
+  state.generating=state.busy=true;enableCreate();button.textContent='오늘의 옷을 만들고 있어요…';
+  message('눈티의 새 옷을 준비하고 있어요. 보통 1~2분 걸리며, 완성되면 내 눈티에 보관합니다.');
+  try{
+    const artifact=await api('/v3/wardrobe',{destination:input.destination,purpose:input.purpose,route:input.route,
+      mood:$('layer-mood').value,scenery:$('layer-destination').value,road:$('layer-road').value});
+    if(state.nativeAllowed&&!document.hidden&&viewEpoch===epoch)await showArtifact(artifact,true);
+    await loadCollection();
+  }catch(e){
+    const hints={IMAGE_API_BUDGET_REACHED:'설정한 30달러 한도에 도달했어요. 보관한 옷이나 기본 여행복을 선택해 주세요.',
+      WARDROBE_NOT_CONFIGURED:'이미지 생성 연결을 확인해 주세요. 기본 여행복은 바로 사용할 수 있어요.',
+      WARDROBE_HTTP_401:'OpenAI 키 인증을 확인해 주세요.',WARDROBE_HTTP_403:'이 키의 이미지 모델 사용 권한을 확인해 주세요.',
+      WARDROBE_HTTP_429:'OpenAI 사용 한도 또는 잔액을 확인해 주세요.',
+      WARDROBE_RESULT_UNKNOWN:'응답을 받지 못했어요. 중복 결제를 피하려고 자동 재시도하지 않았어요.'};
+    message(hints[e.message]||'새 옷을 완성하지 못했어요. 보관한 눈티는 그대로 사용할 수 있어요.');
+  }finally{state.generating=state.busy=false;button.textContent='눈티 만들기 →';enableCreate();}
+}
+document.querySelectorAll('[data-purpose]').forEach(button=>button.addEventListener('click',()=>{
+  $('purpose').value=button.dataset.purpose;
+  document.querySelectorAll('[data-purpose]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+}));
 function screen(which) {
   window.NuntiCompanionPlayer?.setResult(null);
   window.NuntiBirth?.clear();
@@ -188,6 +214,7 @@ $('journey-form').onsubmit=async event=>{
   event.preventDefault();const layered=$('render-mode').value==='LOCAL_LAYERS';if(state.busy||state.planning||!state.nativeAllowed||(!state.route&&!layered&&!mockSkins)||(state.route&&(!state.imageReady||!$('route-confirmed').checked))||window.NuntiNavigation?.canGenerate()===false||!$('destination').value.trim())return;
   const sourceRoute=state.route,{points,inputOrigin,sourceLabel,extractionId,apiPlanId}=sourceRoute||{};
   const input={destination:{name:$('destination').value.trim(),traits:$('traits').value.trim()},purpose:$('purpose').value.trim(),route:sourceRoute?{points,inputOrigin,sourceLabel,confirmed:true,...(extractionId?{extractionId}:{}),...(apiPlanId?{apiPlanId}:{})}:null,renderMode:$('render-mode').value};
+  if($('wardrobe-enabled').checked&&window.nuntiCapabilities?.wardrobeAvailable){await createWardrobe(input);return;}
   if(mockSkins){
     state.generating=true;state.busy=true;enableCreate();
     const requestView=viewEpoch;
@@ -257,7 +284,7 @@ async function showArtifact(artifact,animate=false){
   const staticOnly=artifact.design?.staticOnly===true||artifact.mediaOrigin==='LOCAL_LAYERS';
   if(staticOnly){
     document.querySelector('.birth-stage').style.setProperty('--journey-color',artifact.design.avatarSpec?.palette?.accent||'#ACDABF');
-    if(!artifact.route){$('heading').textContent='함께할 기본 눈티예요.';$('subheading').textContent='경로 정보를 받지 못해 기본 모습으로 준비했어요.';}
+    if(!artifact.route&&!wardrobeRecord(artifact)){$('heading').textContent='함께할 기본 눈티예요.';$('subheading').textContent='경로 정보를 받지 못해 기본 모습으로 준비했어요.';}
   }
   prepareVoiceButton.textContent=preparingJourneyVoice?'주행 음성 준비 중':journeyVoiceReady.has(artifact.characterId)?'주행 음성 준비 완료':'이 눈티의 주행 음성 준비';
   $('avatar-name').textContent=artifact.displayName;$('avatar-personality').textContent=artifact.design.personality;
@@ -268,6 +295,11 @@ async function showArtifact(artifact,animate=false){
     const theme=window.NuntiJourneyEffects?.theme({character});
     document.querySelector('.birth-stage').style.setProperty('--journey-color',theme?.colors[0]||'#d6b97a');
     for(const [label,detail] of [['옷차림',character.outfit.label],['여정의 기념품',character.destination.landmarkLabel],['탄생 순간',theme?.name||'여정의 빛이 모이는 순간']]){
+      const row=document.createElement('div'),title=document.createElement('span'),value=document.createElement('b');title.textContent=label;value.textContent=detail;row.append(title,value);$('character-story').append(row);
+    }
+  } else if(wardrobeRecord(artifact)){
+    const mood={calm:'차분하게',curious:'호기심 있게',adventurous:'씩씩하게',unset:'고르지 않았어요'};
+    for(const [label,detail] of [['오늘의 옷',artifact.design.wardrobe.label],['가는 이유',artifact.purpose||'가벼운 외출'],['고른 기분',mood[artifact.design.wardrobe.mood]]]){
       const row=document.createElement('div'),title=document.createElement('span'),value=document.createElement('b');title.textContent=label;value.textContent=detail;row.append(title,value);$('character-story').append(row);
     }
   } else if(skinRecord(artifact)){
@@ -292,12 +324,12 @@ async function showArtifact(artifact,animate=false){
   $('origin-label').textContent=skinRecord(artifact)?'눈티 A · 오프라인 여행 스킨':artifact.mediaOrigin==='LOCAL_LAYERS'?'기본 눈티 A · 로컬 모습 조합 · 외부 API 없음':artifact.mediaOrigin==='LOCAL_RENDER'?'로컬에서 새로 그린 일러스트 · AI 이미지 아님':artifact.mediaOrigin==='LOCAL_MODEL'?'로컬 AI로 새로 그린 그림 · 외부 API 없음':'외부 AI로 새로 생성한 이미지';
   $('edition-label').textContent='JOURNEY '+artifact.characterId.slice(-8).toUpperCase();
   $('motifs-heading').textContent='여행에서 가져온 것';
-  $('motifs-notice').hidden=skinRecord(artifact)||artifact.mediaOrigin==='LOCAL_RENDER'||artifact.mediaOrigin==='LOCAL_LAYERS';
+  $('motifs-notice').hidden=usesSkinMotion(artifact)||artifact.mediaOrigin==='LOCAL_RENDER'||artifact.mediaOrigin==='LOCAL_LAYERS';
   $('motifs-notice').textContent=artifact.mediaOrigin==='LOCAL_MODEL'?'AI에 요청한 모티브예요. 실제 경로와 목적지의 특성이 그림에 반영됐는지는 아직 확인하지 않았어요.':'아래는 생성 요청에 담은 모티브예요. AI 이미지에 실제로 반영됐는지는 아직 확인하지 않았어요.';
   $('motifs').replaceChildren();for(const [i,m] of (artifact.design.motifs||[]).slice(0,3).entries()){const row=document.createElement('div');row.className='motif';const dot=document.createElement('span');dot.className='dot';dot.textContent=String(i+1).padStart(2,'0');const content=document.createElement('div'),title=document.createElement('b'),desc=document.createElement('p');title.textContent=m.label;desc.textContent=m.detail||m.source+' → '+m.target;content.append(title,desc);row.append(dot,content);$('motifs').append(row);}
-  const isSkin=skinRecord(artifact);
+  const isSkin=usesSkinMotion(artifact);
   if(mockSkins)prepareVoiceButton.hidden=true;
-  const transformable=!imageFailed&&(isSkin?artifact.design.skinSpec.skinId!=='default':!!window.NuntiTransformation?.pathsFor(artifact)?.hasChanges);
+  const transformable=!imageFailed&&(isSkin?motionSpec(artifact).skinId!=='default':!!window.NuntiTransformation?.pathsFor(artifact)?.hasChanges);
   $('result-details').hidden=false;$('replay-button').hidden=imageFailed||(staticOnly&&!transformable);$('save-status').textContent='내 눈티에 저장됨';
   $('replay-button').onclick=imageFailed||(staticOnly&&!transformable)?null:()=>{
     const current=window.NuntiSkinMotion?.diagnostics();
@@ -309,7 +341,8 @@ async function showArtifact(artifact,animate=false){
 }
 function drawReceipt(artifact){
   const route=artifact.route,hasRoute=Array.isArray(route?.points)&&route.points.length>=2;
-  $('receipt-source').textContent=hasRoute?(route.sourceLabel||'선택한 경로')+' · '+(route.inputOrigin==='NAVIGATION_SCREENSHOT'?'사용자가 확인한 화면 좌표':'확인한 정규화 좌표'):'경로 정보를 받지 못해 기본 눈티를 표시해요. 사용한 경로선은 없어요.';
+  $('receipt-source').textContent=hasRoute?(route.sourceLabel||'선택한 경로')+' · '+(route.inputOrigin==='NAVIGATION_SCREENSHOT'?'사용자가 확인한 경로':'함께 갈 경로'):
+    artifact.mediaOrigin==='OPENAI_WARDROBE'?'목적지와 방문 이유에 맞춘 옷이에요. 경로선은 사용하지 않았어요.':'경로 정보를 받지 못해 기본 모습으로 만나요.';
   const canvas=$('receipt-canvas');canvas.hidden=!hasRoute;
   const {ctx,width,height}=canvasSize(canvas);if(!hasRoute)return;
   const pts=fitPoints(route.points,width,height,15);strokeRoute(ctx,pts,'#6c9275',3);pins(ctx,pts);
@@ -324,6 +357,11 @@ function drawStaticArtifact(){
 }
 function birthAnimation(img,artifact,animate){
   window.NuntiCompanionPlayer?.setResult(null);
+  if(artifact.mediaOrigin==='OPENAI_WARDROBE'){
+    staticDisplay=null;formationDisplay=null;
+    window.NuntiSkinMotion.show(motionSpec(artifact),img,artifact.route,animate);
+    return;
+  }
   if(skinRecord(artifact)){
     staticDisplay=null;formationDisplay=null;
     window.NuntiSkinMotion.show(artifact.design.skinSpec,img,artifact.route,animate);return;
@@ -418,8 +456,9 @@ $('new-button').onclick=()=>{screen('input');message('');};
 const journeyOptions=document.createElement('div');journeyOptions.className='journey-options';
 const journeyLabel=document.createElement('label');journeyLabel.htmlFor='journey-source';journeyLabel.textContent='함께할 여정';
 const journeySource=document.createElement('select');journeySource.id='journey-source';
-for(const [value,label] of [['LIVE','실제 차량 신호'],['DEMO','예시 주행']]){const option=document.createElement('option');option.value=value;option.textContent=label;journeySource.append(option);}
+for(const [value,label] of [['LIVE','실제 차량 신호'],['DEMO','운전 습관 연습 · 약 30초']]){const option=document.createElement('option');option.value=value;option.textContent=label;journeySource.append(option);}
 const journeyHelp=document.createElement('p');journeyHelp.className='helper';journeyHelp.textContent='주행 중 운전 습관을 기록하고, 도착 후 점수를 확인해요.';
+journeySource.addEventListener('change',()=>{journeyHelp.textContent=journeySource.value==='DEMO'?'주차 상태에서 급가속·급제동·급회전과 부드러운 운전을 재현해요. 약 30초 뒤 여정을 마치면 구간별 리포트를 볼 수 있어요.':'주행 중 운전 습관을 기록하고, 도착 후 점수를 확인해요.';});
 const prepareVoiceButton=document.createElement('button');prepareVoiceButton.id='prepare-journey-voice';prepareVoiceButton.className='secondary';prepareVoiceButton.textContent='이 눈티의 주행 음성 준비';
 const previousJourneyButton=document.createElement('button');previousJourneyButton.id='previous-journey';previousJourneyButton.className='quiet';previousJourneyButton.textContent='진행 중인 여정 · 마지막 리포트';
 journeyOptions.append(journeyLabel,journeySource,journeyHelp,prepareVoiceButton,previousJourneyButton);
@@ -450,7 +489,7 @@ $('journey-button').onclick=()=>{
   stopVoice();startingJourney=true;$('journey-button').disabled=true;
   const artifact=state.artifact;
   const result=JSON.parse(skinRecord(artifact)?window.NuntiNative.startSkinJourney(JSON.stringify({
-    skinId:artifact.design.skinSpec.skinId,skinVersion:artifact.design.skinSpec.version,characterId:artifact.characterId,displayName:artifact.displayName,
+    skinId:artifact.design.skinSpec.skinId,skinVersion:artifact.design.skinSpec.version,characterId:artifact.characterId,displayName:artifact.displayName,route:artifact.route,
     destination:artifact.destination.name,purpose:artifact.purpose,routePlanId:artifact.route?.apiPlanId
   }),journeySource.value):window.NuntiNative.startJourney(artifact.characterId,journeySource.value));
   if(!result.accepted){window.nuntiJourneyResult('주차 상태와 연결을 확인한 뒤 다시 눌러 주세요.');return;}
@@ -494,7 +533,7 @@ window.nuntiSpeechFinished=requestId=>{if(requestId!==undefined&&requestId!==nat
 window.nuntiSpeechFailed=requestId=>{if(requestId!==undefined&&requestId!==nativeVoiceRequestId())return;stopVoice();$('voice-notice').textContent='음성을 재생하지 못했어요. 연결을 확인한 뒤 다시 눌러 주세요.';};
 function restoreVisibleResult(){
   if(!state.artifact||$('result-view').hidden||!state.nativeAllowed||document.hidden)return;
-  if(!skinRecord(state.artifact)||(!window.NuntiSkinMotion?.diagnostics().active&&!staticDisplay))showArtifact(state.artifact,false).catch(e=>message(errorText(e)));
+  if(!usesSkinMotion(state.artifact)||(!window.NuntiSkinMotion?.diagnostics().active&&!staticDisplay))showArtifact(state.artifact,false).catch(e=>message(errorText(e)));
 }
 function interruptSkin(reason){
   const current=window.NuntiSkinMotion?.diagnostics();
@@ -530,6 +569,7 @@ async function init(){if($('connection-retry'))$('connection-retry').hidden=true
     try{
       const caps=await api('/v3/capabilities');
       window.nuntiCapabilities={...caps,imageApiAvailable:false,localImageModelAvailable:false};window.NuntiNavigation?.setCapabilities(window.nuntiCapabilities,{prefill:false});
+      $('wardrobe-option').hidden=!caps.wardrobeAvailable;$('wardrobe-enabled').checked=!!caps.wardrobeAvailable;
       await examples(false);await loadCollection();
     }catch{}
     return;
