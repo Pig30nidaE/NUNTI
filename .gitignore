@@ -13,3 +13,4 @@ backend/data/
 .worktrees/
 .local/
 .env.local
+.claude/settings.local.json

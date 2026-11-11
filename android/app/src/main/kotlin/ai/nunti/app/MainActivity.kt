@@ -68,7 +68,7 @@ class LegacyMockActivity : ComponentActivity() {
                 }
             }
             val state = if (replayFrame >= 0) timeline[replayFrame].snapshot else remember(emotion, spec) {
-                EmotionSnapshot("mock-preview", "mock-trip", spec.avatarId, emotion, 0, null, 0.0, "MOCK_PREVIEW") }
+                EmotionSnapshot("mock-preview", "mock-trip", spec.avatarId, emotion, 0, null, 0.0, TransitionReason.MOCK_PREVIEW) }
             Column(Modifier.fillMaxSize()) {
                 BasicText("개발용 Mock · 일반 Android 기기 전용", Modifier.padding(16.dp), style = TextStyle(fontSize = 16.sp))
                 Row(Modifier.padding(horizontal = 16.dp), horizontalArrangement = Arrangement.spacedBy(16.dp)) {

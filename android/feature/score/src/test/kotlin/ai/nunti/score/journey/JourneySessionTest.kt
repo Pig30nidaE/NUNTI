@@ -66,7 +66,7 @@ class JourneySessionTest {
         assertEquals(4, resumed.sampleCount)
         assertTrue(resumed.report.events.isEmpty())
         assertNull(resumed.report.total) // Only two seconds were observed; the pause adds none.
-        assertEquals("표본 부족", resumed.report.items.first { it.item == Item.ACCEL_DECEL }.basis)
+        assertEquals("표본 부족", resumed.report.items.first { it.item == Item.ACCEL_DECEL }.basis.text)
     }
 
     @Test
@@ -88,7 +88,7 @@ class JourneySessionTest {
         val after = journey.add(sample(30_000), listOf(turn, turn))
         assertEquals(before, after)
         assertEquals(31, after.sampleCount)
-        assertEquals("기회 1회", after.report.items.first { it.item == Item.TURN_DECEL }.basis)
+        assertEquals("기회 1회", after.report.items.first { it.item == Item.TURN_DECEL }.basis.text)
     }
 
     @Test

@@ -179,7 +179,7 @@ class JourneyService : Service() {
             .put("voiceStatus", if (muted) "음성 꺼짐" else voiceStatus).put("muted", muted)
             .put("updatedAtEpochMs", System.currentTimeMillis()).put("feedbackKey", consumedFeedback)
             .put("items", JSONArray().apply { report.items.forEach { item -> put(JSONObject()
-                .put("id",item.item.name).put("area",item.item.area.label).put("label", item.item.label).put("score", item.score ?: JSONObject.NULL).put("basis", item.basis)) } })
+                .put("id",item.item.name).put("area",item.item.area.label).put("label", item.item.label).put("score", item.score ?: JSONObject.NULL).put("basis", item.basis.text)) } })
             .put("areas",JSONArray().apply { report.areas.forEach { area -> put(JSONObject().put("label",area.area.label).put("maxPoints",area.area.maxPoints).put("score",area.score?:JSONObject.NULL)) } })
             .put("events", JSONArray().apply { insights.events.forEach { event -> put(JSONObject().put("tMs",event.tMs).put("label",event.label)
                 .put("evidence",event.evidence).put("advice",event.advice).put("position",positionJson(event.position))
@@ -192,8 +192,8 @@ class JourneyService : Service() {
             .put("windowScores",JSONArray().apply { report.windowOverall.forEach { put(it?:JSONObject.NULL) } })
             .put("speedKmh", snapshot.currentSample?.speedKmh ?: JSONObject.NULL)
             .put("gear", snapshot.currentSample?.gear?.name ?: JSONObject.NULL)
-            .put("steeringAngleDeg",snapshot.currentSample?.steeringAngleDeg?:JSONObject.NULL)
-            .put("signalDetails", JSONArray().apply { source?.received()?.forEach { (key, value) -> put(JSONObject().put("label", key).put("value", value)) } })
+            .put("steeringAngleDeg",snapshot.currentSample?.steeringDeg?:JSONObject.NULL)
+            .put("signalDetails", JSONArray().apply { source?.received()?.forEach { (key, value) -> put(JSONObject().put("label", key).put("value", value ?: "미수신")) } })
         JourneyRuntime.publish(this, value, persist)
         if (persist) {
             lastPersist = now

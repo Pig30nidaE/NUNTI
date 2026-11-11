@@ -12,8 +12,16 @@ interface PleosConnection {
     fun registerApp(credentials: PleosCredentials, connected: () -> Unit, failed: (String) -> Unit)
     fun setLocale(locale: String)
     fun speak(text: String)
+    /** Pleos `TextToSpeech.setSpeakerType`. Needs pleos.car.permission.TTS_SERVICE; throws if the SDK refuses. */
+    fun setSpeaker(speakerId: String) { throw UnsupportedOperationException("SPEAKER_UNSUPPORTED") }
     fun stop()
     fun release()
+}
+/** Speaker ids supplied by the team for ko-KR (setSpeakerType values). Not yet heard or accepted on a device. */
+object PleosSpeakers {
+    val KOREAN: Set<String> = linkedSetOf("seoyoon", "eunwoo", "haeun", "sanghyeok")
+    val OTHER_LOCALES: Map<String, Set<String>> = mapOf(
+        "en-US" to setOf("lyra", "finley"), "es-US" to setOf("iris", "arlo"), "fr-CA" to setOf("sabine", "noah"))
 }
 class PleosCredentials(val clientId: String, val clientSecret: String) {
     init { require(clientId.isNotBlank() && clientSecret.isNotBlank()) }
@@ -23,10 +31,12 @@ class PleosCredentials(val clientId: String, val clientSecret: String) {
 /** Uses a new SDK connection after each terminal utterance to isolate callbacks lacking request IDs. */
 class PleosTtsProvider(private val factory: (EngineMode) -> PleosConnection,
     override val mode: EngineMode = EngineMode.ON_DEVICE,
-    private val credentials: (() -> PleosCredentials?) = { null }) : TtsProvider {
+    private val credentials: (() -> PleosCredentials?) = { null },
+    speakers: Set<String> = PleosSpeakers.KOREAN) : TtsProvider {
     init { require(mode != EngineMode.LOCAL_FILE) { "INVALID_PLEOS_MODE" } }
     override fun source(request: SpeechRequest) = SpeechSource(mode, "pleos")
-    override val capabilities = ProviderCapabilities(locales = setOf("ko-KR", "en-US", "fr-CA", "es-US", "es-MX"))
+    override val capabilities = ProviderCapabilities(locales = setOf("ko-KR", "en-US", "fr-CA", "es-US", "es-MX"),
+        verifiedSpeakerIds = speakers, controls = if (speakers.isEmpty()) setOf(Control.LOCALE) else setOf(Control.LOCALE, Control.SPEAKER))
     private var listener: TtsProvider.Listener? = null
     private var generation = 0L
     private var connection: PleosConnection? = null
@@ -51,7 +61,7 @@ class PleosTtsProvider(private val factory: (EngineMode) -> PleosConnection,
     }
     override fun speak(speech: PreparedSpeech) {
         check(initialized && !released && !broken && active == null) { "NOT_READY" }
-        require(speech.voice.speakerId == null) { "UNVERIFIED_SPEAKER" }
+        require(speech.voice.speakerId == null || speech.voice.speakerId in capabilities.verifiedSpeakerIds) { "UNVERIFIED_SPEAKER" }
         active = speech; locale = speech.voice.locale; dispatched = false
         if (connection == null) connect() else dispatch()
     }
@@ -93,8 +103,14 @@ class PleosTtsProvider(private val factory: (EngineMode) -> PleosConnection,
         val speech = active ?: return
         if (!connectionReady || dispatched || released) return
         dispatched = true
-        try { connection!!.setLocale(locale); connection!!.speak(speech.request.text) }
-        catch (_: Exception) { fail("SDK_SPEAK_EXCEPTION") }
+        val sdk = connection!!
+        try {
+            sdk.setLocale(locale)
+            speech.voice.speakerId?.let {
+                try { sdk.setSpeaker(it) } catch (_: Exception) { fail("SDK_SPEAKER_EXCEPTION"); return }
+            }
+            sdk.speak(speech.request.text)
+        } catch (_: Exception) { fail("SDK_SPEAK_EXCEPTION") }
     }
     private fun live(token: Long) = token == generation && !released
     private fun terminal(error: String?, stopped: Boolean) {

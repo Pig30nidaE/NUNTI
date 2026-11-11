@@ -14,7 +14,7 @@ class JourneyAnalysisTest {
             TripPosition.Simulation(sample.tMs/150000.0,.5),scenario.events.filter { it.tMs<=sample.tMs })
         val report=ScoreEngine().evaluate(scenario.samples,scenario.events)
         val result=analysis.build(report)
-        assertEquals(setOf("급가속","급제동","급회전","회전 전 감속 부족"),result.events.map { it.label }.toSet())
+        assertEquals(setOf("급가속","급제동","커브 과속","급회전","회전 전 감속 부족"),result.events.map { it.label }.toSet())
         assertTrue(result.events.all { it.position is TripPosition.Simulation && it.evidence.isNotBlank() && it.advice.isNotBlank() })
         assertFalse(result.events.single { it.label=="급회전" }.includedInScore)
         assertTrue(result.habits.any { it.positive })
@@ -24,9 +24,9 @@ class JourneyAnalysisTest {
     }
 
     @Test fun missingGpsIsNotInferredAndSampleGapDoesNotAddDistanceOrSteeringEvent() {
-        val samples=listOf(VehicleSample(0,speedKmh=20f,steeringAngleDeg=0f),
-            VehicleSample(1000,speedKmh=50f,steeringAngleDeg=0f),
-            VehicleSample(6000,speedKmh=50f,steeringAngleDeg=180f))
+        val samples=listOf(VehicleSample(0,speedKmh=20f,steeringDeg=0f),
+            VehicleSample(1000,speedKmh=50f,steeringDeg=0f),
+            VehicleSample(6000,speedKmh=50f,steeringDeg=180f))
         val analysis=JourneyAnalysis()
         samples.forEach { analysis.observe(it,null,emptyList()) }
         val result=analysis.build(ScoreEngine().evaluate(samples,emptyList()))

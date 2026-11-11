@@ -26,8 +26,14 @@ data class VehicleSample(
     /** 내비가 알려 주는 현재 도로 제한속도 (km/h). null = 정보 없음 → 평가하지 않는다. */
     val speedLimitKmh: Int? = null,
     val roadType: RoadType = RoadType.GENERAL,
-    /** Official Pleos steering-wheel angle, degrees. Null means unavailable. */
-    val steeringAngleDeg: Float? = null,
+    /** 내비 연결 여부. null = 내비 미연결 → 회전 이벤트가 없어도 "기회 없음"이 아니라 미연동으로 본다. */
+    val naviConnected: Boolean? = null,
+    /** 핸들 각도(도, +오른쪽/-왼쪽). 커브 판정에 쓴다. null = 미수신 → 커브 평가 안 함. */
+    val steeringDeg: Float? = null,
+    /** 계기판 과속 경고등(OVER_SPEED). 내비 제한속도가 없을 때 대신 쓴다. */
+    val overSpeedWarning: Boolean? = null,
+    /** 이번 주행 평균 전비(km/kWh, 클수록 좋음). 단위는 문서에 없어 가정이다. */
+    val evEfficiencyKmPerKwh: Float? = null,
 )
 
 /** 기회 기반 평가(회전 전 감속, 차선 변경 지시등)를 위한 실제 행동 이벤트. */
@@ -42,12 +48,22 @@ enum class Area(val label: String, val maxPoints: Int) {
     EFFICIENCY("효율적 운전", 10),
 }
 
-enum class Item(val label: String, val area: Area, val byOpportunity: Boolean = false) {
-    ACCEL_DECEL("급가속·급감속·급제동", Area.CONTROL),
-    REVERSE_SPEED("후진 속도", Area.CONTROL),
+/**
+ * [sharesDriveTime] 인 항목끼리는 영역 안에서 단순 평균하지 않고 각자 평가한 시간만큼 비중을 나눠 갖는다.
+ * 후진처럼 잠깐 쓰는 항목이 몇 초만으로 전체 주행과 같은 비중을 갖지 않게 하기 위함이다.
+ */
+enum class Item(
+    val label: String,
+    val area: Area,
+    val byOpportunity: Boolean = false,
+    val sharesDriveTime: Boolean = false,
+) {
+    ACCEL_DECEL("급가속·급감속·급제동", Area.CONTROL, sharesDriveTime = true),
+    REVERSE_SPEED("후진 속도", Area.CONTROL, sharesDriveTime = true),
     LEAD_GAP("앞차 거리", Area.SURROUND),
     SPEED_LIMIT("제한속도 준수", Area.SURROUND),
     TURN_DECEL("회전 전 감속", Area.SURROUND, byOpportunity = true),
+    CURVE_SPEED("커브 속도 조절", Area.SURROUND, byOpportunity = true),
     LANE_SIGNAL("차선 변경 지시등", Area.SURROUND, byOpportunity = true),
     SEATBELT("안전벨트", Area.SAFETY),
     DOOR("주행 중 문 열림", Area.SAFETY),
@@ -63,6 +79,9 @@ data class ScoreConfig(
     val movingKmh: Float = 5f,
     val harshAccelGeneral: Float = 10f, // km/h per s
     val harshAccelHighway: Float = 7f,
+    /** 이 속도(km/h) 미만에서 시작한 가속은 출발로 보고 더 높은 기준을 쓴다 (초안). */
+    val launchSpeedKmh: Float = 20f,
+    val harshAccelLaunch: Float = 15f, // km/h per s
     val harshDecelGeneral: Float = 12f,
     val harshDecelHighway: Float = 9f,
     val reverseOkKmh: Float = 8f,
@@ -74,18 +93,81 @@ data class ScoreConfig(
     val turnLowSpeedKmh: Float = 20f,
     val turnLookbackMs: Long = 5_000,
     val laneSignalLookbackMs: Long = 3_000,
+    // 커브: 핸들을 curveSteeringDeg 이상 curveMinHoldMs 동안 유지하면 한 번의 커브(평가 기회)로 본다.
+    val curveSteeringDeg: Float = 40f,
+    val curveMinHoldMs: Long = 2_000,
+    val curveMinKmh: Float = 30f,
+    /** 횡가속도 한도(m/s²). 이 이하면 쾌적한 커브, 넘으면 속도를 못 줄인 것으로 감점한다. */
+    val curveComfortLatAccel: Float = 2.5f,
+    /** 조향비(핸들각 ÷ 바퀴각)와 축거(m): 핸들각으로 횡가속도를 어림하는 상수. 차종 값 확인 전 초안. */
+    val steeringRatio: Float = 15f,
+    val wheelbaseM: Float = 2.9f,
+    /** 커브 안에서 제한속도 이하로 줄였으면 주는 가점. 제한속도를 모르면 가점 없음. */
+    val curveWithinLimitBonus: Float = 20f,
+    /** 전비(km/kWh) 점수: poor 이하 0점, good 이상 100점, 사이는 직선. 차종 값 확인 전 초안. */
+    val efficiencyPoorKmPerKwh: Float = 3f,
+    val efficiencyGoodKmPerKwh: Float = 6f,
 )
 
-data class DetectedEvent(val tMs: Long, val label: String)
+/** 점수 엔진이 찾아낸 순간 사건. 종류는 [kind] 로 구분하고, 화면에 보이는 한글 이름은 [label] 이다. */
+data class DetectedEvent(val tMs: Long, val kind: Kind) {
+    enum class Kind(val label: String) {
+        HARD_ACCEL("급가속"),
+        HARD_DECEL("급감속"),
+        HARD_BRAKE("급제동"),
+        /** 후진 중 속도가 [ScoreConfig.reverseOkKmh] 를 넘은 순간. 후진 속도 항목이 감점되기 시작하는 지점이다. */
+        REVERSE_TOO_FAST("후진 과속"),
+        /** 커브에서 속도를 줄이지 못해 횡가속도가 한도를 크게 넘은 순간. */
+        CURVE_TOO_FAST("커브 과속"),
+    }
+    val label: String get() = kind.label
+}
+
+/**
+ * 평가하지 못한 이유를 둘로 나눈다. 둘을 섞으면 "되는 척"하는 항목과 진짜 해당 상황이 없던 항목을 구별할 수 없다.
+ * - [NOT_CONNECTED]: 이 항목에 필요한 신호를 한 번도 받지 못했다 (기능 미연동·미지원).
+ * - [NOT_APPLICABLE]: 신호는 받았지만 평가할 상황이 없었다 (낮이라 전조등, 커브 없음, 정차만 함 등).
+ */
+enum class Availability { EVALUATED, NOT_CONNECTED, NOT_APPLICABLE, TOO_FEW }
+
+/** 항목 점수의 근거. 종류는 enum, 화면 글귀는 [text] 이고 [amount] 는 초/횟수다. */
+enum class BasisKind(val availability: Availability) {
+    NOT_CONNECTED(Availability.NOT_CONNECTED),
+    NOT_APPLICABLE(Availability.NOT_APPLICABLE),
+    REVERSE_UNUSED(Availability.NOT_APPLICABLE),
+    TOO_FEW(Availability.TOO_FEW),
+    VALID_SECONDS(Availability.EVALUATED),
+    OPPORTUNITIES(Availability.EVALUATED),
+    REVERSE_SECONDS(Availability.EVALUATED),
+}
+
+data class Basis(val kind: BasisKind, val amount: Int = 0) {
+    val text: String
+        get() = when (kind) {
+            BasisKind.NOT_CONNECTED -> "미연동"
+            BasisKind.NOT_APPLICABLE -> "해당 상황 없음"
+            BasisKind.REVERSE_UNUSED -> "후진 기어 안 씀"
+            BasisKind.TOO_FEW -> "표본 부족"
+            BasisKind.VALID_SECONDS -> "유효 ${amount}초"
+            BasisKind.OPPORTUNITIES -> "기회 ${amount}회"
+            BasisKind.REVERSE_SECONDS -> "후진 ${amount}초"
+        }
+}
 
 data class ItemResult(
     val item: Item,
     val score: Float?,
-    val basis: String,
+    val basis: Basis,
     val windowScores: List<Float?>,
+    /** 평가에 쓰인 시간(초) 또는 기회 수. [Item.sharesDriveTime] 항목의 비중 계산에 쓴다. */
+    val weight: Double = 0.0,
+    val windowWeights: List<Double> = emptyList(),
 )
 
 data class AreaResult(val area: Area, val score: Float?, val points: Float?)
+
+/** 기어별 유효 주행 시간(초). 신호가 끊긴 구간은 어느 기어에도 넣지 않는다. */
+data class GearUsage(val gear: Gear, val seconds: Int)
 
 data class ScoreReport(
     val total: Float?,
@@ -96,7 +178,15 @@ data class ScoreReport(
     /** 구간별 종합 점수 (평가 가능 항목이 없으면 null). */
     val windowOverall: List<Float?>,
     val events: List<DetectedEvent>,
-)
+    /** 기어별 시간. 기어 신호를 한 번도 못 받았으면 빈 목록. */
+    val gears: List<GearUsage> = emptyList(),
+    /** 속도를 받은 유효 시간(초)과 그 중 실제로 움직인 시간(초). 종료해도 되는지(일시저장 여부) 판단에 쓴다. */
+    val speedSeconds: Int = 0,
+    val movingSeconds: Int = 0,
+) {
+    /** 신호를 한 번도 받지 못한 항목. 최종 보고서의 미연동 신호 목록에 쓴다. */
+    val notConnected: List<Item> get() = items.filter { it.basis.kind.availability == Availability.NOT_CONNECTED }.map { it.item }
+}
 
 enum class Emotion(val label: String, val face: String, val line: String) {
     NEUTRAL("중립", "🙂", "함께 살펴보고 있어요."),

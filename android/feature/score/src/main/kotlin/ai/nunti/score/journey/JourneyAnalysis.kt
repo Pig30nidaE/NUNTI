@@ -30,7 +30,7 @@ class JourneyAnalysis(private val config: ScoreConfig = ScoreConfig()) {
             val dt=sample.tMs-prev.tMs
             if(dt in 1..config.maxGapMs) {
                 if(prev.speedKmh!=null && sample.speedKmh!=null) distance += (prev.speedKmh+sample.speedKmh)/2.0*dt/3_600_000.0
-                val a=prev.steeringAngleDeg; val b=sample.steeringAngleDeg
+                val a=prev.steeringDeg; val b=sample.steeringDeg
                 if(a!=null&&b!=null&&(sample.speedKmh?:0f)>=20f && abs(b-a)/(dt/1000f)>=100f && sample.tMs-lastSteeringEvent>=5000) {
                     abrupt+=TripEvent(sample.tMs,"급회전", "핸들 %.0f° → %.0f° · %.0f km/h".format(a,b,sample.speedKmh),
                         "회전 전에 속도를 줄이고 핸들을 천천히 돌려 보세요.",position,sample.speedKmh,false)
@@ -69,6 +69,7 @@ class JourneyAnalysis(private val config: ScoreConfig = ScoreConfig()) {
             val detail=when(item.item){
                 Item.ACCEL_DECEL->if(good) "가속과 제동이 부드러웠어요. 지금의 페달 조작을 유지해 주세요." else "앞차와 거리를 두고, 가속과 제동을 조금 더 일찍 나눠 해 보세요."
                 Item.LEAD_GAP->if(good) "앞차와 충분한 거리를 유지했어요." else "앞차와 간격이 짧았어요. 여유를 두면 급제동을 줄이는 데 도움이 돼요."
+                Item.CURVE_SPEED->if(good) "커브에서 속도를 알맞게 줄였어요." else "커브에서 속도가 빨랐어요. 커브에 들어가기 전에 미리 속도를 줄여 보세요."
                 Item.TURN_DECEL->if(good) "회전 전에 속도를 잘 줄였어요." else "회전 전 감속이 부족했어요. 직선 구간에서 미리 속도를 줄여 보세요."
                 Item.SPEED_LIMIT->if(good) "수신된 제한속도를 잘 지켰어요." else "제한속도를 넘긴 구간이 있어요. 표지판과 내비 안내를 함께 살펴주세요."
                 Item.SEATBELT->if(good) "확인된 좌석의 안전벨트를 잘 착용했어요." else "주행 중 안전벨트 미착용이 기록됐어요. 출발 전에 착용을 확인해 주세요."
@@ -81,7 +82,7 @@ class JourneyAnalysis(private val config: ScoreConfig = ScoreConfig()) {
             habits+=HabitAdvice(good,item.item.label,detail)
         }
         if(abrupt.isNotEmpty()) habits.add(0,HabitAdvice(false,"핸들 조작","급격한 핸들 조작 ${abrupt.size}회가 기록됐어요. 회전 전에 속도를 줄여 보세요. 이 참고 항목은 총점에 반영하지 않아요."))
-        return TripAnalysis(events.sortedBy { it.tMs },habits,distance,observations.any { it.sample.steeringAngleDeg!=null },observations.size)
+        return TripAnalysis(events.sortedBy { it.tMs },habits,distance,observations.any { it.sample.steeringDeg!=null },observations.size)
     }
     fun track(): List<TripObservation> = observations.filter { it.position!=null }
 }

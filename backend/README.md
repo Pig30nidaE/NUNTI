@@ -2,7 +2,7 @@
 
 FastAPI / Pydantic v2 / SQLite. 차량 앱의 실시간 동작과 독립적인 비동기 저장 서버다.
 여정별 이미지·음성 생성은 [v2 계약](../contracts/v2/README.md)의 별도 작업자와 CharacterStore를 사용한다. 아래 v1 동기화 계약과 기존 기록은 유지한다.
-점수·감정 계산, 최종 코멘트 생성, 차량 SDK 호출, 음성 재생은 각 담당 모듈의 책임이다.
+점수·감정 계산, 최종 코멘트 생성, 차량 SDK 호출, 음성 재생은 각 담당 모듈의 책임이다. 서버는 앱이 계산한 점수와 Pleos 샘플을 저장한다 ([telemetry-sync](../docs/architecture/telemetry-sync.md)).
 공통 계약은 **1.0 초안**이며 실제 차량 연동을 완료했다는 의미가 아니다.
 
 ## 로컬 실행

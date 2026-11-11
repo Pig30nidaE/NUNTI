@@ -41,5 +41,9 @@ dependencies {
     implementation("ai.pleos.playground:Vehicle:2.3.2")
     implementation("ai.pleos.playground:vehicle-aidl:1.1.1") // RawSpeedProbe: 공개 SDK에 없는 차속 직접 구독
     implementation("ai.pleos.playground:NaviHelper:3.0.5")
+    // 눈티 음성: Pleos TextToSpeech SDK 래퍼(:feature:voice)와 발화 큐·정책(:feature:tts)
+    implementation(project(":feature:tts"))
+    implementation(project(":feature:voice"))
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.json:json:20250517") // android.jar 의 org.json 은 JVM 시험에서 동작하지 않는다
 }

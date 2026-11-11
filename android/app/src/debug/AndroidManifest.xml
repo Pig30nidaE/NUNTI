@@ -11,6 +11,7 @@
         <activity android:name="ai.nunti.app.routebirth.RouteBirthActivity" android:exported="true" android:launchMode="singleTop" />
         <activity android:name="ai.nunti.app.journey.JourneyMvpActivity"
             android:exported="true" android:launchMode="singleTop" />
+        <activity android:name="ai.nunti.app.NaviProbeActivity" android:exported="true" android:launchMode="singleTop" />
         <!-- Explicit ADB entry point; never included in release or the launcher. -->
         <activity android:name="ai.nunti.app.RuntimeProbeActivity"
             android:exported="true" android:launchMode="singleTop" />

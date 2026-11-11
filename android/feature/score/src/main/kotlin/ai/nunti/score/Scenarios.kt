@@ -35,7 +35,7 @@ object Scenarios {
         VehicleSample(t*1000L,speed,brakePressed=t==45||t>=140,gear=Gear.D,
             driverSeat=full,passengerSeat=SeatState(false,null),doorOpen=false,
             leadDistanceM=if(t in 40..55) 5f else 50f,speedLimitKmh=60,
-            steeringAngleDeg=when(t){60->160f;61->170f;62->170f;63->80f;else->0f})
+            steeringDeg=when(t){60->160f;61->170f;62->170f;63->80f;else->0f})
     }, listOf(DrivingEvent(80_000,DrivingEvent.Kind.TURN,TurnSignal.RIGHT),
         DrivingEvent(108_000,DrivingEvent.Kind.TURN,TurnSignal.LEFT)))
 
@@ -100,5 +100,46 @@ object Scenarios {
         VehicleSample(tMs = t * 1000L, speedKmh = cruise(t))
     }
 
-    val all = listOf(calm, recovery, unsafe, sparse)
+    /** 주행 중 주차장에 들어가 후진 주차: 3분 P → D → 4분 R(느림 → 한 번 빠름) → P. 기어별 분류 확인용. */
+    val parking = build("후진 주차") { t ->
+        val gear = when {
+            t < 20 -> Gear.P
+            t < 300 -> Gear.D
+            t < 305 -> Gear.N
+            t < 335 -> Gear.R
+            t < 345 -> Gear.D
+            t < 360 -> Gear.R
+            else -> Gear.P
+        }
+        val speed = when (gear) {
+            Gear.D -> if (t < 300) cruise(t) * 0.5f else 4f
+            Gear.R -> if (t in 350..352) 14f else 4f // 한 번은 후진 제한(8km/h)을 넘긴다
+            else -> 0f
+        }
+        VehicleSample(
+            tMs = t * 1000L, speedKmh = speed, brakePressed = false, gear = gear,
+            driverSeat = full, passengerSeat = SeatState(false, null), doorOpen = false,
+            leadDistanceM = if (gear == Gear.R) 1f else 40f,
+        )
+    }
+
+    /** 커브 두 번: 1분 40초 커브는 미리 감속, 4분 10초 커브는 속도를 유지한 채 진입(커브 과속). */
+    val curves = build("커브 주행") { t ->
+        val smoothCurve = t in 100..108
+        val fastCurve = t in 250..258
+        val speed = when {
+            t in 92..99 -> 60f - (t - 91) * 2.5f // 커브 전에 부드럽게 감속
+            smoothCurve -> 38f
+            t in 109..120 -> 38f + (t - 108) * 1.5f
+            fastCurve -> 62f
+            else -> 60f
+        }
+        VehicleSample(
+            tMs = t * 1000L, speedKmh = speed, brakePressed = false, gear = Gear.D, turnSignal = TurnSignal.NONE,
+            driverSeat = full, passengerSeat = SeatState(false, null), doorOpen = false,
+            steeringDeg = when { smoothCurve -> 45f; fastCurve -> -50f; else -> 0f },
+        )
+    }
+
+    val all = listOf(calm, recovery, unsafe, sparse, parking, curves)
 }

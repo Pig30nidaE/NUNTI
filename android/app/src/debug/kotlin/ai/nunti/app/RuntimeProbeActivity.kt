@@ -10,6 +10,7 @@ import ai.nunti.avatar.RenderPolicy
 import ai.nunti.avatar.TripPhase
 import ai.nunti.emotion.Emotion
 import ai.nunti.emotion.EmotionSnapshot
+import ai.nunti.emotion.TransitionReason
 import ai.nunti.tts.AudioActivity
 import ai.nunti.tts.Permission
 import ai.nunti.tts.PlaybackContext
@@ -236,7 +237,7 @@ class RuntimeProbeActivity : ComponentActivity() {
     }
 
     private fun snapshot(spec: AvatarSpec) = EmotionSnapshot("$tripId-$routeIndex-${emotion.name}", tripId,
-        spec.avatarId, emotion, 0, null, 1.0, "MOCK_RUNTIME_PROBE")
+        spec.avatarId, emotion, 0, null, 1.0, TransitionReason.MOCK_RUNTIME_PROBE)
 
     private fun speak() {
         refresh()
