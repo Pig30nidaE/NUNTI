@@ -14,8 +14,7 @@ import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / '.local/route-birth'
-SDK = ROOT / '.local/pm-tools/sdk'
-ADB = SDK / 'platform-tools/adb'
+from local_tools import ADB, SDK, avd_name, emulator_env, gradle_env, gradle_flags  # noqa: E402
 PYTHON = ROOT / '.local/journey-voice-v3/venv/bin/python'
 APK = WORK / 'Nunti-Route-Birth-debug.apk'
 PACKAGE = 'ai.nunti.avatar.demo'
@@ -62,19 +61,21 @@ def emulator():
             name = run([ADB, '-s', serial, 'emu', 'avd', 'name'], text=True, capture_output=True).stdout
             if name.splitlines()[:1] == [AVD]:
                 return serial
+    running = [s for s in devices if s.startswith('emulator-')]
+    if running:  # 이 컴퓨터에 그 이름의 AVD가 없으면 이미 켜 둔 에뮬레이터를 쓴다.
+        return running[0]
     port = next(p for p in range(5554, 5585, 2) if f'emulator-{p}' not in devices)
-    env = dict(os.environ, ANDROID_HOME=str(SDK), ANDROID_USER_HOME=str(ROOT / '.local/pm-tools/android-user'), ANDROID_AVD_HOME=str(ROOT / '.local/pm-tools/avd'))
+    env = emulator_env()
+    WORK.mkdir(parents=True, exist_ok=True)  # 생성기에서 불릴 때는 아직 없다
     with (WORK / 'launcher-emulator.log').open('ab') as log:
-        subprocess.Popen([str(SDK / 'emulator/emulator'), '-avd', AVD, '-port', str(port), '-no-snapshot-load',
-            '-no-snapshot-save', '-no-boot-anim', '-memory', '4096'], env=env, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
+        subprocess.Popen([str(SDK / 'emulator/emulator'), '-avd', avd_name(AVD), '-port', str(port), '-no-snapshot-load',
+            '-no-snapshot-save', '-no-boot-anim', '-memory', '8192', '-cores', '4'], env=env, stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
     return f'emulator-{port}'
 
 
 def build():
-    env = dict(os.environ, JAVA_HOME=str(ROOT / '.local/tts-tools/jdk/jdk-21.0.8+9/Contents/Home'),
-        ANDROID_HOME=str(SDK), ANDROID_USER_HOME=str(ROOT / '.worktrees/tts/.local/android-user'), GRADLE_USER_HOME=str(ROOT / '.worktrees/tts/.local/gradle-user'))
     with (WORK / 'launcher-build.log').open('w') as log:
-        run([ROOT / 'android/gradlew', '--offline', '--no-daemon', ':app:assembleDebug'], cwd=ROOT / 'android', env=env, stdout=log, stderr=subprocess.STDOUT)
+        run([ROOT / 'android/gradlew', *gradle_flags(), ':app:assembleDebug'], cwd=ROOT / 'android', env=gradle_env(), stdout=log, stderr=subprocess.STDOUT)
     import shutil
     shutil.copy2(ROOT / 'android/build/app/outputs/apk/debug/app-debug.apk', APK)
 
