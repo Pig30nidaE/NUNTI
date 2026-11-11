@@ -75,8 +75,7 @@
   function assertRequest(path,method) {
     if(!MOCK_SKIN_MODE)return;
     const local=typeof path==='string'&&path.startsWith('/')&&!path.startsWith('//')&&!/[\\\r\n]/.test(path);
-    // Only the existing local session and route tools may mutate server state.
-    if(!local||(method!=='GET'&&!['/session','/v3/route-extractions','/v3/route-plans','/v3/wardrobe'].includes(path)))throw new Error('MOCK_SKIN_MODE');
+    if(!local||(method!=='GET'&&!['/session','/v3/route-extractions','/v3/route-plans','/v3/wardrobe','/v3/conversation'].includes(path)))throw new Error('MOCK_SKIN_MODE');
   }
   window.NuntiSkins=Object.freeze({MOCK_SKIN_MODE,version,storageKey,fixtures,resolve,path,phaseAt,isSkin,list,save,createRecord,assertRequest});
 })();

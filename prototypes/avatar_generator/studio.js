@@ -4,12 +4,12 @@ const state = { route: null, sourceImage: null, imageReady:false, routeVersion:0
 let extractionEpoch=0;
 let viewEpoch=0, collectionEpoch=0;
 let reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const skins=window.NuntiSkins, mockSkins=skins?.MOCK_SKIN_MODE===true;
+const skins=window.NuntiSkins;
 const skinRecord=artifact=>skins?.isSkin(artifact)===true;
 const wardrobeRecord=artifact=>artifact?.mediaOrigin==='OPENAI_WARDROBE';
 const usesSkinMotion=artifact=>skinRecord(artifact)||wardrobeRecord(artifact);
 const motionSpec=artifact=>skinRecord(artifact)?artifact.design.skinSpec:{version:skins.version,
-  skinId:'wardrobe-'+(['formal','medical','football','hiking','seaside','personal'].includes(artifact.design.wardrobe.look)?artifact.design.wardrobe.look:'personal')+'-'+artifact.visual.sha256,animationPreset:{sweep:artifact.design.wardrobe.road==='highway'?'diagonal':'forward'}};
+  skinId:artifact.design.wardrobe.look==='default'?'default':'wardrobe-'+(['formal','medical','football','hiking','seaside','personal'].includes(artifact.design.wardrobe.look)?artifact.design.wardrobe.look:'personal')+'-'+artifact.visual.sha256,animationPreset:{sweep:artifact.design.wardrobe.road==='highway'?'diagonal':'forward'}};
 const polishedSkin=spec=>spec&&spec.version===skins.version&&spec.skinId!=='default'?spec.skinId:null;
 window.NuntiBirth = window.NuntiTransformation?.create({
   canvas:$('birth-canvas'), allowed:()=>state.nativeAllowed, visible:()=>!document.hidden&&!$('result-view').hidden,
@@ -39,7 +39,7 @@ window.NuntiSkinMotion=window.NuntiSkinRenderer?.create({
   onFrame:frame=>{
     if(!frame.active||!usesSkinMotion(state.artifact))return;
     const spec=motionSpec(state.artifact);
-    const settled=frame.reason==='COMPLETE'||frame.reason==='STATIC'||frame.reason==='REDUCED';
+    const settled=['COMPLETE','STATIC','REDUCED','SKIPPED'].includes(frame.reason);
     window.NuntiCompanionPlayer?.setResult(settled&&(spec.version===skins.version||spec.skinId==='default')?spec.skinId:null);
     const checkbox=$('reduced-motion');checkbox.checked=frame.reducedMotion;checkbox.disabled=frame.systemReducedMotion;
     $('motion-skip').hidden=!frame.running&&frame.reason!=='LOADING';
@@ -53,10 +53,10 @@ window.NuntiSkinMotion=window.NuntiSkinRenderer?.create({
     if($('birth-canvas').getAttribute('aria-label')!==label)$('birth-canvas').setAttribute('aria-label',label);
   }
 });
-window.NuntiCompanionPlayer=mockSkins?window.NuntiCompanion?.create({
+window.NuntiCompanionPlayer=window.NuntiCompanion?.create({
   preview:$('canonical-portrait'),result:$('result-portrait'),inputView:$('input-view'),resultView:$('result-view'),
   allowed:()=>state.nativeAllowed&&!window.NuntiSkinMotion?.diagnostics().reducedMotion,
-}):null;
+});
 if($('motion-skip'))$('motion-skip').onclick=()=>(usesSkinMotion(state.artifact)?window.NuntiSkinMotion:window.NuntiBirth)?.stop('SKIPPED');
 if($('reduced-motion'))$('reduced-motion').onchange=event=>{
   (usesSkinMotion(state.artifact)?window.NuntiSkinMotion:window.NuntiBirth)?.setReduced(event.target.checked);
@@ -69,11 +69,15 @@ window.addEventListener('nunti:appearance',event=>{
   if(!window.NuntiBirth)reduced=!!event.detail?.systemReducedMotion||matchMedia('(prefers-reduced-motion: reduce)').matches;
   drawRoute();
 });
-const message = text => { $('notice').textContent = text; $('notice').hidden = !text; };
+const message = text => {
+  $('notice').textContent = text;
+  $('notice').hidden = !text;
+  requestAnimationFrame(() => { window.NuntiCompanionPlayer?.sync(); window.NuntiSkinMotion?.redraw(); });
+};
 const errorText = error => ({LOCAL_MODEL_BUSY:'목소리 생성이 끝난 뒤 다시 눌러 주세요. 같은 여정으로 이어서 만들 수 있어요.',INVALID_ROUTE_IMAGE:'사진을 읽지 못했어요. PNG 또는 JPG 경로 사진을 선택해 주세요.',ROUTE_NOT_FOUND:'경로선을 찾지 못했어요. 다른 색을 고르거나 좌표 파일을 넣어 주세요.',AMBIGUOUS_ROUTE:'여러 경로가 보여요. 한 경로만 보이도록 사진을 잘라 주세요.'}[error.message] || error.message || '연결을 확인한 뒤 다시 시도해 주세요.');
-async function api(path, body, method = 'GET') {
+async function api(path, body, method = 'GET', signal) {
   skins?.assertRequest(path,body?'POST':method);
-  const response = await fetch(path, {method: body ? 'POST' : method, credentials:'same-origin', headers:body ? {'Content-Type':'application/json'} : {}, body: body ? JSON.stringify(body) : undefined});
+  const response = await fetch(path, {method: body ? 'POST' : method, credentials:'same-origin', headers:body ? {'Content-Type':'application/json'} : {}, body: body ? JSON.stringify(body) : undefined, signal});
   const value = await response.json();
   if (!response.ok) { const e = new Error(value.error?.message || value.detail?.message || value.error?.code || (typeof value.detail === 'string' ? value.detail : '요청을 처리하지 못했어요.')); e.status=response.status; throw e; }
   return value.data ?? value;
@@ -96,10 +100,6 @@ async function createWardrobe(input){
     message(hints[e.message]||'새 옷을 완성하지 못했어요. 보관한 눈티는 그대로 사용할 수 있어요.');
   }finally{state.generating=state.busy=false;button.textContent='눈티 만들기 →';enableCreate();}
 }
-document.querySelectorAll('[data-purpose]').forEach(button=>button.addEventListener('click',()=>{
-  $('purpose').value=button.dataset.purpose;
-  document.querySelectorAll('[data-purpose]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
-}));
 function screen(which) {
   window.NuntiCompanionPlayer?.setResult(null);
   window.NuntiBirth?.clear();
@@ -148,25 +148,31 @@ function setRoute(route,imagePath,confirmed=false){
   $('route-confirmed').disabled=!!imagePath;
   if(imagePath){const img=$('route-image');img.onload=()=>{if(version!==state.routeVersion)return;state.imageReady=true;$('route-confirmed').disabled=false;drawRoute();enableCreate();};img.onerror=()=>{if(version!==state.routeVersion)return;state.imageReady=false;message('경로 원본 사진을 불러오지 못했어요. 사진을 다시 선택해 주세요.');enableCreate();};img.src=imagePath;}else $('route-image').removeAttribute('src');
   $('route-confirmed').checked=confirmed;state.pending=null;
-  $('source-tag').textContent=route.inputOrigin==='API_ROUTE'?'선택한 경로':route.inputOrigin==='NAVIGATION_SCREENSHOT'?'내비 경로 사진':route.inputOrigin==='ROUTE_FILE'?'좌표 파일':'예시 경로';
-  $('map-caption').textContent=route.inputOrigin==='TEST_ROUTE'?'합성 내비 입력 예시 · 실제 내비 연결 아님':'표시된 선을 확인해 주세요';
-  $('route-warning').textContent=route.warnings?.join(' ')||'원본과 선이 일치하는지 확인한 뒤 체크해 주세요. 화면 좌표를 GPS나 주행 거리로 해석하지 않아요.';
+  $('route-confirmed').closest('.confirm-row').hidden=!route;
+  const origin=route?.inputOrigin;
+  $('source-tag').textContent=origin==='API_ROUTE'?'선택한 경로':origin==='NAVIGATION_SCREENSHOT'?'내비 경로 사진':origin==='ROUTE_FILE'?'좌표 파일':route?'예시 경로':'경로 선택';
+  $('map-caption').textContent=origin==='TEST_ROUTE'?'예시 경로':route?'표시된 선을 확인해 주세요':'경로 추가는 선택이에요';
+  $('route-warning').textContent=route?.warnings?.join(' ')||(route?'표시된 선을 확인한 뒤 체크해 주세요.':'내비에서 불러오거나 경로를 직접 추가할 수 있어요.');
   drawRoute();enableCreate();
   window.NuntiNavigation?.routeChanged(route);
 }
-function enableCreate(){const routeReady=state.route?state.imageReady&&$('route-confirmed').checked:mockSkins||$('render-mode').value==='LOCAL_LAYERS';$('create-button').disabled=state.busy||state.planning||!state.nativeAllowed||!routeReady||!$('destination').value.trim();window.NuntiNavigation?.updateButtons();}
+function enableCreate(){
+  const routeReady=!state.route||state.imageReady&&$('route-confirmed').checked;
+  $('create-button').disabled=state.busy||state.planning||!state.nativeAllowed||!routeReady||
+    !window.nuntiCapabilities?.wardrobeAvailable||!$('destination').value.trim();
+  window.NuntiNavigation?.updateButtons();
+}
 function viewExample(example){
   message('');$('destination').value=example.destination.name;$('traits').value=example.destination.traits||'';$('purpose').value=example.purpose||'';
   setRoute({...example.route,confirmed:false},example.imagePath,false);$('image-options').hidden=true;
   document.querySelectorAll('.example').forEach(x=>x.classList.toggle('selected',x.dataset.id===example.id));
 }
-async function examples(autoSelect=true){
+async function examples(){
   const response=await api('/v3/examples');state.examples=Array.isArray(response)?response:response.examples;
   $('examples').replaceChildren();for(const ex of state.examples){const b=document.createElement('button');b.className='example';b.dataset.id=ex.id;
     const c=document.createElement('canvas');c.width=106;c.height=90;const ctx=c.getContext('2d');strokeRoute(ctx,fitPoints(ex.route.points,106,90,16),'#5a876d',4);
     const text=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');strong.textContent=ex.title;small.textContent=ex.destination.name;text.append(strong,small);b.append(c,text);b.onclick=()=>viewExample(ex);$('examples').append(b);
   }
-  if(autoSelect&&state.examples[0]&&!state.route&&!window.nuntiCapabilities?.routeApiAvailable)viewExample(state.examples[0]);
 }
 let uploadData=null;
 let fileEpoch=0;
@@ -328,7 +334,7 @@ async function showArtifact(artifact,animate=false){
   $('motifs-notice').textContent=artifact.mediaOrigin==='LOCAL_MODEL'?'AI에 요청한 모티브예요. 실제 경로와 목적지의 특성이 그림에 반영됐는지는 아직 확인하지 않았어요.':'아래는 생성 요청에 담은 모티브예요. AI 이미지에 실제로 반영됐는지는 아직 확인하지 않았어요.';
   $('motifs').replaceChildren();for(const [i,m] of (artifact.design.motifs||[]).slice(0,3).entries()){const row=document.createElement('div');row.className='motif';const dot=document.createElement('span');dot.className='dot';dot.textContent=String(i+1).padStart(2,'0');const content=document.createElement('div'),title=document.createElement('b'),desc=document.createElement('p');title.textContent=m.label;desc.textContent=m.detail||m.source+' → '+m.target;content.append(title,desc);row.append(dot,content);$('motifs').append(row);}
   const isSkin=usesSkinMotion(artifact);
-  if(mockSkins)prepareVoiceButton.hidden=true;
+  prepareVoiceButton.hidden=true;
   const transformable=!imageFailed&&(isSkin?motionSpec(artifact).skinId!=='default':!!window.NuntiTransformation?.pathsFor(artifact)?.hasChanges);
   $('result-details').hidden=false;$('replay-button').hidden=imageFailed||(staticOnly&&!transformable);$('save-status').textContent='내 눈티에 저장됨';
   $('replay-button').onclick=imageFailed||(staticOnly&&!transformable)?null:()=>{
@@ -422,7 +428,7 @@ function legacyBirthAnimation(img,artifact,animate){
     if(t<1||!reduced)state.animation=requestAnimationFrame(frame);else state.animation=0;
   };state.animation=requestAnimationFrame(frame);
 }
-async function loadCollection(){const epoch=++collectionEpoch,r=await api('/v3/avatars');if(epoch!==collectionEpoch)return;state.avatars=Array.isArray(r)?r:(r.avatars||r.items||[]);$('collection-count').textContent=state.avatars.length+(mockSkins?skins.list().length:0);}
+async function loadCollection(){const epoch=++collectionEpoch,r=await api('/v3/avatars');if(epoch!==collectionEpoch)return;state.avatars=Array.isArray(r)?r:(r.avatars||r.items||[]);$('collection-count').textContent=state.avatars.length+skins.list().length;}
 function drawCollection(records){
   $('collection').replaceChildren();
   if(!records.length){$('collection').textContent='아직 눈티가 없어요. 첫 여정을 담아보세요.';return;}
@@ -445,9 +451,9 @@ function drawCollection(records){
 }
 async function showCollection(){
   if(state.busy)return;message('');screen('collection');const epoch=viewEpoch;
-  const local=mockSkins?skins.list():[];
-  if(mockSkins)drawCollection([...local,...state.avatars]);
-  try{await loadCollection();}catch(e){if(!mockSkins)throw e;return;}
+  const local=skins.list();
+  drawCollection([...local,...state.avatars]);
+  try{await loadCollection();}catch(e){if(epoch===viewEpoch)message('보관함을 새로 불러오지 못했어요.');return;}
   if(epoch===viewEpoch&&state.nativeAllowed)drawCollection([...local,...state.avatars]);
 }
 $('collection-button').onclick=()=>showCollection().catch(e=>message(errorText(e)));
@@ -466,7 +472,7 @@ $('journey-button').parentElement.before(journeyOptions);
 let preparingJourneyVoice=false,startingJourney=false;
 const journeyVoiceReady=new Set();
 prepareVoiceButton.onclick=async()=>{
-  const artifact=state.artifact;if(mockSkins||!artifact||!state.nativeAllowed||preparingJourneyVoice||startingJourney)return;
+  const artifact=state.artifact;if(!artifact||!state.nativeAllowed||preparingJourneyVoice||startingJourney)return;
   preparingJourneyVoice=true;prepareVoiceButton.disabled=true;$('journey-button').disabled=true;stopVoice();
   try{
     message('같은 눈티의 음색으로 인사와 네 가지 감정 대사를 준비해요. 처음에는 몇 분 걸릴 수 있어요.');
@@ -504,7 +510,7 @@ function stopVoice(){voiceEpoch++;if(voiceAudio){voiceAudio.onended=null;voiceAu
 $('listen-button').onclick=async()=>{
   if(!state.artifact||!state.nativeAllowed)return;if(speaking){stopVoice();return;}const a=state.artifact,v=a.voice;
   if(v.provider!=='DEVICE_SPEECH'){
-    if(mockSkins&&!v.audio){message('이 눈티에 보관된 음원이 없어요.');return;}
+    if(!v.audio){message('이 눈티에 보관된 음원이 없어요.');return;}
     const epoch=++voiceEpoch;speaking=true;$('listen-button').textContent='□';
     try{
       if(!v.audio)$('voice-notice').textContent='이 눈티에게 어울리는 목소리를 만들고 있어요… 잠시만 기다려 주세요.';
@@ -524,13 +530,21 @@ $('listen-button').onclick=async()=>{
     return;
   }
   const legacyEpoch=++voiceEpoch;const text=`안녕, 나는 ${a.displayName}. ${a.destination.name}까지 함께 갈게. 우리, 여유 있게 출발해 볼까?`;
-  if(window.NuntiNative){if(!window.NuntiNative.isSpeechAvailable()){message('이 기기에 한국어 음성이 준비되지 않았어요. 기기의 TTS 설정에서 한국어 음성을 설치해 주세요. 이미지와 목소리 설정은 보관됐어요.');return;}window.NuntiNative.speak(text,Number(v.rate||1),Number(v.pitch||1.08),nativeVoiceRequestId());speaking=true;$('listen-button').textContent='□';}
+  if(window.NuntiNative){
+    const bridge=window.NuntiNative,id=nativeVoiceRequestId();
+    if(bridge.isSpeechAvailable())bridge.speak(text,Number(v.rate||1),Number(v.pitch||1.08),id);
+    else if(bridge.speakConversation)bridge.speakConversation(text,id);
+    else{message('이 기기에 한국어 음성이 준비되지 않았어요. 기기의 TTS 설정을 확인해 주세요.');return;}
+    speaking=true;$('listen-button').textContent='□';
+  }
   else if('speechSynthesis'in window){const voice=speechSynthesis.getVoices().find(x=>x.lang.startsWith('ko'));if(!voice){message('이 브라우저에 한국어 음성이 없어요. Android 앱에서 기기 음성을 확인하거나 한국어 음성을 설치해 주세요.');return;}
     speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='ko-KR';u.voice=voice;u.rate=Number(v.rate||1);u.pitch=Number(v.pitch||1.08);u.onend=u.onerror=()=>{if(legacyEpoch===voiceEpoch)window.nuntiSpeechFinished();};speechSynthesis.speak(u);speaking=true;$('listen-button').textContent='□';}
   else message('이 기기에서 음성 재생을 지원하지 않아요. 이미지와 목소리 설정은 보관됐어요.');
 };
-window.nuntiSpeechFinished=requestId=>{if(requestId!==undefined&&requestId!==nativeVoiceRequestId())return;speaking=false;$('listen-button').textContent='▷';};
-window.nuntiSpeechFailed=requestId=>{if(requestId!==undefined&&requestId!==nativeVoiceRequestId())return;stopVoice();$('voice-notice').textContent='음성을 재생하지 못했어요. 연결을 확인한 뒤 다시 눌러 주세요.';};
+window.nuntiSpeechStarted=requestId=>window.NuntiChat?.speechStarted(requestId);
+window.nuntiSpeechRange=requestId=>window.NuntiChat?.speechRange(requestId);
+window.nuntiSpeechFinished=requestId=>{if(window.NuntiChat?.speechEnded(requestId)||requestId!==undefined&&requestId!==nativeVoiceRequestId())return;speaking=false;$('listen-button').textContent='▷';};
+window.nuntiSpeechFailed=requestId=>{if(window.NuntiChat?.speechEnded(requestId,true)||requestId!==undefined&&requestId!==nativeVoiceRequestId())return;stopVoice();$('voice-notice').textContent='음성을 재생하지 못했어요. 연결을 확인한 뒤 다시 눌러 주세요.';};
 function restoreVisibleResult(){
   if(!state.artifact||$('result-view').hidden||!state.nativeAllowed||document.hidden)return;
   const motion=window.NuntiSkinMotion?.diagnostics();
@@ -543,7 +557,7 @@ function interruptSkin(reason){
   const current=window.NuntiSkinMotion?.diagnostics();
   if(current?.running||current?.reason==='LOADING')window.NuntiSkinMotion.stop(reason);
 }
-window.nuntiVehicleAllowed=(allowed,reason)=>{const was=state.nativeAllowed;state.nativeAllowed=allowed;window.NuntiUI?.setVehicleAllowed(allowed);if(!allowed){viewEpoch++;stopVoice();cancelAnimationFrame(state.animation);window.NuntiBirth?.stop('RESTRICTED');interruptSkin(reason||(document.hidden?'BACKGROUNDED':'RESTRICTED'));document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());}else if(!was)restoreVisibleResult();window.NuntiCompanionPlayer?.sync();enableCreate();};
+window.nuntiVehicleAllowed=(allowed,reason)=>{const was=state.nativeAllowed;state.nativeAllowed=allowed;window.NuntiUI?.setVehicleAllowed(allowed);if(!allowed){viewEpoch++;window.NuntiChat?.close(false);stopVoice();cancelAnimationFrame(state.animation);window.NuntiBirth?.stop('RESTRICTED');interruptSkin(reason||(document.hidden?'BACKGROUNDED':'RESTRICTED'));document.querySelectorAll('dialog[open]').forEach(dialog=>dialog.close());}else if(!was)restoreVisibleResult();window.NuntiCompanionPlayer?.sync();enableCreate();};
 document.addEventListener('visibilitychange',()=>{if(document.hidden){viewEpoch++;stopVoice();cancelAnimationFrame(state.animation);window.NuntiBirth?.stop('BACKGROUNDED');interruptSkin('BACKGROUNDED');}else restoreVisibleResult();});
 window.addEventListener('resize',()=>{drawRoute();drawStaticArtifact();window.NuntiBirth?.redraw();window.NuntiSkinMotion?.redraw();if(state.artifact&&!$('result-view').hidden)drawReceipt(state.artifact);});
 function setupSkinDemo(){
@@ -556,11 +570,7 @@ function setupSkinDemo(){
     $('layer-destination').value=fixture.destinationCategory;$('layer-road').value=fixture.roadType;$('layer-mood').value=fixture.mood;
     $('layer-mood').dispatchEvent(new Event('change'));
     if(fixture.points)setRoute({points:fixture.points,inputOrigin:'TEST_ROUTE',sourceLabel:'예시 경로'},null,true);
-    else{
-      extractionEpoch++;fileEpoch++;state.routeVersion++;state.route=null;state.sourceImage=null;state.imageReady=false;state.pending=null;
-      $('route-image').hidden=true;$('route-image').removeAttribute('src');$('route-confirmed').checked=false;$('route-confirmed').disabled=false;
-      $('route-attribution').hidden=true;$('source-tag').textContent='경로 없음';$('route-warning').textContent='목적지를 정하지 않으면 기본 눈티로 만나요.';drawRoute();
-    }
+    else setRoute(null,null);
     $('image-options').hidden=true;enableCreate();
   };
   mode.onchange();window.NuntiSkinRenderer.image('default').catch(()=>{});
@@ -572,9 +582,9 @@ async function init(){if($('connection-retry'))$('connection-retry').hidden=true
     // The demo is ready independently of the optional, read-only server collection.
     try{
       const caps=await api('/v3/capabilities');
-      window.nuntiCapabilities={...caps,imageApiAvailable:false,localImageModelAvailable:false};window.NuntiNavigation?.setCapabilities(window.nuntiCapabilities,{prefill:false});
-      $('wardrobe-option').hidden=!caps.wardrobeAvailable;$('wardrobe-enabled').checked=!!caps.wardrobeAvailable;
-      await examples(false);await loadCollection();
+      window.nuntiCapabilities={...caps,imageApiAvailable:false,localImageModelAvailable:false};window.NuntiNavigation?.setCapabilities(window.nuntiCapabilities);
+      $('wardrobe-option').hidden=!caps.wardrobeAvailable;
+      await examples();await loadCollection();
     }catch{}
     return;
   }
