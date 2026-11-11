@@ -139,7 +139,8 @@ object TelemetryWire {
     /** 사건 종류별 심각도. */
     fun severity(kind: DetectedEvent.Kind) = when (kind) {
         DetectedEvent.Kind.HARD_BRAKE, DetectedEvent.Kind.CURVE_TOO_FAST -> "HIGH"
-        DetectedEvent.Kind.HARD_ACCEL, DetectedEvent.Kind.HARD_DECEL, DetectedEvent.Kind.REVERSE_TOO_FAST -> "MEDIUM"
+        DetectedEvent.Kind.HARD_ACCEL, DetectedEvent.Kind.HARD_DECEL, DetectedEvent.Kind.REVERSE_TOO_FAST,
+        DetectedEvent.Kind.PARK_WHILE_MOVING -> "MEDIUM"
     }
 
     fun tripReport(tripId: String, r: TripReportRecord): String {

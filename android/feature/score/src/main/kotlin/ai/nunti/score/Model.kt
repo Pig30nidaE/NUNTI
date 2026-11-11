@@ -60,6 +60,8 @@ enum class Item(
 ) {
     ACCEL_DECEL("급가속·급감속·급제동", Area.CONTROL, sharesDriveTime = true),
     REVERSE_SPEED("후진 속도", Area.CONTROL, sharesDriveTime = true),
+    /** P단으로 바꾼 때마다 한 번의 기회: 완전히 멈춘 뒤였으면 100, 아직 굴러가고 있었으면 속도만큼 감점. */
+    PARK_SHIFT("멈춘 뒤 P단", Area.CONTROL, byOpportunity = true),
     LEAD_GAP("앞차 거리", Area.SURROUND),
     SPEED_LIMIT("제한속도 준수", Area.SURROUND),
     TURN_DECEL("회전 전 감속", Area.SURROUND, byOpportunity = true),
@@ -85,6 +87,10 @@ data class ScoreConfig(
     val harshDecelGeneral: Float = 12f,
     val harshDecelHighway: Float = 9f,
     val reverseOkKmh: Float = 8f,
+    /** P단으로 바꾼 순간 속도가 이 값(km/h) 이하면 멈춘 것으로 본다 (속도 센서 떨림 여유, 초안). */
+    val parkShiftOkKmh: Float = 1f,
+    /** 그보다 빠르면 1km/h 마다 이만큼 감점한다 (초안: 6km/h 이상이면 0점). */
+    val parkShiftPenaltyPerKmh: Float = 20f,
     val overLimitToleranceKmh: Float = 5f,
     val overLimitPenaltyPerKmh: Float = 4f,
     val gapFullSec: Float = 2.0f,
@@ -119,6 +125,8 @@ data class DetectedEvent(val tMs: Long, val kind: Kind) {
         REVERSE_TOO_FAST("후진 과속"),
         /** 커브에서 속도를 줄이지 못해 횡가속도가 한도를 크게 넘은 순간. */
         CURVE_TOO_FAST("커브 과속"),
+        /** 차가 아직 움직이는 중에 P단으로 바꾼 순간. 변속기에 무리가 가고 차가 덜컥 멈춘다. */
+        PARK_WHILE_MOVING("움직이며 P단"),
     }
     val label: String get() = kind.label
 }

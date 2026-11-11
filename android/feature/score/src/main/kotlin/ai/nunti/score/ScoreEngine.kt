@@ -33,6 +33,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         accumulateAccelDecel(samples, ::win, acc, detected)
         accumulateCurves(samples, ::win, acc, detected)
         detectReverseTooFast(samples, detected)
+        accumulateParkShifts(samples, ::win, acc, detected)
         val gears = gearUsage(samples)
         val speedSeconds = samples.indices.sumOf { if (samples[it].speedKmh != null) duration(samples, it) else 0.0 }.toInt()
         val movingSeconds = samples.indices.sumOf { if (moving(samples[it])) duration(samples, it) else 0.0 }.toInt()
@@ -41,7 +42,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         val items = Item.entries.map { item ->
             val per = acc.getValue(item)
             val total = Acc().also { a -> per.forEach { if (it.weight > 0) a.add(it.score!!, it.weight) } }
-            // 후진은 주차처럼 짧게 쓰는 기능이라 1초만 있어도 평가한다.
+            // 후진은 주차처럼 짧게 쓰는 기능이라 1초만 있어도 평가한다. (P단 변속은 기회 기반이라 1회면 평가)
             val minWeight = if (item.byOpportunity || item == Item.REVERSE_SPEED) 1.0 else cfg.minValidSec
             val enough = total.weight >= minWeight
             val basis = when {
@@ -89,6 +90,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
     private fun connected(item: Item, samples: List<VehicleSample>, events: List<DrivingEvent>): Boolean = when (item) {
         Item.ACCEL_DECEL -> samples.any { it.speedKmh != null }
         Item.REVERSE_SPEED -> samples.any { it.gear != null }
+        Item.PARK_SHIFT -> samples.any { it.gear != null } && samples.any { it.speedKmh != null }
         Item.LEAD_GAP -> samples.any { it.leadDistanceM != null }
         Item.SPEED_LIMIT -> samples.any { it.speedLimitKmh != null || it.overSpeedWarning != null }
         Item.TURN_DECEL -> samples.any { it.naviConnected == true } || events.any { it.kind == DrivingEvent.Kind.TURN }
@@ -196,6 +198,30 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         fun fast(s: VehicleSample) = s.gear == Gear.R && abs(s.speedKmh ?: 0f) > cfg.reverseOkKmh
         samples.forEachIndexed { i, s ->
             if (fast(s) && (i == 0 || !fast(samples[i - 1]))) detected += DetectedEvent(s.tMs, DetectedEvent.Kind.REVERSE_TOO_FAST)
+        }
+    }
+
+    /**
+     * P단 변속. 마지막으로 받은 기어가 P가 아니었는데 P가 된 표본을 한 번의 기회로 본다 (P로 시작한 여정의 첫 표본은 제외).
+     * 그 표본의 속도가 [ScoreConfig.parkShiftOkKmh] 이하면 100, 넘으면 감점하고 "움직이며 P단" 사건을 남긴다.
+     * 그 순간 속도를 받지 못했으면 판단하지 않는다.
+     */
+    private fun accumulateParkShifts(
+        samples: List<VehicleSample>,
+        win: (Long) -> Int,
+        acc: Map<Item, List<Acc>>,
+        detected: MutableList<DetectedEvent>,
+    ) {
+        var lastGear: Gear? = null
+        for (s in samples) {
+            val gear = s.gear ?: continue
+            val shifted = gear == Gear.P && lastGear != null && lastGear != Gear.P
+            lastGear = gear
+            val speed = s.speedKmh?.let { abs(it) }
+            if (!shifted || speed == null) continue
+            val over = speed - cfg.parkShiftOkKmh
+            acc.getValue(Item.PARK_SHIFT)[win(s.tMs)].add(if (over <= 0f) 100.0 else max(0f, 100f - over * cfg.parkShiftPenaltyPerKmh).toDouble(), 1.0)
+            if (over > 0f) detected += DetectedEvent(s.tMs, DetectedEvent.Kind.PARK_WHILE_MOVING)
         }
     }
 

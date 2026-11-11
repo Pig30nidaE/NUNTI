@@ -65,6 +65,7 @@ object ClosingMessage {
         DetectedEvent.Kind.CURVE_TOO_FAST to Highlight.CURVES,
         DetectedEvent.Kind.HARD_ACCEL to Highlight.ACCEL,
         DetectedEvent.Kind.REVERSE_TOO_FAST to Highlight.ACCEL,
+        DetectedEvent.Kind.PARK_WHILE_MOVING to Highlight.BRAKES, // 덜컥 멈추는 느낌이 급제동과 같은 장면이다
     )
     /** 같은 횟수면 이 순서로 고른다 (더 놀라운 장면 먼저). */
     private val sceneOrder = listOf(Highlight.BRAKES, Highlight.CURVES, Highlight.ACCEL)

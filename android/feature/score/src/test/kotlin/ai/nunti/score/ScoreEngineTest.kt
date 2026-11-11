@@ -144,6 +144,25 @@ class ScoreEngineTest {
         assertNotNull(item(r, Item.REVERSE_SPEED).score)
     }
 
+    @Test
+    fun shiftingToParkWhileStillMovingIsPenalizedAndStoppedShiftIsNot() {
+        // D 주행 → 멈춘 뒤 P (0 km/h) → 다시 D → 4 km/h 로 굴러가는 채 P
+        val g = { t: Int -> if (t in 10..14 || t >= 25) Gear.P else Gear.D }
+        val v = { t: Int -> when { t in 10..14 -> 0f; t == 25 -> 4f; t > 25 -> 0f; t in 8..9 -> 0f; else -> 30f } }
+        val r = engine.evaluate(gearSamples(0..30, g, v), emptyList())
+        assertEquals(listOf(25_000L), r.events.filter { it.kind == DetectedEvent.Kind.PARK_WHILE_MOVING }.map { it.tMs })
+        val park = item(r, Item.PARK_SHIFT)
+        assertEquals(Basis(BasisKind.OPPORTUNITIES, 2), park.basis)
+        assertEquals((100f + 40f) / 2, park.score!!, 0.1f) // 멈춘 변속 100 + 4km/h 변속 100-(4-1)*20
+    }
+
+    @Test
+    fun startingInParkIsNotAShiftOpportunity() {
+        val r = engine.evaluate(gearSamples(0..20, { Gear.P }, { 0f }), emptyList())
+        assertEquals(Basis(BasisKind.NOT_APPLICABLE), item(r, Item.PARK_SHIFT).basis)
+        assertTrue(r.events.isEmpty())
+    }
+
     private fun curveSamples(entry: Float, inCurve: Float, steer: Float = 50f, gear: Gear = Gear.D) = (0..40).map { t ->
         val inside = t in 20..26
         VehicleSample(
