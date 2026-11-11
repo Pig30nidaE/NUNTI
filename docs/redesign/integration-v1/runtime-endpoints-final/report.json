@@ -1,0 +1,62 @@
+{
+  "status": "PASS",
+  "surface": "ACTUAL_FINAL_PRODUCTION_WEBVIEW",
+  "generationCalls": 0,
+  "checks": [
+    {
+      "name": "coast-curious",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "ddde1f7d0e18317f473409f7137210be66a5b7388b4403959617bc6bc171ae9c"
+    },
+    {
+      "name": "coast-calm",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "2494aa712f4135946baa386f06d6507fb17defb0bb36150aae9423134bd90007"
+    },
+    {
+      "name": "coast-adventurous",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "0816a2aece782611cd2d07020f37596f13c5971177060b25443c88c073b73f9d"
+    },
+    {
+      "name": "mountain-calm",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "2234c435bb71d06aea52ce02c5fbb8dab3499b89b8de7dda1cf35f6221dd8d0a"
+    },
+    {
+      "name": "mountain-curious",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "6c993bcb9cf6cd596bb2b934bf62e63c9212d7919a156980be3ddf33e467d1f7"
+    },
+    {
+      "name": "mountain-adventurous",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "b2cc1c2dde9d2397f05372a1347c19216303441b5ffdc7f7c61b89a7e34f4998"
+    },
+    {
+      "name": "city-calm",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "3e4a220c4f8a94120cb39848e749fafccf4ab8c853a8f82df05261266f216196"
+    },
+    {
+      "name": "city-curious",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "2d8be9f2943c9afff591a97c9522ac8bf7c4f1b38ac31ef17f827e5b3e2ae703"
+    },
+    {
+      "name": "city-adventurous",
+      "status": "PASS",
+      "browserDecodedPixelsExact": true,
+      "serverImageSha256": "538449fce6d72a36484af6803a56311de65cc92a2cd7013c6c046603be9d0952"
+    }
+  ],
+  "vehicleRestored": true
+}

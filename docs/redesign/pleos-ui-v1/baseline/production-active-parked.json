@@ -1,0 +1,129 @@
+{
+  "sessionId": "58ce9660-2269-44a5-9b0e-8606c027946a",
+  "characterId": "nunti-bb48e374-03bd-4b14-b34c-733cc93f395b",
+  "displayName": "몽글방울",
+  "destination": "안양역 1호선",
+  "purpose": "맛집탐방",
+  "routePlanId": "948ca5660e2c381903d32dd79fd35eb98cd06656c8e6d114b9dd62dd5a5920a9",
+  "staticOnly": false,
+  "imageFile": "/data/user/10/ai.nunti.avatar.demo/files/journeys/assets/0ac677cce12fa84145053fb3cb4811eed51f6d7401af459babb4419e6da63d5a.png",
+  "voices": {},
+  "source": "LIVE",
+  "startedAtEpochMs": 1794236674536,
+  "state": "ACTIVE",
+  "elapsedMs": 4688,
+  "sampleCount": 5,
+  "total": null,
+  "coverage": 0,
+  "emotion": "NEUTRAL",
+  "line": "함께 살펴보고 있어요.",
+  "canFinish": true,
+  "voiceStatus": "음성 꺼짐",
+  "muted": true,
+  "updatedAtEpochMs": 1794236680235,
+  "items": [
+    {
+      "label": "급가속·급감속·급제동",
+      "score": null,
+      "basis": "표본 부족"
+    },
+    {
+      "label": "후진 속도",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "앞차 거리",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "제한속도 준수",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "회전 전 감속",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "차선 변경 지시등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "안전벨트",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "주행 중 문 열림",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "야간 전조등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "연비·전비",
+      "score": null,
+      "basis": "수신 없음"
+    }
+  ],
+  "events": [],
+  "speedKmh": 0,
+  "gear": "P",
+  "signalDetails": [
+    {
+      "label": "속도",
+      "value": "0.0 km/h"
+    },
+    {
+      "label": "속도(직접구독)",
+      "value": "PERF_VEHICLE_SPEED[0]=0.0"
+    },
+    {
+      "label": "기어",
+      "value": "P"
+    },
+    {
+      "label": "브레이크",
+      "value": "뗌"
+    },
+    {
+      "label": "지시등",
+      "value": "NONE"
+    },
+    {
+      "label": "하향등",
+      "value": "OFF"
+    },
+    {
+      "label": "벨트 운전석/동승석",
+      "value": "false / false"
+    },
+    {
+      "label": "내비",
+      "value": "연결됨"
+    },
+    {
+      "label": "다음 회전",
+      "value": "없음"
+    },
+    {
+      "label": "제한속도",
+      "value": "미수신"
+    },
+    {
+      "label": "탑승 운전석/동승석",
+      "value": "true / true"
+    },
+    {
+      "label": "문 열림",
+      "value": "false"
+    }
+  ]
+}

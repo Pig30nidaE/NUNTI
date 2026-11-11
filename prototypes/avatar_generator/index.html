@@ -2,70 +2,107 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>눈티 · 이번 길에서 태어나는 동반자</title>
+  <meta name="color-scheme" content="light dark">
+  <title>눈티 · 함께 가는 길</title>
   <link rel="stylesheet" href="/studio.css">
 </head>
-<body>
+<body data-view="input">
   <header class="topbar">
-    <a class="brand" href="/" aria-label="눈티 홈"><span class="brandmark"><i></i><i></i></span>눈티<span class="brand-latin">NUNTI</span></a>
-    <p>나의 길, 나의 작은 동반자</p>
-    <button id="collection-button" class="quiet">내 눈티 <span id="collection-count">0</span></button>
+    <a class="brand" href="/" aria-label="눈티 홈">눈티</a><p id="app-state-label">출발 전</p>
+    <button id="collection-button" class="quiet">내 눈티 <span id="collection-count" class="visually-hidden">0</span></button>
   </header>
   <main>
-    <section class="intro"><div><div class="eyebrow">A COMPANION BORN FROM YOUR JOURNEY</div><h1 id="heading">이번 길은, 어떤 눈티가 될까요?</h1><p id="subheading">목적지와 경로에서 나만의 작은 동반자가 태어납니다. 함께 달리며 좋은 운전습관을 만들어갈 동반자를 만나세요.</p></div><span class="mode-tag" id="mode-tag">로컬 생성 · API 키 없이</span></section>
-    <nav class="steps" aria-label="생성 단계"><span id="step-1" class="active"><b>01</b> 여정 담기</span><span id="step-2"><b>02</b> 눈티 탄생</span><span id="step-3"><b>03</b> 함께 출발</span></nav>
-    <div id="notice" role="status" aria-live="polite" hidden></div>
+    <section class="intro"><div><h1 id="heading">어디로 떠날까요?</h1><p id="subheading">길을 고르면, 눈티도 여행을 준비해요.</p></div><span class="mode-tag" id="mode-tag" hidden>오프라인</span></section>
+    <nav class="steps visually-hidden" aria-label="생성 단계"><span id="step-1" class="active"><b>01</b> 여정 담기</span><span id="step-2"><b>02</b> 눈티 변신</span><span id="step-3"><b>03</b> 함께 출발</span></nav>
+    <aside class="notice-panel"><div id="notice" role="status" aria-live="polite" hidden></div><button id="connection-retry" type="button" class="secondary" hidden>다시 연결</button></aside>
     <section id="input-view" class="workspace">
-      <article class="route-panel card">
-        <div class="panel-head"><div><div class="eyebrow">YOUR ROUTE</div><h2>어떤 길을 가나요?</h2></div><span id="source-tag" class="small-tag">시험 경로</span></div>
-        <section id="navigation-tools" class="navigation-tools" hidden>
+      <div class="input-scroll">
+        <article class="route-panel card">
+          <h2 class="route-panel-title">오늘의 동행</h2>
+          <div class="route-hero">
+            <button id="canonical-portrait" class="canonical-preview nunti-portrait" type="button" aria-label="기본 눈티의 반응 보기" disabled><img id="canonical-preview" src="/nunti-motion/base.png" alt="함께 여행할 기본 눈티 A" width="768" height="768"></button>
+            <div class="route-summary"><h3 id="route-destination-label">아직 정하지 않은 길</h3><p>함께 갈 경로</p>
+              <div id="route-map" class="route-map"><img id="route-image" alt="경로 입력 원본" hidden><canvas id="route-canvas" aria-label="원본 위 확인할 경로"></canvas><div id="map-empty">경로를 불러와 주세요</div><span class="map-caption" id="map-caption">확인할 경로</span></div>
+            </div>
+          </div>
+          <section id="navigation-tools" class="navigation-tools" hidden><div class="route-actions"><button id="nav-import" class="secondary" type="button">내비 목적지 불러오기</button><button id="nav-open" class="quiet" type="button">현대 내비 열기</button></div></section>
+          <div class="confirm-row"><input id="route-confirmed" type="checkbox"><label for="route-confirmed"><span class="check-symbol" aria-hidden="true"><img src="/assets/pleos-check.svg" width="44" height="44" alt=""></span>이번에 갈 경로가 맞아요</label></div>
+          <button id="route-tools-open" type="button" class="quiet" aria-haspopup="dialog">경로 선택</button>
+        </article>
+        <article class="journey-panel card">
+          <form id="journey-form">
+            <div class="form-field destination-field"><label for="destination">목적지</label><input id="destination" maxlength="60" placeholder="어디로 떠나나요?" required></div>
+            <div class="form-field purpose-field"><label for="purpose">어떤 일로 가나요?</label><input id="purpose" maxlength="120" placeholder="면접, 진료, 축구 경기 관람…"><div class="purpose-choices"><button type="button" data-purpose="면접·출근">면접·출근</button><button type="button" data-purpose="병원 진료">병원</button><button type="button" data-purpose="축구 경기 관람">축구 직관</button></div></div>
+            <details class="trip-details"><summary>분위기 더하기 <span>선택</span></summary><div class="trip-context">
+              <div class="form-field"><label for="traits">그곳의 느낌</label><input id="traits" maxlength="240" placeholder="그곳의 풍경과 분위기"></div>
+            </div></details>
+            <div id="layer-options" hidden>
+              <div class="field-pair">
+                <div class="form-field"><label for="layer-destination">어떤 풍경인가요?</label><select id="layer-destination"><option value="unknown">아직 모르겠어요</option><option value="city">도시</option><option value="coast">바다</option><option value="mountain">산</option></select></div>
+                <div class="form-field road-field"><label for="layer-road">가는 길</label><select id="layer-road"><option value="unknown">아직 모르겠어요</option><option value="urban">도심길</option><option value="highway">고속도로</option><option value="rural">시골길</option><option value="mixed">여러 종류의 길</option></select></div>
+              </div>
+              <fieldset class="mood-field"><legend>어떤 기분으로 떠날까요?</legend>
+                <select id="layer-mood" class="visually-hidden" tabindex="-1" aria-label="직접 고르는 기분"><option value="unset">선택하지 않음</option><option value="calm">차분하게</option><option value="curious">호기심 있게</option><option value="adventurous">씩씩하게</option></select>
+                <div id="mood-choices" class="segmented"><button type="button" data-mood="calm" aria-pressed="false">차분하게</button><button type="button" data-mood="curious" aria-pressed="false">호기심 있게</button><button type="button" data-mood="adventurous" aria-pressed="false">씩씩하게</button></div>
+                <p id="mood-selection-help" class="visually-hidden">선택한 기분을 다시 누르면 선택을 해제합니다.</p>
+              </fieldset>
+            </div>
+            <label id="wardrobe-option" class="wardrobe-option" hidden><input id="wardrobe-enabled" type="checkbox"><span><b>오늘의 옷을 새로 만들기</b><small>가는 이유와 기분에 맞춰요. 같은 여정의 옷은 다시 꺼내 입어요.</small></span></label>
+            <button id="generation-options-open" class="quiet" type="button" aria-haspopup="dialog">눈티 설정</button>
+          </form>
+        </article>
+      </div>
+      <div class="input-footer"><div class="save-note"><p>여행마다 새로운 모습</p><small>만든 눈티와 경로는 내 눈티에 보관돼요.</small></div><button type="submit" form="journey-form" id="create-button" class="primary" disabled>눈티 만들기 <span aria-hidden="true">→</span></button></div>
+    </section>
+    <section id="result-view" hidden>
+      <div class="result-grid">
+        <article class="birth-panel card"><div class="birth-top visually-hidden"><span id="birth-label">같은 눈티, 이번 길의 모습</span></div><div class="birth-stage"><button id="result-portrait" class="nunti-portrait" type="button" aria-label="눈티의 반응 보기" disabled></button><canvas id="birth-canvas" aria-label="기본 눈티가 이번 길의 모습으로 변하는 장면"></canvas><div class="stage-caption"><span id="birth-status">같은 눈티에 이번 길을 담고 있어요</span><div id="birth-progress" class="progress"><i></i></div></div></div><div class="birth-bottom visually-hidden"><span id="stage-summary">기본 눈티 A</span><span id="origin-label" class="visually-hidden"></span><span id="edition-label" class="visually-hidden"></span></div></article>
+        <article class="identity-panel card"><h2 id="avatar-name">눈티를 기다리는 중</h2><p class="personality" id="avatar-personality">이번 여정의 모습을 준비하고 있어요.</p>
+          <div id="result-details" hidden>
+            <div class="destination-stamp"><b id="result-destination"></b><small id="result-purpose"></small></div>
+            <p class="save-status" id="save-status">내 눈티에 자동으로 저장돼요</p>
+            <h3 id="motifs-heading">이번 여행에서 가져온 것</h3><div id="character-story" class="character-story"></div>
+            <div class="detail-actions"><button id="listen-button" class="secondary" aria-label="눈티 목소리 듣기">▷</button><button id="journey-options-open" class="quiet" type="button" aria-haspopup="dialog">여행 기록</button></div>
+            <div class="motion-controls"><button id="replay-button" class="quiet" hidden>변신 다시 보기</button><label class="switch-label" for="reduced-motion">움직임 줄이기<input id="reduced-motion" type="checkbox" role="switch"><span class="switch-track" aria-hidden="true"></span></label></div>
+          </div>
+        </article>
+      </div>
+      <div class="result-actions"><button id="new-button" class="secondary">다른 길 고르기</button><span class="flex-space"></span><button id="motion-skip" class="quiet" type="button">바로 보기</button><button id="journey-button" class="primary">함께 출발 <span aria-hidden="true">→</span></button></div>
+    </section>
+    <section id="collection-view" hidden><div class="section-title"><div><h2>함께한 길, 나의 눈티</h2><p class="helper">여정과 모습, 목소리 설정이 함께 보관돼요.</p></div><button id="collection-back" class="secondary">돌아가기</button></div><div id="collection" class="collection"></div></section>
+  </main>
+  <dialog id="route-tools-dialog" class="options-dialog" aria-labelledby="route-tools-title"><header class="dialog-header"><h2 id="route-tools-title">경로를 가져오는 다른 방법</h2><button type="button" class="quiet" data-close-dialog>닫기</button></header><div class="dialog-scroll"><span id="source-tag" class="small-tag">경로 입력</span><p class="helper" id="route-warning">경로를 확인해 주세요.</p>
           <h3>내비에서 여정 가져오기</h3><p id="navigation-status" class="helper" role="status">내비 연결을 확인하고 있어요.</p>
-          <div class="route-actions"><button id="nav-import" class="secondary" type="button">내비 목적지 불러오기</button><button id="nav-open" class="quiet" type="button">현대 내비 열기</button></div>
+
           <p id="native-route-summary" class="helper"></p>
           <div class="route-actions"><button id="nav-send" class="quiet" type="button">이 목적지를 현대 내비에 설정</button><button id="nav-overview" class="quiet" type="button">현대 경로 전체 보기</button></div>
-          <details class="api-coordinates"><summary>경로 API 시험 입력</summary>
-            <label for="nav-case">공개 장소 시험 여정</label><select id="nav-case"><option value="pangyo">판교 → 더현대서울</option><option value="seoul">서울역 → 서울시청</option><option value="coast">강릉역 → 안목해변</option></select>
+          <details class="api-coordinates"><summary>경로 직접 입력</summary>
+            <label for="nav-case">예시 경로</label><select id="nav-case"><option value="pangyo">판교 → 더현대서울</option><option value="seoul">서울역 → 서울시청</option><option value="coast">강릉역 → 안목해변</option></select>
             <div class="coordinate-row"><label>출발 위도<input id="nav-origin-lat" type="number" step="any" min="-90" max="90"></label><label>출발 경도<input id="nav-origin-lon" type="number" step="any" min="-180" max="180"></label></div>
             <div class="coordinate-row"><label>목적지 위도<input id="nav-destination-lat" type="number" step="any" min="-90" max="90"></label><label>목적지 경도<input id="nav-destination-lon" type="number" step="any" min="-180" max="180"></label></div>
           </details>
           <div class="route-actions"><button id="nav-calculate" class="secondary" type="button">경로 API로 길 불러오기</button><button id="nav-replay" class="quiet" type="button" disabled>저장 경로 다시 보기</button></div>
           <p id="api-route-summary" class="helper">길을 불러오면 출발·도착과 전체 선을 확인할 수 있어요.</p>
           <p id="route-attribution" class="helper fine" hidden>경로: OSRM · FOSSGIS / 지도 데이터 <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a> · <a href="https://www.openstreetmap.org/fixthemap" target="_blank" rel="noopener">지도 수정</a>. 현대 내비의 선택 경로와 별도로 계산합니다.</p>
-        </section>
-        <div id="route-map" class="route-map"><img id="route-image" alt="경로 입력 원본" hidden><canvas id="route-canvas" aria-label="원본 위 확인할 경로"></canvas><div id="map-empty">경로를 불러오면 여기에 보여드릴게요.</div><span class="map-caption" id="map-caption">경로선의 굴곡이 눈티 안에 남아요</span></div>
         <div id="legacy-route-tools">
         <div class="route-actions"><label class="button secondary" for="image-upload">경로 사진 불러오기<input id="image-upload" type="file" accept="image/png,image/jpeg" hidden></label><label class="button quiet" for="route-upload">좌표 파일<input id="route-upload" type="file" accept="application/json,.json" hidden></label></div>
         <div id="image-options" hidden><label class="hint-label">경로선 색상 <select id="route-color"><option value="">자동으로 찾기</option value="blue">파랑</option><option value="cyan">하늘색</option><option value="purple">보라</option><option value="green">초록</option><option value="red">빨강</option><option value="orange">주황</option></select></label><button id="extract-again" class="quiet">다시 찾기</button></div>
         </div>
-        <div class="confirm-row"><input id="route-confirmed" type="checkbox"><label for="route-confirmed">표시된 선이 이번에 갈 경로가 맞아요</label></div><p class="helper" id="route-warning">내비 화면의 경로 사진 또는 좌표 파일로 시험할 수 있어요.</p>
-      </article>
-      <article class="journey-panel card">
-        <div class="eyebrow">MAKE IT YOURS</div><h2>이 여정에 이야기를 더해요</h2>
-        <form id="journey-form">
-          <label for="destination">목적지</label><input id="destination" maxlength="60" placeholder="예: 서울역, 수원역, 을왕리 해수욕장" required>
-          <label for="traits">그곳의 느낌</label><input id="traits" maxlength="240" placeholder="예: 푸른 바다, 파도와 커피 향">
-          <label for="purpose">이번에 가는 이유</label><input id="purpose" maxlength="120" placeholder="예: 출장 미팅 / 친구들과 물놀이 / 데이트">
-          <p class="helper purpose-hint">같은 목적지라도 방문 이유에 따라 옷, 소품, 행동과 목소리가 달라져요.</p><div id="engine-choice" hidden><label for="render-mode">이미지 생성 방식</label><select id="render-mode" aria-describedby="engine-note"><option value="LOCAL_RENDER">빠른 일러스트 · API 없이</option><option value="LOCAL_MODEL" hidden disabled>로컬 AI · 약 1분</option><option value="IMAGE_API" hidden disabled>AI 이미지 · 서버 API 설정 필요</option></select><p id="engine-note" class="helper">선택한 방식으로 매번 새 그림을 만들어요.</p></div>
-          <div class="creation-note"><span class="tiny-spark">✦</span><p>길은 탄생의 궤적이 되고, 목적지는 작은 장식이 돼요.<br>방문 이유에 어울리는 모습과 목소리로 만나요.</p></div>
-          <button type="submit" id="create-button" class="primary" disabled>이 길에서 눈티 만나기 <span>↗</span></button>
-        </form><p class="helper fine">생성은 자동 저장돼요. 목소리는 누를 때만 재생해요.</p>
-      </article>
-    </section>
-    <section id="examples-section" class="examples-section"><div class="section-title"><h3>먼저 이런 길로 떠나볼까요?</h3><span>입력 예시이며, 캐릭터 선택지가 아니에요</span></div><div id="examples" class="examples"></div></section>
-    <section id="result-view" hidden>
-      <div class="result-grid">
-        <article class="birth-panel card"><div class="birth-top"><span class="eyebrow" id="birth-label">A LITTLE LIFE FROM YOUR ROUTE</span><button id="replay-button" class="quiet" hidden>탄생 다시 보기</button></div><div class="birth-stage"><canvas id="birth-canvas" aria-label="경로로부터 눈티가 태어나는 모습"></canvas><div class="stage-caption"><span id="birth-status">경로의 이야기를 담고 있어요</span><div id="birth-progress" class="progress"><i></i></div></div></div><div class="birth-bottom"><span id="origin-label">로컬에서 새로 그린 일러스트</span><span id="edition-label"></span></div></article>
-        <article class="identity-panel card"><div class="eyebrow">YOUR NEW COMPANION</div><h2 id="avatar-name">눈티를 기다리는 중</h2><p class="personality" id="avatar-personality">이번 길의 곡선과 목적지의 빛을 모으고 있어요.</p><div id="result-details" hidden><div class="destination-stamp"><span>이번 눈티가 태어난 곳</span><b id="result-destination"></b><small id="result-purpose"></small></div><h3 id="motifs-heading">이 여정의 작은 이야기</h3><div id="character-story" class="character-story"></div><details class="generation-info"><summary>이 눈티가 만들어진 이야기</summary><p class="helper" id="motifs-notice" hidden></p><p class="helper" id="formation-notice" hidden></p><div id="motifs" class="motifs"></div></details><div class="voice-card"><div><b>이 눈티의 목소리</b><p id="voice-description"></p></div><button id="listen-button" class="round-button" aria-label="눈티 목소리 듣기">▷</button></div><p class="helper" id="voice-notice">듣기를 누르면 이 눈티에 어울리는 한국어 목소리를 만들어요. 한 번 만든 목소리는 함께 보관돼요.</p><div class="result-actions"><button id="journey-button" class="primary">눈티와 함께하기</button><button id="new-button" class="secondary">새 여정 만들기</button></div><p class="helper fine" id="save-status">내 눈티에 저장됐어요. 다시 열어도 같은 모습이에요.</p></div></article>
-      </div><div class="route-receipt card"><div><span class="eyebrow">THE ROUTE THAT BECAME YOU</span><h3>눈티가 품은 원래 경로</h3><p id="receipt-source"></p></div><canvas id="receipt-canvas" aria-label="생성에 사용한 원래 경로"></canvas></div>
-    </section>
-    <section id="collection-view" hidden><div class="section-title"><div><h2>함께한 길, 나의 눈티</h2><p class="helper">여정과 모습, 목소리 설정이 함께 보관돼요.</p></div><button id="collection-back" class="secondary">돌아가기</button></div><div id="collection" class="collection"></div></section>
-    <footer><span>운전습관 개선을 돕는 아바타 동반자, 눈티</span><span>주차 중 생성 · 이동 중 조작 제한</span></footer>
-  </main>
+        <section id="examples-section" class="examples-section"><div class="section-title"><h3>먼저 이런 길로 떠나볼까요?</h3><span>입력 예시이며, 캐릭터 선택지가 아니에요</span></div><div id="examples" class="examples"></div></section></div></dialog>
+  <dialog id="generation-options-dialog" class="options-dialog" aria-labelledby="generation-options-title"><header class="dialog-header"><h2 id="generation-options-title">눈티 설정</h2><button type="button" class="quiet" data-close-dialog>닫기</button></header><div class="dialog-scroll"><div id="engine-choice" hidden><label for="render-mode">이미지 생성 방식</label><select id="render-mode" aria-describedby="engine-note"><option value="LOCAL_RENDER">빠른 일러스트 · API 없이</option><option value="LOCAL_LAYERS" hidden disabled>기본 눈티 A · 모습 조합</option><option value="MOCK_SKIN" hidden disabled>여행 스킨 · 오프라인</option><option value="LOCAL_MODEL" hidden disabled>로컬 AI · 약 1분</option><option value="IMAGE_API" hidden disabled>AI 이미지 · 서버 API 설정 필요</option></select><p id="engine-note" class="helper">선택한 방식으로 매번 새 그림을 만들어요.</p></div>
+          <div id="skin-demo-field" class="form-field" hidden><label for="skin-demo">여행 미리보기</label><select id="skin-demo"><option value="">직접 입력</option><option value="default">기본 눈티 A</option><option value="sea">바닷길 탐험가</option><option value="city">밤도시 모험가</option><option value="mountain">산길 트레커</option></select><p class="helper">예시 여행을 골라 눈티의 모습을 미리 만나보세요.</p></div>
+          <p class="helper purpose-hint">모습은 직접 고른 유형과 기분으로 정해져요.</p><div class="creation-note"><p>익숙한 눈티에 작은 장식과 표정을 더해요.</p></div></div></dialog>
+  <dialog id="journey-options-dialog" class="options-dialog" aria-labelledby="journey-options-title"><header class="dialog-header"><h2 id="journey-options-title">여행 기록</h2><button type="button" class="quiet" data-close-dialog>닫기</button></header><div id="journey-options-content" class="dialog-scroll"><div class="voice-card"><b>이 눈티의 목소리</b><p id="voice-description"></p><p class="helper" id="voice-notice">목소리는 누를 때만 재생해요.</p></div><details class="generation-info"><summary>이 눈티가 만들어진 이야기</summary><p class="helper" id="motifs-notice" hidden></p><p class="helper" id="formation-notice" hidden></p><div id="motifs" class="motifs"></div></details><div class="route-receipt"><h3>눈티가 품은 원래 경로</h3><p id="receipt-source"></p><canvas id="receipt-canvas" aria-label="생성에 사용한 원래 경로"></canvas></div></div></dialog>
   <dialog id="session-dialog"><form id="session-form"><div class="eyebrow">LOCAL STUDIO</div><h2>로컬 생성기에 연결해요</h2><p>실행 도구가 만든 연결 코드를 입력해 주세요.<br>생성 API 키와는 다른 로컬 전용 코드예요.</p><label for="session-token">연결 코드</label><input id="session-token" type="password" autocomplete="off" required><button class="primary" type="submit">연결하기</button><p id="session-error" class="helper"></p></form></dialog>
   <script src="/journey_effects.js" defer></script>
   <script src="/formation.js" defer></script>
+  <script src="/nunti-motion/manifest.js" defer></script>
+  <script src="/nunti-transformation.js" defer></script>
+  <script src="/nunti-skins.js" defer></script>
+  <script src="/nunti-skin-motion.js" defer></script>
+  <script src="/nunti-companion.js" defer></script>
   <script src="/studio.js" defer></script>
   <script src="/navigation.js" defer></script>
+  <script src="/ui-redesign.js" defer></script>
 </body>
 </html>

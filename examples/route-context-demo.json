@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "0.1",
+  "routeId": "demo-route-coast-001",
+  "distanceKm": 32,
+  "estimatedDurationMin": 46,
+  "roadType": "mixed",
+  "destinationCategory": "coast",
+  "sceneryTags": ["water", "open-sky"],
+  "userSelectedMood": "curious",
+  "state": "parked",
+  "provenance": {
+    "distanceKm": "mock",
+    "estimatedDurationMin": "mock",
+    "roadType": "mock",
+    "destinationCategory": "mock",
+    "sceneryTags": "mock",
+    "userSelectedMood": "explicit-user-choice"
+  }
+}

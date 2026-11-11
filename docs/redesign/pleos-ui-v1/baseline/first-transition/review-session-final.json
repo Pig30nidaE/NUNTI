@@ -1,0 +1,90 @@
+{
+  "sessionId": "9301da92-ea2f-4403-921e-6f1f82abb214",
+  "characterId": "nunti-bb48e374-03bd-4b14-b34c-733cc93f395b",
+  "displayName": "몽글방울",
+  "destination": "안양역 1호선",
+  "purpose": "맛집탐방",
+  "routePlanId": "948ca5660e2c381903d32dd79fd35eb98cd06656c8e6d114b9dd62dd5a5920a9",
+  "staticOnly": false,
+  "imageFile": "/data/user/10/ai.nunti.avatar.demo/files/journeys/assets/0ac677cce12fa84145053fb3cb4811eed51f6d7401af459babb4419e6da63d5a.png",
+  "voices": {},
+  "source": "LIVE",
+  "startedAtEpochMs": 1794236560934,
+  "state": "FINISHED",
+  "elapsedMs": 21927,
+  "sampleCount": 22,
+  "total": 20,
+  "coverage": 0.35,
+  "emotion": "WORRY",
+  "line": "앗, 조금 걱정돼요. 천천히 가요.",
+  "canFinish": false,
+  "voiceStatus": "음성 꺼짐",
+  "muted": true,
+  "updatedAtEpochMs": 1794236582968,
+  "feedbackKey": "9301da92-ea2f-4403-921e-6f1f82abb214:2",
+  "items": [
+    {
+      "label": "급가속·급감속·급제동",
+      "score": 20,
+      "basis": "유효 21초"
+    },
+    {
+      "label": "후진 속도",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "앞차 거리",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "제한속도 준수",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "회전 전 감속",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "차선 변경 지시등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "안전벨트",
+      "score": null,
+      "basis": "표본 부족"
+    },
+    {
+      "label": "주행 중 문 열림",
+      "score": null,
+      "basis": "표본 부족"
+    },
+    {
+      "label": "야간 전조등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "연비·전비",
+      "score": null,
+      "basis": "수신 없음"
+    }
+  ],
+  "events": [
+    {
+      "tMs": 9854,
+      "label": "급가속"
+    },
+    {
+      "tMs": 16894,
+      "label": "급감속"
+    }
+  ],
+  "speedKmh": 0,
+  "gear": "P",
+  "signalDetails": []
+}

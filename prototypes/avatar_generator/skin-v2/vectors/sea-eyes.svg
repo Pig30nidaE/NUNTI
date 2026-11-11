@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><linearGradient id="iris" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#3c3b39"/><stop offset="0.500" stop-color="#70624f"/><stop offset="1.000" stop-color="#a39b77"/></linearGradient>
+    <clipPath id="left-eye"><path d="M277 273Q290 250 321 250Q348 249 359 269Q346 290 318 292Q290 293 277 273Z"/></clipPath>
+    <clipPath id="right-eye"><path d="M421 269Q432 249 461 250Q491 250 503 272Q489 292 461 292Q434 290 421 269Z"/></clipPath>
+    </defs><g fill="#fff7eb" stroke="#664234" stroke-width="3.5" stroke-linejoin="round"><path d="M277 273Q290 250 321 250Q348 249 359 269Q346 290 318 292Q290 293 277 273Z"/><path d="M421 269Q432 249 461 250Q491 250 503 272Q489 292 461 292Q434 290 421 269Z"/></g>
+        <g clip-path="url(#left-eye)">
+         <ellipse cx="319" cy="272" rx="19" ry="22" fill="url(#iris)" stroke="#4b3633" stroke-width="2"/>
+         <ellipse cx="321" cy="271" rx="9.88" ry="12.76" fill="#241e25" opacity=".83"/>
+         <ellipse cx="327" cy="263" rx="6" ry="5.5" fill="#fff7ed"/>
+         <ellipse cx="312" cy="280" rx="3" ry="2.5" fill="#fff3dc" opacity=".68"/>
+        </g>
+        <g clip-path="url(#right-eye)">
+         <ellipse cx="462" cy="272" rx="19" ry="22" fill="url(#iris)" stroke="#4b3633" stroke-width="2"/>
+         <ellipse cx="464" cy="271" rx="9.88" ry="12.76" fill="#241e25" opacity=".83"/>
+         <ellipse cx="470" cy="263" rx="6" ry="5.5" fill="#fff7ed"/>
+         <ellipse cx="455" cy="280" rx="3" ry="2.5" fill="#fff3dc" opacity=".68"/>
+        </g>
+    <path d="M285 230Q313 219 337 230M443 230Q469 219 495 232" fill="none" stroke="#8a5b48" stroke-width="5.5" stroke-linecap="round"/>
+    <path d="M365 328Q390 349 417 326" fill="none" stroke="#965140" stroke-width="6" stroke-linecap="round"/>
+    </svg>

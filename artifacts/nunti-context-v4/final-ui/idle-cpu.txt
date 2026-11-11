@@ -1,0 +1,15 @@
+Tasks: 1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+  Mem:  4016816K total,  3729868K used,   286948K free,   105204K buffers
+ Swap:  3012608K total,   930048K used,  2082560K free,  1144608K cached
+400%cpu  48%user   0%nice 192%sys 136%idle   0%iow  24%irq   0%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 8889 u10_a174     10 -10  31G 321M 189M S  100   8.1   9:29.89 ai.nunti.avatar.demo
+
+
+
+Tasks: 1 total,   0 running,   1 sleeping,   0 stopped,   0 zombie
+  Mem:  4016816K total,  3721300K used,   295516K free,   105224K buffers
+ Swap:  3012608K total,   930048K used,  2082560K free,  1144536K cached
+400%cpu  50%user   1%nice 175%sys 149%idle   0%iow  24%irq   1%sirq   0%host
+  PID USER         PR  NI VIRT  RES  SHR S[%CPU] %MEM     TIME+ ARGS
+ 8889 u10_a174     10 -10  31G 321M 189M S 91.0   8.1   9:30.14 ai.nunti.avatar.demo

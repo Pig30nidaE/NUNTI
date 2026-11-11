@@ -1,0 +1,93 @@
+Load: 3.49 / 4.18 / 4.28
+CPU usage from 298332ms to 5516ms ago (2026-11-10 22:42:56.783 to 2026-11-10 22:47:49.599):
+  94% 2705/ai.umos.drivingview: 28% user + 65% kernel / faults: 60234 minor 20 major
+  20% 621/media.swcodec: 10% user + 9.4% kernel / faults: 99313 minor
+  6.5% 476/surfaceflinger: 2% user + 4.4% kernel / faults: 574 minor
+  6% 448/android.hardware.graphics.composer3-service.ranchu: 0.3% user + 5.6% kernel / faults: 4 minor
+  5.5% 3605/ai.umos.maps.android.navigation.app: 3% user + 2.5% kernel / faults: 397787 minor 1 major
+  2% 406/android.hardware.audio.service-caremu: 0.3% user + 1.6% kernel / faults: 78110 minor
+  1.6% 1876/ai.umos.ambientai: 1.3% user + 0.2% kernel / faults: 155992 minor 2 major
+  1.5% 1019/com.android.car: 0.8% user + 0.6% kernel / faults: 36393 minor 1 major
+  1.2% 751/system_server: 0.7% user + 0.4% kernel / faults: 23315 minor 22 major
+  1% 211/ai.pleos.hardware.vehicle@V2-sdv-service: 0.3% user + 0.6% kernel / faults: 525 minor
+  0.3% 465/audioserver: 0.1% user + 0.1% kernel / faults: 659 minor 6 major
+  0.3% 4731/ai.pleos.hardware.placesense-sdv-service: 0.1% user + 0.2% kernel / faults: 187 minor
+  0.2% 975/com.android.systemui: 0.1% user + 0.1% kernel / faults: 4503 minor
+  0.2% 420/android.hardware.sensors-service.multihal: 0.1% user + 0.1% kernel
+  0.1% 14/rcu_preempt: 0% user + 0.1% kernel
+  0.1% 167/logd: 0% user + 0% kernel / faults: 8239 minor
+  0.1% 5044/ai.pleos.service.ui: 0% user + 0% kernel / faults: 986 minor
+  0.1% 1/init: 0% user + 0.1% kernel / faults: 18495 minor
+  0.1% 566/adbd: 0% user + 0% kernel / faults: 36292 minor
+  0% 461/ai.pleos.hardware.vehicle_api_dds_emulator: 0% user + 0% kernel / faults: 3711 minor 1 major
+  0% 5285/ai.umos.notification: 0% user + 0% kernel / faults: 770 minor
+  0% 1719/com.android.providers.media.module: 0% user + 0% kernel / faults: 983 minor 5 major
+  0% 2794/ai.umos.homescreen: 0% user + 0% kernel / faults: 1929 minor 4 major
+  0% 4512/ai.umos.car.evs: 0% user + 0% kernel / faults: 5494 minor
+  0% 1155/ai.pleos.service.car: 0% user + 0% kernel / faults: 338 minor
+  0% 29906/kworker/0:0-virtio_vsock: 0% user + 0% kernel
+  0% 4724/ai.pleos.hardware.vehicle_ext-V1-sdv-service: 0% user + 0% kernel / faults: 459 minor
+  0% 1914/ai.pleos.playground.service.sync: 0% user + 0% kernel / faults: 1168 minor 5 major
+  0% 4952/ai.pleos.playground.service.location.fused: 0% user + 0% kernel / faults: 972 minor
+  0% 13/ksoftirqd/0: 0% user + 0% kernel
+  0% 243/jbd2/dm-42-8: 0% user + 0% kernel
+  0% 4730/ai.pleos.hardware.vehicle_diagnostic-V1-sdv-service: 0% user + 0% kernel / faults: 362 minor
+  0% 183/carwatchdogd: 0% user + 0% kernel / faults: 4 minor
+  0% 14415/kworker/0:1H-kblockd: 0% user + 0% kernel
+  0% 3194/ai.pleos.playground.service.vehicle: 0% user + 0% kernel / faults: 1509 minor
+  0% 3308/ai.pleos.hardware.profile.exe: 0% user + 0% kernel / faults: 195 minor
+  0% 4048/ai.pleos.playground.service.cap: 0% user + 0% kernel / faults: 56 minor
+  0% 11765/kworker/0:1-events: 0% user + 0% kernel
+  0% 19210/kworker/u8:0-ext4-rsv-conversion: 0% user + 0% kernel
+  0% 414/android.hardware.graphics.allocator@3.0-service.ranchu: 0% user + 0% kernel
+  0% 1651/ai.pleos.playground.service.navi: 0% user + 0% kernel / faults: 285 minor
+  0% 4729/ai.pleos.hardware.adas-V1-sdv-service: 0% user + 0% kernel / faults: 109 minor
+  0% 52/kswapd0: 0% user + 0% kernel
+  0% 175/servicemanager: 0% user + 0% kernel / faults: 4 minor 1 major
+  0% 399/netd: 0% user + 0% kernel / faults: 505 minor
+  0% 4711/ai.pleos.hardware.diagnostic_report-V1-sdv-service: 0% user + 0% kernel / faults: 51 minor
+  0% 14681/kworker/1:1-events: 0% user + 0% kernel
+  0% 25419/kworker/2:3-events: 0% user + 0% kernel
+  0% 30528/kworker/3:1-events: 0% user + 0% kernel
+  0% 398/statsd: 0% user + 0% kernel / faults: 9 minor 3 major
+  0% 1050/android.hardware.gnss-service.ranchu: 0% user + 0% kernel
+  0% 1128/com.android.networkstack.process: 0% user + 0% kernel / faults: 1491 minor
+  0% 1552/com.android.car.rotary: 0% user + 0% kernel / faults: 734 minor
+  0% 2181/ai.umos.inputmethod: 0% user + 0% kernel / faults: 1469 minor
+  0% 2949/ai.umos.vehiclecontrol: 0% user + 0% kernel / faults: 317 minor
+  0% 5220/ai.umos.conveniencemodemanager: 0% user + 0% kernel / faults: 29 minor
+  0% 30372/kworker/u8:2-ext4-rsv-conversion: 0% user + 0% kernel
+  0% 1161/com.android.phone: 0% user + 0% kernel / faults: 349 minor 10 major
+  0% 4300/ai.umos.mediaapp: 0% user + 0% kernel / faults: 84 minor
+  0% 4688/com.android.permissioncontroller: 0% user + 0% kernel / faults: 517 minor 19 major
+  0% 22/migration/1: 0% user + 0% kernel
+  0% 23/ksoftirqd/1: 0% user + 0% kernel
+  0% 27/migration/2: 0% user + 0% kernel
+  0% 28/ksoftirqd/2: 0% user + 0% kernel
+  0% 33/ksoftirqd/3: 0% user + 0% kernel
+  0% 152/sugov:0: 0% user + 0% kernel
+  0% 176/hwservicemanager: 0% user + 0% kernel / faults: 4 minor
+  0% 190/vold: 0% user + 0% kernel / faults: 21 minor
+  0% 346/kworker/2:4H-kblockd: 0% user + 0% kernel
+  0% 388/dhcpclient: 0% user + 0% kernel
+  0% 400/zygote64: 0% user + 0% kernel / faults: 262 minor
+  0% 416/android.hardware.media.c2@1.0-service-goldfish: 0% user + 0% kernel / faults: 288 minor 13 major
+  0% 423/android.hardware.wifi-service: 0% user + 0% kernel
+  0% 458/android.hardware.automotive.remoteaccess@V1-default-service: 0% user + 0% kernel / faults: 21 minor
+  0% 955/wpa_supplicant: 0% user + 0% kernel
+  0% 1321/android.ext.services: 0% user + 0% kernel / faults: 468 minor
+  0% 1403/com.android.bluetooth: 0% user + 0% kernel / faults: 24 minor
+  0% 1503/com.android.car.procfsinspector: 0% user + 0% kernel
+  0% 2617/com.android.providers.media.module: 0% user + 0% kernel / faults: 119 minor 31 major
+  0% 2676/ai.umos.mediaapp: 0% user + 0% kernel / faults: 93 minor 4 major
+  0% 2771/com.android.timezone.location.provider: 0% user + 0% kernel / faults: 2836 minor
+  0% 3205/ai.pleos.service: 0% user + 0% kernel / faults: 9 minor
+  0% 3384/ai.pleos.multimedia.mediabridge:media_bridge: 0% user + 0% kernel
+  0% 5606/com.android.statementservice: 0% user + 0% kernel / faults: 946 minor 184 major
+  0% 13710/com.android.deskclock: 0% user + 0% kernel / faults: 159 minor 12 major
+  0% 14844/kworker/u9:1-blk_crypto_wq: 0% user + 0% kernel
+ +0% 11681/kworker/u8:1-phy1: 0% user + 0% kernel
+ +0% 11995/kworker/0:2-virtio_vsock: 0% user + 0% kernel
+ +0% 14963/ai.nunti.avatar.demo: 0% user + 0% kernel
+ +0% 15042/ai.pleos.android.webview:sandboxed_process0:org.chromium.content.app.SandboxedProcessService0:0: 0% user + 0% kernel
+56% TOTAL: 14% user + 34% kernel + 0% iowait + 6.9% irq + 0.1% softirq

@@ -14,6 +14,7 @@ import {fileURLToPath} from 'node:url';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const source=fs.readFileSync(path.join(root,'prototypes/avatar_generator/studio.js'),'utf8');
+const skinDeclarations=source.slice(source.indexOf('const skins='),source.indexOf('window.NuntiBirth ='));
 const start=source.indexOf('let speaking=false, voiceEpoch=0');
 const end=source.indexOf('async function init()',start);
 assert.ok(start>=0&&end>start,'Production voice block markers must still identify the real handlers.');
@@ -35,7 +36,7 @@ function harness({ready=true,native=false}={}){
     crypto:{randomUUID},
     viewEpoch:0,
     state:{artifact:artifact('A',ready),nativeAllowed:true,animation:0},
-    document:{hidden:false,addEventListener:(name,fn)=>events.set(name,fn)},
+    document:{hidden:false,querySelectorAll:()=>[],addEventListener:(name,fn)=>events.set(name,fn)},
     window:{addEventListener:()=>{}},
     $,Audio:ControlledAudio,
     api:(url,body)=>{const pending=deferred();requests.push({url,body,...pending});return pending.promise;},
@@ -44,7 +45,7 @@ function harness({ready=true,native=false}={}){
   };
   if(native)box.window.NuntiNative={stopSpeaking:()=>{},playVoice:(url,requestId)=>nativePlayed.push({url,requestId}),isSpeechAvailable:()=>true,speak:(text,rate,pitch,requestId)=>nativePlayed.push({text,requestId})};
   vm.createContext(box);
-  vm.runInContext(production,box,{filename:'studio.js:production-voice-block'});
+  vm.runInContext(skinDeclarations+production,box,{filename:'studio.js:production-voice-block'});
   return {
     box,nodes,events,requests,audios,nativePlayed,
     click:()=>$('listen-button').onclick(),

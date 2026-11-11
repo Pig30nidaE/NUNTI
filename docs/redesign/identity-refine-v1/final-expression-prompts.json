@@ -1,0 +1,24 @@
+{
+  "tool": "image_gen.imagegen (built-in)",
+  "status": "CONCEPT_REVIEW",
+  "items": [
+    {
+      "id": "a-curious-final-v3",
+      "prompt": "Use case: precise-object-edit, identity-preserve.\nThe attached image is the complete Nunti A character sheet. Preserve the ENTIRE sheet exactly including title, 3 full-body views, their angle and proportions, labels, palette, front and profile, and all six other portrait expressions. Change ONLY the facial expression of the portrait labeled CURIOUS (second row of artwork, third portrait from left).\nMake it unmistakably CURIOUS and attentive at 64px while staying restrained and friendly: raise its eyebrow on viewer LEFT into a visibly higher gentle arc, lower/straighten the opposite brow very slightly so the brows are clearly asymmetric, keep both eye sockets/eye sizes and anchors fixed, shift pupils subtly toward viewer RIGHT as if noticing something, retain the small closed smile. Keep all other anchors, head shape, forelock, sprout, hood, scarf, colors and matte 2.5D style unchanged. No symbols, sweat drops, question marks or added props.\nNo other changes. Output the FULL COMPLETE reference sheet, square 1254px composition, 3 views + exactly 7 portraits on ivory-white background.",
+      "references": [
+        "nunti-a-sheet-v2.png"
+      ],
+      "output": "nunti-a-sheet-v3.png",
+      "transparent_background": false
+    },
+    {
+      "id": "b-expression-final-v4",
+      "prompt": "Use case: precise-object-edit, identity-preserve.\nThe attached image is the complete Nunti B character sheet. Preserve the ENTIRE sheet including title, 3 full-body views with their correct new 3/4 rotation, palette, contour style, badges with white continuous S-shaped route lines, labels and layout. Change ONLY TWO facial expressions:\n1. RELIEVED (bottom row CENTER): keep its upward-curving happy closed crescent eyes and relaxed brows, but change its small OPEN mouth into a small CLOSED gently up-curved smile with no interior or tongue. Thus CALM stays down-curved eyelids + closed smile, RELIEVED is up-curved eyelids + closed smile, JOYFUL stays up-curved eyelids + broad OPEN mouth. They must separate at 64px.\n2. CURIOUS (middle portrait row, third from left): visibly raise eyebrow on viewer LEFT into a higher gentle arc, slightly lower/straighten the other brow, shift pupils subtly toward viewer RIGHT while keeping fixed eye sockets and eye sizes. Keep its small CLOSED friendly smile. Convey attentive curiosity with the face alone, no symbols or props.\nPreserve all other portraits, especially BASE, CALM, CONCERNED, SURPRISED and JOYFUL. No head/body/sprout/scarf or eye geometry redesign. No new text. Output FULL complete square ivory-white reference sheet with 3 views and exactly 7 portraits.",
+      "references": [
+        "nunti-b-sheet-v3.png"
+      ],
+      "output": "nunti-b-sheet-v4.png",
+      "transparent_background": false
+    }
+  ]
+}

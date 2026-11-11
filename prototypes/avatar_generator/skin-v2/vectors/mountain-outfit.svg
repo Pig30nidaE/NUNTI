@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><linearGradient id="shorts" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#a5a378"/><stop offset="1.000" stop-color="#706b4f"/></linearGradient><linearGradient id="boot" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#bda17a"/><stop offset="1.000" stop-color="#7c5b3d"/></linearGradient><linearGradient id="shell" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#a9bb8c"/><stop offset="0.500" stop-color="#778f66"/><stop offset="1.000" stop-color="#536f59"/></linearGradient><linearGradient id="yoke" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#e6c79a"/><stop offset="1.000" stop-color="#b89563"/></linearGradient></defs>
+<!-- Hiking shorts and lugged high boots -->
+<path fill="url(#shorts)" d="M273 542Q385 525 493 544L506 626Q504 651 479 653L413 655Q391 651 383 610Q378 653 352 656L293 655Q268 651 267 627Z"/>
+<path fill="#9b9568" d="M276 595L324 592L329 626Q311 643 270 631ZM444 592L495 595L504 631Q469 642 441 627Z"/>
+<path d="M281 600L323 597M446 597L492 600" stroke="#d3c994" stroke-width="3"/>
+<g fill="#e2dcc1"><path d="M286 650L363 650L362 672L284 671ZM404 650L482 650L483 671L405 672Z"/></g>
+<g fill="url(#boot)">
+ <path d="M285 653Q325 646 364 655L371 689Q383 708 366 719H258Q234 719 236 696Q245 676 277 677Z"/>
+ <path d="M405 655Q446 646 484 653L491 677Q526 679 533 697Q535 718 513 719H407Q390 709 399 690Z"/>
+</g>
+<path fill="#473b30" d="M237 699L266 706L365 704L374 708L370 721H351L346 726H330L325 721H303L298 726H282L277 721H255L249 726L238 719ZM398 706L500 705L533 699L532 719L521 726L515 721H493L488 726H472L467 721H445L440 726H424L419 721H401Z"/>
+<path d="M289 665L348 672M282 676L341 684M421 672L477 665M429 684L487 676" stroke="#d3bd8c" stroke-width="5" stroke-linecap="round"/>
+<!-- Boxy, high-hip two-tone windbreaker -->
+<path fill="url(#shell)" d="M302 387Q383 375 459 390Q521 396 545 433L574 488Q582 510 566 524L542 540Q521 548 504 521L489 495L502 550Q504 570 481 580Q382 600 279 579Q253 574 258 547L273 497L256 525Q242 546 222 539L194 521Q179 507 191 486L221 430Q252 395 302 387Z"/>
+<path fill="url(#yoke)" d="M301 387Q383 375 459 390Q518 395 544 431L554 449L514 475Q488 442 466 447Q423 466 388 473Q347 466 300 447Q276 440 250 475L211 450L223 429Q252 395 301 387Z"/>
+<path d="M305 394Q364 422 385 447Q412 418 456 396" stroke="#ece4a9" stroke-width="6" fill="none"/>
+<path d="M385 446L385 587" stroke="#3d584d" stroke-width="5"/>
+<path d="M385 474L385 514" stroke="#e0b26a" stroke-width="6" stroke-linecap="round"/>
+<path d="M282 545Q320 564 360 563M410 563Q455 563 486 545" stroke="#485b4b" stroke-width="4" fill="none"/>
+<path d="M282 535Q314 528 354 537L359 560Q320 567 280 551ZM412 537Q450 529 485 535L486 551Q447 565 408 559Z" fill="#96a878"/>
+<path d="M208 486L248 514M518 514L557 486" stroke="#c2d2a0" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M429 493Q445 477 461 489Q474 500 459 512Q448 520 434 513M437 496Q447 488 457 494Q464 501 455 507" fill="none" stroke="#d8e2b0" stroke-width="3"/>
+</svg>

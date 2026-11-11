@@ -16,16 +16,12 @@
         <activity
             android:name="ai.nunti.score.ScoreActivity"
             android:label="눈티 점수"
-            android:exported="true"
+            android:exported="false"
             android:theme="@android:style/Theme.Material.NoActionBar"
             android:configChanges="orientation|screenSize|keyboardHidden">
             <meta-data
                 android:name="distractionOptimized"
                 android:value="true" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 </manifest>

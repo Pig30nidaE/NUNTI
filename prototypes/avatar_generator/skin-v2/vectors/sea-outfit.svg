@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><linearGradient id="trouser" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#83adbf"/><stop offset="1.000" stop-color="#4a7385"/></linearGradient><linearGradient id="sole" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#f6e8cb"/><stop offset="1.000" stop-color="#c3b191"/></linearGradient><linearGradient id="sand" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#ead4a7"/><stop offset="1.000" stop-color="#bfa07a"/></linearGradient><linearGradient id="jacket" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#89c7d0"/><stop offset="0.500" stop-color="#4d94aa"/><stop offset="1.000" stop-color="#2f6580"/></linearGradient><linearGradient id="lining" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#f6f4df"/><stop offset="1.000" stop-color="#c9e4da"/></linearGradient></defs>
+<!-- Sailor trousers and flat deck shoes -->
+<path fill="url(#trouser)" d="M278 540Q380 526 486 541L498 631Q495 657 471 660L406 660Q386 652 383 610Q378 655 361 661H294Q268 658 268 632Z"/>
+<path d="M285 629Q329 638 375 629M392 629Q437 637 487 630" stroke="#366074" stroke-width="3" fill="none" opacity=".38"/>
+<g fill="url(#sole)">
+ <path d="M280 650Q322 637 365 649Q382 668 377 697Q373 717 351 719H273Q246 717 245 696Q246 669 280 650Z"/>
+ <path d="M400 650Q445 637 483 650Q515 663 521 691Q525 717 498 719H422Q396 716 393 700Q388 673 400 650Z"/>
+</g>
+<g fill="url(#sand)">
+ <path d="M279 650Q318 638 363 647Q377 663 372 690Q328 703 251 692Q256 664 279 650Z"/>
+ <path d="M403 649Q446 639 483 650Q507 662 516 690Q460 704 398 691Q393 667 403 649Z"/>
+</g>
+<path d="M276 676Q299 664 338 674M428 674Q461 664 490 674" stroke="#fff1cc" stroke-width="8" stroke-linecap="round" fill="none"/>
+<path d="M263 698Q301 708 359 698M406 698Q458 708 503 697" stroke="#ad9270" stroke-width="2" opacity=".58" fill="none"/>
+<!-- Rounded sleeves and flared long jacket -->
+<path fill="url(#jacket)" d="M306 391Q373 379 459 392Q507 397 539 442L574 492Q584 510 560 534L533 547Q516 551 504 530L488 508L510 572Q515 597 489 608Q383 628 278 605Q251 599 256 573L276 505L254 532Q241 550 220 541L194 522Q179 507 193 485L224 442Q256 402 306 391Z"/>
+<path fill="url(#lining)" d="M308 396L365 438L382 485L402 440L462 394L474 423Q426 447 391 502Q341 452 294 427Z"/>
+<path fill="#163c51" opacity=".35" d="M384 488L390 495L386 617L378 617Z"/>
+<path d="M280 538Q323 545 370 544M399 544Q445 543 489 537M277 553Q324 560 369 557M399 558Q446 557 493 551M200 487L239 520M211 472L251 504M527 511L568 483M521 496L558 469" stroke="#cae7de" stroke-width="7" fill="none" stroke-linecap="round" opacity=".92"/>
+<path d="M312 402L361 444M457 402L410 443" fill="none" stroke="#8dbabf" stroke-width="4" stroke-linecap="round"/>
+<g fill="#eedbae"><circle cx="357" cy="503" r="5"/><circle cx="414" cy="503" r="5"/><circle cx="354" cy="582" r="5"/><circle cx="414" cy="582" r="5"/></g>
+<path fill="none" stroke="#a7dad7" stroke-opacity=".5" stroke-width="3" d="M278 586Q316 600 364 599M397 600Q453 599 488 589"/>
+</svg>

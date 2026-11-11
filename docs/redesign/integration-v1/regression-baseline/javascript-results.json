@@ -1,0 +1,32 @@
+[
+  {
+    "script": "scripts/test_avatar_collection_ui_state.mjs",
+    "exitCode": 0,
+    "seconds": 0.052,
+    "log": "docs/redesign/integration-v1/regression-baseline/test_avatar_collection_ui_state.log"
+  },
+  {
+    "script": "scripts/test_avatar_generation_ui_state.mjs",
+    "exitCode": 0,
+    "seconds": 0.035,
+    "log": "docs/redesign/integration-v1/regression-baseline/test_avatar_generation_ui_state.log"
+  },
+  {
+    "script": "scripts/test_avatar_layers_ui_state.mjs",
+    "exitCode": 0,
+    "seconds": 0.048,
+    "log": "docs/redesign/integration-v1/regression-baseline/test_avatar_layers_ui_state.log"
+  },
+  {
+    "script": "scripts/test_avatar_voice_ui_state.mjs",
+    "exitCode": 0,
+    "seconds": 0.043,
+    "log": "docs/redesign/integration-v1/regression-baseline/test_avatar_voice_ui_state.log"
+  },
+  {
+    "script": "scripts/test_navigation_ui_state.mjs",
+    "exitCode": 1,
+    "seconds": 0.037,
+    "log": "docs/redesign/integration-v1/regression-baseline/test_navigation_ui_state.log"
+  }
+]

@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "purpose": "ACTUAL_IMPLEMENTATION_SCREENSHOT_REVIEW",
+  "script": {
+    "path": "scripts/build_nunti_integration_comparison.py",
+    "sha256": "edd3ce5533aa4319acc5e8665d5bcf5d12bcf650dd3b5d5a07619ebf03cb224b"
+  },
+  "captureMap": {
+    "path": "docs/redesign/integration-v1/comparison/capture-map.json",
+    "sha256": "c32240fa47a8c0330a3ba50bef0eb964275067035ded96ab90e902dbfe28743f"
+  },
+  "pillowVersion": "11.3.0",
+  "font": {
+    "path": "prototypes/avatar_generator/assets/fonts/noto-sans-kr.ttf",
+    "sha256": "194018e6b2b293a7964f037b25c0249ce1418bc9ab3c971060a03aa57861e252"
+  },
+  "appPixels": [
+    1682,
+    1210
+  ],
+  "boardScale": 0.5,
+  "boardResampling": "LANCZOS",
+  "sourceImagesModified": false,
+  "syntheticCurrentScreens": false,
+  "characterBoard": {
+    "path": "docs/redesign/route-variants-v1/comparison-board.png",
+    "sha256": "abfd0bd81f0e9b8bfe2334dfd0859679a4e14ad8ec649c968aeb58cd6977846d",
+    "reusedApprovedArtifact": true
+  },
+  "limits": [
+    "Historical before artwork and runtime trip values differ; no content was substituted.",
+    "Driving Figma is a conditional proposal. Actual platform blocking remains visible in evidence.",
+    "Pixel equality is not claimed for dynamic text, routes, scores or content-dependent wrapping.",
+    "App crop excludes the real platform chrome without modifying its source screenshot."
+  ],
+  "inputs": [
+    {
+      "id": "pre-trip-before",
+      "state": "PRE_TRIP",
+      "role": "BEFORE",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/pleos-ui-v1/baseline/production-pre-trip.png",
+      "sha256": "97640ce161cc5c823add6ccde12248fc08911b5d3c6f71e908c56e8287c5578c",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "displayMode": "day",
+        "visiblePlatformBlock": false,
+        "package": "ai.nunti.avatar.demo",
+        "serial": "emulator-5554"
+      }
+    },
+    {
+      "id": "pre-trip-after",
+      "state": "PRE_TRIP",
+      "role": "AFTER",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready.png",
+      "sha256": "5016891cca35092fb1ddb0d036ad5bec0da02e9e08868cb5e109a85aa7a485d4",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+        "path": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready.png",
+        "displayMode": "day",
+        "appBoundsXYXY": [
+          853,
+          90,
+          2535,
+          1300
+        ],
+        "visiblePlatformBlock": false,
+        "statePath": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready-state.json",
+        "xmlPath": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready.xml",
+        "carUxPath": "docs/redesign/integration-v1/runtime-studio-calibrated/02-pre-trip-ready-car-ux.txt",
+        "serial": "emulator-5554",
+        "package": "ai.nunti.avatar.demo",
+        "activity": "AvatarStudioActivity"
+      },
+      "statePathSha256": "14282fdc9081b2b20f1d8289b0251916df3c509a5c6f03ba14294a3edd63a28b",
+      "xmlPathSha256": "903660df93f43ce1c2c1bae95948855d7b27b298825c00af34fa68af1adf4d7d",
+      "carUxPathSha256": "5c08bc903dad8ba32e20e6aa2fc4e663521b1ebd40b468c6b88970484a438375"
+    },
+    {
+      "id": "pre-trip-figma",
+      "state": "PRE_TRIP",
+      "role": "DESIGN_REFERENCE",
+      "sourceKind": "FIGMA_APPROVED_DESIGN",
+      "path": "docs/redesign/pleos-ui-v1/exports/pre-trip-day.png",
+      "sha256": "26253d3b249273c3a12adfbb0f4420e1eef9805d9dff95914ecd248294772145",
+      "sourcePixels": [
+        1682,
+        1210
+      ],
+      "normalization": "UNCHANGED_PIXELS",
+      "figmaFileKey": "LHLHBra8ON3OdVW0qhBnbm",
+      "frame": {
+        "figmaNodeId": "24:221",
+        "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=24-221",
+        "kind": "FIGMA_PROPOSAL",
+        "size": [
+          1682,
+          1210
+        ]
+      },
+      "drivingRuntimeVisibilityApproved": null
+    },
+    {
+      "id": "reveal-parked-before",
+      "state": "REVEAL_PARKED",
+      "role": "BEFORE",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/pleos-ui-v1/baseline/production-reveal-settled.png",
+      "sha256": "3c1bd9074df4f53c02abf3909191f3114f49baaac03493f7555176cbe6b0a37a",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "displayMode": "day",
+        "visiblePlatformBlock": false,
+        "package": "ai.nunti.avatar.demo",
+        "serial": "emulator-5554"
+      }
+    },
+    {
+      "id": "reveal-parked-after",
+      "state": "REVEAL_PARKED",
+      "role": "AFTER",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day.png",
+      "sha256": "8fc73d95527b914b817554a56b4e7a7684dbeba3caa6c10456bbb571cef493f8",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+        "path": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day.png",
+        "displayMode": "day",
+        "appBoundsXYXY": [
+          853,
+          90,
+          2535,
+          1300
+        ],
+        "visiblePlatformBlock": false,
+        "statePath": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day-state.json",
+        "xmlPath": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day.xml",
+        "carUxPath": "docs/redesign/integration-v1/runtime-display-optimized/final-wide-day-car-ux.txt",
+        "serial": "emulator-5554",
+        "package": "ai.nunti.avatar.demo",
+        "activity": "AvatarStudioActivity"
+      },
+      "statePathSha256": "9d7feeff3d5057d033f4714416d50f1df5385984647c2f91ae1da7057b3ef1f3",
+      "xmlPathSha256": "1c505aef5d9cf49711e87165f0fb1ce0ef233cf43de7878fc7369f0c8d15d0e5",
+      "carUxPathSha256": "80105a0280309236a49c03a73f73a4162be81300143b9aa02e459bda8faab2ff"
+    },
+    {
+      "id": "reveal-parked-figma",
+      "state": "REVEAL_PARKED",
+      "role": "DESIGN_REFERENCE",
+      "sourceKind": "FIGMA_APPROVED_DESIGN",
+      "path": "docs/redesign/pleos-ui-v1/exports/reveal-parked-day.png",
+      "sha256": "6ef6f8babcffe9da6dbe670bbf701c5ef5bd9aa501407237582d04370a1c49d0",
+      "sourcePixels": [
+        1682,
+        1210
+      ],
+      "normalization": "UNCHANGED_PIXELS",
+      "figmaFileKey": "LHLHBra8ON3OdVW0qhBnbm",
+      "frame": {
+        "figmaNodeId": "24:416",
+        "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=24-416",
+        "kind": "FIGMA_PROPOSAL",
+        "size": [
+          1682,
+          1210
+        ]
+      },
+      "drivingRuntimeVisibilityApproved": null
+    },
+    {
+      "id": "driving-restricted-before",
+      "state": "DRIVING_RESTRICTED",
+      "role": "BEFORE",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/pleos-ui-v1/baseline/production-driving-active.png",
+      "sha256": "ebed06706713e84d06af0368cb08cb754b3b79970d0481227b6501bb46de3b23",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "displayMode": "day",
+        "visiblePlatformBlock": true,
+        "package": "ai.nunti.avatar.demo",
+        "serial": "emulator-5554"
+      }
+    },
+    {
+      "id": "driving-restricted-after",
+      "state": "DRIVING_RESTRICTED",
+      "role": "AFTER",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted.png",
+      "sha256": "57b628335e8ed79f690156f01b40a2949af9298dded3405fcf1d4e59e1a96ac0",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+        "path": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted.png",
+        "displayMode": "day",
+        "appBoundsXYXY": [
+          853,
+          90,
+          2535,
+          1300
+        ],
+        "visiblePlatformBlock": true,
+        "statePath": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted-state.json",
+        "xmlPath": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted.xml",
+        "carUxPath": "docs/redesign/integration-v1/runtime-studio-calibrated/07-driving-restricted-car-ux.txt",
+        "serial": "emulator-5554",
+        "package": "ai.nunti.avatar.demo",
+        "activity": "AvatarStudioActivity"
+      },
+      "statePathSha256": "e5d909c4d91246adaf667b4c71569c49d3047c4722bad9880d18f5384fbafc41",
+      "xmlPathSha256": "a220d85dc73e1bf9e635160e32cf9c973da3315579ede3b6f5fd7a87f84b8d9c",
+      "carUxPathSha256": "8aefdbb570fc9dd493b6149d92adc58985627e1b0a6ac9a3d89ee91e44bfc5a9"
+    },
+    {
+      "id": "driving-restricted-figma",
+      "state": "DRIVING_RESTRICTED",
+      "role": "DESIGN_REFERENCE",
+      "sourceKind": "FIGMA_APPROVED_DESIGN",
+      "path": "docs/redesign/pleos-ui-v1/exports/driving-restricted-day.png",
+      "sha256": "0b521dc5e38e7765d262460c4ccd7866d9879f35825ffb8d3c5351205f44c83d",
+      "sourcePixels": [
+        1682,
+        1210
+      ],
+      "normalization": "UNCHANGED_PIXELS",
+      "figmaFileKey": "LHLHBra8ON3OdVW0qhBnbm",
+      "frame": {
+        "figmaNodeId": "24:530",
+        "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=24-530",
+        "kind": "FIGMA_PROPOSAL",
+        "size": [
+          1682,
+          1210
+        ]
+      },
+      "drivingRuntimeVisibilityApproved": false
+    },
+    {
+      "id": "post-trip-before",
+      "state": "POST_TRIP",
+      "role": "BEFORE",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/pleos-ui-v1/baseline/production-post-trip.png",
+      "sha256": "fb18ca964429967e9c5cb9cd452fb13e90862e9bfd45caaccdfa5fa5278ab08c",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "displayMode": "day",
+        "visiblePlatformBlock": false,
+        "package": "ai.nunti.avatar.demo",
+        "serial": "emulator-5554"
+      }
+    },
+    {
+      "id": "post-trip-after",
+      "state": "POST_TRIP",
+      "role": "AFTER",
+      "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+      "path": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day.png",
+      "sha256": "3f74a7ea057c3ec38a9ebf97502d37ac0f4f11ab730f6893b58d70fac9712e9d",
+      "sourcePixels": [
+        2560,
+        1440
+      ],
+      "cropBoxXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ],
+      "cropPixels": [
+        1682,
+        1210
+      ],
+      "normalization": "LOSSLESS_PIXEL_CROP",
+      "capture": {
+        "sourceKind": "ACTUAL_ANDROID_EMULATOR",
+        "path": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day.png",
+        "displayMode": "day",
+        "appBoundsXYXY": [
+          853,
+          90,
+          2535,
+          1300
+        ],
+        "visiblePlatformBlock": false,
+        "statePath": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day-latest.json",
+        "xmlPath": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day.xml",
+        "carUxPath": "docs/redesign/integration-v1/runtime-native-final/01-post-trip-day-car-ux.txt",
+        "serial": "emulator-5554",
+        "package": "ai.nunti.avatar.demo",
+        "activity": "JourneyActivity"
+      },
+      "statePathSha256": "f0601a98c358b63be2734eaa3c38779cf6c5c0210eede8609b027303316ffd62",
+      "xmlPathSha256": "93e5b3f1d6a07a9cb078b4a16e6824c6a8301d786fcc33b18cb1cda04d1e78e6",
+      "carUxPathSha256": "7f9d574531c84e1e309c329d0d3975add8adf95720b14e81cc2dca4f1610ed4d"
+    },
+    {
+      "id": "post-trip-figma",
+      "state": "POST_TRIP",
+      "role": "DESIGN_REFERENCE",
+      "sourceKind": "FIGMA_APPROVED_DESIGN",
+      "path": "docs/redesign/pleos-ui-v1/exports/post-trip-day.png",
+      "sha256": "d2dc4d8644221c392d4b5e87749b085b6187c94948bb4219075c360ef082c362",
+      "sourcePixels": [
+        1682,
+        1210
+      ],
+      "normalization": "UNCHANGED_PIXELS",
+      "figmaFileKey": "LHLHBra8ON3OdVW0qhBnbm",
+      "frame": {
+        "figmaNodeId": "24:600",
+        "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=24-600",
+        "kind": "FIGMA_PROPOSAL",
+        "size": [
+          1682,
+          1210
+        ]
+      },
+      "drivingRuntimeVisibilityApproved": null
+    }
+  ],
+  "outputs": [
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/pre-trip-before.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "adc0416d1379aacb3f2c72a61777be5245e1b94af6bebbb1a5ffa0be4733f23c",
+      "sourceId": "pre-trip-before"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/pre-trip-after.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "b38df0c16fb52c4ec6a9e4ae833c218a85feffc2be86e5a08534e68c02b4572a",
+      "sourceId": "pre-trip-after"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/pre-trip-figma.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "d74b487914b8213b61309556d4372d26ee066c1e6a58856c03416017cdb19404",
+      "sourceId": "pre-trip-figma"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/reveal-parked-before.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "0f33dda1e8fddc3ee988ccc6045a529add1cb70e15bd041a7df9fc4b306abfae",
+      "sourceId": "reveal-parked-before"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/reveal-parked-after.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "82efac0535ddd0cd8e775a9bc6a32d510edc9fd064e0b5d1dd7f212da5500b7b",
+      "sourceId": "reveal-parked-after"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/reveal-parked-figma.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "d30d43b0845953471602d6c5264f1106a5e76fe40808dc9945364c42c01aae5c",
+      "sourceId": "reveal-parked-figma"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/driving-restricted-before.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "5f97a9f8561c8f29b98bffda7c052c970cad9c4a5414224923d3d78ae7072164",
+      "sourceId": "driving-restricted-before"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/driving-restricted-after.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "6cbf6c678140ee159718b1b0f2c8b62033fb79ca39c425c5ee82f885ca6d2493",
+      "sourceId": "driving-restricted-after"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/driving-restricted-figma.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "f6cff4520d86f27b7de18529f48218e8f79023ac05cdb0fc32b38aa2f8d73eb7",
+      "sourceId": "driving-restricted-figma"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/post-trip-before.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "d94618b2ada413276065d8dfbe173f8a151bb86aeb1fa955f6910202026602fd",
+      "sourceId": "post-trip-before"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/post-trip-after.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "5d36493f65bee0ce73d161ea8abc9f964648bcc62aa0cb6aead32c4459208524",
+      "sourceId": "post-trip-after"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/app-crops/post-trip-figma.png",
+      "pixels": [
+        1682,
+        1210
+      ],
+      "sha256": "e93140997339ba1ddfb4fda1ab4a953bab12e1b4834b2df55a8ca4318e14a90c",
+      "sourceId": "post-trip-figma"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/before-after-actual-day.png",
+      "pixels": [
+        1794,
+        3144
+      ],
+      "sha256": "e8a9829325a724512fffc625a824354ffe8352df94a02a267e177f33454be02e"
+    },
+    {
+      "path": "docs/redesign/integration-v1/comparison/figma-vs-actual-day.png",
+      "pixels": [
+        1794,
+        3144
+      ],
+      "sha256": "d036b518fa9b3f53268b25ed2cba6698b6821d822e164f4faa37940cd5d94deb"
+    }
+  ]
+}

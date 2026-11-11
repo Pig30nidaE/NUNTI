@@ -1,0 +1,647 @@
+{
+  "version": "nunti-life-5.0",
+  "owner": "NUNTI",
+  "sourcePrompt": "Use case: identity-preserve. Asset type: production facial animation sprite atlas for the original NUNTI character. Reference: the supplied Nunti character in a navy suit is the exact identity and painted 3D textile rendering reference. Create a 3 columns by 2 rows facial expression sheet, six equal square cells, transparent background, with the SAME front-facing head only, same scale/placement/lighting in every cell. Head includes original cream hood, blond fringe and tiny mint sprout, no body. Huge warm brown eyes stay at identical anchors. Row 1 left: attentive soft closed-mouth smile, row1 center: delighted laughing with closed crescent eyes and open smiling mouth, row1 right: curious with one raised eyebrow, eyes looking slightly right and small pursed mouth. Row2 left: surprised wide eyes and small round O mouth, row2 center: concerned gentle inner raised eyebrows, slightly downturned small mouth, row2 right: relaxed sleepy half-lidded eyes, soft content smile. Expressions should be clear and appealing at small size, restrained rather than caricatured. Preserve exact round peach face and hair from reference; high-end collectible toy illustration quality and soft skin shading. Uniform grid with generous transparent gutters, no drawn panel lines, no labels, no typography, no watermark, no shadows outside head. Every head exactly front on without rotation. This is an original character, not an existing franchise. Production-ready clean alpha edges.",
+  "source": "built-in image_gen; original Nunti formal reference",
+  "licenseNote": "Original NUNTI source and generated derivative; subject to applicable image generation terms.",
+  "humanQualityApproved": false,
+  "export": "1536x1024 source atlas, six 512px cells; runtime 300x196 feathered face patches; deterministic 768px rig",
+  "fallback": "Original local illustration, no decorative motion",
+  "expressions": [
+    "attentive",
+    "laugh",
+    "curious",
+    "surprised",
+    "concerned",
+    "sleepy"
+  ],
+  "clips": {
+    "wave": {
+      "duration": 3.2,
+      "expression": 0,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.2,
+          -4
+        ],
+        [
+          0.75,
+          -4
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          75
+        ],
+        [
+          0.38,
+          58
+        ],
+        [
+          0.5,
+          80
+        ],
+        [
+          0.62,
+          58
+        ],
+        [
+          0.75,
+          75
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.4,
+          -5
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          -4
+        ],
+        [
+          0.75,
+          -4
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "curious": {
+      "duration": 3.6,
+      "expression": 2,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          9
+        ],
+        [
+          0.7,
+          9
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.35,
+          10
+        ],
+        [
+          0.75,
+          10
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          -3
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "nod": {
+      "duration": 2.7,
+      "expression": 0,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.2,
+          -4
+        ],
+        [
+          0.4,
+          3
+        ],
+        [
+          0.6,
+          -3
+        ],
+        [
+          0.8,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.22,
+          7
+        ],
+        [
+          0.4,
+          0
+        ],
+        [
+          0.6,
+          5
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "laugh": {
+      "duration": 3.4,
+      "expression": 1,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.2,
+          -5
+        ],
+        [
+          0.6,
+          -5
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          22
+        ],
+        [
+          0.7,
+          22
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          -18
+        ],
+        [
+          0.7,
+          -18
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          -10
+        ],
+        [
+          0.4,
+          -2
+        ],
+        [
+          0.55,
+          -11
+        ],
+        [
+          0.7,
+          -2
+        ],
+        [
+          0.85,
+          -6
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "stretch": {
+      "duration": 4.2,
+      "expression": 5,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          -5
+        ],
+        [
+          0.65,
+          4
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          48
+        ],
+        [
+          0.7,
+          48
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          -38
+        ],
+        [
+          0.7,
+          -38
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          -12
+        ],
+        [
+          0.7,
+          -12
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "surprised": {
+      "duration": 2.8,
+      "expression": 3,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.15,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.18,
+          27
+        ],
+        [
+          0.6,
+          27
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.18,
+          -23
+        ],
+        [
+          0.6,
+          -23
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.18,
+          -15
+        ],
+        [
+          0.4,
+          -6
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "sleepy": {
+      "duration": 4.3,
+      "expression": 5,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          7
+        ],
+        [
+          0.7,
+          7
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.35,
+          6
+        ],
+        [
+          0.7,
+          6
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    },
+    "celebrate": {
+      "duration": 3.2,
+      "expression": 1,
+      "head": [
+        [
+          0,
+          0
+        ],
+        [
+          0.2,
+          -4
+        ],
+        [
+          0.5,
+          4
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "leftArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          60
+        ],
+        [
+          0.7,
+          60
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "rightArm": [
+        [
+          0,
+          0
+        ],
+        [
+          0.25,
+          -45
+        ],
+        [
+          0.7,
+          -45
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "lift": [
+        [
+          0,
+          0
+        ],
+        [
+          0.2,
+          -16
+        ],
+        [
+          0.4,
+          0
+        ],
+        [
+          0.6,
+          -12
+        ],
+        [
+          0.8,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ]
+    }
+  },
+  "idleSchedule": [
+    [
+      3,
+      "curious"
+    ],
+    [
+      11,
+      "wave"
+    ],
+    [
+      20,
+      "stretch"
+    ],
+    [
+      30,
+      "laugh"
+    ],
+    [
+      40,
+      "sleepy"
+    ],
+    [
+      49,
+      "nod"
+    ]
+  ],
+  "cycleSeconds": 58
+}

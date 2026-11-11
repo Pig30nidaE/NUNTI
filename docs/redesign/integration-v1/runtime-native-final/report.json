@@ -1,0 +1,19 @@
+{
+  "status": "FAIL",
+  "surface": "ACTUAL_PRODUCTION_JOURNEY_SAVED_REPORT",
+  "sourceSessionId": "12d4c4a0-dcae-44c0-bbd8-985d8cd5a125",
+  "sourceReportSha256": "f0601a98c358b63be2734eaa3c38779cf6c5c0210eede8609b027303316ffd62",
+  "checks": [
+    {
+      "name": "existing-finished-owned-review-reopens",
+      "status": "PASS"
+    },
+    {
+      "name": "original-latest-exactly-restored",
+      "status": "PASS"
+    }
+  ],
+  "newJourneyStarted": false,
+  "error": "AssertionError [ERR_ASSERTION]: native-missing-image-exposes-approved-base-description\n    at check (file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_integration_native_saved.mjs:17:37)\n    at file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_integration_native_saved.mjs:44:3",
+  "vehicleRestored": true
+}

@@ -1,0 +1,93 @@
+{
+  "sessionId": "665bde01-9d51-4aec-9047-1ec81fabac9e",
+  "characterId": "nunti-skin-c305e4f5081a6db22332d3fa30b9e35e",
+  "displayName": "바닷길 눈티",
+  "destination": "안목해변",
+  "purpose": "바다 산책",
+  "staticOnly": true,
+  "imageFile": "/data/user/10/ai.nunti.avatar.demo/files/journeys/assets/cd2246a6c8f83a7f24ddc12a3e75b30fe854c39c1dfb2e058bd60be0d182f3d9.png",
+  "voices": {},
+  "source": "LIVE",
+  "startedAtEpochMs": 1794316087454,
+  "state": "FINISHED",
+  "elapsedMs": 16893,
+  "sampleCount": 17,
+  "total": 18.181818,
+  "coverage": 0.55,
+  "emotion": "WORRY",
+  "line": "앗, 조금 걱정돼요. 천천히 가요.",
+  "canFinish": false,
+  "voiceStatus": "이 감정의 캐릭터 음성이 아직 준비되지 않았어요",
+  "muted": false,
+  "updatedAtEpochMs": 1794316105081,
+  "feedbackKey": "665bde01-9d51-4aec-9047-1ec81fabac9e:2",
+  "items": [
+    {
+      "label": "급가속·급감속·급제동",
+      "score": 0,
+      "basis": "유효 16초"
+    },
+    {
+      "label": "후진 속도",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "앞차 거리",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "제한속도 준수",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "회전 전 감속",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "차선 변경 지시등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "안전벨트",
+      "score": 0,
+      "basis": "유효 14초"
+    },
+    {
+      "label": "주행 중 문 열림",
+      "score": 100,
+      "basis": "유효 14초"
+    },
+    {
+      "label": "야간 전조등",
+      "score": null,
+      "basis": "수신 없음"
+    },
+    {
+      "label": "연비·전비",
+      "score": null,
+      "basis": "수신 없음"
+    }
+  ],
+  "events": [
+    {
+      "tMs": 2797,
+      "label": "급가속"
+    },
+    {
+      "tMs": 7820,
+      "label": "급가속"
+    },
+    {
+      "tMs": 11859,
+      "label": "급제동"
+    }
+  ],
+  "speedKmh": 0,
+  "gear": "P",
+  "signalDetails": []
+}

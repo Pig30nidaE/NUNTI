@@ -1,0 +1,56 @@
+{
+  "destination": {
+    "name": "바다 합성 시나리오",
+    "traits": "MOCK 검토 입력. 실제 GPS·지형·SDK 분류 근거가 아닙니다."
+  },
+  "purpose": "레이어 변형 검토",
+  "renderMode": "LOCAL_LAYERS",
+  "requestId": "375a8384-f93a-5330-aafc-4433369d7974",
+  "route": {
+    "apiPlanId": null,
+    "confirmed": true,
+    "extractionId": null,
+    "inputOrigin": "TEST_ROUTE",
+    "points": [
+      [
+        0.1,
+        0.82
+      ],
+      [
+        0.25,
+        0.68
+      ],
+      [
+        0.4,
+        0.54
+      ],
+      [
+        0.61,
+        0.4
+      ],
+      [
+        0.84,
+        0.18
+      ]
+    ],
+    "sourceLabel": "MOCK 바다 비교용 합성 경로 · 지리 좌표 아님"
+  },
+  "variantContext": {
+    "destinationCategory": "coast",
+    "displayMode": "day",
+    "mappingVersion": "nunti-layers-v1",
+    "provenance": {
+      "destinationCategory": "mock",
+      "roadType": "mock",
+      "routeGeometry": "mock",
+      "routeId": "mock",
+      "routeRevision": "mock",
+      "userSelectedMood": "mock"
+    },
+    "roadType": "highway",
+    "routeId": "mock-nunti-coast-v1",
+    "routeRevision": 1,
+    "seed": "0",
+    "userSelectedMood": "curious"
+  }
+}

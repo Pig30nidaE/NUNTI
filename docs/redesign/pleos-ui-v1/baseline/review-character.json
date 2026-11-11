@@ -1,0 +1,17 @@
+{
+  "characterId": "nunti-bb48e374-03bd-4b14-b34c-733cc93f395b",
+  "displayName": "몽글방울",
+  "visual": {
+    "height": 512,
+    "path": "/v3/assets/0ac677cce12fa84145053fb3cb4811eed51f6d7401af459babb4419e6da63d5a",
+    "sha256": "0ac677cce12fa84145053fb3cb4811eed51f6d7401af459babb4419e6da63d5a",
+    "width": 512
+  },
+  "voiceAudioPresent": false,
+  "feedbackVoiceGetStatus": {
+    "NEUTRAL": 404,
+    "WORRY": 404,
+    "RELIEF": 404,
+    "JOY": 404
+  }
+}

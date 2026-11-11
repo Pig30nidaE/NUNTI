@@ -1,0 +1,10 @@
+scripts/verify_nunti_video_frames.swift:18:31: warning: 'copyCGImage(at:actualTime:)' was deprecated in macOS 15.0: Use generateCGImageAsynchronouslyForTime:completionHandler: instead [#DeprecatedDeclaration]
+16 | for seconds in [0.9, 1.8, 2.7, 3.7, 5.2] {
+17 |     var actual = CMTime.zero
+18 |     let image = try generator.copyCGImage(at: CMTime(seconds: seconds, preferredTimescale: 600), actualTime: &actual)
+   |                               `- warning: 'copyCGImage(at:actualTime:)' was deprecated in macOS 15.0: Use generateCGImageAsynchronouslyForTime:completionHandler: instead [#DeprecatedDeclaration]
+19 |     let name = String(format: "video-%04d.png", Int(seconds * 1000))
+20 |     let bitmap = NSBitmapImageRep(cgImage: image)
+
+[#DeprecatedDeclaration]: <https://docs.swift.org/compiler/documentation/diagnostics/deprecated-declaration>
+Decoded 5 actual production screenrecord frames

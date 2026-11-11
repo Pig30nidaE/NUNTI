@@ -1,0 +1,19 @@
+✔ destination sets wardrobe; confirmed route and explicit mood set deterministic motion (3.196667ms)
+✔ identical inputs keep the same saved identity and reopen; missing final stores actual fallback (3.774166ms)
+✔ skin-v2.0 save reopens its own asset and rejects a mismatched version path (1.600625ms)
+✔ skin-v2.1 save reopens its own asset and rejects a mismatched version path (1.192ms)
+✔ mock gate rejects direct model/voice writes and cross-origin paths (0.713833ms)
+✔ real PNG lookup; all phases; distinct outfit/head draw and final path (7.929916ms)
+✔ skip, driving, background and system reduced stop scheduling and draw the same endpoint (3.545666ms)
+✔ a broken independent layer settles without a partial costume or scheduled frame (0.727084ms)
+✔ the ready native renderer owns the actor until Skip hands back the exact still (1.930667ms)
+✔ a late native acknowledgement cannot restart an interrupted transformation (1.399125ms)
+✔ native playback waits for its own finish event rather than cutting off at four seconds (2.213959ms)
+ℹ tests 11
+ℹ suites 0
+ℹ pass 11
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 75.313917

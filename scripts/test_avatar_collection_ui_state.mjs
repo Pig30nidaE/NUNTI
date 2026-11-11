@@ -12,29 +12,30 @@ import {fileURLToPath} from 'node:url';
 
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const source=fs.readFileSync(path.join(root,'prototypes/avatar_generator/studio.js'),'utf8');
+const skinDeclarations=source.slice(source.indexOf('const skins='),source.indexOf('window.NuntiBirth ='));
 function block(from,to){const a=source.indexOf(from),b=source.indexOf(to,a);assert.ok(a>=0&&b>a,from);return source.slice(a,b);}
 const production=[
   'let viewEpoch=0, collectionEpoch=0;',
   block('function screen(which)','function canvasSize('),
   block('async function loadCollection()',"$('collection-button').onclick"),
-  block('window.nuntiVehicleAllowed=','async function init()'),
+  block('function restoreVisibleResult()','async function init()'),
 ].join('\n');
 function deferred(){let resolve,reject;const promise=new Promise((yes,no)=>{resolve=yes;reject=no;});return {promise,resolve,reject};}
 function avatar(id){return {characterId:id,displayName:id,destination:{name:'서울역'},visual:{path:'/v3/assets/'+id}};}
-function node(){return {children:[],hidden:false,textContent:'',classList:{toggle:()=>{}},append(...children){this.children.push(...children);},replaceChildren(){this.children=[];}};}
+function node(){return {dataset:{},children:[],hidden:false,textContent:'',classList:{toggle:()=>{}},append(...children){this.children.push(...children);},replaceChildren(){this.children=[];}};}
 function harness(){
   const nodes=new Map(),requests=[],events=new Map(),shown=[],notices=[];
   const $=id=>{if(!nodes.has(id))nodes.set(id,node());return nodes.get(id);};
   const box={
     state:{busy:false,avatars:[],artifact:null,nativeAllowed:true,animation:0},
-    $,document:{hidden:false,createElement:node,addEventListener:(name,fn)=>events.set(name,fn)},
+    $,document:{hidden:false,createElement:node,querySelectorAll:()=>[],addEventListener:(name,fn)=>events.set(name,fn)},
     window:{addEventListener:()=>{}},
     api:url=>{const pending=deferred();requests.push({url,...pending});return pending.promise;},
     message:text=>notices.push(text),errorText:e=>e.message,
     stopVoice:()=>{},requestAnimationFrame:()=>0,cancelAnimationFrame:()=>{},drawRoute:()=>{},enableCreate:()=>{},
     showArtifact:async artifact=>{vm.runInContext("screen('result')",box);box.state.artifact=artifact;shown.push(artifact.characterId);},
   };
-  vm.createContext(box);vm.runInContext(production,box,{filename:'studio.js:production-collection-block'});
+  vm.createContext(box);vm.runInContext(skinDeclarations+production,box,{filename:'studio.js:production-collection-block'});
   return {box,nodes,requests,events,shown,notices,
     show:()=>vm.runInContext('showCollection()',box),
     screen:name=>vm.runInContext(`screen(${JSON.stringify(name)})`,box),

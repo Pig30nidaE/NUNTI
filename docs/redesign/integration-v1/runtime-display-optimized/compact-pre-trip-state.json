@@ -1,0 +1,18 @@
+{
+  "motion": {
+    "active": false,
+    "status": "BASE",
+    "reason": "SCREEN_CHANGED",
+    "elapsedMs": 0,
+    "frameCount": 0,
+    "intervalsMs": [],
+    "reducedMotion": false,
+    "userReducedMotion": false,
+    "layerReady": false,
+    "finalReady": false
+  },
+  "allowed": true,
+  "theme": "day",
+  "width": 830,
+  "height": 1209
+}

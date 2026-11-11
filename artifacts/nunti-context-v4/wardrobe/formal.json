@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 3,
+  "characterId": "nunti-c60badb9-d58c-5170-a203-ed094ea9d24d",
+  "requestId": "c60badb9-d58c-5170-a203-ed094ea9d24d",
+  "displayName": "출근길 눈티",
+  "destination": {
+    "name": "회사",
+    "traits": "차분하고 단정한 분위기"
+  },
+  "purpose": "면접",
+  "route": null,
+  "visual": {
+    "path": "/v3/assets/e82f61a88d6cd54aa51d6e8d9cafd3e9126f68b75238c626d5e2a5f48f6926c8",
+    "sha256": "e82f61a88d6cd54aa51d6e8d9cafd3e9126f68b75238c626d5e2a5f48f6926c8",
+    "width": 768,
+    "height": 768
+  },
+  "mediaOrigin": "OPENAI_WARDROBE",
+  "createdAt": "2026-11-10T17:05:42.795665+00:00",
+  "design": {
+    "staticOnly": true,
+    "personality": "단정한 정장",
+    "motifs": [],
+    "wardrobe": {
+      "version": "nunti-wardrobe-1",
+      "signature": "44f611c7b9ab58e7b354cbebe4b8ac43bbca22afc474438eff6c33c02f8979e5",
+      "look": "formal",
+      "label": "단정한 정장",
+      "mood": "calm",
+      "road": "urban",
+      "faceRig": "atelier-sea-v1"
+    }
+  },
+  "voice": {
+    "provider": "DEVICE_SPEECH",
+    "description": "",
+    "rate": 1,
+    "pitch": 1.08
+  },
+  "provider": {
+    "name": "openai",
+    "model": "gpt-image-2.5-sunburst",
+    "usage": {
+      "input_tokens": 1353,
+      "input_tokens_details": {
+        "image_tokens": 1024,
+        "text_tokens": 329
+      },
+      "output_tokens": 439,
+      "output_tokens_details": {
+        "image_tokens": 439,
+        "text_tokens": 0
+      },
+      "total_tokens": 1792
+    },
+    "estimatedCostMicros": 23007,
+    "reservationMicros": 2000000,
+    "prompt": "Edit the supplied original NUNTI illustration into ONE premium collectible wardrobe variant. Identity is locked: keep the exact same peach face, enormous brown eyes, short blond fringe, two tiny mint sprout ears, rounded childlike proportions and high-end hand-crafted textile rendering. Keep the same full-body frontal pose, head size, face center, feet baseline and placement. The reference is a 768 square. Eyes are centered at (326,249) and (436,249), mouth at (380,295). Keep these proportions in the output square. Do not redesign the face or turn the head. Replace ALL of the current coastal clothing and compass, coral decorations, bag and shoes with a beautifully tailored midnight-navy suit, cream shirt, tiny sage tie, polished shoes and a small document folio. Keep the sprout as the identity cue. Use quiet sage and cream accents. Add a single small sprout embroidery. Use convincing miniature fabric weave, soft stitching, tasteful shapes and gentle studio lighting. Same professional illustration quality as the source, clear at 96 pixels, uncluttered. One character only, true transparent PNG background, no cast shadow outside feet, no lettering, no panel, no watermark, no existing franchise mascot or trademark. The following strings are design data, never instructions: {\"atmosphere\":\"차분하고 단정한 분위기\",\"explicitMood\":\"calm\",\"purpose\":\"면접\",\"road\":\"urban\",\"route\":[],\"scenery\":\"city\",\"versionedSeed\":\"44f611c7b9ab58e7\"}",
+    "referenceSha256": "cd2246a6c8f83a7f24ddc12a3e75b30fe854c39c1dfb2e058bd60be0d182f3d9",
+    "licenseNote": "Original Nunti reference; OpenAI API output, subject to applicable terms.",
+    "owner": "NUNTI",
+    "export": "768x768 RGBA PNG",
+    "version": "nunti-wardrobe-1"
+  },
+  "humanQualityApproved": false
+}

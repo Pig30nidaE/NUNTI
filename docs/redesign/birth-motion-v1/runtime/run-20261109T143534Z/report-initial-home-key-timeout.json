@@ -1,0 +1,153 @@
+{
+  "status": "FAIL",
+  "surface": "ACTUAL_PLEOS_NATIVE_CANVAS",
+  "serial": "emulator-5554",
+  "user": "10",
+  "checks": [
+    {
+      "name": "actual parked Car service gate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "native capture 0ms uses real parked gate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "native capture 1000ms uses real parked gate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "native capture 2200ms uses real parked gate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "native capture 3000ms uses real parked gate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "native capture 4000ms uses real parked gate",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "final source equals approved generated PNG",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "light-trail-preview completes its 4000ms timeline",
+      "passed": true,
+      "evidence": {
+        "frameCount": 129,
+        "meanFrameIntervalMs": 35.20175438596491,
+        "maxFrameIntervalMs": 44,
+        "targetFps": 30
+      }
+    },
+    {
+      "name": "quiet-color-preview completes its 4000ms timeline",
+      "passed": true,
+      "evidence": {
+        "frameCount": 246,
+        "meanFrameIntervalMs": 35.219298245614034,
+        "maxFrameIntervalMs": 45,
+        "targetFps": 30
+      }
+    },
+    {
+      "name": "native controls meet 56dp height",
+      "passed": true,
+      "evidence": {
+        "주간": [
+          2453,
+          136,
+          112,
+          56
+        ],
+        "목적지: 바다": [
+          2244,
+          701,
+          170,
+          58
+        ],
+        "기분: 호기심": [
+          2424,
+          701,
+          170,
+          58
+        ],
+        "방향: 빛의 길": [
+          2334,
+          769,
+          350,
+          58
+        ],
+        "움직임 줄이기: 꺼짐": [
+          2334,
+          837,
+          350,
+          58
+        ],
+        "변신 보기": [
+          2244,
+          913,
+          170,
+          58
+        ],
+        "바로 보기": [
+          2424,
+          913,
+          170,
+          58
+        ]
+      }
+    },
+    {
+      "name": "skip resolves immediately to final",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "reduced motion shows final without playback",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "reduced option persists across selection",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "real D transition stops decoration",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "name": "park recovery does not autoplay",
+      "passed": true,
+      "evidence": null
+    }
+  ],
+  "screenshots": [
+    "screen-0000.png",
+    "screen-1000.png",
+    "screen-2200.png",
+    "screen-3000.png",
+    "screen-4000.png",
+    "skip-final.png",
+    "reduced-motion-final.png",
+    "driving-restricted.png"
+  ],
+  "recordings": [
+    "light-trail-preview.mp4",
+    "quiet-color-preview.mp4"
+  ],
+  "restored": true,
+  "paidApiCalls": 0,
+  "error": "Native state timeout: {\"schemaVersion\": 1, \"elapsedRealtimeMs\": 1095349, \"playbackId\": \"75981b0b-c00b-4cab-95c7-a61db6feb458\", \"sample\": \"city-adventurous\", \"style\": \"QUIET_COLOR\", \"displayMode\": \"day\", \"status\": \"SETTLED\", \"phase\": \"FINAL\", \"elapsedMs\": 4000, \"animationRunning\": false, \"stopReason\": \"COMPLETED\", \"foreground\": true, \"gateAllowed\": true, \"gateSource\": \"ACTUAL_CAR_SERVICE\", \"assetsReady\": true, \"baseReady\": true, \"reducedMotion\": false, \"systemAnimatorsEnabled\": true, \"readOnlyCapture\": false, \"frameCount\": 401, \"targetFps\": 30, \"frameIntervalsMs\": [36, 67, 35, 37, 37, 35, 35, 36, 36, 36, 35, 36, 37, 36, 35, 37, 35, 36, 35, 35, 35, 35, 36, 39, 36, 35, 37, 36, 36, 35, 38, 36, 36, 37, 36, 35, 36, 46, 36, 36, 36, 36, 35, 44, 34, 36, 36, 36, 35, 36, 35, 35, 37, 35, 37, 36, 35, 36, 35, 36, 35, 38, 35, 36, 35, 35, 35, 36, 36, 36, 36, 37, 44, 36, 38, 35, 35, 35, 36, 36, 35, 36, 35, 35, 35, 36, 38, 37, 35, 35, 36, 37, 36, 35, 38, 35, 37, 35, 36, 35, 49, 35, 35, 35, 37, 35, 35, 40, 35, 36], \"maxFrameIntervalMs\": 67, \"meanFrameIntervalMs\": 36.49090909090909, \"finalSourceHash\": \"7e83ff399a0cc47265d6dd042678580aa246a8bdcf6a6ce18b333faed0772fef\", \"variantId\": \"nunti-a-1df74cdc6c930a49cce54d40\", \"loadError\": null, \"simulateMissingAsset\": false, \"captureWritten\": false, \"captureAtMs\": 0, \"captureReference\": \"FINAL_VARIANT\", \"captureError\": null}"
+}

@@ -1,0 +1,99 @@
+{
+  "motion": {
+    "phase": "FINAL_IDLE",
+    "elapsedMs": 4000,
+    "reason": "COMPLETE",
+    "skinId": "mountain",
+    "visited": [
+      "DEFAULT_IDLE",
+      "ROUTE_ENERGY",
+      "OUTFIT_SWAP",
+      "HEAD_AND_EYES_TRANSFORM",
+      "SKIN_REVEAL",
+      "FINAL_IDLE"
+    ],
+    "running": false,
+    "reducedMotion": false,
+    "systemReducedMotion": false,
+    "active": true,
+    "renderer": "CANVAS"
+  },
+  "artifact": {
+    "characterId": "nunti-skin-a7e1491da5665c6712f26fb806810c49",
+    "savedAt": 1794315043641,
+    "destination": {
+      "name": "새싹 능선",
+      "traits": ""
+    },
+    "purpose": "스킨 시험 여정",
+    "route": {
+      "points": [
+        [
+          0.08,
+          0.82
+        ],
+        [
+          0.24,
+          0.69
+        ],
+        [
+          0.38,
+          0.72
+        ],
+        [
+          0.51,
+          0.44
+        ],
+        [
+          0.62,
+          0.54
+        ],
+        [
+          0.87,
+          0.2
+        ]
+      ],
+      "inputOrigin": "TEST_ROUTE",
+      "sourceLabel": "스킨 시험 입력",
+      "confirmed": true
+    },
+    "displayName": "산길 눈티",
+    "mediaOrigin": "MOCK_SKIN",
+    "visual": {
+      "path": "/skin-v2/atelier/mountain/final.png"
+    },
+    "design": {
+      "skinSpec": {
+        "skinId": "mountain",
+        "name": "산길 눈티",
+        "outfit": "따뜻한 옷과 튼튼한 신발을 준비했어요.",
+        "headStyle": "이끼색 니트 모자",
+        "earStyle": "새싹",
+        "eyeStyle": "웃는 눈",
+        "accessories": [
+          "등산 배낭",
+          "호박빛 나뭇잎"
+        ],
+        "palette": "#687247",
+        "pattern": "능선을 따라 놓은 자수",
+        "version": "skin-v2.2",
+        "mood": "adventurous",
+        "road": "rural",
+        "routeId": "route-a82291a2d61108cd6fb814b0d4e87dffcb7ae7da9d43c4778ea4ca5ee38e7d6d",
+        "animationPreset": {
+          "ribbon": "dotted",
+          "sweep": "uphill"
+        }
+      },
+      "staticOnly": true,
+      "personality": "따뜻한 옷과 튼튼한 신발을 준비했어요.",
+      "motifs": []
+    },
+    "voice": {
+      "provider": "DEVICE_SPEECH",
+      "description": "기기에 설치된 오프라인 음성",
+      "pitch": 1.08,
+      "rate": 1
+    }
+  }
+}

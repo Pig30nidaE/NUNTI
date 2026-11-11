@@ -22,6 +22,7 @@ function element() {
     get value() { return this._value || ''; },
     set value(value) { this._value = String(value); },
     checked: false, disabled: false, hidden: false, textContent: '', dataset: {},
+    parentElement: {before() {}},
     selectedOptions: [{disabled: false}], classList: {add() {}, toggle() {}},
     addEventListener(type, listener) {
       if (!listeners.has(type)) listeners.set(type, []);
@@ -100,6 +101,9 @@ async function harness() {
   vm.createContext(context);
   for (const [name, code] of Object.entries(sources)) vm.runInContext(code, context, {filename: name});
   await flush();
+  // The real native host starts fail-closed, then reports the observed parked gate.
+  assert.equal(get('create-button').disabled, true);
+  context.window.nuntiVehicleAllowed(true);
   assert.equal(get('destination').value, '더현대서울', 'Real initialization selects the first API input');
   const nav = context.window.NuntiNavigation;
   const h = {

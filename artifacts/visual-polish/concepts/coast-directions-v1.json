@@ -1,0 +1,12 @@
+{
+  "status": "CONCEPT_NOT_APPROVED",
+  "owner": "NUNTI project",
+  "version": "coast-directions-v1",
+  "sourceReference": "docs/redesign/identity-refine-v1/nunti-a-front-transparent-v1.png",
+  "generator": "Codex built-in image generation tool",
+  "prompt": "Use the provided approved Nunti artwork as the exact character identity reference. Create a review-only visual direction comparison, landscape sheet with TWO clearly separated full-body alternatives side by side on a simple warm light neutral background. Both are the SAME Nunti facing forward, with exactly recognizable large brown eyes, their relative spacing, rounded peach face and blush, body proportions and the small two-leaf green sprout in the same position. Preserve facial identity very carefully. Left direction: A soft tactile 3D vinyl Coastal Explorer with a tailored cream-and-ocean blue sailor jacket, small sailor cap leaving the sprout visible, shell pouch and sand-colored deck shoes, refined gentle toy materials. Right direction: B cozy adventure-wardrobe approach to the SAME coastal explorer, with a pale sea-glass padded jacket, light canvas bucket hat leaving sprout visible, wave-textured crossbody satchel and rounded warm sand shoes; softer fabric details, understated studio lighting. Both are distinctly different costume silhouettes, equally polished, with friendly restrained expression, no text except small A and B, no logos, no additional characters or scenery. These are concept alternatives only, not final assets.",
+  "export": "PNG 1536x1024 RGB; comparison sheet, not transparent or rigged",
+  "sha256": "55106e014e8ddb7838eaee8a586b80ba060d0380079fcba7b703e95fac6e9038",
+  "licensingNote": "Generated concept based on project reference; rights of the source reference not independently verified.",
+  "fallback": "Existing approved base and current local Skin V2 assets remain unchanged."
+}

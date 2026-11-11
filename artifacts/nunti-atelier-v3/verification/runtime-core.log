@@ -1,0 +1,3 @@
+TypeError: Cannot read properties of null (reading 'value')
+    at file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_skin_v2_runtime.mjs:260:45
+{"status":"FAIL","checks":0,"out":"/Users/pig30nidae/NUNTI/artifacts/nunti-atelier-v3/runtime-core-1"}

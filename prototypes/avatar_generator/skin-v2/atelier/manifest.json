@@ -1,0 +1,140 @@
+{
+  "version": "skin-v2.2",
+  "owner": "NUNTI",
+  "status": "IMPLEMENTATION_CANDIDATE",
+  "tool": "OpenAI built-in imagegen",
+  "generation": "offline development assets, no per-drive generation",
+  "identityReference": "docs/redesign/identity-refine-v1/nunti-a-front-transparent-v1.png",
+  "directionReference": "artifacts/nunti-atelier-v3/concepts/directions.png",
+  "licensingNote": "Original Nunti reference-guided generated artwork. No third-party mascot assets.",
+  "export": "768x768 RGBA PNG, uniform Lanczos scaling, source alpha preserved, binary local plate partition",
+  "fallback": "/skin-v2/default/final.png",
+  "skins": {
+    "sea": {
+      "source": "artifacts/nunti-atelier-v3/sources/sea.png",
+      "sourceSha256": "93f5eb7b8442327f0cad1196ca8d8edabe976d559209a3f8ff50ae2cb48e99d8",
+      "sourceBounds": [
+        278,
+        38,
+        1003,
+        1198
+      ],
+      "scale": 0.5810344827586207,
+      "offset": [
+        12,
+        25
+      ],
+      "files": {
+        "final": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/sea/final.png",
+          "sha256": "cd2246a6c8f83a7f24ddc12a3e75b30fe854c39c1dfb2e058bd60be0d182f3d9",
+          "bytes": 444317
+        },
+        "head": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/sea/head.png",
+          "sha256": "d1223ed336818128b4dace49a64f6ecd92ccc9165d65cf82a31fba15d98f7173",
+          "bytes": 125922
+        },
+        "eyes": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/sea/eyes.png",
+          "sha256": "70c268db7bc43b9dd7a2471a2d7c36d870e0c45258a4881ae978f2ca962bc021",
+          "bytes": 83997
+        },
+        "outfit": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/sea/outfit.png",
+          "sha256": "c5ba860c62151be08dc32ca82cc84b8037d87b0f510e4727aa86b8586dfca459",
+          "bytes": 203458
+        },
+        "accessory": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/sea/accessory.png",
+          "sha256": "25318a681a09bf982b604b5a8678757aefc90765a42489671e2acc3158864e33",
+          "bytes": 51229
+        }
+      }
+    },
+    "city": {
+      "source": "artifacts/nunti-atelier-v3/sources/city.png",
+      "sourceSha256": "5d787430be55a31021a97787b6e0087d80d6ff86175b40b46bb472c4f70cb6f8",
+      "sourceBounds": [
+        274,
+        34,
+        967,
+        1219
+      ],
+      "scale": 0.5687763713080168,
+      "offset": [
+        31,
+        28
+      ],
+      "files": {
+        "final": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/city/final.png",
+          "sha256": "dda2ee8907e9023b6c5c2324c4d0aca740878865b42710ff7d76f26002a7e71a",
+          "bytes": 437841
+        },
+        "head": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/city/head.png",
+          "sha256": "76b94d4373f1430244ecde02268c12c801514392f949b554bfe28e19315387c4",
+          "bytes": 123443
+        },
+        "eyes": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/city/eyes.png",
+          "sha256": "cb1a5025363b0599e7d327a19341ffd8dcfb98eb972841e2a5312209abff4516",
+          "bytes": 80406
+        },
+        "outfit": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/city/outfit.png",
+          "sha256": "39326ff7c28ae16969df449031bbd2ce08f320043ba3f32ca62955711913bf8d",
+          "bytes": 204565
+        },
+        "accessory": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/city/accessory.png",
+          "sha256": "4d81b6ecb7be6a234b4620bdf10102cd766c0e7ffc2be538b29660b1bdbfe072",
+          "bytes": 51259
+        }
+      }
+    },
+    "mountain": {
+      "source": "artifacts/nunti-atelier-v3/sources/mountain.png",
+      "sourceSha256": "ecd59071866e9aa5047ffa2180063124313c233f322db12ee250f0f3e73b9a41",
+      "sourceBounds": [
+        266,
+        24,
+        958,
+        1227
+      ],
+      "scale": 0.5602660016625104,
+      "offset": [
+        41,
+        34
+      ],
+      "files": {
+        "final": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/mountain/final.png",
+          "sha256": "5ac84d0ded7fc9bb9241f1fe34fccfea941855cb8a0955668c2c336f247697ec",
+          "bytes": 452813
+        },
+        "head": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/mountain/head.png",
+          "sha256": "7aabc9d7801c28242075f725a5b740ef20f665974b01ffb48711f7d472c35c19",
+          "bytes": 120116
+        },
+        "eyes": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/mountain/eyes.png",
+          "sha256": "3e0d1513490493db2da9625988419178b82f11867b62d4e0476a690c4a2f0230",
+          "bytes": 84661
+        },
+        "outfit": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/mountain/outfit.png",
+          "sha256": "1e05bd233af984e42c71a752265b4a5313d7a3e920d749f4a12df56d88d8efa3",
+          "bytes": 216950
+        },
+        "accessory": {
+          "path": "prototypes/avatar_generator/skin-v2/atelier/mountain/accessory.png",
+          "sha256": "5f1bf7fd723c252e5863849f1309cbb9bc2cd61cf65f5dd63d3f179cedec2d1f",
+          "bytes": 52071
+        }
+      }
+    }
+  }
+}

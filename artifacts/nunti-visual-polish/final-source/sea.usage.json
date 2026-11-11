@@ -1,0 +1,23 @@
+{
+  "model": "gpt-image-2.6-sunburst",
+  "phase": "final",
+  "skin": "sea",
+  "quality": "high",
+  "request_id": "req_a96d119839574550a8c8373ee44d0b9b",
+  "utc": "2026-11-09T18:18:42.545937+00:00",
+  "usage": {
+    "input_tokens": 2723,
+    "input_tokens_details": {
+      "image_tokens": 2048,
+      "text_tokens": 675
+    },
+    "output_tokens": 1756,
+    "output_tokens_details": {
+      "image_tokens": 1756,
+      "text_tokens": 0
+    },
+    "total_tokens": 4479
+  },
+  "estimated_usd": 0.072439,
+  "file": "artifacts/nunti-visual-polish/final-source/sea.png"
+}

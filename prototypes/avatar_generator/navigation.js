@@ -84,9 +84,9 @@
       applyPlan(value);message('전체 경로를 불러왔어요. 출발·도착과 선을 확인한 뒤 체크하면 눈티를 생성할 수 있어요.');
     }catch(e){if(epoch===fileEpoch)message(errorText(e));}finally{state.planning=false;enableCreate();}
   }
-  function setCapabilities(value){
+  function setCapabilities(value,{prefill=true}={}){
     caps=value;$('navigation-tools').hidden=!(caps.routeApiAvailable||hasNative());$('legacy-route-tools').hidden=!!caps.routeApiAvailable;
-    if(caps.routeApiAvailable&&!fieldsFilled())preset('pangyo',false);
+    if(prefill&&caps.routeApiAvailable&&!fieldsFilled())preset('pangyo',false);
     if(caps.routeApiAvailable&&!state.route){$('source-tag').textContent='내비 · API 경로';$('route-warning').textContent='목적지를 불러오고 전체 경로를 확인한 뒤 눈티를 생성해 주세요.';$('map-caption').textContent='경로 API에서 가져온 도로 전체 선을 표시해요';}
     if(!hasNative())$('navigation-status').textContent='현대 내비 목적지 가져오기는 Android 앱에서, 경로 API 시험은 이 화면에서 할 수 있어요.';
     updateButtons();

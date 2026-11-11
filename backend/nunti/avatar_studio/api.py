@@ -30,6 +30,7 @@ from .models import (
 )
 from .storage import StudioError, StudioStore
 from .voice_render import voice_available
+from .wardrobe import WardrobeInput
 
 ROOT = Path(__file__).resolve().parents[3]
 COOKIE = "nunti_studio_session"
@@ -59,6 +60,11 @@ class Settings:
     local_model_weights: Path | None = None
     local_model_timeout: int = 150
     route_api_enabled: bool = False
+    wardrobe_enabled: bool = False
+
+    @property
+    def wardrobe_available(self):
+        return self.paid_api_approved and self.wardrobe_enabled and bool(self.image_key)
 
     def __post_init__(self):
         if not 32 <= len(self.token) <= 256 or not all(33 <= ord(c) <= 126 for c in self.token):
@@ -127,7 +133,8 @@ class Settings:
             port=int(os.getenv("NUNTI_STUDIO_PORT", "8768")),
             image_enabled=enabled,
             paid_api_approved=approved,
-            image_key=os.getenv("OPENAI_API_KEY", "") if approved and enabled else "",
+            image_key=os.getenv("OPENAI_API_KEY", "") if approved else "",
+            wardrobe_enabled=os.getenv("NUNTI_STUDIO_WARDROBE_ENABLED") == "true",
             image_model=os.getenv("NUNTI_STUDIO_IMAGE_MODEL", "gpt-image-2.5-flare"),
             image_prices_verified=os.getenv("NUNTI_STUDIO_IMAGE_PRICES_VERIFIED") == "true",
             image_reservation_micros=int(os.getenv("NUNTI_STUDIO_IMAGE_RESERVATION_MICROS", "0")),
@@ -225,6 +232,7 @@ def create_app(
     api_renderer=None,
     local_renderer=None,
     route_fetcher=None,
+    layered_renderer=None,
 ):
     @asynccontextmanager
     async def lifespan(application):
@@ -335,7 +343,19 @@ def create_app(
         return {
             "data": {
                 "schemaVersion": 3,
+                "wardrobeAvailable": config.wardrobe_available,
                 "mode": "LOCAL_RENDER",
+                "layeredRenderAvailable": True,
+                "layeredRenderInfo": {
+                    "renderMode": "LOCAL_LAYERS",
+                    "mappingVersion": "nunti-layers-v1",
+                    "assetVersion": "nunti-a-layers-v1",
+                    "offline": True,
+                    "paidApiCalls": 0,
+                    "requiresExplicitMood": True,
+                    "missingRouteBehavior": "STATIC_BASE",
+                    "motion": "none",
+                },
                 "inputOrigins": ["TEST_ROUTE", "NAVIGATION_SCREENSHOT", "ROUTE_FILE", "API_ROUTE"],
                 "routeApiAvailable": config.route_api_enabled,
                 "routeApiInfo": {
@@ -505,11 +525,11 @@ def create_app(
             return {"data": store.avatar(principal, previous["characterId"])}
         original = (
             store.extraction(principal, value.route.extractionId)
-            if value.route.extractionId
+            if value.route is not None and value.route.extractionId
             else None
         )
         api_plan = None
-        if value.route.inputOrigin == "API_ROUTE":
+        if value.route is not None and value.route.inputOrigin == "API_ROUTE":
             from .route_api import validate_route_plan
 
             api_plan = validate_route_plan(store, principal, value)
@@ -526,19 +546,30 @@ def create_app(
         if previous is not None:
             return {"data": store.avatar(principal, previous["characterId"])}
         try:
-            if renderer is None:
-                from .illustration import render_avatar
+            if value.renderMode == "LOCAL_LAYERS":
+                from .variant_spec import VariantContext
 
-                render = render_avatar
+                if layered_renderer is None:
+                    from .layered_render import render_layered_avatar
+
+                    layer_render = render_layered_avatar
+                else:
+                    layer_render = layered_renderer
+                png, design = layer_render(value.variantContext or VariantContext(), value.route)
             else:
-                render = renderer
-            png, design = render(
-                value.route.points,
-                value.destination.name,
-                value.destination.traits,
-                value.purpose,
-                value.requestId,
-            )
+                if renderer is None:
+                    from .illustration import render_avatar
+
+                    render = render_avatar
+                else:
+                    render = renderer
+                png, design = render(
+                    value.route.points,
+                    value.destination.name,
+                    value.destination.traits,
+                    value.purpose,
+                    value.requestId,
+                )
             design = validate_design(design)
             info = image_info(png, True)
             if (info["width"], info["height"]) != (768, 768):
@@ -590,7 +621,7 @@ def create_app(
             from .voice_design import build_voice_design
 
             voice_plan = build_voice_design(data, design)
-            route = value.route.model_dump(exclude_none=True)
+            route = value.route.model_dump(exclude_none=True) if value.route is not None else None
             if original:
                 route["sourceImagePath"] = original["imagePath"]
                 route["sourceImageSha256"] = original["imageSha256"]
@@ -629,7 +660,9 @@ def create_app(
                     "automaticPlayback": False,
                 },
                 "mediaOrigin": (
-                    "LOCAL_MODEL"
+                    "LOCAL_LAYERS"
+                    if value.renderMode == "LOCAL_LAYERS"
+                    else "LOCAL_MODEL"
                     if local_result is not None
                     else "PROVIDER_GENERATED"
                     if provider
@@ -653,6 +686,16 @@ def create_app(
                 )
             else:
                 artifact["motifsVerification"] = "LOCAL_RENDER_RECIPE"
+            if value.renderMode == "LOCAL_LAYERS":
+                spec = design["avatarSpec"]
+                spec_sha = store.put_asset(principal, canonical(spec).encode(), "application/json")
+                artifact["avatarSpec"] = {
+                    "path": "/v3/assets/" + spec_sha,
+                    "sha256": spec_sha,
+                    "schemaVersion": spec["schemaVersion"],
+                }
+                artifact["formationStatus"] = "STATIC_LAYER_COMPOSITE"
+                artifact["motifsVerification"] = "LOCAL_SHARED_LAYER_RECIPE"
             store.complete(principal, value.requestId, artifact)
             return {"data": artifact}
         except StudioError as exc:
@@ -664,6 +707,16 @@ def create_app(
         except Exception as exc:
             store.fail(principal, value.requestId, "GENERATION_FAILED")
             raise StudioError("GENERATION_FAILED", 500) from exc
+
+    @application.get("/v3/wardrobe/budget")
+    def wardrobe_budget(request: Request, principal: Owner):
+        from .wardrobe import budget
+        return {"data": budget(request.app.state.store)}
+
+    @application.post("/v3/wardrobe")
+    def create_wardrobe(value: WardrobeInput, request: Request, principal: Owner):
+        from .wardrobe import create
+        return {"data": create(request.app.state.config, request.app.state.store, principal, value)}
 
     @application.get("/v3/avatars")
     def avatars(request: Request, principal: Owner):
@@ -692,6 +745,28 @@ def create_app(
         artifact = store.avatar(principal, character_id)
         return {"data": generate_voice(store, principal, artifact)}
 
+    @application.get("/v3/avatars/{character_id}/feedback-voice/{kind}")
+    def avatar_feedback_voice(character_id: str, kind: str, request: Request, principal: Owner):
+        if not re.fullmatch(r"nunti-[0-9a-f-]{36}", character_id):
+            raise StudioError("CHARACTER_NOT_FOUND", 404)
+        from .voice_service import get_feedback_voice
+
+        store = request.app.state.store
+        artifact = store.avatar(principal, character_id)
+        return {"data": get_feedback_voice(store, principal, artifact, kind)}
+
+    @application.post("/v3/avatars/{character_id}/feedback-voice/{kind}")
+    def generate_avatar_feedback_voice(
+        character_id: str, kind: str, request: Request, principal: Owner,
+    ):
+        if not re.fullmatch(r"nunti-[0-9a-f-]{36}", character_id):
+            raise StudioError("CHARACTER_NOT_FOUND", 404)
+        from .voice_service import generate_feedback_voice
+
+        store = request.app.state.store
+        artifact = store.avatar(principal, character_id)
+        return {"data": generate_feedback_voice(store, principal, artifact, kind)}
+
     @application.get("/{path:path}")
     def static(path: str, request: Request):
         root = request.app.state.config.web_root.resolve()
@@ -699,7 +774,7 @@ def create_app(
         if (
             not target.is_relative_to(root)
             or not target.is_file()
-            or target.suffix not in {".html", ".css", ".js", ".svg", ".png", ".ico", ".woff2"}
+            or target.suffix not in {".html", ".css", ".js", ".svg", ".png", ".ico", ".woff2", ".ttf"}
             or target.is_relative_to(root / "examples")
         ):
             raise StudioError("NOT_FOUND", 404)

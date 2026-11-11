@@ -1,0 +1,170 @@
+[
+  {
+    "mode": "day",
+    "text": "ink",
+    "background": "bg",
+    "ratio": 10.66,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "ink",
+    "background": "surface",
+    "ratio": 11.73,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "ink",
+    "background": "soft",
+    "ratio": 10.06,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "muted",
+    "background": "bg",
+    "ratio": 5.31,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "muted",
+    "background": "surface",
+    "ratio": 5.84,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "muted",
+    "background": "soft",
+    "ratio": 5.0,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "accent",
+    "background": "bg",
+    "ratio": 8.14,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "accent",
+    "background": "surface",
+    "ratio": 8.95,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "accent",
+    "background": "soft",
+    "ratio": 7.67,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "warm",
+    "background": "bg",
+    "ratio": 5.26,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "warm",
+    "background": "surface",
+    "ratio": 5.79,
+    "passAA": true
+  },
+  {
+    "mode": "day",
+    "text": "warm",
+    "background": "soft",
+    "ratio": 4.96,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "ink",
+    "background": "bg",
+    "ratio": 15.31,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "ink",
+    "background": "surface",
+    "ratio": 13.08,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "ink",
+    "background": "soft",
+    "ratio": 10.89,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "muted",
+    "background": "bg",
+    "ratio": 9.82,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "muted",
+    "background": "surface",
+    "ratio": 8.39,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "muted",
+    "background": "soft",
+    "ratio": 6.99,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "accent",
+    "background": "bg",
+    "ratio": 11.67,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "accent",
+    "background": "surface",
+    "ratio": 9.96,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "accent",
+    "background": "soft",
+    "ratio": 8.3,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "warm",
+    "background": "bg",
+    "ratio": 9.9,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "warm",
+    "background": "surface",
+    "ratio": 8.45,
+    "passAA": true
+  },
+  {
+    "mode": "night",
+    "text": "warm",
+    "background": "soft",
+    "ratio": 7.04,
+    "passAA": true
+  }
+]

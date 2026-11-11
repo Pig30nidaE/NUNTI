@@ -1,0 +1,277 @@
+{
+  "$defs": {
+    "LayerRef": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "path": {
+          "title": "Path",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "path"
+      ],
+      "title": "LayerRef",
+      "type": "object"
+    },
+    "NormalizedContext": {
+      "additionalProperties": false,
+      "properties": {
+        "destinationCategory": {
+          "enum": [
+            "coast",
+            "mountain",
+            "city",
+            "nature",
+            "general",
+            "unknown"
+          ],
+          "title": "Destinationcategory",
+          "type": "string"
+        },
+        "displayMode": {
+          "enum": [
+            "day",
+            "night"
+          ],
+          "title": "Displaymode",
+          "type": "string"
+        },
+        "mappingVersion": {
+          "const": "nunti-layers-v1",
+          "title": "Mappingversion",
+          "type": "string"
+        },
+        "roadType": {
+          "enum": [
+            "urban",
+            "highway",
+            "rural",
+            "mixed",
+            "unknown"
+          ],
+          "title": "Roadtype",
+          "type": "string"
+        },
+        "routeGeometrySource": {
+          "title": "Routegeometrysource",
+          "type": "string"
+        },
+        "routeId": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Routeid"
+        },
+        "routePointCount": {
+          "title": "Routepointcount",
+          "type": "integer"
+        },
+        "routeRevision": {
+          "title": "Routerevision",
+          "type": "integer"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "string"
+        },
+        "userSelectedMood": {
+          "enum": [
+            "calm",
+            "curious",
+            "adventurous",
+            "bright",
+            "unset"
+          ],
+          "title": "Userselectedmood",
+          "type": "string"
+        }
+      },
+      "required": [
+        "routeId",
+        "routeRevision",
+        "mappingVersion",
+        "seed",
+        "destinationCategory",
+        "roadType",
+        "userSelectedMood",
+        "displayMode",
+        "routePointCount",
+        "routeGeometrySource"
+      ],
+      "title": "NormalizedContext",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "accessibilityLabel": {
+      "title": "Accessibilitylabel",
+      "type": "string"
+    },
+    "assetVersion": {
+      "const": "nunti-a-layers-v1",
+      "default": "nunti-a-layers-v1",
+      "title": "Assetversion",
+      "type": "string"
+    },
+    "baseAsset": {
+      "const": "base.png",
+      "default": "base.png",
+      "title": "Baseasset",
+      "type": "string"
+    },
+    "characterId": {
+      "const": "nunti-a-v1",
+      "default": "nunti-a-v1",
+      "title": "Characterid",
+      "type": "string"
+    },
+    "destinationMotif": {
+      "enum": [
+        "none",
+        "coast",
+        "mountain",
+        "city"
+      ],
+      "title": "Destinationmotif",
+      "type": "string"
+    },
+    "displayMode": {
+      "enum": [
+        "day",
+        "night"
+      ],
+      "title": "Displaymode",
+      "type": "string"
+    },
+    "expression": {
+      "enum": [
+        "base",
+        "calm",
+        "curious",
+        "adventurous"
+      ],
+      "title": "Expression",
+      "type": "string"
+    },
+    "fallbackReasons": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Fallbackreasons",
+      "type": "array"
+    },
+    "layers": {
+      "items": {
+        "$ref": "#/$defs/LayerRef"
+      },
+      "title": "Layers",
+      "type": "array"
+    },
+    "mappingVersion": {
+      "const": "nunti-layers-v1",
+      "default": "nunti-layers-v1",
+      "title": "Mappingversion",
+      "type": "string"
+    },
+    "motion": {
+      "const": "none",
+      "default": "none",
+      "title": "Motion",
+      "type": "string"
+    },
+    "normalizedContext": {
+      "$ref": "#/$defs/NormalizedContext"
+    },
+    "palette": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Palette",
+      "type": "object"
+    },
+    "provenance": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Provenance",
+      "type": "object"
+    },
+    "roadMotif": {
+      "enum": [
+        "none",
+        "urban",
+        "highway",
+        "rural",
+        "mixed"
+      ],
+      "title": "Roadmotif",
+      "type": "string"
+    },
+    "routeFingerprint": {
+      "title": "Routefingerprint",
+      "type": "string"
+    },
+    "routeId": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Routeid"
+    },
+    "routeVariant": {
+      "maximum": 2,
+      "minimum": 0,
+      "title": "Routevariant",
+      "type": "integer"
+    },
+    "schemaVersion": {
+      "const": "nunti.avatar.layers/1",
+      "default": "nunti.avatar.layers/1",
+      "title": "Schemaversion",
+      "type": "string"
+    },
+    "seed": {
+      "title": "Seed",
+      "type": "string"
+    },
+    "variantId": {
+      "title": "Variantid",
+      "type": "string"
+    }
+  },
+  "required": [
+    "variantId",
+    "seed",
+    "routeId",
+    "routeFingerprint",
+    "expression",
+    "destinationMotif",
+    "roadMotif",
+    "routeVariant",
+    "displayMode",
+    "normalizedContext",
+    "provenance",
+    "layers",
+    "palette",
+    "accessibilityLabel",
+    "fallbackReasons"
+  ],
+  "title": "LayeredAvatarSpec",
+  "type": "object"
+}

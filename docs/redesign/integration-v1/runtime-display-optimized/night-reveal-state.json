@@ -1,0 +1,18 @@
+{
+  "motion": {
+    "active": true,
+    "status": "SETTLED",
+    "reason": "STATIC",
+    "elapsedMs": 4000,
+    "frameCount": 0,
+    "intervalsMs": [],
+    "reducedMotion": false,
+    "userReducedMotion": false,
+    "layerReady": false,
+    "finalReady": true
+  },
+  "allowed": true,
+  "theme": "night",
+  "width": 1683,
+  "height": 1210
+}

@@ -1,0 +1,41 @@
+{
+  "scope": [
+    "character art",
+    "parked transformation",
+    "automotive UI",
+    "existing score and persistence integration"
+  ],
+  "excludedByUser": [
+    "voice development",
+    "APK delivery and presentation preparation"
+  ],
+  "assetVersion": "skin-v2.2",
+  "mockSkinMode": true,
+  "figma": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=55-97",
+  "sourceHashes": {
+    "prototypes/avatar_generator/index.html": "48c722184cc7d4891054725ff9789c29cbf008b5c16fe50122cf4d7ba7b03e51",
+    "prototypes/avatar_generator/studio.css": "2c796eb4367eb8b4f881a8d802cb24f1821d8ad7e6b405076ef854ce5fc5cdd0",
+    "prototypes/avatar_generator/studio.js": "189272c97c07506b55cb640a17a78a0e4d95bb3f9f16d0f96edd0f57061c13c2",
+    "prototypes/avatar_generator/ui-redesign.js": "46401b287938a82d04b5667ac40f670309c8e5cc34751afbb0c6cda5acaf253f",
+    "prototypes/avatar_generator/nunti-skins.js": "82eeb7c639b6b643541c5feac56dea33fe318f7e5df117c17623b641fb5e8e57",
+    "android/app/src/main/kotlin/ai/nunti/app/studio/StudioAtelierRenderer.kt": "c62b8a154fa10ca5d2ace4730c7e61a585f376871896782c97dafe975040c98c",
+    "android/app/src/main/kotlin/ai/nunti/app/studio/StudioAtelierVfx.kt": "3ca7686d2bda621eb01aa226480442e447ee6521460641383f8ef8f1627c7793",
+    "android/app/src/main/kotlin/ai/nunti/app/studio/StudioCharacterCanvas.kt": "f1890322aaea144acce495a4d25595f1723f2ee6536549b50669727dce113148",
+    "android/app/src/main/kotlin/ai/nunti/app/studio/StudioCharacterMotion.kt": "7323b67c962023ce64c752b730167198e7cd20125100b775d0176221fcb734ee",
+    "android/app/src/main/kotlin/ai/nunti/app/studio/StudioEvolutionEffects.kt": "695d879f03e75f31760521c0e3ffd4727e6eebcd13712fc06ff7f73cfb01ef61",
+    "android/app/src/main/kotlin/ai/nunti/app/journey/JourneyRuntime.kt": "72f342403052f5fc4f34dcd0096b0c38a41853f1c0c5525774a54eb04200e3c1",
+    "android/app/src/main/kotlin/ai/nunti/app/journey/JourneyActivity.kt": "14619226f5217f17fef59ee492ce57e8c9170a0ae42eeabee2a4cfb5fe282f97",
+    "android/app/src/main/kotlin/ai/nunti/app/journey/NuntiTheme.kt": "6f03519b80d2a2366286e99b27910424d7ecd0850493e72d314f165f80e8fe44"
+  },
+  "installedBuildSha256": "84c960ada7b07adfd304f8e7c2e72c92884cabb715e20ac0af574821341d156a",
+  "verification": {
+    "core": "artifacts/nunti-atelier-v3/runtime-final/report.json",
+    "live": "artifacts/nunti-atelier-v3/runtime-live/report.json",
+    "motion": "artifacts/nunti-atelier-v3/motion-final/report.json",
+    "contrast": "artifacts/nunti-atelier-v3/verification/contrast.json"
+  },
+  "remainingLimits": [
+    "Emulator jank measured at 9.27%; actual vehicle performance not measured",
+    "Per-drive image API remains disabled under Skin V2 approval rule"
+  ]
+}

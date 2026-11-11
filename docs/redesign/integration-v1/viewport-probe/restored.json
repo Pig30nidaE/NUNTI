@@ -1,0 +1,11 @@
+{
+  "dpr": 1.375,
+  "innerWidth": 1224,
+  "innerHeight": 880,
+  "visualViewport": {
+    "width": 1224,
+    "height": 880,
+    "scale": 1
+  },
+  "meta": "width=device-width,initial-scale=1"
+}

@@ -1,0 +1,94 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_RUNTIME_DIFFERENCES",
+  "observedActualImages": true,
+  "deviceOperatedByThisReview": false,
+  "resolved": [
+    "Studio viewport calibration: physical1682x1210; layout1683x1210 with 1px rounding",
+    "Native variable font weight axis",
+    "Native wide subtitle clipping: intro120px",
+    "Repeated-result approved heading",
+    "Stale nonessential notice covering compact options"
+  ],
+  "mainScreenshotManifest": "manifest.json",
+  "characterManifest": "character-runtime-manifest.json",
+  "additionalInspectedScreenshots": [
+    {
+      "path": "docs/redesign/integration-v1/runtime-display-final/night-pre-trip.png",
+      "sha256": "e6e30729cb71a595f69297007855ab59512e79080ad2982e1f9096979b6b5370",
+      "appBoundsXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ]
+    },
+    {
+      "path": "docs/redesign/integration-v1/runtime-display-final/night-reveal.png",
+      "sha256": "c4081677fefc437c7f6495ebb9d228ba8f1230c98da4cc9548674461cefed043",
+      "appBoundsXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ]
+    },
+    {
+      "path": "docs/redesign/integration-v1/runtime-display-final/compact-pre-trip.png",
+      "sha256": "6b11cc595f58fd874e2be0d966fd9198d86fb11c3badcaf416aa68937b7e7064",
+      "appBoundsXYXY": [
+        853,
+        90,
+        1683,
+        1300
+      ]
+    },
+    {
+      "path": "docs/redesign/integration-v1/runtime-display-final/compact-reveal.png",
+      "sha256": "475f5e206d69ecda065b6f9acd2adc3d1f53979858c45b307aedb4211e53eebb",
+      "appBoundsXYXY": [
+        853,
+        90,
+        1683,
+        1300
+      ]
+    },
+    {
+      "path": "docs/redesign/integration-v1/runtime-native-final/02-post-trip-night.png",
+      "sha256": "d2a9046abd7fb50779cf6d1b3bdc50d900cc6cff151fe723fe15ca600f66c4b7",
+      "appBoundsXYXY": [
+        853,
+        90,
+        2535,
+        1300
+      ]
+    },
+    {
+      "path": "docs/redesign/integration-v1/runtime-native-final/03-post-trip-compact-night.png",
+      "sha256": "07d332ce2331aa95a692a98219e5589b33d235d9a234370c5ab8de233db8771f",
+      "appBoundsXYXY": [
+        853,
+        90,
+        1683,
+        1300
+      ]
+    },
+    {
+      "path": "docs/redesign/integration-v1/runtime-native-final/04-post-trip-compact-day.png",
+      "sha256": "1f63c504d9cd6a16c8e32317819ebbddd91eea6f57b1ec36b630c8d1884f96ed",
+      "appBoundsXYXY": [
+        853,
+        90,
+        1683,
+        1300
+      ]
+    }
+  ],
+  "drivingCompanionVisiblyAvailable": false,
+  "drivingObservedResult": "PLEOS_PLATFORM_BLOCK",
+  "fullAccessibilityCertificationClaimed": false,
+  "notes": [
+    "Compact PRE uses parked manual scroll; primary action remains fixed.",
+    "Compact REVEAL fits character, voice, replay, reduced-motion, options and primary actions in initial viewport.",
+    "Actual route imagery, names, purposes, scores and time are not replaced by Figma sample data."
+  ]
+}

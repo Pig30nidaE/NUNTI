@@ -1,0 +1,224 @@
+{
+  "assetVersion": "skin-v2",
+  "status": "ART_DIRECTION_NOT_FINAL",
+  "canvas": [
+    768,
+    768
+  ],
+  "order": [
+    "outfit",
+    "head",
+    "eyes",
+    "accessory"
+  ],
+  "owner": "NUNTI project",
+  "source": "backend/nunti/avatar_studio/assets/nunti-a-layers-v1",
+  "sourceSha256": "528a216abbe0f39006090676b6a128bf7c309a08af36ac03c61ca8f68510e0dd",
+  "licensingNote": "Local vector artwork authored for NUNTI. Approved A base/inner face/hands reused from the project; original rights record not independently verified.",
+  "generation": "Hand-authored SVG paths, local Chrome rasterization at 1\u00d7, Pillow RGBA composition. Zero generation API calls.",
+  "builder": "scripts/build_nunti_skin_v2_assets.py",
+  "fallback": "default/final.png",
+  "notes": "Default body is segmented from approved raster artwork. New outfits, headgear, eyes and props are independent vector sources and registered transparent runtime layers. Shared approved raster face and hands are composited into head/outfit. Back pack contour is masked against head and outfit.",
+  "files": {
+    "default/outfit.png": {
+      "sha256": "34080af83dc1187872b03e6d8c0e2c98e5ead31a8e8c26146f93cb1797637760",
+      "alphaBounds": [
+        188,
+        391,
+        580,
+        721
+      ],
+      "bytes": 134189
+    },
+    "default/head.png": {
+      "sha256": "5ad6bfc649b2a5163e63bc8b19664c3629f8ad78b2a63536ccc934a71d2fde3c",
+      "alphaBounds": [
+        188,
+        47,
+        574,
+        400
+      ],
+      "bytes": 133295
+    },
+    "default/eyes.png": {
+      "sha256": "70ea5948c6400008a3227f020cb629278f0fcc28c1d06462e9ac4b38f7c7cb69",
+      "alphaBounds": [
+        241,
+        169,
+        539,
+        396
+      ],
+      "bytes": 288479
+    },
+    "default/accessory.png": {
+      "sha256": "c873093adf3c37947d4b28235b0f2d31c009cbf5cce0fffc40238ad58faaba4e",
+      "alphaBounds": [
+        240,
+        439,
+        465,
+        593
+      ],
+      "bytes": 23324
+    },
+    "default/final.png": {
+      "sha256": "528a216abbe0f39006090676b6a128bf7c309a08af36ac03c61ca8f68510e0dd",
+      "alphaBounds": [
+        188,
+        47,
+        580,
+        721
+      ],
+      "bytes": 312924
+    },
+    "sea/outfit.png": {
+      "sha256": "e40af96728fe8bc627d10334d22990b039461f661265ff9e69c8092213331763",
+      "alphaBounds": [
+        186,
+        385,
+        580,
+        719
+      ],
+      "bytes": 74651
+    },
+    "sea/head.png": {
+      "sha256": "03cf91709508f6594d638bbb56bce8f3ffc2435f097f4074d7612d9e3692b2ad",
+      "alphaBounds": [
+        158,
+        38,
+        612,
+        411
+      ],
+      "bytes": 104163
+    },
+    "sea/eyes.png": {
+      "sha256": "cbdbe801d9de600c0c8f6ff7ee9990f79d8b098359d3033427519fda912107ff",
+      "alphaBounds": [
+        275,
+        221,
+        505,
+        342
+      ],
+      "bytes": 13957
+    },
+    "sea/accessory.png": {
+      "sha256": "4572f5c591b915707aec120d0937b7e44f7ead923ef911f70436996ecc0c0329",
+      "alphaBounds": [
+        302,
+        391,
+        549,
+        609
+      ],
+      "bytes": 22405
+    },
+    "sea/final.png": {
+      "sha256": "2ac4df8a7334605fefeb68fc9725cc352b9e8dfebfb0202654221aa4bc140120",
+      "alphaBounds": [
+        158,
+        38,
+        612,
+        719
+      ],
+      "bytes": 186219
+    },
+    "city/outfit.png": {
+      "sha256": "fc37745ee5d5c039c9f057a5b1b65d1ce518cbe2143437df3634277fa241cb17",
+      "alphaBounds": [
+        169,
+        385,
+        597,
+        723
+      ],
+      "bytes": 68179
+    },
+    "city/head.png": {
+      "sha256": "c890cd768891fd2ea71b047651b542e4e6087d4ce8245f5c565207ac4e50c96a",
+      "alphaBounds": [
+        162,
+        16,
+        603,
+        413
+      ],
+      "bytes": 110013
+    },
+    "city/eyes.png": {
+      "sha256": "e527e5d7aa8a998af4c794eafd3e0effba4d393aa21624731f9a7edb9e20b05a",
+      "alphaBounds": [
+        271,
+        211,
+        509,
+        338
+      ],
+      "bytes": 16225
+    },
+    "city/accessory.png": {
+      "sha256": "a4994cc6056d0bce59279db71f413cb4b797363a5e7c26bfa051c7aaef28bf88",
+      "alphaBounds": [
+        205,
+        384,
+        471,
+        614
+      ],
+      "bytes": 21958
+    },
+    "city/final.png": {
+      "sha256": "028006868bb49f0f4ce772da6695262859115ee821be691889069f71ea05f4d3",
+      "alphaBounds": [
+        162,
+        16,
+        603,
+        723
+      ],
+      "bytes": 182643
+    },
+    "mountain/outfit.png": {
+      "sha256": "46ffd60e45663a09c21a7efb0c9b6c1333e4ac7c5d3b0cfd2040a226fac6bf43",
+      "alphaBounds": [
+        185,
+        381,
+        580,
+        726
+      ],
+      "bytes": 70356
+    },
+    "mountain/head.png": {
+      "sha256": "086291dc8c8fc480e980fcc90743c9f836309b711f9cc04d94650943f411a604",
+      "alphaBounds": [
+        151,
+        42,
+        611,
+        409
+      ],
+      "bytes": 108118
+    },
+    "mountain/eyes.png": {
+      "sha256": "d5b2f7fa333b60dc439410ab5e4949c900b2d67788486e669285ece5fbe5ef20",
+      "alphaBounds": [
+        269,
+        208,
+        511,
+        361
+      ],
+      "bytes": 20696
+    },
+    "mountain/accessory.png": {
+      "sha256": "f795047a8d542832fd2af4bce9e849ba6658431583896a93eed8f27e829f4a0f",
+      "alphaBounds": [
+        153,
+        378,
+        607,
+        586
+      ],
+      "bytes": 37870
+    },
+    "mountain/final.png": {
+      "sha256": "dd2fc6472199d339de6d5ff0d208e232e7299a6b78004f260eb800f56ee9adc6",
+      "alphaBounds": [
+        151,
+        42,
+        611,
+        726
+      ],
+      "bytes": 187814
+    }
+  }
+}

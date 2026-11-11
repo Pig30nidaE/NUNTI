@@ -1,0 +1,31 @@
+{
+  "before": {
+    "phase": "FINAL_IDLE",
+    "elapsedMs": 4000,
+    "reason": "STATIC",
+    "skinId": "sea",
+    "visited": [
+      "DEFAULT_IDLE",
+      "FINAL_IDLE"
+    ],
+    "running": false,
+    "reducedMotion": false,
+    "systemReducedMotion": false,
+    "active": true
+  },
+  "after": {
+    "phase": "FINAL_IDLE",
+    "elapsedMs": 4000,
+    "reason": "STATIC",
+    "skinId": "sea",
+    "visited": [
+      "DEFAULT_IDLE",
+      "FINAL_IDLE"
+    ],
+    "running": false,
+    "reducedMotion": false,
+    "systemReducedMotion": false,
+    "active": true
+  },
+  "allowed": true
+}

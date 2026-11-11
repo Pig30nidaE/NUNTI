@@ -1,0 +1,293 @@
+{
+  "version": "identity-refine-v1",
+  "date": "2026-11-09",
+  "scope": "Static identity refinement concepts; production application and assets unchanged",
+  "sourceReference": {
+    "file": "docs/design/avatar-v6/assets/nunti-base-character.png",
+    "sha256": "d655e819c2f82ec1c5cbe9cd979fffecce3c03765c8e576c7d250e10847c293f",
+    "basis": "Top full-body figure; user-selected comparison reference",
+    "formalProductionApprovalRecord": "UNVERIFIED"
+  },
+  "recommendedDirection": "A / Matte Form",
+  "approvedDirection": null,
+  "approvedAssetFilenames": [],
+  "finalCandidateFiles": [
+    "nunti-a-sheet-v3.png",
+    "nunti-b-sheet-v4.png"
+  ],
+  "generatedImageCallCount": 9,
+  "externalPaidApiCallCount": 0,
+  "builtInCreditUsage": "NOT_EXPOSED_BY_TOOL",
+  "seed": null,
+  "modelIdentifier": null,
+  "assets": [
+    {
+      "filename": "nunti-a-sheet-v1.png",
+      "status": "SUPERSEDED_CONCEPT",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "18503a3850e3172bd9528189c860bfc3bee54d2a189fa412dec43897a8658edc",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-a3b47908-36a7-47fe-9302-c4d8df85c748.png",
+      "promptRecord": "prompts.json",
+      "referenceFiles": [
+        "../../design/avatar-v6/assets/nunti-base-character.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "fileBytes": 1488808,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png"
+    },
+    {
+      "filename": "nunti-b-sheet-v1.png",
+      "status": "SUPERSEDED_CONCEPT",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "5b54897558d0215e6a5eb8d5dbd816e25c76b417402945dd1c832e1f787fc51a",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-9bb52bcc-ff96-49cf-9ea9-f28eaa647f59.png",
+      "promptRecord": "prompts.json",
+      "referenceFiles": [
+        "../../design/avatar-v6/assets/nunti-base-character.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "fileBytes": 1649345,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png"
+    },
+    {
+      "filename": "nunti-b-sheet-v2.png",
+      "status": "SUPERSEDED_CONCEPT",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "4c7d6129be34deec9d81f5ab00b49b053cfa6470b9265bf2f2bf35e1e252fd1e",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-87a4717b-c677-4c9e-baaa-400f627f641e.png",
+      "promptRecord": "revision-prompts.json",
+      "referenceFiles": [
+        "nunti-b-sheet-v1.png",
+        "../../design/avatar-v6/assets/nunti-base-character.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "fileBytes": 1671010,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png"
+    },
+    {
+      "filename": "nunti-a-sheet-v2.png",
+      "status": "SUPERSEDED_CONCEPT",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "828ba62eb9f4215ba764c292a3d73767237ed8e114652a072f703576e39122e7",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-77e9038a-45da-473a-adfd-5685814a52c4.png",
+      "promptRecord": "revision-prompts.json",
+      "referenceFiles": [
+        "nunti-a-sheet-v1.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "fileBytes": 1759886,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png"
+    },
+    {
+      "filename": "nunti-b-sheet-v3.png",
+      "status": "SUPERSEDED_CONCEPT",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "e61ff069f1d983367e3afd2d558aba873e0cc893932a7a096b923800d63c47e2",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-56e0572a-8808-4d47-8e4c-4ffe5a9b9a4b.png",
+      "promptRecord": "revision-prompts.json",
+      "referenceFiles": [
+        "nunti-b-sheet-v2.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "fileBytes": 1633831,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png"
+    },
+    {
+      "filename": "nunti-a-front-transparent-v1.png",
+      "status": "DERIVED_PREVIEW_ALPHA_CLEANUP_REQUIRED",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "8fbd7f87a205029d731e886436a2f2510fb2f5928937c3e1319379004506b7c0",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-e95dbffe-200c-4a50-a847-9abc7d7ddc34.png",
+      "promptRecord": "revision-prompts.json",
+      "referenceFiles": [
+        "nunti-a-sheet-v2.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1208,
+          1302
+        ],
+        "mode": "RGBA",
+        "fileBytes": 988085,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png",
+      "alphaVerification": {
+        "extrema": [
+          0,
+          255
+        ],
+        "fullyTransparentPixels": 956480,
+        "fullyOpaquePixels": 831,
+        "partiallyTransparentPixels": 615505,
+        "dominantNonzeroAlpha": 253,
+        "transparentBackgroundVerified": true,
+        "productionCleanEdgeApproved": false,
+        "knownIssue": "Colored/white low-alpha edge remnants; interior mostly alpha 253, not 255. Separate generated derivative, not pixel-preserving extraction."
+      }
+    },
+    {
+      "filename": "nunti-b-front-transparent-v1.png",
+      "status": "DERIVED_PREVIEW_ALPHA_CLEANUP_REQUIRED",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "bd0e9fdbd83e6e27e1de700703b2de7df79789c19de5bd509e97bb6935b35504",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-407f9c9c-c9cf-4dd8-8b5c-847803787843.png",
+      "promptRecord": "revision-prompts.json",
+      "referenceFiles": [
+        "nunti-b-sheet-v3.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1086,
+          1448
+        ],
+        "mode": "RGBA",
+        "fileBytes": 1114497,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png",
+      "alphaVerification": {
+        "extrema": [
+          0,
+          255
+        ],
+        "fullyTransparentPixels": 801701,
+        "fullyOpaquePixels": 892,
+        "partiallyTransparentPixels": 769935,
+        "dominantNonzeroAlpha": 253,
+        "transparentBackgroundVerified": true,
+        "productionCleanEdgeApproved": false,
+        "knownIssue": "Colored/white low-alpha edge remnants; interior mostly alpha 253, not 255. Separate generated derivative, not pixel-preserving extraction."
+      }
+    },
+    {
+      "filename": "nunti-a-sheet-v3.png",
+      "status": "FINAL_REVIEW_CANDIDATE",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "f932c9d165a7dcb8233bf30f984bea0c1b5b3731cddaad4c7e730794d2d369f3",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-9c8125ce-9f77-49e2-b804-bc06b3e86303.png",
+      "promptRecord": "final-expression-prompts.json",
+      "referenceFiles": [
+        "nunti-a-sheet-v2.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "fileBytes": 1754950,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png"
+    },
+    {
+      "filename": "nunti-b-sheet-v4.png",
+      "status": "FINAL_REVIEW_CANDIDATE",
+      "approved": false,
+      "owner": "NUNTI project / user; production sign-off pending",
+      "sha256": "ce8956d3b4aff87fe8a3469bef40f136be4cad75dd525a3983c9bc9f2b46a53e",
+      "sourceTool": "image_gen.imagegen (built-in)",
+      "sourceOutputPath": "/Users/pig30nidae/.codex/generated_images/01a1c04d-21d3-7002-a82d-6727ad1c0c68/exec-674bbb91-6be8-41b7-968d-8ee8bb364500.png",
+      "promptRecord": "final-expression-prompts.json",
+      "referenceFiles": [
+        "nunti-b-sheet-v3.png"
+      ],
+      "export": {
+        "format": "PNG",
+        "dimensions": [
+          1254,
+          1254
+        ],
+        "mode": "RGB",
+        "fileBytes": 1915974,
+        "reencodedAfterGeneration": false
+      },
+      "licensingNote": "Project reference supplied by user; original license and account-specific generated-output terms not verified. No external mascot imitation requested.",
+      "fallback": "../../design/avatar-v6/assets/nunti-base-character.png"
+    }
+  ],
+  "reviewArtifacts": [
+    {
+      "file": "comparison-board.png",
+      "sha256": "1e80e93200233905aeb15f2e1e2f74bfd58b76b4c86a75ef5f6155bf924fc690"
+    },
+    {
+      "file": "small-size-review.png",
+      "sha256": "334ddfb0e3c4076041d2c9ce72fde1ce7eb8bb01c2e915d676e2516b7cce1517"
+    }
+  ],
+  "renderSource": "render_boards.py",
+  "notes": [
+    "Review candidates are not production-approved masters.",
+    "Rendering uses unchanged embedded PNG bytes, SVG viewports and a presentation-only silhouette filter.",
+    "Device/emulator UI integration and user expression recognition are unverified."
+  ]
+}

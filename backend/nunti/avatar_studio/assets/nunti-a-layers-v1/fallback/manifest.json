@@ -1,0 +1,36 @@
+{
+  "assetVersion": "nunti-a-layers-v1",
+  "canvas": [
+    768,
+    768
+  ],
+  "fixedFaceAnchors": {
+    "leftEye": [
+      316,
+      274
+    ],
+    "rightEye": [
+      463,
+      274
+    ],
+    "mouth": [
+      391,
+      337
+    ]
+  },
+  "files": {
+    "base.png": {
+      "sha256": "528a216abbe0f39006090676b6a128bf7c309a08af36ac03c61ca8f68510e0dd",
+      "size": [
+        768,
+        768
+      ],
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
+      ],
+      "bytes": 312924
+    }
+  }
+}

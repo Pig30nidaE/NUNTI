@@ -1,0 +1,132 @@
+{
+  "fileKey": "LHLHBra8ON3OdVW0qhBnbm",
+  "pageId": "15:4",
+  "frames": {
+    "pre-trip-compact-day.png": {
+      "figmaNodeId": "26:454",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-454",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "reveal-parked-compact-day.png": {
+      "figmaNodeId": "26:726",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-726",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "driving-restricted-compact-day.png": {
+      "figmaNodeId": "26:911",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-911",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "post-trip-compact-day.png": {
+      "figmaNodeId": "26:974",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-974",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "pre-trip-compact-night.png": {
+      "figmaNodeId": "26:1050",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-1050",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "reveal-parked-compact-night.png": {
+      "figmaNodeId": "26:1279",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-1279",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "driving-restricted-compact-night.png": {
+      "figmaNodeId": "26:1464",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-1464",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "post-trip-compact-night.png": {
+      "figmaNodeId": "26:1527",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=26-1527",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "direction-a.png": {
+      "figmaNodeId": "22:149",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=22-149",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        1682,
+        1210
+      ]
+    },
+    "direction-b.png": {
+      "figmaNodeId": "22:339",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=22-339",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        1682,
+        1210
+      ]
+    },
+    "journey-options-night.png": {
+      "figmaNodeId": "31:1385",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=31-1385",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "generation-options-night.png": {
+      "figmaNodeId": "31:1475",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=31-1475",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "missing-route-night.png": {
+      "figmaNodeId": "27:940",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=27-940",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    },
+    "journey-parked-compact-night.png": {
+      "figmaNodeId": "30:1249",
+      "url": "https://www.figma.com/design/LHLHBra8ON3OdVW0qhBnbm?node-id=30-1249",
+      "kind": "FIGMA_PROPOSAL",
+      "size": [
+        830,
+        1210
+      ]
+    }
+  }
+}

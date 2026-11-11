@@ -1,0 +1,9 @@
+{
+  "unchangedSinceIntegrationStart": {
+    "backend/nunti/avatar_studio/variant_spec.py": true,
+    "backend/nunti/avatar_studio/layered_render.py": true,
+    "backend/nunti/avatar_studio/models.py": true,
+    "android/app/src/main/kotlin/ai/nunti/app/journey/JourneyRuntime.kt": true,
+    "android/app/src/main/kotlin/ai/nunti/app/journey/JourneyService.kt": true
+  }
+}

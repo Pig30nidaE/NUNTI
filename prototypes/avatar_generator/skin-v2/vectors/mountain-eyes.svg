@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="768" viewBox="0 0 768 768"><defs><linearGradient id="iris" x1="0" y1="0" x2="35%" y2="100%"><stop offset="0.000" stop-color="#4c372c"/><stop offset="0.500" stop-color="#79583d"/><stop offset="1.000" stop-color="#be945b"/></linearGradient>
+    <clipPath id="left-eye"><path d="M271 279Q274 247 295 237Q323 220 347 240Q367 257 362 287Q353 309 322 313Q292 315 276 295Z"/></clipPath>
+    <clipPath id="right-eye"><path d="M418 286Q413 257 432 239Q457 220 482 237Q504 246 509 277Q506 309 471 313Q433 315 418 286Z"/></clipPath>
+    </defs><g fill="#fff7eb" stroke="#664234" stroke-width="3.5" stroke-linejoin="round"><path d="M271 279Q274 247 295 237Q323 220 347 240Q367 257 362 287Q353 309 322 313Q292 315 276 295Z"/><path d="M418 286Q413 257 432 239Q457 220 482 237Q504 246 509 277Q506 309 471 313Q433 315 418 286Z"/></g>
+        <g clip-path="url(#left-eye)">
+         <ellipse cx="319" cy="274" rx="23" ry="31" fill="url(#iris)" stroke="#4b3633" stroke-width="2"/>
+         <ellipse cx="321" cy="273" rx="11.96" ry="17.98" fill="#241e25" opacity=".83"/>
+         <ellipse cx="327" cy="265" rx="6" ry="5.5" fill="#fff7ed"/>
+         <ellipse cx="312" cy="282" rx="3" ry="2.5" fill="#fff3dc" opacity=".68"/>
+        </g>
+        <g clip-path="url(#right-eye)">
+         <ellipse cx="462" cy="274" rx="23" ry="31" fill="url(#iris)" stroke="#4b3633" stroke-width="2"/>
+         <ellipse cx="464" cy="273" rx="11.96" ry="17.98" fill="#241e25" opacity=".83"/>
+         <ellipse cx="470" cy="265" rx="6" ry="5.5" fill="#fff7ed"/>
+         <ellipse cx="455" cy="282" rx="3" ry="2.5" fill="#fff3dc" opacity=".68"/>
+        </g>
+    <path d="M282 225Q305 207 333 216M446 216Q472 205 494 225" fill="none" stroke="#835948" stroke-width="6.5" stroke-linecap="round"/>
+    <path d="M351 326Q360 315 373 321Q393 329 410 321Q424 315 432 325Q430 357 393 361Q357 358 351 326Z" fill="#853c34"/>
+    <path d="M363 347Q389 329 421 345Q410 359 393 359Q375 358 363 347Z" fill="#de8875"/>
+    </svg>

@@ -1,0 +1,36 @@
+{
+  "before": {
+    "phase": "OUTFIT_SWAP",
+    "elapsedMs": 1926.5,
+    "reason": "PLAYING",
+    "skinId": "sea",
+    "visited": [
+      "DEFAULT_IDLE",
+      "ROUTE_ENERGY",
+      "OUTFIT_SWAP"
+    ],
+    "running": true,
+    "reducedMotion": false,
+    "systemReducedMotion": false,
+    "active": true,
+    "renderer": "NATIVE_CANVAS"
+  },
+  "after": {
+    "phase": "HEAD_AND_EYES_TRANSFORM",
+    "elapsedMs": 2359.8999999999996,
+    "reason": "PLAYING",
+    "skinId": "sea",
+    "visited": [
+      "DEFAULT_IDLE",
+      "ROUTE_ENERGY",
+      "OUTFIT_SWAP",
+      "HEAD_AND_EYES_TRANSFORM"
+    ],
+    "running": true,
+    "reducedMotion": false,
+    "systemReducedMotion": false,
+    "active": true,
+    "renderer": "NATIVE_CANVAS"
+  },
+  "allowed": true
+}

@@ -1,0 +1,938 @@
+{
+  "status": "FAIL",
+  "surface": "PLEOS_ANDROID_WEBVIEW",
+  "checks": [
+    {
+      "name": "host-Studio-transport-disconnected",
+      "status": "PASS"
+    },
+    {
+      "name": "installed-APK-matches-reviewed-build",
+      "status": "PASS",
+      "evidence": "c5d6612d867bfb370f4246842ae72861622b35bf5e20667f494f10b674db3a13"
+    },
+    {
+      "name": "cold-start-actual-pre-trip-UI-offline",
+      "status": "PASS"
+    },
+    {
+      "name": "native-WebView-denies-avatar-mutation",
+      "status": "PASS",
+      "evidence": {
+        "status": 403,
+        "code": "MOCK_SKIN_MODE"
+      }
+    },
+    {
+      "name": "existing-create-control-starts-visible-transform",
+      "status": "PASS"
+    },
+    {
+      "name": "video-recorded-from-real-create-interaction",
+      "status": "PASS",
+      "evidence": {
+        "file": "/Users/pig30nidae/NUNTI/artifacts/nunti-skin-v2/runtime-caption-final/nunti-skin-transform-demo.mp4",
+        "bytes": 4075569
+      }
+    },
+    {
+      "name": "all-six-phases-visited-in-order",
+      "status": "PASS",
+      "evidence": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "reason": "COMPLETE",
+        "skinId": "sea",
+        "visited": [
+          "DEFAULT_IDLE",
+          "ROUTE_ENERGY",
+          "OUTFIT_SWAP",
+          "HEAD_AND_EYES_TRANSFORM",
+          "SKIN_REVEAL",
+          "FINAL_IDLE"
+        ],
+        "running": false,
+        "reducedMotion": false,
+        "systemReducedMotion": false,
+        "active": true
+      }
+    },
+    {
+      "name": "sea-SkinSpec-and-timeline-final",
+      "status": "PASS",
+      "evidence": {
+        "characterId": "nunti-skin-ee79cc0eacd5c1bfcb3408f05faa14e1",
+        "skinSpec": {
+          "skinId": "sea",
+          "name": "바닷길 탐험가",
+          "outfit": "줄무늬 세일러 재킷 · 모래색 스니커즈",
+          "headStyle": "물결 선원 모자와 비스듬한 새싹",
+          "earStyle": "조개 귀 장식",
+          "eyeStyle": "편안한 타원 눈매",
+          "accessories": [
+            "조개 파우치"
+          ],
+          "palette": "#3583A4",
+          "pattern": "포말과 물결",
+          "version": "skin-v2.0",
+          "mood": "calm",
+          "road": "highway",
+          "routeId": "route-debe7eaba6a6cca104474daaa84445c8d8cc294e1aace4fed5d284d5c916e92a",
+          "animationPreset": {
+            "ribbon": "solid",
+            "sweep": "horizontal"
+          }
+        },
+        "visual": {
+          "path": "/skin-v2/sea/final.png"
+        }
+      }
+    },
+    {
+      "name": "sea-terminal-canvas-equals-bundled-final-PNG",
+      "status": "PASS"
+    },
+    {
+      "name": "live-start-screenshot-captured-before-outfit",
+      "status": "PASS",
+      "evidence": {
+        "before": {
+          "phase": "DEFAULT_IDLE",
+          "elapsedMs": 0,
+          "reason": "PLAYING",
+          "skinId": "sea",
+          "visited": [
+            "DEFAULT_IDLE"
+          ],
+          "running": true,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        },
+        "after": {
+          "phase": "DEFAULT_IDLE",
+          "elapsedMs": 208.4999999996271,
+          "reason": "PLAYING",
+          "skinId": "sea",
+          "visited": [
+            "DEFAULT_IDLE"
+          ],
+          "running": true,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        }
+      }
+    },
+    {
+      "name": "live-mid-screenshot-captured-during-transformation",
+      "status": "PASS",
+      "evidence": {
+        "before": {
+          "phase": "OUTFIT_SWAP",
+          "elapsedMs": 1808.3999999996267,
+          "reason": "PLAYING",
+          "skinId": "sea",
+          "visited": [
+            "DEFAULT_IDLE",
+            "ROUTE_ENERGY",
+            "OUTFIT_SWAP"
+          ],
+          "running": true,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        },
+        "after": {
+          "phase": "HEAD_AND_EYES_TRANSFORM",
+          "elapsedMs": 2041.7999999996282,
+          "reason": "PLAYING",
+          "skinId": "sea",
+          "visited": [
+            "DEFAULT_IDLE",
+            "ROUTE_ENERGY",
+            "OUTFIT_SWAP",
+            "HEAD_AND_EYES_TRANSFORM"
+          ],
+          "running": true,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        }
+      }
+    },
+    {
+      "name": "Skip-displays-the-identical-final-pixels",
+      "status": "PASS",
+      "evidence": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "reason": "SKIPPED",
+        "skinId": "sea",
+        "visited": [
+          "DEFAULT_IDLE",
+          "FINAL_IDLE"
+        ],
+        "running": false,
+        "reducedMotion": false,
+        "systemReducedMotion": false,
+        "active": true
+      }
+    },
+    {
+      "name": "in-app-reduced-motion-settles-to-identical-final-pixels",
+      "status": "PASS",
+      "evidence": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "reason": "REDUCED",
+        "skinId": "sea",
+        "visited": [
+          "DEFAULT_IDLE",
+          "FINAL_IDLE"
+        ],
+        "running": false,
+        "reducedMotion": true,
+        "systemReducedMotion": false,
+        "active": true
+      }
+    },
+    {
+      "name": "advertised-image-and-local-model-capability-cannot-enable-generation",
+      "status": "PASS"
+    },
+    {
+      "name": "offline-save-reopen-matches-SkinSpec-and-final-pixels",
+      "status": "PASS",
+      "evidence": {
+        "characterId": "nunti-skin-ee79cc0eacd5c1bfcb3408f05faa14e1",
+        "skinSpec": {
+          "skinId": "sea",
+          "name": "바닷길 탐험가",
+          "outfit": "줄무늬 세일러 재킷 · 모래색 스니커즈",
+          "headStyle": "물결 선원 모자와 비스듬한 새싹",
+          "earStyle": "조개 귀 장식",
+          "eyeStyle": "편안한 타원 눈매",
+          "accessories": [
+            "조개 파우치"
+          ],
+          "palette": "#3583A4",
+          "pattern": "포말과 물결",
+          "version": "skin-v2.0",
+          "mood": "calm",
+          "road": "highway",
+          "routeId": "route-debe7eaba6a6cca104474daaa84445c8d8cc294e1aace4fed5d284d5c916e92a",
+          "animationPreset": {
+            "ribbon": "solid",
+            "sweep": "horizontal"
+          }
+        },
+        "visual": {
+          "path": "/skin-v2/sea/final.png"
+        }
+      }
+    },
+    {
+      "name": "actual-demo-default-distinct-and-matches-bundled-PNG",
+      "status": "PASS",
+      "evidence": {
+        "artifact": {
+          "characterId": "nunti-skin-20354a5ab4d792d8e0c121c60f8a028b",
+          "skinSpec": {
+            "skinId": "default",
+            "name": "기본 눈티 A",
+            "outfit": "기본 여행복",
+            "headStyle": "기본 새싹 후드",
+            "earStyle": "둥근 후드",
+            "eyeStyle": "기본 눈매",
+            "accessories": [
+              "기본 여행 가방"
+            ],
+            "palette": "#6B9B83",
+            "pattern": "기본",
+            "version": "skin-v2.0",
+            "mood": "unset",
+            "road": "unknown",
+            "routeId": "none",
+            "animationPreset": {
+              "ribbon": "solid",
+              "sweep": "horizontal"
+            }
+          },
+          "visual": {
+            "path": "/skin-v2/default/final.png"
+          }
+        },
+        "final": {
+          "phase": "FINAL_IDLE",
+          "elapsedMs": 4000,
+          "reason": "STATIC",
+          "skinId": "default",
+          "visited": [
+            "DEFAULT_IDLE",
+            "FINAL_IDLE"
+          ],
+          "running": false,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        },
+        "digest": "4000820b27c949f3633ad17093e3f54588e5b79730bf2600aa53cf303f590e66"
+      }
+    },
+    {
+      "name": "actual-demo-city-distinct-and-matches-bundled-PNG",
+      "status": "PASS",
+      "evidence": {
+        "artifact": {
+          "characterId": "nunti-skin-616f342cf7618def596adb20f2d373c3",
+          "skinSpec": {
+            "skinId": "city",
+            "name": "밤도시 모험가",
+            "outfit": "반사 띠 오버핏 봄버 · 하이톱",
+            "headStyle": "옆으로 넘긴 머리와 새싹",
+            "earStyle": "오버이어 헤드폰",
+            "eyeStyle": "호기심 어린 눈썹과 눈매",
+            "accessories": [
+              "크로스백"
+            ],
+            "palette": "#826CC3",
+            "pattern": "도시 불빛",
+            "version": "skin-v2.0",
+            "mood": "curious",
+            "road": "urban",
+            "routeId": "route-942c7dd4823f789a92aeb48d1b2fa5b320c8be560344d9fb09bb4daafddd43a7",
+            "animationPreset": {
+              "ribbon": "segmented",
+              "sweep": "diagonal"
+            }
+          },
+          "visual": {
+            "path": "/skin-v2/city/final.png"
+          }
+        },
+        "final": {
+          "phase": "FINAL_IDLE",
+          "elapsedMs": 4000,
+          "reason": "COMPLETE",
+          "skinId": "city",
+          "visited": [
+            "DEFAULT_IDLE",
+            "ROUTE_ENERGY",
+            "OUTFIT_SWAP",
+            "HEAD_AND_EYES_TRANSFORM",
+            "SKIN_REVEAL",
+            "FINAL_IDLE"
+          ],
+          "running": false,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        },
+        "digest": "13d57eabcf85536e35df67e0b14384627a42f75ceb7abd3652e404bd7be453c8"
+      }
+    },
+    {
+      "name": "actual-demo-mountain-distinct-and-matches-bundled-PNG",
+      "status": "PASS",
+      "evidence": {
+        "artifact": {
+          "characterId": "nunti-skin-e8492c912e8920a68a0400fdfa8b17d0",
+          "skinSpec": {
+            "skinId": "mountain",
+            "name": "산길 트레커",
+            "outfit": "바람막이와 하이킹 바지 · 트레일 부츠",
+            "headStyle": "니트 모자와 곧게 선 새싹",
+            "earStyle": "위로 솟은 귀 장식",
+            "eyeStyle": "생기 있는 눈매",
+            "accessories": [
+              "등산 배낭"
+            ],
+            "palette": "#5E8460",
+            "pattern": "등고선",
+            "version": "skin-v2.0",
+            "mood": "adventurous",
+            "road": "rural",
+            "routeId": "route-a82291a2d61108cd6fb814b0d4e87dffcb7ae7da9d43c4778ea4ca5ee38e7d6d",
+            "animationPreset": {
+              "ribbon": "dotted",
+              "sweep": "uphill"
+            }
+          },
+          "visual": {
+            "path": "/skin-v2/mountain/final.png"
+          }
+        },
+        "final": {
+          "phase": "FINAL_IDLE",
+          "elapsedMs": 4000,
+          "reason": "COMPLETE",
+          "skinId": "mountain",
+          "visited": [
+            "DEFAULT_IDLE",
+            "ROUTE_ENERGY",
+            "OUTFIT_SWAP",
+            "HEAD_AND_EYES_TRANSFORM",
+            "SKIN_REVEAL",
+            "FINAL_IDLE"
+          ],
+          "running": false,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        },
+        "digest": "4078616b2588dbb1b902bb46555cb362dad581f1dd82e2ba35249c43c58fd100"
+      }
+    },
+    {
+      "name": "normal-route-file-and-form-create-the-matching-skin-offline",
+      "status": "PASS",
+      "evidence": {
+        "characterId": "nunti-skin-5a7adc53cdc1d3aef06e19aa968ba8e8",
+        "skinSpec": {
+          "skinId": "city",
+          "name": "밤도시 모험가",
+          "outfit": "반사 띠 오버핏 봄버 · 하이톱",
+          "headStyle": "옆으로 넘긴 머리와 새싹",
+          "earStyle": "오버이어 헤드폰",
+          "eyeStyle": "호기심 어린 눈썹과 눈매",
+          "accessories": [
+            "크로스백"
+          ],
+          "palette": "#826CC3",
+          "pattern": "도시 불빛",
+          "version": "skin-v2.0",
+          "mood": "curious",
+          "road": "urban",
+          "routeId": "route-55169a55a5044d8c89376f60f2fcf8d914dbcb42a240b5bfca23edc66dac2806",
+          "animationPreset": {
+            "ribbon": "segmented",
+            "sweep": "diagonal"
+          }
+        },
+        "visual": {
+          "path": "/skin-v2/city/final.png"
+        }
+      }
+    },
+    {
+      "name": "identical-input-and-rapid-taps-keep-one-record-and-the-same-result",
+      "status": "PASS",
+      "evidence": {
+        "characterId": "nunti-skin-ee79cc0eacd5c1bfcb3408f05faa14e1"
+      }
+    },
+    {
+      "name": "app-background-stops-motion",
+      "status": "PASS",
+      "evidence": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "reason": "BACKGROUNDED",
+        "skinId": "sea",
+        "visited": [
+          "DEFAULT_IDLE",
+          "FINAL_IDLE"
+        ],
+        "running": false,
+        "reducedMotion": false,
+        "systemReducedMotion": false,
+        "active": true
+      }
+    },
+    {
+      "name": "foreground-return-does-not-replay",
+      "status": "PASS"
+    },
+    {
+      "name": "OS-reduced-motion-stops-the-transform",
+      "status": "PASS",
+      "evidence": {
+        "phase": "FINAL_IDLE",
+        "elapsedMs": 4000,
+        "reason": "REDUCED",
+        "skinId": "sea",
+        "visited": [
+          "DEFAULT_IDLE",
+          "FINAL_IDLE"
+        ],
+        "running": false,
+        "reducedMotion": true,
+        "systemReducedMotion": true,
+        "active": true
+      }
+    },
+    {
+      "name": "Virtual-Console-D-at-30-stops-motion",
+      "status": "PASS",
+      "evidence": {
+        "motion": {
+          "phase": "FINAL_IDLE",
+          "elapsedMs": 4000,
+          "reason": "RESTRICTED",
+          "skinId": "sea",
+          "visited": [
+            "DEFAULT_IDLE",
+            "FINAL_IDLE"
+          ],
+          "running": false,
+          "reducedMotion": false,
+          "systemReducedMotion": false,
+          "active": true
+        },
+        "gear": {
+          "value": "Drive",
+          "source": "web",
+          "timestamp_ms": 1794245138319,
+          "source_timestamp": 0,
+          "source_location": ""
+        },
+        "speedKph": 30
+      }
+    },
+    {
+      "name": "return-to-P-keeps-static-final",
+      "status": "PASS"
+    },
+    {
+      "name": "controlled-final-decode-failure-uses-approved-default-and-saves-fallback-SkinSpec",
+      "status": "PASS",
+      "evidence": {
+        "characterId": "nunti-skin-8bd80f79af73659abb053c19d9a62044",
+        "skinSpec": {
+          "skinId": "default",
+          "name": "기본 눈티 A",
+          "outfit": "기본 여행복",
+          "headStyle": "기본 새싹 후드",
+          "earStyle": "둥근 후드",
+          "eyeStyle": "기본 눈매",
+          "accessories": [
+            "기본 여행 가방"
+          ],
+          "palette": "#6B9B83",
+          "pattern": "기본",
+          "version": "skin-v2.0",
+          "mood": "adventurous",
+          "road": "rural",
+          "routeId": "route-a82291a2d61108cd6fb814b0d4e87dffcb7ae7da9d43c4778ea4ca5ee38e7d6d",
+          "animationPreset": {
+            "ribbon": "dotted",
+            "sweep": "uphill"
+          },
+          "fallback": "FINAL_ASSET_MISSING",
+          "requestedSkinId": "mountain"
+        },
+        "visual": {
+          "path": "/skin-v2/default/final.png"
+        }
+      }
+    },
+    {
+      "name": "actual-offline-journey-uses-bundled-static-skin-and-no-voice-assets",
+      "status": "PASS",
+      "evidence": {
+        "sessionId": "441f6f97-977d-4664-bd75-583e0872a9a8",
+        "sha256": "2ac4df8a7334605fefeb68fc9725cc352b9e8dfebfb0202654221aa4bc140120"
+      }
+    }
+  ],
+  "requests": [
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/favicon.ico",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/favicon.ico",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/v3/avatars",
+      "method": "POST",
+      "nativeGuardProbe": true
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/outfit.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/head.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/eyes.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/accessory.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/outfit.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/head.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/eyes.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/accessory.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/studio.css",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-motion/base.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/assets/pleos-check.svg",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/journey_effects.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/formation.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-motion/manifest.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-transformation.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-skins.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-skin-motion.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/studio.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/navigation.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/ui-redesign.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/assets/fonts/noto-sans-kr.ttf",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-motion/base.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/v3/capabilities",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/v3/examples",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/favicon.ico",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/favicon.ico",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/v3/avatars",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/city/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/outfit.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/head.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/eyes.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/accessory.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/city/outfit.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/city/head.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/city/eyes.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/city/accessory.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/mountain/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/mountain/outfit.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/mountain/head.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/mountain/eyes.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/mountain/accessory.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/outfit.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/head.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/eyes.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/accessory.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/studio.css",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-motion/base.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/assets/pleos-check.svg",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/journey_effects.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/formation.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-motion/manifest.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-transformation.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-skins.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-skin-motion.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/studio.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/navigation.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/ui-redesign.js",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/nunti-motion/base.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/default/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/v3/capabilities",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/assets/fonts/noto-sans-kr.ttf",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/favicon.ico",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/favicon.ico",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/mountain/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/city/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/skin-v2/sea/final.png",
+      "method": "GET"
+    },
+    {
+      "origin": "http://127.0.0.1:8768",
+      "path": "/v3/avatars",
+      "method": "GET"
+    }
+  ],
+  "blockedRequests": [],
+  "guardErrors": [],
+  "apk": {
+    "path": "/Users/pig30nidae/NUNTI/android/build/app/outputs/apk/debug/app-debug.apk",
+    "sha256": "c5d6612d867bfb370f4246842ae72861622b35bf5e20667f494f10b674db3a13"
+  },
+  "webView": {
+    "url": "http://127.0.0.1:8768/",
+    "id": "85E5DB62B2108D10461B671D2A573E0F"
+  },
+  "syntheticModelCapabilityResponse": true,
+  "error": "Error: Native control unavailable: 여정 마치기\n    at tapNative (file:///Users/pig30nidae/NUNTI/scripts/nunti_integration_runtime_lib.mjs:59:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async smokeJourney (file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_skin_v2_runtime.mjs:219:3)\n    at async file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_skin_v2_runtime.mjs:409:48",
+  "localStorageRestored": true,
+  "restorationErrors": [
+    {
+      "name": "owned DEMO journey",
+      "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok((await readJourney(true)).equals(vehicle.originalLatest))\n"
+    }
+  ],
+  "adbReverseRestored": true,
+  "vehicleAndJourneyRestored": true
+}

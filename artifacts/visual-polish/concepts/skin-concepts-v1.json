@@ -1,0 +1,55 @@
+{
+  "status": "CONCEPT_NOT_RUNTIME_READY",
+  "owner": "NUNTI project",
+  "version": "visual-polish-concepts-v1",
+  "generator": "Codex built-in image generation tool",
+  "reference": "prototypes/avatar_generator/skin-v2/default/final.png",
+  "styleReference": "artifacts/visual-polish/concepts/coast-directions-v1.png (coast); coast-sailor-a-v1.png (city/mountain)",
+  "license": "Source reference rights and final usage terms not independently verified.",
+  "fallback": "Existing local Skin V2 assets remain unchanged.",
+  "caveat": "Single-image outputs do not satisfy the 768x768 registered independent layer contract; identity, alpha edge cleanup, and rigging remain unverified.",
+  "assets": [
+    {
+      "file": "artifacts/visual-polish/concepts/coast-sailor-a-v1.png",
+      "sha256": "755d3147c122a5e9faed92fadf7700cdf2163568cc752d9d32ceb94b0da58102",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "prompt": "Identity-preserving edit for a Nunti Skin V2 concept, not a new character. Image 1 is the exact registered base sprite: preserve its round face, eye centers, proportions, mouth, cheeks, signature green sprout, stance, overall character center and canvas framing as precisely as possible. Image 2 left A is the selected outfit direction ONLY. Replace the scarf, hoodie, bag, trousers and shoes with A's little ocean-blue and cream sailor jacket, navy collar, small shell pouch and sand-colored deck shoes, plus a tiny nautical cap that does not cover the sprout. Preserve exact facial features and head size from image 1, avoid changing pose or looking direction. Full-body front view, soft sculpted toy texture and matching gentle studio light, isolated on a genuinely transparent background, no lettering, no logo, no extra objects, no second character. All clothing remains attached to the character; leave ample transparent padding."
+    },
+    {
+      "file": "artifacts/visual-polish/concepts/city-explorer-v1.png",
+      "sha256": "a489cc4f8f4a08eb7622aa12bc5c8cc34132ea306c297126afaffab23389db34",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "prompt": "Identity-preserving edit for a Nunti Skin V2 concept. Image 1 is the exact registered base sprite: preserve its round face, eye centers, head/body ratios, mouth, rosy cheeks, signature little green sprout, frontal stance and visual framing. Image 2 shows the desired soft sculpted collectible toy finish and lighting, not the garment design. Transform the character into CITY explorer with a refined navy and muted lavender varsity bomber jacket, compact ear headphones with the sprout visible, small modern satchel, dark tapered pants and soft high-top shoes with subtle reflective trim. Full body facing forward, matching existing base character, no added characters, no writing or logos, on genuinely transparent background with ample padding."
+    },
+    {
+      "file": "artifacts/visual-polish/concepts/mountain-explorer-v1.png",
+      "sha256": "127625bcb0ee68f5636601e8397f7dcac50af67413f3b09af656d3031b4414bb",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "prompt": "Identity-preserving edit for a Nunti Skin V2 concept. Image 1 is the exact registered base sprite: preserve its round face, eye centers, head/body ratios, mouth, rosy cheeks, signature little green sprout, frontal stance and visual framing. Image 2 shows the desired soft sculpted collectible toy finish and lighting, not the garment design. Transform the character into MOUNTAIN trail companion with a warm moss-green and cream padded windbreaker, a small knitted cap leaving the sprout visible, tiny hiking backpack, comfortable trail trousers and soft miniature hiking boots. Full body facing forward, matching existing base character, no added characters, no writing or logos, on genuinely transparent background with ample padding."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "owner": "NUNTI",
+  "version": "nunti-life-5.0",
+  "sourcePrompt": "Use case: precise-object-edit. Production 2D puppet torso underlay. Edit the exact supplied NUNTI character illustration. REMOVE BOTH ARMS completely from their shoulder sockets, including both hands and anything held in the hands (folio, raised stethoscope piece, football). Reconstruct the natural side contour of the torso and outfit underneath the removed arms. The result is the same character with head, neck, torso, pelvis, two legs and two shoes, but NO arms. It is a hidden animation underlay, not a finished character pose. Keep every remaining detail EXACTLY unchanged: full canvas placement and scale, face, head, sprout, proportions, clothing design, fabric texture, collar, buttons, colors, pockets, belt, legs, shoes and front facing pose. Do not shrink the body or move the feet. Keep shoulders softly capped with matching clothing fabric. No props, no extra limbs, no words, no borders. Transparent background, same square canvas and identical subject registration to the source. Original premium miniature textile illustration.",
+  "generator": "built-in image_gen",
+  "inputs": [
+    "artifacts/nunti-context-v4/wardrobe/formal.png",
+    "artifacts/nunti-context-v4/wardrobe/medical.png",
+    "artifacts/nunti-context-v4/wardrobe/football.png"
+  ],
+  "licenseNote": "Original NUNTI source and generated derivative; subject to applicable image generation terms.",
+  "humanQualityApproved": false,
+  "export": "1280 square RGBA hidden surface underlays; runtime matching at 768px; unchanged original face and torso cover the underlay."
+}
