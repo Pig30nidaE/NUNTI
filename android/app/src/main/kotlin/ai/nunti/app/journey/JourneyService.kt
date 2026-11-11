@@ -2,6 +2,7 @@ package ai.nunti.app.journey
 
 import ai.nunti.app.studio.StudioCarGate
 import ai.nunti.score.ClosingMessage
+import ai.nunti.score.DetectedEvent
 import ai.nunti.score.EventSpeaker
 import ai.nunti.score.Scenarios
 import ai.nunti.score.SpeechSink
@@ -53,6 +54,8 @@ class JourneyService : Service() {
      */
     private var nuntiVoice: PleosSpeechSink? = null
     private var nuntiSpeaker: EventSpeaker? = null
+    /** 눈티가 마지막으로 한 사건 반응 대사와 그 여정 시각. 화면 말풍선에 잠깐 보인다 (음성을 껐거나 캐릭터 음원이 있어도). */
+    private var said: Pair<String, Long>? = null
     private var demoCursor = 0
     private var lastPersist = 0L
     private var lastCanFinish = false
@@ -76,9 +79,9 @@ class JourneyService : Service() {
                 analysis.observe(sample, simulationPosition(sample.tMs.toDouble()/scenario.samples.last().tMs), scenario.events.filter { it.tMs<=sample.tMs })
                 journey.add(sample, scenario.events.filter { it.tMs <= sample.tMs })
             }
-            publish(snapshot, false)
             // 간격(15초)은 여정 시간으로 잰다. 실제 주행에서는 실제 시간과 같고, 빨리 재생하는 시연에서도 사건을 덜 놓친다.
-            nuntiSpeaker?.onUpdate(snapshot.report, snapshot.emotion, snapshot.elapsedMs)
+            nuntiSpeaker?.onUpdate(snapshot.report, snapshot.emotion, snapshot.elapsedMs)?.let { said = it to snapshot.elapsedMs }
+            publish(snapshot, false)
             snapshot.feedback?.let { feedback ->
                 if (feedback.key != consumedFeedback) {
                     consumedFeedback = feedback.key
@@ -138,8 +141,9 @@ class JourneyService : Service() {
                 Log.i(TAG, "NUNTI_VOICE $it")
             }
             nuntiVoice = voice
-            nuntiSpeaker = EventSpeaker(SpeechSink { text, id, emotion -> if (!muted) voice.speak(text, id, emotion) })
         }
+        // 말풍선용 반응은 늘 고른다. 소리는 눈티 목소리를 쓸 때만 낸다 (캐릭터 음원이 있으면 그 음원이 말한다).
+        nuntiSpeaker = EventSpeaker(SpeechSink { text, id, emotion -> if (!muted) nuntiVoice?.speak(text, id, emotion) })
         publish(session!!.snapshot(), true)
         startForeground(9201, notification("${metadata.getString("displayName")}와 함께하는 여정"))
         Log.i(TAG, "JOURNEY_STARTED id=${session!!.sessionId} character=${session!!.characterId} source=${session!!.source}")
@@ -191,11 +195,13 @@ class JourneyService : Service() {
             eventAge!=null -> "다시 부드럽게 달리고 있어요."
             else -> snapshot.emotion.line
         }
+        val bubble = said?.takeIf { !snapshot.finished && snapshot.elapsedMs - it.second in 0..BUBBLE_MS }?.first ?: line
+        val hardEvents = setOf(DetectedEvent.Kind.HARD_ACCEL, DetectedEvent.Kind.HARD_DECEL, DetectedEvent.Kind.HARD_BRAKE)
         val value = JSONObject(metadata.toString())
             .put("state", if (snapshot.finished) "FINISHED" else "ACTIVE")
             .put("elapsedMs", snapshot.elapsedMs).put("sampleCount", snapshot.sampleCount)
             .put("total", report.total ?: JSONObject.NULL).put("coverage", report.coverage)
-            .put("emotion", expression).put("line", line).put("canFinish", parked)
+            .put("emotion", expression).put("line", line).put("bubble", bubble).put("canFinish", parked)
             .put("voiceStatus", if (muted) "음성 꺼짐" else voiceStatus).put("muted", muted)
             .put("updatedAtEpochMs", System.currentTimeMillis()).put("feedbackKey", consumedFeedback)
             .put("items", JSONArray().apply { report.items.forEach { item -> put(JSONObject()
@@ -211,9 +217,20 @@ class JourneyService : Service() {
                 put(JSONObject().put("tMs",point.sample.tMs).put("position",positionJson(point.position)).put("speedKmh",point.sample.speedKmh?:JSONObject.NULL)) } })
             .put("windowScores",JSONArray().apply { report.windowOverall.forEach { put(it?:JSONObject.NULL) } })
             .put("speedKmh", snapshot.currentSample?.speedKmh ?: JSONObject.NULL)
+            .put("speedLimitKmh", snapshot.currentSample?.speedLimitKmh ?: JSONObject.NULL)
+            .put("hardEventCount", report.events.count { it.kind in hardEvents })
             .put("gear", snapshot.currentSample?.gear?.name ?: JSONObject.NULL)
             .put("steeringAngleDeg",snapshot.currentSample?.steeringDeg?:JSONObject.NULL)
-            .put("signalDetails", JSONArray().apply { source?.received()?.forEach { (key, value) -> put(JSONObject().put("label", key).put("value", value ?: "미수신")) } })
+            .put("nav", source?.let { signals ->
+                val guidance = signals.navigationGuidance()
+                val route = signals.navigationRoute()
+                if (guidance == null && route == null || snapshot.finished) JSONObject.NULL else JSONObject()
+                    .put("turn", guidance?.turn ?: JSONObject.NULL).put("distanceM", guidance?.distanceM ?: JSONObject.NULL)
+                    .put("description", guidance?.description ?: JSONObject.NULL)
+                    .put("routeName", route?.name ?: JSONObject.NULL).put("routeDistanceM", route?.distanceM ?: JSONObject.NULL)
+                    .put("routeDurationS", route?.durationS ?: JSONObject.NULL)
+            } ?: JSONObject.NULL)
+            .put("signalDetails",JSONArray().apply { source?.received()?.forEach { (key, value) -> put(JSONObject().put("label", key).put("value", value ?: "미수신")) } })
         JourneyRuntime.publish(this, value, persist)
         if (persist) {
             lastPersist = now
@@ -308,5 +325,6 @@ class JourneyService : Service() {
         const val ACTION_MUTE = "ai.nunti.journey.MUTE"
         private const val CHANNEL = "nunti-journey"
         private const val TAG = "NuntiJourney"
+        private const val BUBBLE_MS = 8_000L // 반응 대사가 말풍선에 머무는 여정 시간
     }
 }
