@@ -113,26 +113,28 @@ class PleosSpeechSink(
      * 주행 후 보고(마무리 멘트·일시저장 안내). 차가 멈춘 것이 확인된 때만 부른다 — 호출한 쪽이 정차를 보증한다.
      * 주행 중 대사의 15초 간격 정책을 받지 않고, 같은 문장 반복(60초)만 막힌다.
      */
-    fun speakTripReport(text: String, utteranceId: String, emotion: Emotion) {
-        if (closed) return
+    fun speakTripReport(text: String, utteranceId: String, emotion: Emotion, onDone: () -> Unit = {}) {
+        if (closed) { onDone(); return }
         postTripUntil = SystemClock.elapsedRealtime() + REPORT_WINDOW_MS
         session.onForeground(playbackContext()) // 곧바로 주행 후 상태를 반영한다 (다음 1초 박자를 기다리지 않는다)
         val parts = RecordedVoice.split(text)
         if (parts.none { RecordedVoice.clipFor(it) != null }) {
+            pendingTts[utteranceId] = onDone
             session.submit(SpeechMapping.tripReportSpeech(
                 text, utteranceId, emotion, tripId, avatarId, profileId, avatar, System.currentTimeMillis()))
             return
         }
-        playParts(parts, utteranceId, emotion, report = true) // 보고는 말하던 반응을 끊고 시작한다
+        playParts(parts, utteranceId, emotion, report = true, onDone = onDone) // 보고는 말하던 반응을 끊고 시작한다
     }
 
-    private fun playParts(parts: List<String>, utteranceId: String, emotion: Emotion, report: Boolean) {
+    /** [onDone] 은 마지막 부품이 끝났을 때 한 번 부른다 (다른 문장에 끊기면 부르지 않는다). */
+    private fun playParts(parts: List<String>, utteranceId: String, emotion: Emotion, report: Boolean, onDone: () -> Unit = {}) {
         stopClip()
         busy = true
         val seq = ++sequence
         fun step(i: Int) {
             if (closed || seq != sequence) return
-            if (i >= parts.size) { busy = false; return }
+            if (i >= parts.size) { busy = false; onDone(); return }
             val next: () -> Unit = { handler.post { step(i + 1) } }
             val text = parts[i]
             val clip = RecordedVoice.clipFor(text)

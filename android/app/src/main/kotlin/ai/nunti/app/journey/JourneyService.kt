@@ -1,13 +1,17 @@
 package ai.nunti.app.journey
 
 import ai.nunti.app.studio.StudioCarGate
+import ai.nunti.score.ClosingMessage
+import ai.nunti.score.EventSpeaker
 import ai.nunti.score.Scenarios
+import ai.nunti.score.SpeechSink
 import ai.nunti.score.journey.JourneySession
 import ai.nunti.score.journey.JourneySnapshot
 import ai.nunti.score.journey.JourneySource
 import ai.nunti.score.journey.JourneyAnalysis
 import ai.nunti.score.journey.TripPosition
 import ai.nunti.score.live.PleosSignalSource
+import ai.nunti.score.live.PleosSpeechSink
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -43,6 +47,12 @@ class JourneyService : Service() {
     private var player: MediaPlayer? = null
     private var focus: AudioFocusRequest? = null
     private val audioManager by lazy { getSystemService(AudioManager::class.java) }
+    /**
+     * 캐릭터 감정 음원이 4개 다 있지 않으면 눈티 목소리가 대신 말한다: 녹음한 문장은 음원으로, 나머지는 Pleos TTS 로.
+     * 주행 중에는 사건 반응과 감정 변화([EventSpeaker], 점수 화면과 같은 규칙), 끝나면 마무리 멘트([ClosingMessage]).
+     */
+    private var nuntiVoice: PleosSpeechSink? = null
+    private var nuntiSpeaker: EventSpeaker? = null
     private var demoCursor = 0
     private var lastPersist = 0L
     private var lastCanFinish = false
@@ -67,6 +77,8 @@ class JourneyService : Service() {
                 journey.add(sample, scenario.events.filter { it.tMs <= sample.tMs })
             }
             publish(snapshot, false)
+            // 간격(15초)은 여정 시간으로 잰다. 실제 주행에서는 실제 시간과 같고, 빨리 재생하는 시연에서도 사건을 덜 놓친다.
+            nuntiSpeaker?.onUpdate(snapshot.report, snapshot.emotion, snapshot.elapsedMs)
             snapshot.feedback?.let { feedback ->
                 if (feedback.key != consumedFeedback) {
                     consumedFeedback = feedback.key
@@ -119,7 +131,15 @@ class JourneyService : Service() {
         if (session!!.source == JourneySource.LIVE) source = PleosSignalSource(applicationContext).also { it.start() }
         JourneyRuntime.isRunning = true
         val ready = listOf("NEUTRAL", "WORRY", "RELIEF", "JOY").count { metadata.getJSONObject("voices").has(it) }
-        voiceStatus = if (ready == 4) "보관된 캐릭터 음성" else "감정 음성 $ready/4 준비 · 없는 대사는 화면으로 안내해요"
+        voiceStatus = if (ready == 4) "보관된 캐릭터 음성" else "눈티 목소리로 안내해요"
+        if (ready < 4) {
+            // 시연(DEMO)은 정차한 채 재생하므로 주행 중 음성을 허용한다. 실제 주행은 검토 전이라 막고, 마무리 멘트(정차 후)만 말한다.
+            val voice = PleosSpeechSink(applicationContext, drivingAllowed = session!!.source == JourneySource.DEMO) {
+                Log.i(TAG, "NUNTI_VOICE $it")
+            }
+            nuntiVoice = voice
+            nuntiSpeaker = EventSpeaker(SpeechSink { text, id, emotion -> if (!muted) voice.speak(text, id, emotion) })
+        }
         publish(session!!.snapshot(), true)
         startForeground(9201, notification("${metadata.getString("displayName")}와 함께하는 여정"))
         Log.i(TAG, "JOURNEY_STARTED id=${session!!.sessionId} character=${session!!.characterId} source=${session!!.source}")
@@ -218,6 +238,11 @@ class JourneyService : Service() {
     }
 
     private fun speak(kind: String, finishing: Boolean = false) {
+        nuntiVoice?.let { voice ->
+            // 주행 중 대사(인사 포함)는 nuntiSpeaker 가 tick 에서 맡는다. 여기서는 마무리 멘트만.
+            if (finishing) speakClosing(voice)
+            return
+        }
         stopAudio()
         val path = metadata.getJSONObject("voices").optString(kind)
         if (muted || path.isBlank()) {
@@ -249,8 +274,22 @@ class JourneyService : Service() {
         runCatching { media.setDataSource(file.path); media.prepareAsync() }.onFailure { complete() }
     }
 
+    /** 마무리 멘트를 말하고, 끝나면(또는 늦어도 30초 뒤) 서비스를 닫는다. */
+    private fun speakClosing(voice: PleosSpeechSink) {
+        val journey = session?.snapshot()
+        if (muted || journey == null) { stopSelf(); return }
+        val prefs = getSharedPreferences("nunti-voice", MODE_PRIVATE)
+        val variant = prefs.getInt("closingCount", 0).also { prefs.edit().putInt("closingCount", it + 1).apply() }
+        val text = ClosingMessage.compose(journey.report, journey.emotion, variant)
+        Log.i(TAG, "JOURNEY_CLOSING text=$text")
+        var stopped = false
+        val stop = Runnable { if (!stopped) { stopped = true; stopSelf() } }
+        voice.speakTripReport(text, "nunti-closing-${journey.elapsedMs}", journey.emotion) { main.post(stop) }
+        main.postDelayed(stop, 30_000)
+    }
+
     override fun onDestroy() {
-        main.removeCallbacksAndMessages(null); stopAudio(); source?.stop(); locationSource?.close(); gate?.close()
+        main.removeCallbacksAndMessages(null); stopAudio(); nuntiVoice?.close(); nuntiVoice = null; source?.stop(); locationSource?.close(); gate?.close()
         session?.let { journey ->
             if (!journey.snapshot().finished) {
                 val saved = JourneyRuntime.current
