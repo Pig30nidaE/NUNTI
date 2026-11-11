@@ -21,10 +21,31 @@ ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT / ".local/avatar-generator"
 BASE = "http://127.0.0.1:8768"
 PACKAGE = "ai.nunti.avatar.demo"
-SDK = ROOT / ".local/pm-tools/sdk"
-ADB = SDK / "platform-tools/adb"
+from local_tools import ADB, SDK, gradle_env, gradle_flags  # noqa: E402  (이 컴퓨터의 JDK·SDK를 찾는다)
 APK = WORK / "Nunti-Avatar-Generator-debug.apk"
 LOCAL_AI = ROOT / ".local/avatar-quality-v4/local-image"
+
+
+ENV_FILES = (ROOT / ".env.local", ROOT / ".env")  # 앞의 파일이 우선한다. 둘 다 git 에 올리지 않는다.
+
+
+def env_file_value(name):
+    """Read one value from the project's dotenv files without printing it."""
+    for path in ENV_FILES:
+        if not path.is_file():
+            continue
+        for line in path.read_text(encoding="utf-8").splitlines():
+            line = line.strip()
+            if line.startswith("export "):
+                line = line[len("export "):].lstrip()
+            key, sep, value = line.partition("=")
+            if sep and key.strip() == name:
+                value = value.strip()
+                if len(value) >= 2 and value[0] == value[-1] and value[0] in "'\"":
+                    value = value[1:-1]
+                if value:
+                    return value
+    return None
 
 
 def run(arguments, **kwargs):
@@ -154,10 +175,15 @@ def server(configuration, allow_paid=False, local_ai=False, navigation_api=False
         NUNTI_STUDIO_ROUTE_API_ENABLED="true" if navigation_api else "false",
         NUNTI_STUDIO_WARDROBE_ENABLED="true" if allow_paid else "false",
     )
-    if allow_paid:
-        key_file = ROOT / ".local/credentials/openai-api-key"
-        if key_file.is_file():
-            env["OPENAI_API_KEY"] = key_file.read_text().strip()
+    if allow_paid and not env.get("OPENAI_API_KEY"):
+        key = env_file_value("OPENAI_API_KEY")
+        legacy = ROOT / ".local/credentials/openai-api-key"  # 예전 위치. 이미 여기에 넣어 둔 PC도 그대로 쓴다.
+        if not key and legacy.is_file():
+            key = legacy.read_text().strip() or None
+        if key:
+            env["OPENAI_API_KEY"] = key
+        else:
+            print("OPENAI_API_KEY 가 .env.local / .env 에 없어 유료 이미지 생성은 꺼진 채로 시작합니다.")
     with (WORK / "server.log").open("ab") as log:
         process = subprocess.Popen(
             [
@@ -190,19 +216,12 @@ def server(configuration, allow_paid=False, local_ai=False, navigation_api=False
 
 
 def build():
-    env = dict(
-        os.environ,
-        JAVA_HOME=str(ROOT / ".local/tts-tools/jdk/jdk-21.0.8+9/Contents/Home"),
-        ANDROID_HOME=str(SDK),
-        ANDROID_USER_HOME=str(ROOT / ".worktrees/tts/.local/android-user"),
-        GRADLE_USER_HOME=str(ROOT / ".worktrees/tts/.local/gradle-user"),
-    )
+    env = gradle_env()
     with (WORK / "build.log").open("w") as log:
         run(
             [
                 ROOT / "android/gradlew",
-                "--offline",
-                "--no-daemon",
+                *gradle_flags(),
                 ":app:assembleDebug",
                 ":app:assembleRelease",
                 ":app:lintDebug",
@@ -246,7 +265,8 @@ def android(configuration):
         raise RuntimeError("Android 사용자를 확인하지 못했습니다.")
     run(adb + ["reverse", "tcp:8768", "tcp:8768"], capture_output=True)
     run(adb + ["forward", "tcp:8088", "tcp:8088"], capture_output=True)
-    run(adb + ["install", "-r", "--user", user, APK], capture_output=True)
+    # -g: 매니페스트의 런타임 권한(CAR_SPEED 등)을 설치 때 허용한다. 앱이 직접 묻지 않아, 없으면 주차 확인에서 막힌다.
+    run(adb + ["install", "-r", "-g", "--user", user, APK], capture_output=True)
     command = (
         "run-as "
         + PACKAGE
