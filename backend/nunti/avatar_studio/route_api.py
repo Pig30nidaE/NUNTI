@@ -13,7 +13,7 @@ import urllib.error
 import urllib.request
 from datetime import UTC, datetime
 
-from .models import canonical, digest
+from .models import NoRedirect, canonical, digest
 from .storage import StudioError
 
 PROVIDER = "OSRM_FOSSGIS"
@@ -26,11 +26,6 @@ ATTRIBUTION = "© OpenStreetMap contributors · routing: OSRM / FOSSGIS"
 ATTRIBUTION_URL = "https://www.openstreetmap.org/copyright"
 FIX_MAP_URL = "https://www.openstreetmap.org/fixthemap"
 _provider_lock = threading.Lock()
-
-
-class NoRedirect(urllib.request.HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        return None
 
 
 def geographic_distance(a, b):

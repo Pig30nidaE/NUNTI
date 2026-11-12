@@ -216,7 +216,6 @@
     resize();
     window.NuntiCompanionPlayer?.sync();
     interruptSkin('SKIPPED');
-    window.NuntiBirth?.stop('SKIPPED');
     view.hidden=false;
     $('chat-context').textContent=context.destination?`${context.destination} 가는 길`:'주차 중 대화';
     if(fresh){

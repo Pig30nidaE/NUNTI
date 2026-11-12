@@ -1,9 +1,0 @@
-{
-  "tool": "built-in image_gen",
-  "targets": [
-    "concept-a.png",
-    "concept-b.png",
-    "concept-c.png"
-  ],
-  "userFeedback": "셋 다 괜찮으나, 너무 입체적이고 반투명함"
-}

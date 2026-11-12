@@ -1,14 +1,13 @@
 """Cloud conversation and bounded motion cues for the parked Nunti companion."""
 
+import json
 from typing import Literal, get_args
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, build_opener
-import json
 
 from pydantic import Field, ValidationError, field_validator
 
-from .image_api import NoRedirect
-from .models import Strict, canonical, text
+from .models import NoRedirect, Strict, canonical, text
 from .storage import StudioError
 
 DEFAULT_MODEL = "gpt-5-mini"
@@ -77,27 +76,31 @@ class ConversationReply(Strict):
 def build_request(model, value):
     context = value.trip.model_dump(exclude_none=True)
     messages = [turn.model_dump() for turn in value.history]
-    messages.append({"role": "user", "content": canonical({"trip": context, "message": value.message})})
+    messages.append(
+        {"role": "user", "content": canonical({"trip": context, "message": value.message})}
+    )
     payload = {
         "model": model,
         "store": False,
         "instructions": INSTRUCTIONS,
         "input": messages,
         "max_output_tokens": 320,
-        "text": {"format": {
-            "type": "json_schema",
-            "name": "nunti_reply",
-            "strict": True,
-            "schema": {
-                "type": "object",
-                "properties": {
-                    "reply": {"type": "string"},
-                    "gesture": {"type": "string", "enum": list(get_args(Gesture))},
+        "text": {
+            "format": {
+                "type": "json_schema",
+                "name": "nunti_reply",
+                "strict": True,
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "reply": {"type": "string"},
+                        "gesture": {"type": "string", "enum": list(get_args(Gesture))},
+                    },
+                    "required": ["reply", "gesture"],
+                    "additionalProperties": False,
                 },
-                "required": ["reply", "gesture"],
-                "additionalProperties": False,
-            },
-        }},
+            }
+        },
     }
     if model == DEFAULT_MODEL or model.startswith(DEFAULT_MODEL + "-"):
         payload["reasoning"] = {"effort": "minimal"}
@@ -135,9 +138,11 @@ def generate_reply(key, model, value):
             raise StudioError("CONVERSATION_INVALID_RESPONSE", 502)
         return read_reply(json.loads(body))
     except HTTPError as error:
-        code = {401: "CONVERSATION_AUTH", 403: "CONVERSATION_AUTH", 429: "CONVERSATION_RATE_LIMIT"}.get(
-            error.code, "CONVERSATION_UNAVAILABLE"
-        )
+        code = {
+            401: "CONVERSATION_AUTH",
+            403: "CONVERSATION_AUTH",
+            429: "CONVERSATION_RATE_LIMIT",
+        }.get(error.code, "CONVERSATION_UNAVAILABLE")
         raise StudioError(code, 429 if error.code == 429 else 502) from None
     except (URLError, TimeoutError, OSError):
         raise StudioError("CONVERSATION_UNAVAILABLE", 502) from None

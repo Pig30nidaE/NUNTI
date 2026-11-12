@@ -1,7 +1,0 @@
-{
-  "tool": "image_gen.imagegen (built-in)",
-  "mode": "precise-object-edit",
-  "reference": "docs/redesign/identity-refine-v1/nunti-a-front-transparent-v1.png",
-  "usage": "Only blank inner-face patch; outer geometry and color retained from approved A source",
-  "prompt": "Use case: precise-object-edit, identity-preserve.\nInput image 1 is the exact approved Nunti A front-facing matte character. This is PREPARATION OF A REUSABLE LAYER RIG, not a new character.\nChange ONLY the facial feature marks: erase both eyes including eye whites/pupils/highlights, erase both eyebrows, erase the open mouth entirely, and smoothly restore the warm peach matte facial skin underneath. Leave a blank featureless peach face surface with the same soft cheek blush and the same gentle shading/volume. No nose, eye holes, marks or scars. KEEP the entire face outer contour, ivory hood, cream side-curved forelock, sprout, mint scarf and its knot, hands, satchel, badge, shirt, pants, shoes, proportions, pose, lighting and framing EXACTLY unchanged. Keep the same full body, in the same pixel positions and orientation. Do not change any surface outside the inner face.\nThe output must be a single complete full-body character on actual transparent alpha background, aligned as closely as possible to the input image's same 1208x1302 canvas. No floor shadow, no backdrop, no text, no additional objects. Preserve existing transparency. The blank face will be used only as a small masked skin underlay; original canonical artwork will provide every outer character pixel."
-}

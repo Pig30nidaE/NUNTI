@@ -38,9 +38,6 @@ class StudioStore:
                 CREATE TABLE IF NOT EXISTS characters (
                     owner TEXT NOT NULL, id TEXT NOT NULL, artifact TEXT NOT NULL,
                     PRIMARY KEY(owner,id));
-                CREATE TABLE IF NOT EXISTS voices (
-                    owner TEXT NOT NULL, character_id TEXT NOT NULL, payload TEXT NOT NULL,
-                    PRIMARY KEY(owner,character_id));
             """)
             # A previous process may have crossed a paid side-effect boundary. Never repeat it.
             db.execute(
@@ -110,15 +107,6 @@ class StudioStore:
                 (code, owner, request_id),
             )
 
-    def release_unstarted_local(self, owner, request_id):
-        # Only a free inference rejected before acquiring the GPU can be retried.
-        with self.connect() as db:
-            db.execute(
-                "DELETE FROM requests WHERE owner=? AND id=? AND state='RUNNING' "
-                "AND reserved_micros=0 AND artifact IS NULL",
-                (owner, request_id),
-            )
-
     def put_asset(self, owner, content, mime):
         sha = digest(content)
         folder = self.media / owner
@@ -178,21 +166,12 @@ class StudioStore:
 
     def avatars(self, owner):
         with self.connect() as db:
-            values = [
+            return [
                 json.loads(row[0])
                 for row in db.execute(
                     "SELECT artifact FROM characters WHERE owner=? ORDER BY rowid DESC", (owner,)
                 )
             ]
-            voices = {
-                row[0]: json.loads(row[1])
-                for row in db.execute(
-                    "SELECT character_id,payload FROM voices WHERE owner=?", (owner,)
-                )
-            }
-        return [
-            {**value, "voice": voices.get(value["characterId"], value["voice"])} for value in values
-        ]
 
     def avatar(self, owner, character_id):
         with self.connect() as db:
@@ -201,25 +180,4 @@ class StudioStore:
             ).fetchone()
         if row is None:
             raise StudioError("CHARACTER_NOT_FOUND", 404)
-        value = json.loads(row[0])
-        voice = self.voice(owner, character_id)
-        return {**value, "voice": voice or value["voice"]}
-
-    def voice(self, owner, character_id):
-        with self.connect() as db:
-            row = db.execute(
-                "SELECT payload FROM voices WHERE owner=? AND character_id=?", (owner, character_id)
-            ).fetchone()
-        return json.loads(row[0]) if row else None
-
-    def put_voice(self, owner, character_id, voice):
-        # Illustration/identity remain immutable. A generated voice is attached once.
-        body = canonical(voice)
-        with self.connect() as db:
-            db.execute("BEGIN IMMEDIATE")
-            row = db.execute(
-                "SELECT payload FROM voices WHERE owner=? AND character_id=?", (owner, character_id)
-            ).fetchone()
-            if row and row[0] != body:
-                raise StudioError("VOICE_IDENTITY_CONFLICT", 409)
-            db.execute("INSERT OR IGNORE INTO voices VALUES(?,?,?)", (owner, character_id, body))
+        return json.loads(row[0])

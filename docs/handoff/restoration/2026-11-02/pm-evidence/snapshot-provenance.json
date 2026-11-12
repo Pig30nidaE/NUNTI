@@ -1,7 +1,0 @@
-{
-  "reason": "A previously pending ADB startup command resumed after teardown and reused the before-browser output path. Its actual later response is preserved separately. The original first snapshot was already archived by SERVER before teardown and is restored byte-for-byte from that independent copy.",
-  "originalSnapshot": "docs/handoff/restoration/2026-11-02/server-evidence/console-vehicle-state-before-browser.json",
-  "originalSha256": "081076d6a7fad48c4352749f54c5e1e3b510cd9463d6fdad82803774817d6f26",
-  "lateSnapshot": "docs/handoff/restoration/2026-11-02/pm-evidence/vehicle-state-after-browser-close.json",
-  "lateSha256": "8bc685c133a9a38c838a3aa6cd9f9fd66ec0abbaf2eb9238b3b8089081560314"
-}

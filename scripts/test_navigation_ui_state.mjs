@@ -93,7 +93,7 @@ async function harness() {
         plans.set(data.planId, data);
         if (deferredPlan) await new Promise(resolve => { deferredPlan.resolve = resolve; deferredPlan.plan = data; });
       } else if (url.startsWith('/v3/route-plans/')) data = plans.get(url.split('/').at(-1));
-      else if (url === '/v3/avatars' && body) throw new Error('TEST_GENERATION_STOP');
+      else if ((url === '/v3/avatars' || url === '/v3/wardrobe') && body) throw new Error('TEST_GENERATION_STOP');
       else throw new Error('Unexpected in-memory request: ' + url);
       return {ok: true, async json() { return {data: clone(data)}; }};
     },
@@ -110,7 +110,7 @@ async function harness() {
     context, get, nav, calls, commands,
     route: () => context.window.nuntiTest.getRoute(),
     apiCalls: () => calls.filter(call => call.url === '/v3/route-plans' && call.body),
-    generationCalls: () => calls.filter(call => call.url === '/v3/avatars' && call.body),
+    generationCalls: () => calls.filter(call => (call.url === '/v3/avatars' || call.url === '/v3/wardrobe') && call.body),
     async tick() { assert(timers.length, 'Expected an awaited poll'); timers.shift()(); await flush(); },
     refreshCallbacks() {
       for (const type of ['onDestinationInfo', 'onCurrentLocationInfo', 'onRouteStateInfo']) native.events.push({sequence: ++native.sequence, type});

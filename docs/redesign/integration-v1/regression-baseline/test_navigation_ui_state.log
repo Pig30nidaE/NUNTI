@@ -1,5 +1,0 @@
-{
-  "status": "FAIL",
-  "completedChecks": [],
-  "error": "studio.js:256\n$('journey-button').parentElement.before(journeyOptions);\n                                 ^\n\nTypeError: Cannot read properties of undefined (reading 'before')\n    at studio.js:256:34\n    at Script.runInContext (node:vm:150:12)\n    at Object.runInContext (node:vm:302:6)\n    at harness (file:///Users/pig30nidae/NUNTI/scripts/test_navigation_ui_state.mjs:101:58)\n    at test (file:///Users/pig30nidae/NUNTI/scripts/test_navigation_ui_state.mjs:129:50)\n    at file:///Users/pig30nidae/NUNTI/scripts/test_navigation_ui_state.mjs:132:9"
-}
