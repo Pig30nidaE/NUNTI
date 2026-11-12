@@ -29,7 +29,7 @@ import android.util.Log
  * 메인 스레드에서 만들고 호출한다.
  *
  * [drivingAllowed] 는 "이 앱이 주행 중 음성을 써도 되는가"라는 검토된 권한이다. 기본값은 false(정책이 주행 중 발화를 거부).
- * 시연 화면만 true 로 둔다. 실차 제출 전 Pleos/공모전 규정 확인 결과로 정해야 한다.
+ * 여정 화면은 true 로 둔다 (규정에 주행 중 음성 금지 없음: docs/research/2026-11-10-contest-rules-and-ux.md).
  * 통화·내비·긴급 음성 상태는 아직 관측하지 않고 QUIET 으로 가정한다.
  *
  * 눈티 목소리로 녹음한 문장([RecordedVoice])은 그 음원을 재생하고, 녹음이 없는 문장만 Pleos TTS 로 말한다.

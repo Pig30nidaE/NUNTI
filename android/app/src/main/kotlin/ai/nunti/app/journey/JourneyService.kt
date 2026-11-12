@@ -136,8 +136,9 @@ class JourneyService : Service() {
         val ready = listOf("NEUTRAL", "WORRY", "RELIEF", "JOY").count { metadata.getJSONObject("voices").has(it) }
         voiceStatus = if (ready == 4) "보관된 캐릭터 음성" else "눈티 목소리로 안내해요"
         if (ready < 4) {
-            // 시연(DEMO)은 정차한 채 재생하므로 주행 중 음성을 허용한다. 실제 주행은 검토 전이라 막고, 마무리 멘트(정차 후)만 말한다.
-            val voice = PleosSpeechSink(applicationContext, drivingAllowed = session!!.source == JourneySource.DEMO) {
+            // 주행 중 짧은 반응 대사를 허용한다 (공모전·Pleos 규정에 주행 중 음성 금지 없음: docs/research/2026-11-10-contest-rules-and-ux.md).
+            // 간격(15초)·길이(80자)는 EventSpeaker 가, 오디오 포커스(MAY_DUCK, 잃으면 중단)는 PleosSpeechSink 가 지킨다.
+            val voice = PleosSpeechSink(applicationContext, drivingAllowed = true) {
                 Log.i(TAG, "NUNTI_VOICE $it")
             }
             nuntiVoice = voice
