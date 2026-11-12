@@ -326,6 +326,23 @@ class ScoreEngineTest {
     }
 
     @Test
+    fun aBriskLaunchKeepsTheLaunchLimitPastTwentyKmh() {
+        // 정차에서 초당 12 km/h 로 60 km/h 까지: 20 km/h 를 넘어도 이어지는 출발이라 급가속이 아니다
+        val launch = (0..40).map { t -> VehicleSample(t * 1000L, speedKmh = (t - 10).coerceIn(0, 5) * 12f) }
+        assertEquals(0, hardAccels(engine.evaluate(launch, emptyList())))
+        // 같은 초당 12 km/h 라도 40 km/h 로 달리다 붙이면 급가속이다
+        val atSpeed = (0..40).map { t -> VehicleSample(t * 1000L, speedKmh = 40f + (t - 10).coerceIn(0, 3) * 12f) }
+        assertEquals(1, hardAccels(engine.evaluate(atSpeed, emptyList())))
+    }
+
+    @Test
+    fun aLaunchEndsWhenTheCarStopsAccelerating() {
+        // 출발해 30 km/h 를 유지한 뒤 다시 초당 12 km/h 로 붙이면 출발이 아니다
+        val speeds = (0..40).map { t -> when { t < 10 -> 0f; t < 13 -> (t - 9) * 10f; t < 20 -> 30f; t < 23 -> 30f + (t - 19) * 12f; else -> 66f } }
+        assertEquals(1, hardAccels(engine.evaluate(speeds.mapIndexed { t, v -> VehicleSample(t * 1000L, speedKmh = v) }, emptyList())))
+    }
+
+    @Test
     fun aViolentLaunchIsStillHardAccel() {
         val violent = (0..40).map { t -> VehicleSample(t * 1000L, speedKmh = if (t < 20) 0f else 30f) } // 한 번에 +30
         assertEquals(1, hardAccels(engine.evaluate(violent, emptyList())))

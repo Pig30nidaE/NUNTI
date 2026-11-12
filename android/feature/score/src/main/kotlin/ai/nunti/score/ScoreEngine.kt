@@ -306,6 +306,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
         val driving = DoubleArray(penalties.size)
         var openAccel: Open? = null
         var openDecel: Open? = null
+        var launching = false // 지금 이어지는 가속이 정차·저속에서 시작됐는가
 
         fun close(o: Open?) {
             o ?: return
@@ -322,6 +323,7 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
                 (abs(cur.speedKmh) - abs(prev.speedKmh)) / (dtMs / 1000f)
             } else null
             if (a == null) {
+                launching = false
                 close(openAccel); openAccel = null
                 close(openDecel); openDecel = null
                 continue
@@ -329,7 +331,8 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
             // 정차 시간은 주행 시간으로 세지 않는다: 오래 서 있으면 급가속 감점이 묽어지기 때문.
             if (moving(prev) || moving(cur)) driving[win(prev.tMs)] += dtMs / 1000.0
 
-            val accelLimit = accelThr(cur, abs(prev.speedKmh!!))
+            launching = a > 0f && (launching || abs(prev.speedKmh!!) < cfg.launchSpeedKmh)
+            val accelLimit = accelThr(cur, launching)
             if (a >= accelLimit) {
                 openAccel = (openAccel ?: Open(win(cur.tMs), cur.tMs, a, DetectedEvent.Kind.HARD_ACCEL, accelLimit)).also { it.peak = max(it.peak, a) }
             } else {
@@ -351,11 +354,12 @@ class ScoreEngine(private val cfg: ScoreConfig = ScoreConfig()) {
     }
 
     /**
-     * 급가속 기준. 정차·저속에서 출발하는 가속(구간 시작 속도가 [ScoreConfig.launchSpeedKmh] 미만)은 차가 원래 힘이 가장 세므로
-     * 더 높은 기준([ScoreConfig.harshAccelLaunch])을 쓴다. 신호 대기 후 보통의 출발을 급가속으로 보지 않기 위함이다.
+     * 급가속 기준. 정차·저속에서 출발하는 가속(가속이 [ScoreConfig.launchSpeedKmh] 미만에서 시작돼 끊기지 않고 이어지는 동안)은
+     * 차가 원래 힘이 가장 세므로 더 높은 기준([ScoreConfig.harshAccelLaunch])을 쓴다. 신호 대기 후 보통의 출발을 급가속으로 보지 않기 위함이다.
+     * 출발 가속이 20 km/h 를 넘어도 이어지는 한 출발로 본다. 가속이 멈추거나(속도 유지·감속) 신호가 끊기면 출발이 끝난다.
      */
-    private fun accelThr(s: VehicleSample, startKmh: Float) = when {
-        startKmh < cfg.launchSpeedKmh -> cfg.harshAccelLaunch
+    private fun accelThr(s: VehicleSample, launching: Boolean) = when {
+        launching -> cfg.harshAccelLaunch
         s.roadType == RoadType.HIGHWAY -> cfg.harshAccelHighway
         else -> cfg.harshAccelGeneral
     }
