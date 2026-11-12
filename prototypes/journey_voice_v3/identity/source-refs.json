@@ -1,7 +1,0 @@
-{
-  "modelCard": "https://huggingface.co/mlx-community/Qwen3-TTS-12Hz-1.7B-Base-8bit/blob/e7dd0585652209fa0d7783659aad4e8a324de11c/README.md",
-  "modelTreeApi": "https://huggingface.co/api/models/mlx-community/Qwen3-TTS-12Hz-1.7B-Base-8bit/tree/e7dd0585652209fa0d7783659aad4e8a324de11c?recursive=true",
-  "modelMetadataApi": "https://huggingface.co/api/models/mlx-community/Qwen3-TTS-12Hz-1.7B-Base-8bit/revision/e7dd0585652209fa0d7783659aad4e8a324de11c",
-  "upstream": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base/tree/fd4b254389122332181a7c3db7f27e918eec64e3",
-  "vendorVoiceDesignThenClone": "https://github.com/QwenLM/Qwen3-TTS#voice-design-then-clone"
-}

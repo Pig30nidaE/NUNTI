@@ -15,8 +15,22 @@ internal class NuntiLifeRenderer {
     private var autoStartedAt=0f
     private var previousTime=0f
     private var previousImage:Bitmap?=null
-    private val headWeights=FloatArray((GRID+1)*(GRID+1))
-    init {var i=0;for(row in 0..GRID)for(col in 0..GRID){val y=row*768f/GRID;headWeights[i++]=1-smooth((y-350)/55f)}}
+    private val headWeights = FloatArray((GRID + 1) * (GRID + 1))
+    private val leftWeights = FloatArray(headWeights.size)
+    private val rightWeights = FloatArray(headWeights.size)
+
+    init {
+        for (row in 0..GRID) for (col in 0..GRID) {
+            val i = row * (GRID + 1) + col
+            val x = col * 768f / GRID
+            val y = row * 768f / GRID
+            headWeights[i] = 1 - smooth((y - 350) / 55f)
+            // The silhouette follows the sleeve. The center of the coat and the feet stay pinned.
+            val sleeve = smooth((y - 400) / 80f) * (1 - smooth((y - 560) / 66f))
+            leftWeights[i] = sleeve * (1 - smooth((x - 230) / 75f))
+            rightWeights[i] = sleeve * smooth((x - 463) / 75f)
+        }
+    }
     fun draw(canvas:Canvas,image:Bitmap,skin:String,time:Float,reaction:String="idle",progress:Float=0f,animated:Boolean=true,worry:Float=0f,joy:Float=0f) {
         if(image!==previousImage||time<previousTime)autoStartedAt=0f
         previousImage=image;previousTime=time
@@ -24,13 +38,37 @@ internal class NuntiLifeRenderer {
         NuntiLifeMotion.sample(if(animated)(time-autoStartedAt).coerceAtLeast(0f) else 0f,if(animated)reaction else "idle",progress,pose)
         if(!animated){pose.head=0f;pose.left=0f;pose.right=0f;pose.lift=0f}
         val parts=NuntiPuppetParts.get(image)
+        val bundledRig=skin in setOf("sea","city","mountain")||parts!=null
+        if(!bundledRig){
+            val state=canvas.save();canvas.translate(0f,pose.lift)
+            val breath=if(animated)sin(time*1.35f)*.003f else 0f
+            canvas.scale(1+breath,1+breath,384f,721f)
+            if(animated)canvas.rotate(pose.head*.22f,384f,700f)
+            canvas.drawBitmap(image,0f,0f,paint)
+            canvas.restoreToCount(state)
+            return
+        }
         val head=pose.head*.0174533f
         val hc=cos(head);val hs=sin(head)
+        val left = if (parts == null) pose.left.coerceIn(-24f, 28f) * .0174533f else 0f
+        // The compass is raised on the coastal illustration.
+        val rightGain = if (skin == "sea") .0069813f else .0174533f
+        val right = if (parts == null) pose.right.coerceIn(-28f, 24f) * rightGain else 0f
+        val lc = cos(left) - 1f
+        val ls = sin(left)
+        val rc = cos(right) - 1f
+        val rs = sin(right)
         var i=0;var v=0
         for(row in 0..GRID)for(col in 0..GRID){val x=col*768f/GRID;val y=row*768f/GRID
             val hx=x-384;val hy=y-370
-            vertices[v++]=x+((hx*hc-hy*hs)-hx)*headWeights[i]
-            vertices[v++]=y+((hx*hs+hy*hc)-hy)*headWeights[i];i++
+            val lx = x - 287f
+            val rx = x - 488f
+            val armY = y - 418f
+            vertices[v++] = x + ((hx * hc - hy * hs) - hx) * headWeights[i] +
+                (lx * lc - armY * ls) * leftWeights[i] + (rx * rc - armY * rs) * rightWeights[i]
+            vertices[v++] = y + ((hx * hs + hy * hc) - hy) * headWeights[i] +
+                (lx * ls + armY * lc) * leftWeights[i] + (rx * rs + armY * rc) * rightWeights[i]
+            i++
         }
         val state=canvas.save();canvas.translate(0f,pose.lift)
         val breath=if(animated)sin(time*1.35f)*.003f else 0f

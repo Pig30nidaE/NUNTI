@@ -1,9 +1,0 @@
-{
-  "status": "PASS",
-  "checks": [
-    "reduced-motion-stops-native-companion",
-    "830px-window-without-horizontal-overflow",
-    "D-30kph-stops-transformation-and-companion",
-    "P-return-does-not-replay-transformation"
-  ]
-}

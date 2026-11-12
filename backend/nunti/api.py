@@ -111,9 +111,6 @@ class RequestGuard:
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
     store = Store(settings.db_path, settings.retention_days)
-    from .characters.worker import make_store
-
-    character_store = make_store(settings)
 
     async def cleanup_loop():
         while True:
@@ -125,7 +122,6 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     @asynccontextmanager
     async def lifespan(app):
         store.initialize()
-        character_store.initialize()
         store.purge_expired()
         task = asyncio.create_task(cleanup_loop())
         try:
@@ -148,7 +144,6 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         },
     )
     app.state.store = store
-    app.state.character_store = character_store
     app.add_middleware(RequestGuard, max_bytes=settings.max_body_bytes)
 
     @app.exception_handler(APIError)
@@ -195,9 +190,6 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         raise APIError(401, "unauthorized", "A valid bearer token is required")
 
     Owner = Annotated[str, Depends(owner)]
-    from .characters.api import create_router
-
-    app.include_router(create_router(character_store, settings, owner, envelope))
 
     def sync_enabled():
         if not settings.sync_enabled:

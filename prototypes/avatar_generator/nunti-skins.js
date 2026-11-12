@@ -1,10 +1,8 @@
 'use strict';
 (() => {
-  // Locked for the offline milestone. Android independently blocks model endpoints.
-  const MOCK_SKIN_MODE = true;
+  const MOCK_SKIN_MODE = false;
   const legacyVersion = 'skin-v2.0';
   const version = 'skin-v2.2';
-  const storageKey = 'nunti.skin-v2.records';
   const base = Object.freeze({
     skinId:'default', name:'눈티', outfit:'새싹과 작은 여행 가방', headStyle:'새싹 후드', earStyle:'둥근 후드',
     eyeStyle:'기본 눈매', accessories:Object.freeze(['기본 여행 가방']), palette:'#6B9B83', pattern:'기본'
@@ -42,41 +40,14 @@
     return elapsed>=4000?'FINAL_IDLE':elapsed>=3300?'SKIN_REVEAL':elapsed>=2000?'HEAD_AND_EYES_TRANSFORM':
       elapsed>=1200?'OUTFIT_SWAP':elapsed>=500?'ROUTE_ENERGY':'DEFAULT_IDLE';
   }
-  function storage() { return JSON.parse(localStorage.getItem(storageKey)||'{}'); }
-  function list() {
-    return Object.values(storage()).filter(isSkin).sort((a,b)=>b.savedAt-a.savedAt);
-  }
   function isSkin(artifact) {
     const spec=artifact?.design?.skinSpec;
     return knownVersion(spec?.version)&&typeof spec.skinId==='string'&&own(wardrobe,spec.skinId)&&
       /^nunti-skin-[a-f0-9]{32}$/.test(artifact.characterId||'')&&artifact.visual?.path===path(spec.skinId,'final',spec.version);
   }
-  async function digest(text) {
-    return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text))),b=>b.toString(16).padStart(2,'0')).join('');
+  function assertRequest(url) {
+    const local=typeof url==='string'&&url.startsWith('/')&&!url.startsWith('//')&&!/[\\\r\n]/.test(url);
+    if(!local)throw new Error('CROSS_ORIGIN_BLOCKED');
   }
-  async function createRecord(input, context, finalAvailable) {
-    let spec=resolve(context);
-    const requested=spec.skinId;
-    if(!finalAvailable)spec={...resolve({...context,destinationCategory:'unknown'}),fallback:'FINAL_ASSET_MISSING',requestedSkinId:requested};
-    const characterId='nunti-skin-'+(await digest(JSON.stringify([version,input,spec]))).slice(0,32);
-    return {characterId,savedAt:Date.now(),destination:input.destination,purpose:input.purpose,route:input.route,
-      displayName:spec.name,mediaOrigin:'MOCK_SKIN',visual:{path:path(spec.skinId)},
-      design:{skinSpec:spec,staticOnly:true,personality:spec.outfit,motifs:[]},
-      voice:{provider:'DEVICE_SPEECH',description:'기기에 설치된 오프라인 음성',pitch:1.08,rate:1}};
-  }
-  function save(record) {
-    if(!isSkin(record))throw new Error('INVALID_SKIN_RECORD');
-    const records=storage();
-    if(records[record.characterId])return records[record.characterId];
-    records[record.characterId]=record;
-    localStorage.setItem(storageKey,JSON.stringify(records));
-    return record;
-  }
-  function assertRequest(path,method) {
-    if(!MOCK_SKIN_MODE)return;
-    const local=typeof path==='string'&&path.startsWith('/')&&!path.startsWith('//')&&!/[\\\r\n]/.test(path);
-    // Only the existing local session and route tools may mutate server state.
-    if(!local||(method!=='GET'&&!['/session','/v3/route-extractions','/v3/route-plans','/v3/wardrobe'].includes(path)))throw new Error('MOCK_SKIN_MODE');
-  }
-  window.NuntiSkins=Object.freeze({MOCK_SKIN_MODE,version,storageKey,fixtures,resolve,path,phaseAt,isSkin,list,save,createRecord,assertRequest});
+  window.NuntiSkins=Object.freeze({MOCK_SKIN_MODE,version,fixtures,resolve,path,phaseAt,isSkin,assertRequest});
 })();

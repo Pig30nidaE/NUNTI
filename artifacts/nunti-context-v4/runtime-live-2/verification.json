@@ -1,5 +1,0 @@
-{
-  "status": "FAIL",
-  "checks": [],
-  "error": "Error: WebView condition timed out: state.nativeAllowed\n    at Object.wait (file:///Users/pig30nidae/NUNTI/scripts/nunti_integration_runtime_lib.mjs:99:11)\n    at async file:///Users/pig30nidae/NUNTI/scripts/verify_nunti_context_live.mjs:16:29"
-}

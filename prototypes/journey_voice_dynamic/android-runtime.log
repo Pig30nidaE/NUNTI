@@ -1,5 +1,0 @@
-{"case": "nunti-2d6aecb00617ef2899eff678-common", "state": "RUNNING"}
-{"case": "nunti-8da06e4267f4a71820a06e65-common", "state": "RUNNING"}
-{"case": "nunti-9a3f63d68e67292a3a33fc5e-common", "state": "RUNNING"}
-{"case": "nunti-a455dd81d2c487095fc66e7d-common", "state": "RUNNING"}
-{"status": "PASSED_GENERATED_ASSETS_ANDROID_PARSE_QUEUE_AND_LIFECYCLE", "cases": 10, "error": null}

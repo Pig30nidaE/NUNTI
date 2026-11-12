@@ -1,6 +1,0 @@
-{"state":"PASS","check":"emulator and user preflight"}
-{"state":"PASS","check":"cold launch restores without automatic speech"}
-{"state":"PASS","check":"stop cancels the original active clip after duplicate rejection"}
-{"state":"PASS","check":"cold launch restores without automatic speech"}
-{"state":"PASS","check":"stop cancels both active and pending clips without replay"}
-{"state":"FINISHED","status":"PASS_ACTIVE_AND_PENDING_STOP_REGRESSIONS","report":"/Users/pig30nidae/NUNTI/prototypes/journey_mvp/stop-runtime-01/verification.json"}

@@ -1,14 +1,25 @@
 """Validate user input at the v3 HTTP boundary."""
 
 import hashlib
+import io
 import json
 import math
+import urllib.request
 from typing import Literal
 from uuid import UUID
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-from .variant_spec import VariantContext
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
+
+
+def png_bytes(image) -> bytes:
+    buf = io.BytesIO()
+    image.save(buf, format="PNG", optimize=True)
+    return buf.getvalue()
 
 
 def canonical(value):
@@ -146,28 +157,23 @@ class RoutePlanInput(Strict):
 
 
 class AvatarInput(Strict):
-    requestId: str
+    requestId: str | None = None
     destination: Destination
     purpose: str = ""
     route: Route | None = None
-    renderMode: Literal["LOCAL_RENDER", "IMAGE_API", "LOCAL_MODEL", "LOCAL_LAYERS"] = "LOCAL_RENDER"
-    variantContext: VariantContext | None = None
+    mood: Literal["unset", "calm", "curious", "adventurous"] = "unset"
+    scenery: Literal["unknown", "city", "coast", "mountain"] = "unknown"
+    road: Literal["unknown", "urban", "highway", "rural", "mixed"] = "unknown"
 
-    _uuid = field_validator("requestId")(uuid_text)
+    @field_validator("requestId")
+    @classmethod
+    def optional_uuid(cls, value):
+        return uuid_text(value) if value is not None else None
 
     @field_validator("purpose")
     @classmethod
     def purpose_text(cls, value):
         return text(value, 120)
-
-    @model_validator(mode="after")
-    def layered_context_is_opt_in(self):
-        if self.renderMode != "LOCAL_LAYERS":
-            if self.route is None:
-                raise ValueError("ROUTE_REQUIRED")
-            if self.variantContext is not None:
-                raise ValueError("VARIANT_CONTEXT_REQUIRES_LOCAL_LAYERS")
-        return self
 
 
 class ExtractionInput(Strict):

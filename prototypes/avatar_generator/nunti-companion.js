@@ -18,7 +18,9 @@
     }
 
     function candidate() {
-      if(!allowed()||document.hidden||document.querySelector('dialog[open]'))return null;
+      if(!allowed()||document.hidden||document.body.dataset.chatOpen==='true'||
+        document.activeElement?.matches('input:not([type=checkbox]), textarea, [contenteditable=true]')||
+        document.querySelector('dialog[open]'))return null;
       const portrait=!inputView.hidden?preview:!resultView.hidden&&resultSkin?result:null;
       if(!portrait||!fullyVisible.has(portrait))return null;
       const skin=portrait===preview?'default':resultSkin;
@@ -74,14 +76,19 @@
       });
     }
     const changes=new MutationObserver(sync);
-    for(const view of [inputView,resultView])changes.observe(view,{attributes:true,attributeFilter:['hidden']});
+    for(const view of [inputView,resultView,document.getElementById('notice'),document.getElementById('connection-retry')]){
+      if(view)changes.observe(view,{attributes:true,attributeFilter:['hidden']});
+    }
     for(const dialog of document.querySelectorAll('dialog'))changes.observe(dialog,{attributes:true,attributeFilter:['open']});
+    changes.observe(document.body,{attributes:true,attributeFilter:['data-chat-open']});
     const move=()=>{
       stop();
       clearTimeout(timer);
       timer=setTimeout(sync,140);
     };
     document.addEventListener('visibilitychange',sync);
+    document.addEventListener('focusin',sync);
+    document.addEventListener('focusout',()=>queueMicrotask(sync));
     matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',sync);
     window.addEventListener('scroll',move,true);
     window.addEventListener('resize',move);

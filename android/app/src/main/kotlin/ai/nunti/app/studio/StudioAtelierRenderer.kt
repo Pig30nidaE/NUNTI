@@ -52,8 +52,11 @@ internal object StudioAtelierMotion {
     }
     const val MATERIAL_FIELD = """
         uniform shader materialTexture;
+        uniform float wardrobeMode;
         float materialField(float2 p) {
-            return materialTexture.eval(p/3.0).r;
+            float4 tex = materialTexture.eval(p/3.0);
+            float wave = clamp((1.0 - p.y / 768.0) * .72 + tex.g * .25, .04, .96);
+            return mix(tex.r, wave, wardrobeMode);
         }
     """
 }
@@ -121,6 +124,7 @@ internal class StudioAtelierRenderer {
             val tint = NuntiSkinStyle.tint(assets.skin)
             val color = floatArrayOf(Color.red(tint)/255f,Color.green(tint)/255f,Color.blue(tint)/255f)
             shader.setFloatUniform("tint", color)
+            shader.setFloatUniform("wardrobeMode", if (assets.skin.startsWith("wardrobe-")) 1f else 0f)
         }
         fun at(time: Float): Shader { shader.setFloatUniform("time", time); return shader }
     }

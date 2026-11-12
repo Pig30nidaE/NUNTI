@@ -1,6 +1,0 @@
-{
-  "nativeSpeakerList": "https://github.com/QwenLM/Qwen3-TTS#custom-voice-generate",
-  "config": "https://huggingface.co/mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit/blob/41d3337e8b7f2843a75841595fc14e4b9a7a4b96/config.json",
-  "modelCard": "https://huggingface.co/mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit/blob/41d3337e8b7f2843a75841595fc14e4b9a7a4b96/README.md",
-  "fileMetadataApi": "https://huggingface.co/api/models/mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit/tree/41d3337e8b7f2843a75841595fc14e4b9a7a4b96?recursive=true"
-}

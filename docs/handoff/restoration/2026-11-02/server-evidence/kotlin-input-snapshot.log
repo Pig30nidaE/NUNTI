@@ -1,7 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/pig30nidae/NUNTI/.worktrees/server/docs/handoff/restoration/2026-11-02/server-evidence/snapshot_avatar_outputs.py", line 28, in <module>
-    main()
-  File "/Users/pig30nidae/NUNTI/.worktrees/server/docs/handoff/restoration/2026-11-02/server-evidence/snapshot_avatar_outputs.py", line 17, in main
-    assert len(files) == 10, files
-           ^^^^^^^^^^^^^^^^
-AssertionError: [PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-long-journey.AvatarSpec.json'), PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-long-journey.RouteSnapshot.json'), PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-seoul-city.AvatarSpec.json'), PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-seoul-city.RouteSnapshot.json'), PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-verified-coast.AvatarSpec.json'), PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-verified-coast.RouteSnapshot.json'), PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-verified-mountain.AvatarSpec.json'), PosixPath('/Users/pig30nidae/NUNTI/.worktrees/avatar/.local/avatar-build/reports/mock-verified-mountain.RouteSnapshot.json')]

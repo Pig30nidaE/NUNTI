@@ -1,4 +1,0 @@
-{"host":"127.0.0.1","port":8766,"status":"listening","version":"route-born-1","workspace":"/Users/pig30nidae/NUNTI/.local/route-birth"}
-[transformers] You are using a model of type `qwen3_tts` to instantiate a model of type ``. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
-  Initialized encoder codebooks
-Loaded speech tokenizer from /Users/pig30nidae/NUNTI/.local/qwen-sohee-audition/model/speech_tokenizer

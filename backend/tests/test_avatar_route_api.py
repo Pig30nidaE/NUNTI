@@ -64,18 +64,12 @@ def fake_render(*args):
     image.putpixel((0, 0), (0, 0, 0, 0))
     output = io.BytesIO()
     image.save(output, "PNG")
-    return output.getvalue(), {
-        "displayName": "경로 시험 눈티",
-        "personality": "조용한 동반자",
-        "palette": ["#2878a0"],
-        "motifs": [{"label": "경로", "source": "경로 입력", "target": "실루엣", "detail": "시험"}],
-        "voice": {"description": "기기 화자", "rate": 1.0, "pitch": 1.0},
-    }
+    return output.getvalue(), {"input_tokens": 10, "output_tokens": 10}, 1000
 
 
 def client_for(config, fetcher=provider_bytes, renderer=fake_render):
     return TestClient(
-        create_app(config, route_fetcher=fetcher, renderer=renderer),
+        create_app(config, route_fetcher=fetcher, wardrobe_renderer=renderer),
         base_url="http://127.0.0.1:8768",
         client=("127.0.0.1", 52100),
         headers={"Authorization": "Bearer " + config.token},
@@ -95,7 +89,14 @@ def avatar_input(plan):
 
 @pytest.fixture
 def config(tmp_path):
-    return Settings(TOKEN, tmp_path / "studio", route_api_enabled=True)
+    return Settings(
+        TOKEN,
+        tmp_path / "studio",
+        route_api_enabled=True,
+        paid_api_approved=True,
+        wardrobe_enabled=True,
+        image_key="unit-test-not-a-key",
+    )
 
 
 def test_normalization_uses_one_projection_scale_and_preserves_direction():
@@ -152,7 +153,9 @@ def test_disabled_boundary_and_capability_explain_external_source(config):
     def unexpected(*args):
         raise AssertionError("network must not run")
 
-    with client_for(replace(config, route_api_enabled=False), unexpected) as client:
+    with client_for(
+        replace(config, route_api_enabled=False, paid_api_approved=False), unexpected
+    ) as client:
         capabilities = client.get("/v3/capabilities").json()["data"]
         assert capabilities["routeApiAvailable"] is False
         assert capabilities["routeApiInfo"]["geometryMatchesHyundaiRoute"] is False

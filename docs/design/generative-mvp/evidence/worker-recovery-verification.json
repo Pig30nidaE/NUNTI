@@ -1,8 +1,0 @@
-{
-  "status": "PASS_EXISTING_API_WORKER_RECOVERY",
-  "seconds": 0.455,
-  "apiServerKeptRunning": true,
-  "ownedWorkerReplaced": true,
-  "mode": "OFFLINE_FIXTURE",
-  "providerApiCalls": 0
-}

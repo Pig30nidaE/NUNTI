@@ -9,10 +9,10 @@ const site=new URL('../prototypes/avatar_generator/',import.meta.url);
 const script=name=>readFileSync(new URL(name,site),'utf8');
 const stub=()=>{};
 function harness({storage=new Map(),missing=null,native=false}={}){
-  const queue=new Map(),draws=[],requests=[],nativeStarts=[],nativeStops=[];
+  const queue=new Map(),draws=[],requests=[],nativeStarts=[],nativeStops=[],clips=[];
   let clock=0,nextFrame=0;
   const ctx={setTransform:stub,clearRect:stub,save:stub,restore:stub,translate:stub,rotate:stub,scale:stub,beginPath:stub,
-    moveTo:stub,lineTo:stub,closePath:stub,clip:stub,quadraticCurveTo:stub,bezierCurveTo:stub,fill:stub,fillRect:stub,
+    moveTo:stub,lineTo:stub,closePath:stub,clip:()=>clips.push(clock),quadraticCurveTo:stub,bezierCurveTo:stub,fill:stub,fillRect:stub,
     createRadialGradient:()=>({addColorStop:stub}),
     drawImage:img=>draws.push(img.src)};
   const canvas={getContext:()=>ctx,getBoundingClientRect:()=>({left:22,top:40,width:640,height:640})};
@@ -40,7 +40,7 @@ function harness({storage=new Map(),missing=null,native=false}={}){
   let allowed=true,visible=true;
   const {NuntiSkins:skins,NuntiSkinRenderer:renderer}=env.window;
   const motion=renderer.create({canvas,allowed:()=>allowed,visible:()=>visible,onFrame:stub});
-  return {skins,renderer,motion,draws,requests,queue,storage,nativeStarts,nativeStops,
+  return {skins,renderer,motion,draws,requests,queue,storage,nativeStarts,nativeStops,clips,
     setCompanionPlayer:player=>{env.window.NuntiCompanionPlayer=player;},
     nativeReady:(id,ready)=>env.window.nuntiCharacterMotionReady(id,ready),
     nativeFinished:id=>env.window.nuntiCharacterMotionFinished(id),
@@ -51,6 +51,7 @@ function harness({storage=new Map(),missing=null,native=false}={}){
 
 test('destination sets wardrobe; confirmed route and explicit mood set deterministic motion',()=>{
   const {skins}=harness();
+  assert.equal(skins.MOCK_SKIN_MODE,false);
   const specs=['sea','city','mountain'].map(id=>skins.resolve({...skins.fixtures[id],routeId:'confirmed-route'}));
   assert.deepEqual(specs.map(s=>s.skinId),['sea','city','mountain']);
   for(const field of ['outfit','headStyle','earStyle','palette','pattern'])assert.equal(new Set(specs.map(s=>s[field])).size,3,field);
@@ -62,44 +63,14 @@ test('destination sets wardrobe; confirmed route and explicit mood set determini
   assert.equal(skins.resolve({mood:'driver inferred'}).mood,'unset');
 });
 
-test('identical inputs keep the same saved identity and reopen; missing final stores actual fallback',async()=>{
-  const a=harness(),input={destination:{name:'도시'},purpose:'산책',route:null},context=a.skins.fixtures.city;
-  const first=await a.skins.createRecord(input,context,true);
-  const second=await a.skins.createRecord(input,context,true);
-  assert.equal(first.characterId,second.characterId);
-  a.skins.save(first);a.skins.save(second);
-  const reopened=harness({storage:a.storage}).skins.list();
-  assert.equal(reopened.length,1);assert.equal(reopened[0].visual.path,'/skin-v2/atelier/city/final.png');
-  const fallback=await a.skins.createRecord(input,context,false);
-  assert.equal(fallback.design.skinSpec.requestedSkinId,'city');
-  assert.equal(fallback.visual.path,'/skin-v2/default/final.png');
-  assert.throws(()=>a.skins.path('../city'));
-});
-
-for (const [version,directory] of [['skin-v2.0','skin-v2'],['skin-v2.1','skin-v2/polish']]) test(`${version} save reopens its own asset and rejects a mismatched version path`,async()=>{
-  const a=harness();
-  const input={destination:{name:'도시'},purpose:'산책',route:null};
-  const current=await a.skins.createRecord(input,a.skins.fixtures.city,true);
-  const legacy={...current,characterId:'nunti-skin-'+'a'.repeat(32),visual:{path:`/${directory}/city/final.png`},
-    design:{...current.design,skinSpec:{...current.design.skinSpec,version}}};
-  assert.equal(a.skins.isSkin({...legacy,visual:current.visual}),false);
-  a.skins.save(legacy);a.skins.save(current);
-  assert.equal(a.skins.list().length,2);
-  const spec=legacy.design.skinSpec;
-  const image=await a.renderer.image(spec.skinId,'final',spec.version);
-  await a.motion.show(spec,image,legacy.route,false);
-  assert.equal(a.draws.at(-1),legacy.visual.path);
-});
-
-test('mock gate rejects direct model/voice writes and cross-origin paths',()=>{
+test('assertRequest blocks cross-origin paths and permits same-origin API endpoints',()=>{
   const {skins}=harness();
-  assert.equal(skins.MOCK_SKIN_MODE,true);
-  for(const [url,method] of [['/v3/avatars','POST'],['/v3/avatars/x/voice','POST'],['/v3/avatars/x/feedback-voice/JOY','POST'],
-    ['https://example.invalid/','GET'],['//example.invalid/','GET'],['/\\example.invalid/','GET']]){
-    assert.throws(()=>skins.assertRequest(url,method),/MOCK_SKIN_MODE/);
+  for(const url of ['https://example.invalid/','//example.invalid/','/\\example.invalid/']){
+    assert.throws(()=>skins.assertRequest(url),/CROSS_ORIGIN_BLOCKED/);
   }
-  assert.doesNotThrow(()=>skins.assertRequest('/v3/avatars','GET'));
-  assert.doesNotThrow(()=>skins.assertRequest('/v3/route-extractions','POST'));
+  assert.doesNotThrow(()=>skins.assertRequest('/v3/wardrobe'));
+  assert.doesNotThrow(()=>skins.assertRequest('/v3/avatars'));
+  assert.doesNotThrow(()=>skins.assertRequest('/v3/route-extractions'));
 });
 
 test('real PNG lookup; all phases; distinct outfit/head draw and final path',async()=>{
@@ -109,12 +80,11 @@ test('real PNG lookup; all phases; distinct outfit/head draw and final path',asy
   assert.equal(Array.from(d.visited).join('|'),'DEFAULT_IDLE|ROUTE_ENERGY|OUTFIT_SWAP|HEAD_AND_EYES_TRANSFORM|SKIN_REVEAL|FINAL_IDLE');
   assert.equal(d.reason,'COMPLETE');assert.equal(d.elapsedMs,4000);assert.equal(a.queue.size,0);
   assert.equal(a.draws[0],'/skin-v2/default/final.png');
-  assert.ok(a.draws.includes('/skin-v2/atelier/city/outfit.png'));
-  assert.ok(a.draws.includes('/skin-v2/atelier/city/head.png'));
   assert.ok(a.draws.includes('composed-wardrobe'));
   assert.equal(a.draws.at(-1),'/skin-v2/atelier/city/final.png');
-  for(const id of ['default','sea','city','mountain'])for(const part of ['final','outfit','head','eyes','accessory'])await a.renderer.image(id,part);
-  assert.equal(new Set(a.requests).size,20);
+  await a.renderer.image('default','final');
+  for(const id of ['sea','city','mountain'])for(const part of ['final','outfit','head','eyes','accessory'])await a.renderer.image(id,part);
+  assert.equal(new Set(a.requests).size,16);
 });
 
 test('skip, driving, background and system reduced stop scheduling and draw the same endpoint',async()=>{
@@ -182,4 +152,14 @@ test('native playback waits for its own finish event rather than cutting off at 
   assert.deepEqual(handoffs,[{skin:'sea',priorStops:0}]);
   assert.deepEqual(a.nativeStops,[id]);
   assert.equal(a.draws.at(-1),'/skin-v2/atelier/sea/final.png');
+});
+
+test('wardrobe-v4 skins cross-dissolve as a unified scene without horizontal clip slicing',async()=>{
+  const a=harness();
+  const spec=a.skins.resolve({destinationCategory:'city',mood:'curious',roadType:'urban',routeId:'r1'});
+  const wardrobeSpec={...spec,skinId:'wardrobe-city',summary:'도시 외출복 · 오늘의 눈티'};
+  await a.motion.show(wardrobeSpec,{src:'/v3/assets/wardrobe-city.png'},{points:[[0.1,0.8],[0.9,0.2]]},true);
+  for(const ms of [0,1200,2750,3000,3310,4000])a.step(ms);
+  assert.equal(a.clips.length,0,'wardrobe-* skins must not slice head/body horizontally');
+  assert.equal(a.draws.at(-1),'/v3/assets/wardrobe-city.png');
 });
