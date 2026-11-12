@@ -164,3 +164,22 @@ internal fun prepareBundledSkinJourney(context: Context, selection: String, sour
     JourneyRuntime.write(file, metadata)
     return file
 }
+
+/** 정차해서 고르지 않고 바로 출발할 때: 마지막으로 준비한 여정의 눈티로 실제 차량 신호 여정을 시작한다. */
+internal object JourneyLauncher {
+    /** 시작했으면 true. 준비한 여정이 없거나 그 그림이 지워졌으면 false. */
+    fun startLiveFromLast(context: Context): Boolean {
+        if (JourneyRuntime.isRunning) return true
+        val dir = File(context.filesDir, "journeys")
+        val last = dir.listFiles { f -> f.name.endsWith("-input.json") }?.maxByOrNull { it.lastModified() } ?: return false
+        val input = JSONObject(last.readText())
+        if (!File(input.optString("imageFile")).isFile) return false
+        val sessionId = java.util.UUID.randomUUID().toString()
+        input.put("sessionId", sessionId).put("source", "LIVE").put("startedAtEpochMs", System.currentTimeMillis())
+        val file = File(dir, "$sessionId-input.json")
+        JourneyRuntime.write(file, input)
+        context.startForegroundService(android.content.Intent(context, JourneyService::class.java)
+            .setAction(JourneyService.ACTION_START).putExtra("input", file.absolutePath))
+        return true
+    }
+}

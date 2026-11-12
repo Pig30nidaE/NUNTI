@@ -14,6 +14,12 @@ import android.util.Log
 
 data class NavigationLocation(val latitude: Double, val longitude: Double, val receivedAtElapsedMs: Long)
 
+/** 다음 안내 (내비가 보낸 그대로). [turn] 은 TurnType 이름에서 TURN_ 을 뗀 값 (예: LEFT, UTURN, ARRIVE). */
+data class NaviGuidance(val turn: String, val distanceM: Int, val description: String?)
+
+/** 경로 시작 때 내비가 알려 준 전체 경로. 남은 거리는 SDK가 주지 않는다. */
+data class NaviRoute(val name: String?, val distanceM: Int, val durationS: Int)
+
 /**
  * NaviHelper 이벤트로 "실제 회전 이벤트", 도로 제한속도, 현재 위치를 만든다.
  * 회전 이벤트: 다음 회전 안내(TBT)의 남은 거리가 가까워졌다가 안내가 바뀌면 그 회전을 지난 것으로 본다.
@@ -31,13 +37,17 @@ class NaviSignalSource(private val context: Context, private val clockMs: () -> 
         private set
     @Volatile var location: NavigationLocation? = null
         private set
+    @Volatile var guidance: NaviGuidance? = null
+        private set
+    @Volatile var route: NaviRoute? = null
+        private set
     private val recordedEvents = mutableListOf<DrivingEvent>()
     val events: List<DrivingEvent> get() = gate.read { recordedEvents.toList() }
     private var head: TBTInfo? = null
     private var headDistance = Double.MAX_VALUE
 
     private fun reset() {
-        speedLimitKmh = null; location = null; nextTurn = "-"
+        speedLimitKmh = null; location = null; nextTurn = "-"; guidance = null; route = null
         head = null; headDistance = Double.MAX_VALUE; recordedEvents.clear()
     }
 
@@ -49,6 +59,7 @@ class NaviSignalSource(private val context: Context, private val clockMs: () -> 
                 gate.accept(epoch) {
                     val next = list.firstOrNull { it.type != TurnType.TURN_UNKNOWN }
                     nextTurn = next?.let { "${it.type.name.removePrefix("TURN_")} ${it.distance.toInt()}m" } ?: "없음"
+                    guidance = next?.let { NaviGuidance(it.type.name.removePrefix("TURN_"), it.distance.toInt(), it.description.trim().ifEmpty { null }) }
                     val prev = head
                     val changed = prev == null || next == null || next.type != prev.type || next.distance > headDistance + 50.0
                     if (prev != null && changed && headDistance < PASSED_WITHIN_M) {
@@ -69,16 +80,19 @@ class NaviSignalSource(private val context: Context, private val clockMs: () -> 
                 }
             }
             override fun onRouteStarted(info: RouteStartInfo) {
-                gate.accept(epoch) { head = null; headDistance = Double.MAX_VALUE; speedLimitKmh = null; nextTurn = "경로 계산 중" }
+                gate.accept(epoch) {
+                    head = null; headDistance = Double.MAX_VALUE; speedLimitKmh = null; nextTurn = "경로 계산 중"; guidance = null
+                    route = NaviRoute(info.name.trim().ifEmpty { null }, info.distance, info.duration)
+                }
             }
             override fun onRoutingCompleted() { gate.accept(epoch) { nextTurn = "경로 계산 완료" } }
             @Deprecated("NaviHelper onRouteEnded means routing completion, not journey arrival")
             override fun onRouteEnded() { onRoutingCompleted() }
             override fun onRouteCancelled() {
-                gate.accept(epoch) { head = null; headDistance = Double.MAX_VALUE; speedLimitKmh = null; nextTurn = "경로 취소" }
+                gate.accept(epoch) { head = null; headDistance = Double.MAX_VALUE; speedLimitKmh = null; nextTurn = "경로 취소"; guidance = null; route = null }
             }
             override fun onError(code: NaviErrorCode) {
-                gate.accept(epoch) { status = LinkStatus(LinkState.FAILED, code.name); speedLimitKmh = null; head = null; headDistance = Double.MAX_VALUE }
+                gate.accept(epoch) { status = LinkStatus(LinkState.FAILED, code.name); speedLimitKmh = null; head = null; headDistance = Double.MAX_VALUE; guidance = null }
             }
         }
         listener = l

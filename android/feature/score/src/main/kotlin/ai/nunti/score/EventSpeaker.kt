@@ -64,6 +64,8 @@ class EventSpeaker(
                 "으아, 커브 너무 빨라요!",
             ),
             DetectedEvent.Kind.REVERSE_TOO_FAST to accelLines, // 후진 과속도 몸으로는 급가속처럼 느껴진다
+            // 굴러가는 채 P단이면 차가 덜컥 선다: 급제동과 같은 놀람. 전용 대사("아직 굴러가는데 P단이에요!")는 녹음할 때 바꾼다.
+            DetectedEvent.Kind.PARK_WHILE_MOVING to brakeLines,
         )
 
         /** [variant] 를 종류별 대사 수로 나눈 나머지를 쓴다 (결정적 순환). */

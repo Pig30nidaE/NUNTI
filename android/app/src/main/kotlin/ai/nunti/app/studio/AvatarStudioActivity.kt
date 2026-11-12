@@ -543,6 +543,8 @@ internal class StudioCarGate(context: android.content.Context, private val chang
         }
         changed()
     }
+    /** 차 서비스와 주행 제한 상태를 한 번이라도 받았는가. 받기 전의 canDisplay()==false 는 "주행 중"이 아니라 "모름"이다. */
+    fun known(): Boolean = properties != null && restrictions != null
     fun canDisplay(): Boolean {
         if (unavailableProperties.isNotEmpty()) return false
         val gear = runCatching { properties?.getIntProperty(VehiclePropertyIds.GEAR_SELECTION, 0) }.getOrNull()

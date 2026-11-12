@@ -29,7 +29,7 @@ import android.util.Log
  * 메인 스레드에서 만들고 호출한다.
  *
  * [drivingAllowed] 는 "이 앱이 주행 중 음성을 써도 되는가"라는 검토된 권한이다. 기본값은 false(정책이 주행 중 발화를 거부).
- * 시연 화면만 true 로 둔다. 실차 제출 전 Pleos/공모전 규정 확인 결과로 정해야 한다.
+ * 여정 화면은 true 로 둔다 (규정에 주행 중 음성 금지 없음: docs/research/2026-11-10-contest-rules-and-ux.md).
  * 통화·내비·긴급 음성 상태는 아직 관측하지 않고 QUIET 으로 가정한다.
  *
  * 눈티 목소리로 녹음한 문장([RecordedVoice])은 그 음원을 재생하고, 녹음이 없는 문장만 Pleos TTS 로 말한다.
@@ -113,26 +113,28 @@ class PleosSpeechSink(
      * 주행 후 보고(마무리 멘트·일시저장 안내). 차가 멈춘 것이 확인된 때만 부른다 — 호출한 쪽이 정차를 보증한다.
      * 주행 중 대사의 15초 간격 정책을 받지 않고, 같은 문장 반복(60초)만 막힌다.
      */
-    fun speakTripReport(text: String, utteranceId: String, emotion: Emotion) {
-        if (closed) return
+    fun speakTripReport(text: String, utteranceId: String, emotion: Emotion, onDone: () -> Unit = {}) {
+        if (closed) { onDone(); return }
         postTripUntil = SystemClock.elapsedRealtime() + REPORT_WINDOW_MS
         session.onForeground(playbackContext()) // 곧바로 주행 후 상태를 반영한다 (다음 1초 박자를 기다리지 않는다)
         val parts = RecordedVoice.split(text)
         if (parts.none { RecordedVoice.clipFor(it) != null }) {
+            pendingTts[utteranceId] = onDone
             session.submit(SpeechMapping.tripReportSpeech(
                 text, utteranceId, emotion, tripId, avatarId, profileId, avatar, System.currentTimeMillis()))
             return
         }
-        playParts(parts, utteranceId, emotion, report = true) // 보고는 말하던 반응을 끊고 시작한다
+        playParts(parts, utteranceId, emotion, report = true, onDone = onDone) // 보고는 말하던 반응을 끊고 시작한다
     }
 
-    private fun playParts(parts: List<String>, utteranceId: String, emotion: Emotion, report: Boolean) {
+    /** [onDone] 은 마지막 부품이 끝났을 때 한 번 부른다 (다른 문장에 끊기면 부르지 않는다). */
+    private fun playParts(parts: List<String>, utteranceId: String, emotion: Emotion, report: Boolean, onDone: () -> Unit = {}) {
         stopClip()
         busy = true
         val seq = ++sequence
         fun step(i: Int) {
             if (closed || seq != sequence) return
-            if (i >= parts.size) { busy = false; return }
+            if (i >= parts.size) { busy = false; onDone(); return }
             val next: () -> Unit = { handler.post { step(i + 1) } }
             val text = parts[i]
             val clip = RecordedVoice.clipFor(text)

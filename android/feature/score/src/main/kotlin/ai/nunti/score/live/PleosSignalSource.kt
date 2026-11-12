@@ -307,6 +307,8 @@ class PleosSignalSource(private val context: Context) {
     }
 
     fun navigationLocation(): NavigationLocation? = navi?.location
+    fun navigationGuidance(): NaviGuidance? = navi?.guidance
+    fun navigationRoute(): NaviRoute? = navi?.route
 
     @Synchronized
     fun stop() {

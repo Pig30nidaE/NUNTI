@@ -56,6 +56,24 @@ class JourneyActivity : Activity() {
     private var characterName: TextView? = null
     private var muteButton: Button? = null
     private var finishButton: Button? = null
+    // 여정 중(정차·주행) 화면: 말풍선 + 속도·제한속도·점수 타일
+    private var statusPill: TextView? = null
+    private var statusDot: View? = null
+    private var speedValue: TextView? = null
+    private var speedState: TextView? = null
+    private var speedDot: View? = null
+    private var limitValue: TextView? = null
+    private var limitCaption: TextView? = null
+    private var liveScore: TextView? = null
+    private var liveScoreState: TextView? = null
+    private var hardCount: TextView? = null
+    private var leadGap: TextView? = null
+    private var liveCoverage: TextView? = null
+    private var turnBadge: TextView? = null
+    private var recentEvents: LinearLayout? = null
+    private var recentKey = ""
+    private var areaScores: LinearLayout? = null
+    private var areaKey = ""
     private var detailDialog: AlertDialog? = null
     private var restored: JSONObject? = null
     private var carGate: StudioCarGate? = null
@@ -180,7 +198,7 @@ class JourneyActivity : Activity() {
         coverage?.text = if (nextScreen == Screen.REPORT) "평가 가능한 범위  $evaluated%"
             else if (total == null) "운전 정보를 모으고 있어요"
             else "평가 가능한 범위 $evaluated% · 미수신 항목 제외"
-        line?.text = snapshot.optString("line", "함께 살펴보고 있어요.")
+        line?.text = snapshot.optString("bubble").ifBlank { snapshot.optString("line", "함께 살펴보고 있어요.") }
         val emotion = snapshot.optString("emotion", "NEUTRAL")
         characterLabel?.text = JourneyCompanionView.emotionLabel(emotion)
         val source = if (snapshot.optString("source") == "DEMO") "시연 데이터" else "실시간 차량 신호"
@@ -192,6 +210,7 @@ class JourneyActivity : Activity() {
         avatarView.setFaceRig(snapshot.optString("faceRig", "none"))
         avatarView.setEmotion(emotion, animate = resumed && parked)
         updateImage(snapshot.optString("imageFile"), displayName)
+        if (nextScreen == Screen.PARKED || nextScreen == Screen.DRIVING) updateLive(snapshot, total, evaluated)
     }
 
     private fun buildView(mode: Screen) {
@@ -199,6 +218,11 @@ class JourneyActivity : Activity() {
         headerState = null; title = null; destination = null; score = null; scoreCaption = null; scoreContext = null
         elapsed = null; elapsedContext = null; line = null; coverage = null; sourceLabel = null
         characterLabel = null; characterName = null; muteButton = null; finishButton = null
+        statusPill = null; statusDot = null; speedValue = null; speedState = null; speedDot = null; limitValue = null
+        limitCaption = null; liveScore = null; liveScoreState = null; hardCount = null; leadGap = null; liveCoverage = null; turnBadge = null
+        recentEvents = null; recentKey = ""; areaScores = null; areaKey = ""
+        avatarView = JourneyCompanionView(this)
+        if (mode == Screen.PARKED || mode == Screen.DRIVING) { buildActive(mode); return }
         val root = column().apply {
             val inset = dp(if (compact) 32 else 40)
             setPadding(inset, inset, inset, inset)
@@ -216,13 +240,392 @@ class JourneyActivity : Activity() {
             .apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END }
         intro.addView(destination, layout(-1, -2, top = 8))
         root.addView(intro, layout(-1, if (compact) 108 else 120, top = 24))
-        avatarView = JourneyCompanionView(this)
         val body = if (mode == Screen.REPORT) buildReport() else buildCompanion(mode)
         root.addView(body, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(24) })
         root.addView(buildActions(mode), layout(-1, 80, top = 24))
         host.removeAllViews()
         host.addView(root, FrameLayout.LayoutParams(-1, -1))
         applyImage()
+    }
+
+    /**
+     * 여정 중 화면. 화면 크기에 맞춰 넓으면 두 단(왼쪽 눈티·말풍선, 오른쪽 타일), 좁으면 한 단으로 쌓는다.
+     * 주행 중에는 움직임 없이 글자만 바뀐다 (말풍선은 사건 반응이 있을 때 그 대사로 잠깐 바뀐다).
+     */
+    private fun buildActive(mode: Screen) {
+        val parked = mode == Screen.PARKED
+        val wide = viewportWidth == 0 || viewportWidth > viewportHeight * 1.25f
+        val gap = if (compact) 20 else 24
+        val root = column().apply {
+            val inset = dp(if (compact) 28 else 36)
+            setPadding(inset, dp(20), inset, inset)
+            setBackgroundColor(theme.background)
+        }
+        // 머리글: 눈티 · 상태 알약 · 데이터 출처
+        val heading = row().apply { gravity = Gravity.CENTER_VERTICAL }
+        heading.addView(badgeBox("눈", 64, theme.soft, theme.accent), layout(64, 64))
+        val names = column().apply { gravity = Gravity.CENTER_VERTICAL }
+        val nameRow = row().apply { gravity = Gravity.CENTER_VERTICAL }
+        nameRow.addView(text("눈티", 28, 40, 700), layout(-2, -2))
+        headerState = pill("", theme.soft, theme.accent)
+        nameRow.addView(headerState, layout(-2, -2, left = 12))
+        names.addView(nameRow, layout(-2, -2))
+        names.addView(text("함께하는 여정", 20, 30, color = theme.muted), layout(-2, -2, top = 2))
+        heading.addView(names, LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(16) })
+        sourceLabel = text("", 20, 30, 500, color = theme.muted)
+        heading.addView(sourceLabel, layout(-2, -2))
+        root.addView(heading, layout(-1, -2))
+
+        if (parked) { buildParked(root, wide, gap); return }
+        // 주행 화면: 한눈에 볼 것(회전 안내·속도·제한속도)이 주인공이다. 눈티는 오른쪽에 작게, 움직이지 않고 말풍선으로만 반응한다.
+        val hero = heroCard(withBubble = true)
+        if (wide) {
+            val body = row()
+            val main = column()
+            main.addView(ticker(), layout(-1, -2))
+            main.addView(driveGauge(), LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(gap) })
+            main.addView(statusBar(), layout(-1, -2, top = gap))
+            main.addView(activeActions(parked = false), layout(-1, -2, top = gap))
+            body.addView(main, LinearLayout.LayoutParams(0, -1, 1.45f))
+            body.addView(hero, LinearLayout.LayoutParams(0, -1, 1f).apply { leftMargin = dp(gap) })
+            root.addView(body, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(gap) })
+        } else {
+            root.addView(ticker(), layout(-1, -2, top = gap))
+            root.addView(driveGauge(), layout(-1, -2, top = gap))
+            root.addView(statusBar(), layout(-1, -2, top = gap))
+            root.addView(hero, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(gap) })
+            root.addView(activeActions(parked = false), layout(-1, -2, top = gap))
+        }
+        host.removeAllViews()
+        host.addView(root, FrameLayout.LayoutParams(-1, -1))
+        applyImage()
+    }
+
+    /**
+     * 정차 화면: 주행 화면(속도·제한속도 타일, 회전 안내)과 모양부터 다르다. 눈티가 움직이고 말풍선을 바로 아래에 두며,
+     * 오른쪽에는 지금까지의 점수와 놀란 순간, 여정 마치기가 있다. 주행 중에는 이 정보를 보여 주지 않는다.
+     */
+    private fun buildParked(root: LinearLayout, wide: Boolean, gap: Int) {
+        val hero = heroCard(withBubble = true)
+        val summary = parkedSummary()
+        if (wide) {
+            val body = row()
+            body.addView(hero, LinearLayout.LayoutParams(0, -1, 1f))
+            val side = column()
+            side.addView(summary, LinearLayout.LayoutParams(-1, 0, 1f))
+            side.addView(statusBar(), layout(-1, -2, top = gap))
+            side.addView(activeActions(parked = true), layout(-1, -2, top = gap))
+            body.addView(side, LinearLayout.LayoutParams(0, -1, 1f).apply { leftMargin = dp(gap) })
+            root.addView(body, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(gap) })
+        } else {
+            root.addView(hero, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(gap) })
+            root.addView(summary, layout(-1, -2, top = gap))
+            root.addView(statusBar(), layout(-1, -2, top = gap))
+            root.addView(activeActions(parked = true), layout(-1, -2, top = gap))
+        }
+        host.removeAllViews()
+        host.addView(root, FrameLayout.LayoutParams(-1, -1))
+        applyImage()
+    }
+
+    private fun parkedSummary(): View {
+        val panel = card(theme.surface, 32, 24)
+        panel.addView(pill("P · 잠깐 멈췄어요", theme.soft, theme.accent), layout(-2, -2))
+        destination = text("", 24, 34, 700).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
+        panel.addView(destination, layout(-1, -2, top = 16))
+        elapsed = text("", 20, 30, color = theme.muted).apply { maxLines = 2 }
+        panel.addView(elapsed, layout(-1, -2, top = 4))
+        val scoreRow = row().apply { gravity = Gravity.BOTTOM }
+        liveScore = text("—", 72, 84, 700, color = theme.accent)
+        scoreRow.addView(liveScore, layout(-2, -2))
+        scoreRow.addView(text("점", 26, 40, 700, color = theme.muted), layout(-2, -2, left = 8))
+        liveScoreState = text("", 20, 30, color = theme.muted)
+        scoreRow.addView(liveScoreState, layout(-2, -2, left = 16))
+        panel.addView(scoreRow, layout(-1, -2, top = 20))
+        panel.addView(text("눈티가 놀란 순간", 22, 32, 700), layout(-1, -2, top = 24))
+        recentEvents = column()
+        panel.addView(recentEvents, layout(-1, -2, top = 8))
+        panel.addView(View(this), LinearLayout.LayoutParams(-1, 0, 1f))
+        panel.addView(text("영역별 점수", 22, 32, 700), layout(-1, -2, top = 20))
+        areaScores = column()
+        panel.addView(areaScores, layout(-1, -2, top = 8))
+        return panel
+    }
+
+    /** 영역 4개의 점수 (배점 기준). 아직 평가하지 못한 영역은 "기록 중". */
+    private fun updateAreaScores(snapshot: JSONObject) {
+        val list = areaScores ?: return
+        val areas = snapshot.optJSONArray("areas") ?: return
+        val rows = (0 until areas.length()).mapNotNull { areas.optJSONObject(it) }
+        val key = rows.joinToString("|") { "${it.optString("label")}:${it.numberOrNull("score")?.toInt()}" }
+        if (key == areaKey && list.childCount > 0) return
+        areaKey = key
+        list.removeAllViews()
+        rows.forEachIndexed { i, area ->
+            val line = row().apply { gravity = Gravity.CENTER_VERTICAL }
+            line.addView(text(area.optString("label"), 20, 30), LinearLayout.LayoutParams(0, -2, 1f))
+            val score = area.numberOrNull("score")
+            line.addView(text(score?.let { "${it.toInt()}점" } ?: "기록 중", 20, 30, 700,
+                color = if (score == null) theme.muted else theme.accent), layout(-2, -2))
+            list.addView(line, layout(-1, -2, top = if (i == 0) 0 else 6))
+        }
+    }
+
+    /** 최근 사건 3개(새것 먼저). 같은 목록이면 다시 그리지 않는다. */
+    private fun updateRecentEvents(snapshot: JSONObject) {
+        val list = recentEvents ?: return
+        val events = snapshot.optJSONArray("events")
+        val recent = (0 until (events?.length() ?: 0)).mapNotNull { events?.optJSONObject(it) }.takeLast(3).reversed()
+        val key = recent.joinToString("|") { "${it.optLong("tMs")}:${it.optString("label")}" }
+        if (key == recentKey && list.childCount > 0) return
+        recentKey = key
+        list.removeAllViews()
+        if (recent.isEmpty()) {
+            list.addView(text("아직 없어요. 편안하게 달리고 있어요.", 20, 30, color = theme.muted), layout(-1, -2))
+            return
+        }
+        recent.forEachIndexed { i, event ->
+            val item = column()
+            item.addView(text("${clock(event.optLong("tMs") / 1000)} · ${event.optString("label")}", 20, 30, 700), layout(-1, -2))
+            item.addView(text(event.optString("advice"), 18, 28, color = theme.muted).apply { maxLines = 2; ellipsize = TextUtils.TruncateAt.END }, layout(-1, -2, top = 2))
+            list.addView(item, layout(-1, -2, top = if (i == 0) 0 else 12))
+        }
+    }
+
+    private fun ticker(): View {
+        val bar = row().apply {
+            gravity = Gravity.CENTER_VERTICAL
+            background = shape(theme.surface, 20)
+            setPadding(dp(16), dp(14), dp(20), dp(14))
+        }
+        turnBadge = badgeBox("→", 56, theme.accent, theme.onAccent)
+        bar.addView(turnBadge, layout(56, 56))
+        val texts = column()
+        destination = text("", 24, 34, 700).apply { maxLines = 1; ellipsize = TextUtils.TruncateAt.END }
+        texts.addView(destination, layout(-1, -2))
+        elapsed = text("", 20, 30, color = theme.muted).apply { maxLines = 1 }
+        texts.addView(elapsed, layout(-1, -2, top = 2))
+        bar.addView(texts, LinearLayout.LayoutParams(0, -2, 1f).apply { leftMargin = dp(16) })
+        characterLabel = pill("", theme.soft, theme.accent)
+        bar.addView(characterLabel, layout(-2, -2, left = 12))
+        return bar
+    }
+
+    private fun heroCard(withBubble: Boolean): View {
+        val hero = card(theme.surface, 24).apply { gravity = Gravity.CENTER_HORIZONTAL }
+        val status = row().apply {
+            gravity = Gravity.CENTER_VERTICAL
+            background = shape(theme.soft, 999)
+            setPadding(dp(16), dp(6), dp(18), dp(6))
+        }
+        statusDot = dot(theme.accent)
+        status.addView(statusDot, layout(12, 12))
+        statusPill = text("", 20, 30, 500)
+        status.addView(statusPill, layout(-2, -2, left = 10))
+        hero.addView(status, layout(-2, -2))
+        hero.addView(avatarView, LinearLayout.LayoutParams(-1, 0, 1f).apply { topMargin = dp(8) })
+        if (withBubble) hero.addView(speechBubble(tailLeft = false), layout(-1, -2, top = 4))
+        return hero
+    }
+
+    /** 눈티가 하는 말. 사건 반응이 있으면 그 대사로 잠깐 바뀐다. [tailLeft] 면 꼬리가 왼쪽(눈티 쪽), 아니면 위쪽. */
+    private fun speechBubble(tailLeft: Boolean): View {
+        val box = column().apply {
+            background = shape(theme.soft, 24)
+            gravity = if (tailLeft) Gravity.CENTER_VERTICAL else Gravity.NO_GRAVITY
+            setPadding(dp(32), dp(20), dp(32), dp(24))
+        }
+        box.addView(text("눈티", 22, 32, 700, color = theme.accent), layout(-2, -2))
+        line = text("", if (tailLeft) 40 else 28, if (tailLeft) 56 else 42, 700)
+            .apply { maxLines = if (tailLeft) 4 else 3; ellipsize = TextUtils.TruncateAt.END }
+        box.addView(line, layout(-1, -2, top = 8))
+        val wrap = if (tailLeft) row().apply { gravity = Gravity.CENTER_VERTICAL } else column().apply { gravity = Gravity.CENTER_HORIZONTAL }
+        wrap.addView(BubbleTail(theme.soft, left = tailLeft), if (tailLeft) layout(18, 36) else layout(36, 18))
+        wrap.addView(box, if (tailLeft) LinearLayout.LayoutParams(0, -1, 1f) else layout(-1, -2))
+        return wrap
+    }
+
+    /** 주행 화면의 큰 계기: 현재 속도를 가장 크게, 옆에 제한속도 표지, 아래에 운전 점수. */
+    private fun driveGauge(): View {
+        val gauge = card(theme.surface, 32, 24)
+        val main = row().apply { gravity = Gravity.CENTER_VERTICAL }
+        val speedColumn = column().apply { gravity = Gravity.CENTER_HORIZONTAL }
+        speedColumn.addView(text("현재 속도", 22, 32, 500, color = theme.muted), layout(-2, -2))
+        speedValue = text("—", 150, 160, 800, color = theme.accent)
+        val speedRow = row().apply { gravity = Gravity.BOTTOM }
+        speedRow.addView(speedValue, layout(-2, -2))
+        speedRow.addView(text("km/h", 30, 44, 700, color = theme.muted), layout(-2, -2, left = 8))
+        speedColumn.addView(speedRow, layout(-2, -2, top = 4))
+        speedDot = dot(theme.accent)
+        speedState = text("", 24, 34, 600, color = theme.accent)
+        val stateRow = row().apply { gravity = Gravity.CENTER_VERTICAL }
+        stateRow.addView(speedDot, layout(12, 12))
+        stateRow.addView(speedState, layout(-2, -2, left = 10))
+        speedColumn.addView(stateRow, layout(-2, -2, top = 8))
+        main.addView(speedColumn, LinearLayout.LayoutParams(0, -2, 1f))
+        val limitColumn = column().apply { gravity = Gravity.CENTER_HORIZONTAL }
+        limitColumn.addView(text("제한 속도", 22, 32, 500, color = theme.muted), layout(-2, -2))
+        limitValue = text("—", 56, 64, 800, color = android.graphics.Color.rgb(28, 28, 22)).apply { gravity = Gravity.CENTER }
+        val sign = FrameLayout(this).apply {
+            background = GradientDrawable().apply {
+                shape = GradientDrawable.OVAL; setColor(android.graphics.Color.WHITE)
+                setStroke(dp(12), android.graphics.Color.rgb(186, 26, 26))
+            }
+            addView(limitValue, FrameLayout.LayoutParams(-1, -1).apply { gravity = Gravity.CENTER })
+        }
+        limitColumn.addView(sign, layout(150, 150, top = 8))
+        limitCaption = text("", 22, 32, 500, color = theme.muted)
+        limitColumn.addView(limitCaption, layout(-2, -2, top = 8))
+        main.addView(limitColumn, layout(-2, -2, left = 24))
+        gauge.addView(main, LinearLayout.LayoutParams(-1, 0, 1f))
+        val scoreRow = row().apply { gravity = Gravity.CENTER_VERTICAL; background = shape(theme.soft, 18); setPadding(dp(24), dp(12), dp(24), dp(12)) }
+        scoreRow.addView(text("운전 점수", 22, 32, 500, color = theme.muted), layout(-2, -2))
+        liveScore = text("—", 40, 48, 800, color = theme.accent)
+        scoreRow.addView(liveScore, layout(-2, -2, left = 16))
+        scoreRow.addView(text("점", 22, 32, 700, color = theme.muted), layout(-2, -2, left = 4))
+        scoreRow.addView(View(this), LinearLayout.LayoutParams(0, 1, 1f))
+        liveScoreState = text("", 20, 30, 500, color = theme.muted)
+        scoreRow.addView(liveScoreState, layout(-2, -2))
+        gauge.addView(scoreRow, layout(-1, -2, top = 16))
+        return gauge
+    }
+
+    private fun statusBar(): View {
+        val bar = row().apply {
+            gravity = Gravity.CENTER_VERTICAL
+            background = shape(theme.soft, 20)
+            setPadding(dp(24), dp(14), dp(24), dp(14))
+        }
+        hardCount = text("", 22, 32, 500)
+        bar.addView(hardCount, layout(-2, -2))
+        leadGap = text("", 22, 32, 500)
+        bar.addView(leadGap, layout(-2, -2, left = 28))
+        bar.addView(View(this), LinearLayout.LayoutParams(0, 1, 1f))
+        liveCoverage = text("", 20, 30, 500, color = theme.accent)
+        bar.addView(liveCoverage, layout(-2, -2, left = 16))
+        return bar
+    }
+
+    private fun activeActions(parked: Boolean): View {
+        val actions = column()
+        val top = row()
+        top.addView(muteAction(), LinearLayout.LayoutParams(0, dp(80), 1f))
+        top.addView(button("현대 내비 열기") { openNavigation() }, LinearLayout.LayoutParams(0, dp(80), 1f).apply { leftMargin = dp(16) })
+        actions.addView(top, layout(-1, -2))
+        if (parked) {
+            val bottom = row()
+            bottom.addView(button("눈티로 돌아가기") { if (parkedNow()) finish() }, LinearLayout.LayoutParams(0, dp(80), 1f))
+            finishButton = finishAction()
+            bottom.addView(finishButton, LinearLayout.LayoutParams(0, dp(80), 1f).apply { leftMargin = dp(16) })
+            actions.addView(bottom, layout(-1, -2, top = 16))
+        } else {
+            actions.addView(text("여정 마치기와 자세한 기록은 정차 후에 열려요.", 20, 30, color = theme.muted)
+                .apply { gravity = Gravity.CENTER }, layout(-1, -2, top = 12))
+        }
+        return actions
+    }
+
+    private fun updateLive(snapshot: JSONObject, total: Double?, evaluated: Int) {
+        val place = snapshot.optString("destination").ifBlank { null }
+        val purpose = snapshot.optString("purpose").ifBlank { null }
+        val nav = snapshot.optJSONObject("nav")
+        val turn = nav?.optString("turn")?.takeIf { nav.has("turn") && !nav.isNull("turn") }
+        val turnDistance = nav?.numberOrNull("distanceM")?.toInt()
+        val (arrow, turnLabel) = turnLabel(turn)
+        turnBadge?.text = if (turn != null) arrow else "→"
+        // 주행 화면은 내비 안내(TBT)가 오면 그것을 먼저 보여 준다. 정차 화면과 안내가 없을 때는 여정의 목적지와 목적.
+        destination?.text = if (turn != null && turnDistance != null && turnBadge != null) listOfNotNull(
+            "${distanceLabel(turnDistance)} 앞 $turnLabel", nav.optString("description").takeIf { !nav.isNull("description") && it.isNotBlank() },
+        ).joinToString(" · ")
+            else listOfNotNull(place?.let { "$it 가는 길" }, purpose).joinToString(" · ").ifBlank { "목적지 없이 달리는 중" }
+        val seconds = snapshot.optLong("elapsedMs").coerceAtLeast(0) / 1000
+        val route = nav?.numberOrNull("routeDistanceM")?.let { meters ->
+            val minutes = nav.numberOrNull("routeDurationS")?.let { (it / 60).toInt().coerceAtLeast(1) }
+            "전체 경로 ${distanceLabel(meters.toInt())}" + (minutes?.let { " · 예상 ${it}분" } ?: "")
+        }
+        elapsed?.text = listOfNotNull(String.format(Locale.KOREA, "함께한 시간 %s · 약 %.1f km", clock(seconds), snapshot.optDouble("distanceKm", 0.0)), route)
+            .joinToString(" · ")
+        val speed = snapshot.numberOrNull("speedKmh")
+        val limit = snapshot.numberOrNull("speedLimitKmh")
+        val over = speed != null && limit != null && speed > limit + 5
+        speedValue?.text = speed?.let { String.format(Locale.KOREA, "%.0f", it) } ?: "—"
+        val speedColor = if (over) theme.warm else theme.accent
+        speedValue?.setTextColor(speedColor)
+        speedState?.text = when { speed == null -> "신호 기다리는 중"; speed < 1 -> "정차 중"; over -> "속도를 줄여요"; else -> "정속 주행" }
+        speedState?.setTextColor(speedColor)
+        (speedDot?.background as? GradientDrawable)?.setColor(speedColor)
+        limitValue?.text = limit?.let { "${it.toInt()}" } ?: "—"
+        limitCaption?.text = when { limit == null -> "정보 없음"; over -> "제한보다 빨라요"; else -> "안전 속도 안" }
+        limitCaption?.setTextColor(if (over) theme.warm else theme.muted)
+        liveScore?.text = total?.let { String.format(Locale.KOREA, "%.0f", it) } ?: "—"
+        liveScoreState?.text = if (total == null) "기록 중" else "100점 기준"
+        hardCount?.text = "급가감속 ${snapshot.optInt("hardEventCount")}회"
+        val items = snapshot.optJSONArray("items")
+        val gapScore = (0 until (items?.length() ?: 0)).mapNotNull { items?.optJSONObject(it) }
+            .firstOrNull { it.optString("id") == "LEAD_GAP" }?.numberOrNull("score")
+        leadGap?.text = gapScore?.let { "차간 거리 ${it.toInt()}점" } ?: "차간 거리 미수신"
+        liveCoverage?.text = if (total == null) "점수 기록 중" else "평가 범위 $evaluated%"
+        val emotion = snapshot.optString("emotion", "NEUTRAL")
+        // 정차 화면에서는 "함께 달리는 중" 대신 쉬는 중이라고 한다. 다른 감정은 그대로.
+        statusPill?.text = JourneyCompanionView.emotionLabel(emotion)
+            .let { if (recentEvents != null && it == JourneyCompanionView.emotionLabel("NEUTRAL")) "함께 쉬어 가는 중" else it }
+        (statusDot?.background as? GradientDrawable)?.setColor(JourneyCompanionView.emotionColor(emotion))
+        characterLabel?.text = if (snapshot.optBoolean("muted")) "음성 꺼짐" else "음성 켜짐"
+        sourceLabel?.text = if (snapshot.optString("source") == "DEMO") "시연 데이터" else "실시간 차량 신호"
+        updateRecentEvents(snapshot)
+        updateAreaScores(snapshot)
+    }
+
+    private fun distanceLabel(meters: Int) = if (meters >= 1000) String.format(Locale.KOREA, "%.1fkm", meters / 1000.0) else "${meters}m"
+
+    /** 내비 TurnType(TURN_ 을 뗀 이름) → 화살표와 짧은 안내말. 모르는 값은 "안내". */
+    private fun turnLabel(turn: String?): Pair<String, String> = when {
+        turn == null -> "→" to "안내"
+        turn == "STRAIGHT" -> "↑" to "직진"
+        turn == "LEFT" -> "←" to "좌회전"
+        turn == "RIGHT" -> "→" to "우회전"
+        turn == "SHARP_L" -> "↙" to "급좌회전"
+        turn == "SHARP_R" -> "↘" to "급우회전"
+        turn == "KEEP_L" -> "↖" to "왼쪽 방향"
+        turn == "KEEP_R" -> "↗" to "오른쪽 방향"
+        turn == "UTURN" -> "↶" to "유턴"
+        turn == "ARRIVE" -> "◎" to "목적지"
+        turn == "WAY" -> "◎" to "경유지"
+        turn.startsWith("ENTER_ROUNDABOUT") -> "↻" to "회전교차로"
+        turn == "EXIT_ROUNDABOUT" -> "↻" to "회전교차로 나가기"
+        turn.startsWith("ENTER_IC") -> sideArrow(turn) to "나들목 진입"
+        turn.startsWith("EXIT_IC") -> sideArrow(turn) to "나들목 출구"
+        turn.contains("UNDER") -> sideArrow(turn) to if (turn.startsWith("AVOID")) "지하차도 옆길" else "지하차도"
+        turn.contains("OVER") -> sideArrow(turn) to if (turn.startsWith("AVOID")) "고가차도 옆길" else "고가차도"
+        turn == "TUNNEL" -> "↑" to "터널"
+        turn == "TOLL" -> "↑" to "요금소"
+        turn == "DEVIDE_MERGE" -> "↑" to "합류"
+        turn == "ENTER_SERVICEAREA" || turn == "RESTAREA" -> "↗" to "휴게소"
+        else -> "→" to "안내"
+    }
+    private fun sideArrow(turn: String) = when { turn.endsWith("_L") -> "↖"; turn.endsWith("_R") -> "↗"; else -> "↑" }
+
+    private fun pill(value: String, fill: Int, ink: Int) = text(value, 18, 28, 700, color = ink).apply {
+        background = shape(fill, 999); setPadding(dp(14), dp(2), dp(14), dp(2)); gravity = Gravity.CENTER
+    }
+    private fun badgeBox(value: String, size: Int, fill: Int, ink: Int) = text(value, size * 2 / 5, size, 700, color = ink).apply {
+        background = shape(fill, 16); gravity = Gravity.CENTER
+    }
+    private fun dot(color: Int) = View(this).apply {
+        background = GradientDrawable().apply { shape = GradientDrawable.OVAL; setColor(color) }
+    }
+
+    /** 말풍선 꼬리(위로 향한 삼각형). 정적인 도형이다. */
+    private inner class BubbleTail(color: Int, private val left: Boolean) : View(this@JourneyActivity) {
+        private val paint = android.graphics.Paint(android.graphics.Paint.ANTI_ALIAS_FLAG).apply { this.color = color }
+        private val path = android.graphics.Path()
+        override fun onDraw(canvas: android.graphics.Canvas) {
+            path.reset()
+            if (left) { path.moveTo(0f, height / 2f); path.lineTo(width.toFloat(), 0f); path.lineTo(width.toFloat(), height.toFloat()) }
+            else { path.moveTo(width / 2f, 0f); path.lineTo(width.toFloat(), height.toFloat()); path.lineTo(0f, height.toFloat()) }
+            path.close()
+            canvas.drawPath(path, paint)
+        }
     }
 
     private fun buildCompanion(mode: Screen): View {
@@ -551,8 +954,15 @@ class JourneyActivity : Activity() {
 
     private fun JSONObject.numberOrNull(key: String): Double? =
         (opt(key) as? Number)?.toDouble()?.takeIf { it.isFinite() }
-    private fun parkedNow(): Boolean = carGate?.canDisplay()
-        ?: !packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)
+    private fun parkedNow(): Boolean = !previewDriving && (carGate?.canDisplay()
+        ?: !packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE))
+    /**
+     * 디버그 빌드 전용: 에뮬레이터는 기어·속도를 바꿀 수 없어 주행 화면을 볼 수 없다.
+     * files/preview-driving 파일이 있으면 이 화면만 주행 중처럼 그린다 (서비스의 정차 판정은 그대로).
+     */
+    private val previewDriving by lazy {
+        (applicationInfo.flags and android.content.pm.ApplicationInfo.FLAG_DEBUGGABLE) != 0 && File(filesDir, "preview-driving").exists()
+    }
     private fun duration(seconds: Long): String = when {
         seconds >= 3600 -> "${seconds / 3600}시간 ${seconds / 60 % 60}분"
         seconds >= 60 -> "${seconds / 60}분 ${seconds % 60}초"
