@@ -10,7 +10,7 @@
     <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
     <uses-permission android:name="android.car.permission.CAR_SPEED" />
     <queries><intent><action android:name="android.intent.action.TTS_SERVICE" /></intent><intent><action android:name="ai.pleos.playground.intent.action.NAVI_START" /></intent></queries>
-    <application android:label="눈티 · 여정 아바타" android:icon="@drawable/ic_nunti" android:allowBackup="false" android:networkSecurityConfig="@xml/studio_network_security" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:supportsRtl="true">
+    <application android:label="눈티 · 여정 아바타" android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:networkSecurityConfig="@xml/studio_network_security" android:theme="@android:style/Theme.Material.Light.NoActionBar" android:supportsRtl="true">
         <uses-library android:name="android.car" android:required="false" />
         <activity android:name=".studio.AvatarStudioActivity" android:exported="false" android:configChanges="orientation|screenSize|keyboardHidden|uiMode" />
         <activity android:name=".journey.JourneyActivity" android:exported="false" android:configChanges="orientation|screenSize|keyboardHidden|uiMode">
