@@ -116,6 +116,9 @@ async function createWardrobe(input) {
       WARDROBE_HTTP_403: '이 API 키의 이미지 모델(gpt-image-1.5) 사용 권한을 확인해 주세요.',
       WARDROBE_HTTP_429: 'OpenAI 사용 한도 또는 잔액을 확인해 주세요.',
       WARDROBE_RESULT_UNKNOWN: '응답을 받지 못했어요. 중복 결제를 피하려고 자동 재시도하지 않았어요.',
+      WARDROBE_INVALID_RESPONSE: '생성 API 응답을 해석하지 못했어요. 비용이 발생했을 수 있어 자동 재시도하지 않았어요. 같은 입력은 이전 실패 결과를 유지해요.',
+      WARDROBE_IMAGE_SIZE: '생성 API가 요청한 크기와 다른 그림을 반환했어요. 비용이 발생했을 수 있어 자동 재시도하지 않았어요.',
+      WARDROBE_ALPHA_MISSING: '생성 API가 투명 배경이 없는 그림을 반환했어요. 비용이 발생했을 수 있어 자동 재시도하지 않았어요.',
       COMPANION_RIG_ALIGNMENT: '새 그림의 관절 위치가 공통 리그와 맞지 않아 움직이는 스킨으로 등록하지 않았어요. 비용이 발생했을 수 있어 자동 재시도하지 않아요.',
       COMPANION_RIG_NOT_APPROVED: '공통 리그 생성은 아직 검증 중이에요. 기존 스킨 생성과 보관한 눈티는 그대로 사용할 수 있어요.',
     };

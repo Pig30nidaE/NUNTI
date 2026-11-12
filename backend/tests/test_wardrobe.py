@@ -268,3 +268,128 @@ def test_rig_director_cannot_reintroduce_free_pose_or_held_props(monkeypatch):
     assert "ANIMATION REGISTRATION TAKES PRIORITY" in requests[0]
     assert "HOLD_A_CUP" not in requests[0] and "CLOSE_BOTH_EYES" not in requests[0]
     assert "coral and aqua" in requests[0]
+
+
+def test_invalid_paid_response_is_retained_for_local_diagnosis_without_retry(tmp_path, monkeypatch):
+    import io
+
+    from nunti.avatar_studio import wardrobe
+
+    raw = b'{"data":[{"unexpected":"provider-format"}]}'
+    calls = []
+
+    class Opener:
+        def open(self, request, timeout):
+            calls.append(request)
+            return io.BytesIO(raw)
+
+    monkeypatch.setattr(wardrobe.urllib.request, "build_opener", lambda *_: Opener())
+    value = WardrobeInput(destination={"name": "쿠팡 서울 1센터"}, purpose="아르바이트")
+    store = StudioStore(tmp_path)
+    settings = SimpleNamespace(wardrobe_available=True, image_key="test")
+    for _ in range(2):
+        with pytest.raises(StudioError, match="WARDROBE_INVALID_RESPONSE"):
+            create(settings, store, "owner", value, wardrobe.render)
+    assert len(calls) == 1
+    claim = wardrobe_claim(
+        value.model_dump(exclude_none=True), wardrobe.VERSION, digest(REFERENCE.read_bytes())
+    )
+    assert store.provider_response("owner", claim["requestId"]) == raw
+    with pytest.raises(StudioError, match="PROVIDER_RESPONSE_NOT_FOUND"):
+        store.provider_response("other-owner", claim["requestId"])
+    assert budget(store)["calls"] == 1
+
+
+@pytest.mark.parametrize(
+    ("size", "color", "expected"),
+    [
+        ((512, 512), (0, 0, 0, 0), "WARDROBE_IMAGE_SIZE"),
+        ((1024, 1024), (240, 220, 200, 255), "WARDROBE_ALPHA_MISSING"),
+    ],
+)
+def test_provider_image_validation_keeps_its_specific_error(monkeypatch, size, color, expected):
+    import base64
+    import io
+    import json
+
+    from PIL import Image
+
+    from nunti.avatar_studio import wardrobe
+
+    image = io.BytesIO()
+    Image.new("RGBA", size, color).save(image, "PNG")
+    raw = json.dumps({"data": [{"b64_json": base64.b64encode(image.getvalue()).decode()}]}).encode()
+    opener = SimpleNamespace(open=lambda *args, **kwargs: io.BytesIO(raw))
+    monkeypatch.setattr(wardrobe.urllib.request, "build_opener", lambda *_: opener)
+    with pytest.raises(StudioError, match=expected):
+        wardrobe.render("test", "offline wardrobe validation")
+
+
+@pytest.mark.parametrize("payload", [None, {"data": []}, {"data": [None]}])
+def test_malformed_provider_envelopes_fail_explicitly_without_leaking_payload(
+    monkeypatch, caplog, payload
+):
+    import io
+    import json
+
+    from nunti.avatar_studio import wardrobe
+
+    raw = json.dumps(payload).encode()
+    opener = SimpleNamespace(open=lambda *args, **kwargs: io.BytesIO(raw))
+    monkeypatch.setattr(wardrobe.urllib.request, "build_opener", lambda *_: opener)
+    with pytest.raises(StudioError, match="WARDROBE_INVALID_RESPONSE"):
+        wardrobe.render("test-key-never-log", "private prompt never log")
+    assert "stage=image_payload" in caplog.text
+    assert "test-key-never-log" not in caplog.text and "private prompt" not in caplog.text
+
+
+def test_corrupt_image_is_distinguished_from_unknown_transport_outcome(monkeypatch, caplog):
+    import base64
+    import io
+    import json
+
+    from nunti.avatar_studio import wardrobe
+
+    raw = json.dumps(
+        {"data": [{"b64_json": base64.b64encode(b"private-invalid-image").decode()}]}
+    ).encode()
+    opener = SimpleNamespace(open=lambda *args, **kwargs: io.BytesIO(raw))
+    monkeypatch.setattr(wardrobe.urllib.request, "build_opener", lambda *_: opener)
+    with pytest.raises(StudioError, match="WARDROBE_INVALID_RESPONSE"):
+        wardrobe.render("test", "offline image validation")
+    assert "stage=image" in caplog.text
+    assert "private-invalid-image" not in caplog.text
+
+
+def test_documented_gpt_image_response_is_saved_at_the_existing_output_size(monkeypatch):
+    import base64
+    import io
+    import json
+
+    from PIL import Image
+
+    from nunti.avatar_studio import wardrobe
+
+    image = io.BytesIO()
+    with Image.open(REFERENCE) as source:
+        source.resize((1024, 1024)).save(image, "PNG")
+    usage = {"input_tokens_details": {"text_tokens": 10, "image_tokens": 20}, "output_tokens": 30}
+    raw = json.dumps(
+        {
+            "data": [
+                {
+                    "b64_json": base64.b64encode(image.getvalue()).decode(),
+                    "generation_id": "test-generation",
+                }
+            ],
+            "usage": usage,
+        }
+    ).encode()
+    opener = SimpleNamespace(open=lambda *args, **kwargs: io.BytesIO(raw))
+    monkeypatch.setattr(wardrobe.urllib.request, "build_opener", lambda *_: opener)
+    value = WardrobeInput(destination={"name": "쿠팡 서울 1센터"}, purpose="아르바이트")
+    _, seed, look = brief(value)
+    content, reported, estimate = wardrobe.render("test", build_prompt(value, seed, look))
+    with Image.open(io.BytesIO(content)) as output:
+        assert output.size == (768, 768) and output.mode == "RGBA"
+    assert reported == usage and estimate == 1110

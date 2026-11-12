@@ -50,7 +50,7 @@ function makePlan(input) {
   };
 }
 
-async function harness({mockSkinMode, companionRigVersion} = {}) {
+async function harness({mockSkinMode, companionRigVersion, generationError} = {}) {
   const elements = new Map(), timers = [], calls = [], commands = [], plans = new Map();
   const get = id => {
     if (!elements.has(id)) elements.set(id, element());
@@ -94,7 +94,10 @@ async function harness({mockSkinMode, companionRigVersion} = {}) {
         plans.set(data.planId, data);
         if (deferredPlan) await new Promise(resolve => { deferredPlan.resolve = resolve; deferredPlan.plan = data; });
       } else if (url.startsWith('/v3/route-plans/')) data = plans.get(url.split('/').at(-1));
-      else if ((url === '/v3/avatars' || url === '/v3/wardrobe') && body) throw new Error('TEST_GENERATION_STOP');
+      else if ((url === '/v3/avatars' || url === '/v3/wardrobe') && body) {
+        if(generationError)return {ok:false,status:502,async json(){return {error:{code:generationError}};}};
+        throw new Error('TEST_GENERATION_STOP');
+      }
       else throw new Error('Unexpected in-memory request: ' + url);
       return {ok: true, async json() { return {data: clone(data)}; }};
     },
@@ -134,6 +137,13 @@ const checks = [];
 async function test(name, run, options) { await run(await harness(options)); checks.push(name); }
 
 try {
+  await test('invalid provider response explains the failure and does not automatically retry a paid request', async h => {
+    await h.calculate();h.confirm();await h.submit();
+    assert.equal(h.generationCalls().length,1);
+    assert.match(h.get('notice').textContent,/생성 API 응답/);
+    assert.match(h.get('notice').textContent,/자동 재시도하지 않았어요/);
+    assert.equal(h.get('create-button').disabled,false);
+  }, {generationError:'WARDROBE_INVALID_RESPONSE'});
   for (const mockSkinMode of [true, false]) {
     await test(`shared rig generation requires UI approval even when the server advertises it (mock=${mockSkinMode})`, async h => {
       await h.calculate(); h.confirm(); await h.submit();

@@ -38,6 +38,9 @@ class StudioStore:
                 CREATE TABLE IF NOT EXISTS characters (
                     owner TEXT NOT NULL, id TEXT NOT NULL, artifact TEXT NOT NULL,
                     PRIMARY KEY(owner,id));
+                CREATE TABLE IF NOT EXISTS provider_responses (
+                    owner TEXT NOT NULL, id TEXT NOT NULL, sha TEXT NOT NULL,
+                    PRIMARY KEY(owner,id));
             """)
             # A previous process may have crossed a paid side-effect boundary. Never repeat it.
             db.execute(
@@ -106,6 +109,28 @@ class StudioStore:
                 "UPDATE requests SET state='FAILED',error=? WHERE owner=? AND id=?",
                 (code, owner, request_id),
             )
+
+    def put_provider_response(self, owner, request_id, content):
+        sha = self.put_asset(owner, content, "application/json")
+        with self.connect() as db:
+            db.execute("BEGIN IMMEDIATE")
+            previous = db.execute(
+                "SELECT sha FROM provider_responses WHERE owner=? AND id=?", (owner, request_id)
+            ).fetchone()
+            if previous is not None and previous["sha"] != sha:
+                raise StudioError("PROVIDER_RESPONSE_CHANGED", 409)
+            db.execute(
+                "INSERT OR IGNORE INTO provider_responses VALUES(?,?,?)", (owner, request_id, sha)
+            )
+
+    def provider_response(self, owner, request_id):
+        with self.connect() as db:
+            row = db.execute(
+                "SELECT sha FROM provider_responses WHERE owner=? AND id=?", (owner, request_id)
+            ).fetchone()
+        if row is None:
+            raise StudioError("PROVIDER_RESPONSE_NOT_FOUND", 404)
+        return self.asset(owner, row["sha"])[0]
 
     def put_asset(self, owner, content, mime):
         sha = digest(content)

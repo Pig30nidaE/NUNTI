@@ -7,6 +7,12 @@ FastAPI / Pydantic v2 / SQLite. 차량 앱의 실시간 동작과 독립적인 �
 점수·감정 계산, 최종 코멘트 생성, 차량 SDK 호출, 음성 재생은 각 담당 모듈의 책임이다. 서버는 앱이 계산한 점수와 Pleos 샘플을 저장한다 ([telemetry-sync](../docs/architecture/telemetry-sync.md)).
 공통 계약은 **1.0 초안**이며 실제 차량 연동을 완료했다는 의미가 아니다.
 
+Studio의 이미지 API 응답은 해석 전에 소유자별 불변 미디어와 `provider_responses`에 보존한다.
+이미지·응답 원문·프롬프트·키는 로그에 출력하지 않고, 형식 오류는 `json`/`image_payload`/`image`/`usage`
+단계명만 남긴다. 이미지 크기·투명도 오류는 각각 `WARDROBE_IMAGE_SIZE`와
+`WARDROBE_ALPHA_MISSING`으로 구분한다. 같은 입력의 실패 기록과 비용 예약은 유지하며
+자동 유료 재시도를 하지 않는다. 보존 기능 적용 전 실패의 원본 응답을 소급 복원할 수는 없다.
+
 ## 로컬 실행
 
 Python 3.12 이상과 uv가 필요하다. 명령은 저장소의 `backend/`에서 실행한다.
