@@ -17,7 +17,18 @@ class RecordedVoiceTest {
         val plan = ClosingPlan(Verdict.FAIR, Highlight.BRAKES, CheckIn.ASK_HURRY)
         val parts = RecordedVoice.split(ClosingMessage.compose(plan, 0))
         assertEquals(listOf(Verdict.FAIR.variants[0], Highlight.BRAKES.variants[0], CheckIn.ASK_HURRY.variants[0]), parts)
-        assertEquals(listOf(VoiceClip.VERDICT_FAIR_1, VoiceClip.SCENE_BRAKES_1, null), parts.map { RecordedVoice.clipFor(it) })
+        assertEquals(listOf(VoiceClip.VERDICT_FAIR_1, VoiceClip.SCENE_BRAKES_1, VoiceClip.CHECKIN_ASK_HURRY_1), parts.map { RecordedVoice.clipFor(it) })
+    }
+
+    @Test fun everyDemoClosingPartIsRecorded() {
+        // 시연은 부품마다 첫 문장만 쓴다: 그 문장은 모두 눈티 목소리여야 한다.
+        (Verdict.entries.map { it.variants[0] } + Highlight.entries.map { it.variants[0] } + CheckIn.entries.map { it.variants[0] })
+            .forEach { assertTrue(it, RecordedVoice.clipFor(it) != null) }
+    }
+
+    @Test fun greetingAndFirstPauseNoticesAreRecorded() {
+        listOf(EventSpeaker.GREETING, Readiness.WAITING_FOR_MOVEMENT.notices[0], Readiness.WAITING_FOR_SIGNALS.notices[0],
+            PauseFollowUp.SAVED_FOR_NOW.variants[0]).forEach { assertTrue(it, RecordedVoice.clipFor(it) != null) }
     }
 
     @Test fun everyComposedClosingAndPauseNoticeSplitsCleanly() {

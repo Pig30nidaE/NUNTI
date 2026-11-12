@@ -5,6 +5,7 @@ fun interface SpeechSink { fun speak(text: String, utteranceId: String, emotion:
 /**
  * 새로 감지된 사건과 감정 변화를 짧은 대사로 바꿔 [SpeechSink]에 넘긴다 (순수 Kotlin).
  * - 이미 말한 사건은 다시 말하지 않는다 (tMs + 종류로 식별).
+ * - 기본은 종류마다 첫 대사 하나만 쓴다 (시연용: 같은 상황에 늘 같은 말). [rotate] 가 true 면 대사를 번갈아 쓴다.
  * - 같은 시간에 사건이 여럿이면 가장 최근 하나만 말한다.
  * - tts 모듈 정책의 초안 값(최소 간격 15초, 80자)을 따른다. 쿨다운 중의 사건은 버린다 (나중에 몰아 말하지 않음).
  * - 첫 호출은 기준선이다: 이미 있던 사건은 말하지 않는다.
@@ -13,6 +14,7 @@ class EventSpeaker(
     private val sink: SpeechSink,
     private val cooldownMs: Long = 15_000,
     private val maxChars: Int = 80,
+    private val rotate: Boolean = false,
 ) {
     private val seen = HashSet<Pair<Long, DetectedEvent.Kind>>()
     private var primed = false
@@ -28,7 +30,7 @@ class EventSpeaker(
         lastEmotion = emotion
         if (!primed) { primed = true; return null }
         val kind = fresh.lastOrNull()?.kind
-        val line = kind?.let { eventLine(it, spokenByKind[it] ?: 0) } ?: emotionLine(prevEmotion, emotion) ?: return null
+        val line = kind?.let { eventLine(it, if (rotate) spokenByKind[it] ?: 0 else 0) } ?: emotionLine(prevEmotion, emotion) ?: return null
         if (lastSpokenAt != Long.MIN_VALUE && nowMs - lastSpokenAt < cooldownMs) return null
         if (line.codePointCount(0, line.length) > maxChars) return null
         lastSpokenAt = nowMs
@@ -40,19 +42,22 @@ class EventSpeaker(
     fun reset() { seen.clear(); primed = false; lastEmotion = Emotion.NEUTRAL; lastSpokenAt = Long.MIN_VALUE; spokenByKind.clear() }
 
     companion object {
+        /** 여정을 시작할 때 한 번 하는 인사. */
+        const val GREETING = "출발해요! 오늘도 같이 달려요!"
+
         private val brakeLines = listOf(
             "꺅! 깜짝이야!",
             "악! 놀랐잖아요!",
             "헉! 심장 떨어지는 줄 알았어요!",
         )
         private val accelLines = listOf(
+            "으악, 조금만 천천히 가요!",
             "우왓! 몸이 확 쏠렸어요!",
-            "으악, 출발이 엄청 빨랐어요!",
         )
 
         /**
          * 사건 종류별 대사. 가르치는 말투가 아니라 옆자리 동승자가 반사적으로 내는 반응이다.
-         * 같은 종류가 이어지면 순서대로 번갈아 쓴다. 각 대사는 80자 이하여야 한다.
+         * 첫 대사가 기본 대사다 (녹음된 것을 앞에 둔다). 번갈아 쓸 때는 순서대로 돈다. 각 대사는 80자 이하여야 한다.
          */
         val lines: Map<DetectedEvent.Kind, List<String>> = mapOf(
             DetectedEvent.Kind.HARD_BRAKE to brakeLines,
@@ -60,8 +65,8 @@ class EventSpeaker(
             DetectedEvent.Kind.HARD_DECEL to brakeLines,
             DetectedEvent.Kind.HARD_ACCEL to accelLines,
             DetectedEvent.Kind.CURVE_TOO_FAST to listOf(
-                "꺄악! 커브에서 몸이 확 쏠렸어요!",
                 "으아, 커브 너무 빨라요!",
+                "꺄악! 커브에서 몸이 확 쏠렸어요!",
             ),
             DetectedEvent.Kind.REVERSE_TOO_FAST to accelLines, // 후진 과속도 몸으로는 급가속처럼 느껴진다
             // 굴러가는 채 P단이면 차가 덜컥 선다: 급제동과 같은 놀람. 전용 대사("아직 굴러가는데 P단이에요!")는 녹음할 때 바꾼다.

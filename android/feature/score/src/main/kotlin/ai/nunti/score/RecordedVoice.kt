@@ -4,10 +4,11 @@ import ai.nunti.score.DetectedEvent.Kind
 
 /**
  * 눈티 목소리로 미리 녹음한 대사 하나. 음원은 assets/[RecordedVoice.DIR]/[file] 이다.
- * 음원은 prototypes/fish_voice/build_clips.py 가 mp3/ 에서 만든다. 새로 녹음하면 스크립트 KEYS 와 여기에 한 항목씩 더한다.
+ * 음원은 scripts/build_score_voice_clips.py 가 mp3/ 에서 만든다. 새로 녹음하면 스크립트 KEYS 와 여기에 한 항목씩 더한다.
  * 문장은 앱 상수에서 직접 가져오므로 문구를 고치면 같이 따라간다 (그 음원은 다시 녹음해야 한다).
  */
 enum class VoiceClip(val text: String) {
+    GREETING(EventSpeaker.GREETING),
     BRAKE_1(EventSpeaker.eventLine(Kind.HARD_BRAKE, 0)),
     BRAKE_2(EventSpeaker.eventLine(Kind.HARD_BRAKE, 1)),
     BRAKE_3(EventSpeaker.eventLine(Kind.HARD_BRAKE, 2)),
@@ -18,14 +19,31 @@ enum class VoiceClip(val text: String) {
     RELIEF(Emotion.RELIEF.line),
     VERDICT_UNKNOWN_1(Verdict.UNKNOWN.variants[0]),
     VERDICT_GREAT_1(Verdict.GREAT.variants[0]),
+    VERDICT_GREAT_2(Verdict.GREAT.variants[1]),
     VERDICT_GOOD_1(Verdict.GOOD.variants[0]),
+    VERDICT_GOOD_2(Verdict.GOOD.variants[1]),
     VERDICT_FAIR_1(Verdict.FAIR.variants[0]),
+    VERDICT_FAIR_2(Verdict.FAIR.variants[1]),
     VERDICT_LOW_1(Verdict.LOW.variants[0]),
+    VERDICT_LOW_2(Verdict.LOW.variants[1]),
     SCENE_RECOVERED_1(Highlight.RECOVERED.variants[0]),
+    SCENE_RECOVERED_2(Highlight.RECOVERED.variants[1]),
     SCENE_BRAKES_1(Highlight.BRAKES.variants[0]),
+    SCENE_BRAKES_2(Highlight.BRAKES.variants[1]),
+    SCENE_ACCEL_1(Highlight.ACCEL.variants[0]),
+    SCENE_CURVES_1(Highlight.CURVES.variants[0]),
+    SCENE_SMOOTH_1(Highlight.SMOOTH.variants[0]),
+    SCENE_SMOOTH_2(Highlight.SMOOTH.variants[1]),
+    CHECKIN_CHEER_1(CheckIn.CHEER.variants[0]),
+    CHECKIN_CHEER_2(CheckIn.CHEER.variants[1]),
+    CHECKIN_ASK_TROUBLE_1(CheckIn.ASK_TROUBLE.variants[0]),
+    CHECKIN_ASK_HURRY_1(CheckIn.ASK_HURRY.variants[0]),
+    PAUSE_MOVEMENT_1(Readiness.WAITING_FOR_MOVEMENT.notices[0]),
+    PAUSE_SIGNALS_1(Readiness.WAITING_FOR_SIGNALS.notices[0]),
+    PAUSE_SAVED_1(PauseFollowUp.SAVED_FOR_NOW.variants[0]),
     ;
 
-    /** BRAKE_1 → brake-1.ogg (build_clips.py 의 ID 와 같다). */
+    /** BRAKE_1 → brake-1.ogg (build_score_voice_clips.py 의 ID 와 같다). */
     val file: String get() = name.lowercase().replace('_', '-') + ".ogg"
 }
 

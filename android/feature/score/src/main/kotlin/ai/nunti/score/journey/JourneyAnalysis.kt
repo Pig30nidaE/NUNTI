@@ -54,7 +54,7 @@ class JourneyAnalysis(private val config: ScoreConfig = ScoreConfig()) {
                 else -> "수신된 속도 변화로 감지"
             }
             TripEvent(e.tMs,e.label,evidence,when(e.kind){
-                DetectedEvent.Kind.HARD_ACCEL->"출발할 때 가속 페달을 조금 더 천천히 밟아 보세요."
+                DetectedEvent.Kind.HARD_ACCEL->"가속 페달을 조금 더 천천히 밟아 보세요."
                 DetectedEvent.Kind.PARK_WHILE_MOVING->"브레이크로 완전히 멈춘 다음 P단으로 바꿔 주세요."
                 else->"앞차와 거리를 두고 정지 전에 일찍 속도를 줄여 보세요."},
                 at?.position,speed,true)

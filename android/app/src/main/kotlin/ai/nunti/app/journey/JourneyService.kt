@@ -3,6 +3,7 @@ package ai.nunti.app.journey
 import ai.nunti.app.studio.StudioCarGate
 import ai.nunti.score.ClosingMessage
 import ai.nunti.score.DetectedEvent
+import ai.nunti.score.Emotion
 import ai.nunti.score.EventSpeaker
 import ai.nunti.score.Scenarios
 import ai.nunti.score.SpeechSink
@@ -257,7 +258,11 @@ class JourneyService : Service() {
 
     private fun speak(kind: String, finishing: Boolean = false) {
         nuntiVoice?.let { voice ->
-            // 주행 중 대사(인사 포함)는 nuntiSpeaker 가 tick 에서 맡는다. 여기서는 마무리 멘트만.
+            // 주행 중 반응은 nuntiSpeaker 가 tick 에서 맡는다. 여기서는 시작 인사와 마무리 멘트만.
+            if (kind == "GREETING" && !muted) {
+                voice.speak(EventSpeaker.GREETING, "nunti-greeting", Emotion.NEUTRAL)
+                said = EventSpeaker.GREETING to (session?.snapshot()?.elapsedMs ?: 0L)
+            }
             if (finishing) speakClosing(voice)
             return
         }
@@ -296,9 +301,7 @@ class JourneyService : Service() {
     private fun speakClosing(voice: PleosSpeechSink) {
         val journey = session?.snapshot()
         if (muted || journey == null) { stopSelf(); return }
-        val prefs = getSharedPreferences("nunti-voice", MODE_PRIVATE)
-        val variant = prefs.getInt("closingCount", 0).also { prefs.edit().putInt("closingCount", it + 1).apply() }
-        val text = ClosingMessage.compose(journey.report, journey.emotion, variant)
+        val text = ClosingMessage.compose(journey.report, journey.emotion) // 시연: 상황마다 같은 한 문장 (첫 문구)
         Log.i(TAG, "JOURNEY_CLOSING text=$text")
         var stopped = false
         val stop = Runnable { if (!stopped) { stopped = true; stopSelf() } }

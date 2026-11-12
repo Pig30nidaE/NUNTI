@@ -9,7 +9,7 @@ import org.junit.Test
 
 class EventSpeakerTest {
     private val spoken = mutableListOf<String>()
-    private val speaker = EventSpeaker({ t, _, _ -> spoken += t })
+    private val speaker = EventSpeaker({ t, _, _ -> spoken += t }, rotate = true)
     private fun report(vararg e: DetectedEvent) =
         ScoreReport(null, 0f, emptyList(), emptyList(), emptyList(), e.toList())
 
@@ -73,6 +73,16 @@ class EventSpeakerTest {
         }
         val n = EventSpeaker.lines.getValue(DetectedEvent.Kind.HARD_BRAKE).size
         assertEquals(EventSpeaker.eventLine(DetectedEvent.Kind.HARD_BRAKE, n), EventSpeaker.eventLine(DetectedEvent.Kind.HARD_BRAKE, 0))
+    }
+
+    @Test fun byDefaultTheSameSituationAlwaysGetsTheSameLine() {
+        val once = mutableListOf<String>()
+        val demo = EventSpeaker({ t, _, _ -> once += t })
+        demo.onUpdate(report(), Emotion.NEUTRAL, 0)
+        val a = DetectedEvent(1, DetectedEvent.Kind.HARD_ACCEL); val b = DetectedEvent(2, DetectedEvent.Kind.HARD_ACCEL)
+        demo.onUpdate(report(a), Emotion.WORRY, 1_000)
+        demo.onUpdate(report(a, b), Emotion.WORRY, 20_000)
+        assertEquals(listOf(EventSpeaker.eventLine(DetectedEvent.Kind.HARD_ACCEL, 0)).let { it + it }, once)
     }
 
     @Test fun scoreEngineLabelsAreDerivedFromKind() {
