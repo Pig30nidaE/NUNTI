@@ -48,11 +48,9 @@ import java.util.concurrent.Executors
 import kotlin.math.abs
 import org.json.JSONObject
 
-// This build must fail closed even if Studio reports configured provider keys.
-private const val MOCK_SKIN_MODE = true
-// Wardrobe edits were explicitly authorized on 2026-11-11. The server owns the $30 cap.
-private val PARKED_STUDIO_MUTATIONS = setOf("/v3/wardrobe", "/v3/conversation")
-private val MOCK_STUDIO_MUTATIONS = PARKED_STUDIO_MUTATIONS + setOf("/session", "/v3/route-extractions", "/v3/route-plans")
+private const val MOCK_SKIN_MODE = false
+private val PARKED_STUDIO_MUTATIONS = setOf("/v3/wardrobe", "/v3/avatars", "/v3/conversation")
+private val STUDIO_MUTATIONS = PARKED_STUDIO_MUTATIONS + setOf("/session", "/v3/route-extractions", "/v3/route-plans")
 
 /** The same tested generator UI is used by the browser and the actual Android host.
  * Vehicle display is gated with actual Car service values; no query flag can authorize it.
@@ -146,24 +144,18 @@ class AvatarStudioActivity : ComponentActivity() {
                     return WebResourceResponse("application/json", "UTF-8", 403, "Forbidden", emptyMap(),
                         "{\"error\":{\"code\":\"PARK_REQUIRED\"}}".byteInputStream())
                 }
-                if (MOCK_SKIN_MODE && (!isStudio(request.url) ||
-                        (request.method != "GET" && request.url.encodedPath !in MOCK_STUDIO_MUTATIONS))) {
-                    android.util.Log.w("NuntiStudio", "MOCK_SKIN_NETWORK_BLOCKED")
+                if (!isStudio(request.url) || (request.method != "GET" && request.url.encodedPath !in STUDIO_MUTATIONS)) {
                     return WebResourceResponse("application/json", "UTF-8", 403, "Forbidden", emptyMap(),
-                        "{\"error\":{\"code\":\"MOCK_SKIN_MODE\"}}".byteInputStream())
+                        "{\"error\":{\"code\":\"FORBIDDEN\"}}".byteInputStream())
                 }
-                if (!isStudio(request.url) || request.method != "GET") return null
+                if (request.method != "GET") return null
                 val path = request.url.path?.removePrefix("/").orEmpty().ifEmpty { "index.html" }
                 val mime = when (path.substringAfterLast('.')) {
-                    "html" -> "text/html"; "js" -> "text/javascript"; "css" -> "text/css"
                     "png" -> "image/png"; "svg" -> "image/svg+xml"; "woff2" -> "font/woff2"; "ttf" -> "font/ttf"
                     else -> return null
                 }
                 if (path.startsWith("v3/") || path.startsWith("examples/") || path.split('/').any { it == ".." || it.isEmpty() }) return null
-                val bundled = runCatching { WebResourceResponse(mime, "UTF-8", assets.open(path)) }.getOrNull()
-                return bundled ?: if (MOCK_SKIN_MODE && path.startsWith("skin-v2/"))
-                    WebResourceResponse("text/plain", "UTF-8", 404, "Not Found", emptyMap(), "".byteInputStream())
-                else null
+                return runCatching { WebResourceResponse(mime, "UTF-8", assets.open(path)) }.getOrNull()
             }
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean = !isStudio(request.url)
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {

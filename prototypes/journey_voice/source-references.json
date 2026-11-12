@@ -1,9 +1,0 @@
-{
-  "sourceRepository": "https://github.com/supertone-oss-archive/supertonic/tree/1e9799e964ea4c0dad7cde993b65c3c813a7b373",
-  "reviewedHelper": "https://github.com/supertone-oss-archive/supertonic/blob/1e9799e964ea4c0dad7cde993b65c3c813a7b373/py/helper.py",
-  "codeLicense": "https://github.com/supertone-oss-archive/supertonic/blob/1e9799e964ea4c0dad7cde993b65c3c813a7b373/LICENSE",
-  "modelRepository": "https://huggingface.co/supertone-oss-archive/supertonic-3/tree/aafc6e32416a594460b32413efc49d7fe4ce6d46",
-  "modelLicense": "https://huggingface.co/supertone-oss-archive/supertonic-3/blob/aafc6e32416a594460b32413efc49d7fe4ce6d46/LICENSE",
-  "archiveNoticeDate": "2026-09-09",
-  "selectionScope": "Local listening prototype, not long-term supported production model selection"
-}

@@ -5,7 +5,11 @@ from fastapi.testclient import TestClient
 
 from nunti.avatar_studio.api import Settings, create_app
 from nunti.avatar_studio.conversation import (
-    DEFAULT_MODEL, ConversationInput, ConversationReply, build_request, read_reply,
+    DEFAULT_MODEL,
+    ConversationInput,
+    ConversationReply,
+    build_request,
+    read_reply,
 )
 from nunti.avatar_studio.storage import StudioError
 
@@ -30,13 +34,24 @@ def test_request_uses_verified_trip_summary_and_recent_turns():
     assert context["message"] == value.message
 
 
-@pytest.mark.parametrize("part,code", [
-    ({"type": "refusal", "refusal": "refused"}, "CONVERSATION_REFUSED"),
-    ({"type": "output_text", "text": '{"reply":"안녕","gesture":"arbitrary-command"}'}, "CONVERSATION_INVALID_RESPONSE"),
-])
+@pytest.mark.parametrize(
+    "part,code",
+    [
+        ({"type": "refusal", "refusal": "refused"}, "CONVERSATION_REFUSED"),
+        (
+            {"type": "output_text", "text": '{"reply":"안녕","gesture":"arbitrary-command"}'},
+            "CONVERSATION_INVALID_RESPONSE",
+        ),
+    ],
+)
 def test_refusal_and_unrecognized_gesture_are_not_rendered(part, code):
     with pytest.raises(StudioError, match=code):
-        read_reply({"status": "completed", "output": [{"type": "message", "role": "assistant", "content": [part]}]})
+        read_reply(
+            {
+                "status": "completed",
+                "output": [{"type": "message", "role": "assistant", "content": [part]}],
+            }
+        )
 
 
 def test_endpoint_authentication_and_route_coordinates_are_rejected(tmp_path):
@@ -47,12 +62,20 @@ def test_endpoint_authentication_and_route_coordinates_are_rejected(tmp_path):
         return ConversationReply(reply="작은 접시에 달빛을 담아 보자.", gesture="smile")
 
     settings = Settings(TOKEN, tmp_path, chat_enabled=True, chat_key="fixture-key")
-    with TestClient(create_app(settings, conversation_generator=generate),
-                    base_url=ORIGIN, client=("127.0.0.1", 52100)) as client:
+    with TestClient(
+        create_app(settings, conversation_generator=generate),
+        base_url=ORIGIN,
+        client=("127.0.0.1", 52100),
+    ) as client:
         headers = {"Authorization": "Bearer " + TOKEN}
         message = {"message": "달빛이 담긴 접시를 빚을 거야."}
         assert client.post(PATH, json=message).status_code == 401
-        assert client.post(PATH, json={**message, "trip": {"latitude": 37.4}}, headers=headers).status_code == 422
+        assert (
+            client.post(
+                PATH, json={**message, "trip": {"latitude": 37.4}}, headers=headers
+            ).status_code
+            == 422
+        )
         assert calls == []
         response = client.post(PATH, json=message, headers=headers)
         assert response.json()["data"]["gesture"] == "smile"
@@ -63,8 +86,13 @@ def test_missing_configuration_never_calls_provider(tmp_path):
     def generate(*args):
         pytest.fail("Disabled cloud conversation called its provider")
 
-    with TestClient(create_app(Settings(TOKEN, tmp_path), conversation_generator=generate),
-                    base_url=ORIGIN, client=("127.0.0.1", 52100)) as client:
-        response = client.post(PATH, json={"message": "안녕"}, headers={"Authorization": "Bearer " + TOKEN})
+    with TestClient(
+        create_app(Settings(TOKEN, tmp_path), conversation_generator=generate),
+        base_url=ORIGIN,
+        client=("127.0.0.1", 52100),
+    ) as client:
+        response = client.post(
+            PATH, json={"message": "안녕"}, headers={"Authorization": "Bearer " + TOKEN}
+        )
         assert response.status_code == 503
         assert response.json()["error"]["code"] == "CONVERSATION_NOT_CONFIGURED"

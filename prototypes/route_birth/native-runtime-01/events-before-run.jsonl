@@ -1,2 +1,0 @@
-{"kind":"RB_GATE","at":"2026-11-02T16:22:37.634451Z","namespace":"route-birth","source":"ACTUAL_CAR_SERVICE","parked":false,"motion":"UNKNOWN","foreground":false,"visible":false,"knownUX":false,"requiresDO":true,"quietConfirmed":false,"quietAccepted":false}
-{"kind":"RB_GATE","at":"2026-11-02T16:22:37.644112Z","namespace":"route-birth","source":"ACTUAL_CAR_SERVICE","parked":true,"motion":"PARKED","foreground":true,"visible":true,"knownUX":true,"requiresDO":false,"quietConfirmed":false,"quietAccepted":false}

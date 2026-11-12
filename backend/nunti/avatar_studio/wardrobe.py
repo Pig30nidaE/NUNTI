@@ -1,4 +1,7 @@
 """Identity-preserving wardrobe edits. One immutable result per versioned brief."""
+
+# ruff: noqa: E501
+
 import base64
 import io
 import json
@@ -13,8 +16,7 @@ from uuid import NAMESPACE_URL, uuid5
 from PIL import Image
 from pydantic import field_validator
 
-from .image_api import NoRedirect, png_bytes
-from .models import Destination, Route, Strict, canonical, digest, text
+from .models import Destination, NoRedirect, Route, Strict, canonical, digest, png_bytes, text
 from .storage import StudioError
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -32,7 +34,16 @@ BASE_CHARACTER = ROOT / "prototypes/avatar_generator/nunti-motion/base.png"
 REFERENCE = BASE_CHARACTER
 
 UNDECIDED_NAMES = {
-    "", "미정", "아직 미정", "미확정", "모름", "없음", "undecided", "unknown", "tbd", "none",
+    "",
+    "미정",
+    "아직 미정",
+    "미확정",
+    "모름",
+    "없음",
+    "undecided",
+    "unknown",
+    "tbd",
+    "none",
 }
 
 DIRECTOR_INSTRUCTIONS = """You are the lead character art director for NUNTI (눈티), a cute rounded travel companion character with a signature green two-leaf sprout on top of its head.
@@ -114,7 +125,9 @@ def clean_destination_name(name: str) -> str:
 
 
 def wardrobe_claim(raw, version, reference_sha):
-    seed = digest(canonical({"version": version, "input": raw, "reference": reference_sha}).encode())
+    seed = digest(
+        canonical({"version": version, "input": raw, "reference": reference_sha}).encode()
+    )
     request_id = str(uuid5(NAMESPACE_URL, version + seed))
     return {"requestId": request_id, "wardrobeVersion": version, "input": raw, "seed": seed}
 
@@ -123,12 +136,16 @@ def brief(value, reference_sha=None):
     raw = value.model_dump(exclude_none=True)
     seed = wardrobe_claim(raw, VERSION, reference_sha or digest(REFERENCE.read_bytes()))["seed"]
     if is_undecided(value):
-        return raw, seed, {
-            "id": "default",
-            "label": "기본 눈티",
-            "mood": "canonical original base Nunti without skin transformation",
-            "motif": "signature mint sprout and scarf",
-        }
+        return (
+            raw,
+            seed,
+            {
+                "id": "default",
+                "label": "기본 눈티",
+                "mood": "canonical original base Nunti without skin transformation",
+                "motif": "signature mint sprout and scarf",
+            },
+        )
     mood = {
         "unset": "a vivid, destination-authentic multi-color palette and friendly expression",
         "calm": "rich, harmonious destination-specific colors (such as ocean blue, sunset coral, warm terracotta, pastel sky, or deep navy—avoid plain sage/cream) with a warm, relaxed expression",
@@ -136,15 +153,25 @@ def brief(value, reference_sha=None):
         "adventurous": "bold, saturated, energetic colors with an excited grin, lively posture, and action-ready footwear",
     }[value.mood]
     points = value.route.points if value.route else []
-    motif = "a subtle embroidered route motif on the outfit or bag" if points else "a small sprout emblem detail"
-    return raw, seed, {"id": "personal", "label": "오늘을 위한 여행복", "mood": mood, "motif": motif}
+    motif = (
+        "a subtle embroidered route motif on the outfit or bag"
+        if points
+        else "a small sprout emblem detail"
+    )
+    return (
+        raw,
+        seed,
+        {"id": "personal", "label": "오늘을 위한 여행복", "mood": mood, "motif": motif},
+    )
 
 
 def build_prompt(value, seed, look):
     dest_name = clean_destination_name(value.destination.name)
-    hint = dest_name if (
-        not value.purpose and not value.destination.traits and value.scenery == "unknown"
-    ) else ""
+    hint = (
+        dest_name
+        if (not value.purpose and not value.destination.traits and value.scenery == "unknown")
+        else ""
+    )
     data = {
         "destination": dest_name,
         "purpose": value.purpose,
@@ -153,7 +180,9 @@ def build_prompt(value, seed, look):
         "road": value.road,
         "explicitMood": value.mood,
         "destinationHint": hint,
-        "route": value.route.points[::max(1, len(value.route.points)//24)] if value.route else [],
+        "route": value.route.points[:: max(1, len(value.route.points) // 24)]
+        if value.route
+        else [],
         "versionedSeed": seed[:16],
     }
     return (
@@ -243,19 +272,40 @@ def render(key, prompt):
             )
     boundary = "nunti-wardrobe-boundary"
     body = bytearray()
+
     def field(name, value, filename=None):
-        body.extend((f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"' +
-                     (f'; filename="{filename}"' if filename else '') + '\r\n').encode())
+        body.extend(
+            (
+                f'--{boundary}\r\nContent-Disposition: form-data; name="{name}"'
+                + (f'; filename="{filename}"' if filename else "")
+                + "\r\n"
+            ).encode()
+        )
         if filename:
-            body.extend(b'Content-Type: image/png\r\n')
-        body.extend(b'\r\n' + value + b'\r\n')
-    for name, value in {"model": MODEL, "prompt": prompt, "n": "1", "size": "1024x1024",
-                        "quality": "medium", "background": "transparent", "output_format": "png"}.items():
+            body.extend(b"Content-Type: image/png\r\n")
+        body.extend(b"\r\n" + value + b"\r\n")
+
+    for name, value in {
+        "model": MODEL,
+        "prompt": prompt,
+        "n": "1",
+        "size": "1024x1024",
+        "quality": "medium",
+        "background": "transparent",
+        "output_format": "png",
+    }.items():
         field(name, value.encode())
     field("image[]", REFERENCE.read_bytes(), "nunti-identity.png")
-    body.extend(f'--{boundary}--\r\n'.encode())
-    request = urllib.request.Request("https://api.openai.com/v1/images/edits", data=bytes(body),
-        headers={"Authorization": "Bearer " + key, "Content-Type": "multipart/form-data; boundary=" + boundary}, method="POST")
+    body.extend(f"--{boundary}--\r\n".encode())
+    request = urllib.request.Request(
+        "https://api.openai.com/v1/images/edits",
+        data=bytes(body),
+        headers={
+            "Authorization": "Bearer " + key,
+            "Content-Type": "multipart/form-data; boundary=" + boundary,
+        },
+        method="POST",
+    )
     try:
         with urllib.request.build_opener(NoRedirect()).open(request, timeout=180) as response:
             raw = response.read(16_000_001)
@@ -273,7 +323,11 @@ def render(key, prompt):
             content = png_bytes(rgba.resize((768, 768), Image.Resampling.LANCZOS))
         usage = result.get("usage", {})
         details = usage.get("input_tokens_details", {})
-        measured = round(details.get("text_tokens", 0)*5 + details.get("image_tokens", 0)*8 + usage.get("output_tokens", 0)*30)
+        measured = round(
+            details.get("text_tokens", 0) * 5
+            + details.get("image_tokens", 0) * 8
+            + usage.get("output_tokens", 0) * 30
+        )
         return content, usage, measured if usage else None
     except urllib.error.HTTPError as error:
         # No response body, request headers or secrets enter diagnostics.
@@ -286,9 +340,16 @@ def render(key, prompt):
 
 def budget(store):
     with store.connect() as db:
-        spent, count = db.execute("SELECT COALESCE(SUM(reserved_micros),0),COUNT(*) FROM requests WHERE reserved_micros>0").fetchone()
-    return {"capUsd": 30, "reservedUsd": spent/1_000_000, "remainingUsd": max(0, CAP_MICROS-spent)/1_000_000,
-            "reservationPerCallUsd": RESERVE_MICROS/1_000_000, "calls": count}
+        spent, count = db.execute(
+            "SELECT COALESCE(SUM(reserved_micros),0),COUNT(*) FROM requests WHERE reserved_micros>0"
+        ).fetchone()
+    return {
+        "capUsd": 30,
+        "reservedUsd": spent / 1_000_000,
+        "remainingUsd": max(0, CAP_MICROS - spent) / 1_000_000,
+        "reservationPerCallUsd": RESERVE_MICROS / 1_000_000,
+        "calls": count,
+    }
 
 
 def create(settings, store, owner, value, renderer=render):
@@ -304,10 +365,19 @@ def create(settings, store, owner, value, renderer=render):
     if not settings.wardrobe_available:
         raise StudioError("WARDROBE_NOT_CONFIGURED", 409)
     route = raw.get("route")
+    if route and route.get("extractionId"):
+        extraction = store.extraction(owner, route["extractionId"])
+        route = {
+            **route,
+            "sourceImageSha256": extraction["imageSha256"],
+            "extractedPoints": extraction["points"],
+            "userCorrected": route["points"] != extraction["points"],
+        }
     if route and route.get("apiPlanId"):
         from .route_api import validate_route_plan
+
         plan = validate_route_plan(store, owner, value)
-        route = {**route, "apiRoute": {k:v for k,v in plan.items() if k != "routePoints"}}
+        route = {**route, "apiRoute": {k: v for k, v in plan.items() if k != "routePoints"}}
     undecided = look["id"] == "default"
     reservation = 0 if undecided else RESERVE_MICROS
     previous = store.claim(owner, claim, reserved=reservation, cap=CAP_MICROS, limit=100)
@@ -322,20 +392,47 @@ def create(settings, store, owner, value, renderer=render):
         else:
             content, usage, cost = renderer(settings.image_key, prompt)
         sha = store.put_asset(owner, content, "image/png")
-        artifact = {"schemaVersion": 3, "characterId": "nunti-"+request_id, "requestId": request_id,
+        artifact = {
+            "schemaVersion": 3,
+            "characterId": "nunti-" + request_id,
+            "requestId": request_id,
             "displayName": "기본 눈티" if undecided else "오늘의 눈티",
-            "destination": raw["destination"], "purpose": value.purpose, "route": route,
-            "visual": {"path":"/v3/assets/"+sha, "sha256":sha, "width":768, "height":768},
-            "mediaOrigin":"OPENAI_WARDROBE", "createdAt":datetime.now(UTC).isoformat(),
-            "design":{"staticOnly":True, "personality":look["label"], "motifs":[],
-                "wardrobe":{"version":VERSION,"signature":seed,"look":look["id"],"label":look["label"],
-                    "mood":value.mood,"road":value.road,"faceRig":"base-v1" if undecided else "atelier-v4"}},
-            "voice":{"provider":"DEVICE_SPEECH","description":"","rate":1,"pitch":1.08},
-            "provider":{"name":"openai","model":"base-passthrough" if undecided else MODEL,"usage":usage,"estimatedCostMicros":cost,
-                "reservationMicros":reservation,"prompt":prompt,"referenceSha256":reference_sha,
-                "licenseNote":"Original Nunti reference; OpenAI API output, subject to applicable terms.",
-                "owner":"NUNTI","export":"768x768 RGBA PNG","version":VERSION},
-            "humanQualityApproved":False}
+            "destination": raw["destination"],
+            "purpose": value.purpose,
+            "route": route,
+            "visual": {"path": "/v3/assets/" + sha, "sha256": sha, "width": 768, "height": 768},
+            "mediaOrigin": "OPENAI_WARDROBE",
+            "createdAt": datetime.now(UTC).isoformat(),
+            "design": {
+                "staticOnly": True,
+                "personality": look["label"],
+                "motifs": [],
+                "wardrobe": {
+                    "version": VERSION,
+                    "signature": seed,
+                    "look": look["id"],
+                    "label": look["label"],
+                    "mood": value.mood,
+                    "road": value.road,
+                    "faceRig": "base-v1" if undecided else "atelier-v4",
+                },
+            },
+            "voice": {"provider": "DEVICE_SPEECH", "description": "", "rate": 1, "pitch": 1.08},
+            "provider": {
+                "name": "openai",
+                "model": "base-passthrough" if undecided else MODEL,
+                "usage": usage,
+                "estimatedCostMicros": cost,
+                "reservationMicros": reservation,
+                "prompt": prompt,
+                "referenceSha256": reference_sha,
+                "licenseNote": "Original Nunti reference; OpenAI API output, subject to applicable terms.",
+                "owner": "NUNTI",
+                "export": "768x768 RGBA PNG",
+                "version": VERSION,
+            },
+            "humanQualityApproved": False,
+        }
         store.complete(owner, request_id, artifact)
         return artifact
     except StudioError as error:

@@ -1,8 +1,0 @@
-{"state":"PASS","check":"emulator and user preflight"}
-{"state":"PASS","check":"cold launch restores without automatic speech"}
-{"state":"PASS","check":"VOICE_FILE_MISSING without playback"}
-{"state":"PASS","check":"cold launch restores without automatic speech"}
-{"state":"PASS","check":"VOICE_FILE_CORRUPT without playback"}
-{"state":"PASS","check":"INSTALLED_AUDIO_CHANGED blocks cold start"}
-{"state":"PASS","check":"cold launch restores without automatic speech"}
-{"state":"FINISHED","status":"PASS_THREE_ASSET_NEGATIVES","report":"/Users/pig30nidae/NUNTI/prototypes/journey_mvp/assets-runtime-02/verification.json"}

@@ -17,8 +17,6 @@ internal class StudioCharacterAssets private constructor(
     val skin: String,
     val base: Bitmap,
     val travel: Bitmap,
-    val originalBody: Bitmap?,
-    val travelHead: Bitmap?,
     val face: List<Bitmap>,
 ) {
     companion object {
@@ -34,7 +32,7 @@ internal class StudioCharacterAssets private constructor(
             val travel = if (skin == "base") base else plate(assets, "skin-v2/atelier/$skin/final.png")
             if (skin != "base") StudioAtelierMotion.materialMap // Prepare off the UI thread.
             val face = if (skin == "base") faceNames.map { name -> bitmap(assets, "plates/expressions/base-$name.png") } else emptyList()
-            return StudioCharacterAssets(skin, base, travel, null, null, face)
+            return StudioCharacterAssets(skin, base, travel, face)
         }
 
         fun generated(context: Context, skin: String): StudioCharacterAssets {
@@ -47,7 +45,7 @@ internal class StudioCharacterAssets private constructor(
             require(bitmap.width == 768 && bitmap.height == 768)
             StudioAtelierMotion.materialMap
             ai.nunti.app.journey.NuntiPuppetParts.prepare(context.assets,skin,bitmap)
-            return StudioCharacterAssets(skin, plate(context.assets, "nunti-motion/base.png"), bitmap, null, null, emptyList())
+            return StudioCharacterAssets(skin, plate(context.assets, "nunti-motion/base.png"), bitmap, emptyList())
         }
 
         private fun plate(assets: AssetManager, path: String): Bitmap =
@@ -176,19 +174,13 @@ internal class StudioCharacterCanvas(context: Context) : View(context) {
         canvas.scale(pose.scaleX, pose.scaleY, CENTER_X, ROOT_Y)
 
         val bent = pose.rotation.any { it != 0f }
-        val rest = if (bent && pose.resting > 0f) restMeshes.getOrPut(assets.skin) { RigMesh(assets.skin) } else null
-        val original = if (bent && (pose.base > 0f || pose.travel > 0f || pose.originalBody > 0f || pose.travelHead > 0f)) {
-            transformMesh
-        } else null
+        val original = if (bent && (pose.base > 0f || pose.travel > 0f)) transformMesh else null
         if (bent) {
             moveJoints(pose.rotation)
-            rest?.deform(joints)
             original?.deform(joints)
         }
 
-        drawPlate(canvas, assets.travel, pose.resting, rest)
-        drawPlate(canvas, assets.travelHead, pose.travelHead, original)
-        drawPlate(canvas, assets.originalBody, pose.originalBody, original)
+        drawPlate(canvas, assets.travel, pose.resting, null)
         drawPlate(canvas, assets.travel, pose.travel, original)
         drawPlate(canvas, assets.base, pose.base, original)
         drawFace(canvas, assets, pose)

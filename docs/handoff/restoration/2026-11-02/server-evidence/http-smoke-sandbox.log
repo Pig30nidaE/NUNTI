@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "/Users/pig30nidae/NUNTI/.worktrees/server/backend/scripts/smoke_server.py", line 104, in <module>
-    main()
-  File "/Users/pig30nidae/NUNTI/.worktrees/server/backend/scripts/smoke_server.py", line 19, in main
-    sock.bind(("127.0.0.1", 0))
-PermissionError: [Errno 1] Operation not permitted

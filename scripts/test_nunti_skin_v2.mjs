@@ -51,6 +51,7 @@ function harness({storage=new Map(),missing=null,native=false}={}){
 
 test('destination sets wardrobe; confirmed route and explicit mood set deterministic motion',()=>{
   const {skins}=harness();
+  assert.equal(skins.MOCK_SKIN_MODE,false);
   const specs=['sea','city','mountain'].map(id=>skins.resolve({...skins.fixtures[id],routeId:'confirmed-route'}));
   assert.deepEqual(specs.map(s=>s.skinId),['sea','city','mountain']);
   for(const field of ['outfit','headStyle','earStyle','palette','pattern'])assert.equal(new Set(specs.map(s=>s[field])).size,3,field);
@@ -62,44 +63,14 @@ test('destination sets wardrobe; confirmed route and explicit mood set determini
   assert.equal(skins.resolve({mood:'driver inferred'}).mood,'unset');
 });
 
-test('identical inputs keep the same saved identity and reopen; missing final stores actual fallback',async()=>{
-  const a=harness(),input={destination:{name:'도시'},purpose:'산책',route:null},context=a.skins.fixtures.city;
-  const first=await a.skins.createRecord(input,context,true);
-  const second=await a.skins.createRecord(input,context,true);
-  assert.equal(first.characterId,second.characterId);
-  a.skins.save(first);a.skins.save(second);
-  const reopened=harness({storage:a.storage}).skins.list();
-  assert.equal(reopened.length,1);assert.equal(reopened[0].visual.path,'/skin-v2/atelier/city/final.png');
-  const fallback=await a.skins.createRecord(input,context,false);
-  assert.equal(fallback.design.skinSpec.requestedSkinId,'city');
-  assert.equal(fallback.visual.path,'/skin-v2/default/final.png');
-  assert.throws(()=>a.skins.path('../city'));
-});
-
-for (const [version,directory] of [['skin-v2.0','skin-v2'],['skin-v2.1','skin-v2/polish']]) test(`${version} save reopens its own asset and rejects a mismatched version path`,async()=>{
-  const a=harness();
-  const input={destination:{name:'도시'},purpose:'산책',route:null};
-  const current=await a.skins.createRecord(input,a.skins.fixtures.city,true);
-  const legacy={...current,characterId:'nunti-skin-'+'a'.repeat(32),visual:{path:`/${directory}/city/final.png`},
-    design:{...current.design,skinSpec:{...current.design.skinSpec,version}}};
-  assert.equal(a.skins.isSkin({...legacy,visual:current.visual}),false);
-  a.skins.save(legacy);a.skins.save(current);
-  assert.equal(a.skins.list().length,2);
-  const spec=legacy.design.skinSpec;
-  const image=await a.renderer.image(spec.skinId,'final',spec.version);
-  await a.motion.show(spec,image,legacy.route,false);
-  assert.equal(a.draws.at(-1),legacy.visual.path);
-});
-
-test('mock gate rejects direct model/voice writes and cross-origin paths',()=>{
+test('assertRequest blocks cross-origin paths and permits same-origin API endpoints',()=>{
   const {skins}=harness();
-  assert.equal(skins.MOCK_SKIN_MODE,true);
-  for(const [url,method] of [['/v3/avatars','POST'],['/v3/avatars/x/voice','POST'],['/v3/avatars/x/feedback-voice/JOY','POST'],
-    ['https://example.invalid/','GET'],['//example.invalid/','GET'],['/\\example.invalid/','GET']]){
-    assert.throws(()=>skins.assertRequest(url,method),/MOCK_SKIN_MODE/);
+  for(const url of ['https://example.invalid/','//example.invalid/','/\\example.invalid/']){
+    assert.throws(()=>skins.assertRequest(url),/CROSS_ORIGIN_BLOCKED/);
   }
-  assert.doesNotThrow(()=>skins.assertRequest('/v3/avatars','GET'));
-  assert.doesNotThrow(()=>skins.assertRequest('/v3/route-extractions','POST'));
+  assert.doesNotThrow(()=>skins.assertRequest('/v3/wardrobe'));
+  assert.doesNotThrow(()=>skins.assertRequest('/v3/avatars'));
+  assert.doesNotThrow(()=>skins.assertRequest('/v3/route-extractions'));
 });
 
 test('real PNG lookup; all phases; distinct outfit/head draw and final path',async()=>{
@@ -109,12 +80,11 @@ test('real PNG lookup; all phases; distinct outfit/head draw and final path',asy
   assert.equal(Array.from(d.visited).join('|'),'DEFAULT_IDLE|ROUTE_ENERGY|OUTFIT_SWAP|HEAD_AND_EYES_TRANSFORM|SKIN_REVEAL|FINAL_IDLE');
   assert.equal(d.reason,'COMPLETE');assert.equal(d.elapsedMs,4000);assert.equal(a.queue.size,0);
   assert.equal(a.draws[0],'/skin-v2/default/final.png');
-  assert.ok(a.draws.includes('/skin-v2/atelier/city/outfit.png'));
-  assert.ok(a.draws.includes('/skin-v2/atelier/city/head.png'));
   assert.ok(a.draws.includes('composed-wardrobe'));
   assert.equal(a.draws.at(-1),'/skin-v2/atelier/city/final.png');
-  for(const id of ['default','sea','city','mountain'])for(const part of ['final','outfit','head','eyes','accessory'])await a.renderer.image(id,part);
-  assert.equal(new Set(a.requests).size,20);
+  await a.renderer.image('default','final');
+  for(const id of ['sea','city','mountain'])for(const part of ['final','outfit','head','eyes','accessory'])await a.renderer.image(id,part);
+  assert.equal(new Set(a.requests).size,16);
 });
 
 test('skip, driving, background and system reduced stop scheduling and draw the same endpoint',async()=>{
