@@ -69,6 +69,12 @@
     function costume(t) {
       if(t<2620||!wardrobe){paint(base);return;}
       if(t>=3340){paint(wardrobe);return;}
+      if(spec.skinId.startsWith('wardrobe-')){
+        const progress=ease(t,2680,3280);
+        if(progress<1){ctx.save();ctx.globalAlpha=1-progress;paint(base);ctx.restore();}
+        if(progress>0){ctx.save();ctx.globalAlpha=progress;paint(wardrobe);ctx.restore();}
+        return;
+      }
       for(const region of wardrobeRegions){
         const progress=ease(t,region.at-80,region.at+90);
         ctx.save();ctx.beginPath();
@@ -101,7 +107,7 @@
         ctx.save();ctx.shadowColor=color.glow;ctx.shadowBlur=18+30*charge;
         ctx.globalAlpha=.58*charge;paint(wardrobe);ctx.restore();
       }
-      const trail=ease(t,3280,3350)*(1-ease(t,3430,3630));
+      const trail=spec.skinId.startsWith('wardrobe-')?0:ease(t,3280,3350)*(1-ease(t,3430,3630));
       if(trail>0){
         ctx.save();ctx.translate(14*trail,-9*trail);ctx.globalAlpha=.25*trail;paint(wardrobe);ctx.restore();
       }

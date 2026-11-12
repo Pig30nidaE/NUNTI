@@ -120,13 +120,17 @@ export async function vehicleSession(out) {
   const originalAnimator = (await adb(['shell', 'settings', 'get', 'global', 'animator_duration_scale'])).trim();
   await save(out, 'original-night.txt', originalNight); await save(out, 'original-animator.txt', originalAnimator);
   await save(out, 'original-activities.txt', await adb(['shell', 'dumpsys', 'activity', 'activities']));
-  let heartbeat = null, client = null;
+  let heartbeat = null, pendingHeartbeat = null, client = null;
   return {original, originalLatest, originalNight, originalAnimator,
     async activate() {
       if (heartbeat) return;
       client = 'nunti-integration-' + randomUUID();
       await consoleRequest('/browser/session', {client}, 'POST');
-      heartbeat = setInterval(() => consoleRequest('/browser/session', {client}, 'POST').catch(() => {}), 900);
+      heartbeat = setInterval(() => {
+        if (pendingHeartbeat) return;
+        pendingHeartbeat = consoleRequest('/browser/session', {client}, 'POST').catch(() => {})
+          .finally(() => { pendingHeartbeat = null; });
+      }, 900);
       for (let i = 0; i < 60; i++) {
         if ((await consoleRequest('/vehicle/state')).gear.bridge_ready) {
           await consoleRequest('/vehicle/hvac', {power: original.hvac.power_on ? 1 : 0});
@@ -154,9 +158,15 @@ export async function vehicleSession(out) {
         await consoleRequest('/vehicle/gear', {gear: original.gear.actual.value});
         await consoleRequest('/vehicle/hvac', {power: original.hvac.power_on ? 1 : 0});
         clearInterval(heartbeat); heartbeat = null;
+        await pendingHeartbeat;
         await consoleRequest('/browser/session', {client, closing: 1}, 'POST'); await pause(3500);
       }
-      const current = await consoleRequest('/vehicle/state');
+      let current = await consoleRequest('/vehicle/state');
+      const deadline = Date.now() + 5000;
+      while (current.browser.clients !== original.browser.clients && Date.now() < deadline) {
+        await pause(250);
+        current = await consoleRequest('/vehicle/state');
+      }
       await save(out, 'restored-console.json', current);
       assert.equal(current.gear.actual.value, original.gear.actual.value);
       for (const name of ['speed_kph', 'accelerator_pct', 'brake_pct', 'steering_deg']) assert.equal(current.controls[name], original.controls[name]);

@@ -7,12 +7,18 @@
   let appearance = {theme:matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day', systemReducedMotion:false};
   let nativeAppearanceReceived = false;
   const setText = (node, value) => { if (node && node.textContent !== value) node.textContent = value; };
-  function closePanels() { for (const id of dialogs) if (byId(id).open) byId(id).close(); }
+  function closePanels() {
+    for (const id of dialogs) if (byId(id).open) byId(id).close();
+    window.NuntiSkinMotion?.redraw();
+    window.NuntiCompanionPlayer?.sync();
+  }
   function openPanel(id) {
     if (document.body.dataset.vehicleAllowed === 'false') return;
     closePanels();
     const dialog = byId(id);
     dialog.showModal();
+    window.NuntiSkinMotion?.redraw();
+    window.NuntiCompanionPlayer?.sync();
     // The existing receipt canvas is measured only while its dialog is visible.
     if (id === 'journey-options-dialog') window.dispatchEvent(new Event('resize'));
   }

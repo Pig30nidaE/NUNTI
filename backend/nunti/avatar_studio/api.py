@@ -19,6 +19,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import FileResponse, JSONResponse, Response
 from PIL import Image, ImageOps, UnidentifiedImageError
 
+from .conversation import DEFAULT_MODEL, ConversationInput, generate_reply
 from .models import (
     AvatarInput,
     ExtractionInput,
@@ -61,10 +62,17 @@ class Settings:
     local_model_timeout: int = 150
     route_api_enabled: bool = False
     wardrobe_enabled: bool = False
+    chat_enabled: bool = False
+    chat_key: str = field(default="", repr=False)
+    chat_model: str = DEFAULT_MODEL
 
     @property
     def wardrobe_available(self):
         return self.paid_api_approved and self.wardrobe_enabled and bool(self.image_key)
+
+    @property
+    def chat_available(self):
+        return self.chat_enabled and bool(self.chat_key)
 
     def __post_init__(self):
         if not 32 <= len(self.token) <= 256 or not all(33 <= ord(c) <= 126 for c in self.token):
@@ -80,6 +88,8 @@ class Settings:
             raise ValueError("INVALID_STUDIO_PORT")
         if not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}", self.image_model):
             raise ValueError("INVALID_IMAGE_MODEL")
+        if not re.fullmatch(r"[A-Za-z0-9_.-]{1,100}", self.chat_model):
+            raise ValueError("INVALID_CHAT_MODEL")
         for name in ("local_model_binary", "local_model_weights"):
             configured = getattr(self, name)
             if configured is not None:
@@ -127,6 +137,7 @@ class Settings:
         style_reference = os.getenv("NUNTI_STUDIO_STYLE_REFERENCE")
         local_binary = os.getenv("NUNTI_STUDIO_LOCAL_MODEL_BINARY")
         local_weights = os.getenv("NUNTI_STUDIO_LOCAL_MODEL_WEIGHTS")
+        chat_enabled = os.getenv("NUNTI_STUDIO_CHAT_API_ENABLED") == "true"
         return cls(
             token=os.getenv("NUNTI_STUDIO_TOKEN", ""),
             workspace=Path(os.getenv("NUNTI_STUDIO_WORKSPACE", ROOT / ".local/avatar-generator")),
@@ -135,6 +146,9 @@ class Settings:
             paid_api_approved=approved,
             image_key=os.getenv("OPENAI_API_KEY", "") if approved else "",
             wardrobe_enabled=os.getenv("NUNTI_STUDIO_WARDROBE_ENABLED") == "true",
+            chat_enabled=chat_enabled,
+            chat_key=(os.getenv("NUNTI_STUDIO_CHAT_API_KEY") or os.getenv("OPENAI_API_KEY", "")) if chat_enabled else "",
+            chat_model=os.getenv("NUNTI_STUDIO_CHAT_MODEL", DEFAULT_MODEL),
             image_model=os.getenv("NUNTI_STUDIO_IMAGE_MODEL", "gpt-image-2.5-flare"),
             image_prices_verified=os.getenv("NUNTI_STUDIO_IMAGE_PRICES_VERIFIED") == "true",
             image_reservation_micros=int(os.getenv("NUNTI_STUDIO_IMAGE_RESERVATION_MICROS", "0")),
@@ -233,6 +247,7 @@ def create_app(
     local_renderer=None,
     route_fetcher=None,
     layered_renderer=None,
+    conversation_generator=None,
 ):
     @asynccontextmanager
     async def lifespan(application):
@@ -344,6 +359,7 @@ def create_app(
             "data": {
                 "schemaVersion": 3,
                 "wardrobeAvailable": config.wardrobe_available,
+                "conversationAvailable": config.chat_available,
                 "mode": "LOCAL_RENDER",
                 "layeredRenderAvailable": True,
                 "layeredRenderInfo": {
@@ -707,6 +723,14 @@ def create_app(
         except Exception as exc:
             store.fail(principal, value.requestId, "GENERATION_FAILED")
             raise StudioError("GENERATION_FAILED", 500) from exc
+
+    @application.post("/v3/conversation")
+    def conversation(value: ConversationInput, request: Request, principal: Owner):
+        config = request.app.state.config
+        if not config.chat_available:
+            raise StudioError("CONVERSATION_NOT_CONFIGURED", 503)
+        reply = (conversation_generator or generate_reply)(config.chat_key, config.chat_model, value)
+        return {"data": reply.model_dump()}
 
     @application.get("/v3/wardrobe/budget")
     def wardrobe_budget(request: Request, principal: Owner):

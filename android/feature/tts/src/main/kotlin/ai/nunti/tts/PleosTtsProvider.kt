@@ -32,7 +32,8 @@ class PleosCredentials(val clientId: String, val clientSecret: String) {
 class PleosTtsProvider(private val factory: (EngineMode) -> PleosConnection,
     override val mode: EngineMode = EngineMode.ON_DEVICE,
     private val credentials: (() -> PleosCredentials?) = { null },
-    speakers: Set<String> = PleosSpeakers.KOREAN) : TtsProvider {
+    speakers: Set<String> = PleosSpeakers.KOREAN,
+    private val onAmplitude: ((String, Double) -> Unit)? = null) : TtsProvider {
     init { require(mode != EngineMode.LOCAL_FILE) { "INVALID_PLEOS_MODE" } }
     override fun source(request: SpeechRequest) = SpeechSource(mode, "pleos")
     override val capabilities = ProviderCapabilities(locales = setOf("ko-KR", "en-US", "fr-CA", "es-US", "es-MX"),
@@ -80,6 +81,11 @@ class PleosTtsProvider(private val factory: (EngineMode) -> PleosConnection,
                             override fun done() { if (live(token)) terminal(null, false) }
                             override fun stopped() { if (live(token)) terminal(null, true) }
                             override fun error(code: String) { if (live(token)) fail(code) }
+                            override fun rms(value: Double) {
+                                if (live(token) && dispatched && value.isFinite()) active?.let {
+                                    onAmplitude?.invoke(it.request.requestId, value)
+                                }
+                            }
                         }
                         events = callback; sdk.addListener(callback); sdk.setLocale(locale)
                         if (mode == EngineMode.ON_DEVICE) connected(token)

@@ -13,6 +13,7 @@ class AndroidVoiceSession(context: Context, mode: EngineMode = EngineMode.ON_DEV
     credentials: () -> PleosCredentials? = { null },
     profiles: List<VoiceProfile> = listOf(VoiceProfile()),
     providerFactory: ((AudioAttributes, Handler) -> TtsProvider)? = null,
+    onAmplitude: ((String, Double) -> Unit)? = null,
     private val onEvent: (SpeechEvent) -> Unit = {}) {
     private val appContext = context.applicationContext
     private val handler = Handler(Looper.getMainLooper())
@@ -26,7 +27,8 @@ class AndroidVoiceSession(context: Context, mode: EngineMode = EngineMode.ON_DEV
     }
     private val attributes = AndroidAudioFocusController.notificationAttributes()
     private val provider = providerFactory?.invoke(attributes, handler) ?:
-        PleosTtsProvider({ AndroidPleosConnection(appContext, it, attributes, handler) }, mode, credentials)
+        PleosTtsProvider({ AndroidPleosConnection(appContext, it, attributes, handler) }, mode, credentials,
+            onAmplitude = onAmplitude)
     private val focus = AndroidAudioFocusController(appContext.getSystemService(Context.AUDIO_SERVICE) as AudioManager,
         attributes, handler)
     private val queue: SpeechQueueManager

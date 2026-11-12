@@ -2,6 +2,7 @@ package ai.nunti.app.studio
 
 import ai.nunti.avatar.CarUxPolicyBinding
 import ai.nunti.app.navigation.PleosNavigationAdapter
+import ai.nunti.tts.SpeechStatus
 import android.animation.ValueAnimator
 import android.car.Car
 import android.car.VehicleGear
@@ -22,9 +23,11 @@ import android.media.MediaPlayer
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.os.SystemClock
 import android.speech.tts.TextToSpeech
 import android.speech.tts.UtteranceProgressListener
 import android.view.View
+import android.view.WindowInsets
 import android.webkit.CookieManager
 import android.webkit.JavascriptInterface
 import android.webkit.ValueCallback
@@ -36,6 +39,7 @@ import android.webkit.WebViewClient
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import androidx.activity.addCallback
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URL
@@ -47,7 +51,8 @@ import org.json.JSONObject
 // This build must fail closed even if Studio reports configured provider keys.
 private const val MOCK_SKIN_MODE = true
 // Wardrobe edits were explicitly authorized on 2026-11-11. The server owns the $30 cap.
-private val MOCK_STUDIO_MUTATIONS = setOf("/session", "/v3/route-extractions", "/v3/route-plans", "/v3/wardrobe")
+private val PARKED_STUDIO_MUTATIONS = setOf("/v3/wardrobe", "/v3/conversation")
+private val MOCK_STUDIO_MUTATIONS = PARKED_STUDIO_MUTATIONS + setOf("/session", "/v3/route-extractions", "/v3/route-plans")
 
 /** The same tested generator UI is used by the browser and the actual Android host.
  * Vehicle display is gated with actual Car service values; no query flag can authorize it.
@@ -69,8 +74,10 @@ class AvatarStudioActivity : ComponentActivity() {
     private var connectionFailed = false
     private var appearanceKey = ""
     private var tts: TextToSpeech? = null
+    private var conversationVoice: StudioConversationVoice? = null
     private var activeUtterance: String? = null
     private var activeSpeechRequest: String? = null
+    private var lastSpeechAmplitudeAt = 0L
     private var utteranceSequence = 0L
     private var voicePlayer: MediaPlayer? = null
     private var voiceFocus: AudioFocusRequest? = null
@@ -85,6 +92,7 @@ class AvatarStudioActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         val container = FrameLayout(this)
         web = WebView(this)
         web.addOnLayoutChangeListener { _, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom ->
@@ -104,6 +112,19 @@ class AvatarStudioActivity : ComponentActivity() {
             container, web, shield, main, io, ::canPlayCharacterMotion, ::reportCharacterReady, ::reportCharacterFinished, ::reportCompanionReady,
         )
         setContentView(container)
+        if (android.os.Build.VERSION.SDK_INT >= 30) container.setOnApplyWindowInsetsListener { _, insets ->
+            if (insets.isVisible(WindowInsets.Type.ime())) characterMotion.stop(notify = true)
+            insets
+        }
+        onBackPressedDispatcher.addCallback(this) {
+            web.evaluateJavascript("window.NuntiChat?.close() === true") { closed ->
+                if (closed != "true") {
+                    isEnabled = false
+                    onBackPressedDispatcher.onBackPressed()
+                    isEnabled = true
+                }
+            }
+        }
         shield.setOnClickListener {
             if (allowed && connectionFailed) { connectionFailed = false; web.reload(); refreshGate() }
         }
@@ -121,7 +142,7 @@ class AvatarStudioActivity : ComponentActivity() {
         web.addJavascriptInterface(NativeBridge(), "NuntiNative")
         web.webViewClient = object : WebViewClient() {
             override fun shouldInterceptRequest(view: WebView, request: WebResourceRequest): WebResourceResponse? {
-                if (request.method == "POST" && request.url.encodedPath == "/v3/wardrobe" && !allowed) {
+                if (request.method == "POST" && request.url.encodedPath in PARKED_STUDIO_MUTATIONS && !allowed) {
                     return WebResourceResponse("application/json", "UTF-8", 403, "Forbidden", emptyMap(),
                         "{\"error\":{\"code\":\"PARK_REQUIRED\"}}".byteInputStream())
                 }
@@ -190,10 +211,17 @@ class AvatarStudioActivity : ComponentActivity() {
             }
         }
         tts?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
-            override fun onStart(id: String?) { android.util.Log.i("NuntiStudio", "STUDIO_SPEECH_STARTED") }
+            override fun onStart(id: String?) {
+                android.util.Log.i("NuntiStudio", "STUDIO_SPEECH_STARTED")
+                deviceSpeechProgress(id, "nuntiSpeechStarted")
+            }
+            override fun onRangeStart(id: String?, start: Int, end: Int, frame: Int) {
+                deviceSpeechProgress(id, "nuntiSpeechRange")
+            }
             override fun onDone(id: String?) { deviceSpeechFinished(id) }
             @Deprecated("Android platform callback")
-            override fun onError(id: String?) { deviceSpeechFinished(id) }
+            override fun onError(id: String?) { deviceSpeechFinished(id, failed = true) }
+            override fun onError(id: String?, errorCode: Int) { deviceSpeechFinished(id, failed = true) }
         })
         if (packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE)) {
             carGate = StudioCarGate(this) { main.post { refreshGate() } }
@@ -236,10 +264,15 @@ class AvatarStudioActivity : ComponentActivity() {
     private fun refreshGate() {
         val vehicle = carGate
         val next = foreground && (vehicle?.canDisplay() ?: !packageManager.hasSystemFeature(PackageManager.FEATURE_AUTOMOTIVE))
+        if (next) conversationVoice?.refreshParkedContext()
         if (next != allowed) {
             allowed = next
             android.util.Log.i("NuntiStudio", "STUDIO_GATE allowed=$allowed source=${if (vehicle == null) "NON_VEHICLE" else "ACTUAL_CAR_SERVICE"}")
-            if (!allowed) { characterMotion.stop(); stopDeviceSpeech(); stopVoicePlayer(); notifyGate(); web.onPause() }
+            if (!allowed) {
+                characterMotion.stop(); stopDeviceSpeech(); stopVoicePlayer()
+                conversationVoice?.close(); conversationVoice = null
+                notifyGate(); web.onPause()
+            }
             else { web.onResume(); notifyGate(); notifyNavigation() }
         }
         web.visibility = if (allowed && connected && !connectionFailed) View.VISIBLE else View.INVISIBLE
@@ -276,7 +309,8 @@ class AvatarStudioActivity : ComponentActivity() {
         if (loaded) web.evaluateJavascript("window.nuntiVehicleAllowed && window.nuntiVehicleAllowed($allowed, '$reason')", null)
     }
     private fun canPlayCharacterMotion(): Boolean = loaded && connected && !connectionFailed && foreground &&
-        allowed && !isDestroyed && ValueAnimator.areAnimatorsEnabled() && (carGate?.canDisplay() ?: true)
+        allowed && !isDestroyed && ValueAnimator.areAnimatorsEnabled() && (carGate?.canDisplay() ?: true) &&
+        (android.os.Build.VERSION.SDK_INT < 30 || web.rootWindowInsets?.isVisible(WindowInsets.Type.ime()) != true)
 
     private fun reportCharacterReady(requestId: Int, ready: Boolean) {
         if (loaded && !isDestroyed) web.evaluateJavascript("window.nuntiCharacterMotionReady?.($requestId,$ready)", null)
@@ -294,14 +328,29 @@ class AvatarStudioActivity : ComponentActivity() {
     private fun notifyNavigation(snapshot: String? = null) {
         if (!isDestroyed && loaded && allowed) web.evaluateJavascript("window.nuntiNavigationChanged && window.nuntiNavigationChanged(${JSONObject.quote(snapshot ?: navigation?.snapshot() ?: "{}")})", null)
     }
-    private fun speechFinished(requestId: String) { main.post { if (!isDestroyed && loaded) web.evaluateJavascript("window.nuntiSpeechFinished && window.nuntiSpeechFinished(${JSONObject.quote(requestId)})", null) } }
+    private fun speechSignal(callback: String, requestId: String) {
+        if (!isDestroyed && loaded) web.evaluateJavascript("window.$callback?.(${JSONObject.quote(requestId)})", null)
+    }
+    private fun speechAmplitude(requestId: String, level: Double) {
+        val now = SystemClock.uptimeMillis()
+        if (!allowed || !loaded || isDestroyed || !requestId.startsWith("chat-") ||
+            !level.isFinite() || now - lastSpeechAmplitudeAt < 33) return
+        lastSpeechAmplitudeAt = now
+        web.evaluateJavascript("window.NuntiChat?.speechAmplitude(${JSONObject.quote(requestId)}, $level)", null)
+    }
+    private fun speechFinished(requestId: String) { main.post { speechSignal("nuntiSpeechFinished", requestId) } }
     private fun stopDeviceSpeech() { activeUtterance = null; activeSpeechRequest = null; tts?.stop() }
-    private fun deviceSpeechFinished(id: String?) {
+    private fun deviceSpeechProgress(id: String?, callback: String) {
+        main.post {
+            if (id != null && id == activeUtterance && allowed) activeSpeechRequest?.let { speechSignal(callback, it) }
+        }
+    }
+    private fun deviceSpeechFinished(id: String?, failed: Boolean = false) {
         main.post {
             if (id != null && id == activeUtterance && voicePlayer == null) {
                 val requestId = activeSpeechRequest
                 activeUtterance = null; activeSpeechRequest = null
-                if (requestId != null) speechFinished(requestId)
+                if (requestId != null) speechSignal(if (failed) "nuntiSpeechFailed" else "nuntiSpeechFinished", requestId)
             }
         }
     }
@@ -411,6 +460,38 @@ class AvatarStudioActivity : ComponentActivity() {
         @JavascriptInterface fun navigationCommand(command: String, payloadJson: String): String =
             if (allowed) navigation?.dispatch(command, payloadJson) ?: "{\"accepted\":false,\"error\":\"NAVIGATION_UNAVAILABLE\"}" else "{\"accepted\":false,\"error\":\"VEHICLE_GATE_BLOCKED\"}"
         @JavascriptInterface fun isSpeechAvailable(): Boolean = ttsReady
+        @JavascriptInterface fun speakConversation(text: String, requestId: String) {
+            dispatchCharacter {
+                if (!allowed || text.length !in 1..600 || requestId.length !in 1..96) {
+                    speechSignal("nuntiSpeechFailed", requestId)
+                    return@dispatchCharacter
+                }
+                if (carGate == null) {
+                    if (ttsReady) speak(text, 1.0, 1.08, requestId)
+                    else speechSignal("nuntiSpeechFailed", requestId)
+                    return@dispatchCharacter
+                }
+                if (carGate?.canDisplay() != true) {
+                    speechSignal("nuntiSpeechFailed", requestId)
+                    return@dispatchCharacter
+                }
+                stopDeviceSpeech()
+                stopVoicePlayer()
+                val speaker = conversationVoice ?: StudioConversationVoice(this@AvatarStudioActivity, ::speechAmplitude) { event ->
+                    when (event.status) {
+                        SpeechStatus.STARTED -> {
+                            android.util.Log.i("NuntiStudio", "STUDIO_CONVERSATION_SPEECH_STARTED")
+                            speechSignal("nuntiSpeechStarted", event.requestId)
+                        }
+                        SpeechStatus.COMPLETED -> speechSignal("nuntiSpeechFinished", event.requestId)
+                        SpeechStatus.CANCELLED, SpeechStatus.REJECTED, SpeechStatus.FAILED ->
+                            speechSignal("nuntiSpeechFailed", event.requestId)
+                        SpeechStatus.QUEUED -> Unit
+                    }
+                }.also { conversationVoice = it }
+                speaker.speak(text, requestId)
+            }
+        }
         @JavascriptInterface fun speak(text: String, rate: Double, pitch: Double, requestId: String) {
             main.post {
                 if (!allowed || !loaded || !ttsReady || text.length !in 1..600 || !rate.isFinite() || !pitch.isFinite()) { speechFinished(requestId); return@post }
@@ -421,11 +502,11 @@ class AvatarStudioActivity : ComponentActivity() {
                 val id = "nunti-avatar-${++utteranceSequence}"
                 activeUtterance = id
                 activeSpeechRequest = requestId
-                tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, id)
+                if (tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, id) != TextToSpeech.SUCCESS) deviceSpeechFinished(id, failed = true)
             }
         }
         @JavascriptInterface fun playVoice(path: String, requestId: String) { main.post { playVoiceAsset(path, requestId) } }
-        @JavascriptInterface fun stopSpeaking() { main.post { stopDeviceSpeech(); stopVoicePlayer() } }
+        @JavascriptInterface fun stopSpeaking() { main.post { stopDeviceSpeech(); stopVoicePlayer(); conversationVoice?.stop() } }
     }
 
     @Deprecated("Android platform file chooser callback")
@@ -441,7 +522,7 @@ class AvatarStudioActivity : ComponentActivity() {
     }
     override fun onPause() { foreground = false; refreshGate(); stopDeviceSpeech(); navigation?.close(); navigation = null; super.onPause() }
     override fun onStop() { main.removeCallbacks(tick); super.onStop() }
-    override fun onDestroy() { loaded = false; allowed = false; characterMotion.stop(); main.removeCallbacksAndMessages(null); picker?.onReceiveValue(null); picker = null; tts?.stop(); tts?.shutdown(); stopVoicePlayer(); navigation?.close(); carGate?.close(); web.removeJavascriptInterface("NuntiNative"); web.destroy(); io.shutdownNow(); super.onDestroy() }
+    override fun onDestroy() { loaded = false; allowed = false; characterMotion.stop(); main.removeCallbacksAndMessages(null); picker?.onReceiveValue(null); picker = null; tts?.stop(); tts?.shutdown(); stopVoicePlayer(); conversationVoice?.close(); navigation?.close(); carGate?.close(); web.removeJavascriptInterface("NuntiNative"); web.destroy(); io.shutdownNow(); super.onDestroy() }
 }
 
 internal class StudioCarGate(context: android.content.Context, private val changed: () -> Unit) : AutoCloseable {

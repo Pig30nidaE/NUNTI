@@ -131,7 +131,7 @@ def stop():
     path.unlink(missing_ok=True)
 
 
-def server(configuration, allow_paid=False, local_ai=False, navigation_api=False):
+def server(configuration, allow_paid=False, local_ai=False, navigation_api=False, cloud_chat=False):
     binary = LOCAL_AI / "venv/bin/mflux-generate-flux2-edit"
     weights = LOCAL_AI / "model"
     if local_ai and (
@@ -154,6 +154,8 @@ def server(configuration, allow_paid=False, local_ai=False, navigation_api=False
             )
         if bool(current.get("routeApiAvailable", False)) != navigation_api:
             raise RuntimeError("실행 중인 서버의 경로 API 모드가 다릅니다. --navigation-api와 --restart-server로 다시 시작해 주세요.")
+        if bool(current.get("conversationAvailable", False)) != cloud_chat:
+            raise RuntimeError("실행 중인 서버의 대화 API 모드가 다릅니다. --cloud-chat와 --restart-server로 다시 시작해 주세요.")
         return current
     except urllib.error.HTTPError as exc:
         raise RuntimeError(
@@ -174,16 +176,23 @@ def server(configuration, allow_paid=False, local_ai=False, navigation_api=False
         NUNTI_STUDIO_LOCAL_MODEL_TIMEOUT_SECONDS="150",
         NUNTI_STUDIO_ROUTE_API_ENABLED="true" if navigation_api else "false",
         NUNTI_STUDIO_WARDROBE_ENABLED="true" if allow_paid else "false",
+        NUNTI_STUDIO_CHAT_API_ENABLED="true" if cloud_chat else "false",
     )
-    if allow_paid and not env.get("OPENAI_API_KEY"):
+    if cloud_chat and not env.get("NUNTI_STUDIO_CHAT_API_KEY"):
+        chat_key = env_file_value("NUNTI_STUDIO_CHAT_API_KEY")
+        if chat_key:
+            env["NUNTI_STUDIO_CHAT_API_KEY"] = chat_key
+    if (allow_paid or (cloud_chat and not env.get("NUNTI_STUDIO_CHAT_API_KEY"))) and not env.get("OPENAI_API_KEY"):
         key = env_file_value("OPENAI_API_KEY")
         legacy = ROOT / ".local/credentials/openai-api-key"  # 예전 위치. 이미 여기에 넣어 둔 PC도 그대로 쓴다.
         if not key and legacy.is_file():
             key = legacy.read_text().strip() or None
         if key:
             env["OPENAI_API_KEY"] = key
-        else:
+        elif allow_paid:
             print("OPENAI_API_KEY 가 .env.local / .env 에 없어 유료 이미지 생성은 꺼진 채로 시작합니다.")
+    if cloud_chat and not (env.get("NUNTI_STUDIO_CHAT_API_KEY") or env.get("OPENAI_API_KEY")):
+        raise RuntimeError("대화 API에 사용할 NUNTI_STUDIO_CHAT_API_KEY 또는 OPENAI_API_KEY를 설정해 주세요.")
     with (WORK / "server.log").open("ab") as log:
         process = subprocess.Popen(
             [
@@ -328,6 +337,7 @@ def main():
     )
     parser.add_argument("--stop", action="store_true")
     parser.add_argument("--navigation-api", action="store_true", help="사진 없이 공개 경로 API를 명시적으로 연결합니다. 현대 내비 경로와 별도 출처입니다.")
+    parser.add_argument("--cloud-chat", action="store_true", help="주차 중 눈티 대화에 OpenAI API를 연결합니다.")
     parser.add_argument(
         "--show-code",
         action="store_true",
@@ -347,7 +357,8 @@ def main():
         build()
     if args.restart_server:
         stop()
-    caps = server(configuration, allow_paid=args.paid_api, local_ai=args.local_ai, navigation_api=args.navigation_api)
+    caps = server(configuration, allow_paid=args.paid_api, local_ai=args.local_ai,
+                  navigation_api=args.navigation_api, cloud_chat=args.cloud_chat)
     if args.browser:
         webbrowser.open(BASE)
         print("눈티 생성기: " + BASE)
@@ -367,6 +378,8 @@ def main():
         )
     if caps.get("voice", {}).get("available"):
         print("캐릭터별 로컬 TTS 연결됨: 첫 듣기에서 새 음성을 만들고 이후에는 같은 음성을 재생합니다.")
+    if caps.get("conversationAvailable"):
+        print("눈티 대화에 OpenAI API를 연결했습니다.")
     if caps.get("routeApiAvailable"):
         print("경로 API 연결됨: 내비 목적지 불러오기 → 경로 API로 길 불러오기 → 경로 확인 → 눈티 생성")
         print("안내: docs/design/avatar-v6/TESTING.ko.md")
