@@ -4,7 +4,7 @@ const state = { route: null, sourceImage: null, imageReady:false, routeVersion:0
 let extractionEpoch=0;
 let viewEpoch=0, collectionEpoch=0;
 let reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-const skins=window.NuntiSkins;
+const skins=window.NuntiSkins, mockSkins=skins?.MOCK_SKIN_MODE===true;
 const skinRecord=artifact=>skins?.isSkin(artifact)===true;
 const wardrobeRecord=artifact=>artifact?.mediaOrigin==='OPENAI_WARDROBE';
 const usesSkinMotion=artifact=>skinRecord(artifact)||wardrobeRecord(artifact);
@@ -148,7 +148,7 @@ function setRoute(route,imagePath,confirmed=false){
   $('route-confirmed').disabled=!!imagePath;
   if(imagePath){const img=$('route-image');img.onload=()=>{if(version!==state.routeVersion)return;state.imageReady=true;$('route-confirmed').disabled=false;drawRoute();enableCreate();};img.onerror=()=>{if(version!==state.routeVersion)return;state.imageReady=false;message('경로 원본 사진을 불러오지 못했어요. 사진을 다시 선택해 주세요.');enableCreate();};img.src=imagePath;}else $('route-image').removeAttribute('src');
   $('route-confirmed').checked=confirmed;state.pending=null;
-  $('route-confirmed').closest('.confirm-row').hidden=!route;
+  const confirmRow=$('route-confirmed').closest?.('.confirm-row')||$('route-confirmed').parentElement;if(confirmRow)confirmRow.hidden=!route;
   const origin=route?.inputOrigin;
   $('source-tag').textContent=origin==='API_ROUTE'?'선택한 경로':origin==='NAVIGATION_SCREENSHOT'?'내비 경로 사진':origin==='ROUTE_FILE'?'좌표 파일':route?'예시 경로':'경로 선택';
   $('map-caption').textContent=origin==='TEST_ROUTE'?'예시 경로':route?'표시된 선을 확인해 주세요':'경로 추가는 선택이에요';
@@ -157,9 +157,9 @@ function setRoute(route,imagePath,confirmed=false){
   window.NuntiNavigation?.routeChanged(route);
 }
 function enableCreate(){
-  const routeReady=!state.route||state.imageReady&&$('route-confirmed').checked;
+  const routeReady=state.route?state.imageReady&&$('route-confirmed').checked:mockSkins||$('render-mode').value==='LOCAL_LAYERS'||$('wardrobe-enabled')?.checked;
   $('create-button').disabled=state.busy||state.planning||!state.nativeAllowed||!routeReady||
-    !window.nuntiCapabilities?.wardrobeAvailable||!$('destination').value.trim();
+    ($('wardrobe-enabled')?.checked&&!window.nuntiCapabilities?.wardrobeAvailable)||!$('destination').value.trim();
   window.NuntiNavigation?.updateButtons();
 }
 function viewExample(example){
@@ -192,7 +192,8 @@ $('route-upload').onchange=async event=>{const file=event.target.files[0];if(!fi
   if(value.destination){$('destination').value=value.destination.name||'';$('traits').value=value.destination.traits||'';}if(value.purpose)$('purpose').value=value.purpose;
   setRoute({points,inputOrigin:'ROUTE_FILE',sourceLabel:file.name,confirmed:false},null);$('image-options').hidden=true;message('좌표 파일을 불러왔어요. 선을 확인한 뒤 생성할 수 있어요.');
 }catch(e){message(errorText(e));}event.target.value='';};
-$('route-confirmed').onchange=enableCreate;for(const id of ['destination','traits','purpose'])$(id).addEventListener('input',enableCreate);
+$('route-confirmed').onchange=enableCreate;for(const id of ['destination','traits','purpose','layer-destination','layer-road','layer-mood'])$(id)?.addEventListener('input',enableCreate);
+for(const id of ['layer-destination','layer-road','layer-mood','wardrobe-enabled'])$(id)?.addEventListener('change',enableCreate);
 $('render-mode').onchange=()=>{
   if(mockSkins){
     $('render-mode').value='MOCK_SKIN';$('layer-options').hidden=false;
@@ -428,7 +429,7 @@ function legacyBirthAnimation(img,artifact,animate){
     if(t<1||!reduced)state.animation=requestAnimationFrame(frame);else state.animation=0;
   };state.animation=requestAnimationFrame(frame);
 }
-async function loadCollection(){const epoch=++collectionEpoch,r=await api('/v3/avatars');if(epoch!==collectionEpoch)return;state.avatars=Array.isArray(r)?r:(r.avatars||r.items||[]);$('collection-count').textContent=state.avatars.length+skins.list().length;}
+async function loadCollection(){const epoch=++collectionEpoch,r=await api('/v3/avatars');if(epoch!==collectionEpoch)return;state.avatars=Array.isArray(r)?r:(r.avatars||r.items||[]);$('collection-count').textContent=state.avatars.length+(mockSkins?skins.list().length:0);}
 function drawCollection(records){
   $('collection').replaceChildren();
   if(!records.length){$('collection').textContent='아직 눈티가 없어요. 첫 여정을 담아보세요.';return;}
@@ -451,7 +452,7 @@ function drawCollection(records){
 }
 async function showCollection(){
   if(state.busy)return;message('');screen('collection');const epoch=viewEpoch;
-  const local=skins.list();
+  const local=mockSkins?skins.list():[];
   drawCollection([...local,...state.avatars]);
   try{await loadCollection();}catch(e){if(epoch===viewEpoch)message('보관함을 새로 불러오지 못했어요.');return;}
   if(epoch===viewEpoch&&state.nativeAllowed)drawCollection([...local,...state.avatars]);
@@ -510,7 +511,7 @@ function stopVoice(){voiceEpoch++;if(voiceAudio){voiceAudio.onended=null;voiceAu
 $('listen-button').onclick=async()=>{
   if(!state.artifact||!state.nativeAllowed)return;if(speaking){stopVoice();return;}const a=state.artifact,v=a.voice;
   if(v.provider!=='DEVICE_SPEECH'){
-    if(!v.audio){message('이 눈티에 보관된 음원이 없어요.');return;}
+    if(mockSkins&&!v.audio){message('이 눈티에 보관된 음원이 없어요.');return;}
     const epoch=++voiceEpoch;speaking=true;$('listen-button').textContent='□';
     try{
       if(!v.audio)$('voice-notice').textContent='이 눈티에게 어울리는 목소리를 만들고 있어요… 잠시만 기다려 주세요.';
@@ -582,7 +583,7 @@ async function init(){if($('connection-retry'))$('connection-retry').hidden=true
     // The demo is ready independently of the optional, read-only server collection.
     try{
       const caps=await api('/v3/capabilities');
-      window.nuntiCapabilities={...caps,imageApiAvailable:false,localImageModelAvailable:false};window.NuntiNavigation?.setCapabilities(window.nuntiCapabilities);
+      window.nuntiCapabilities={...caps,imageApiAvailable:false,localImageModelAvailable:false};window.NuntiNavigation?.setCapabilities(window.nuntiCapabilities,{prefill:false});
       $('wardrobe-option').hidden=!caps.wardrobeAvailable;
       await examples();await loadCollection();
     }catch{}

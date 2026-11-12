@@ -24,10 +24,10 @@
   }
   function revealRoute(control){
     const dialog=$('route-tools-dialog');
-    if(dialog.open)dialog.close();
+    if(dialog?.open)dialog.close();
     if(control&&!control.disabled){
-      control.focus({preventScroll:true});
-      (control.closest('.confirm-row')||control).scrollIntoView({block:'nearest'});
+      control.focus?.({preventScroll:true});
+      (control.closest?.('.confirm-row')||control).scrollIntoView?.({block:'nearest'});
     }
   }
   function updateButtons(){
@@ -93,8 +93,7 @@
     }
   }
   function invalidateInput(){
-    if(state.route?.inputOrigin==='API_ROUTE'){setRoute(null,null);return;}
-    fileEpoch++;extractionEpoch++;state.busy=state.generating;state.pending=null;feedback();enableCreate();
+    fileEpoch++;extractionEpoch++;state.busy=state.generating;state.pending=null;$('route-confirmed').checked=false;feedback();enableCreate();
   }
   function preset(name){
     const p=presets[name];if(!p)return;context=null;originName=p.origin[2];
@@ -124,8 +123,9 @@
     }catch(e){if(epoch===fileEpoch&&state.nativeAllowed)feedback(errorText(e));}
     finally{state.planning=false;enableCreate();}
   }
-  function setCapabilities(value){
+  function setCapabilities(value,{prefill=true}={}){
     caps=value;$('navigation-tools').hidden=!(caps.routeApiAvailable||hasNative());$('legacy-route-tools').hidden=!!caps.routeApiAvailable;
+    if(prefill&&caps.routeApiAvailable&&!fieldsFilled())preset('pangyo',false);
     if(!hasNative())$('navigation-status').textContent='현대 내비 목적지 가져오기는 Android 앱에서, 경로 API 시험은 이 화면에서 할 수 있어요.';
     updateButtons();
   }
