@@ -31,8 +31,9 @@ internal class StudioCharacterMotion(
         class Companion(id: Int, skin: String, bounds: Rect) : Request(id, skin, bounds) {
             var reaction: String? = null
             var faceStartedAt = 0L
-            var nextIdleAction=12f
-            var idleAction=0
+            var focusX = 0f
+            var focusY = 0f
+            var lastTouchAt = 0L
         }
     }
 
@@ -68,13 +69,8 @@ internal class StudioCharacterMotion(
             when (current) {
                 is Request.Transform -> if (!transform(current, art, elapsed + 1f)) return
                 is Request.Companion -> {
-                    val lifeSeconds=((frameTimeNanos-current.faceStartedAt)/1_000_000_000.0).toFloat()
-                    if(current.skin=="base" && current.reaction==null && lifeSeconds>=current.nextIdleAction) {
-                        current.reaction=BASE_REACTIONS.elementAt(current.idleAction++%BASE_REACTIONS.size)
-                        current.startedAt=frameTimeNanos;current.nextIdleAction=lifeSeconds+12f
-                        draw(art,checkNotNull(current.reaction),0f,lifeSeconds*60f)
-                        choreographer.postFrameCallback(this);return
-                    }
+                    pose.focusX = current.focusX
+                    pose.focusY = current.focusY
                     val reaction = current.reaction
                     if (reaction != null && elapsed >= clipFrames(art,reaction)) {
                         current.reaction = null
@@ -128,14 +124,27 @@ internal class StudioCharacterMotion(
 
     fun reactCompanion(id: Int, reaction: String) {
         val current = request as? Request.Companion ?: return
-        if (current.id != id || current.startedAt == 0L || current.reaction != null || reaction !in REACTIONS || (current.skin=="base" && reaction !in BASE_REACTIONS)) return
+        val shared = current.skin == "base" || current.skin.startsWith("wardrobe-shared1-")
+        if (current.id != id || current.startedAt == 0L ||
+            (if (shared) reaction !in ai.nunti.app.journey.NuntiCompanionMotion.reactions else reaction !in REACTIONS)) return
         if (!allowed()) {
             stop(notify = true)
             return
         }
+        val now = System.nanoTime()
+        if (now - current.lastTouchAt < 350_000_000L) return
+        current.lastTouchAt = now
         current.reaction = reaction
         current.startedAt = System.nanoTime()
         Log.i(TAG, "CANVAS_REACTION skin=" + current.skin + " reaction=" + reaction)
+    }
+
+    fun focusCompanion(id: Int, x: Double, y: Double) {
+        val current = request as? Request.Companion ?: return
+        if (current.id != id || !x.isFinite() || !y.isFinite()) return
+        if (!allowed()) { stop(notify = true); return }
+        current.focusX = x.coerceIn(-1.0, 1.0).toFloat()
+        current.focusY = y.coerceIn(-1.0, 1.0).toFloat()
     }
 
     private fun load(next: Request) {
@@ -254,7 +263,11 @@ internal class StudioCharacterMotion(
         return false
     }
 
-    private fun clipFrames(art:Prepared,name:String):Float = if(art.skin!="base" && name in REACTIONS) ai.nunti.app.journey.NuntiLifeMotion.reactionSeconds(name)*60f else art.clips.getValue(name).frames.toFloat()
+    private fun clipFrames(art:Prepared,name:String):Float = when {
+        (art.skin == "base" || art.skin.startsWith("wardrobe-shared1-")) && name in ai.nunti.app.journey.NuntiCompanionMotion.reactions -> ai.nunti.app.journey.NuntiCompanionMotion.duration(name) * 60f
+        art.skin != "base" && name in REACTIONS -> ai.nunti.app.journey.NuntiLifeMotion.reactionSeconds(name) * 60f
+        else -> art.clips.getValue(name).frames.toFloat()
+    }
 
     private fun draw(art: Prepared, clip: String, frame: Float, faceFrame: Float = frame) {
         pose.reset(art.skin, clip)

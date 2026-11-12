@@ -3,6 +3,9 @@
 Project-local tools under .local/ (one teammate's setup) come first so that setup keeps working;
 otherwise the usual machine-wide locations are used. Override with NUNTI_JAVA_HOME / NUNTI_ANDROID_HOME / NUNTI_AVD.
 """
+
+from __future__ import annotations
+
 import os
 import subprocess
 from pathlib import Path
@@ -22,25 +25,54 @@ def _first(paths, check):
 
 
 def java_home() -> Path:
-    def ok(p): return (p / "bin/java").is_file()
-    candidates = [os.environ.get("NUNTI_JAVA_HOME"), LOCAL_JDK, os.environ.get("JAVA_HOME"),
-                  "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
-                  "/usr/local/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"]
+    def ok(p):
+        return (p / "bin/java").is_file()
+
+    candidates = [
+        os.environ.get("NUNTI_JAVA_HOME"),
+        LOCAL_JDK,
+        os.environ.get("JAVA_HOME"),
+        "/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+        "/usr/local/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home",
+    ]
     found = _first(candidates, ok)
     if found is None:
-        out = subprocess.run(["/usr/libexec/java_home", "-v", "21"], capture_output=True, text=True, check=False)
-        found = Path(out.stdout.strip()) if out.returncode == 0 and ok(Path(out.stdout.strip())) else None
+        out = subprocess.run(
+            ["/usr/libexec/java_home", "-v", "21"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        found = (
+            Path(out.stdout.strip())
+            if out.returncode == 0 and ok(Path(out.stdout.strip()))
+            else None
+        )
     if found is None:
-        raise RuntimeError("JDK 21을 찾지 못했습니다. brew install openjdk@21 또는 NUNTI_JAVA_HOME 을 설정해 주세요.")
+        raise RuntimeError(
+            "JDK 21을 찾지 못했습니다. brew install openjdk@21 또는 NUNTI_JAVA_HOME 을 설정해 주세요."
+        )
     return found
 
 
 def android_sdk() -> Path:
-    def ok(p): return (p / "platform-tools/adb").is_file()
-    found = _first([os.environ.get("NUNTI_ANDROID_HOME"), LOCAL_SDK, os.environ.get("ANDROID_HOME"),
-                    os.environ.get("ANDROID_SDK_ROOT"), Path.home() / "Library/Android/sdk"], ok)
+    def ok(p):
+        return (p / "platform-tools/adb").is_file()
+
+    found = _first(
+        [
+            os.environ.get("NUNTI_ANDROID_HOME"),
+            LOCAL_SDK,
+            os.environ.get("ANDROID_HOME"),
+            os.environ.get("ANDROID_SDK_ROOT"),
+            Path.home() / "Library/Android/sdk",
+        ],
+        ok,
+    )
     if found is None:
-        raise RuntimeError("Android SDK를 찾지 못했습니다. NUNTI_ANDROID_HOME 을 설정해 주세요.")
+        raise RuntimeError(
+            "Android SDK를 찾지 못했습니다. NUNTI_ANDROID_HOME 을 설정해 주세요."
+        )
     return found
 
 
@@ -52,7 +84,10 @@ def gradle_env() -> dict:
     """Environment for ./gradlew. The teammate's offline Gradle cache is used only if it is there."""
     env = dict(os.environ, JAVA_HOME=str(java_home()), ANDROID_HOME=str(SDK))
     if LOCAL_GRADLE.is_dir():
-        env.update(ANDROID_USER_HOME=str(LOCAL_GRADLE / "android-user"), GRADLE_USER_HOME=str(LOCAL_GRADLE / "gradle-user"))
+        env.update(
+            ANDROID_USER_HOME=str(LOCAL_GRADLE / "android-user"),
+            GRADLE_USER_HOME=str(LOCAL_GRADLE / "gradle-user"),
+        )
     return env
 
 
@@ -64,7 +99,10 @@ def gradle_flags() -> list:
 def emulator_env() -> dict:
     env = dict(os.environ, ANDROID_HOME=str(SDK))
     if LOCAL_AVD_HOME.is_dir():
-        env.update(ANDROID_USER_HOME=str(ROOT / ".local/pm-tools/android-user"), ANDROID_AVD_HOME=str(LOCAL_AVD_HOME))
+        env.update(
+            ANDROID_USER_HOME=str(ROOT / ".local/pm-tools/android-user"),
+            ANDROID_AVD_HOME=str(LOCAL_AVD_HOME),
+        )
     return env
 
 
@@ -72,8 +110,13 @@ def avd_name(preferred: str) -> str:
     """The AVD to start: NUNTI_AVD, else `preferred` if it exists here, else a Pleos AVD, else the first one."""
     if os.environ.get("NUNTI_AVD"):
         return os.environ["NUNTI_AVD"]
-    out = subprocess.run([str(SDK / "emulator/emulator"), "-list-avds"], env=emulator_env(),
-                         capture_output=True, text=True, check=False).stdout.split()
+    out = subprocess.run(
+        [str(SDK / "emulator/emulator"), "-list-avds"],
+        env=emulator_env(),
+        capture_output=True,
+        text=True,
+        check=False,
+    ).stdout.split()
     if preferred in out or not out:
         return preferred
     return next((a for a in out if "pleos" in a.lower()), out[0])

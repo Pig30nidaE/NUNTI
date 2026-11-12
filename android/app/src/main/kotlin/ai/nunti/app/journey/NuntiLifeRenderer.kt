@@ -11,6 +11,7 @@ internal class NuntiLifeRenderer {
     private val paint=Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
     private val vertices=FloatArray((GRID+1)*(GRID+1)*2)
     private val face=NuntiFaceRig()
+    private val shared = NuntiSharedRenderer()
     private val pose=NuntiLifeMotion.Pose()
     private var autoStartedAt=0f
     private var previousTime=0f
@@ -31,7 +32,11 @@ internal class NuntiLifeRenderer {
             rightWeights[i] = sleeve * smooth((x - 463) / 75f)
         }
     }
-    fun draw(canvas:Canvas,image:Bitmap,skin:String,time:Float,reaction:String="idle",progress:Float=0f,animated:Boolean=true,worry:Float=0f,joy:Float=0f) {
+    fun draw(canvas:Canvas,image:Bitmap,skin:String,time:Float,reaction:String="idle",progress:Float=0f,animated:Boolean=true,worry:Float=0f,joy:Float=0f,focusX:Float=0f,focusY:Float=0f) {
+        if (skin == "base" || skin == "base-v1" || skin == NuntiCompanionMotion.VERSION || skin.startsWith("wardrobe-shared1-")) {
+            shared.draw(canvas, image, time, reaction, progress, focusX, focusY, animated)
+            return
+        }
         if(image!==previousImage||time<previousTime)autoStartedAt=0f
         previousImage=image;previousTime=time
         if(reaction!="idle")autoStartedAt=time

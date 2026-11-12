@@ -164,6 +164,7 @@ class AvatarInput(Strict):
     mood: Literal["unset", "calm", "curious", "adventurous"] = "unset"
     scenery: Literal["unknown", "city", "coast", "mountain"] = "unknown"
     road: Literal["unknown", "urban", "highway", "rural", "mixed"] = "unknown"
+    animationRig: Literal["nunti-rig-1"] | None = None
 
     @field_validator("requestId")
     @classmethod

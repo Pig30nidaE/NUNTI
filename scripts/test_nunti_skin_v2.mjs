@@ -51,7 +51,7 @@ function harness({storage=new Map(),missing=null,native=false}={}){
 
 test('destination sets wardrobe; confirmed route and explicit mood set deterministic motion',()=>{
   const {skins}=harness();
-  assert.equal(skins.MOCK_SKIN_MODE,false);
+  assert.equal(skins.MOCK_SKIN_MODE,true);
   const specs=['sea','city','mountain'].map(id=>skins.resolve({...skins.fixtures[id],routeId:'confirmed-route'}));
   assert.deepEqual(specs.map(s=>s.skinId),['sea','city','mountain']);
   for(const field of ['outfit','headStyle','earStyle','palette','pattern'])assert.equal(new Set(specs.map(s=>s[field])).size,3,field);

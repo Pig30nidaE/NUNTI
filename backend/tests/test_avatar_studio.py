@@ -123,6 +123,48 @@ def test_wardrobe_idempotency_and_restart(settings):
         assert restored.get(first["visual"]["path"]).content == media.content
 
 
+@pytest.mark.parametrize("endpoint", ["/v3/wardrobe", "/v3/avatars"])
+def test_shared_rig_bundle_survives_the_http_boundary(settings, endpoint):
+    from nunti.avatar_studio.wardrobe import REFERENCE
+
+    value = input_value()
+    value.pop("requestId")
+    value["animationRig"] = "nunti-rig-1"
+    settings = replace(settings, companion_rig_enabled=True)
+
+    def renderer(key, prompt):
+        return REFERENCE.read_bytes(), {}, 0
+
+    with client_for(settings, wardrobe_renderer=renderer) as client:
+        response = client.post(endpoint, json=value)
+        assert response.status_code == 200, response.text
+        artifact = response.json()["data"]
+        rig = artifact["design"]["animationRig"]
+        manifest = client.get(rig["manifest"]["path"])
+        assert digest(manifest.content) == rig["manifest"]["sha256"]
+        assert manifest.json()["textureSha256"] == artifact["visual"]["sha256"]
+        for name in ("leftEye", "rightEye"):
+            part = rig["parts"][name]
+            image = client.get(part["path"])
+            assert digest(image.content) == part["sha256"]
+
+
+def test_unapproved_rig_is_not_advertised_or_sent_to_a_paid_renderer(settings):
+    def forbidden(*args):
+        pytest.fail("Unapproved rig must not call an image provider")
+
+    with client_for(settings, wardrobe_renderer=forbidden) as client:
+        assert client.get("/v3/capabilities").json()["data"]["companionRigVersion"] is None
+        value = input_value()
+        value.pop("requestId")
+        value["animationRig"] = "nunti-rig-1"
+        for path in ("/v3/wardrobe", "/v3/avatars"):
+            response = client.post(path, json=value)
+            assert response.status_code == 409
+            assert response.json()["error"]["code"] == "COMPANION_RIG_NOT_APPROVED"
+        assert client.get("/v3/wardrobe/budget").json()["data"]["calls"] == 0
+
+
 def test_other_owner_cannot_restore_media_or_extraction(settings):
     def extract(content):
         return {"points": [[0.1, 0.2], [0.8, 0.7]], "confidence": 0.8, "warnings": []}

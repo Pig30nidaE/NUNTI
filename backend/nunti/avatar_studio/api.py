@@ -21,6 +21,7 @@ from PIL import Image, ImageOps, UnidentifiedImageError
 
 from .conversation import DEFAULT_MODEL, ConversationInput, generate_reply
 from .models import AvatarInput, ExtractionInput, Route, RoutePlanInput, SessionInput, digest
+from .motion_rig import VERSION as RIG_VERSION
 from .storage import StudioError, StudioStore
 from .wardrobe import WardrobeInput
 
@@ -91,6 +92,7 @@ class Settings:
     chat_enabled: bool = False
     chat_key: str = field(default="", repr=False)
     chat_model: str = DEFAULT_MODEL
+    companion_rig_enabled: bool = False
 
     @property
     def wardrobe_available(self) -> bool:
@@ -138,6 +140,8 @@ class Settings:
             chat_key=chat_key if chat_enabled else "",
             chat_model=env_value("NUNTI_STUDIO_CHAT_MODEL", DEFAULT_MODEL),
             route_api_enabled=route_api_enabled,
+            companion_rig_enabled=env_value("NUNTI_STUDIO_COMPANION_RIG_ENABLED", "false")
+            == "true",
         )
 
 
@@ -284,6 +288,7 @@ def create_app(
                 "mode": "OPENAI_WARDROBE",
                 "wardrobeAvailable": config.wardrobe_available,
                 "conversationAvailable": config.chat_available,
+                "companionRigVersion": RIG_VERSION if config.companion_rig_enabled else None,
                 "inputOrigins": ["TEST_ROUTE", "NAVIGATION_SCREENSHOT", "ROUTE_FILE", "API_ROUTE"],
                 "routeApiAvailable": config.route_api_enabled,
                 "routeApiInfo": {
@@ -411,6 +416,7 @@ def create_app(
             mood=value.mood,
             scenery=value.scenery,
             road=value.road,
+            animationRig=value.animationRig,
         )
         return {
             "data": create(

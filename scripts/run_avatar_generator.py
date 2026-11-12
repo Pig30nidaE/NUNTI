@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""Start the destination/route avatar generator (API-backed) and its parked Android host."""
+"""Start the avatar generator with Python 3.9+ and a separate Python 3.12-3.14 backend."""
+
+from __future__ import annotations
 
 import argparse
 import hashlib
@@ -81,13 +83,22 @@ def config() -> dict:
 
 def runtime() -> Path:
     for path in (
-        ROOT / ".worktrees/server/backend/.venv/bin/python",
         ROOT / "backend/.venv/bin/python",
+        ROOT / ".worktrees/server/backend/.venv/bin/python",
     ):
         if (
             path.is_file()
             and subprocess.run(
-                [str(path), "-c", "import fastapi, pydantic, uvicorn, PIL"],
+                [
+                    str(path),
+                    "-c",
+                    (
+                        "import sys\n"
+                        "if not (3, 12) <= sys.version_info[:2] < (3, 15):\n"
+                        "    raise SystemExit(1)\n"
+                        "import fastapi, pydantic, uvicorn, PIL\n"
+                    ),
+                ],
                 capture_output=True,
                 check=False,
             ).returncode
@@ -95,7 +106,8 @@ def runtime() -> Path:
         ):
             return path
     raise RuntimeError(
-        "backend의 Python 가상환경(fastapi, pydantic, uvicorn, Pillow)이 필요합니다."
+        "backend의 Python 3.12-3.14 가상환경(fastapi, pydantic, uvicorn, Pillow)이 필요합니다. "
+        "cd backend && uv sync --frozen 으로 준비해 주세요."
     )
 
 
@@ -108,20 +120,36 @@ def request(configuration: dict, path: str):
 
 
 def stop():
+    pids: set[int] = set()
     path = WORK / "server.pid"
-    if not path.is_file():
-        return
+    if path.is_file():
+        try:
+            pids.add(int(path.read_text().strip()))
+        except ValueError:
+            pass
     try:
-        pid = int(path.read_text().strip())
-        os.kill(pid, signal.SIGTERM)
-        for _ in range(40):
-            try:
-                os.kill(pid, 0)
-            except ProcessLookupError:
-                break
-            time.sleep(0.1)
-    except (ValueError, ProcessLookupError, PermissionError):
+        out = subprocess.run(
+            ["lsof", "-ti", "tcp:8768", "-sTCP:LISTEN"],
+            text=True,
+            capture_output=True,
+            check=False,
+        ).stdout
+        for line in out.splitlines():
+            if line.strip().isdigit():
+                pids.add(int(line.strip()))
+    except OSError:
         pass
+    for pid in pids:
+        try:
+            os.kill(pid, signal.SIGTERM)
+            for _ in range(40):
+                try:
+                    os.kill(pid, 0)
+                except ProcessLookupError:
+                    break
+                time.sleep(0.1)
+        except (ProcessLookupError, PermissionError, OSError):
+            pass
     path.unlink(missing_ok=True)
 
 
@@ -134,10 +162,8 @@ def server(configuration: dict) -> dict:
             stop()
         else:
             return current
-    except urllib.error.HTTPError as exc:
-        raise RuntimeError(
-            "8768 포트에 다른 인증의 서버가 있습니다. --restart-server 또는 기존 실행을 확인해 주세요."
-        ) from exc
+    except urllib.error.HTTPError:
+        stop()
     except (urllib.error.URLError, TimeoutError):
         pass
 
@@ -258,9 +284,21 @@ def build():
     )
 
 
-def android(configuration: dict) -> dict:
+def apk_stale() -> bool:
     if not APK.is_file():
-        raise RuntimeError("새 APK가 없습니다. --build를 붙여 실행해 주세요.")
+        return True
+    apk_mtime = APK.stat().st_mtime
+    for folder in (ROOT / "android/app/src", ROOT / "prototypes/avatar_generator"):
+        for path in folder.rglob("*"):
+            if path.is_file() and path.stat().st_mtime > apk_mtime:
+                return True
+    return False
+
+
+def android(configuration: dict) -> dict:
+    if apk_stale():
+        print("변경된 코드를 반영하여 Android APK를 새로 빌드합니다…")
+        build()
     serial = emulator()
     adb = [ADB, "-s", serial]
     deadline = time.monotonic() + 180

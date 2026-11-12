@@ -6,10 +6,14 @@ let reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const skins = window.NuntiSkins;
 const skinRecord = artifact => skins?.isSkin(artifact) === true;
 const wardrobeRecord = artifact => artifact?.mediaOrigin === 'OPENAI_WARDROBE';
-const usesSkinMotion = artifact => skinRecord(artifact) || wardrobeRecord(artifact);
+const sharedRigRecord = artifact => artifact?.design?.animationRig?.version === 'nunti-rig-1' &&
+  artifact.design.animationRig.textureSha256 === artifact.visual?.sha256 &&
+  /^[a-f0-9]{64}$/.test(artifact.design.animationRig.manifest?.sha256 || '') &&
+  artifact.design.animationRig.manifest.path === '/v3/assets/' + artifact.design.animationRig.manifest.sha256;
+const usesSkinMotion = artifact => skinRecord(artifact) || wardrobeRecord(artifact) || sharedRigRecord(artifact);
 const motionSpec = artifact => skinRecord(artifact) ? artifact.design.skinSpec : {
   version: skins.version,
-  skinId: artifact.design?.wardrobe?.look === 'default' ? 'default' : 'wardrobe-' + (['formal', 'medical', 'football', 'hiking', 'seaside', 'personal'].includes(artifact.design?.wardrobe?.look) ? artifact.design.wardrobe.look : 'personal') + '-' + (artifact.visual?.sha256 || '0'),
+  skinId: artifact.design?.wardrobe?.look === 'default' ? 'default' : 'wardrobe-' + (sharedRigRecord(artifact) ? 'shared1' : ['formal', 'medical', 'football', 'hiking', 'seaside', 'personal'].includes(artifact.design?.wardrobe?.look) ? artifact.design.wardrobe.look : 'personal') + '-' + (artifact.visual?.sha256 || '0') + (sharedRigRecord(artifact) ? '-' + artifact.design.animationRig.manifest.sha256 : ''),
   animationPreset: { sweep: artifact.design?.wardrobe?.road === 'highway' ? 'diagonal' : 'forward' }
 };
 const polishedSkin = spec => spec && spec.version === skins.version && spec.skinId !== 'default' ? spec.skinId : null;
@@ -41,6 +45,7 @@ window.NuntiSkinMotion = window.NuntiSkinRenderer?.create({
 window.NuntiCompanionPlayer = window.NuntiCompanion?.create({
   preview: $('canonical-portrait'), result: $('result-portrait'), inputView: $('input-view'), resultView: $('result-view'),
   allowed: () => state.nativeAllowed && !window.NuntiSkinMotion?.diagnostics().reducedMotion,
+  onUnavailable: () => message('움직임 에셋을 준비하지 못해 원래 그림을 보여드려요. 저장한 눈티는 바뀌지 않아요.'),
 });
 
 if ($('motion-skip')) $('motion-skip').onclick = () => window.NuntiSkinMotion?.stop('SKIPPED');
@@ -98,6 +103,8 @@ async function createWardrobe(input) {
       mood: $('layer-mood').value,
       scenery: $('layer-destination').value,
       road: $('layer-road').value,
+      ...(skins?.MOCK_SKIN_MODE === false && window.nuntiCapabilities?.companionRigVersion === 'nunti-rig-1'
+        ? {animationRig: 'nunti-rig-1'} : {}),
     });
     if (state.nativeAllowed && !document.hidden && viewEpoch === epoch) await showArtifact(artifact, true);
     await loadCollection();
@@ -109,6 +116,8 @@ async function createWardrobe(input) {
       WARDROBE_HTTP_403: '이 API 키의 이미지 모델(gpt-image-1.5) 사용 권한을 확인해 주세요.',
       WARDROBE_HTTP_429: 'OpenAI 사용 한도 또는 잔액을 확인해 주세요.',
       WARDROBE_RESULT_UNKNOWN: '응답을 받지 못했어요. 중복 결제를 피하려고 자동 재시도하지 않았어요.',
+      COMPANION_RIG_ALIGNMENT: '새 그림의 관절 위치가 공통 리그와 맞지 않아 움직이는 스킨으로 등록하지 않았어요. 비용이 발생했을 수 있어 자동 재시도하지 않아요.',
+      COMPANION_RIG_NOT_APPROVED: '공통 리그 생성은 아직 검증 중이에요. 기존 스킨 생성과 보관한 눈티는 그대로 사용할 수 있어요.',
     };
     message(hints[e.message] || errorText(e));
   } finally {
@@ -363,7 +372,7 @@ async function showArtifact(artifact, animate = false) {
   $('result-purpose').textContent = artifact.purpose || '나만의 여정';
   $('voice-description').textContent = artifact.voice?.description || artifact.design.voice?.description || '작고 차분한 동반자';
   $('voice-notice').textContent = '누르면 기기에 설치된 한국어 음성으로 눈티의 인사를 들을 수 있어요.';
-  $('origin-label').textContent = 'OpenAI API로 새로 생성한 이미지';
+  $('origin-label').textContent = sharedRigRecord(artifact) ? '공통 리그에 등록한 여정 이미지' : 'OpenAI API로 새로 생성한 이미지';
   $('edition-label').textContent = 'JOURNEY ' + artifact.characterId.slice(-8).toUpperCase();
   $('motifs-heading').textContent = '여행에서 가져온 것';
   $('motifs-notice').hidden = usesSkinMotion(artifact);

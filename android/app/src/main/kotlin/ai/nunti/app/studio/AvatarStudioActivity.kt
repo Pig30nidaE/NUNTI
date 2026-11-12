@@ -48,7 +48,7 @@ import java.util.concurrent.Executors
 import kotlin.math.abs
 import org.json.JSONObject
 
-private const val MOCK_SKIN_MODE = false
+private const val MOCK_SKIN_MODE = true
 private val PARKED_STUDIO_MUTATIONS = setOf("/v3/wardrobe", "/v3/avatars", "/v3/conversation")
 private val STUDIO_MUTATIONS = PARKED_STUDIO_MUTATIONS + setOf("/session", "/v3/route-extractions", "/v3/route-plans")
 
@@ -407,6 +407,9 @@ class AvatarStudioActivity : ComponentActivity() {
         }
         @JavascriptInterface fun reactCharacterCompanion(requestId: Int, reaction: String) {
             dispatchCharacter { characterMotion.reactCompanion(requestId, reaction) }
+        }
+        @JavascriptInterface fun focusCharacterCompanion(requestId: Int, x: Double, y: Double) {
+            dispatchCharacter { characterMotion.focusCompanion(requestId, x, y) }
         }
         @JavascriptInterface fun openJourney() { main.post {
             startActivity(Intent(this@AvatarStudioActivity, ai.nunti.app.journey.JourneyActivity::class.java))

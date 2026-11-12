@@ -100,7 +100,9 @@ class JourneyActivity : Activity() {
             NuntiLifeMotion.prepare(assets)
             NuntiFaceRig.prepare(assets)
             val fallback = runCatching {
-                assets.open("nunti-motion/base.png").use { BitmapFactory.decodeStream(it) }
+                assets.open("nunti-motion/base.png").use { BitmapFactory.decodeStream(it) }?.also {
+                    NuntiFaceRig.prepareSharedImage(it); NuntiPuppetParts.prepareShared(it)
+                }
             }.getOrNull()
             main.post {
                 if (!isDestroyed) {
@@ -413,6 +415,8 @@ class JourneyActivity : Activity() {
         imageFallback = path.isBlank()
         applyImage()
         if (path.isBlank()) { imageLoaded = true; applyImage(); return }
+        val faceRig = (JourneyRuntime.current ?: restored)?.optString("faceRig")
+        val shared = faceRig == NuntiCompanionMotion.VERSION || faceRig == "base-v1"
         images.execute {
             val bitmap = runCatching {
                 val file = File(path).canonicalFile
@@ -423,7 +427,11 @@ class JourneyActivity : Activity() {
                 check(bounds.outWidth > 0 && bounds.outHeight > 0)
                 val options = BitmapFactory.Options().apply { inSampleSize = 1 }
                 while (maxOf(bounds.outWidth, bounds.outHeight) / options.inSampleSize > 1600) options.inSampleSize *= 2
-                BitmapFactory.decodeFile(file.path, options)?.also { NuntiPuppetParts.prepare(assets,file.nameWithoutExtension,it) }
+                BitmapFactory.decodeFile(file.path, options)?.also {
+                    if (shared) NuntiPuppetParts.prepareShared(it)
+                    else NuntiPuppetParts.prepare(assets,file.nameWithoutExtension,it)
+                    if (it.width == 768 && it.height == 768) NuntiFaceRig.prepareSharedImage(it)
+                }
             }.getOrNull()
             main.post {
                 if (!isDestroyed && request == imageRequest) {

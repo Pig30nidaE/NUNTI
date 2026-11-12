@@ -207,12 +207,12 @@ object GeneratedCompanionTestMain {
 
     private fun checkOriginal(file: File) {
         val actualHash = MessageDigest.getInstance("SHA-256").digest(file.readBytes()).joinToString("") { "%02x".format(it) }
-        check(actualHash == "f97a9471963bc7720603402a95ffe5e67ec63ef25296bcfce9965edcb221dc47")
+        check(actualHash == "528a216abbe0f39006090676b6a128bf7c309a08af36ac03c61ca8f68510e0dd")
         val image = ImageIO.read(file)
-        check(image.width == 1312 && image.height == 1199 && image.colorModel.hasAlpha())
+        check(image.width == 768 && image.height == 768 && image.colorModel.hasAlpha())
         val pixels = image.getRGB(0, 0, image.width, image.height, null, 0, image.width)
-        check(pixels.count { it.ushr(24) == 0 } == 1_009_509)
-        check(pixels.count { it.ushr(24) in 1..254 } == 563_487)
+        check(pixels.count { it.ushr(24) == 0 } == 406_762)
+        check(pixels.count { it.ushr(24) in 1..254 } == 18_303)
         val grid = generatedAlphaGridFromArgb(image.width, image.height, pixels)
         check(maxOf(grid.width, grid.height) <= 192)
         check(grid.maximum > 0)
@@ -222,7 +222,7 @@ object GeneratedCompanionTestMain {
             val rect = geometry.imageRect
             check(geometry.ribbonPoints.all { it.x in rect.left..(rect.left + rect.width) && it.y in rect.top..(rect.top + rect.height) })
         }
-        println("PASS: original PNG SHA, 1312x1199 native alpha, 1,009,509 transparent / 563,487 partial-alpha pixels")
+        println("PASS: canonical PNG SHA, 768x768 native alpha, 406,762 transparent / 18,303 partial-alpha pixels")
         println("PASS: actual source alpha downsampled once to ${grid.width}x${grid.height}; route/target geometry bounded")
     }
 }

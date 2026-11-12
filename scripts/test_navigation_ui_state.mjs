@@ -50,7 +50,7 @@ function makePlan(input) {
   };
 }
 
-async function harness() {
+async function harness({mockSkinMode, companionRigVersion} = {}) {
   const elements = new Map(), timers = [], calls = [], commands = [], plans = new Map();
   const get = id => {
     if (!elements.has(id)) elements.set(id, element());
@@ -73,6 +73,7 @@ async function harness() {
     document: {hidden: false, getElementById: get, querySelectorAll: () => [], addEventListener() {}, createElement: element},
     window: {
       addEventListener() {},
+      ...(typeof mockSkinMode === 'boolean' ? {NuntiSkins: {MOCK_SKIN_MODE: mockSkinMode, assertRequest() {}}} : {}),
       NuntiNative: {
         getNavigationSnapshot: () => JSON.stringify(native),
         navigationCommand(command, payload) {
@@ -86,7 +87,7 @@ async function harness() {
       const body = options.body ? JSON.parse(options.body) : null;
       calls.push({url, body, method: options.method || 'GET'});
       let data;
-      if (url === '/v3/capabilities') data = {routeApiAvailable: true};
+      if (url === '/v3/capabilities') data = {routeApiAvailable: true, companionRigVersion};
       else if (url === '/v3/examples' || (url === '/v3/avatars' && !body)) data = [];
       else if (url === '/v3/route-plans' && body) {
         data = makePlan(body);
@@ -130,9 +131,16 @@ async function harness() {
 }
 
 const checks = [];
-async function test(name, run) { await run(await harness()); checks.push(name); }
+async function test(name, run, options) { await run(await harness(options)); checks.push(name); }
 
 try {
+  for (const mockSkinMode of [true, false]) {
+    await test(`shared rig generation requires UI approval even when the server advertises it (mock=${mockSkinMode})`, async h => {
+      await h.calculate(); h.confirm(); await h.submit();
+      assert.equal(h.generationCalls().length, 1);
+      assert.equal(h.generationCalls()[0].body.animationRig, mockSkinMode ? undefined : 'nunti-rig-1');
+    }, {mockSkinMode, companionRigVersion: 'nunti-rig-1'});
+  }
   await test('import blocks creation and route calculation, including direct handlers', async h => {
     await h.calculate(); h.confirm();
     assert.equal(h.get('create-button').disabled, false, 'Fixture must permit creation before import');

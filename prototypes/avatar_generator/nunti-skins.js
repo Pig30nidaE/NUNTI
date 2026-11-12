@@ -1,6 +1,6 @@
 'use strict';
 (() => {
-  const MOCK_SKIN_MODE = false;
+  const MOCK_SKIN_MODE = true;
   const legacyVersion = 'skin-v2.0';
   const version = 'skin-v2.2';
   const base = Object.freeze({
@@ -24,7 +24,7 @@
   const path = (id,layer='final',assetVersion=version)=>{
     if(!own(wardrobe,id)||!['final','outfit','head','eyes','accessory'].includes(layer))throw new Error('UNKNOWN_SKIN_ASSET');
     if(!knownVersion(assetVersion))throw new Error('UNKNOWN_SKIN_VERSION');
-    const directory=id==='default'||assetVersion===legacyVersion?'/skin-v2/':assetVersion===version?'/skin-v2/atelier/':'/skin-v2/polish/';
+    const directory=id==='default'||assetVersion===legacyVersion?'/skin-v2/':'/skin-v2/atelier/';
     return directory+id+'/'+layer+'.png';
   };
   function resolve({destinationCategory,roadType,mood,routeId}={}) {

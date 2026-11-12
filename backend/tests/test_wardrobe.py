@@ -137,3 +137,134 @@ def test_changed_api_route_is_rejected_before_paid_reservation(tmp_path):
             lambda *args: pytest.fail("Changed route must not call a paid model"),
         )
     assert budget(store)["reservedUsd"] == 0
+
+
+def test_shared_rig_exports_bound_textures_and_reuses_cached_bundle(tmp_path):
+    import json
+
+    store = StudioStore(tmp_path)
+    value = WardrobeInput(
+        destination={"name": "서울"}, purpose="전시 관람", animationRig="nunti-rig-1"
+    )
+    settings = SimpleNamespace(
+        wardrobe_available=True, image_key="test", companion_rig_enabled=True
+    )
+    calls = []
+
+    def renderer(key, prompt):
+        calls.append(prompt)
+        assert "ANIMATION REGISTRATION TAKES PRIORITY" in prompt
+        return REFERENCE.read_bytes(), {}, 100_000
+
+    artifact = create(settings, store, "owner", value, renderer)
+    assert create(settings, store, "owner", value, renderer) == artifact
+    assert len(calls) == 1
+    rig = artifact["design"]["animationRig"]
+    assert rig["textureSha256"] == artifact["visual"]["sha256"]
+    payload, mime = store.asset("owner", rig["manifest"]["sha256"])
+    definition = json.loads(payload)
+    assert mime == "application/json"
+    assert set(definition["parts"]) >= {
+        "head",
+        "torso",
+        "leftArm",
+        "rightArm",
+        "leftLeg",
+        "rightLeg",
+        "leftEye",
+        "rightEye",
+        "mouth",
+    }
+    for part in definition["parts"].values():
+        data, kind = store.asset("owner", part["sha256"])
+        assert digest(data) == part["sha256"] and kind == "image/png"
+    with pytest.raises(StudioError, match="ASSET_NOT_FOUND"):
+        store.asset("other-owner", rig["manifest"]["sha256"])
+
+
+def test_shared_rig_rejects_unregistered_image_without_repeating_paid_request(tmp_path):
+    import io
+
+    from PIL import Image
+
+    store = StudioStore(tmp_path)
+    value = WardrobeInput(destination={"name": "서울"}, animationRig="nunti-rig-1")
+    output = io.BytesIO()
+    Image.new("RGBA", (768, 768), "red").save(output, "PNG")
+    calls = []
+
+    def renderer(key, prompt):
+        calls.append(prompt)
+        return output.getvalue(), {}, 100_000
+
+    for _ in range(2):
+        with pytest.raises(StudioError, match="COMPANION_RIG_ALIGNMENT"):
+            create(
+                SimpleNamespace(
+                    wardrobe_available=True, image_key="test", companion_rig_enabled=True
+                ),
+                store,
+                "owner",
+                value,
+                renderer,
+            )
+    assert len(calls) == 1
+    assert store.avatars("owner") == []
+    assert budget(store)["reservedUsd"] == RESERVE_MICROS / 1_000_000
+
+
+def test_shared_rig_rejects_missing_eyes_even_when_body_registration_matches(tmp_path):
+    import io
+
+    from PIL import Image, ImageDraw
+
+    image = Image.open(REFERENCE).convert("RGBA")
+    paint = ImageDraw.Draw(image)
+    for rectangle in ((260, 220, 366, 323), (413, 220, 516, 323)):
+        paint.rectangle(rectangle, fill=(255, 216, 194, 255))
+    output = io.BytesIO()
+    image.save(output, "PNG")
+    value = WardrobeInput(destination={"name": "서울"}, animationRig="nunti-rig-1")
+    with pytest.raises(StudioError, match="COMPANION_RIG_ALIGNMENT"):
+        create(
+            SimpleNamespace(wardrobe_available=True, image_key="test", companion_rig_enabled=True),
+            StudioStore(tmp_path),
+            "owner",
+            value,
+            lambda *_: (output.getvalue(), {}, 100_000),
+        )
+
+
+def test_rig_director_cannot_reintroduce_free_pose_or_held_props(monkeypatch):
+    from urllib.error import URLError
+
+    from nunti.avatar_studio import wardrobe
+
+    value = WardrobeInput(destination={"name": "해변"}, animationRig="nunti-rig-1")
+    _, seed, look = brief(value)
+    prompt = build_prompt(value, seed, look)
+    requests = []
+
+    class OfflineOpener:
+        def open(self, request, timeout):
+            requests.append(request.data.decode("utf-8", errors="replace"))
+            raise URLError("offline test")
+
+    monkeypatch.setattr(
+        wardrobe,
+        "research_destination_brief",
+        lambda *_: {
+            "destinationVibe": "coast",
+            "colorPalette": "coral and aqua",
+            "outfitAndFootwear": "linen jacket",
+            "poseAndProp": "HOLD_A_CUP",
+            "headAndExpression": "CLOSE_BOTH_EYES",
+        },
+    )
+    monkeypatch.setattr(wardrobe.urllib.request, "build_opener", lambda *_: OfflineOpener())
+    with pytest.raises(StudioError, match="WARDROBE_RESULT_UNKNOWN"):
+        wardrobe.render("test", prompt)
+    assert len(requests) == 1
+    assert "ANIMATION REGISTRATION TAKES PRIORITY" in requests[0]
+    assert "HOLD_A_CUP" not in requests[0] and "CLOSE_BOTH_EYES" not in requests[0]
+    assert "coral and aqua" in requests[0]

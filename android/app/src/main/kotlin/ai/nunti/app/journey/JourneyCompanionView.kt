@@ -34,9 +34,14 @@ class JourneyCompanionView(context: Context) : View(context) {
     private var fromWorry = 0f
     private var smile = .12f
     private var worry = 0f
-    private var tapCount = 0
-    private val touchReactions=arrayOf("wink","happy","curious","proud","signature","surprised","nod","sleepy")
-    private fun touchReaction()=touchReactions[(tapCount-1).coerceAtLeast(0)%touchReactions.size]
+    private var reaction = "wave-right"
+    private var pendingReaction = "wave-right"
+    private var focusX = 0f
+    private var focusY = 0f
+    private var lastFocusAt = 0L
+    private var touching = false
+    private fun sharedRig() = rig == NuntiCompanionMotion.VERSION || rig == "base-v1"
+    private fun reactionSeconds() = if (sharedRig()) NuntiCompanionMotion.duration(reaction) else NuntiLifeMotion.reactionSeconds(reaction)
 
     init {
         importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_YES
@@ -60,6 +65,7 @@ class JourneyCompanionView(context: Context) : View(context) {
             emotion=value; updateDescription()
         }
         if(!allowed) {
+            cancelInteraction()
             motion?.cancel(); motion=null
             smile=targetSmile(); worry=if(emotion=="WORRY") 1f else 0f
             invalidate()
@@ -72,19 +78,42 @@ class JourneyCompanionView(context: Context) : View(context) {
         }
     }
 
-    fun stopMotion() { allowed=false; motion?.cancel(); motion=null; invalidate() }
+    private fun cancelInteraction() {
+        touching=false; focusX=0f; focusY=0f; touchedAt=-10000L; pendingReaction="wave-right"
+    }
+    fun stopMotion() { allowed=false; isClickable=false; cancelInteraction(); motion?.cancel(); motion=null; invalidate() }
     override fun onDetachedFromWindow() { stopMotion(); super.onDetachedFromWindow() }
     override fun onTouchEvent(event: MotionEvent): Boolean {
         if(!allowed) return false
-        if(event.action==MotionEvent.ACTION_UP) performClick()
+        val side = min(width, height).toFloat()
+        if (side <= 0f) return false
+        val x = (event.x - (width - side) / 2f) / side
+        val y = (event.y - (height - side) / 2f) / side
+        if (event.actionMasked == MotionEvent.ACTION_CANCEL || x !in 0f..1f || y !in 0f..1f) {
+            touching=false; focusX=0f; focusY=0f
+            return false
+        }
+        focusX = (x - .5f) * 2f; focusY = (y - .4f) * 2f
+        lastFocusAt = SystemClock.uptimeMillis()
+        if (event.actionMasked == MotionEvent.ACTION_DOWN) {
+            touching=true
+            pendingReaction = if (!sharedRig()) "wink" else when {
+                y < .51f -> "pat"
+                x < .38f -> "wave-left"
+                x > .62f -> "wave-right"
+                y > .72f -> "stretch"
+                else -> "curious"
+            }
+        }
+        if(event.actionMasked==MotionEvent.ACTION_UP && touching) { touching=false; performClick() }
         return true
     }
     override fun performClick(): Boolean {
         if(!allowed) return false
         val now=SystemClock.uptimeMillis()
-        if(now-touchedAt<NuntiLifeMotion.reactionSeconds(touchReaction())*1000)return true
+        if(now-touchedAt<450)return true
         super.performClick()
-        touchedAt=now; tapCount++
+        touchedAt=now; reaction=pendingReaction; pendingReaction="wave-right"
         performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
         invalidate(); return true
     }
@@ -111,10 +140,12 @@ class JourneyCompanionView(context: Context) : View(context) {
         canvas.translate((width-bw)/2f,(height-bh)/2f)
         canvas.scale(bw/768f,bh/768f)
         if(rig!="none"&&!imageFallback) {
-            val duration=NuntiLifeMotion.reactionSeconds(touchReaction())
-            val reaction=if(touchTime in 0f..duration) touchReaction() else "idle"
-            life.draw(canvas,bitmap,rig,time,reaction,(touchTime/duration).coerceIn(0f,1f),animated=allowed,
-                worry=worry,joy=(smile-.2f).coerceAtLeast(0f)/.8f)
+            val duration=reactionSeconds()
+            val activeReaction=if(touchTime in 0f..duration) reaction else "idle"
+            val following = now-lastFocusAt<1400
+            life.draw(canvas,bitmap,rig,time,activeReaction,(touchTime/duration).coerceIn(0f,1f),animated=allowed,
+                worry=worry,joy=(smile-.2f).coerceAtLeast(0f)/.8f,
+                focusX=if(following)focusX else 0f,focusY=if(following)focusY else 0f)
 
         } else {
             destination.set(0f,0f,768f,768f);canvas.drawBitmap(bitmap,null,destination,paint)

@@ -1,0 +1,33 @@
+{
+  "version": "nunti-rig-1",
+  "kind": "REGISTERED_TEXTURE_MESH",
+  "canvas": [768, 768],
+  "owner": "NUNTI",
+  "reference": "nunti-motion/base.png",
+  "referenceSha256": "528a216abbe0f39006090676b6a128bf7c309a08af36ac03c61ca8f68510e0dd",
+  "sourcePrompt": "Local common frontal mesh and source-pixel texture regions. New skins must preserve the canonical joint and face registration. Rigid arms uncover a registered coat side panel constructed locally from visible fabric; no model calls or anatomical reconstruction.",
+  "licenseNote": "Original NUNTI artwork and locally authored rig. Derivative skins retain their original provider licensing record.",
+  "humanQualityApproved": false,
+  "mockSkinMode": true,
+  "fallback": "unaltered source PNG; never substitute another skin",
+  "export": "768-square RGBA bind texture, cropped source-pixel regions, JSON joint anchors; no videos or per-frame generation",
+  "hiddenSurfaces": "LOCAL_2D_FABRIC_EXTENSION at the shoulder and coat sides; not reconstructed anatomy, a 3D model or a multi-view rig",
+  "joints": {
+    "head": [384, 370],
+    "leftArm": [287, 414],
+    "rightArm": [488, 414],
+    "leftLeg": [329, 590],
+    "rightLeg": [437, 590]
+  },
+  "regions": {
+    "head": [180, 35, 590, 405],
+    "torso": [235, 390, 535, 600],
+    "leftArm": [185, 390, 320, 580],
+    "rightArm": [450, 390, 585, 580],
+    "leftLeg": [260, 565, 390, 725],
+    "rightLeg": [385, 565, 515, 725],
+    "leftEye": [260, 220, 366, 323],
+    "rightEye": [413, 220, 516, 323],
+    "mouth": [347, 300, 431, 380]
+  }
+}

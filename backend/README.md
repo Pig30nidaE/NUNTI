@@ -1,7 +1,9 @@
 # Nunti 서버 MVP
 
 FastAPI / Pydantic v2 / SQLite. 차량 앱의 실시간 동작과 독립적인 비동기 저장 서버다.
-여정별 이미지·음성 생성은 [v2 계약](../contracts/v2/README.md)의 별도 작업자와 CharacterStore를 사용한다. 아래 v1 동기화 계약과 기존 기록은 유지한다.
+현재 이미지 생성·대화는 `nunti.avatar_studio.api:app`의 v3 Studio에서 제공한다.
+실행은 [루트 안내](../README.md#현재-실행--리팩토링-이후)를 따른다.
+기존 [v2 계약](../contracts/v2/README.md)은 과거 기록이며, 해당 작업자와 CharacterStore 구현은 리팩토링에서 제거됐다.
 점수·감정 계산, 최종 코멘트 생성, 차량 SDK 호출, 음성 재생은 각 담당 모듈의 책임이다. 서버는 앱이 계산한 점수와 Pleos 샘플을 저장한다 ([telemetry-sync](../docs/architecture/telemetry-sync.md)).
 공통 계약은 **1.0 초안**이며 실제 차량 연동을 완료했다는 의미가 아니다.
 
@@ -126,6 +128,8 @@ SQLite secure_delete와 WAL checkpoint를 사용한다. 운영 백업을 추가�
 `../docs/architecture/integration.md`, 계약 설명은 `../contracts/v1/README.md`에 있다.
 
 ## 캐릭터 생성 v2
+
+> 아래는 리팩토링 전 기록이다. `nunti.characters`와 관련 스크립트·테스트는 현재 checkout에 없으므로 아래 명령은 실행할 수 없다. 현재 생성은 위 v3 Studio 실행 안내를 따른다.
 
 [별도 v2 계약](../contracts/v2/README.md)은 기존 v1 여행 동기화·30일 만료 정책과 분리된다. 생성 작업, 소장 캐릭터, 오디오/이미지 자산, 비용 예약, 공급자 영수증은 별도 SQLite와 미디어 디렉터리에 기록한다. FastAPI는 인증·입력·조회만 처리하고 모델 호출을 시작하지 않는다.
 

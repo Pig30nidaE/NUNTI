@@ -29,6 +29,8 @@ internal class StudioCharacterAssets private constructor(
             ai.nunti.app.journey.NuntiFaceRig.prepare(assets)
             require(skin == "base" || skin == "sea" || skin == "city" || skin == "mountain")
             val base = plate(assets, "nunti-motion/base.png")
+            ai.nunti.app.journey.NuntiFaceRig.prepareSharedImage(base)
+            ai.nunti.app.journey.NuntiPuppetParts.prepareShared(base)
             val travel = if (skin == "base") base else plate(assets, "skin-v2/atelier/$skin/final.png")
             if (skin != "base") StudioAtelierMotion.materialMap // Prepare off the UI thread.
             val face = if (skin == "base") faceNames.map { name -> bitmap(assets, "plates/expressions/base-$name.png") } else emptyList()
@@ -40,11 +42,20 @@ internal class StudioCharacterAssets private constructor(
             ai.nunti.app.journey.NuntiFaceRig.prepare(context.assets)
             val sha = NuntiSkinStyle.imageHash(skin)
             require(sha.matches(Regex("[0-9a-f]{64}")))
-            val file = ai.nunti.app.journey.JourneyAssets(context).image(sha)
+            val connection = ai.nunti.app.journey.JourneyAssets(context)
+            val file = connection.image(sha)
             val bitmap = requireNotNull(BitmapFactory.decodeFile(file.path))
             require(bitmap.width == 768 && bitmap.height == 768)
+            if (skin.startsWith("wardrobe-shared1-")) {
+                val eyes = connection.rigEyes(sha, requireNotNull(NuntiSkinStyle.rigHash(skin))).map { eye ->
+                    requireNotNull(BitmapFactory.decodeFile(eye.path))
+                }
+                try { ai.nunti.app.journey.NuntiFaceRig.prepareSharedImage(bitmap, eyes) }
+                finally { eyes.forEach { it.recycle() } }
+                ai.nunti.app.journey.NuntiPuppetParts.prepareShared(bitmap)
+            }
             StudioAtelierMotion.materialMap
-            ai.nunti.app.journey.NuntiPuppetParts.prepare(context.assets,skin,bitmap)
+            if (!skin.startsWith("wardrobe-shared1-")) ai.nunti.app.journey.NuntiPuppetParts.prepare(context.assets,skin,bitmap)
             return StudioCharacterAssets(skin, plate(context.assets, "nunti-motion/base.png"), bitmap, emptyList())
         }
 
@@ -65,6 +76,8 @@ internal class StudioCharacterPose {
     var faceTime = 0f
     var faceReactionTime = 0f
     var faceReaction = "idle"
+    var focusX = 0f
+    var focusY = 0f
     var bodyY = 721f
         private set
     var scaleX = 1f
@@ -75,10 +88,6 @@ internal class StudioCharacterPose {
     var base = 1f
         private set
     var travel = 0f
-        private set
-    var originalBody = 0f
-        private set
-    var travelHead = 0f
         private set
     var resting = 0f
         private set
@@ -93,8 +102,6 @@ internal class StudioCharacterPose {
         rotation.fill(0f)
         base = 0f
         travel = 0f
-        originalBody = 0f
-        travelHead = 0f
         resting = 0f
         face.fill(0f)
         when (phase) {
@@ -113,8 +120,6 @@ internal class StudioCharacterPose {
             "opacity" -> when (joint) {
                 20 -> base = value
                 21 -> travel = value
-                24 -> originalBody = value
-                25 -> travelHead = value
                 26 -> resting = value
                 in 51..57 -> face[joint - 51] = value
             }
@@ -129,10 +134,10 @@ internal class StudioCharacterCanvas(context: Context) : View(context) {
     private val patchRect = RectF()
     private val joints = Array(6) { Joint() }
     private val transformMesh = RigMesh(null)
-    private val restMeshes = mutableMapOf<String, RigMesh>()
     private var assets: StudioCharacterAssets? = null
     private var pose: StudioCharacterPose? = null
     private val atelier = StudioAtelierRenderer()
+    private val companion = ai.nunti.app.journey.NuntiSharedRenderer()
     private var evolutionTime: Float? = null
 
     init {
@@ -165,6 +170,11 @@ internal class StudioCharacterCanvas(context: Context) : View(context) {
         canvas.translate((width - side) * .5f, (height - side) * .5f)
         canvas.scale(side / SIZE, side / SIZE)
         canvas.clipRect(stage)
+        if (assets.skin == "base" && evolutionTime == null) {
+            companion.draw(canvas, assets.base, pose.faceTime / 60f, pose.faceReaction, pose.faceReactionTime, pose.focusX, pose.focusY)
+            canvas.restoreToCount(state)
+            return
+        }
         if (assets.skin != "base") {
             atelier.draw(canvas, assets, evolutionTime, pose)
             canvas.restoreToCount(state)

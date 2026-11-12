@@ -4,6 +4,7 @@ android {
     compileSdk = 36
     useLibrary("android.car")
     defaultConfig { applicationId = "ai.nunti.avatar.demo"; minSdk = 28; targetSdk = 35; versionCode = 1; versionName = "0.1.0-mock" }
+    defaultConfig { testInstrumentationRunner = "ai.nunti.app.journey.CompanionRigInstrumentation" }
     buildFeatures { compose = true }
     // Ship the existing Studio UI with the app; only its data APIs require the server.
     sourceSets["main"].assets.srcDir("../../prototypes/avatar_generator")

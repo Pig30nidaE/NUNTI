@@ -88,23 +88,27 @@ internal class JourneyAssets(private val context: Context) {
 
     fun image(sha: String): File = asset(JSONObject().put("sha256", sha).put("path", "/v3/assets/$sha"), "png")
 
+    fun rigEyes(textureSha: String, manifestSha: String): List<File> {
+        val record = JSONObject().put("sha256", manifestSha).put("path", "/v3/assets/$manifestSha")
+        val rig = JSONObject(asset(record, "json").readText())
+        require(rig.getString("version") == NuntiCompanionMotion.VERSION && rig.getString("kind") == "REGISTERED_TEXTURE_MESH")
+        require(rig.getString("textureSha256") == textureSha)
+        val parts = rig.getJSONObject("parts")
+        return listOf("leftEye", "rightEye").map { name -> asset(parts.getJSONObject(name), "png") }
+    }
+
     fun prepare(characterId: String, source: String): File {
         require(characterId.matches(Regex("nunti-[0-9a-f-]{36}")))
         require(source == "LIVE" || source == "DEMO")
         val artifact = json("/v3/avatars/$characterId")
         check(artifact.getString("characterId") == characterId)
         val image = asset(artifact.getJSONObject("visual"), "png")
+        artifact.optJSONObject("design")?.optJSONObject("animationRig")?.let { rig ->
+            rigEyes(artifact.getJSONObject("visual").getString("sha256"), rig.getJSONObject("manifest").getString("sha256"))
+        }
         val voices = JSONObject()
         artifact.optJSONObject("voice")?.optJSONObject("audio")?.let {
             voices.put("GREETING", asset(it, "wav").absolutePath)
-        }
-        for (kind in listOf("NEUTRAL", "WORRY", "RELIEF", "JOY")) {
-            // Preparing a journey never starts model inference; the parked UI requests it explicitly.
-            runCatching {
-                val clip = json("/v3/avatars/$characterId/feedback-voice/$kind")
-                check(clip.getString("characterId") == characterId && clip.getString("kind") == kind)
-                voices.put(kind, asset(clip.getJSONObject("audio"), "wav").absolutePath)
-            }
         }
         val sessionId = java.util.UUID.randomUUID().toString()
         val metadata = JSONObject()
@@ -139,11 +143,7 @@ internal fun prepareBundledSkinJourney(context: Context, selection: String, sour
     val purpose = input.optString("purpose")
     require(name.length in 1..60 && destination.length in 1..60 && purpose.length <= 120)
     val routePlan = input.optString("routePlanId").takeIf { it.matches(Regex("[a-f0-9]{64}")) }
-    val directory = when {
-        skin == "default" || version == "skin-v2.0" -> "skin-v2"
-        version == "skin-v2.2" -> "skin-v2/atelier"
-        else -> "skin-v2/polish"
-    }
+    val directory = if (skin == "default" || version == "skin-v2.0") "skin-v2" else "skin-v2/atelier"
     val bytes = context.assets.open("$directory/$skin/final.png").use { it.readBytes() }
     val hash = MessageDigest.getInstance("SHA-256").digest(bytes).joinToString("") { "%02x".format(it) }
     val image = File(context.filesDir, "journeys/assets/$hash.png")

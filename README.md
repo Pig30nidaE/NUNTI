@@ -2,6 +2,51 @@
 
 사용자 작업 선호: 사용자가 명시적으로 종료를 요청할 때만 관련 로컬 서버·AI 모델 프로세스·에뮬레이터·VSCode를 정상 종료한다. 작업이나 검증이 끝났다는 이유로 자동 종료하지 않는다. 미저장 편집을 강제로 폐기하지 않는다.
 
+## 현재 실행 · 리팩토링 이후
+
+실행기와 서버의 Python 요구 버전은 다르다. 실행기는 macOS 기본 Python 3.9 이상을 지원하고,
+서버는 [의존성 정의](backend/pyproject.toml)에 따라 Python 3.12–3.14가 필요하다.
+실행기는 현재 checkout의 `backend/.venv`를 먼저 확인하고, 호환되는 팀 worktree 환경을 예비로 사용한다.
+`str | None` 타입 표기를 시작 시 평가하지 않도록 실행기의 지연 어노테이션을 유지한다.
+
+```sh
+cd backend
+uv sync --frozen
+cd ..
+python3 scripts/run_avatar_generator.py --restart-server
+```
+
+Android 실행에는 JDK 21, Android SDK 36과 사용 가능한 AVD가 필요하다.
+`NUNTI_JAVA_HOME`, `NUNTI_ANDROID_HOME`, `NUNTI_AVD`로 설치 위치를 지정할 수 있다.
+기본 실행은 Android 앱을 열며, `--browser`는 브라우저, `--server-only`는 서버만 실행한다.
+이미지 생성·대화 버튼은 외부 API와 비용을 사용할 수 있다. 키는 로컬 `.env.local` 등에만 보관한다.
+리팩토링으로 제거된 `--local-ai` 모드와 이전 v2 생성 작업자는 현재 실행 경로가 아니다.
+
+주차 중 기본 눈티의 시선·깜빡임·자세 변화와 머리·손 터치 반응은 Android 공통 리그로 처리한다.
+새 AI 스킨의 공통 리그 등록은 검증 중이다. 실제 1회 생성에서 고정 포즈 불일치가 확인되어
+기본 생성 경로에는 적용하지 않았으며, 기존 자유 포즈 스킨을 임의로 공통 리그에 끼우지 않는다.
+현재 범위와 검증 방법은 [자연스러운 동행자](docs/redesign/SKIN_SYSTEM_V2.md#자연스러운-동행자--공통-리그-v1)를 따른다.
+
+회귀 검사는 저장소 루트에서 실행한다. 아래 검사는 유료 생성 API를 호출하지 않는다.
+
+```sh
+python3 -m unittest discover -s backend/tests -p test_launcher.py -v
+PYTHONPATH=backend backend/.venv/bin/python -m pytest backend/tests -q
+backend/.venv/bin/python -m ruff check backend scripts
+node --test scripts/test_*.mjs
+cd android
+./gradlew :app:assembleDebug :app:assembleRelease :app:lintDebug :feature:score:testDebugUnitTest :feature:tts:check
+```
+
+Avatar의 Java2D/AWT 기반 검사는 [전용 JVM 실행 안내](android/feature/avatar/README.md)를 따른다.
+Android Gradle의 전체 `test`와 전용 JVM 검사를 동일한 검증으로 취급하지 않는다.
+`test-generated-companion.sh`는 삭제된 과거 시안 대신 현재 번들 기본 PNG로 원본 해시·알파와 생성 기하를 검사한다.
+
+## 이전 검증 기록
+
+아래는 리팩토링 전 기록이다. 삭제된 스크립트·자산·문서 및 이전 실행 옵션을 참조할 수 있으므로
+현재 실행은 위 안내를 따른다. 과거 화면·모델·실차 검증 결과를 현재 checkout의 검증으로 간주하지 않는다.
+
 2026-11-05 통합은 [생성·주행·리포트 구조](docs/architecture/integrated-journey.md)와 [직접 시험](docs/design/avatar-v6/INTEGRATED-TESTING.ko.md)을 따른다. 생성한 같은 눈티를 점수 세션에 연결하고, 캐릭터 음색의 감정 대사와 주차 후 리포트를 제공한다. Virtual Console의 실시간 차량 입력과 내비 지도 이동은 별도다. 실제 Android 검증은 `python3 scripts/verify_integrated_journey.py --run`의 결과로 확인한다. 아래 기록은 이전 기능별 검증 이력이다.
 
 2026-11-04 최신은 [목적지·방문 이유별 눈티 v6](docs/design/avatar-v6/README.md)다. 의상·목적지 기념품·경로 탄생 효과·캐릭터별 로컬 TTS를 연결했다. 사용자 요청에 따라 실제 AI는 30개 상황을 검증했고, 빠른 일러스트와 실제 음원은 각각 200개를 유지했다. 재시도를 포함한 수량, 세부 소품 편차, 청취 미검증은 [결과 보고](docs/design/avatar-v6/RESULT.ko.md)에 구분했다. [직접 시험](docs/design/avatar-v6/TESTING.ko.md): `python3 scripts/run_avatar_generator.py --local-ai --navigation-api --restart-server`. 외부 키·유료 호출·녹화는 필요 없다. 아래 기기 TTS·새 음색 미구현 설명은 이전 시점의 기록이다.

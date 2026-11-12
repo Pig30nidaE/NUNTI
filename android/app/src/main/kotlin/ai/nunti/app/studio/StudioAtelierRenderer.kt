@@ -79,7 +79,7 @@ internal class StudioAtelierRenderer {
         }
         paint.alpha = 255
         if (time == null || time >= 4.6f) {
-            life.draw(canvas, assets.travel, assets.skin, pose.faceTime/60f, pose.faceReaction, pose.faceReactionTime)
+            life.draw(canvas, assets.travel, assets.skin, pose.faceTime/60f, pose.faceReaction, pose.faceReactionTime, focusX = pose.focusX, focusY = pose.focusY)
             return
         }
         val t = time.coerceAtLeast(0f)

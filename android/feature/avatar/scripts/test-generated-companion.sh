@@ -29,4 +29,4 @@ else
 fi
 java -Djava.awt.headless=true -cp "$generated_runtime" \
   ai.nunti.avatar.GeneratedCompanionTestMain \
-  "$generated_root/docs/design/journey-characters/concepts/recipe-coastal-001.png"
+  "$generated_root/prototypes/avatar_generator/nunti-motion/base.png"
