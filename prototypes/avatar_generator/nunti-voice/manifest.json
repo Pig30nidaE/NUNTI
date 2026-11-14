@@ -1,0 +1,130 @@
+{
+ "version": "nunti-tap-voice-1",
+ "owner": "NUNTI team",
+ "source": "사용자가 외부 TTS(명랑한 어린이 화자)로 미리 합성한 mp3 (mp3/ 폴더), 파일 이름만 대사 ID로 바꿔 복사",
+ "licenseNote": "팀이 합성한 음원. 외부 배포 전 TTS 서비스 이용약관 확인 필요",
+ "fallback": "음원이 없거나 재생하지 못하면 말풍선 대사만 바꾼다. 음성 끄기 상태면 재생하지 않는다",
+ "usage": "정차 중 눈티를 누를 때만. 주행 중에는 반응하지 않는다",
+ "lines": [
+  {
+   "id": "tap_ready_1",
+   "path": "nunti-voice/tap_ready_1.mp3",
+   "text": "오늘은 어디로 가볼까요?",
+   "seconds": 2.19,
+   "sha256": "be6e34018e6f0ef4ea87046a9c897a34f22278db1065c386ea9cf9a6a7c79b41",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-41-[밝고-다정한-말투로]-오늘은-어디로-가볼까요.mp3"
+  },
+  {
+   "id": "tap_ready_2",
+   "path": "nunti-voice/tap_ready_2.mp3",
+   "text": "출발 준비 됐어요!",
+   "seconds": 2.25,
+   "sha256": "ead486f1bab00808077e32994b934e8ec877a7e808e07545967d0ca57c44395f",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-41-[밝고-힘찬-톤으로]-출발-준비-됐어요!.mp3"
+  },
+  {
+   "id": "tap_ready_3",
+   "path": "nunti-voice/tap_ready_3.mp3",
+   "text": "안전벨트 꼭 매요!",
+   "seconds": 2.35,
+   "sha256": "f1f4bc3bc74a86fd7fac9077f623eed827b5a41f92e463b14460a20bc7445bf0",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-42-안전벨트-emphasis꼭emphasis-매요!.mp3"
+  },
+  {
+   "id": "tap_ready_4",
+   "path": "nunti-voice/tap_ready_4.mp3",
+   "text": "오늘도 같이 가요!",
+   "seconds": 1.72,
+   "sha256": "66e92d10beac66680f7795aacb4966576bc72003a58594fac2de4dc16cb08396",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-47-[밝고-다정하게]-오늘도-같이-가요!.mp3"
+  },
+  {
+   "id": "tap_rest_1",
+   "path": "nunti-voice/tap_rest_1.mp3",
+   "text": "잠깐 쉬어 가요!",
+   "seconds": 1.83,
+   "sha256": "358cc934ab698f51b4fe97e5d74b2914ca9a7193565096098a06f98b98edad35",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-42-soft잠깐-쉬어-가요!soft.mp3"
+  },
+  {
+   "id": "tap_rest_2",
+   "path": "nunti-voice/tap_rest_2.mp3",
+   "text": "기지개 한 번 쭉 켜요~",
+   "seconds": 2.9,
+   "sha256": "688dec42f68dbf29d9509ae5bf870c27d3fbd563772ebf3e1ab21c9e6052964e",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-42-[밝고-장난스럽게]-기지개-한-번-slow쭉slow-켜요~.mp3"
+  },
+  {
+   "id": "tap_rest_3",
+   "path": "nunti-voice/tap_rest_3.mp3",
+   "text": "물 한 모금 어때요?",
+   "seconds": 1.72,
+   "sha256": "a26db7bdef000c57dbe5623b9976a770e7dd538943025a040a4d84a6aa233048",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-42-[다정하게-권하며]-물-한-모금-어때요.mp3"
+  },
+  {
+   "id": "tap_rest_4",
+   "path": "nunti-voice/tap_rest_4.mp3",
+   "text": "준비되면 다시 출발해요!",
+   "seconds": 2.38,
+   "sha256": "9a56afad4904975899d2f015365c8926ac914db08cbc4c6391ec9852eeefa383",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-43-[힘차고-격려하는-목소리로]-준비되면-다시-출발해요!.mp3"
+  },
+  {
+   "id": "tap_good_1",
+   "path": "nunti-voice/tap_good_1.mp3",
+   "text": "오늘 운전 최고였어요!",
+   "seconds": 2.48,
+   "sha256": "50066620cfbb52877e69e11f057a138ff30672681793cda44b84c39f6234a241",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-43-[밝고-감탄하는-어조로]-오늘-운전-emphasis최고였어요!emphasis.mp3"
+  },
+  {
+   "id": "tap_good_2",
+   "path": "nunti-voice/tap_good_2.mp3",
+   "text": "부드럽게 잘 왔어요!",
+   "seconds": 2.56,
+   "sha256": "6538bdfcb396fe230b0120d4b20d2f3aec71dbbfad59e2df7ef8dbb13be68d37",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-43-[따뜻하고-부드럽게]-부드럽게-잘-왔어요!.mp3"
+  },
+  {
+   "id": "tap_good_3",
+   "path": "nunti-voice/tap_good_3.mp3",
+   "text": "다음에도 같이 가요!",
+   "seconds": 1.96,
+   "sha256": "d0898e31a15a626acb7627329ae35ca128524d0b8e18e7a3d6759220e2f4c96f",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-44-[밝고-다정하게]-다음에도-같이-가요!.mp3"
+  },
+  {
+   "id": "tap_low_1",
+   "path": "nunti-voice/tap_low_1.mp3",
+   "text": "무사히 도착했어요!",
+   "seconds": 2.3,
+   "sha256": "44471bc44b161114d852e03a25ec65fa18190a5c6ebd7a6586179245db82aead",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-44-[안도하며,-밝은-목소리로]-무사히-도착했어요!.mp3"
+  },
+  {
+   "id": "tap_low_2",
+   "path": "nunti-voice/tap_low_2.mp3",
+   "text": "수고했어요, 푹 쉬어요.",
+   "seconds": 2.9,
+   "sha256": "1437bd1164d200a84476a44f1fcb8a8a44ad7808ff20d229790479cf0c829907",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-44-[따뜻하고-다정하게]-수고했어요,-푹-쉬어요.mp3"
+  },
+  {
+   "id": "tap_low_3",
+   "path": "nunti-voice/tap_low_3.mp3",
+   "text": "다음엔 더 천천히 가 봐요.",
+   "seconds": 3.13,
+   "sha256": "8223994be59a997be8e49320c54fbb35bb6fbe2ee9a5c5642ad769b2a1ce27d4",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-45-slow다음엔-더-천천히-가-봐요.slow.mp3"
+  },
+  {
+   "id": "tap_idle_1",
+   "path": "nunti-voice/tap_idle_1.mp3",
+   "text": "여정을 시작하면 같이 갈게요!",
+   "seconds": 2.79,
+   "sha256": "0905a551221e1f9d88dc85eb43314b65aa7cd586d9657df4804ac70a003e8a80",
+   "sourceFile": "명랑한-어린이-2026-11-14-22-45-[밝고-다정하게]-여정을-시작하면-같이-갈게요!.mp3"
+  }
+ ]
+}

@@ -20,8 +20,11 @@ internal object NuntiSpriteDirector {
     /** 걷기 한 장 0.12초, 한 장에 19 단위 전진 → 발이 바닥에서 미끄러지지 않는 속도. */
     const val WALK_FRAME = .12f
     const val WALK_SPEED = 19f / WALK_FRAME
-    private const val FOLD_FRAME = .12f
-    private val JUMP_TIMES = floatArrayOf(.3f, .09f, .09f, .09f, .09f, .09f, .09f, .09f)
+    private const val FOLD_FRAME = .16f
+    /** 팔짱 시트의 마지막 장(팔짱 낀 모습). 0 내림 → 1 손 올림 → 2 팔짱. */
+    const val FOLD_LAST = 2
+    /** 점프 세 장: 준비 → 공중 → 착지. */
+    private val JUMP_TIMES = floatArrayOf(.22f, .42f, .26f)
     val JUMP_SECONDS = JUMP_TIMES.sum()
     /** 돌아다니는 최대 거리. 화면이 좁으면 이보다 줄인다. */
     const val MAX_WANDER = 260f
@@ -48,7 +51,7 @@ internal object NuntiSpriteDirector {
         if (!animated) {
             when (stage) {
                 Stage.DRIVING, Stage.EMPTY -> out.clip = SIT
-                Stage.REPORT_LOW -> { out.clip = FOLD; out.frame = 3 }
+                Stage.REPORT_LOW -> { out.clip = FOLD; out.frame = FOLD_LAST }
                 else -> stand(out)
             }
             return
@@ -90,8 +93,8 @@ internal object NuntiSpriteDirector {
         stand(out)
     }
 
-    /** 팔짱 끼는 장면 번호. 0.12초마다 한 장씩 넘어가 마지막 장에서 멈춘다. */
-    private fun foldIn(t: Float) = if (t <= 0f) 0 else (t / FOLD_FRAME).toInt().coerceAtMost(3)
+    /** 팔짱 끼는 장면 번호. [FOLD_FRAME] 마다 한 장씩 넘어가 마지막 장에서 멈춘다. */
+    private fun foldIn(t: Float) = if (t <= 0f) 0 else (t / FOLD_FRAME).toInt().coerceAtMost(FOLD_LAST)
 
     private class Leg(val seconds: Float, val kind: Int, val from: Float, val to: Float)
     private const val STILL = 0
@@ -126,7 +129,7 @@ internal object NuntiSpriteDirector {
 
     private fun legs(d: Float): Array<Leg> {
         val walk = d / WALK_SPEED
-        val arms = FOLD_HOLD + 2 * 4 * FOLD_FRAME
+        val arms = FOLD_HOLD + 2 * (FOLD_LAST + 1) * FOLD_FRAME
         return if (d == 0f) arrayOf(Leg(5f, STILL, 0f, 0f), Leg(arms, ARMS, 0f, 0f), Leg(7f, STILL, 0f, 0f))
         else arrayOf(
             Leg(4f, STILL, 0f, 0f), Leg(walk, WALK, 0f, d), Leg(1.5f, STILL, d, d),

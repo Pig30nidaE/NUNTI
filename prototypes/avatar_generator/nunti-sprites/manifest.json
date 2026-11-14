@@ -3,7 +3,7 @@
  "space": 768,
  "feet": 718,
  "owner": "NUNTI team",
- "source": "사용자가 제공한 손그림 동작 시트(images/우로걷기·좌로걷기·팔짱·점프·앉기.png), 로컬에서 잘라 정렬 / 서 있기: 기본 눈티 원본(skin-v2/default/final.png)을 그대로 잘라 씀 / 걷기 v2: 사용자가 제공한 걷기 4x2 시트 (walkR 8.webp 채도 x1.2, walkL 10.webp 채도 x1.1)",
+ "source": "사용자가 제공한 손그림 동작 시트(images/우로걷기·좌로걷기·팔짱·점프·앉기.png), 로컬에서 잘라 정렬 / 서 있기: 기본 눈티 원본(skin-v2/default/final.png)을 그대로 잘라 씀 / 걷기 v2: 사용자가 제공한 걷기 4x2 시트 (walkR 8.webp 채도 x1.2, walkL 10.webp 채도 x1.1) / 동작 v2: 사용자가 제공한 새 시트 (fold fold-arms-3-transparent.png 채도 x1.052, jump jump-3-transparent.png 채도 x0.975, sit chair-aligned.png + sitting-character.png 채도 x0.934)",
  "licenseNote": "팀 내부 제작 캐릭터 그림. 외부 배포 전 저작권 확인 필요",
  "humanQualityApproved": false,
  "fallback": "에셋이 없거나 읽지 못하면 기존 기본 눈티 리그로 그린다",
@@ -143,121 +143,73 @@
   "fold": [
    {
     "path": "nunti-sprites/fold_0.webp",
-    "x": 198,
-    "y": 50,
-    "w": 373,
-    "h": 669,
-    "sha256": "2ebfeb554f0affc5d87c5a072e00b43255875801fcc195fa4801a4a8b347b584"
+    "x": 202,
+    "y": 49,
+    "w": 363,
+    "h": 670,
+    "sha256": "184867e073707920a5f9aa072bd77f8caf868bb822cda9971b97892a767026a0"
    },
    {
     "path": "nunti-sprites/fold_1.webp",
-    "x": 210,
-    "y": 50,
-    "w": 348,
-    "h": 669,
-    "sha256": "e0ebf249478600bf367e6769b04410838dfcf451f2262da6bccc12c3991367d5"
+    "x": 203,
+    "y": 49,
+    "w": 363,
+    "h": 670,
+    "sha256": "f631ec1e97c7aa8bddf6873807055f1939b37729384e229ea91890c281c779bb"
    },
    {
     "path": "nunti-sprites/fold_2.webp",
-    "x": 211,
-    "y": 50,
-    "w": 348,
-    "h": 669,
-    "sha256": "d65fb62f6cc7256e04623408e308ec396c535e473e15d7d0d6fcdf4c6f8bcabc"
-   },
-   {
-    "path": "nunti-sprites/fold_3.webp",
-    "x": 209,
-    "y": 50,
-    "w": 350,
-    "h": 669,
-    "sha256": "ee27766687cc9d3fc5872be2ecbeeebd81b9b3348f24e4e24a92689b5e5e1344"
+    "x": 203,
+    "y": 49,
+    "w": 363,
+    "h": 670,
+    "sha256": "1039c53347bd5cf933b933fee3dc457e160aa6b8adaeb2ac95606744787df816"
    }
   ],
   "jump": [
    {
     "path": "nunti-sprites/jump_0.webp",
-    "x": 198,
-    "y": 51,
+    "x": 197,
+    "y": 53,
     "w": 374,
-    "h": 669,
-    "sha256": "b109265d3c2e91ef4cbd0e2fd3051ab50a067bd090224e29c86616d6f1288407"
+    "h": 666,
+    "sha256": "d014f33eee255646670257abf6f3e3f17268a3c8d82d5d3a6e9f2f8777ffd2ac"
    },
    {
     "path": "nunti-sprites/jump_1.webp",
-    "x": 204,
-    "y": 108,
-    "w": 364,
-    "h": 609,
-    "sha256": "0dc88d7909de2694ee4549d98ad6211bdf28b14d306baa75c71c5ce949b50c03"
+    "x": 178,
+    "y": -8,
+    "w": 417,
+    "h": 664,
+    "sha256": "1a9b536c8ce4132459fe5e2862a0a3a00afd274fc7a279814f2e2090b45576ae"
    },
    {
     "path": "nunti-sprites/jump_2.webp",
-    "x": 195,
-    "y": 53,
-    "w": 390,
-    "h": 664,
-    "sha256": "4a3fcf9371204ade0cce8d968d54d1bf06e92f82d9645350559e40a71f71b380"
-   },
-   {
-    "path": "nunti-sprites/jump_3.webp",
-    "x": 169,
-    "y": 31,
-    "w": 437,
-    "h": 632,
-    "sha256": "4a0febdc527412d515cef27ce8b201d0a68c0b1680f1d93dd6e12c7d6644b3f6"
-   },
-   {
-    "path": "nunti-sprites/jump_4.webp",
-    "x": 158,
-    "y": 14,
-    "w": 461,
-    "h": 587,
-    "sha256": "505b9a5f7ad11d696e071ec9633848404a524cf20ad2aa369e08755ced5c8af2"
-   },
-   {
-    "path": "nunti-sprites/jump_5.webp",
-    "x": 173,
-    "y": 28,
-    "w": 426,
-    "h": 634,
-    "sha256": "e8c8c2e1f1c3caf61038ea4c5cb1783051715c9d9dfe656b031a3690bb1eaefb"
-   },
-   {
-    "path": "nunti-sprites/jump_6.webp",
-    "x": 204,
-    "y": 115,
-    "w": 362,
-    "h": 600,
-    "sha256": "2684a30f286db6361e65095b58685c20200cec298b14a314c311254d75e2f8d6"
-   },
-   {
-    "path": "nunti-sprites/jump_7.webp",
-    "x": 196,
-    "y": 47,
-    "w": 378,
-    "h": 673,
-    "sha256": "d0c361eb6f382ca4cc41d2d5dea418f8f7ea88d22228f24c69c77453a55447bc"
+    "x": 197,
+    "y": 45,
+    "w": 376,
+    "h": 674,
+    "sha256": "014c3b00104d0188c2ef1469c4778b4139e9af86a1274f7fb066003049914e9b"
    }
   ],
   "sitChair": [
    {
     "path": "nunti-sprites/sitChair_0.webp",
-    "x": 285,
-    "y": 530,
-    "w": 257,
-    "h": 186,
-    "sha256": "79cb14e24e833674cd24d546b40d887ca8911a798456cec7aa2be437616344cd"
+    "x": 219,
+    "y": 274,
+    "w": 333,
+    "h": 444,
+    "sha256": "6889437494b4a758c7f4ca513dadc426e49213a134cac12ad2ac174db3202aef"
    }
   ],
   "sitBody": [
    {
     "path": "nunti-sprites/sitBody_0.webp",
-    "x": 211,
-    "y": 20,
-    "w": 390,
-    "h": 699,
-    "sha256": "24a4bf293dd4820add727b68ff7e6a41aecf14e6b8f6acdb2f4dd47a973ef5c2"
+    "x": 193,
+    "y": 15,
+    "w": 382,
+    "h": 704,
+    "sha256": "2e3629e77d8eeb2205609ece517a155a1ebab0a8666f88fe841a57775d7e42e8"
    }
   ],
   "stand": [
@@ -271,6 +223,6 @@
    }
   ]
  },
- "sitSeat": 552,
- "top": -8
+ "sitSeat": 539,
+ "top": -16
 }

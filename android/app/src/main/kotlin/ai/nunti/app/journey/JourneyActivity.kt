@@ -88,6 +88,10 @@ class JourneyActivity : Activity() {
     private var muted = false
     private var resumed = false
     private var locationPermissionAsked = false
+    /** 정차 중 눈티를 누르면 상황에 맞는 대사 음성을 낸다. */
+    private val tapVoice by lazy { NuntiTapVoice(this) }
+    private var tapMoment: NuntiTapLines.Moment? = null
+    private var tapCount = 0
     private val poll = object : Runnable {
         override fun run() {
             if (!resumed) return
@@ -164,6 +168,7 @@ class JourneyActivity : Activity() {
             title?.text = "눈티를 먼저 선택해 주세요"
             destination?.text = "보관한 눈티를 열어 여정을 시작할 수 있어요."
             line?.text = "이번 길을 함께할 눈티를 기다려요."
+            setTapMoment(NuntiTapLines.Moment.IDLE)
             updateImage("", "눈티")
             avatarView.setStage(NuntiSpriteDirector.Stage.EMPTY)
             // 기다리는 동안 앉아서 숨쉰다. 움직임은 정차 중에만.
@@ -213,8 +218,10 @@ class JourneyActivity : Activity() {
         muteButton?.visibility = if (active) View.VISIBLE else View.GONE
         finishButton?.isEnabled = active && parked
         avatarView.setFaceRig(snapshot.optString("faceRig", "none"))
-        avatarView.setStage(NuntiSpriteDirector.stageFor(nextScreen == Screen.PARKED, nextScreen == Screen.DRIVING,
-            nextScreen == Screen.REPORT, total))
+        val stage = NuntiSpriteDirector.stageFor(nextScreen == Screen.PARKED, nextScreen == Screen.DRIVING,
+            nextScreen == Screen.REPORT, total)
+        avatarView.setStage(stage)
+        setTapMoment(NuntiTapLines.momentFor(stage, snapshot.optDouble("distanceKm", 0.0), total))
         avatarView.setEmotion(emotion, animate = resumed && parked)
         updateImage(snapshot.optString("imageFile"), displayName)
         if (nextScreen == Screen.PARKED || nextScreen == Screen.DRIVING) updateLive(snapshot, total, evaluated)
@@ -228,7 +235,7 @@ class JourneyActivity : Activity() {
         statusPill = null; statusDot = null; speedValue = null; speedState = null; speedDot = null; limitValue = null
         limitCaption = null; liveScore = null; liveScoreState = null; hardCount = null; leadGap = null; liveCoverage = null; turnBadge = null
         recentEvents = null; recentKey = ""; areaScores = null; areaKey = ""
-        avatarView = JourneyCompanionView(this)
+        avatarView = JourneyCompanionView(this).apply { onTap = ::sayTapLine }
         if (mode == Screen.PARKED || mode == Screen.DRIVING) { buildActive(mode); return }
         val root = column().apply {
             val inset = dp(if (compact) 32 else 40)
@@ -928,6 +935,15 @@ class JourneyActivity : Activity() {
         }
     }
 
+    private fun setTapMoment(moment: NuntiTapLines.Moment?) { if (tapMoment != moment) { tapMoment = moment; tapCount = 0 } }
+
+    /** 눈티를 눌렀다(정차 중에만 불린다). 음성 끄기가 아니면 상황 대사 음성을 낸다. 화면 글자는 바꾸지 않는다. */
+    private fun sayTapLine() {
+        val moment = tapMoment ?: return
+        val say = NuntiTapLines.pick(moment, tapCount++)
+        if (muted) tapVoice.stop() else tapVoice.play(say)
+    }
+
     override fun onResume() {
         super.onResume()
         restored = JourneyRuntime.latest(this)
@@ -938,6 +954,7 @@ class JourneyActivity : Activity() {
 
     override fun onPause() {
         resumed = false
+        tapVoice.stop()
         if (::avatarView.isInitialized) avatarView.stopMotion()
         dismissDetails()
         main.removeCallbacks(poll)
@@ -960,6 +977,7 @@ class JourneyActivity : Activity() {
         dismissDetails()
         carGate?.close()
         main.removeCallbacksAndMessages(null)
+        tapVoice.stop()
         images.shutdownNow()
         super.onDestroy()
     }
