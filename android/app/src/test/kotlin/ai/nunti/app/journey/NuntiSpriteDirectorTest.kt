@@ -30,6 +30,10 @@ class NuntiSpriteDirectorTest {
         assertEquals(NuntiSpriteDirector.FOLD to 3, at(Stage.REPORT_LOW, 5f).let { it.clip to it.frame })
         assertEquals(NuntiSpriteDirector.JUMP, at(Stage.REPORT_GOOD, .5f).clip)
         assertEquals(NuntiSpriteDirector.SIT, at(Stage.EMPTY, 3f).clip)
+        // 서 있을 때는 기본 눈티 원본 그림을 쓴다 (점프 끝·주차 중 정지 화면).
+        assertEquals(NuntiSpriteDirector.STAND, at(Stage.PARKED, NuntiSpriteDirector.JUMP_SECONDS + 1f).clip)
+        assertEquals(NuntiSpriteDirector.STAND, at(Stage.PARKED, 9f, animated = false).clip)
+        assertEquals(NuntiSpriteDirector.STAND, at(Stage.REPORT_GOOD, 3f).clip)
     }
 
     @Test fun wanderWalksBothWaysFoldsArmsAndComesBackWithoutJumps() {
@@ -68,7 +72,7 @@ class NuntiSpriteDirectorTest {
     @Test fun everyFrameExistsWithTheRecordedHashAndClipsHaveTheExpectedLength() {
         assertTrue(manifest.contains("\"version\": \"${NuntiSpriteRig.VERSION}\""))
         assertTrue("not approved until a person reviews it", Regex("\"humanQualityApproved\"\\s*:\\s*false").containsMatchIn(manifest))
-        val counts = mapOf("walkR" to 8, "walkL" to 8, "fold" to 4, "jump" to 8, "sitChair" to 1, "sitBody" to 1)
+        val counts = mapOf("walkR" to 8, "walkL" to 8, "fold" to 4, "jump" to 8, "sitChair" to 1, "sitBody" to 1, "stand" to 1)
         for ((clip, count) in counts) {
             for (i in 0 until count) {
                 val path = "nunti-sprites/${clip}_$i.webp"
