@@ -19,6 +19,9 @@ class JourneyCompanionView(context: Context) : View(context) {
     private val paint = Paint(Paint.ANTI_ALIAS_FLAG or Paint.FILTER_BITMAP_FLAG)
     private val destination = RectF()
     private val life = NuntiLifeRenderer()
+    private val sprites = NuntiSpriteRig.Renderer()
+    private val shot = NuntiSpriteDirector.Shot()
+    private var spriteImage = false
     private var illustration: Bitmap? = null
     private var imageLoaded = false
     private var imageFallback = false
@@ -45,6 +48,16 @@ class JourneyCompanionView(context: Context) : View(context) {
     }
 
     fun setFaceRig(value: String) { if(rig!=value) { rig=value; invalidate() } }
+
+    /** 그리는 그림이 번들 기본 눈티면 true. 그때는 손그림 동작 프레임으로 상황에 맞게 움직인다. */
+    fun setSpriteImage(value: Boolean) { if(spriteImage!=value) { spriteImage=value; invalidate() } }
+
+    /** 지금 화면 상황. 화면을 다시 만들어도 같은 상황이면 동작을 처음부터 다시 하지 않는다. */
+    internal fun setStage(value: NuntiSpriteDirector.Stage) {
+        if(stage!=value) { stage=value; stageAt=SystemClock.uptimeMillis() }
+        invalidate()
+    }
+    private val usingSprites get() = spriteImage && NuntiSpriteRig.ready
 
     fun setIllustration(bitmap: Bitmap?, name: String, loaded: Boolean = false, fallback: Boolean = false) {
         val changed = illustration !== bitmap || characterName != name || imageLoaded != loaded || imageFallback != fallback
@@ -82,7 +95,8 @@ class JourneyCompanionView(context: Context) : View(context) {
     override fun performClick(): Boolean {
         if(!allowed) return false
         val now=SystemClock.uptimeMillis()
-        if(now-touchedAt<NuntiLifeMotion.reactionSeconds(touchReaction())*1000)return true
+        val busy=if(usingSprites) NuntiSpriteDirector.JUMP_SECONDS else NuntiLifeMotion.reactionSeconds(touchReaction())
+        if(now-touchedAt<busy*1000)return true
         super.performClick()
         touchedAt=now; tapCount++
         performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
@@ -110,6 +124,12 @@ class JourneyCompanionView(context: Context) : View(context) {
         canvas.save()
         canvas.translate((width-bw)/2f,(height-bh)/2f)
         canvas.scale(bw/768f,bh/768f)
+        if(usingSprites) {
+            // 화면 폭 안에서 캐릭터가 가장자리에 닿지 않을 만큼만 좌우로 걷는다.
+            val range=width*768f/bw/2f-210f
+            NuntiSpriteDirector.sample(stage,(now-stageAt)/1000f,if(touchedAt>stageAt) touchTime else -1f,allowed,range,shot)
+            if(sprites.draw(canvas,shot)) { canvas.restore(); return }
+        }
         if(rig!="none"&&!imageFallback) {
             val duration=NuntiLifeMotion.reactionSeconds(touchReaction())
             val reaction=if(touchTime in 0f..duration) touchReaction() else "idle"
@@ -123,6 +143,8 @@ class JourneyCompanionView(context: Context) : View(context) {
     }
 
     companion object {
+        private var stage=NuntiSpriteDirector.Stage.EMPTY
+        private var stageAt=SystemClock.uptimeMillis()
         fun emotionLabel(value:String)=when(value){"WORRY"->"조금 더 부드럽게";"RELIEF"->"다시 편안해졌어요";"JOY"->"기분 좋은 도착";else->"함께 달리는 중"}
         fun emotionColor(value:String):Int=when(value){"WORRY"->Color.rgb(158,100,42);"RELIEF"->Color.rgb(51,116,101);"JOY"->Color.rgb(106,101,164);else->Color.rgb(78,108,94)}
     }

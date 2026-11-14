@@ -1,0 +1,266 @@
+{
+ "version": "nunti-sprites-1",
+ "space": 768,
+ "feet": 718,
+ "owner": "NUNTI team",
+ "source": "사용자가 제공한 손그림 동작 시트(images/우로걷기·좌로걷기·팔짱·점프·앉기.png), 로컬에서 잘라 정렬",
+ "licenseNote": "팀 내부 제작 캐릭터 그림. 외부 배포 전 저작권 확인 필요",
+ "humanQualityApproved": false,
+ "fallback": "에셋이 없거나 읽지 못하면 기존 기본 눈티 리그로 그린다",
+ "clips": {
+  "walkR": [
+   {
+    "path": "nunti-sprites/walkR_0.webp",
+    "x": 208,
+    "y": 69,
+    "w": 369,
+    "h": 651,
+    "sha256": "f18164898f942a82878f6b70ac0942a7d77dfa4daff25827e14d63e718e4ac71"
+   },
+   {
+    "path": "nunti-sprites/walkR_1.webp",
+    "x": 210,
+    "y": 64,
+    "w": 350,
+    "h": 656,
+    "sha256": "ddfb4fe6c33857d0cc1090db9b5bfddfb77f42a785729a0ed9b591b573137eae"
+   },
+   {
+    "path": "nunti-sprites/walkR_2.webp",
+    "x": 208,
+    "y": 64,
+    "w": 352,
+    "h": 656,
+    "sha256": "0f86766bcf5496fdd39c97c1764adc8d6aa14a5ba6df02c912605d9bc1b62585"
+   },
+   {
+    "path": "nunti-sprites/walkR_3.webp",
+    "x": 207,
+    "y": 70,
+    "w": 354,
+    "h": 649,
+    "sha256": "ce093fa0ad9f22c2bbf9d96c8998d0daba63666ece663ba686ebada02e5fa16f"
+   },
+   {
+    "path": "nunti-sprites/walkR_4.webp",
+    "x": 208,
+    "y": 69,
+    "w": 352,
+    "h": 651,
+    "sha256": "8ecec0c3ff6086d45e11aba241850b2df8baa959b9d56becfa29ee831d528076"
+   },
+   {
+    "path": "nunti-sprites/walkR_5.webp",
+    "x": 210,
+    "y": 60,
+    "w": 350,
+    "h": 659,
+    "sha256": "f64b535ed738f8f2aaf35f8be168a2567183ab7cb786a4d75efa142f314bad12"
+   },
+   {
+    "path": "nunti-sprites/walkR_6.webp",
+    "x": 208,
+    "y": 60,
+    "w": 352,
+    "h": 659,
+    "sha256": "2022043981f4d677cab65af367812e7b3971409566a02835131cf884b9adf6c3"
+   },
+   {
+    "path": "nunti-sprites/walkR_7.webp",
+    "x": 210,
+    "y": 69,
+    "w": 367,
+    "h": 651,
+    "sha256": "8ce4f2972fb83d625fac5665603b7081ed579209cce736de0b2c9e8e256c7506"
+   }
+  ],
+  "walkL": [
+   {
+    "path": "nunti-sprites/walkL_0.webp",
+    "x": 184,
+    "y": 68,
+    "w": 367,
+    "h": 652,
+    "sha256": "20f63f7128ed3c1661d751f34bd2d6afa56126ac1b1082f3ccb36e38b9ce11ae"
+   },
+   {
+    "path": "nunti-sprites/walkL_1.webp",
+    "x": 203,
+    "y": 63,
+    "w": 349,
+    "h": 657,
+    "sha256": "287047067f5ad691755a96d7f22f7b0f450ba7e3ceb34abe112b8ac6e75ea796"
+   },
+   {
+    "path": "nunti-sprites/walkL_2.webp",
+    "x": 217,
+    "y": 61,
+    "w": 334,
+    "h": 658,
+    "sha256": "dbfbc76ba95158c9fa676a2a8a471c4154efb3b0c6cd3e0e10f5bcf25b166a9d"
+   },
+   {
+    "path": "nunti-sprites/walkL_3.webp",
+    "x": 217,
+    "y": 70,
+    "w": 334,
+    "h": 650,
+    "sha256": "074dc703a752d53f3fbad0aa2be1a98ddf96dbf113e40be8c2823120f5f9ca4e"
+   },
+   {
+    "path": "nunti-sprites/walkL_4.webp",
+    "x": 219,
+    "y": 70,
+    "w": 332,
+    "h": 650,
+    "sha256": "25c6b615c0befd41408f1723dcb99fb163bbbdcb6ca7feecbefb99d446a82bab"
+   },
+   {
+    "path": "nunti-sprites/walkL_5.webp",
+    "x": 218,
+    "y": 61,
+    "w": 334,
+    "h": 658,
+    "sha256": "24c7cd45111ae847eed48d936b468386ca172d739255e024bfc384abcfae27ff"
+   },
+   {
+    "path": "nunti-sprites/walkL_6.webp",
+    "x": 219,
+    "y": 61,
+    "w": 332,
+    "h": 658,
+    "sha256": "fc8ab26820a8b8201b1de4f65b4513fa2b5fd198b266ca1a60eb64a09e660e27"
+   },
+   {
+    "path": "nunti-sprites/walkL_7.webp",
+    "x": 184,
+    "y": 68,
+    "w": 367,
+    "h": 652,
+    "sha256": "de26e1642ccc2596e0c9e8d89000aeeee7f592f670c0227f46b924b41cdee7d0"
+   }
+  ],
+  "fold": [
+   {
+    "path": "nunti-sprites/fold_0.webp",
+    "x": 198,
+    "y": 50,
+    "w": 373,
+    "h": 669,
+    "sha256": "2ebfeb554f0affc5d87c5a072e00b43255875801fcc195fa4801a4a8b347b584"
+   },
+   {
+    "path": "nunti-sprites/fold_1.webp",
+    "x": 210,
+    "y": 50,
+    "w": 348,
+    "h": 669,
+    "sha256": "e0ebf249478600bf367e6769b04410838dfcf451f2262da6bccc12c3991367d5"
+   },
+   {
+    "path": "nunti-sprites/fold_2.webp",
+    "x": 211,
+    "y": 50,
+    "w": 348,
+    "h": 669,
+    "sha256": "d65fb62f6cc7256e04623408e308ec396c535e473e15d7d0d6fcdf4c6f8bcabc"
+   },
+   {
+    "path": "nunti-sprites/fold_3.webp",
+    "x": 209,
+    "y": 50,
+    "w": 350,
+    "h": 669,
+    "sha256": "ee27766687cc9d3fc5872be2ecbeeebd81b9b3348f24e4e24a92689b5e5e1344"
+   }
+  ],
+  "jump": [
+   {
+    "path": "nunti-sprites/jump_0.webp",
+    "x": 198,
+    "y": 51,
+    "w": 374,
+    "h": 669,
+    "sha256": "b109265d3c2e91ef4cbd0e2fd3051ab50a067bd090224e29c86616d6f1288407"
+   },
+   {
+    "path": "nunti-sprites/jump_1.webp",
+    "x": 204,
+    "y": 108,
+    "w": 364,
+    "h": 609,
+    "sha256": "0dc88d7909de2694ee4549d98ad6211bdf28b14d306baa75c71c5ce949b50c03"
+   },
+   {
+    "path": "nunti-sprites/jump_2.webp",
+    "x": 195,
+    "y": 53,
+    "w": 390,
+    "h": 664,
+    "sha256": "4a3fcf9371204ade0cce8d968d54d1bf06e92f82d9645350559e40a71f71b380"
+   },
+   {
+    "path": "nunti-sprites/jump_3.webp",
+    "x": 169,
+    "y": 31,
+    "w": 437,
+    "h": 632,
+    "sha256": "4a0febdc527412d515cef27ce8b201d0a68c0b1680f1d93dd6e12c7d6644b3f6"
+   },
+   {
+    "path": "nunti-sprites/jump_4.webp",
+    "x": 158,
+    "y": 14,
+    "w": 461,
+    "h": 587,
+    "sha256": "505b9a5f7ad11d696e071ec9633848404a524cf20ad2aa369e08755ced5c8af2"
+   },
+   {
+    "path": "nunti-sprites/jump_5.webp",
+    "x": 173,
+    "y": 28,
+    "w": 426,
+    "h": 634,
+    "sha256": "e8c8c2e1f1c3caf61038ea4c5cb1783051715c9d9dfe656b031a3690bb1eaefb"
+   },
+   {
+    "path": "nunti-sprites/jump_6.webp",
+    "x": 204,
+    "y": 115,
+    "w": 362,
+    "h": 600,
+    "sha256": "2684a30f286db6361e65095b58685c20200cec298b14a314c311254d75e2f8d6"
+   },
+   {
+    "path": "nunti-sprites/jump_7.webp",
+    "x": 196,
+    "y": 47,
+    "w": 378,
+    "h": 673,
+    "sha256": "d0c361eb6f382ca4cc41d2d5dea418f8f7ea88d22228f24c69c77453a55447bc"
+   }
+  ],
+  "sitChair": [
+   {
+    "path": "nunti-sprites/sitChair_0.webp",
+    "x": 285,
+    "y": 530,
+    "w": 257,
+    "h": 186,
+    "sha256": "79cb14e24e833674cd24d546b40d887ca8911a798456cec7aa2be437616344cd"
+   }
+  ],
+  "sitBody": [
+   {
+    "path": "nunti-sprites/sitBody_0.webp",
+    "x": 211,
+    "y": 20,
+    "w": 390,
+    "h": 699,
+    "sha256": "24a4bf293dd4820add727b68ff7e6a41aecf14e6b8f6acdb2f4dd47a973ef5c2"
+   }
+  ]
+ },
+ "sitSeat": 552,
+ "top": -8
+}
