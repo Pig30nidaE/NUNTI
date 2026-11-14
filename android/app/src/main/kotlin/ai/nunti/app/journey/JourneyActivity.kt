@@ -83,6 +83,7 @@ class JourneyActivity : Activity() {
     private var base: Bitmap? = null
     private var imageLoaded = false
     private var imageFallback = false
+    private var imageIsDefault = false
     private var displayName = "눈티"
     private var muted = false
     private var resumed = false
@@ -117,6 +118,8 @@ class JourneyActivity : Activity() {
         images.execute {
             NuntiLifeMotion.prepare(assets)
             NuntiFaceRig.prepare(assets)
+            // 손그림 동작은 없어도 기존 리그로 그리므로 실패해도 여정 화면은 그대로 연다.
+            runCatching { NuntiSpriteRig.prepare(assets) }
             val fallback = runCatching {
                 assets.open("nunti-motion/base.png").use { BitmapFactory.decodeStream(it) }
             }.getOrNull()
@@ -162,7 +165,9 @@ class JourneyActivity : Activity() {
             destination?.text = "보관한 눈티를 열어 여정을 시작할 수 있어요."
             line?.text = "이번 길을 함께할 눈티를 기다려요."
             updateImage("", "눈티")
-            avatarView.setEmotion("NEUTRAL", animate = false)
+            avatarView.setStage(NuntiSpriteDirector.Stage.EMPTY)
+            // 기다리는 동안 앉아서 숨쉰다. 움직임은 정차 중에만.
+            avatarView.setEmotion("NEUTRAL", animate = resumed && parked)
             return
         }
         val finished = state == "FINISHED"
@@ -208,6 +213,8 @@ class JourneyActivity : Activity() {
         muteButton?.visibility = if (active) View.VISIBLE else View.GONE
         finishButton?.isEnabled = active && parked
         avatarView.setFaceRig(snapshot.optString("faceRig", "none"))
+        avatarView.setStage(NuntiSpriteDirector.stageFor(nextScreen == Screen.PARKED, nextScreen == Screen.DRIVING,
+            nextScreen == Screen.REPORT, total))
         avatarView.setEmotion(emotion, animate = resumed && parked)
         updateImage(snapshot.optString("imageFile"), displayName)
         if (nextScreen == Screen.PARKED || nextScreen == Screen.DRIVING) updateLive(snapshot, total, evaluated)
@@ -812,6 +819,7 @@ class JourneyActivity : Activity() {
         imagePath = path
         val request = ++imageRequest
         illustration = null
+        imageIsDefault = false
         imageLoaded = false
         imageFallback = path.isBlank()
         applyImage()
@@ -827,14 +835,16 @@ class JourneyActivity : Activity() {
                 val options = BitmapFactory.Options().apply { inSampleSize = 1 }
                 while (maxOf(bounds.outWidth, bounds.outHeight) / options.inSampleSize > 1600) options.inSampleSize *= 2
                 BitmapFactory.decodeFile(file.path, options)?.also { NuntiPuppetParts.prepare(assets,file.nameWithoutExtension,it) }
+                    ?.let { it to NuntiSpriteRig.isDefaultImage(file.readBytes()) }
             }.getOrNull()
             main.post {
                 if (!isDestroyed && request == imageRequest) {
-                    illustration = bitmap
+                    illustration = bitmap?.first
+                    imageIsDefault = bitmap?.second == true
                     imageLoaded = true
                     imageFallback = bitmap == null
                     applyImage()
-                } else bitmap?.recycle()
+                } else bitmap?.first?.recycle()
             }
         }
     }
@@ -842,6 +852,8 @@ class JourneyActivity : Activity() {
     private fun applyImage() {
         if (!::avatarView.isInitialized) return
         avatarView.setIllustration(illustration ?: base, displayName, imageLoaded, fallback = imageFallback)
+        // 번들 기본 눈티(직접 고른 기본 모습이거나 그림을 못 읽어 기본으로 보일 때)만 손그림 동작으로 그린다.
+        avatarView.setSpriteImage(if (illustration != null) imageIsDefault else imageFallback && base != null)
     }
 
     private fun showDetails() {
