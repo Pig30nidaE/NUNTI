@@ -89,7 +89,7 @@ async function createWardrobe(input) {
   state.generating = state.busy = true;
   enableCreate();
   button.textContent = '오늘의 옷을 만들고 있어요…';
-  message('OpenAI API로 눈티의 새 모습을 만들고 있어요. 보통 1~2분 걸리며, 완성되면 내 눈티에 보관합니다.');
+  message('눈티의 모습을 준비하고 있어요. 새 이미지를 만드는 경우 보통 1~2분 걸려요.');
   try {
     const artifact = await api('/v3/wardrobe', {
       destination: input.destination,
@@ -603,7 +603,7 @@ async function init() {
     window.NuntiNavigation?.setCapabilities(caps);
     $('session-dialog').close();
     if (caps.wardrobeAvailable === false) {
-      message('서버에 OPENAI_API_KEY가 연결되지 않았어요. .env 파일에 OPENAI_API_KEY를 설정한 뒤 서버를 다시 시작해 주세요.');
+      message('API 키 없이 체험하려면 목적지에 ‘아직 미정’을 입력하세요. 방문 목적을 비우고 풍경은 ‘아직 모르겠어요’를 선택해 주세요.');
     }
     await examples();
     await loadCollection();

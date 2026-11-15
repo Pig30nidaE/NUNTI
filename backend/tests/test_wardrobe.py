@@ -58,9 +58,10 @@ def test_budget_refuses_before_provider_and_failure_keeps_reservation(tmp_path):
         )
 
 
-def test_undecided_destination_keeps_base_character_without_paid_call(tmp_path):
+@pytest.mark.parametrize("wardrobe_available", [True, False])
+def test_undecided_destination_keeps_base_character_without_paid_call(tmp_path, wardrobe_available):
     store = StudioStore(tmp_path)
-    settings = SimpleNamespace(wardrobe_available=True, image_key="test")
+    settings = SimpleNamespace(wardrobe_available=wardrobe_available)
     value = WardrobeInput(destination={"name": "아직 미정"})
     artifact = create(
         settings, store, "owner", value, lambda *a: pytest.fail("must not call image provider")
