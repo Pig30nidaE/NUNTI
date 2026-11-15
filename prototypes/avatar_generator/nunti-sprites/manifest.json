@@ -195,21 +195,21 @@
   "sitChair": [
    {
     "path": "nunti-sprites/sitChair_0.webp",
-    "x": 219,
-    "y": 274,
-    "w": 333,
-    "h": 444,
-    "sha256": "6889437494b4a758c7f4ca513dadc426e49213a134cac12ad2ac174db3202aef"
+    "x": 222,
+    "y": 282,
+    "w": 328,
+    "h": 437,
+    "sha256": "362f93177fbd4b37f46317f9ca018a0488b0d320bfbe347e7cf602f60b5121ec"
    }
   ],
   "sitBody": [
    {
     "path": "nunti-sprites/sitBody_0.webp",
-    "x": 193,
-    "y": 15,
-    "w": 382,
-    "h": 704,
-    "sha256": "2e3629e77d8eeb2205609ece517a155a1ebab0a8666f88fe841a57775d7e42e8"
+    "x": 196,
+    "y": -8,
+    "w": 376,
+    "h": 693,
+    "sha256": "1f24f6296ec5e0d3f2cde4745c96f5b0b1ab74f55c4f7e474b28a3178d13e7d5"
    }
   ],
   "stand": [
@@ -223,6 +223,6 @@
    }
   ]
  },
- "sitSeat": 539,
+ "sitSeat": 543,
  "top": -16
 }
