@@ -190,6 +190,18 @@ try {
     assert.equal(h.generationCalls().length, 0);
   });
 
+  await test('changing a preset destination clears preset traits and preserves edited traits', async h => {
+    h.preset('coast');
+    assert.notEqual(h.get('traits').value, '');
+    h.edit('destination', '아직 미정');
+    assert.equal(h.get('traits').value, '');
+
+    h.preset('coast');
+    h.edit('traits', '운전자가 고른 풍경');
+    h.edit('destination', '새 목적지');
+    assert.equal(h.get('traits').value, '운전자가 고른 풍경');
+  });
+
   await test('editing an API plan destination name prevents submission', async h => {
     await h.calculate(); h.confirm(); h.edit('destination', '다른 목적지'); h.confirm(); await h.submit();
     assert.equal(h.nav.canGenerate(), false);

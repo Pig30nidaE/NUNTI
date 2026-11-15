@@ -95,8 +95,9 @@
   function invalidateInput(){
     fileEpoch++;extractionEpoch++;state.busy=state.generating;state.pending=null;$('route-confirmed').checked=false;feedback();enableCreate();
   }
+  let activePreset = null;
   function preset(name){
-    const p=presets[name];if(!p)return;context=null;originName=p.origin[2];
+    const p=presets[name];if(!p)return;context=null;originName=p.origin[2];activePreset=p;
     for(const [prefix,v] of [['nav-origin',p.origin],['nav-destination',p.destination]]){$(prefix+'-lat').value=v[0];$(prefix+'-lon').value=v[1];}
     $('destination').value=p.destination[2];$('traits').value=p.traits;$('purpose').value=p.purpose;invalidateInput();
     $('api-route-summary').textContent='예시 좌표를 입력했어요.';
@@ -132,7 +133,12 @@
   $('nav-case').onchange=()=>preset($('nav-case').value);
   for(const id of ['nav-origin-lat','nav-origin-lon','nav-destination-lat','nav-destination-lon'])$(id).addEventListener('input',()=>{context=null;originName='출발지';$('nav-case').value='';invalidateInput();});
   $('destination').addEventListener('input',()=>{
-    if(state.planning||((context||state.route?.inputOrigin==='API_ROUTE')&&$('destination').value.trim()!==(context?.destination?.name||plan?.destination.name))){
+    const destination = $('destination').value.trim();
+    if (activePreset && destination !== activePreset.destination[2]) {
+      if ($('traits').value === activePreset.traits) $('traits').value = '';
+      activePreset = null;
+    }
+    if(state.planning||((context||state.route?.inputOrigin==='API_ROUTE')&&destination!==(context?.destination?.name||plan?.destination.name))){
       context=null;invalidateInput();
     }
     updateButtons();

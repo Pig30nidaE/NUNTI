@@ -363,7 +363,9 @@ async function showArtifact(artifact, animate = false) {
   $('result-purpose').textContent = artifact.purpose || '나만의 여정';
   $('voice-description').textContent = artifact.voice?.description || artifact.design.voice?.description || '작고 차분한 동반자';
   $('voice-notice').textContent = '누르면 기기에 설치된 한국어 음성으로 눈티의 인사를 들을 수 있어요.';
-  $('origin-label').textContent = 'OpenAI API로 새로 생성한 이미지';
+  $('origin-label').textContent = artifact.design?.wardrobe?.look === 'default'
+    ? '앱에 포함된 기본 눈티 이미지'
+    : 'OpenAI API로 새로 생성한 이미지';
   $('edition-label').textContent = 'JOURNEY ' + artifact.characterId.slice(-8).toUpperCase();
   $('motifs-heading').textContent = '여행에서 가져온 것';
   $('motifs-notice').hidden = usesSkinMotion(artifact);
