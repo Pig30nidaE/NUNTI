@@ -67,8 +67,8 @@ internal object NuntiSpriteRig {
             if (shot.clip == NuntiSpriteDirector.SIT) {
                 val chair = frame(CHAIR, 0) ?: return false
                 val body = frame(BODY, 0) ?: return false
-                // 의자 다리 네 개와 앞발이 모두 닿는 넓은 바닥 그림자.
-                oval.set(chair.x - 14f, chair.bottom - 40f, chair.x + chair.bitmap.width + 20f, body.bottom + 9f)
+                // 의자 다리 네 개가 닿는 넓은 바닥 그림자. 발은 의자에 앉아 바닥에서 살짝 떠 있을 수 있다.
+                oval.set(chair.x - 14f, chair.bottom - 40f, chair.x + chair.bitmap.width + 20f, maxOf(chair.bottom, body.bottom) + 9f)
                 canvas.drawOval(oval, shadow)
                 // 의자는 그대로, 몸만 엉덩이(의자 상판)를 축으로 아주 살짝 숨쉰다.
                 canvas.drawBitmap(chair.bitmap, chair.x, chair.y, paint)
