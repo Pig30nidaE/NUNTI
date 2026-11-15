@@ -38,6 +38,8 @@ class JourneyCompanionView(context: Context) : View(context) {
     private var smile = .12f
     private var worry = 0f
     private var tapCount = 0
+    /** 정차 중 눌러서 반응했을 때(빠르게 연달아 누른 건 빼고) 불린다. */
+    var onTap: (() -> Unit)? = null
     private val touchReactions=arrayOf("wink","happy","curious","proud","signature","surprised","nod","sleepy")
     private fun touchReaction()=touchReactions[(tapCount-1).coerceAtLeast(0)%touchReactions.size]
 
@@ -99,6 +101,7 @@ class JourneyCompanionView(context: Context) : View(context) {
         if(now-touchedAt<busy*1000)return true
         super.performClick()
         touchedAt=now; tapCount++
+        onTap?.invoke()
         performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
         invalidate(); return true
     }

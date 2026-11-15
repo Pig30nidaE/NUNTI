@@ -3,7 +3,7 @@
  "space": 768,
  "feet": 718,
  "owner": "NUNTI team",
- "source": "사용자가 제공한 손그림 동작 시트(images/우로걷기·좌로걷기·팔짱·점프·앉기.png), 로컬에서 잘라 정렬",
+ "source": "사용자가 제공한 손그림 동작 시트(images/우로걷기·좌로걷기·팔짱·점프·앉기.png), 로컬에서 잘라 정렬 / 서 있기: 기본 눈티 원본(skin-v2/default/final.png)을 그대로 잘라 씀 / 걷기 v2: 사용자가 제공한 걷기 4x2 시트 (walkR 8.webp 채도 x1.2, walkL 10.webp 채도 x1.1) / 동작 v2: 사용자가 제공한 새 시트 (fold fold-arms-3-transparent.png 채도 x1.052, jump jump-3-transparent.png 채도 x0.975, sit chair-aligned.png + sitting-character.png 채도 x0.934)",
  "licenseNote": "팀 내부 제작 캐릭터 그림. 외부 배포 전 저작권 확인 필요",
  "humanQualityApproved": false,
  "fallback": "에셋이 없거나 읽지 못하면 기존 기본 눈티 리그로 그린다",
@@ -11,256 +11,218 @@
   "walkR": [
    {
     "path": "nunti-sprites/walkR_0.webp",
-    "x": 208,
-    "y": 69,
-    "w": 369,
-    "h": 651,
-    "sha256": "f18164898f942a82878f6b70ac0942a7d77dfa4daff25827e14d63e718e4ac71"
+    "x": 224,
+    "y": 65,
+    "w": 333,
+    "h": 654,
+    "sha256": "f88c4378f6e7a84d778880b67c44eadab0d11d6eda89753f25cc25909467f11f"
    },
    {
     "path": "nunti-sprites/walkR_1.webp",
-    "x": 210,
-    "y": 64,
-    "w": 350,
-    "h": 656,
-    "sha256": "ddfb4fe6c33857d0cc1090db9b5bfddfb77f42a785729a0ed9b591b573137eae"
+    "x": 225,
+    "y": 65,
+    "w": 320,
+    "h": 654,
+    "sha256": "0ebbf3804028bf2443694398b0081462d1ab5b4f5e65825316d1a57dbb834d6a"
    },
    {
     "path": "nunti-sprites/walkR_2.webp",
-    "x": 208,
-    "y": 64,
-    "w": 352,
-    "h": 656,
-    "sha256": "0f86766bcf5496fdd39c97c1764adc8d6aa14a5ba6df02c912605d9bc1b62585"
+    "x": 224,
+    "y": 65,
+    "w": 321,
+    "h": 654,
+    "sha256": "94115f63131d0ad5dfd59714340fd08cc20c3f6eb0279e076160ae6de06bfdbe"
    },
    {
     "path": "nunti-sprites/walkR_3.webp",
-    "x": 207,
+    "x": 224,
     "y": 70,
-    "w": 354,
-    "h": 649,
-    "sha256": "ce093fa0ad9f22c2bbf9d96c8998d0daba63666ece663ba686ebada02e5fa16f"
+    "w": 320,
+    "h": 650,
+    "sha256": "3bbc672f7a374f4b0c0bba1dc4c709fbba884dacdc0b179cfcb818d6fdfe1a08"
    },
    {
     "path": "nunti-sprites/walkR_4.webp",
-    "x": 208,
-    "y": 69,
-    "w": 352,
-    "h": 651,
-    "sha256": "8ecec0c3ff6086d45e11aba241850b2df8baa959b9d56becfa29ee831d528076"
+    "x": 224,
+    "y": 70,
+    "w": 321,
+    "h": 650,
+    "sha256": "c65db31c6fa808eda9b9545f483ac0b7428f09b3f0b6f0c21e2365acd8f54c8e"
    },
    {
     "path": "nunti-sprites/walkR_5.webp",
-    "x": 210,
-    "y": 60,
-    "w": 350,
-    "h": 659,
-    "sha256": "f64b535ed738f8f2aaf35f8be168a2567183ab7cb786a4d75efa142f314bad12"
+    "x": 223,
+    "y": 68,
+    "w": 323,
+    "h": 651,
+    "sha256": "b9e438f4b24d8adb5c739c1c5e262216f95f6bcd1a0383d3e7225c6f951e6702"
    },
    {
     "path": "nunti-sprites/walkR_6.webp",
-    "x": 208,
-    "y": 60,
-    "w": 352,
+    "x": 225,
+    "y": 61,
+    "w": 320,
     "h": 659,
-    "sha256": "2022043981f4d677cab65af367812e7b3971409566a02835131cf884b9adf6c3"
+    "sha256": "641a72f8e235cb64bf134a16f16bb4e146518fc61591be7448186192af75994e"
    },
    {
     "path": "nunti-sprites/walkR_7.webp",
-    "x": 210,
-    "y": 69,
-    "w": 367,
-    "h": 651,
-    "sha256": "8ce4f2972fb83d625fac5665603b7081ed579209cce736de0b2c9e8e256c7506"
+    "x": 224,
+    "y": 59,
+    "w": 330,
+    "h": 660,
+    "sha256": "19b7d9f1570c5db97a5171061883f3a24ec99fcb8bd365ead4494685c5124d43"
    }
   ],
   "walkL": [
    {
     "path": "nunti-sprites/walkL_0.webp",
-    "x": 184,
+    "x": 209,
     "y": 68,
-    "w": 367,
+    "w": 339,
     "h": 652,
-    "sha256": "20f63f7128ed3c1661d751f34bd2d6afa56126ac1b1082f3ccb36e38b9ce11ae"
+    "sha256": "d071d32065e1186e0c542cc35746794348e606904ce437bf61877d46adb8478f"
    },
    {
     "path": "nunti-sprites/walkL_1.webp",
-    "x": 203,
-    "y": 63,
-    "w": 349,
-    "h": 657,
-    "sha256": "287047067f5ad691755a96d7f22f7b0f450ba7e3ceb34abe112b8ac6e75ea796"
+    "x": 224,
+    "y": 65,
+    "w": 326,
+    "h": 655,
+    "sha256": "11966856831cdf887751fb172e4e07b9b2a3a6e16d37c5a7892d7ceb1099d37d"
    },
    {
     "path": "nunti-sprites/walkL_2.webp",
-    "x": 217,
-    "y": 61,
-    "w": 334,
-    "h": 658,
-    "sha256": "dbfbc76ba95158c9fa676a2a8a471c4154efb3b0c6cd3e0e10f5bcf25b166a9d"
+    "x": 222,
+    "y": 59,
+    "w": 326,
+    "h": 661,
+    "sha256": "98c036fd17b52f854a3f5f8647fd4265739563496d3cbcfda510f42190028caa"
    },
    {
     "path": "nunti-sprites/walkL_3.webp",
-    "x": 217,
-    "y": 70,
-    "w": 334,
-    "h": 650,
-    "sha256": "074dc703a752d53f3fbad0aa2be1a98ddf96dbf113e40be8c2823120f5f9ca4e"
+    "x": 222,
+    "y": 63,
+    "w": 329,
+    "h": 656,
+    "sha256": "cd67de6f4b9ab220d15c43fed8e19424983dbd742831e5916a740ff682cf1752"
    },
    {
     "path": "nunti-sprites/walkL_4.webp",
-    "x": 219,
-    "y": 70,
-    "w": 332,
-    "h": 650,
-    "sha256": "25c6b615c0befd41408f1723dcb99fb163bbbdcb6ca7feecbefb99d446a82bab"
+    "x": 222,
+    "y": 60,
+    "w": 327,
+    "h": 659,
+    "sha256": "33af66d9e21d3928f5bd2b6dffe291f15bc3c8f41cd22821e7c6251e7bfcbf0f"
    },
    {
     "path": "nunti-sprites/walkL_5.webp",
-    "x": 218,
-    "y": 61,
-    "w": 334,
-    "h": 658,
-    "sha256": "24c7cd45111ae847eed48d936b468386ca172d739255e024bfc384abcfae27ff"
+    "x": 220,
+    "y": 70,
+    "w": 329,
+    "h": 649,
+    "sha256": "143464ba6e4f54f42dd221d35036c66862db442606f503d6666052bfca485d6d"
    },
    {
     "path": "nunti-sprites/walkL_6.webp",
-    "x": 219,
-    "y": 61,
-    "w": 332,
-    "h": 658,
-    "sha256": "fc8ab26820a8b8201b1de4f65b4513fa2b5fd198b266ca1a60eb64a09e660e27"
+    "x": 223,
+    "y": 69,
+    "w": 326,
+    "h": 650,
+    "sha256": "86bc7389f8afcb1e7a10ba5d386ed6210b786b4561f3fe87b7d4407334ed7fd7"
    },
    {
     "path": "nunti-sprites/walkL_7.webp",
-    "x": 184,
-    "y": 68,
-    "w": 367,
-    "h": 652,
-    "sha256": "de26e1642ccc2596e0c9e8d89000aeeee7f592f670c0227f46b924b41cdee7d0"
+    "x": 211,
+    "y": 70,
+    "w": 338,
+    "h": 649,
+    "sha256": "d4188d0162d28cdb5160903bf58ecced1b48eb1910b34fa20def7e58a1e50e67"
    }
   ],
   "fold": [
    {
     "path": "nunti-sprites/fold_0.webp",
-    "x": 198,
-    "y": 50,
-    "w": 373,
-    "h": 669,
-    "sha256": "2ebfeb554f0affc5d87c5a072e00b43255875801fcc195fa4801a4a8b347b584"
+    "x": 202,
+    "y": 49,
+    "w": 363,
+    "h": 670,
+    "sha256": "184867e073707920a5f9aa072bd77f8caf868bb822cda9971b97892a767026a0"
    },
    {
     "path": "nunti-sprites/fold_1.webp",
-    "x": 210,
-    "y": 50,
-    "w": 348,
-    "h": 669,
-    "sha256": "e0ebf249478600bf367e6769b04410838dfcf451f2262da6bccc12c3991367d5"
+    "x": 203,
+    "y": 49,
+    "w": 363,
+    "h": 670,
+    "sha256": "f631ec1e97c7aa8bddf6873807055f1939b37729384e229ea91890c281c779bb"
    },
    {
     "path": "nunti-sprites/fold_2.webp",
-    "x": 211,
-    "y": 50,
-    "w": 348,
-    "h": 669,
-    "sha256": "d65fb62f6cc7256e04623408e308ec396c535e473e15d7d0d6fcdf4c6f8bcabc"
-   },
-   {
-    "path": "nunti-sprites/fold_3.webp",
-    "x": 209,
-    "y": 50,
-    "w": 350,
-    "h": 669,
-    "sha256": "ee27766687cc9d3fc5872be2ecbeeebd81b9b3348f24e4e24a92689b5e5e1344"
+    "x": 203,
+    "y": 49,
+    "w": 363,
+    "h": 670,
+    "sha256": "1039c53347bd5cf933b933fee3dc457e160aa6b8adaeb2ac95606744787df816"
    }
   ],
   "jump": [
    {
     "path": "nunti-sprites/jump_0.webp",
-    "x": 198,
-    "y": 51,
+    "x": 197,
+    "y": 53,
     "w": 374,
-    "h": 669,
-    "sha256": "b109265d3c2e91ef4cbd0e2fd3051ab50a067bd090224e29c86616d6f1288407"
+    "h": 666,
+    "sha256": "d014f33eee255646670257abf6f3e3f17268a3c8d82d5d3a6e9f2f8777ffd2ac"
    },
    {
     "path": "nunti-sprites/jump_1.webp",
-    "x": 204,
-    "y": 108,
-    "w": 364,
-    "h": 609,
-    "sha256": "0dc88d7909de2694ee4549d98ad6211bdf28b14d306baa75c71c5ce949b50c03"
+    "x": 178,
+    "y": -8,
+    "w": 417,
+    "h": 664,
+    "sha256": "1a9b536c8ce4132459fe5e2862a0a3a00afd274fc7a279814f2e2090b45576ae"
    },
    {
     "path": "nunti-sprites/jump_2.webp",
-    "x": 195,
-    "y": 53,
-    "w": 390,
-    "h": 664,
-    "sha256": "4a3fcf9371204ade0cce8d968d54d1bf06e92f82d9645350559e40a71f71b380"
-   },
-   {
-    "path": "nunti-sprites/jump_3.webp",
-    "x": 169,
-    "y": 31,
-    "w": 437,
-    "h": 632,
-    "sha256": "4a0febdc527412d515cef27ce8b201d0a68c0b1680f1d93dd6e12c7d6644b3f6"
-   },
-   {
-    "path": "nunti-sprites/jump_4.webp",
-    "x": 158,
-    "y": 14,
-    "w": 461,
-    "h": 587,
-    "sha256": "505b9a5f7ad11d696e071ec9633848404a524cf20ad2aa369e08755ced5c8af2"
-   },
-   {
-    "path": "nunti-sprites/jump_5.webp",
-    "x": 173,
-    "y": 28,
-    "w": 426,
-    "h": 634,
-    "sha256": "e8c8c2e1f1c3caf61038ea4c5cb1783051715c9d9dfe656b031a3690bb1eaefb"
-   },
-   {
-    "path": "nunti-sprites/jump_6.webp",
-    "x": 204,
-    "y": 115,
-    "w": 362,
-    "h": 600,
-    "sha256": "2684a30f286db6361e65095b58685c20200cec298b14a314c311254d75e2f8d6"
-   },
-   {
-    "path": "nunti-sprites/jump_7.webp",
-    "x": 196,
-    "y": 47,
-    "w": 378,
-    "h": 673,
-    "sha256": "d0c361eb6f382ca4cc41d2d5dea418f8f7ea88d22228f24c69c77453a55447bc"
+    "x": 197,
+    "y": 45,
+    "w": 376,
+    "h": 674,
+    "sha256": "014c3b00104d0188c2ef1469c4778b4139e9af86a1274f7fb066003049914e9b"
    }
   ],
   "sitChair": [
    {
     "path": "nunti-sprites/sitChair_0.webp",
-    "x": 285,
-    "y": 530,
-    "w": 257,
-    "h": 186,
-    "sha256": "79cb14e24e833674cd24d546b40d887ca8911a798456cec7aa2be437616344cd"
+    "x": 219,
+    "y": 274,
+    "w": 333,
+    "h": 444,
+    "sha256": "6889437494b4a758c7f4ca513dadc426e49213a134cac12ad2ac174db3202aef"
    }
   ],
   "sitBody": [
    {
     "path": "nunti-sprites/sitBody_0.webp",
-    "x": 211,
-    "y": 20,
-    "w": 390,
-    "h": 699,
-    "sha256": "24a4bf293dd4820add727b68ff7e6a41aecf14e6b8f6acdb2f4dd47a973ef5c2"
+    "x": 193,
+    "y": 15,
+    "w": 382,
+    "h": 704,
+    "sha256": "2e3629e77d8eeb2205609ece517a155a1ebab0a8666f88fe841a57775d7e42e8"
+   }
+  ],
+  "stand": [
+   {
+    "path": "nunti-sprites/stand_0.webp",
+    "x": 190,
+    "y": 49,
+    "w": 387,
+    "h": 670,
+    "sha256": "d24ed3c8ff81502467e8476dcafc8d0cb86209146b4ac31ee0a714dfe517a5db"
    }
   ]
  },
- "sitSeat": 552,
- "top": -8
+ "sitSeat": 539,
+ "top": -16
 }

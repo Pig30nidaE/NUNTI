@@ -7,19 +7,24 @@ package ai.nunti.app.journey
 internal object NuntiSpriteDirector {
     enum class Stage { EMPTY, PARKED, DRIVING, REPORT_GOOD, REPORT_LOW }
 
-    class Shot { var clip = FOLD; var frame = 0; var dx = 0f; var breath = 0f }
+    class Shot { var clip = STAND; var frame = 0; var dx = 0f; var breath = 0f }
 
     const val WALK_R = "walkR"
     const val WALK_L = "walkL"
     const val FOLD = "fold"
+    /** 서 있는 모습. 기본 눈티 원본 그림을 그대로 쓴다. */
+    const val STAND = "stand"
     const val JUMP = "jump"
     const val SIT = "sit"
 
     /** 걷기 한 장 0.12초, 한 장에 19 단위 전진 → 발이 바닥에서 미끄러지지 않는 속도. */
     const val WALK_FRAME = .12f
     const val WALK_SPEED = 19f / WALK_FRAME
-    private const val FOLD_FRAME = .12f
-    private val JUMP_TIMES = floatArrayOf(.3f, .09f, .09f, .09f, .09f, .09f, .09f, .09f)
+    private const val FOLD_FRAME = .16f
+    /** 팔짱 시트의 마지막 장(팔짱 낀 모습). 0 내림 → 1 손 올림 → 2 팔짱. */
+    const val FOLD_LAST = 2
+    /** 점프 세 장: 준비 → 공중 → 착지. */
+    private val JUMP_TIMES = floatArrayOf(.22f, .42f, .26f)
     val JUMP_SECONDS = JUMP_TIMES.sum()
     /** 돌아다니는 최대 거리. 화면이 좁으면 이보다 줄인다. */
     const val MAX_WANDER = 260f
@@ -44,11 +49,11 @@ internal object NuntiSpriteDirector {
     fun sample(stage: Stage, t: Float, sinceTap: Float, animated: Boolean, range: Float, out: Shot) {
         out.dx = 0f; out.breath = 0f; out.frame = 0
         if (!animated) {
-            out.clip = when (stage) {
-                Stage.DRIVING, Stage.EMPTY -> SIT
-                else -> FOLD
+            when (stage) {
+                Stage.DRIVING, Stage.EMPTY -> out.clip = SIT
+                Stage.REPORT_LOW -> { out.clip = FOLD; out.frame = FOLD_LAST }
+                else -> stand(out)
             }
-            if (stage == Stage.REPORT_LOW) out.frame = 3
             return
         }
         out.breath = breath(t)
@@ -58,7 +63,7 @@ internal object NuntiSpriteDirector {
                 if (!tap(sinceTap, out)) jumpOrStand((t % REPORT_JUMP_PERIOD), out)
             }
             Stage.REPORT_LOW -> {
-                if (!tap(sinceTap, out)) { out.clip = FOLD; out.frame = foldIn(t - .6f) }
+                if (!tap(sinceTap, out)) arms(foldIn(t - .6f), out)
             }
             Stage.PARKED -> {
                 // 출발 준비 화면에 들어오면 한 번 뛰고, 그다음 돌아다니기 순서를 반복한다.
@@ -76,7 +81,10 @@ internal object NuntiSpriteDirector {
 
     private fun jumpOrStand(t: Float, out: Shot) { if (t < JUMP_SECONDS) jump(t, out) else stand(out) }
 
-    private fun stand(out: Shot) { out.clip = FOLD; out.frame = 0 }
+    private fun stand(out: Shot) { out.clip = STAND; out.frame = 0 }
+
+    /** 팔짱 장면 [frame]. 팔을 내린 첫 장은 서 있는 원본 그림으로 대신한다. */
+    private fun arms(frame: Int, out: Shot) { if (frame == 0) stand(out) else { out.clip = FOLD; out.frame = frame } }
 
     fun jump(t: Float, out: Shot) {
         out.clip = JUMP
@@ -85,11 +93,11 @@ internal object NuntiSpriteDirector {
         stand(out)
     }
 
-    /** 팔짱 끼는 장면 번호. 0.12초마다 한 장씩 넘어가 마지막 장에서 멈춘다. */
-    private fun foldIn(t: Float) = if (t <= 0f) 0 else (t / FOLD_FRAME).toInt().coerceAtMost(3)
+    /** 팔짱 끼는 장면 번호. [FOLD_FRAME] 마다 한 장씩 넘어가 마지막 장에서 멈춘다. */
+    private fun foldIn(t: Float) = if (t <= 0f) 0 else (t / FOLD_FRAME).toInt().coerceAtMost(FOLD_LAST)
 
     private class Leg(val seconds: Float, val kind: Int, val from: Float, val to: Float)
-    private const val STAND = 0
+    private const val STILL = 0
     private const val WALK = 1
     private const val ARMS = 2
     private const val FOLD_HOLD = 3f
@@ -111,7 +119,7 @@ internal object NuntiSpriteDirector {
             when (leg.kind) {
                 WALK -> { out.clip = if (leg.to > leg.from) WALK_R else WALK_L; out.frame = (left / WALK_FRAME).toInt() % 8 }
                 // 끼는 장면을 앞에서, 푸는 장면을 뒤에서 거꾸로 센다.
-                ARMS -> { out.clip = FOLD; out.frame = minOf(foldIn(left), foldIn(leg.seconds - left)) }
+                ARMS -> arms(minOf(foldIn(left), foldIn(leg.seconds - left)), out)
                 else -> stand(out)
             }
             return
@@ -121,12 +129,12 @@ internal object NuntiSpriteDirector {
 
     private fun legs(d: Float): Array<Leg> {
         val walk = d / WALK_SPEED
-        val arms = FOLD_HOLD + 2 * 4 * FOLD_FRAME
-        return if (d == 0f) arrayOf(Leg(5f, STAND, 0f, 0f), Leg(arms, ARMS, 0f, 0f), Leg(7f, STAND, 0f, 0f))
+        val arms = FOLD_HOLD + 2 * (FOLD_LAST + 1) * FOLD_FRAME
+        return if (d == 0f) arrayOf(Leg(5f, STILL, 0f, 0f), Leg(arms, ARMS, 0f, 0f), Leg(7f, STILL, 0f, 0f))
         else arrayOf(
-            Leg(4f, STAND, 0f, 0f), Leg(walk, WALK, 0f, d), Leg(1.5f, STAND, d, d),
-            Leg(walk * 2, WALK, d, -d), Leg(1f, STAND, -d, -d), Leg(arms, ARMS, -d, -d),
-            Leg(.8f, STAND, -d, -d), Leg(walk, WALK, -d, 0f), Leg(6f, STAND, 0f, 0f),
+            Leg(4f, STILL, 0f, 0f), Leg(walk, WALK, 0f, d), Leg(1.5f, STILL, d, d),
+            Leg(walk * 2, WALK, d, -d), Leg(1f, STILL, -d, -d), Leg(arms, ARMS, -d, -d),
+            Leg(.8f, STILL, -d, -d), Leg(walk, WALK, -d, 0f), Leg(6f, STILL, 0f, 0f),
         )
     }
 }
