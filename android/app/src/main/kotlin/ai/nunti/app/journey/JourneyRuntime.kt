@@ -2,6 +2,7 @@ package ai.nunti.app.journey
 
 import android.content.Context
 import android.util.AtomicFile
+import android.webkit.CookieManager
 import org.json.JSONObject
 import java.io.File
 import java.net.HttpURLConnection
@@ -45,16 +46,20 @@ object JourneyRuntime {
 /** Local authenticated transport; neither bridge callers nor assets choose a host or path. */
 internal class JourneyAssets(private val context: Context) {
     private val base = "http://127.0.0.1:8768"
-    private val config = JSONObject(File(context.filesDir, "avatar-studio-connection.json").readText())
-    private val token = config.getString("token")
-    init { require(config.getString("baseUrl") == base && token.length in 32..256) }
+    // A sideloaded release signs in through the Studio form. The debug launcher can provision a bearer token.
+    private val sessionCookie = CookieManager.getInstance().getCookie(base)?.takeIf { it.isNotBlank() }
+    private val token = if (sessionCookie == null) {
+        val config = JSONObject(File(context.filesDir, "avatar-studio-connection.json").readText())
+        config.getString("token").also { require(config.getString("baseUrl") == base && it.length in 32..256) }
+    } else null
 
     private fun get(path: String, limit: Int): ByteArray {
         val connection = URL(base + path).openConnection() as HttpURLConnection
         try {
             connection.connectTimeout = 4000; connection.readTimeout = 10000
             connection.instanceFollowRedirects = false
-            connection.setRequestProperty("Authorization", "Bearer $token")
+            if (sessionCookie != null) connection.setRequestProperty("Cookie", sessionCookie)
+            else connection.setRequestProperty("Authorization", "Bearer $token")
             check(connection.responseCode in 200..299) { "자산을 불러오지 못했어요 (${connection.responseCode})" }
             return connection.inputStream.use { stream ->
                 val output = java.io.ByteArrayOutputStream()

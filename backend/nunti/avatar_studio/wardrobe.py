@@ -362,7 +362,8 @@ def create(settings, store, owner, value, renderer=render):
         previous = store.previous(owner, legacy_claim)
         if previous:
             return previous
-    if not settings.wardrobe_available:
+    undecided = look["id"] == "default"
+    if not undecided and not settings.wardrobe_available:
         raise StudioError("WARDROBE_NOT_CONFIGURED", 409)
     route = raw.get("route")
     if route and route.get("extractionId"):
@@ -378,7 +379,6 @@ def create(settings, store, owner, value, renderer=render):
 
         plan = validate_route_plan(store, owner, value)
         route = {**route, "apiRoute": {k: v for k, v in plan.items() if k != "routePoints"}}
-    undecided = look["id"] == "default"
     reservation = 0 if undecided else RESERVE_MICROS
     previous = store.claim(owner, claim, reserved=reservation, cap=CAP_MICROS, limit=100)
     if previous:

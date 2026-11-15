@@ -1,64 +1,68 @@
 # 눈티 · Nunti
 
-사용자 작업 선호: 사용자가 명시적으로 종료를 요청할 때만 관련 로컬 서버·AI 모델 프로세스·에뮬레이터·VSCode를 정상 종료한다. 작업이나 검증이 끝났다는 이유로 자동 종료하지 않는다. 미저장 편집을 강제로 폐기하지 않는다.
+눈티는 길마다 다른 아바타와 함께 떠나고 주행 이벤트와 도착 후 리포트로 운전 습관을 돌아보는 Pleos Connect 차량용 앱입니다.
 
-2026-11-05 통합은 [생성·주행·리포트 구조](docs/architecture/integrated-journey.md)와 [직접 시험](docs/design/avatar-v6/INTEGRATED-TESTING.ko.md)을 따른다. 생성한 같은 눈티를 점수 세션에 연결하고, 캐릭터 음색의 감정 대사와 주차 후 리포트를 제공한다. Virtual Console의 실시간 차량 입력과 내비 지도 이동은 별도다. 실제 Android 검증은 `python3 scripts/verify_integrated_journey.py --run`의 결과로 확인한다. 아래 기록은 이전 기능별 검증 이력이다.
+## 릴리스 APK 실행
 
-2026-11-04 최신은 [목적지·방문 이유별 눈티 v6](docs/design/avatar-v6/README.md)다. 의상·목적지 기념품·경로 탄생 효과·캐릭터별 로컬 TTS를 연결했다. 사용자 요청에 따라 실제 AI는 30개 상황을 검증했고, 빠른 일러스트와 실제 음원은 각각 200개를 유지했다. 재시도를 포함한 수량, 세부 소품 편차, 청취 미검증은 [결과 보고](docs/design/avatar-v6/RESULT.ko.md)에 구분했다. [직접 시험](docs/design/avatar-v6/TESTING.ko.md): `python3 scripts/run_avatar_generator.py --local-ai --navigation-api --restart-server`. 외부 키·유료 호출·녹화는 필요 없다. 아래 기기 TTS·새 음색 미구현 설명은 이전 시점의 기록이다.
+[릴리스 APK 다운로드](apk/NUNTI_release.apk)
 
-2026-11-04 최신은 [사진 없는 내비 API 연결 결과](docs/design/navigation-integration/RESULT.ko.md)와 [직접 시험 안내](docs/design/navigation-integration/TESTING.ko.md)다. 실제 NaviHelper 목적지·위치·상태와 별도 OSRM 도로 경로를 연결했고, Android 3여정 생성·보관·복원 및 무료 로컬 AI 새 그림을 검증했다. 실행은 `python3 scripts/run_avatar_generator.py --local-ai --navigation-api --restart-server`다. 외부 API 키·유료 호출·녹화는 필요 없다. 현대 선택 경로와 OSRM 선의 일치, SDK의 GPS 이동 반영·재탐색 완료는 미검증이다. 아래 내비 미구현·사진 입력·v5/v4 상태는 각 시점의 이력이다.
+Pleos Connect 2.1.0 ARM64 시스템 이미지(Android Automotive 14, API 34)와 Android Emulator 37.2.13.0을 사용합니다. 기준 디스플레이는 2560 × 1440 px, 160 dpi입니다. Android SDK Platform-Tools의 `adb`, Python 3.12 이상, `uv`를 준비하세요.
 
-2026-11-04 최신: 운전습관 개선을 돕는 눈티 안의 사용자 담당은 목적지·경로 기반 생성이며 [제품 기준](docs/product/2026-hmg-app-challenge.md)을 유지한다. 결과 표시와 보관함 갱신 사이에서 사진 업로드가 유실되는 버그를 [재현·수정](docs/design/avatar-quality-v5/PHOTO-UPLOAD-FIX.md)했다. 전체 7단계 직접 실행 완료: 경계15·Chrome15·Android15·저장AI14·실제Canvas7개35자세 통과. 추가AI추론·유료호출·녹화0. 이전 승인 검토 장애는 화면 검사에 대해 해소됐으며 아래 미실행 설명은 당시 기록이다. 정원 추가AI와 미적 최종승인은 별도다.
+1. 저장소 루트에서 아래 명령으로 Python 의존성을 설치하고 PC의 로컬 생성 서버를 시작합니다.
 
-현재 개선은 [눈티 v5](docs/design/avatar-quality-v5/README.md)다. 운전습관 개선을 돕는 눈티 안에서 사용자 담당은 목적지·경로 기반 생성이며 [제품 기준](docs/product/2026-hmg-app-challenge.md)을 유지한다. 경로는 실루엣에 반영하고 몸의 지도 선·띠를 제거했다. 오로라 고리·별가루 탄생 효과와 새 일러스트를 적용했다. 실제 무료 AI 해변 생성 44.56초·backend246+하위10·기존6그림 Canvas30자세를 확인했다. 최신 Android 화면 회귀와 추가 정원 생성은 자동 승인 검토 인프라 오류로 미실행이다. 아래 v4·v3 설명은 이력이다.
+   ```sh
+   uv sync --frozen --project backend --no-dev
+   NUNTI_STUDIO_PAID_API_APPROVED=false NUNTI_STUDIO_CHAT_API_ENABLED=false NUNTI_STUDIO_ROUTE_API_ENABLED=false \
+     backend/.venv/bin/python -m uvicorn nunti.avatar_studio.api:app --host 127.0.0.1 --port 8768 --no-access-log
+   ```
 
-**눈티(Nunti)는 운전습관 개선을 도와주는 아바타 동반자다.** 사용자 담당은 그 안의 **목적지·내비게이션 경로 기반 아바타 생성 기능**이다. 생성한 눈티의 정체성과 외형·음색은 주행 이벤트에 따른 감정·음성 피드백 모듈에서 이어서 사용한다. 2026 현대자동차그룹 차량용 앱 개발 공모전에 맞춘 [제품 목표·담당 범위·공식 기준](docs/product/2026-hmg-app-challenge.md)을 먼저 읽는다.
+   검토용 새 체크아웃에서 실행합니다. 이미 다른 눈티 서버가 PC의 8768 포트를 사용 중이면 해당 서버와 연결 코드를 사용하거나, 사용 중인 환경을 확인한 뒤 빈 테스트 환경에서 실행하세요.
 
-현재 작업은 [원화·형상·탄생 효과 v4](docs/design/avatar-quality-v4/README.md)다. 최신 사용자 기준은 **불투명 파스텔 색면과 얕은 매트 2.5D 표현**이다. 경로 기하와 목적지 특성에서 몸체를 계획하며 실제 외곽이 경로에서 자라는 모션을 적용한다. 무료 로컬 FLUX.2-klein 실험과 앱 연결 결과는 v4 보고를 따른다. 수정 원화의 표현 승인과 생성 결과 전체의 품질 승인을 구분한다. 유료 API 실행은 원화 선택 후 결정하기로 보류했다.
+2. Pleos 에뮬레이터를 주차(P) 상태로 두고 APK를 설치합니다. 아래에서 `emulator-5554`를 `adb devices`로 확인한 Pleos 장치 번호로 바꾸세요.
 
-기본 실행은 `python3 scripts/run_avatar_generator.py`, 준비된 Mac의 무료 로컬 AI 연결은 `python3 scripts/run_avatar_generator.py --local-ai --restart-server`다. [직접 시험 안내](docs/design/avatar-generator/TESTING.ko.md)를 따른다. 경로 사진·좌표 입력과 확인, 생성·보관·복원은 [v3 기반](docs/design/avatar-generator/README.md)을 유지한다. 음성은 기기의 기존 한국어 화자 설정이며 실제 NaviHelper·새 음색·배포는 별도다.
+   ```sh
+   adb devices
+   SERIAL=emulator-5554
+   USER_ID="$(adb -s "$SERIAL" shell am get-current-user | tr -d '\r')"
+   adb -s "$SERIAL" reverse tcp:8768 tcp:8768
+   adb -s "$SERIAL" install --user "$USER_ID" -g apk/NUNTI_release.apk
+   adb -s "$SERIAL" shell am start --user "$USER_ID" -n ai.nunti.avatar.demo/ai.nunti.app.MainActivity
+   ```
 
-이전 [생성 동반자 v2](docs/design/generative-mvp/README.md)는 API 공급자 어댑터·불변 캐릭터 저장·동일 음색의 후속 대사·투명 PNG 2.5D 표시를 연결한 실험 기록이다. 기존 소장품과 실행법은 보존한다.
+   기존 개발 APK와 서명 인증서가 다르면 같은 앱 ID로 설치할 수 없습니다. 개발 중인 앱 데이터가 필요하면 새 Pleos AVD를 사용하세요.
 
-이전 절차적 생성 흐름은 [목적지·경로에서 동반자가 태어나는 시험본](docs/design/route-birth/test-report.md)에 보존한다. 직접 입력한 경로에서 새72점 외형과 로컬 Sohee 음성을 생성했던 기록이다. 새5여정·15새WAV는 당시 검증 표본이며 선택지나 생성 상한이 아니다. 아래8개 목록 방식과 2026-11-02 구현 설명도 해당 시점의 기록이다.
+3. PC에서 `python3 scripts/run_avatar_generator.py --show-code`로 로컬 연결 코드를 확인하고, 차량 화면의 연결 창에 입력합니다. 이 코드는 로컬 서버에만 사용합니다.
 
-경로 특징에 따라 외형이 달라지고 주행 이벤트에 반응하는 가상 동승자 MVP다.
-차량의 실시간 반응은 앱 내부에서 처리하고 서버는 동의받은 기록을 비동기로 저장한다.
+4. API 키 없이 체험하려면 목적지에 **아직 미정**을 입력합니다. **어떤 일로 가나요?**와 **분위기 더하기 → 그곳의 느낌**은 비우고, 풍경은 **아직 모르겠어요**로 둡니다. **눈티 만들기**를 누릅니다. 결과 화면의 **여행 기록**에서 **함께할 여정 → 운전 습관 연습**을 선택합니다. **닫기**를 누른 뒤 **함께 출발**을 선택합니다. 주차 상태에서 연습 데이터로 주행 이벤트와 점수 변화를 볼 수 있습니다. 약 30초 뒤 여정을 마치면 리포트를 확인할 수 있습니다.
 
-새 로컬에서 작업을 이어갈 때는 [세션 인수인계](docs/handoff/README.md)의 현재 상태·복원 절차와 PM/TTS/AVATAR/SERVER 프롬프트를 먼저 확인한다.
+### 목적지에 맞춘 새 외형을 생성할 때
 
-2026-11-02 최신 제품 방향은 목적지·경로·방문 목적에서 매 여행 새로 태어나는 수집형 2.5D 동반자다. 사용자는 C · 반투명 기념 오브젝트를 선택했다. [통합 설계와 시안](docs/design/journey-characters/README.md), [실행 가능한 레시피 실험](prototypes/journey_characters/README.md)을 작성했으며, 실제 로컬 TTS 합성 도구와 Android Debug 파일 재생까지 구현했다. [v2 음성 청취](prototypes/journey_voice/listen-v2.html), [시험 방법·검증·남은 일](docs/design/journey-characters/tts-result.md)을 참고한다. 매 여행 자동 모델 호출·새 2.5D renderer·컬렉션 연결은 남아 있다.
+이미지 생성 권한이 있는 본인의 `OPENAI_API_KEY`를 PC의 환경변수 또는 Git에서 제외된 `.env.local`에 설정합니다. 8768 포트가 비어 있는 상태에서 `python3 scripts/run_avatar_generator.py --server-only`를 실행합니다. 이미지 생성과 대화 API 호출에는 비용이 발생할 수 있습니다. APK에는 공유 키가 포함되지 않습니다. 화면에서 요구하는 로컬 연결 코드와 OpenAI API 키는 서로 다른 값입니다.
 
-| 영역 | 코드와 실행 가이드 |
-| --- | --- |
-| 서버 API · SQLite · 동기화 Mock | [backend/README.md](backend/README.md) |
-| 공통 JSON Schema · OpenAPI | [contracts/v1/README.md](contracts/v1/README.md) |
-| 경로 · 아바타 · 감정 · Compose | [android/feature/avatar/README.md](android/feature/avatar/README.md) |
-| 주행습관 점수 · 실차 신호 | [android/feature/score/README.md](android/feature/score/README.md) |
-| 음성 정책 · 큐 · 프로필 | [android/feature/tts/README.md](android/feature/tts/README.md) |
-| Pleos 음성 adapter | [android/feature/voice/README.md](android/feature/voice/README.md) |
-| 모듈 연결 · 장애 처리 | [docs/architecture/integration.md](docs/architecture/integration.md) |
-| 실제 검증 범위 | [docs/architecture/validation.md](docs/architecture/validation.md) |
+NaviHelper로 Pleos 내비가 제공하는 목적지와 상태를 가져옵니다. 도로 형상이 필요할 때는 별도 경로 서비스가 계산한 경로를 사용합니다. 연습 모드는 합성 데이터를 재생합니다. 실시간 모드는 Vehicle SDK와 차량 콜백으로 들어온 신호를 사용합니다. 애니메이션과 입력 UI는 차량의 `CarUxRestrictions` 및 주차 상태에 따라 제한됩니다. 대화는 텍스트 입력과 음성 응답을 지원합니다. 음성 입력(STT)과 실차 환경 검증은 개발 범위에 남아 있습니다.
 
-서버는 Python 3.12 이상에서 `cd backend && uv sync --frozen`으로 준비한다.
-토큰·동의 설정 및 실행 명령은 서버 가이드에 있다. 기본 동기화는 비활성화되어 있다.
+## 소스 빌드
 
-Android 앱은 합성 경로로 동작하는 Mock 뷰어다. 실제 차량 정책 연결 전 AAOS 표시를 차단하며
-기본 앱에서 실제 음성을 재생하지 않는다. Android 모듈 빌드와 실제 차량에서의 동작 검증은 구분한다.
-실차 신호 수신, 이은룡 담당 점수·최종 코멘트 모듈, 실제 TTS 음질은 별도 검증이 필요하다.
-
-통합 Debug APK 빌드와 Lint는 루트 저장소에서 통과했다. 로컬 산출물은
-`android/build/app/outputs/apk/debug/app-debug.apk`이며 Git에는 포함하지 않는다.
-합성 시연은 [아바타 데모](android/feature/avatar/demo/index.html)에서 확인할 수 있다.
-
-공통 v1.0 계약은 조율 중인 초안이다. 운전 점수 가중치·임계값 및 SDK 데이터 가용성을
-확정하지 않았으며 원본 `눈티-주행습관-정리.html`의 논의 초안은 그대로 보존했다.
-
-AVATAR의 JVM 테스트를 실행한 후, 새 Kotlin 출력과 서버의 연결을 다음으로 검증할 수 있다.
+JDK 21, Android SDK Platform 36, SDK Build-Tools 35.0.0 이상을 준비합니다. `ANDROID_HOME`과 `JAVA_HOME`을 설정한 뒤 실행합니다. Gradle Wrapper 8.11.1을 사용하며 첫 빌드에는 Google Maven, Maven Central, Pleos Playground Maven 접근이 필요합니다.
 
 ```sh
-backend/.venv/bin/python backend/scripts/verify_android_outputs.py
+cd android
+./gradlew :app:assembleRelease :app:testReleaseUnitTest :feature:score:testReleaseUnitTest
 ```
 
-이 검사는 JSON Schema/Pydantic 형식 검사와 실제 서버 API 저장·조회까지 수행한다.
-실제 차량 SDK 호출이나 음성 재생은 수행하지 않는다.
+Gradle 출력은 `android/build/app/outputs/apk/release/app-release-unsigned.apk`입니다. 새 APK를 배포할 때는 먼저 `zipalign`을 적용하고 배포용 키로 `apksigner sign`을 실행합니다. 서명 파일과 암호는 Git에서 제외합니다.
+
+## 저장소 구조
+
+| 경로 | 역할 |
+| --- | --- |
+| [android/app](android/app) | Kotlin 기반 차량 앱, 아바타 Studio와 여정 화면 |
+| [android/feature/score](android/feature/score) | 주행 신호, 연습 시나리오, 점수와 리포트 |
+| [android/feature/voice](android/feature/voice) | Pleos TextToSpeech 연동 및 음성 자산 |
+| [prototypes/avatar_generator](prototypes/avatar_generator) | Android Studio WebView 화면과 로컬 캐릭터 자산 |
+| [backend](backend) | FastAPI 기반 아바타·경로·대화 API와 SQLite 저장 |
+| [contracts](contracts) | 모듈과 백엔드 데이터 계약 |
+
+- [여정 통합 구조와 검증 이력](docs/architecture/integrated-journey.md)
+- [Pleos 에뮬레이터 검증 이력](docs/architecture/pleos-runtime.md)
+- [아바타 시각 효과 출처와 라이선스](docs/NUNTI_VFX_ASSET_CREDITS.md)
